@@ -1,0 +1,29 @@
+.wrapper {
+  font-family: "Rubik", sans-serif;
+  color: #5e5e5e;
+  padding: 6rem 3rem;
+  margin: 0 auto;
+  max-width: 960px;
+}
+
+.wrapper h1 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.wrapper h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.wrapper p {
+  font-size: 1.25rem;
+  font-weight: lighter;
+  margin-bottom: 2rem;
+}
+
+.wrapper hr {
+  border: none;
+  border-bottom: 1px solid #6a6a6a;
+  margin-bottom: 2rem;
+}
