@@ -1,0 +1,56 @@
+.mDiv {
+  background-color: #350b5e;
+  color: #fff;
+  background-image: url("./../../../assets/fbg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 100px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contentDiv {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Rubik", sans-serif;
+}
+
+.leftDiv {
+  width: 60%;
+}
+
+.ful {
+  list-style-type: none;
+  padding-top: 30px;
+}
+
+.ful li {
+  margin: 20px 0px;
+  font-size: 14px;
+}
+
+.AboutCompany {
+  font-size: 24px;
+}
+
+.desPTag {
+  margin-top: 30px;
+  font-size: 14px;
+}
+
+@media only screen and (max-width: 900px) {
+  .contentDiv {
+    align-items: flex-start;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .contentDiv {
+    width: 90%;
+    gap: 0px 20px;
+  }
+}
