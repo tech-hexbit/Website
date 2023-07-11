@@ -1,0 +1,36 @@
+.mDiv {
+  margin: 100px 0px;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  gap: 0px 50px;
+  font-family: "Rubik", sans-serif;
+  font-size: 20px;
+  z-index: 1;
+}
+
+.iconDiv {
+  width: 33px;
+  height: 33px;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background-image: linear-gradient(to right, #ac15e2, #261ee4);
+}
+
+@media only screen and (max-width: 900px) {
+  .mDiv {
+    margin: 70px 0px;
+    width: 80%;
+    gap: 0px 30px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .mDiv {
+    font-size: 16px;
+  }
+}
