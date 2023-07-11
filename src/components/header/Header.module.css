@@ -1,0 +1,90 @@
+.mDiv {
+  color: #fff;
+  display: flex;
+  padding: 15px 0px;
+  align-items: center;
+  justify-content: center;
+  background-color: #bf9fff;
+}
+
+.mContDiv {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Rubik", sans-serif;
+}
+
+.titleP {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.imgLogo {
+  width: 160px;
+  height: 40px;
+}
+
+.rightDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0px 50px;
+  font-size: 18px;
+}
+
+.registerPTag {
+  padding: 12px 42px;
+  border-radius: 10px;
+  background: linear-gradient(270deg, #161fe4 0%, #bb14e2 100%);
+}
+
+@media only screen and (max-width: 900px) {
+  .mContDiv {
+    width: 90%;
+  }
+
+  .rightDiv {
+    gap: 0px 30px;
+    font-size: 14px;
+  }
+
+  .registerPTag {
+    padding: 12px 22px;
+    border-radius: 32px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .mContDiv {
+    width: 90%;
+  }
+  .titleP {
+    font-size: 18px;
+  }
+  .rightDiv {
+    gap: 0px 20px;
+    font-size: 12px;
+  }
+
+  .registerPTag {
+    padding: 7px 12px;
+    border-radius: 22px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .mContDiv {
+    width: 95%;
+  }
+
+  .rightDiv {
+    gap: 0px 15px;
+    font-size: 10px;
+  }
+
+  .registerPTag {
+    padding: 7px;
+    border-radius: 22px;
+  }
+}
