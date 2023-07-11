@@ -1,0 +1,88 @@
+.wrapperDiv {
+  background-image: url("../../../assets/Frame 142.png");
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  padding: 3rem 0;
+  margin: 3rem 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+  gap: 3rem;
+}
+
+.paragraph {
+  font-family: "Rubik", sans-serif;
+  font-size: 23px;
+  font-weight: 100;
+}
+
+.title {
+  text-align: center;
+  font-family: "Rubik", sans-serif;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.button {
+  padding: 12px 42px;
+  border-radius: 32px;
+  background-image: linear-gradient(to right, #261ee4, #ac15e2);
+  color: #fff;
+  font-size: 18px;
+  font-family: "Rubik", sans-serif;
+  border: none;
+  appearance: none;
+}
+
+.iconDiv {
+  width: 33px;
+  height: 33px;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background-image: linear-gradient(to right, #ac15e2, #261ee4);
+}
+
+.tripleGrid {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 1rem;
+  margin: 0 auto;
+  max-width: 960px;
+}
+
+.tripleGridItem {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media only screen and (min-width: 540px) {
+  .tripleGrid {
+    grid-auto-flow: column;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .title {
+    font-size: 20px;
+  }
+  .paragraph {
+    font-size: 16px;
+  }
+  .button {
+    font-size: 14px;
+  }
+}
