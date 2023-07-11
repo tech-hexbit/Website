@@ -1,0 +1,40 @@
+.mDiv {
+  margin-top: 100px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 0px;
+  background-color: #ddb9ff;
+}
+
+.Mission {
+  font-family: "Rubik", sans-serif;
+  font-size: 52px;
+  font-weight: bold;
+  position: absolute;
+  color: #ddb9ff;
+  top: -48px;
+  right: 50px;
+}
+
+.SolutionEnabling {
+  text-align: right;
+  font-family: "Rubik", sans-serif;
+  font-size: 32px;
+  font-weight: bold;
+  width: 80%;
+}
+
+@media only screen and (max-width: 650px) {
+  .Mission {
+    font-size: 38px;
+    top: -34px;
+  }
+  .SolutionEnabling {
+    font-size: 20px;
+  }
+  .mDiv {
+    padding: 50px 0px;
+  }
+}
