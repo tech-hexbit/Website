@@ -1,0 +1,71 @@
+.mDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0px 30px;
+}
+
+.DigitalOcean {
+  font-family: "Rubik", sans-serif;
+  background-color: #bdb4fe;
+  border-radius: 16px;
+  width: fit-content;
+  padding: 10px 25px;
+  color: #fff;
+}
+
+.contentDiv {
+  margin-left: 50px;
+  width: 45%;
+}
+
+.Headline {
+  font-family: "Rubik", sans-serif;
+  margin-top: 20px;
+  font-size: clamp(1rem, 1.25vw + 1rem, 1.25rem);
+  font-weight: 600;
+}
+
+.Nowadays {
+  margin-top: 15px;
+  color: #767676;
+  font-family: "Rubik", sans-serif;
+}
+
+.storeImg {
+  width: 170px;
+  margin: 30px 30px 0px 0px;
+}
+
+.mobilImg {
+  width: 30%;
+}
+
+@media only screen and (max-width: 900px) {
+  .storeImg {
+    width: 130px;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .contentDiv {
+    width: 60%;
+  }
+  .mDiv {
+    padding: 30px 0px;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  .storeImg {
+    width: 40%;
+    margin: 30px 20px 0px 0px;
+    min-width: 70px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .contentDiv {
+    width: 80%;
+  }
+}
