@@ -27,6 +27,7 @@ body {
 .LinkStyle {
   text-decoration: none;
   color: inherit;
+  color: black;
 }
 
 #right {

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 
 // img
-import imgLogo from "./../../assets/logo/Mask group.png";
+import imgLogo from "./../../assets/logo/Hexbit 2.png";
 
 const Header = () => {
   return (

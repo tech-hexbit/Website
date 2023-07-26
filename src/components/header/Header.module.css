@@ -4,7 +4,7 @@
   padding: 15px 0px;
   align-items: center;
   justify-content: center;
-  background-color: #bf9fff;
+  /* background-color: #bf9fff; */
 }
 
 .mContDiv {
@@ -21,7 +21,7 @@
 }
 
 .imgLogo {
-  width: 160px;
+  /* width: 160px; */
   height: 40px;
 }
 
@@ -36,7 +36,8 @@
 .registerPTag {
   padding: 12px 42px;
   border-radius: 10px;
-  background: linear-gradient(270deg, #161fe4 0%, #bb14e2 100%);
+  background: linear-gradient(270deg, #0009D1 0%, #FF00C7 100%);
+  color: white;
 }
 
 @media only screen and (max-width: 900px) {
