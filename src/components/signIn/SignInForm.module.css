@@ -1,14 +1,152 @@
 .mainDiv{
     display: flex;
     width: 100%;
+    font-family: "Rubik", sans-serif;
 }
 .left{
     width: 40%;
+    padding: 70px 90px 0px 90px;
     /* background-color: green; */
+}
+.welcomeText{
+    color: var(--000000, rgba(0, 0, 0, 0.85));
+    font-size: 29px;
+    font-weight: 700;
+}
+.text{
+    /* background-color: red; */
+    display: flex;
+}
+.account{
+    color: var(--444150, #444150);
+    font-size: 16px;
+    line-height: 26px;
+}
+.register{
+    color: #0132BF;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 26px;
+    padding-left: 20px;
+    text-decoration: underline;
+}
+.emailPassword{
+    padding-top: 36px;
+}
+.inputEP{
+    padding-top: 20px;
+}
+.inputEP label{
+    color: #444150;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+}
+.inputEP input{
+    border-radius: 6px;
+    border: 1px solid #D9D9D9;
+    background: #FFF;
+    color: #444150;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 10px 15px;
+    width: 100%;
+    margin-top: 5px;
+}
+.or{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 30px 0px;
+    color: var(--444150, #444150);
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 26px;
+}
+.inputPO{
+    padding-top: 20px;
+}
+.inputPO label{
+    color: #444150;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+}
+.inputPO input{
+    border-radius: 6px;
+    border: 1px solid #D9D9D9;
+    background: #FFF;
+    color: #444150;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 10px 15px;
+    width: 100%;
+    margin-top: 5px;
+}
+.phoneInputs{
+    display: flex;
+    justify-content: space-between;
+}
+#countryCode{
+    width: 15%;
+    padding: 10px 6px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+input[type="text"]:disabled::placeholder{
+    color: #444150;
+}
+.phone{
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+}
+.otpInputs{
+    display: flex;
+    justify-content: space-between;
+}
+.otpInputs input, .otpInputs button{
+    width: 47.5%;
+    margin-top: 5px;
+}
+.otpInputs button{
+    border: none;
+    border-radius: 6px;
+    background: #350B5E;
+    color: var(--ffffff, #FFF);
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.loginDiv{
+    margin-top: 90px;
+}
+.loginDiv button{
+    border: none;
+    width: 100%;
+    border-radius: 6px;
+    background: #350B5E;
+    color: var(--ffffff, #FFF);
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px 0px;
+}
+.tc{
+    margin: 8px;
+    padding: 0px 30px;
+    color: #778699;
+    text-align: center;
+    font-size: 12px;
+    line-height: 22px;
+}
+.tcColor{
+    color: #350B5E;
 }
 .right{
     width: 60%;
-    /* background-color: yellow; */
+    /* opacity: 0.15000000596046448; */
+    background: linear-gradient(90deg, rgb(187, 20, 226,0.15000000596046448) 0%, rgb(63, 129, 224,0.15000000596046448) 100%);
 }
 .right img{
     width: 100%;

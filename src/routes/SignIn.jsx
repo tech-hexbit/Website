@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import SignInForm from "../components/signIn/signInForm";
+import SignInForm from "../components/signIn/SignInForm";
 
 export default function SignIn() {
   // scroll to top
