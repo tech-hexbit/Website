@@ -31,7 +31,7 @@ export default function Header() {
             <Link to="/register" className="LinkStyle">
               <button className={HCss.buttonStyle}>Register for free</button>
             </Link>
-            <Link to="/register" className="LinkStyle">
+            <Link to="/signIn" className="LinkStyle">
               <button className={HCss.buttonStyle}>Sign In</button>
             </Link>
           </div>

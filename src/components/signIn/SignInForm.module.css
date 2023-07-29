@@ -1,0 +1,15 @@
+.mainDiv{
+    display: flex;
+    width: 100%;
+}
+.left{
+    width: 40%;
+    /* background-color: green; */
+}
+.right{
+    width: 60%;
+    /* background-color: yellow; */
+}
+.right img{
+    width: 100%;
+}
