@@ -1,8 +1,14 @@
 .mDiv {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   gap: 50px;
   background: linear-gradient(136deg, rgba(255, 255, 255, 0.79) 0%, rgba(207, 184, 255, 0.79) 100%);
   padding: 40px;
+}
+
+.leftDiv {
+  width: 30%;
 }
 
 .HexbitPMainTag {
