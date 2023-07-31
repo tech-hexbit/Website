@@ -170,6 +170,7 @@ input[type="text"]:disabled::placeholder {
 }
 
 .right {
+    position: relative;
     width: 60%;
     /* height: 100%; */
     background: linear-gradient(90deg, rgb(187, 20, 226, 0.15000000596046448) 0%, rgb(63, 129, 224, 0.15000000596046448) 100%);
@@ -177,6 +178,22 @@ input[type="text"]:disabled::placeholder {
 
 .right img {
     width: 100%;
+    min-height: 650px;
+    object-fit: contain;
+}
+
+.head {
+    color: rgba(0, 0, 0, 0.85);
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.subHead {
+    color: rgba(0, 0, 0, 0.85);
+    text-align: center;
+    font-size: 16px;
+    line-height: 24px;
 }
 
 @media screen and (max-width:1120px) {
