@@ -49,8 +49,24 @@ const ContactForm = () => {
           </p>
 
           <div className={styles.conDiv}>
-            <div className={styles.MailUs}>Mail Us</div>
-            <div className={styles.CallUs}>Call Us</div>
+            <div className={styles.MailUs}>
+              <div>
+                <img src={mail} alt="" className={styles.mailImg} />
+                <p className={styles.mthName}>Mail Us</p>
+              </div>
+              <div>
+                <p>tech@hexbit.io</p>
+              </div>
+            </div>
+            <div className={styles.CallUs}>
+              <div>
+                <img src={Icon_Call} alt="" className={styles.mailImg} />
+                <p className={styles.mthName}>Call Us</p>
+              </div>
+              <div>
+                <p>Coming Soon</p>
+              </div>
+            </div>
           </div>
 
           <div className={styles.pointerDiv}>
