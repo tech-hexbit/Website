@@ -29,4 +29,32 @@
   padding: 50px;
   box-shadow: 0px 38px 67px #ADADAD;
   border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px 0px;
+}
+
+.labelDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 15px 0px;
+}
+
+.labelDiv label {
+  color: #606060;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.labelDiv input {
+  outline: none;
+  padding: 10px 12px;
+  border-radius: 20px;
+  border: 1px solid #D3D3D3;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  text-transform: lowercase;
 }
