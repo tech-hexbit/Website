@@ -157,3 +157,15 @@
   font-style: normal;
   font-weight: 400;
 }
+
+@media only screen and (max-width: 980px) {
+  .mDiv {
+    flex-direction: column;
+  }
+
+  .leftDiv,
+  .FormMDiv {
+    width: 90%;
+  }
+
+}
