@@ -10,15 +10,15 @@
   width: 40%;
 }
 
-.image{
+.image {
   width: 50%;
 }
 
-.image img{
+.image img {
   width: 100%;
 }
 
-.address{
+.address {
   color: #3F4059;
   font-size: 14px;
   font-weight: 700;
@@ -27,7 +27,7 @@
   margin-left: 45px;
 }
 
-.socialMedia{
+.socialMedia {
   margin-left: 45px;
   width: 25%;
   height: 27px;
@@ -36,11 +36,11 @@
   margin-top: 16px;
 }
 
-.socialMedia img{
+.socialMedia img {
   height: 100%;
 }
 
-.button button{
+.button button {
   margin-left: 45px;
   margin-top: 20px;
   border: none;
@@ -52,7 +52,7 @@
   padding: 10px 36px;
 }
 
-.rightDiv{
+.rightDiv {
   width: 45%;
   display: flex;
   justify-content: space-between;
@@ -75,7 +75,7 @@
   letter-spacing: 0.2px;
 }
 
-.bottomDiv{
+.bottomDiv {
   background-color: #4A246F;
   width: 100%;
   height: 60px;
@@ -86,17 +86,17 @@
   align-items: center;
 }
 
-.footerImage{
+.footerImage {
   height: 100%;
   display: flex;
   align-items: center;
 }
 
-.footerImage img{
+.footerImage img {
   height: 70%;
 }
 
-.rights{
+.rights {
   color: var(--gray-white, #FFF);
   font-size: 16px;
   font-weight: 700;
@@ -105,75 +105,88 @@
 }
 
 @media only screen and (max-width: 1120px) {
-  .socialMedia{
+  .socialMedia {
     width: 40%;
   }
 }
 
 @media only screen and (max-width: 820px) {
-  .socialMedia{
+  .socialMedia {
     width: 50%;
   }
-  .mDiv{
+
+  .mDiv {
     padding: 45px 50px 45px 50px;
     flex-direction: column;
   }
-  .leftDiv{
+
+  .leftDiv {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  .image{
+
+  .image {
     width: 80%;
   }
-  .rightDiv{
+
+  .rightDiv {
     width: 100%;
     margin-top: 12px;
   }
-  .bottomDiv{
+
+  .bottomDiv {
     flex-direction: column;
     height: auto;
     gap: 10px;
     padding: 10px 0px;
   }
-  .footerImage{
+
+  .footerImage {
     height: 35px;
   }
-  .footerImage img{
+
+  .footerImage img {
     height: 100%;
   }
 }
 
 @media only screen and (max-width: 425px) {
-  .address{
+  .address {
     margin-left: 20px;
   }
-  .image{
+
+  .image {
     width: 100%;
-  } 
-  .socialMedia{
+  }
+
+  .socialMedia {
     margin-left: 10px;
     width: 100%;
   }
-  .button button{
+
+  .button button {
     margin-left: 0px;
   }
-  .rightDiv{
+
+  .rightDiv {
     flex-direction: column;
     width: 100%;
   }
-  .AboutCompany{
+
+  .AboutCompany {
     margin-top: 16px;
   }
 }
 
 @media only screen and (max-width: 425px) {
-  .button button{
+  .button button {
     font-size: 14px;
     padding: 5px 20px;
   }
-  .rights{
+
+  .rights {
     font-size: 12px;
   }
 }
