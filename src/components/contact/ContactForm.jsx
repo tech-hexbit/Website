@@ -1,7 +1,7 @@
 // icon
-import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import mail from "./../../assets/AboutUS/Icon.svg";
 import Icon_Call from "./../../assets/AboutUS/Icon_call.svg";
+import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 
 // css
 import styles from "./Css/ContactForm.module.css";
