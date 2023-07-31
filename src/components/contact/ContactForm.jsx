@@ -55,7 +55,7 @@ const ContactForm = () => {
                 <p className={styles.mthName}>Mail Us</p>
               </div>
               <div>
-                <p>tech@hexbit.io</p>
+                <p className={styles.del}>tech@hexbit.io</p>
               </div>
             </div>
             <div className={styles.CallUs}>
@@ -64,7 +64,7 @@ const ContactForm = () => {
                 <p className={styles.mthName}>Call Us</p>
               </div>
               <div>
-                <p>Coming Soon</p>
+                <p className={styles.del}>Coming Soon</p>
               </div>
             </div>
           </div>
