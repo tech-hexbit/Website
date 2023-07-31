@@ -91,7 +91,13 @@ export default function SignInForm() {
           ]}
         /> */}
         <img src={slider1} alt="" />
-        <p></p>
+        <div>
+          <p className={style.head}>Retail Revolution</p>
+          <p className={style.subHead}>
+            Elevate Your Retail Game: Hexbit - Where Digital Selling Meets
+            Success!
+          </p>
+        </div>
       </div>
     </div>
   );
