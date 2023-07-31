@@ -32,7 +32,7 @@ const ContactForm = () => {
       </div> */}
 
       <div className={styles.mDiv}>
-        <div>
+        <div className={styles.leftDiv}>
           <p className={styles.HexbitPMainTag}>
             Is Hexbit the right platform for your Business?
           </p>
