@@ -43,6 +43,7 @@ const ContactForm = () => {
           </p>
         </div>
         <div className={styles.FormMDiv}>
+          {/* FirstName */}
           <div className={styles.labelDiv}>
             <label htmlFor="FirstName">First Name *</label>
             <input
@@ -52,23 +53,46 @@ const ContactForm = () => {
               placeholder="John David"
             />
           </div>
+          {/* Email */}
           <div className={styles.labelDiv}>
-            <label htmlFor="FirstName">Your email *</label>
+            <label htmlFor="Email">Your email *</label>
             <input
               type="text"
-              name="FirstName"
-              id="FirstName"
+              name="Email"
+              id="Email"
               placeholder="example@yourmail.com"
             />
           </div>
+          {/* Company */}
           <div className={styles.labelDiv}>
-            <label htmlFor="FirstName">Company *</label>
+            <label htmlFor="Company">Company *</label>
             <input
               type="text"
-              name="FirstName"
-              id="FirstName"
+              name="Company"
+              id="Company"
               placeholder="your company name here"
             />
+          </div>
+          {/* Subject */}
+          <div className={styles.labelDiv}>
+            <label htmlFor="Subject">Subject *</label>
+            <input
+              type="text"
+              name="Subject"
+              id="Subject"
+              placeholder="How can we Help"
+            />
+          </div>
+          {/* Message */}
+          <div className={styles.labelDiv}>
+            <label htmlFor="FirstName">Message *</label>
+            <textarea
+              name="FirstName"
+              id="FirstName"
+              cols="30"
+              rows="10"
+              placeholder="Hello there,I would like to talk about how to..."
+            ></textarea>
           </div>
         </div>
       </div>
