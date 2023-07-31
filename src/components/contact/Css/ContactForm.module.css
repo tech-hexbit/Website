@@ -111,3 +111,10 @@
   font-style: normal;
   font-weight: 600;
 }
+
+.conDiv {
+  margin: 50px 0px;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 12px;
+}
