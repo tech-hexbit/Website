@@ -89,3 +89,18 @@
   border-width: 0px;
   cursor: pointer;
 }
+
+.pointers {
+  display: flex;
+  align-items: center;
+}
+
+.pointers svg path {
+  color: #29A0F5;
+}
+
+.pointers p {
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+}
