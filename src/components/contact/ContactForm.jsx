@@ -48,24 +48,24 @@ const ContactForm = () => {
 
           <div>
             <div className={styles.pointers}>
-              <ArrowRightAltIcon />
+              <ArrowRightAltIcon fontSize="large" />
               <p>An overview of the platform and its features</p>
             </div>
 
             <div className={styles.pointers}>
-              <ArrowRightAltIcon />
+              <ArrowRightAltIcon fontSize="large" />
               <p>
                 Consultation on how to leverage the platform for your community
               </p>
             </div>
 
             <div className={styles.pointers}>
-              <ArrowRightAltIcon />
+              <ArrowRightAltIcon fontSize="large" />
               <p>Share few success stories with you</p>
             </div>
 
             <div className={styles.pointers}>
-              <ArrowRightAltIcon />
+              <ArrowRightAltIcon fontSize="large" />
               <p>
                 Many desktop publishing packages and web page editors now use
               </p>
