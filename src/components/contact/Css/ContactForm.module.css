@@ -90,6 +90,13 @@
   cursor: pointer;
 }
 
+.pointerDiv {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px 0px;
+}
+
 .pointers {
   display: flex;
   align-items: center;
