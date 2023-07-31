@@ -1,11 +1,11 @@
-import styles from "./ContactForm.module.css";
+import styles from "./Css/ContactForm.module.css";
 
 const ContactForm = () => {
   return (
     <div>
-      <div className={styles.heading}>Contact us</div>
+      {/* <div className={styles.heading}>Contact us</div> */}
 
-      <div className={styles.group}>
+      {/* <div className={styles.group}>
         <div className={styles.left}>
           <form action="">
             <input name="" type="text" placeholder="Name" />
@@ -29,7 +29,7 @@ const ContactForm = () => {
             <a href="mailto:contact@hexbit.io">contact@hexbit.io</a>
           </h2>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
