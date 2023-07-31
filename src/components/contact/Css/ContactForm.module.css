@@ -58,3 +58,14 @@
   font-weight: 400;
   text-transform: lowercase;
 }
+
+.labelDiv textarea {
+  outline: none;
+  padding: 10px 12px;
+  border-radius: 20px;
+  border: 1px solid #D3D3D3;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  text-transform: lowercase;
+}
