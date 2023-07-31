@@ -114,7 +114,46 @@
 
 .conDiv {
   margin: 50px 0px;
-  padding: 40px;
+  padding: 20px 40px;
   background-color: #fff;
   border-radius: 12px;
+}
+
+.MailUs {
+  border-style: solid;
+  border-width: 0px 0px 1px 0px;
+  border-color: #CFCFCF;
+}
+
+.MailUs,
+.CallUs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-items: center;
+  padding: 20px 0px;
+}
+
+.MailUs div,
+.CallUs div {
+  display: flex;
+  align-items: center;
+}
+
+.mailImg {
+  width: 53px;
+  height: 53px;
+}
+
+.mthName {
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  margin-left: 10px;
+}
+
+.del {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
 }
