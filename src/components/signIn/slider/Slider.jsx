@@ -7,9 +7,9 @@ import style from "./Slider.module.css";
 export default function Slider(props) {
   return (
     <Carousel>
-      <div>
+      <div className={style.sliderMainDiv}>
         <img src={props.img1} />
-        <p className="legend">
+        <p className="legend" id={style.legend}>
           <div className={style.head}>{props.head[0]}</div>
           <div className={style.subHead}>{props.subHead[0]}</div>
         </p>

@@ -2,9 +2,7 @@
     color: rgba(0, 0, 0, 0.85);
     text-align: center;
     font-size: 24px;
-    font-style: normal;
     font-weight: 700;
-    line-height: normal;
 }
 
 .subHead{
@@ -12,4 +10,31 @@
     text-align: center;
     font-size: 16px;
     line-height: 24px;
+}
+
+@media screen and (max-width:1150px) {
+    #legend{
+        top: 440px !important;
+    }
+    /* .sliderMainDiv{
+        height: 100%;
+    } */
+}
+@media screen and (max-width:950px) {
+    #legend{
+        top: 360px !important;
+    }
+}
+@media screen and (max-width:850px) {
+    .head{
+        font-size: 20px;
+        font-weight: 700;
+    }
+    .subHead{
+        font-size: 14px;
+        line-height: 20px;
+    }
+    #legend{
+        top: 290px !important;
+    }
 }

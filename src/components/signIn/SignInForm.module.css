@@ -88,7 +88,7 @@
     justify-content: space-between;
 }
 #countryCode{
-    width: 15%;
+    width: 17%;
     padding: 10px 6px;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
@@ -145,9 +145,29 @@ input[type="text"]:disabled::placeholder{
 }
 .right{
     width: 60%;
-    /* opacity: 0.15000000596046448; */
+    /* height: 100%; */
     background: linear-gradient(90deg, rgb(187, 20, 226,0.15000000596046448) 0%, rgb(63, 129, 224,0.15000000596046448) 100%);
 }
 .right img{
     width: 100%;
+}
+@media screen and (max-width:1120px) {
+    .left{
+        width: 50%;
+    }
+    .right{
+        width: 50%;
+    }
+    .tc{
+        /* background-color: green; */
+        padding: 0px 0px;
+    }
+}
+@media screen and (max-width:850px) {
+    .left{
+        width: 55%;   
+    }
+    .right{
+        width: 45%;
+    }
 }

@@ -53,3 +53,36 @@ body {
   background-color: transparent !important;
   opacity: 1 !important;
 }
+
+.carousel button, .carousel-status{
+  display: none;
+}
+
+.carousel-root, .carousel{
+  height: 100%;
+}
+
+.carousel{
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-evenly !important;
+}
+
+.control-dots{
+  position: static !important;
+  margin: 0px !important;
+  padding: 0px !important;
+  display: flex;
+  justify-content: center;
+}
+
+.slider-wrapper{
+  height: fit-content;
+  margin: 0px !important;
+}
+
+@media screen and (max-width:850px) {
+  .slider-wrapper{
+    height: 45%;
+  }
+}
