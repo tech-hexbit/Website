@@ -43,8 +43,24 @@ const ContactForm = () => {
           </p>
         </div>
         <div className={styles.FormMDiv}>
-          <label htmlFor="FirstName">First Name</label>
-          <input type="text" name="FirstName" id="FirstName" />
+          <div className={styles.labelDiv}>
+            <label htmlFor="FirstName">First Name *</label>
+            <input
+              type="text"
+              name="FirstName"
+              id="FirstName"
+              placeholder="John David"
+            />
+          </div>
+          <div className={styles.labelDiv}>
+            <label htmlFor="FirstName">Your email *</label>
+            <input
+              type="text"
+              name="FirstName"
+              id="FirstName"
+              placeholder="John David"
+            />
+          </div>
         </div>
       </div>
     </>
