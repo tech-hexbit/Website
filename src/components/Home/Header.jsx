@@ -18,7 +18,6 @@ export default function Header() {
       <div className={SCss.contDiv}>
         <div className={HCss.headerTitle}>
           Sell Smarter, Sell Faster at HEXBIT.io
-          {/* <img src={logoheader} alt="" className={HCss.logoheaderImg} /> */}
         </div>
         <SellLine line="Streamline Your Online Sales With HEXBIT.Io's All-In-One Solution." />
         <SellLine line="Plug Into ONDC - Register Your Presence On The Huge ONDC Network" />
