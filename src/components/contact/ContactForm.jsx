@@ -1,3 +1,7 @@
+// icon
+import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
+
+// css
 import styles from "./Css/ContactForm.module.css";
 
 const ContactForm = () => {
@@ -41,6 +45,32 @@ const ContactForm = () => {
             experience for you. unknown printer took a type and scrambled it to
             make a type
           </p>
+
+          <div>
+            <div className={styles.pointers}>
+              <ArrowRightAltIcon />
+              <p>An overview of the platform and its features</p>
+            </div>
+
+            <div className={styles.pointers}>
+              <ArrowRightAltIcon />
+              <p>
+                Consultation on how to leverage the platform for your community
+              </p>
+            </div>
+
+            <div className={styles.pointers}>
+              <ArrowRightAltIcon />
+              <p>Share few success stories with you</p>
+            </div>
+
+            <div className={styles.pointers}>
+              <ArrowRightAltIcon />
+              <p>
+                Many desktop publishing packages and web page editors now use
+              </p>
+            </div>
+          </div>
         </div>
         <div className={styles.FormMDiv}>
           {/* FirstName */}
