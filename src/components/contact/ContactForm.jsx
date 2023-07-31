@@ -2,7 +2,7 @@ import styles from "./Css/ContactForm.module.css";
 
 const ContactForm = () => {
   return (
-    <div>
+    <>
       {/* <div className={styles.heading}>Contact us</div> */}
 
       {/* <div className={styles.group}>
@@ -30,7 +30,7 @@ const ContactForm = () => {
           </h2>
         </div>
       </div> */}
-    </div>
+    </>
   );
 };
 
