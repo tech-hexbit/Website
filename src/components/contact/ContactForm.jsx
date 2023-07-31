@@ -1,5 +1,7 @@
 // icon
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
+import mail from "./../../assets/AboutUS/Icon.svg";
+import Icon_Call from "./../../assets/AboutUS/Icon_call.svg";
 
 // css
 import styles from "./Css/ContactForm.module.css";
@@ -45,6 +47,11 @@ const ContactForm = () => {
             experience for you. unknown printer took a type and scrambled it to
             make a type
           </p>
+
+          <div className={styles.conDiv}>
+            <div className={styles.MailUs}>Mail Us</div>
+            <div className={styles.CallUs}>Call Us</div>
+          </div>
 
           <div className={styles.pointerDiv}>
             <div className={styles.pointers}>
