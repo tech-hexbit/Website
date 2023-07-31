@@ -30,6 +30,20 @@ const ContactForm = () => {
           </h2>
         </div>
       </div> */}
+
+      <div className={styles.mDiv}>
+        <div>
+          <p className={styles.HexbitPMainTag}>
+            Is Hexbit the right platform for your Business?
+          </p>
+          <p className={styles.Justanswer}>
+            Just answer a few questions so that we can personalize the right
+            experience for you. unknown printer took a type and scrambled it to
+            make a type
+          </p>
+        </div>
+        <div></div>
+      </div>
     </>
   );
 };
