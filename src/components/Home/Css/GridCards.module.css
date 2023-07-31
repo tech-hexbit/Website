@@ -44,6 +44,10 @@
   .mDiv {
     gap: 30px;
     max-width: 100%;
+    flex-direction: row;
+  }
+  .leftDiv{
+    width: fit-content;
   }
 }
 
@@ -53,5 +57,11 @@
   }
   .titlePTag {
     width: 100%;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .mDiv {
+    flex-direction: column;
   }
 }
