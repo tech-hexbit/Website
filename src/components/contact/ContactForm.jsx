@@ -36,13 +36,16 @@ const ContactForm = () => {
           <p className={styles.HexbitPMainTag}>
             Is Hexbit the right platform for your Business?
           </p>
-          <p className={styles.Justanswer}>
+          <p className={styles.JustAnswer}>
             Just answer a few questions so that we can personalize the right
             experience for you. unknown printer took a type and scrambled it to
             make a type
           </p>
         </div>
-        <div></div>
+        <div className={styles.FormMDiv}>
+          <label htmlFor="FirstName">First Name</label>
+          <input type="text" name="FirstName" id="FirstName" />
+        </div>
       </div>
     </>
   );
