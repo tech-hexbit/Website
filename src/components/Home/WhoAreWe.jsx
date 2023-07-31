@@ -6,14 +6,26 @@ import styles from "./Css/WhoAreWe.module.css";
 
 // icons
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import image1 from "../../assets/whoAreWe/Activity.png";
+import image2 from "../../assets/whoAreWe/Video.png";
+import image3 from "../../assets/whoAreWe/Chart.png";
+import { Link } from "react-router-dom";
 
-const GridItem = ({ text }) => {
+const GridItem = ({ text, img, subText }) => {
   return (
     <div className={styles.tripleGridItem}>
-      <div className={styles.iconDiv}>
-        <ArrowForwardIosIcon fontSize="small" />
+      <div className={styles.image}>
+        <img src={img} alt="" />
       </div>
-      <div className={styles.title}>{text}</div>
+      <div className={styles.text}>
+        <div className={styles.title}>{text}</div>
+        <div className={styles.subTitle}>{subText}</div>
+      </div>
+      <button className={styles.contactButton}>
+        <Link to="/contact" className="LinkStyle">
+          <p>Contact Us</p>
+        </Link>
+      </button>
     </div>
   );
 };
@@ -21,27 +33,29 @@ const GridItem = ({ text }) => {
 const WhoAreWe = () => {
   return (
     <div className={styles.wrapperDiv}>
-      <Title title="Who Are We?" />
+      <div className={styles.header}>
+        <div className={styles.head1}>HEXBIT Who ??</div>
+        <div className={styles.head2}>Who Are We </div>
+      </div>
 
       <div className={styles.container}>
         <div className={styles.tripleGrid}>
-          <GridItem text="A Trustworthy Business Partner For Micro, Small, And Medium Enterprises" />
-          <GridItem text="Empowering Businesses For The Digital Age." />
-          <GridItem text="Digitization With Minimum Involvement In The Process" />
+          <GridItem
+            text="TRUSTWORTHY BUSINESS PARTNER"
+            img={image1}
+            subText="A Trustworthy Business Partner For Micro, Small, And Medium Enterprises"
+          />
+          <GridItem
+            text="Empowering Businesses For The Digital Age"
+            img={image2}
+            subText="We are Always Dedicated In Empowering All Types Businesses For The Digital Age."
+          />
+          <GridItem
+            text="DIGITIZATION"
+            img={image3}
+            subText=" Digitization With Minimum Involvement In The Process"
+          />
         </div>
-
-        <div className={styles.paragraph}>
-          HEXBIT.IO is an attempt to create a trustworthy business partner for
-          micro, small, and medium enterprises in their journey of digitization
-          with minimum involvement in the process. It is an end-to-end
-          integrated hybrid formula enabled by technology and human hands to
-          enable enterprises across the products and services category to
-          leverage the growing digital commerce markets.
-        </div>
-
-        <button type="button" className={styles.button}>
-          Register for free
-        </button>
       </div>
     </div>
   );

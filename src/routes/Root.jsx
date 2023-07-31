@@ -7,6 +7,7 @@ import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import Modern from "./../components/Home/Modern";
 import RegisterFooter from "../components/footer/RegisterFooter";
+import MobileHeader from "../components/header/MobileHeader";
 
 const Root = () => {
   // scroll to top
@@ -32,6 +33,7 @@ const Root = () => {
   return (
     <>
       <Header />
+      <MobileHeader />
       <Outlet />
       {show ? <RegisterFooter /> : ""}
       {show ? <Modern /> : ""}

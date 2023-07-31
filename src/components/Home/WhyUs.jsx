@@ -8,18 +8,18 @@ import GridCard from "./GridCards";
 import WyCss from "./Css/WhyUs.module.css";
 
 // icons
-import share from "./../../assets/share.png";
-import Friendliness from "./../../assets/ic_sentiment_satisfied_24px.png";
-import check from "./../../assets/ic_network_check_24px.png";
-import Modules from "./../../assets/ic_leak_add_24px.png";
-import Technology from "./../../assets/ic_laptop_chromebook_24px.png";
-import Managed from "./../../assets/ic_apps_24px.png";
+import share from "./../../assets/whyUs/support.png";
+import Friendliness from "./../../assets/whyUs/user.png";
+import check from "./../../assets/whyUs/analytics.png";
+import Modules from "./../../assets/whyUs/module.png";
+import Technology from "./../../assets/whyUs/tech.png";
+import Managed from "./../../assets//whyUs/services.png";
 
 export default function WhyUs() {
   return (
     <div className={WyCss.mDiv}>
       <div className={WyCss.ConDiv}>
-        <Title title="Why Us" />
+        <Title title="Why Us ?" />
         <div className={WyCss.gridDivParent}>
           <div className={WyCss.gridDiv}>
             <GridCard

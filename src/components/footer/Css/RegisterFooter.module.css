@@ -1,84 +1,92 @@
 .mDiv {
-  margin-top: 90px;
-  padding: 70px 0px;
-  background-color: #ccceff;
+  margin-top: 30px;
   font-family: "Rubik", sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.innerDiv{
+  width: 90%;
+  padding: 62px 0px;
+  border-radius: 56px;
+  background: #232038;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.regText{
+  width: 50%;
 }
 
 .topText {
-  text-align: center;
-  font-size: 32px;
-}
-
-.bottomText {
-  text-align: center;
-  margin-top: 70px;
+  color: #FFF;
+  font-size: 38px;
+  font-weight: 500;
+  line-height: 55px;
+  text-transform: capitalize;
 }
 
 .btnDiv {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin-top: 50px;
-}
-.RegisterBtn {
-  text-align: center;
-  padding: 25px 73px;
-  border-radius: 12px;
-  border-width: 0px;
-  color: #393939;
+  border-radius: 69px;
+  background: #FFF;
+  padding: 10px 40px;
+  border: none;
+  color: #000;
   font-size: 20px;
-  letter-spacing: 0.2px;
+  font-weight: 600;
+  text-transform: uppercase;
   transition: all 0.3s;
 }
 
-.RegisterBtn:hover {
+.btnDiv:hover {
   box-shadow: 5px 5px 30px lightgray;
 }
 
-@media only screen and (max-width: 900px) {
-  .mDiv {
-    margin-top: 50px;
-    padding: 50px 0px;
-  }
-  .bottomText {
-    margin-top: 50px;
-  }
+.regImage{
+  width: 25%;
 }
-@media only screen and (max-width: 650px) {
-  .mDiv {
-    margin-top: 30px;
-    padding: 30px 0px;
-  }
-  .bottomText {
-    margin-top: 30px;
-  }
-  .btnDiv {
-    margin-top: 0px;
-  }
-  .resDiv {
+
+.regImage img{
+  width: 90%;
+}
+
+@media only screen and (max-width: 900px) {
+  .regImage{
+    width: 35%;
     display: flex;
     justify-content: center;
     align-items: center;
   }
+}
 
-  .innnerDiv {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 80%;
-  }
-  .bottomText {
-    width: 50%;
-    text-align: left;
-  }
-  .RegisterBtn {
-    font-size: 14px;
-    padding: 9px 15px;
-  }
+@media only screen and (max-width: 700px) {
   .topText {
-    font-size: 18px;
-    margin: 0px 20px;
+    font-size: 24px;
+    line-height: 30px;
+  }
+  .btnDiv{
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .innerDiv{
+    padding: 40px 0px;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .regText{
+    width: 90%;
+  }
+  .topText{
+    margin-top: 10px;
+    text-align: center;
+    width: 100%;
+  }
+  .buttonDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

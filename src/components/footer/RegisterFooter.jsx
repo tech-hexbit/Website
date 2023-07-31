@@ -4,25 +4,28 @@ import { Link } from "react-router-dom";
 // css
 import FCss from "./Css/RegisterFooter.module.css";
 
+import image from "../../assets/RegisterFooter.png";
+
 export default function RegisterFooter() {
   return (
     <div className={FCss.mDiv}>
-      <p className={FCss.topText}>
-        <b>Move to an incredibly easy to use, one-stop-shop platform</b>
-      </p>
-      <div className={FCss.resDiv}>
-        <div className={FCss.innnerDiv}>
-          <p className={FCss.bottomText}>
-            Get built-in tools to migrate products from your current ecommerce
-            platform with minimum involvement
+      <div className={FCss.innerDiv}>
+        <div className={FCss.regText}>
+          <p className={FCss.topText}>
+            Move to an incredibly <br />
+            easy to use, <br />
+            one-stop-shop platform
           </p>
-          <div className={FCss.btnDiv}>
-            <button className={FCss.RegisterBtn}>
+          <div className={FCss.buttonDiv}>
+            <button className={FCss.btnDiv}>
               <Link to="/register" className="LinkStyle">
                 Register Now
               </Link>
             </button>
           </div>
+        </div>
+        <div className={FCss.regImage}>
+          <img src={image} alt="" />
         </div>
       </div>
     </div>
