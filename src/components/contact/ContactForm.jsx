@@ -46,7 +46,7 @@ const ContactForm = () => {
             make a type
           </p>
 
-          <div>
+          <div className={styles.pointerDiv}>
             <div className={styles.pointers}>
               <ArrowRightAltIcon fontSize="large" />
               <p>An overview of the platform and its features</p>
