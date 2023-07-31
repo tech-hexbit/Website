@@ -13,6 +13,7 @@ import Error from "./routes/Error";
 import Contact from "./routes/Contact";
 import Privacy from "./routes/Privacy";
 import Register from "./routes/Register";
+import SignIn from "./routes/SignIn";
 
 // css
 import "./css/index.css";
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: "terms",
         element: <Terms />,
+      },
+      {
+        path: "signIn",
+        element: <SignIn />,
       },
     ],
   },

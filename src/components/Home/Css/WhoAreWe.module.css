@@ -1,27 +1,45 @@
 .wrapperDiv {
-  background-image: url("../../../assets/Frame 142.png");
+  /* background-color: red; */
+  /* background-image: url("../../../assets/Frame 142.png"); */
   background-position: bottom center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  padding: 3rem 0;
-  margin: 3rem 0;
+  /* padding: 3rem 0; */
+  /* margin: 3rem 0; */
+}
+
+.header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.head1{
+  color: #8A898E;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 28.5px;
+  letter-spacing: 6.3px;
+  font-family: "Rubik", sans-serif;
+}
+
+.head2{
+  color: #0B1B35;
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 28.5px;
+  margin-top: 5px;
+  font-family: "Rubik", sans-serif;
 }
 
 .container {
   display: flex;
   flex-direction: column;
   align-items: start;
-  max-width: 960px;
-  margin: 0 auto;
   padding: 3rem 1rem;
   gap: 3rem;
-}
-
-.paragraph {
-  font-family: "Rubik", sans-serif;
-  font-size: 23px;
-  font-weight: 100;
+  margin-top: 30px;
 }
 
 .title {
@@ -29,37 +47,21 @@
   font-family: "Rubik", sans-serif;
   font-size: 26px;
   font-weight: bold;
+  height: 130px;
 }
 
-.button {
-  padding: 12px 42px;
-  border-radius: 32px;
-  background-image: linear-gradient(to right, #261ee4, #ac15e2);
-  color: #fff;
+.subTitle{
+  color: #000;
+  text-align: center;
   font-size: 18px;
-  font-family: "Rubik", sans-serif;
-  border: none;
-  appearance: none;
-}
-
-.iconDiv {
-  width: 33px;
-  height: 33px;
-  aspect-ratio: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  color: #fff;
-  background-image: linear-gradient(to right, #ac15e2, #261ee4);
+  line-height: 28.5px;
 }
 
 .tripleGrid {
-  display: grid;
-  grid-auto-flow: row;
+  display: flex;
   gap: 1rem;
-  margin: 0 auto;
-  max-width: 960px;
+  width: 100%;
+  justify-content: space-evenly;
 }
 
 .tripleGridItem {
@@ -67,12 +69,44 @@
   gap: 1rem;
   flex-direction: column;
   align-items: center;
+  width: 30%;
+  height: 578px;
+  padding: 35px;
+  border-radius: 28px;
+  background: #FFF;
+  gap: 50px;
+  box-shadow: 0px 2.767256498336792px 2.2138051986694336px 0px rgba(0, 0, 0, 0.02), 0px 6.650102138519287px 5.32008171081543px 0px rgba(0, 0, 0, 0.03), 0px 12.521552085876465px 10.017241477966309px 0px rgba(0, 0, 0, 0.04), 0px 22.3363094329834px 17.869047164916992px 0px rgba(0, 0, 0, 0.04), 0px 41.777610778808594px 33.422088623046875px 0px rgba(0, 0, 0, 0.05), 0px 100px 80px 0px rgba(0, 0, 0, 0.07);
 }
 
-@media only screen and (min-width: 540px) {
-  .tripleGrid {
-    grid-auto-flow: column;
-  }
+.image{
+  width: 87.062px;
+  height: 87.063px;
+}
+
+.image img{
+  width: 100%;
+}
+
+.text{
+  width: 50%px;
+  height: 264px;
+  padding: 0px 30px;
+}
+
+.contactButton{
+  width: 180px;
+  height: 49px;
+  border: none;
+  border-radius: 10px;
+  background: #671BFF;
+}
+
+.contactButton p{
+  color: #FFF;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28.5px;
 }
 
 @media only screen and (max-width: 540px) {
@@ -84,5 +118,18 @@
   }
   .button {
     font-size: 14px;
+  }
+  .tripleGridItem{
+    width: 70% !important;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .tripleGrid {
+    flex-direction: column;
+     align-items: center;
+  }
+  .tripleGridItem{
+    width: 50%;
   }
 }

@@ -29,12 +29,14 @@
   align-items: center;
   border-radius: 50%;
   color: #fff;
-  background-image: linear-gradient(to right, #ac15e2, #261ee4);
+  background-image: linear-gradient(to left, #ac15e2, #261ee4);
 }
 
 .linePTag {
   margin-left: 10px;
+  color: #595959;
   font-size: 20px;
+  font-weight: 700;
 }
 
 .titlemDiv {
