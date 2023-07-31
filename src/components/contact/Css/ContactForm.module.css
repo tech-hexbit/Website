@@ -69,10 +69,23 @@
   font-style: normal;
   font-weight: 400;
   text-transform: lowercase;
+  resize: none;
 }
 
 .SendMessage {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.SendMessage button {
+  padding: 12px 40px;
+  border-radius: 20px;
+  background-color: #350B5E;
+  color: #fff;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  border-width: 0px;
+  cursor: pointer;
 }
