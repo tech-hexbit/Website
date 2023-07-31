@@ -58,7 +58,16 @@ const ContactForm = () => {
               type="text"
               name="FirstName"
               id="FirstName"
-              placeholder="John David"
+              placeholder="example@yourmail.com"
+            />
+          </div>
+          <div className={styles.labelDiv}>
+            <label htmlFor="FirstName">Company *</label>
+            <input
+              type="text"
+              name="FirstName"
+              id="FirstName"
+              placeholder="your company name here"
             />
           </div>
         </div>
