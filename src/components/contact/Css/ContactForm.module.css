@@ -162,11 +162,16 @@
 @media only screen and (max-width: 980px) {
   .mDiv {
     flex-direction: column;
+    padding-bottom: 70px;
   }
 
   .leftDiv,
   .FormMDiv {
     width: 90%;
+  }
+
+  .FormMDiv {
+    box-shadow: 0px 8px 30px #ADADAD;
   }
 
 }
