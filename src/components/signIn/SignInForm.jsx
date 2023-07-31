@@ -79,7 +79,7 @@ export default function SignInForm() {
         </div>
       </div>
       <div className={style.right}>
-        <Slider
+        {/* <Slider
           img1={slider1}
           img2={slider1}
           img3={slider1}
@@ -89,7 +89,9 @@ export default function SignInForm() {
             `"Elevate Your Retail Game: Hexbit - Where Digital Selling Meets Success!"`,
             `"Elevate Your Retail Game: Hexbit - Where Digital Selling Meets Success!"`,
           ]}
-        />
+        /> */}
+        <img src={slider1} alt="" />
+        <p></p>
       </div>
     </div>
   );
