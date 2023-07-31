@@ -86,3 +86,8 @@ body {
     height: 45%;
   }
 }
+@media screen and (max-width:820px) {
+  .slider-wrapper{
+    height: 100% !important;
+  }
+}
