@@ -94,6 +94,9 @@ const ContactForm = () => {
               placeholder="Hello there,I would like to talk about how to..."
             ></textarea>
           </div>
+          <div className={styles.SendMessage}>
+            <button>Send Message</button>
+          </div>
         </div>
       </div>
     </>
