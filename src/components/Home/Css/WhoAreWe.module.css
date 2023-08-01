@@ -7,6 +7,7 @@
   position: relative;
   /* padding: 3rem 0; */
   /* margin: 3rem 0; */
+  font-family: "Rubik", sans-serif;
 }
 
 .header{
@@ -21,7 +22,6 @@
   font-weight: 700;
   line-height: 28.5px;
   letter-spacing: 6.3px;
-  font-family: "Rubik", sans-serif;
 }
 
 .head2{

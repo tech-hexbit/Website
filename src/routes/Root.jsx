@@ -20,11 +20,7 @@ const Root = () => {
   let location = useLocation();
 
   useEffect(() => {
-    if (
-      location.pathname === "/" ||
-      location.pathname === "/AboutUs" ||
-      location.pathname === "/contact"
-    ) {
+    if (location.pathname === "/" || location.pathname === "/AboutUs") {
       set(true);
     } else {
       set(false);

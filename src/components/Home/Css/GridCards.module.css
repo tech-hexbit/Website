@@ -1,9 +1,9 @@
 .mDiv {
   font-family: "Rubik", sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* align-items: center; */
   max-width: 250px;
 }
 

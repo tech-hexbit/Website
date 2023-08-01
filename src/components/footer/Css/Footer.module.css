@@ -4,6 +4,7 @@
   justify-content: space-between;
   font-family: "Rubik", sans-serif;
   padding: 45px 50px 45px 90px;
+  margin-top: 50px;
 }
 
 .leftDiv {
@@ -63,14 +64,14 @@
 }
 
 .ful li {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 40px;
   letter-spacing: 0.16px;
   text-transform: uppercase;
 }
 
 .AboutCompany {
-  font-size: 20px;
+  font-size: 18px;
   line-height: 27px;
   letter-spacing: 0.2px;
 }

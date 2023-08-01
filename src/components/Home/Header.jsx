@@ -19,7 +19,7 @@ export default function Header() {
       <div className={SCss.contDiv}>
         <div className={HCss.headerTitle}>
           Sell Smarter, <br />
-          Sell Faster, <br />
+          Grow Faster, <br />
           At HEXBIT
           {/* <img src={logoheader} alt="" className={HCss.logoheaderImg} /> */}
         </div>
