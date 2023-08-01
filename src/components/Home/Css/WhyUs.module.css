@@ -19,12 +19,7 @@
 }
 
 .gridDiv {
-  /* background-color: red; */
   width: 80%;
-  /* display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  gap: 50px; */
   display: grid;
   grid-template-columns: repeat(3,1fr);
   gap: 30px;

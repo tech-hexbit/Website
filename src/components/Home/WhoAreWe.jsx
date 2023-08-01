@@ -5,7 +5,6 @@ import Title from "./Title";
 import styles from "./Css/WhoAreWe.module.css";
 
 // icons
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import image1 from "../../assets/whoAreWe/Activity.png";
 import image2 from "../../assets/whoAreWe/Video.png";
 import image3 from "../../assets/whoAreWe/Chart.png";

@@ -67,7 +67,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: 30px 0px;
+    padding: 30px 0px 0px 0px;
     color: var(--444150, #444150);
     font-size: 16px;
     font-weight: 900;
@@ -164,10 +164,10 @@ input[type="text"]:disabled::placeholder {
     font-size: 12px;
     line-height: 22px;
 }
-
+/* 
 .tcColor {
     color: #350B5E;
-}
+} */
 
 .right {
     position: relative;

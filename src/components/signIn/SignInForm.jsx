@@ -73,8 +73,22 @@ export default function SignInForm() {
           <button>Log In</button>
           <div className={style.tc}>
             By signing up, you are agreeing to our{" "}
-            <span className={style.tcColor}>Terms & Conditions</span> and{" "}
-            <span className={style.tcColor}>Privacy Policy</span>.
+            <Link
+              to="/terms"
+              className="LinkStyle"
+              style={{ color: "#350B5E" }}
+            >
+              Terms & Conditions
+            </Link>{" "}
+            and{" "}
+            <Link
+              to="/privacy"
+              className="LinkStyle"
+              style={{ color: "#350B5E" }}
+            >
+              Privacy Policy
+            </Link>
+            .
           </div>
         </div>
       </div>

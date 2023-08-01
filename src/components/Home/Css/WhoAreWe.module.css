@@ -1,12 +1,8 @@
 .wrapperDiv {
-  /* background-color: red; */
-  /* background-image: url("../../../assets/Frame 142.png"); */
   background-position: bottom center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  /* padding: 3rem 0; */
-  /* margin: 3rem 0; */
   font-family: "Rubik", sans-serif;
 }
 
@@ -109,6 +105,12 @@
   line-height: 28.5px;
 }
 
+@media only screen and (max-width: 400px) {
+  .tripleGridItem{
+    padding: 35px 0px;
+  }
+}
+
 @media only screen and (max-width: 540px) {
   .title {
     font-size: 20px;
@@ -119,9 +121,6 @@
   .button {
     font-size: 14px;
   }
-  .tripleGridItem{
-    width: 70% !important;
-  }
 }
 
 @media only screen and (max-width: 850px) {
@@ -130,6 +129,14 @@
      align-items: center;
   }
   .tripleGridItem{
-    width: 50%;
+    width: 90%;
+    height: fit-content;
+  }
+  .text{
+    height: fit-content;
+  }
+  .title{
+    height: fit-content;
+    padding-bottom: 15px;
   }
 }

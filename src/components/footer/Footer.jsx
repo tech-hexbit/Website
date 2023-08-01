@@ -106,7 +106,23 @@ const Footer = () => {
           <img src={madeInIndia} alt="" />
           <img src={dss} alt="" />
         </div>
-        <div className={FCss.rights}>Terms & condition || Privacy Policy</div>
+        <div className={FCss.rights}>
+          <span>
+            <Link to="/terms" className="LinkStyle" style={{ color: "white" }}>
+              Terms & condition
+            </Link>
+          </span>{" "}
+          ||{" "}
+          <span>
+            <Link
+              to="/privacy"
+              className="LinkStyle"
+              style={{ color: "white" }}
+            >
+              Privacy Policy
+            </Link>
+          </span>
+        </div>
         <div className={FCss.rights}>© Hexbit. All Rights Reserved.</div>
       </div>
     </div>

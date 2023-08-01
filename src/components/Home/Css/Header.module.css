@@ -37,8 +37,8 @@
 
 .buttonStyle{
   width: 16vw;
-  padding: 0 5px;
-  height: 84px;
+  padding: 15px 5px;
+  /* height: 84px; */
   border: none;
   border-radius: 5px;
   background: linear-gradient(270deg, #161FE4 0%, #BB14E2 100%);

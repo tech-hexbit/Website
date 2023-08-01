@@ -17,6 +17,9 @@ const Header = () => {
           </div>
         </Link>
         <div className={styles.rightDiv}>
+          <Link to="/" className="LinkStyle">
+            <p>Home</p>
+          </Link>
           <Link to="/contact" className="LinkStyle">
             <p>Contact Us</p>
           </Link>
