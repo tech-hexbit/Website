@@ -5,6 +5,7 @@
   gap: 50px;
   background: linear-gradient(136deg, rgba(255, 255, 255, 0.79) 0%, rgba(207, 184, 255, 0.79) 100%);
   padding: 40px;
+  font-family: "Rubik", sans-serif;
 }
 
 .leftDiv {
@@ -70,6 +71,7 @@
   font-weight: 400;
   text-transform: lowercase;
   resize: none;
+  font-family: "Rubik", sans-serif;
 }
 
 .SendMessage {
@@ -107,6 +109,7 @@
 }
 
 .pointers p {
+  padding-left: 5px;
   font-size: 22px;
   font-style: normal;
   font-weight: 600;

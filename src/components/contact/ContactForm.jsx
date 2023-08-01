@@ -144,7 +144,7 @@ const ContactForm = () => {
               id="FirstName"
               cols="30"
               rows="10"
-              placeholder="Hello there,I would like to talk about how to..."
+              placeholder="Hello there, I would like to talk about how to..."
             ></textarea>
           </div>
           <div className={styles.SendMessage}>
