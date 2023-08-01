@@ -1,0 +1,177 @@
+.mDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  background: linear-gradient(136deg, rgba(255, 255, 255, 0.79) 0%, rgba(207, 184, 255, 0.79) 100%);
+  padding: 40px;
+  margin-bottom: -90px;
+}
+
+.leftDiv {
+  width: 35%;
+}
+
+.HexbitPMainTag {
+  font-size: 58px;
+  font-style: normal;
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+
+.JustAnswer {
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.FormMDiv {
+  width: 50%;
+  background-color: #fff;
+  padding: 50px;
+  box-shadow: 0px 38px 67px #ADADAD;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px 0px;
+}
+
+.labelDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 15px 0px;
+}
+
+.labelDiv label {
+  color: #606060;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.labelDiv input {
+  outline: none;
+  padding: 10px 12px;
+  border-radius: 20px;
+  border: 1px solid #D3D3D3;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  text-transform: lowercase;
+}
+
+.labelDiv textarea {
+  outline: none;
+  padding: 10px 12px;
+  border-radius: 20px;
+  border: 1px solid #D3D3D3;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  text-transform: lowercase;
+  resize: none;
+}
+
+.SendMessage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SendMessage button {
+  padding: 12px 40px;
+  border-radius: 20px;
+  background-color: #350B5E;
+  color: #fff;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  border-width: 0px;
+  cursor: pointer;
+}
+
+.pointerDiv {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px 0px;
+}
+
+.pointers {
+  display: flex;
+  align-items: center;
+}
+
+.pointers svg path {
+  color: #29A0F5;
+}
+
+.pointers p {
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.conDiv {
+  margin: 50px 0px;
+  padding: 20px 40px;
+  background-color: #fff;
+  border-radius: 12px;
+}
+
+.MailUs {
+  border-style: solid;
+  border-width: 0px 0px 1px 0px;
+  border-color: #CFCFCF;
+}
+
+.MailUs,
+.CallUs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-items: center;
+  padding: 20px 0px;
+}
+
+.MailUs div,
+.CallUs div {
+  display: flex;
+  align-items: center;
+}
+
+.mailImg {
+  width: 53px;
+  height: 53px;
+}
+
+.mthName {
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  margin-left: 10px;
+}
+
+.del {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@media only screen and (max-width: 980px) {
+  .mDiv {
+    flex-direction: column;
+    padding-bottom: 70px;
+  }
+
+  .leftDiv,
+  .FormMDiv {
+    width: 90%;
+  }
+
+  .FormMDiv {
+    box-shadow: 0px 8px 30px #ADADAD;
+  }
+
+}
