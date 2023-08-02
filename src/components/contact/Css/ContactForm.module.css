@@ -4,8 +4,12 @@
   align-items: center;
   gap: 50px;
   background: linear-gradient(136deg, rgba(255, 255, 255, 0.79) 0%, rgba(207, 184, 255, 0.79) 100%);
+  /* background-color: red; */
   padding: 40px;
   font-family: "Rubik", sans-serif;
+  /* height: 50px; */
+  background-size: auto 60%;
+  background-repeat: no-repeat;
 }
 
 .leftDiv {
