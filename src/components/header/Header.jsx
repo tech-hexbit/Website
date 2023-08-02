@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 // css
 import styles from "./Header.module.css";
@@ -17,20 +17,20 @@ const Header = () => {
           </div>
         </Link>
         <div className={styles.rightDiv}>
-          <Link to="/" className="LinkStyle">
-            <p>Home</p>
-          </Link>
-          <Link to="/contact" className="LinkStyle">
+          <NavLink to="/" className="LinkStyle">
+            Home
+          </NavLink>
+          <NavLink to="/contact" className="LinkStyle">
             <p>Contact Us</p>
-          </Link>
-          <Link to="/AboutUs" className="LinkStyle">
+          </NavLink>
+          <NavLink to="/AboutUs" className="LinkStyle">
             <p>About Us</p>
-          </Link>
-          <Link to="/register" className="LinkStyle">
+          </NavLink>
+          <NavLink to="/register" className="LinkStyle">
             <p className={styles.registerPTag}>
               <b>Register for free</b>
             </p>
-          </Link>
+          </NavLink>
         </div>
       </div>
     </div>
