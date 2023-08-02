@@ -1,40 +1,72 @@
-.mDiv {
-  margin-top: 100px;
-  position: relative;
+.mainDiv{
+  margin-top: -160px;
+  font-family: "Rubik", sans-serif;
+}
+.part1{
+  padding: 90px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  /* border-bottom: 20px red solid; */
+}
+.left{
+  width: 30%;
+  background-color: #1a1a1a;
+  /* opacity: 0; */
+  border-radius: 15px;
+}
+.left img{
+  width: 100%;
+  opacity: 0.6;
+}
+.right{
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.head{
+  color: #0B1B35;
+  font-size: 40px;
+  font-weight: 700;
+}
+.aimHead{
+  color: #5925DC;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+.aimDesc{
+  color: #1A1A1A;
+  font-size: 40px;
+  letter-spacing: -0.939px;
+}
+.desc{
+  color: #767676;
+  font-size: 24px;
+}
+.register{
+  display: flex;
+}
+.registerLink{
+  display: flex;
   align-items: center;
-  padding: 100px 0px;
-  background-color: #ddb9ff;
+  color: #1A1A1A;
+  font-size: 18px;
+  font-weight: 600;
+  padding-left: 12px;
+  cursor: pointer;
 }
-
-.Mission {
-  font-family: "Rubik", sans-serif;
-  font-size: 52px;
-  font-weight: bold;
-  position: absolute;
-  color: #ddb9ff;
-  top: -48px;
-  right: 50px;
+.part2{
+  padding: 64px;
+  border: 10px solid transparent;
+  border-image: linear-gradient(to left, rgba(22, 31, 228, 0.3),rgba(255, 255, 255, 0.3));
+  border-image-slice: 1;
+  border-left: 0;
+  border-right: 0;
 }
-
-.SolutionEnabling {
-  text-align: right;
-  font-family: "Rubik", sans-serif;
-  font-size: 32px;
-  font-weight: bold;
-  width: 80%;
-}
-
-@media only screen and (max-width: 650px) {
-  .Mission {
-    font-size: 38px;
-    top: -34px;
-  }
-  .SolutionEnabling {
-    font-size: 20px;
-  }
-  .mDiv {
-    padding: 50px 0px;
-  }
+.part2Desc{
+  color: #000;
+  font-size: 46px;
+  font-weight: 600;
 }

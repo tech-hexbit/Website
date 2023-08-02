@@ -1,0 +1,35 @@
+.mainCard{
+    display: flex;
+    font-family: "Rubik", sans-serif;
+    /* justify-content: space-around; */
+}
+.image{
+    height: 200px;
+}
+.image img{
+    height: 100%;
+}
+.details{
+    padding: 0px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 70%;
+}
+.name{
+    color: #2D2D2D;
+    font-size: 45px;
+    font-weight: 600;
+    width: 10%;
+}
+.designation{
+    border-radius: 4px;
+    background: #350B5E;
+    border: none;
+    color: #FFF;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 900;
+    padding: 10px 20px;
+    width: 100%;
+}
