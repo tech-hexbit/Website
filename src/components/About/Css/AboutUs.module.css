@@ -10,13 +10,13 @@
 }
 .left{
   width: 30%;
-  background-color: #1a1a1a;
+  /* background-color: #1a1a1a; */
   /* opacity: 0; */
   border-radius: 15px;
 }
 .left img{
   width: 100%;
-  opacity: 0.6;
+  /* opacity: 0.6; */
 }
 .right{
   width: 65%;
