@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet";
 import Header from "./../components/Home/Header";
 import WhoAreWe from "../components/Home/WhoAreWe";
 import WhyUs from "./../components/Home/WhyUs";
+import RegisterFooter from "./../components/Home/RegisterFooter";
 import Modern from "./../components/Home/Modern";
 
 export default function Home() {
@@ -22,6 +23,8 @@ export default function Home() {
         <Header />
         <WhoAreWe />
         <WhyUs />
+        <RegisterFooter />
+        <Modern />
       </div>
     </>
   );

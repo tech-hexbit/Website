@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 // components
-import RegisterFooter from "../components/footer/RegisterFooter";
+import RegisterFooter from "../components/Home/RegisterFooter";
 import PrivacyContent from "../components/privacy/PrivacyContent";
 
 const Privacy = () => {
