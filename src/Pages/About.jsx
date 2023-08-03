@@ -5,7 +5,7 @@ import AboutUs from "./../components/About/AboutUs";
 import Team from "../components/About/Team";
 import Business from "../components/About/Business";
 
-import image from "../assets";
+import image from "../assets/AboutUs/HEXBIT.png";
 
 export default function About() {
   // scroll to top
