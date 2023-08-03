@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 // Components
 import AboutUs from "./../components/About/AboutUs";
-import MissionText from "./../components/About/MissionText";
-import ContentBlock from "./../components/About/ContentBlock";
-import Founders from "./../components/About/Founders";
-import Advisors from "./../components/About/Advisors";
+import Team from "../components/About/Team";
+import Business from "../components/About/Business";
+
+import image from "../assets";
 
 export default function About() {
   // scroll to top
@@ -16,11 +16,10 @@ export default function About() {
 
   return (
     <div>
+      <img src={image} alt="" width="100%" />
       <AboutUs />
-      <MissionText />
-      <ContentBlock />
-      <Founders />
-      <Advisors />
+      <Team />
+      <Business />
     </div>
   );
 }
