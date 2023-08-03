@@ -1,6 +1,7 @@
 .mainCard{
     display: flex;
     font-family: "Rubik", sans-serif;
+    max-width: 650px;
     /* justify-content: space-around; */
 }
 .image{
@@ -43,12 +44,20 @@
     font-size: 36px;
   }
 }
-@media screen and (max-width:430px) {
+@media screen and (max-width:500px) {
+    .mainCard{
+        margin-left: -50px;
+    }
+}
+/* @media screen and (max-width:430px) {
     .mainCard{
         margin-left: -25px;
     }
-}
+} */
 @media screen and (max-width:400px) {
+    .mainCard{
+        margin-left: -60px;
+    }
     .details{
         padding: 0px 10px;
     }
@@ -56,7 +65,7 @@
         font-size: 30px;
     }
     .designation{
-        background-color: gray;
+        /* background-color: gray; */
         font-size: 12px;
     }
 }

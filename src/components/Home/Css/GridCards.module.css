@@ -16,6 +16,7 @@
   font-size: 14px;
   font-weight: 500;
   line-height: 32px;
+  text-align: justify;
   text-transform: capitalize;
 }
 
@@ -47,9 +48,6 @@
 }
 
 @media only screen and (max-width: 550px) {
-  .descPTag {
-    text-align: left;
-  }
   .titlePTag {
     width: 100%;
   }
@@ -64,9 +62,6 @@
   }
   .titlePTag {
     text-align: center;
-  }
-  .descPTag{
-    text-align: justify;
   }
 }
 
