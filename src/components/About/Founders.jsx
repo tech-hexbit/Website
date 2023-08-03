@@ -5,8 +5,8 @@ import TeamCss from "./Css/Founders.module.css";
 import Title from "../Home/Title";
 import TeamMemCard from "./TeamMemCard";
 
-import image1 from "../../assets/AboutUs/Team/AnujPrakash.png";
-import image2 from "../../assets/AboutUs/Team/TathagatChoudhary.png";
+import image1 from "../../assets/AboutUS/Team/AnujPrakash.png";
+import image2 from "../../assets/AboutUS/Team/TathagatChoudhary.png";
 
 export default function Team() {
   return (
