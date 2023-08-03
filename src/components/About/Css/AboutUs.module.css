@@ -1,5 +1,5 @@
 .mainDiv{
-  margin-top: -160px;
+  margin-top: -12%;
   font-family: "Rubik", sans-serif;
 }
 .part1{
@@ -69,4 +69,89 @@
   color: #000;
   font-size: 46px;
   font-weight: 600;
+}
+
+@media screen and (max-width:1120px) {
+  .head{
+    font-size: 36px;
+  } 
+  .aimDesc{
+    font-size: 36px;
+  }
+  .desc{
+    font-size: 20px;
+  }
+  .part2Desc{
+    font-size: 42px;
+  }
+}
+@media screen and (max-width:950px) {
+  .head{
+    font-size: 32px;
+  } 
+  .aimDesc{
+    font-size: 32px;
+  }
+  .desc{
+    font-size: 16px;
+  }
+  .registerSvg{
+    height: 30px;
+  }
+  .registerSvg svg{
+    height: 100%;
+  }
+  .part2Desc{
+    font-size: 36px;
+  }
+}
+@media screen and (max-width: 780px) {
+  .part1{
+    padding: 50px;
+  } 
+}
+@media screen and (max-width: 650px) {
+  .part1{
+    padding: 30px;
+  }
+  .left{
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .left img{
+    width: 95%;
+  }
+  .right{
+    width: 50%;
+  }
+  .aimDesc{
+    font-size: 28px;
+  }
+  .register{
+    margin-left: -10px;
+    padding-top: 5px;
+  }
+  .part2Desc{
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .part1{
+    flex-direction: column;
+  }
+  .left{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .left img{
+    width: 50%;
+  }
+  .right{
+    width: 100%;
+    padding-top: 10px;
+  }
 }

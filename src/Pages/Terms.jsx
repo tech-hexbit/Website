@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 // components
 import TermsContent from "../components/terms/TermsContent";
-import RegisterFooter from "../components/footer/RegisterFooter";
+import RegisterFooter from "../components/Home/RegisterFooter";
 
 const Terms = () => {
   // scroll to top

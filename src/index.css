@@ -42,10 +42,6 @@ body {
   display: none;
 }
 
-.active{
-  font-weight: bolder;
-}
-
 .dot {
   width: 50px !important;
   border-radius: 10px !important;

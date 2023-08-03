@@ -26,3 +26,23 @@
   gap: 10px;
   grid-template-columns: repeat(4,1fr);
 }
+@media screen and (max-width: 700px) {
+  .advisorList{
+  grid-template-columns: repeat(2,1fr);
+
+  }
+}
+@media screen and (max-width: 540px) {
+  .subHeading{
+    font-size: 48px;
+  }
+  .advisorHead{
+    font-size: 32px;
+    text-align: center;
+  }
+}
+@media screen and (max-width:430px){
+  .advisorList{
+    grid-template-columns: repeat(1,1fr);
+  }
+}

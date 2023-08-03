@@ -33,3 +33,31 @@
     padding: 10px 20px;
     width: 100%;
 }
+@media screen and (max-width: 850px){
+    .name{
+        width: 100%;
+    }
+  }
+@media screen and (max-width: 620px){
+  .name{
+    font-size: 36px;
+  }
+}
+@media screen and (max-width:430px) {
+    .mainCard{
+        background-color: red;
+        margin-left: -25px;
+    }
+}
+@media screen and (max-width:400px) {
+    .details{
+        padding: 0px 10px;
+    }
+    .name{
+        font-size: 30px;
+    }
+    .designation{
+        background-color: gray;
+        font-size: 12px;
+    }
+}

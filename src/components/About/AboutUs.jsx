@@ -33,7 +33,7 @@ export default function AboutUs() {
             leverage the growing digital commerce markets.
           </div>
           <div className={AbCss.register}>
-            <div>
+            <div className={AbCss.registerSvg}>
               <svg
                 width="48"
                 height="48"
