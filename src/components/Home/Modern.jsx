@@ -2,7 +2,7 @@ import React from "react";
 
 // img
 import phone from "../../assets/phone.png";
-import Group23 from "./../../assets/Group 23.png";
+// import Group23 from "./../../assets/Group 23.png";
 import Android from "./../../assets/Group 114.png";
 import Appstore from "./../../assets/Appstore.png";
 
