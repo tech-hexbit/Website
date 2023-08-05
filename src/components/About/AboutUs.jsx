@@ -7,7 +7,7 @@ import Title from "../Home/Title";
 import AbCss from "./Css/AboutUs.module.css";
 
 //images
-import logo from "../../assets/AboutUs/ParaImage.png";
+import logo from "../../assets/AboutUS/ParaImage.png";
 import img from "../../assets/AboutUs/aboutus.png";
 
 export default function AboutUs() {
