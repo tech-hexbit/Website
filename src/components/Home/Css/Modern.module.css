@@ -22,6 +22,9 @@
 
 .contentDiv {
   width: 50%;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
 }
 
 .Headline {
@@ -47,6 +50,7 @@
 
 .mobilImg {
   width: 40%;
+  display: flex;
   justify-content: center;
   align-items: center;
 }

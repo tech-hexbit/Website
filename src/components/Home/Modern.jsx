@@ -13,15 +13,17 @@ export default function Modern() {
   return (
     <div className={MCss.mDiv}>
       <div className={MCss.contentDiv}>
-        <p className={MCss.DigitalOcean}>Sellers Solution</p>
-        <p className={MCss.Headline}>Start Selling Faster, Growing Faster.</p>
-        <p className={MCss.Nowadays}>
-          An Application With All The Features A seller Needs. <br />
-          Available For Free On Google Appstore & Play Store.
-        </p>
-        <div className={MCss.downloadImages}>
-          <img src={Android} alt="Android" className={MCss.storeImg} />
-          <img src={Appstore} alt="Appstore" className={MCss.storeImg} />
+        <div>
+          <p className={MCss.DigitalOcean}>Sellers Solution</p>
+          <p className={MCss.Headline}>Start Selling Faster, Growing Faster.</p>
+          <p className={MCss.Nowadays}>
+            An Application With All The Features A seller Needs. <br />
+            Available For Free On Google Appstore & Play Store.
+          </p>
+          <div className={MCss.downloadImages}>
+            <img src={Android} alt="Android" className={MCss.storeImg} />
+            <img src={Appstore} alt="Appstore" className={MCss.storeImg} />
+          </div>
         </div>
       </div>
       <div className={MCss.mobilImg}>
