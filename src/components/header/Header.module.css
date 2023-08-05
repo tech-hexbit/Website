@@ -4,11 +4,10 @@
   padding: 15px 0px;
   align-items: center;
   justify-content: center;
-  /* background-color: #bf9fff; */
 }
 
 .mContDiv {
-  width: 80%;
+  width: 85%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -40,19 +39,28 @@
   color: white;
 }
 
+@media only screen and (max-width: 940px) {
+  .rightDiv {
+    gap: 0px 30px;
+    font-size: 14px;
+  }
+}
+
 @media only screen and (max-width: 900px) {
   .mContDiv {
     width: 90%;
   }
 
-  .rightDiv {
-    gap: 0px 30px;
-    font-size: 14px;
-  }
-
   .registerPTag {
     padding: 12px 22px;
     border-radius: 32px;
+  }
+}
+
+@media only screen and (max-width: 890px) {
+  .rightDiv {
+    gap: 0px 10px;
+    font-size: 12px;
   }
 }
 
@@ -71,6 +79,13 @@
   .registerPTag {
     padding: 7px 12px;
     border-radius: 22px;
+  }
+}
+
+@media only screen and (max-width: 590px) {
+  .rightDiv {
+    gap: 0px 10px;
+    font-size: 10px;
   }
 }
 

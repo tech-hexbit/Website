@@ -105,6 +105,12 @@
   line-height: 28.5px;
 }
 
+@media only screen and (max-width: 300px) {
+  .head2{
+    font-size: 42px;
+  }
+}
+
 @media only screen and (max-width: 400px) {
   .tripleGridItem{
     padding: 35px 0px;
