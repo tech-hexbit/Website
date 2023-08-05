@@ -8,7 +8,7 @@ import AbCss from "./Css/AboutUs.module.css";
 
 //images
 import logo from "../../assets/AboutUS/ParaImage.png";
-import img from "../../assets/AboutUs/aboutus.png";
+import img from "../../assets/AboutUS/aboutus.png";
 
 export default function AboutUs() {
   return (
