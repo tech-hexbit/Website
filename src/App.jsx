@@ -16,7 +16,7 @@ const SignIn = React.lazy(() => import("./Pages/SignIn"));
 import AuthContext from "./store/auth-context";
 import axios from "axios";
 
-import LoadingPage from "./MicroInteraction/LoadingPage";
+import LoadingPage from "./MicroInteraction/Loading";
 
 import Nav from "./components/header/Header";
 import Footer from "./components/footer/Footer";
