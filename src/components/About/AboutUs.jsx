@@ -7,7 +7,8 @@ import Title from "../Home/Title";
 import AbCss from "./Css/AboutUs.module.css";
 
 //images
-import img from "./../../assets/AboutUS/aboutus.png";
+import logo from "../../assets/AboutUs/ParaImage.png";
+import img from "../../assets/AboutUs/aboutus.png";
 
 export default function AboutUs() {
   return (
@@ -76,6 +77,9 @@ export default function AboutUs() {
         <div className={AbCss.part2Desc}>
           Hexbit.io Is a Revolutionary Full-Stack Solution. Enabling Sellers
           Across the Globe to Sell Online across Platforms and Networks
+        </div>
+        <div className={AbCss.part2Img}>
+          <img src={logo} alt="" />
         </div>
       </div>
       {/* <div></div> */}

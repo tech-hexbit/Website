@@ -41,11 +41,20 @@
 }
 .image{
     width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .image img{
     width: 100%;
 }
-@media screen and (max-width:900px) {
+@media screen and (min-width:1160px) {
+    .mainDiv{
+        padding: 150px 400px;
+    }
+    
+}
+@media screen and (max-width:960px) {
     .businessText{
         width: 50%;
     }
@@ -69,12 +78,20 @@
     }
 }
 @media screen and (max-width:700px) {
+    .mainDiv{
+        padding: 50px;
+    }
     .buttons{
         flex-direction: column;
     }
     .buttons button{
         width: 100%;
         margin-bottom: 10px;
+    }
+    .image{
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 @media screen and (max-width:650px) {

@@ -10,3 +10,9 @@
     grid-template-columns: repeat(1,1fr);
   }
 }
+
+@media screen and (max-width: 970px){
+  .gridDiv{
+    padding: 65px 30px;
+  }
+}
