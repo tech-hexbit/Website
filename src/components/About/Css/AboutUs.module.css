@@ -180,6 +180,9 @@
   .part1{
     flex-direction: column;
   }
+  .desc{
+    text-align: justify;
+  }
   .left{
     width: 100%;
     display: flex;
