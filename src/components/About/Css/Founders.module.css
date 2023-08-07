@@ -16,11 +16,11 @@
     padding: 65px 50px;
   }
 }
-/* @media screen and (max-width: 500px){
+@media screen and (max-width: 500px){
   .gridDiv{
-    padding: 65px;
+    padding: 65px 10px;
   }
-}*/
+}
 /* @media screen and (max-width: 430px){
   .gridDiv{
     padding: 65px 10px;
