@@ -13,6 +13,17 @@
 
 @media screen and (max-width: 970px){
   .gridDiv{
-    padding: 65px 30px;
+    padding: 65px 10px;
   }
 }
+/* @media screen and (max-width: 500px){
+  .gridDiv{
+    padding: 65px;
+  }
+}*/
+/* @media screen and (max-width: 430px){
+  .gridDiv{
+    padding: 65px 10px;
+    width: 100%;
+  }
+}  */

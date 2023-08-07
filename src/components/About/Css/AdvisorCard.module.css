@@ -34,3 +34,8 @@
 .company img{
     width: 50%;
 }
+@media screen and (max-width:780px){
+    .image{
+      height: 120px;
+    }
+  }

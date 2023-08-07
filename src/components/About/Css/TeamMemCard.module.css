@@ -52,7 +52,7 @@
 }
 @media screen and (max-width:500px) {
     .mainCard{
-        margin-left: -50px;
+        /* margin-left: -50px; */
     }
 }
 /* @media screen and (max-width:430px) {
@@ -64,9 +64,9 @@
     .image{
         height: 150px;
     }
-    .mainCard{
-        /* margin-left: -60px; */
-    }
+    /* .mainCard{
+        margin-left: 60px;
+    } */
     .details{
         padding: 0px 10px;
     }

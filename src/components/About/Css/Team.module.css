@@ -11,3 +11,8 @@
     padding: 30px;
   }
 }
+@media screen and (max-width: 450px) {
+  .mainDiv{
+    padding: 0px;
+  }
+}
