@@ -24,6 +24,7 @@
   color: #0B1B35;
   font-size: 40px;
   font-weight: 700;
+  margin-bottom: 10px;
 }
 .aimHead{
   color: #5925DC;
@@ -31,15 +32,18 @@
   font-weight: 600;
   letter-spacing: 0.4px;
   text-transform: uppercase;
+  margin-bottom: 10px;
 }
 .aimDesc{
   color: #1A1A1A;
   font-size: 40px;
   letter-spacing: -0.939px;
+  margin-bottom: 10px;
 }
 .desc{
   color: #767676;
   font-size: 24px;
+  margin-bottom: 10px;
 }
 .register{
   display: flex;
