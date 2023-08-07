@@ -135,7 +135,9 @@
 }
 @media screen and (max-width: 500px) {
     .buttons button{
-        padding: 10px 20px;
+        width: 150px;
+        padding: 10px 0px;
+        /* padding: 10px 20px; */
     }
 }
 @media screen and (max-width: 400px) {

@@ -3,7 +3,7 @@
 }
 @media screen and (max-width: 780px) {
   .mainDiv{
-    padding: 50px;
+    padding: 0px;
   } 
 }
 @media screen and (max-width: 650px) {
