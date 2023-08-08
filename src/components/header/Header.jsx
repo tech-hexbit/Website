@@ -20,11 +20,14 @@ const Header = () => {
           <NavLink to="/" className="LinkStyle">
             Home
           </NavLink>
+          <NavLink to="/AboutUs" className="LinkStyle">
+            <p>About Us</p>
+          </NavLink>
           <NavLink to="/contact" className="LinkStyle">
             <p>Contact Us</p>
           </NavLink>
-          <NavLink to="/AboutUs" className="LinkStyle">
-            <p>About Us</p>
+          <NavLink to="/signIn" className="LinkStyle">
+            <p>Login</p>
           </NavLink>
           <NavLink to="/register" className="LinkStyle">
             <p className={styles.registerPTag}>

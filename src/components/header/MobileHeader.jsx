@@ -49,13 +49,18 @@ const MobileHeader = () => {
           </Link>
         </div>
         <div className={style.mobileList} onClick={() => setCount(false)}>
+          <Link to="/AboutUs" className="LinkStyle">
+            <p>About Us</p>
+          </Link>
+        </div>
+        <div className={style.mobileList} onClick={() => setCount(false)}>
           <Link to="/contact" className="LinkStyle">
             <p>Contact Us</p>
           </Link>
         </div>
         <div className={style.mobileList} onClick={() => setCount(false)}>
-          <Link to="/AboutUs" className="LinkStyle">
-            <p>About Us</p>
+          <Link to="/signIn" className="LinkStyle">
+            <p>Login</p>
           </Link>
         </div>
         <div className={style.mobileList} onClick={() => setCount(false)}>

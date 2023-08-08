@@ -1,0 +1,39 @@
+.mainDiv{
+    padding: 0px 80px 50px 80px;
+    font-family: "Rubik", sans-serif;
+    display: flex;
+    justify-content: space-between;
+}
+.left{
+    width: 45%;
+}
+.right{
+    width: 50%;
+}
+.head{
+    color: #000;
+    font-size: 56px;
+    font-weight: 600;
+}
+.right{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.subHead{
+    color: #000;
+    text-align: justify;
+    font-size: 19px;
+}
+.points{
+    display: flex;
+    padding: 10px 0px;
+}
+.text{
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    color: #000;
+    font-size: 22px;
+    font-weight: 600;
+}

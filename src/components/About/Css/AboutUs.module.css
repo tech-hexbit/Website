@@ -57,22 +57,78 @@
   padding-left: 12px;
   cursor: pointer;
 }
-.part2{
-  padding: 64px;
+.part3{
   border: 10px solid transparent;
   border-image: linear-gradient(to left, rgba(22, 31, 228, 0.3),rgba(255, 255, 255, 0.3));
   border-image-slice: 1;
   border-left: 0;
   border-right: 0;
+  padding: 30px 60px;
+}
+.part3Top{
+  /* background-color: green; */
+  /* display: flex; */
+  display: grid;
+  grid-template-columns: repeat(3,40%);
+  gap: 10px;
+}
+.topHead{
+  color: #000;
+  font-size: 40px;
+  font-weight: 600;
+}
+.topSubHead{
+  color: #252525;
+  font-size: 16px;
+  line-height: 32px;
+  font-weight: 300;
+  text-transform: capitalize;
+  width: 90%;
+}
+.buyer{
+  padding-bottom: 100px;
+}
+.blHead{
+  color: #595959;
+  text-align: center;
+  font-size: 16px;
+  padding-bottom: 20px;
+}
+.blImages{
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  column-gap: 100px;
+}
+.img img{
+  width: 100%;
+}
+#yatraDiv{
+  width: min-content;
+}
+#yatra{
+  height: 45px;
+  width: 45px;
+}
+.part2{
+  padding: 64px;
+  /* border: 10px solid transparent;
+  border-image: linear-gradient(to left, rgba(22, 31, 228, 0.3),rgba(255, 255, 255, 0.3));
+  border-image-slice: 1;
+  border-left: 0;
+  border-right: 0; */
   display: flex;
 }
 .part2Desc{
   color: #000;
   font-size: 46px;
-  font-weight: 600;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: right;
+}
+span{
+  color: #350B5E;
+  font-weight: 600;
 }
 .part2Img{
   width: 50%;
