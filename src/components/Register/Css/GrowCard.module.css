@@ -1,0 +1,21 @@
+.mainDiv{
+    font-family: "Rubik", sans-serif;
+    display: flex;
+}
+.image{
+    height: 50px;
+}
+.image img{
+    height: 80%;
+}
+.details{
+    padding-left: 10px;
+}
+.heading{
+    font-size: 20px;
+    font-weight: 700;
+}
+.subHead{
+    padding-top: 5px;
+    font-size: 16px;
+}
