@@ -1,3 +1,6 @@
+import { useState } from "react";
+import axios from "axios";
+
 // icon
 import mail from "./../../assets/AboutUS/Icon.svg";
 import Icon_Call from "./../../assets/AboutUS/Icon_call.svg";
@@ -7,36 +10,50 @@ import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import styles from "./Css/ContactForm.module.css";
 
 const ContactForm = () => {
+  const [input, setInput] = useState({
+    name: "",
+    email: "",
+    CompanyName: "",
+    subject: "",
+    message: "",
+  });
+  const [error, setError] = useState("");
+
+  const sendData = async () => {
+    // console.log(input);
+    if (
+      input.name == "" ||
+      input.email == "" ||
+      input.CompanyName == "" ||
+      input.subject == "" ||
+      input.message == ""
+    ) {
+      setError("Please fill all the fields!");
+    } else {
+      try {
+        const response = await axios.post(
+          "http://localhost:8000/api/website/ContactUs",
+          input
+        );
+        console.log(response);
+        setError("");
+        setInput({
+          name: "",
+          email: "",
+          CompanyName: "",
+          subject: "",
+          message: "",
+        });
+        window.scrollTo(0, 0);
+      } catch (err) {
+        console.log(err);
+        setError("Unexpected error occured!");
+      }
+    }
+  };
+
   return (
     <>
-      {/* <div className={styles.heading}>Contact us</div> */}
-
-      {/* <div className={styles.group}>
-        <div className={styles.left}>
-          <form action="">
-            <input name="" type="text" placeholder="Name" />
-            <input name="" type="text" placeholder="Email" />
-            <input name="" type="text" placeholder="Contact number" />
-            <textarea
-              name=""
-              id=""
-              cols="30"
-              rows="10"
-              placeholder="Description"
-            ></textarea>
-            <button type="submit">Submit</button>
-          </form>
-        </div>
-        <div className={styles.right}>
-          <p>or drop a mail at</p>
-          <h2>
-            <a href="mailto:info@hexbit.io">info@hexbit.io</a>
-            <br />
-            <a href="mailto:contact@hexbit.io">contact@hexbit.io</a>
-          </h2>
-        </div>
-      </div> */}
-
       <div className={styles.mDiv}>
         <div className={styles.leftDiv}>
           <p className={styles.HexbitPMainTag}>
@@ -104,6 +121,10 @@ const ContactForm = () => {
               name="FirstName"
               id="FirstName"
               placeholder="John David"
+              value={input.name}
+              onChange={(e) => {
+                setInput({ ...input, name: e.target.value });
+              }}
             />
           </div>
           {/* Email */}
@@ -114,6 +135,10 @@ const ContactForm = () => {
               name="Email"
               id="Email"
               placeholder="example@yourmail.com"
+              value={input.email}
+              onChange={(e) => {
+                setInput({ ...input, email: e.target.value });
+              }}
             />
           </div>
           {/* Company */}
@@ -124,6 +149,10 @@ const ContactForm = () => {
               name="Company"
               id="Company"
               placeholder="your company name here"
+              value={input.CompanyName}
+              onChange={(e) => {
+                setInput({ ...input, CompanyName: e.target.value });
+              }}
             />
           </div>
           {/* Subject */}
@@ -134,6 +163,10 @@ const ContactForm = () => {
               name="Subject"
               id="Subject"
               placeholder="How can we Help"
+              value={input.subject}
+              onChange={(e) => {
+                setInput({ ...input, subject: e.target.value });
+              }}
             />
           </div>
           {/* Message */}
@@ -145,10 +178,15 @@ const ContactForm = () => {
               cols="30"
               rows="10"
               placeholder="Hello there, I would like to talk about how to..."
+              value={input.message}
+              onChange={(e) => {
+                setInput({ ...input, message: e.target.value });
+              }}
             ></textarea>
           </div>
+          <div className={styles.error}>{error}</div>
           <div className={styles.SendMessage}>
-            <button>Send Message</button>
+            <button onClick={sendData}>Send Message</button>
           </div>
         </div>
       </div>
