@@ -25,28 +25,28 @@ export default function RegisterMain() {
           network
         </div>
         <div className={RFCss.points}>
-          <div>
+          <div className={RFCss.growCard}>
             <GrowCard
               image={icon1}
               heading="MORE BUYERS"
               subHead="Access to the entire buyer universe"
             />
           </div>
-          <div>
+          <div className={RFCss.growCard}>
             <GrowCard
               image={icon2}
               heading="ZERO COST"
               subHead="No upfront cost to get started"
             />
           </div>
-          <div>
+          <div className={RFCss.growCard}>
             <GrowCard
               image={icon3}
               heading="EASY TO USE"
               subHead="Start selling in no time"
             />
           </div>
-          <div>
+          <div className={RFCss.growCard}>
             <GrowCard
               image={icon4}
               heading="GROW TOUR BUSINESS"

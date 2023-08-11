@@ -31,3 +31,32 @@ span{
   flex-direction: column;
   gap: 50px;
 }
+@media screen and (max-width:840px) {
+  .left{
+    padding: 40px;
+  }
+}
+@media screen and (max-width:700px) {
+  .mainDiv{
+    flex-direction: column;
+  }
+  .left,.right{
+    width: 100%;
+  }
+  .points{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    /* flex-direction: row; */
+  }
+  .growCard{
+    /* width: 50%; */
+  }
+}
+@media screen and (max-width:450px) {
+  .subHead{
+    padding-top: 40px;
+  }
+  .points{
+    grid-template-columns: repeat(1,1fr);
+  }
+}

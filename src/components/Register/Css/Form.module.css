@@ -79,3 +79,29 @@ label{
 span{
     color: #350B5E;
 }
+@media screen and (max-width:1200px) {
+    .otpText{
+        width: 55%;
+    }
+}
+@media screen and (max-width:1000px) {
+    .otp{
+        flex-direction: column;
+    }
+    .otpText{
+        width: 100%;
+    }
+    .otpButton button{
+        width: 100%;
+        padding: 10px 0px;
+        margin-top: 10px;
+    }
+}
+@media screen and (max-width:840px) {
+    .mainDiv{
+        margin: 20px 30px 20px 20px;
+    }
+    .form{
+        padding-left: 0px;
+    }
+}
