@@ -1,55 +1,66 @@
-.mainDiv{
+.mainDiv {
     background-color: white;
     margin: 40px;
     padding: 50px;
     border-radius: 25px;
 }
-.top{
+
+.top {
     /* background-color: green; */
 }
-.head{
+
+.head {
     font-family: "Rubik", sans-serif;
     font-size: 24px;
     font-weight: 700;
     letter-spacing: 0.24px;
 }
-.subHead{
+
+.subHead {
     color: #555;
     font-size: 18px;
     letter-spacing: 0.18px;
     padding-top: 15px;
 }
-.form{
+
+.form {
     /* background-color: green; */
     padding-top: 48px;
     padding-left: 84px;
 }
-.formInputs{
+
+.formInputs {
     /* background-color: red; */
     display: flex;
     flex-direction: column;
     padding-bottom: 30px;
 }
-.phoneInput{
+
+.phoneInput {
     padding-bottom: 30px;
 }
-input{
+
+input {
     border-radius: 5px;
     border: 1px solid #DDD;
     background: transparent;
     padding: 10px;
 }
-label{
+
+label {
     padding-bottom: 10px;
 }
-.otp{
+
+.otp {
     display: flex;
     justify-content: space-between;
 }
-.otpText{
+
+.otpText {
     width: 70%;
 }
-.otpButton button{
+
+.otpButton button {
     border: none;
     border-radius: 5px;
     background: #350B5E;
@@ -59,14 +70,17 @@ label{
     padding: 0px 15px;
     cursor: pointer;
 }
-.otp input{
+
+.otp input {
     width: 100%;
 }
-.button{
+
+.button {
     display: flex;
     justify-content: space-between;
 }
-.button button{
+
+.button button {
     border-radius: 5px;
     border: 1px solid #3F81E0;
     background: #350B5E;
@@ -76,32 +90,39 @@ label{
     padding: 10px 30px;
     cursor: pointer;
 }
-span{
+
+span {
     color: #350B5E;
 }
+
 @media screen and (max-width:1200px) {
-    .otpText{
+    .otpText {
         width: 55%;
     }
 }
+
 @media screen and (max-width:1000px) {
-    .otp{
+    .otp {
         flex-direction: column;
     }
-    .otpText{
+
+    .otpText {
         width: 100%;
     }
-    .otpButton button{
+
+    .otpButton button {
         width: 100%;
         padding: 10px 0px;
         margin-top: 10px;
     }
 }
+
 @media screen and (max-width:840px) {
-    .mainDiv{
+    .mainDiv {
         margin: 20px 30px 20px 20px;
     }
-    .form{
+
+    .form {
         padding-left: 0px;
     }
 }
