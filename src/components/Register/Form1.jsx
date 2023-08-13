@@ -24,7 +24,7 @@ export default function Form1(props) {
               <input type="text" name="" id="" />
             </div>
             <div className={FCss.otpButton}>
-              <button>Send otp</button>
+              <button>Send OTP</button>
             </div>
           </div>
         </div>
