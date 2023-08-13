@@ -36,11 +36,23 @@
     padding-bottom: 30px;
 }
 
+.formInputs input::-webkit-outer-spin-button,
+.formInputs input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+.formInputs input[type=number] {
+    -moz-appearance: textfield;
+}
+
 .phoneInput {
     padding-bottom: 30px;
 }
 
 input {
+    outline: none;
     border-radius: 5px;
     border: 1px solid #DDD;
     background: transparent;
