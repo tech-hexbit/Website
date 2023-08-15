@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // components
 import { Alert } from "./../../../../MicroInterAction/Alert";
@@ -15,13 +15,21 @@ import axios from "axios";
 import styles from "./Css/ContactForm.module.css";
 
 const ContactForm = () => {
-  const [error, setError] = useState("");
+  // const [error, setError] = useState("");
   const [input, setInput] = useState({
     name: "",
     email: "",
     CompanyName: "",
     subject: "",
     message: "",
+  });
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
   });
 
   const sendData = async () => {
@@ -32,7 +40,14 @@ const ContactForm = () => {
       input.subject == "" ||
       input.message == ""
     ) {
-      setError("Please fill all the fields!");
+      setError({
+        mainColor: "#FFC0CB",
+        secondaryColor: "#FF69B4",
+        symbol: "pets",
+        title: "Check it out",
+        text: "Please Fill All The Details",
+        val: true,
+      });
     } else {
       try {
         const response = await axios.post("/api/website/ContactUs", input);
@@ -52,6 +67,19 @@ const ContactForm = () => {
       }
     }
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setError({
+        mainColor: "",
+        secondaryColor: "",
+        symbol: "",
+        title: "",
+        text: "",
+        val: false,
+      });
+    }, 10000);
+  }, [variants]);
 
   return (
     <>
@@ -191,6 +219,8 @@ const ContactForm = () => {
           </div>
         </div>
       </div>
+
+      <Alert variant={variants} val={setError} />
     </>
   );
 };
