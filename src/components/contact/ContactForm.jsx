@@ -1,4 +1,6 @@
 import { useState } from "react";
+
+// axios
 import axios from "axios";
 
 // icon
@@ -10,6 +12,7 @@ import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import styles from "./Css/ContactForm.module.css";
 
 const ContactForm = () => {
+  const [error, setError] = useState("");
   const [input, setInput] = useState({
     name: "",
     email: "",
@@ -17,10 +20,8 @@ const ContactForm = () => {
     subject: "",
     message: "",
   });
-  const [error, setError] = useState("");
 
   const sendData = async () => {
-    // console.log(input);
     if (
       input.name == "" ||
       input.email == "" ||
@@ -31,10 +32,7 @@ const ContactForm = () => {
       setError("Please fill all the fields!");
     } else {
       try {
-        const response = await axios.post(
-          "http://localhost:8000/api/website/ContactUs",
-          input
-        );
+        const response = await axios.post("/api/website/ContactUs", input);
         console.log(response);
         setError("");
         setInput({
