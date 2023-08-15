@@ -15,7 +15,6 @@ import axios from "axios";
 import styles from "./Css/ContactForm.module.css";
 
 const ContactForm = () => {
-  // const [error, setError] = useState("");
   const [input, setInput] = useState({
     name: "",
     email: "",
