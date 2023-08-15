@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 // css
 import style from "./MobileHeader.module.css";
@@ -38,31 +38,31 @@ const MobileHeader = () => {
         id={count ? style.visible : style.notVisible}
       >
         <div className={style.mobileList} onClick={() => setCount(false)}>
-          <Link to="/" className="LinkStyle">
+          <NavLink to="/" className="LinkStyle">
             <p>Home</p>
-          </Link>
+          </NavLink>
         </div>
         <div className={style.mobileList} onClick={() => setCount(false)}>
-          <Link to="/AboutUs" className="LinkStyle">
+          <NavLink to="/AboutUs" className="LinkStyle">
             <p>About Us</p>
-          </Link>
+          </NavLink>
         </div>
         <div className={style.mobileList} onClick={() => setCount(false)}>
-          <Link to="/contact" className="LinkStyle">
+          <NavLink to="/contact" className="LinkStyle">
             <p>Contact Us</p>
-          </Link>
+          </NavLink>
         </div>
         <div className={style.mobileList} onClick={() => setCount(false)}>
-          <Link to="/signIn" className="LinkStyle">
+          <NavLink to="/signIn" className="LinkStyle">
             <p>Login</p>
-          </Link>
+          </NavLink>
         </div>
         <div className={style.mobileList} onClick={() => setCount(false)}>
-          <Link to="/register" className="LinkStyle">
+          <NavLink to="/register" className="LinkStyle">
             <p>
               <b>Register for free</b>
             </p>
-          </Link>
+          </NavLink>
         </div>
       </div>
     </div>
