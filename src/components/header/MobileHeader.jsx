@@ -30,10 +30,7 @@ const MobileHeader = () => {
         </div>
 
         <Link to="/" className="LinkStyle" onClick={() => setCount(false)}>
-          {/* <div className={style.navHeadImg}> */}
-          {/* HEXBIT.io */}
           <img src={imgLogo} alt="" className={style.imgLogo} />
-          {/* </div> */}
         </Link>
 
         <div></div>
