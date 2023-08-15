@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 
 // components
+import WhyUs from "./../components/Home/WhyUs";
+import Modern from "./../components/Home/Modern";
 import Header from "./../components/Home/Header";
 import WhoAreWe from "../components/Home/WhoAreWe";
-import WhyUs from "./../components/Home/WhyUs";
 import RegisterFooter from "./../components/Home/RegisterFooter";
-import Modern from "./../components/Home/Modern";
 
 export default function Home() {
   // scroll to top

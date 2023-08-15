@@ -1,20 +1,17 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 // css
 import style from "./MobileHeader.module.css";
 
-import imgLogo from "./../../assets/logo/Hexbit 2.png";
+import imgLogo from "./../../assets/logo/HexbitLogo.png";
 
 const MobileHeader = () => {
   const [count, setCount] = useState(false);
 
   return (
     <div className={style.mobileNav}>
-      <nav
-        className={style.logoSign}
-        id={count ? style.logoVisible : style.logoNotVisible}
-      >
+      <nav className={style.logoSign}>
         <div className={style.navToggleDiv}>
           {count ? (
             <div onClick={() => setCount(false)}>
@@ -30,10 +27,7 @@ const MobileHeader = () => {
         </div>
 
         <Link to="/" className="LinkStyle" onClick={() => setCount(false)}>
-          <div className={style.navHeadImg}>
-            {/* HEXBIT.io */}
-            <img src={imgLogo} alt="" />
-          </div>
+          <img src={imgLogo} alt="" className={style.imgLogo} />
         </Link>
 
         <div></div>
@@ -44,31 +38,29 @@ const MobileHeader = () => {
         id={count ? style.visible : style.notVisible}
       >
         <div className={style.mobileList} onClick={() => setCount(false)}>
-          <Link to="/" className="LinkStyle">
+          <NavLink to="/" className="LinkStyle">
             <p>Home</p>
-          </Link>
+          </NavLink>
         </div>
         <div className={style.mobileList} onClick={() => setCount(false)}>
-          <Link to="/AboutUs" className="LinkStyle">
+          <NavLink to="/AboutUs" className="LinkStyle">
             <p>About Us</p>
-          </Link>
+          </NavLink>
         </div>
         <div className={style.mobileList} onClick={() => setCount(false)}>
-          <Link to="/contact" className="LinkStyle">
+          <NavLink to="/contact" className="LinkStyle">
             <p>Contact Us</p>
-          </Link>
+          </NavLink>
         </div>
         <div className={style.mobileList} onClick={() => setCount(false)}>
-          <Link to="/signIn" className="LinkStyle">
+          <NavLink to="/signIn" className="LinkStyle">
             <p>Login</p>
-          </Link>
+          </NavLink>
         </div>
         <div className={style.mobileList} onClick={() => setCount(false)}>
-          <Link to="/register" className="LinkStyle">
-            <p>
-              <b>Register for free</b>
-            </p>
-          </Link>
+          <NavLink to="/register" className="LinkStyle">
+            <p id={style.Register}>Register for free</p>
+          </NavLink>
         </div>
       </div>
     </div>

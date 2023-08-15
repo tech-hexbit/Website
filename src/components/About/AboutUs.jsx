@@ -9,18 +9,18 @@ import AbCss from "./Css/AboutUs.module.css";
 //images
 import logo from "../../assets/AboutUS/ParaImage.png";
 import img from "../../assets/AboutUS/aboutus.png";
-import buyer1 from "../../assets/AboutUs/companies/buyer/company1.png";
-import buyer2 from "../../assets/AboutUs/companies/buyer/company2.png";
-import buyer3 from "../../assets/AboutUs/companies/buyer/company3.png";
-import buyer4 from "../../assets/AboutUs/companies/buyer/company4.png";
-import buyer5 from "../../assets/AboutUs/companies/buyer/company5.png";
-import buyer6 from "../../assets/AboutUs/companies/buyer/company6.png";
-import logistics1 from "../../assets/AboutUs/companies/logistics/company1.png";
-import logistics2 from "../../assets/AboutUs/companies/logistics/company2.png";
-import logistics3 from "../../assets/AboutUs/companies/logistics/company3.png";
-import logistics4 from "../../assets/AboutUs/companies/logistics/company4.png";
-import logistics5 from "../../assets/AboutUs/companies/logistics/company5.png";
-import logistics6 from "../../assets/AboutUs/companies/logistics/company6.png";
+import buyer1 from "../../assets/AboutUS/companies/buyer/company1.png";
+import buyer2 from "../../assets/AboutUS/companies/buyer/company2.png";
+import buyer3 from "../../assets/AboutUS/companies/buyer/company3.png";
+import buyer4 from "../../assets/AboutUS/companies/buyer/company4.png";
+import buyer5 from "../../assets/AboutUS/companies/buyer/company5.png";
+import buyer6 from "../../assets/AboutUS/companies/buyer/company6.png";
+import logistics1 from "../../assets/AboutUS/companies/logistics/company1.png";
+import logistics2 from "../../assets/AboutUS/companies/logistics/company2.png";
+import logistics3 from "../../assets/AboutUS/companies/logistics/company3.png";
+import logistics4 from "../../assets/AboutUS/companies/logistics/company4.png";
+import logistics5 from "../../assets/AboutUS/companies/logistics/company5.png";
+import logistics6 from "../../assets/AboutUS/companies/logistics/company6.png";
 
 export default function AboutUs() {
   return (
