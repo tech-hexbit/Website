@@ -20,13 +20,11 @@
 }
 
 .form {
-  /* background-color: green; */
   padding-top: 48px;
   padding-left: 84px;
 }
 
 .formInputs {
-  /* background-color: red; */
   display: flex;
   flex-direction: column;
   padding-bottom: 30px;
