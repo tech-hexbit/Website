@@ -5,7 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 import styles from "./Header.module.css";
 
 // img
-import imgLogo from "./../../assets/logo/Hexbit 2.png";
+import imgLogo from "./../../assets/logo/HexbitLogo.png";
 
 const Header = () => {
   return (
