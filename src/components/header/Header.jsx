@@ -13,7 +13,6 @@ const Header = () => {
       <div className={styles.mContDiv}>
         <Link to="/" className="LinkStyle">
           <div className={styles.titleP}>
-            {/* HEXBIT.io */}
             <img src={imgLogo} alt="" className={styles.imgLogo} />
           </div>
         </Link>
