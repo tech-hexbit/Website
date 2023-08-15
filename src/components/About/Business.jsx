@@ -2,7 +2,8 @@ import React from "react";
 
 import BCss from "./Css/Business.module.css";
 
-import image from "./../../assets/AboutUS/contactUs.png";
+// import image from "./../../assets/AboutUS/contactUs.png";
+import image from "./../../assets/AboutUS/Imagebusiness.png";
 import { Link } from "react-router-dom";
 
 export default function Business() {

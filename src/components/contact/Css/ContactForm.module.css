@@ -169,6 +169,12 @@
   font-weight: 400;
 }
 
+.error{
+  text-align: center;
+  color: red;
+  font-weight: bold;
+}
+
 @media only screen and (max-width: 980px) {
   .mDiv {
     flex-direction: column;

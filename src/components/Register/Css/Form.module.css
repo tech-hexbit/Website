@@ -1,0 +1,134 @@
+.mainDiv {
+  background-color: white;
+  margin: 40px;
+  padding: 50px;
+  border-radius: 25px;
+}
+
+.head {
+  font-family: "Rubik", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.24px;
+}
+
+.subHead {
+  color: #555;
+  font-size: 18px;
+  letter-spacing: 0.18px;
+  padding-top: 15px;
+}
+
+.form {
+  padding-top: 48px;
+  padding-left: 84px;
+}
+
+.formInputs {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 30px;
+}
+
+.formInputs input::-webkit-outer-spin-button,
+.formInputs input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.formInputs input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.phoneInput {
+  padding-bottom: 30px;
+}
+
+input {
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  background: transparent;
+  padding: 10px;
+}
+
+label {
+  padding-bottom: 10px;
+}
+
+.otp {
+  display: flex;
+  justify-content: space-between;
+}
+
+.otpText {
+  width: 70%;
+}
+
+.otpButton button {
+  border: none;
+  border-radius: 5px;
+  background: #350b5e;
+  color: #fff;
+  font-size: 16px;
+  height: 100%;
+  padding: 0px 15px;
+  cursor: pointer;
+}
+
+.otp input {
+  width: 100%;
+}
+
+.button {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button button {
+  border-radius: 5px;
+  border: 1px solid #3f81e0;
+  background: #350b5e;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  padding: 10px 30px;
+  cursor: pointer;
+}
+
+span {
+  color: #350b5e;
+}
+
+@media screen and (max-width: 1200px) {
+  .otpText {
+    width: 55%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .otp {
+    flex-direction: column;
+  }
+
+  .otpText {
+    width: 100%;
+  }
+
+  .otpButton button {
+    width: 100%;
+    padding: 10px 0px;
+    margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 840px) {
+  .mainDiv {
+    margin: 20px 30px 20px 20px;
+  }
+
+  .form {
+    padding-left: 0px;
+  }
+}

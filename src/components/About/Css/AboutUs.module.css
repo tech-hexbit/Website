@@ -57,22 +57,78 @@
   padding-left: 12px;
   cursor: pointer;
 }
-.part2{
-  padding: 64px;
+.part3{
   border: 10px solid transparent;
   border-image: linear-gradient(to left, rgba(22, 31, 228, 0.3),rgba(255, 255, 255, 0.3));
   border-image-slice: 1;
   border-left: 0;
   border-right: 0;
+  padding: 30px 60px;
+}
+.part3Top{
+  /* background-color: green; */
+  /* display: flex; */
+  display: grid;
+  grid-template-columns: repeat(3,40%);
+  gap: 10px;
+}
+.topHead{
+  color: #000;
+  font-size: 40px;
+  font-weight: 600;
+}
+.topSubHead{
+  color: #252525;
+  font-size: 16px;
+  line-height: 32px;
+  font-weight: 300;
+  text-transform: capitalize;
+  width: 90%;
+}
+.buyer{
+  padding-bottom: 100px;
+}
+.blHead{
+  color: #595959;
+  text-align: center;
+  font-size: 16px;
+  padding-bottom: 20px;
+}
+.blImages{
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  column-gap: 100px;
+}
+.img img{
+  width: 100%;
+}
+#yatraDiv{
+  width: min-content;
+}
+#yatra{
+  height: 45px;
+  width: 45px;
+}
+.part2{
+  padding: 64px;
+  /* border: 10px solid transparent;
+  border-image: linear-gradient(to left, rgba(22, 31, 228, 0.3),rgba(255, 255, 255, 0.3));
+  border-image-slice: 1;
+  border-left: 0;
+  border-right: 0; */
   display: flex;
 }
 .part2Desc{
   color: #000;
   font-size: 46px;
-  font-weight: 600;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: right;
+}
+span{
+  color: #350B5E;
+  font-weight: 600;
 }
 .part2Img{
   width: 50%;
@@ -206,5 +262,48 @@
   .part2Desc{
     padding-top: 10px;
     text-align: center;
+  }
+}
+@media screen and (max-width:950px) {
+  .part3Top{
+    grid-template-columns: repeat(2,1fr);
+  }
+  .topHead{
+    width: 100%;
+  }
+  .topSubHead{
+    width: 100%;
+  }
+  .blImages{
+    column-gap: 50px;
+  }
+}
+@media screen and (max-width:800px) {
+  .blImages{
+    column-gap: 25px;
+  }
+}
+@media screen and (max-width:650px) {
+  .part3Top{
+    grid-template-columns: repeat(1,1fr);
+  }
+  .blImages{
+    grid-template-columns: repeat(3,1fr);
+    column-gap: 80px;
+    row-gap: 20px;
+  }
+}
+@media screen and (max-width:500px) {
+  .blImages{
+    column-gap: 40px;
+  }
+}
+@media screen and (max-width:400px) {
+  .blImages{
+    grid-template-columns: repeat(2,1fr);
+    row-gap: 30px;
+  }
+  .part3{
+    padding-left: 40px;
   }
 }

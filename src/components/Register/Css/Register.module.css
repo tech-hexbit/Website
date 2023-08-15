@@ -1,69 +1,62 @@
-.mDIv {
-  padding-top: 70px;
-  margin: 0px 0px 70px 0px;
-  text-align: center;
+.mainDiv {
   font-family: "Rubik", sans-serif;
-  font-size: 52px;
-  font-weight: bold;
-  color: #350b5e;
-}
-
-.formmDiv {
+  background: linear-gradient(90deg, rgba(188, 20, 226, 0.2) 0%, rgba(63, 130, 224, 0.2) 100%);
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 15px 0px;
-  padding-bottom: 100px;
 }
-
-.rowDiv {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0px 14px;
-  width: 70%;
-}
-
-.inpTag {
+.left,.right{
   width: 50%;
 }
-
-.inpTagFull {
-  width: 70%;
+.left{
+  padding: 80px;
+  background-image: url("../../../assets/register/background.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
-
-.inpTag,
-.inpTagFull {
-  outline: none;
-  padding: 10px 8px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #707070;
-  border-radius: 8px;
+.heading{
+  color: #090808;
+  font-size: 32.74px;
+  font-weight: 700;
 }
-
-.inpTag::placeholder,
-.inpTagFull::placeholder {
-  font-family: "Rubik", sans-serif;
+span{
+  color: #350B5E;
 }
-
-.createAccount {
-  font-family: "Rubik", sans-serif;
-  width: 70%;
+.subHead{
   font-size: 18px;
-  border-width: 0px;
-  padding: 10px 8px;
-  background-color: #350b5e;
-  color: #fff;
-  border-radius: 8px;
-  cursor: pointer;
+  padding-top: 80px;
 }
-
-@media only screen and (max-width: 500px) {
-  .mDIv {
-    padding: 50px 15px 0px 15px;
-    margin: 0px 0px 50px 0px;
-    font-size: 42px;
+.points{
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+@media screen and (max-width:840px) {
+  .left{
+    padding: 40px;
+  }
+}
+@media screen and (max-width:700px) {
+  .mainDiv{
+    flex-direction: column;
+  }
+  .left,.right{
+    width: 100%;
+  }
+  .points{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    /* flex-direction: row; */
+  }
+  .growCard{
+    /* width: 50%; */
+  }
+}
+@media screen and (max-width:450px) {
+  .subHead{
+    padding-top: 40px;
+  }
+  .points{
+    grid-template-columns: repeat(1,1fr);
   }
 }

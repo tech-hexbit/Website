@@ -1,0 +1,86 @@
+.mainDiv{
+    padding: 0px 80px 50px 80px;
+    font-family: "Rubik", sans-serif;
+    display: flex;
+    justify-content: space-between;
+}
+.left{
+    width: 45%;
+}
+.right{
+    width: 50%;
+}
+.head{
+    color: #000;
+    font-size: 56px;
+    font-weight: 600;
+}
+.right{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.subHead{
+    color: #000;
+    text-align: justify;
+    font-size: 19px;
+}
+.points{
+    display: flex;
+    padding: 10px 0px;
+}
+.text{
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    color: #000;
+    font-size: 22px;
+    font-weight: 600;
+}
+@media screen and (max-width:1130px) {
+    .right{
+        width: 55%;
+    }
+}
+@media screen and (max-width:1024px) {
+    .head{
+        font-size: 50px;
+    }
+}
+@media screen and (max-width:850px) {
+    .mainDiv{
+        flex-direction: column;
+        padding: 0px 50px 50px 50px;
+    }
+    .left,.right{
+        width: 100%;
+    }
+}
+@media screen and (max-width:650px) {
+    .mainDiv{
+        padding: 0px 0px 50px 0px;
+    }
+}
+@media screen and (max-width:450px) {
+    .mainDiv{
+        padding: 0px 10px 50px 10px;
+    }
+    .head{
+        font-size: 42px;
+    }
+    .subHead{
+        font-size: 16px;
+    }
+    .text{
+        font-size: 18px;
+    }
+}
+@media screen and (max-width:430px) {
+    .right{
+        flex-direction: column;
+        gap: 10px;
+    }
+    .head{
+        font-size: 36px;
+    }
+}

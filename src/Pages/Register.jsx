@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 
 // components
-import RegisterHeader from "../components/Register/RegisterHeader";
-import RegisterForm from "../components/Register/RegisterForm";
+// import RegisterHeader from "../components/Register/RegisterHeader";
+import RegisterMain from "../components/Register/RegisterMain";
 
 export default function Register() {
   // scroll to top
@@ -11,9 +11,9 @@ export default function Register() {
   }, []);
 
   return (
-    <div className="registerDivMain">
-      <RegisterHeader />
-      <RegisterForm />
+    <div>
+      {/* <RegisterHeader /> */}
+      <RegisterMain />
     </div>
   );
 }

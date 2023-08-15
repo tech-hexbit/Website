@@ -9,6 +9,18 @@ import AbCss from "./Css/AboutUs.module.css";
 //images
 import logo from "../../assets/AboutUS/ParaImage.png";
 import img from "../../assets/AboutUS/aboutus.png";
+import buyer1 from "../../assets/AboutUs/companies/buyer/company1.png";
+import buyer2 from "../../assets/AboutUs/companies/buyer/company2.png";
+import buyer3 from "../../assets/AboutUs/companies/buyer/company3.png";
+import buyer4 from "../../assets/AboutUs/companies/buyer/company4.png";
+import buyer5 from "../../assets/AboutUs/companies/buyer/company5.png";
+import buyer6 from "../../assets/AboutUs/companies/buyer/company6.png";
+import logistics1 from "../../assets/AboutUs/companies/logistics/company1.png";
+import logistics2 from "../../assets/AboutUs/companies/logistics/company2.png";
+import logistics3 from "../../assets/AboutUs/companies/logistics/company3.png";
+import logistics4 from "../../assets/AboutUs/companies/logistics/company4.png";
+import logistics5 from "../../assets/AboutUs/companies/logistics/company5.png";
+import logistics6 from "../../assets/AboutUs/companies/logistics/company6.png";
 
 export default function AboutUs() {
   return (
@@ -73,10 +85,75 @@ export default function AboutUs() {
           </div>
         </div>
       </div>
+      <div className={AbCss.part3}>
+        <div className={AbCss.part3Top}>
+          <div className={AbCss.topHead}>
+            Healthy Pipeline of Network Participants (Via ONDC)
+          </div>
+          <div className={AbCss.topSubHead}>
+            Unlocking the power of ONDC: Forge ahead with an abundant network of
+            industry giants, turbocharging your sales and elevating your journey
+            to excellence!
+          </div>
+          <div></div>
+        </div>
+        <div className={AbCss.part3Bottom}>
+          <div className={AbCss.buyer}>
+            <div className={AbCss.blHead}>Buyer Side</div>
+            <div className={AbCss.blImages}>
+              <div className={AbCss.img}>
+                <img src={buyer1} alt="" />
+              </div>
+              <div className={AbCss.img}>
+                <img src={buyer2} alt="" />
+              </div>
+              <div className={AbCss.img}>
+                <img src={buyer3} alt="" />
+              </div>
+              <div className={AbCss.img}>
+                <img src={buyer4} alt="" />
+              </div>
+              <div className={AbCss.img}>
+                <img src={buyer5} alt="" />
+              </div>
+              <div className={AbCss.img} id={AbCss.yatraDiv}>
+                <img src={buyer6} alt="" id={AbCss.yatra} />
+              </div>
+            </div>
+          </div>
+          <div className={AbCss.logistics}>
+            <div className={AbCss.blHead}>Logistics Side</div>
+            <div className={AbCss.blImages}>
+              <div className={AbCss.img}>
+                <img src={logistics1} alt="" />
+              </div>
+              <div className={AbCss.img}>
+                <img src={logistics2} alt="" />
+              </div>
+              <div className={AbCss.img}>
+                <img src={logistics3} alt="" />
+              </div>
+              <div className={AbCss.img}>
+                <img src={logistics4} alt="" />
+              </div>
+              <div className={AbCss.img}>
+                <img src={logistics5} alt="" />
+              </div>
+              <div className={AbCss.img}>
+                <img src={logistics6} alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className={AbCss.part2}>
         <div className={AbCss.part2Desc}>
-          Hexbit.io Is a Revolutionary Full-Stack Solution. Enabling Sellers
-          Across the Globe to Sell Online across Platforms and Networks
+          <div>
+            <span>Hexbit.io</span> Is a{" "}
+            <span>Revolutionary Full-Stack Solution</span>, Enabling{" "}
+            <span>Sellers</span> Across the Globe <span>to Sell Online</span>{" "}
+            across <span>Platforms and Networks</span>
+          </div>
         </div>
         <div className={AbCss.part2Img}>
           <img src={logo} alt="" />
