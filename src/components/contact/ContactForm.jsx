@@ -213,7 +213,6 @@ const ContactForm = () => {
               }}
             ></textarea>
           </div>
-          {/* <div className={styles.error}>{error}</div> */}
           <div className={styles.SendMessage}>
             <button onClick={sendData}>Send Message</button>
           </div>
