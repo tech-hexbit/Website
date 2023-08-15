@@ -1,6 +1,7 @@
 .mobileNav {
   width: 100%;
   font-family: "Rubik", sans-serif;
+  box-shadow: 1px 1px 1px #d3d3d3;
   display: none;
 }
 
