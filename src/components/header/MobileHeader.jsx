@@ -11,10 +11,7 @@ const MobileHeader = () => {
 
   return (
     <div className={style.mobileNav}>
-      <nav
-        className={style.logoSign}
-        id={count ? style.logoVisible : style.logoNotVisible}
-      >
+      <nav className={style.logoSign}>
         <div className={style.navToggleDiv}>
           {count ? (
             <div onClick={() => setCount(false)}>
