@@ -80,12 +80,10 @@
 }
 
 #visible {
-  /* display: block; */
   transform: translateX(0%);
 }
 
 #notVisible {
-  /* display: none; */
   transform: translateX(-100%);
 }
 
