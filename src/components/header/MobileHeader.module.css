@@ -73,6 +73,7 @@
   height: 100%;
   top: 50px;
   z-index: 5;
+  transition: all 0.3s;
 }
 
 .mobileList {
@@ -81,11 +82,13 @@
 }
 
 #visible {
-  display: block;
+  /* display: block; */
+  transform: translateX(0%);
 }
 
 #notVisible {
-  display: none;
+  /* display: none; */
+  transform: translateX(-100%);
 }
 
 @media only screen and (max-width: 650px) {
