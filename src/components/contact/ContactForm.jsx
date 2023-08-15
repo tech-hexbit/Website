@@ -59,10 +59,25 @@ const ContactForm = () => {
           subject: "",
           message: "",
         });
-        window.scrollTo(0, 0);
+
+        setError({
+          mainColor: "#EDFEEE",
+          secondaryColor: "#5CB660",
+          symbol: "check_circle",
+          title: "Success",
+          text: "We'll revert back to you soon!",
+          val: true,
+        });
       } catch (err) {
         console.log(err);
-        setError("Unexpected error occured!");
+        setError({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "An Unexpected Error Occured",
+          val: true,
+        });
       }
     }
   };
