@@ -1,59 +1,61 @@
 .mobileNav {
-   width: 100%;
-   font-family: "Rubik", sans-serif;
-   display: none;
+  width: 100%;
+  font-family: "Rubik", sans-serif;
+  display: none;
 }
 
-#logoVisible{
-    background-color: rgb(215, 226, 237);
-    position: fixed;
-    z-index: 4;
+#logoVisible {
+  background-color: rgb(215, 226, 237);
+  position: fixed;
+  z-index: 4;
 }
 
-.logoSign{
-    width: 100%;
-    display: flex;
-    height: 50px;
-    padding: 10px 10px 0px 20px;
-    justify-content: space-between;
-    display: none;
+.logoSign {
+  width: 100%;
+  display: flex;
+  height: 50px;
+  padding: 10px 10px 0px 20px;
+  justify-content: space-between;
+  display: none;
 }
 
-#bur1, #bur2, #bur3 {
-    border-radius: 4px;
-    background-color: black;
-    height: 4px;
+#bur1,
+#bur2,
+#bur3 {
+  border-radius: 4px;
+  background-color: black;
+  height: 4px;
 }
-  
+
 #bur1 {
   width: 100%;
   margin-top: 4px;
   margin-bottom: 5px;
 }
-  
+
 #bur2 {
   width: 75%;
   margin-bottom: 5px;
 }
-  
+
 #bur3 {
   width: 50%;
 }
 
-.navHeadImg{
+.navHeadImg {
   height: 100%;
 }
 
-.navHeadImg img{
+.navHeadImg img {
   height: 100%;
 }
-  
+
 .cancel {
-   width: 24px;
-   height: 24px;
-   cursor: pointer;
-   font-size: 24px;
-   font-weight: 900;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: 900;
 }
 
 .hamburger {
@@ -64,38 +66,38 @@
   transition: all 0.3s;
 }
 
-.navList{
-    padding: 20px;
-    background-color: rgb(215, 226, 237);
-    z-index: 4;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 50px;
-    /* transform: translate(0.7s);
+.navList {
+  padding: 20px;
+  background-color: rgb(215, 226, 237);
+  z-index: 4;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 50px;
+  /* transform: translate(0.7s);
     transition: all 1.5s;
     transition-delay: 0.7s; */
-    z-index: 5;
+  z-index: 5;
 }
 
-.mobileList{
-    font-size: 20px;
-    padding: 10px 0px;
+.mobileList {
+  font-size: 20px;
+  padding: 10px 0px;
 }
 
-#visible{
+#visible {
+  display: block;
+}
+
+#notVisible {
+  display: none;
+}
+
+@media only screen and (max-width: 550px) {
+  .mobileNav {
     display: block;
-}
-
-#notVisible{
-    display: none;
-}
-
-@media only screen and (max-width:550px) {
-    .mobileNav{
-        display: block;
-    }
-    .logoSign{
-        display: flex;
-    }
+  }
+  .logoSign {
+    display: flex;
+  }
 }
