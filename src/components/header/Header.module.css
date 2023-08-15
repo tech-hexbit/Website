@@ -14,10 +14,10 @@
   font-family: "Rubik", sans-serif;
 }
 
-.titleP {
+/* .titleP {
   font-size: 24px;
   font-weight: bold;
-}
+} */
 
 .imgLogo {
   height: 40px;
@@ -59,7 +59,7 @@
   }
 }
 
-@media only screen and (max-width: 650px) {
+/* @media only screen and (max-width: 650px) {
   .titleP {
     font-size: 18px;
   }
@@ -72,16 +72,16 @@
     padding: 7px 12px;
     border-radius: 22px;
   }
-}
+} */
 
-@media only screen and (max-width: 590px) {
+/* @media only screen and (max-width: 590px) {
   .rightDiv {
     gap: 0px 10px;
     font-size: 10px;
   }
-}
+} */
 
-@media only screen and (max-width: 480px) {
+/* @media only screen and (max-width: 480px) {
   .rightDiv {
     gap: 0px 15px;
     font-size: 10px;
@@ -91,9 +91,9 @@
     padding: 7px;
     border-radius: 22px;
   }
-}
+} */
 
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 650px) {
   .mDiv {
     display: none;
   }
