@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 // css
 import FCss from "./Css/Footer.module.css";
 
+// css
+import dss from "../../assets/dss.png";
+import madeInIndia from "../../assets/madeInIndia.png";
 import hexbitLogo from "../../assets/logo/HexbitLogo.png";
+import twitter from "../../assets/socialMedia/twitter.png";
 import facebook from "../../assets/socialMedia/facebook.png";
 import instagram from "../../assets/socialMedia/instagram.png";
-import twitter from "../../assets/socialMedia/twitter.png";
-import madeInIndia from "../../assets/madeInIndia.png";
-import dss from "../../assets/dss.png";
 
 const Footer = () => {
   return (
