@@ -25,30 +25,35 @@
 #bur3 {
   border-radius: 4px;
   background-color: black;
-  height: 4px;
+  height: 3px;
 }
 
 #bur1 {
   width: 100%;
   margin-top: 4px;
-  margin-bottom: 5px;
+  margin-bottom: 7px;
 }
 
 #bur2 {
   width: 75%;
-  margin-bottom: 5px;
+  margin-bottom: 7px;
 }
 
 #bur3 {
   width: 50%;
 }
 
-.navHeadImg {
+/* .navHeadImg {
   height: 100%;
 }
 
 .navHeadImg img {
   height: 100%;
+} */
+
+.imgLogo {
+  margin-top: -3px;
+  width: 150px;
 }
 
 .cancel {
