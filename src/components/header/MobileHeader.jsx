@@ -59,7 +59,7 @@ const MobileHeader = () => {
         </div>
         <div className={style.mobileList} onClick={() => setCount(false)}>
           <NavLink to="/register" className="LinkStyle">
-            <p>Register for free</p>
+            <p id={style.Register}>Register for free</p>
           </NavLink>
         </div>
       </div>
