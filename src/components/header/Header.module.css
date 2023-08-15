@@ -59,40 +59,6 @@
   }
 }
 
-/* @media only screen and (max-width: 650px) {
-  .titleP {
-    font-size: 18px;
-  }
-  .rightDiv {
-    gap: 0px 20px;
-    font-size: 12px;
-  }
-
-  .registerPTag {
-    padding: 7px 12px;
-    border-radius: 22px;
-  }
-} */
-
-/* @media only screen and (max-width: 590px) {
-  .rightDiv {
-    gap: 0px 10px;
-    font-size: 10px;
-  }
-} */
-
-/* @media only screen and (max-width: 480px) {
-  .rightDiv {
-    gap: 0px 15px;
-    font-size: 10px;
-  }
-
-  .registerPTag {
-    padding: 7px;
-    border-radius: 22px;
-  }
-} */
-
 @media only screen and (max-width: 650px) {
   .mDiv {
     display: none;
