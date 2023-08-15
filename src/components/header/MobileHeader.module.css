@@ -5,12 +5,6 @@
   display: none;
 }
 
-#logoVisible {
-  background-color: rgb(215, 226, 237);
-  position: fixed;
-  z-index: 4;
-}
-
 .logoSign {
   width: 100%;
   display: flex;
@@ -66,7 +60,7 @@
 
 .navList {
   padding: 20px;
-  background-color: rgb(215, 226, 237);
+  background-color: #fff;
   z-index: 4;
   position: fixed;
   width: 100%;
