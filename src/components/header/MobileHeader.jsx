@@ -32,8 +32,6 @@ const MobileHeader = () => {
         <Link to="/" className="LinkStyle" onClick={() => setCount(false)}>
           <img src={imgLogo} alt="" className={style.imgLogo} />
         </Link>
-
-        <div></div>
       </nav>
 
       <div
