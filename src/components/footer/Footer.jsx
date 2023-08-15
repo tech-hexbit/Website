@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 // css
 import FCss from "./Css/Footer.module.css";
 
-import hexbitLogo from "../../assets/logo/Hexbit 2.png";
+import hexbitLogo from "../../assets/logo/HexbitLogo.png";
 import facebook from "../../assets/socialMedia/facebook.png";
 import instagram from "../../assets/socialMedia/instagram.png";
 import twitter from "../../assets/socialMedia/twitter.png";
