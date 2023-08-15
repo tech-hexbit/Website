@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 // css
 import style from "./MobileHeader.module.css";
 
-import imgLogo from "./../../assets/logo/Hexbit 2.png";
+import imgLogo from "./../../assets/logo/HexbitLogo.png";
 
 const MobileHeader = () => {
   const [count, setCount] = useState(false);
