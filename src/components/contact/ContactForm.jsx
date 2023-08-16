@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 // components
-import { Alert } from "./../../MicroInterAction/Alert";
+import { Alert } from "./../../MicroInteraction/Alert";
 
 // icon
 import mail from "./../../assets/AboutUS/Icon.svg";
