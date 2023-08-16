@@ -18,8 +18,8 @@ export default function About() {
 
   return (
     <div>
-      <img src={image} alt="" width="100%" />
-      <Blur src={image} blur={props.mem.blur} />
+      {/* <img src={image} alt="" width="100%" /> */}
+      <Blur src={image} blur="LHL;gVRl9FtQIBt8WBWB_KobWBRj" />
       <AboutUs />
       <Team />
       <Business />
