@@ -4,8 +4,8 @@ import CreativeCard from "./CreativeCard";
 
 import CTCss from "./Css/CreativeTeam.module.css";
 
-import mem1 from "../../assets/AboutUs/creativeTeam/mem1.png";
-import mem2 from "../../assets/AboutUs/creativeTeam/mem2.png";
+import mem1 from "../../assets/AboutUS/creativeTeam/mem1.png";
+import mem2 from "../../assets/AboutUS/creativeTeam/mem2.png";
 
 export default function CreativeTeam() {
   return (
