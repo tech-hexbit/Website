@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 // components
 import { Alert } from "./../../MicroInteraction/Alert";
+import Load from "./../../MicroInteraction/Load";
 
 // icon
 import mail from "./../../assets/AboutUS/Icon.svg";
@@ -15,6 +16,7 @@ import axios from "axios";
 import styles from "./Css/ContactForm.module.css";
 
 const ContactForm = () => {
+  const [load, setLoad] = useState(false);
   const [input, setInput] = useState({
     name: "",
     email: "",
@@ -228,7 +230,9 @@ const ContactForm = () => {
             ></textarea>
           </div>
           <div className={styles.SendMessage}>
-            <button onClick={sendData}>Send Message</button>
+            <button onClick={sendData}>
+              {load ? <Load /> : "Send Message"}
+            </button>
           </div>
         </div>
       </div>
