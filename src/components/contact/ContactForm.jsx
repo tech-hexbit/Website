@@ -108,7 +108,10 @@ const ContactForm = () => {
       <div className={styles.FormMDiv}>
         {/* FirstName */}
         <div className={styles.labelDiv}>
-          <label htmlFor="FirstName">First Name *</label>
+          <label htmlFor="FirstName">
+            First Name
+            <span className="required"> *</span>
+          </label>
           <input
             type="text"
             name="FirstName"
@@ -122,7 +125,10 @@ const ContactForm = () => {
         </div>
         {/* Email */}
         <div className={styles.labelDiv}>
-          <label htmlFor="Email">Your email *</label>
+          <label htmlFor="Email">
+            Your email
+            <span className="required"> *</span>
+          </label>
           <input
             type="text"
             name="Email"
@@ -136,7 +142,10 @@ const ContactForm = () => {
         </div>
         {/* Company */}
         <div className={styles.labelDiv}>
-          <label htmlFor="Company">Company *</label>
+          <label htmlFor="Company">
+            Company
+            <span className="required"> *</span>
+          </label>
           <input
             type="text"
             name="Company"
@@ -150,7 +159,10 @@ const ContactForm = () => {
         </div>
         {/* Subject */}
         <div className={styles.labelDiv}>
-          <label htmlFor="Subject">Subject *</label>
+          <label htmlFor="Subject">
+            Subject
+            <span className="required"> *</span>
+          </label>
           <input
             type="text"
             name="Subject"
@@ -164,7 +176,10 @@ const ContactForm = () => {
         </div>
         {/* Message */}
         <div className={styles.labelDiv}>
-          <label htmlFor="FirstName">Message *</label>
+          <label htmlFor="FirstName">
+            Message
+            <span className="required"> *</span>
+          </label>
           <textarea
             name="FirstName"
             id="FirstName"
