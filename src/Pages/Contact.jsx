@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+
+// components
 import ContactForm from "../components/contact/ContactForm";
 
 const Contact = () => {
@@ -8,9 +10,9 @@ const Contact = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <ContactForm />
-    </div>
+    </>
   );
 };
 
