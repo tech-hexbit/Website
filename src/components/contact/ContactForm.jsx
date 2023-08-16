@@ -29,6 +29,8 @@ const ContactForm = () => {
   });
 
   const sendData = async () => {
+    setLoad(true);
+
     if (
       input.name == "" ||
       input.email == "" ||
@@ -47,30 +49,34 @@ const ContactForm = () => {
         val: true,
       });
     } else {
-      setLoad(true);
-
       try {
         const response = await axios.post("/api/website/ContactUs", input);
-        console.log(response);
+        console.log(response.data.success);
 
-        setInput({
-          name: "",
-          email: "",
-          CompanyName: "",
-          subject: "",
-          message: "",
-        });
+        if (response.data.success) {
+          setLoad(false);
 
-        setError({
-          mainColor: "#EDFEEE",
-          secondaryColor: "#5CB660",
-          symbol: "check_circle",
-          title: "Success",
-          text: "We'll revert back to you soon!",
-          val: true,
-        });
+          setInput({
+            name: "",
+            email: "",
+            CompanyName: "",
+            subject: "",
+            message: "",
+          });
+
+          setError({
+            mainColor: "#EDFEEE",
+            secondaryColor: "#5CB660",
+            symbol: "check_circle",
+            title: "Success",
+            text: "We'll revert back to you soon!",
+            val: true,
+          });
+        }
       } catch (err) {
         console.log(err);
+
+        setLoad(false);
 
         setError({
           mainColor: "#FDEDED",
