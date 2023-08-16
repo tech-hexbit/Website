@@ -1,4 +1,5 @@
-import { Link, NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 // css
 import styles from "./Header.module.css";
@@ -6,7 +7,16 @@ import styles from "./Header.module.css";
 // img
 import imgLogo from "./../../assets/logo/Hexbit 2.png";
 
+import AuthContext from "../../store/auth-context";
+
 const Header = () => {
+  const authCtx = useContext(AuthContext);
+  const redirect = useNavigate();
+
+  const logout = async () => {
+    redirect("/signIn");
+    authCtx.logout();
+  };
   return (
     <div className={styles.mDiv}>
       <div className={styles.mContDiv}>
@@ -26,14 +36,28 @@ const Header = () => {
           <NavLink to="/contact" className="LinkStyle">
             <p>Contact Us</p>
           </NavLink>
-          <NavLink to="/signIn" className="LinkStyle">
-            <p>Login</p>
-          </NavLink>
-          <NavLink to="/register" className="LinkStyle">
-            <p className={styles.registerPTag}>
-              <b>Register for free</b>
-            </p>
-          </NavLink>
+          {authCtx.isLoggedIn ? (
+            <>
+              <div
+                className="LinkStyle"
+                style={{ cursor: "pointer" }}
+                onClick={logout}
+              >
+                <p>Logout</p>
+              </div>
+            </>
+          ) : (
+            <>
+              <NavLink to="/signIn" className="LinkStyle">
+                <p>Login</p>
+              </NavLink>
+              <NavLink to="/register" className="LinkStyle">
+                <p className={styles.registerPTag}>
+                  <b>Register for free</b>
+                </p>
+              </NavLink>
+            </>
+          )}
         </div>
       </div>
     </div>
