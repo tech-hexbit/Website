@@ -12,7 +12,6 @@ export default function About() {
   // scroll to top
   useEffect(() => {
     window.scrollTo(0, 0);
-    //
   }, []);
 
   return (
