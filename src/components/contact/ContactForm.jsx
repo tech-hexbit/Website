@@ -4,11 +4,6 @@ import React, { useState, useEffect } from "react";
 import { Alert } from "./../../MicroInteraction/Alert";
 import Load from "./../../MicroInteraction/Load";
 
-// icon
-import mail from "./../../assets/AboutUS/Icon.svg";
-import Icon_Call from "./../../assets/AboutUS/Icon_call.svg";
-import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
-
 // axios
 import axios from "axios";
 
