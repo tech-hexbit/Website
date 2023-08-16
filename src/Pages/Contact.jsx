@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 // components
-import ContactForm from "../components/contact/ContactForm";
+import ContactMain from "../components/contact/ContactMain";
 
 const Contact = () => {
   // scroll to top
@@ -11,7 +11,7 @@ const Contact = () => {
 
   return (
     <>
-      <ContactForm />
+      <ContactMain />
     </>
   );
 };
