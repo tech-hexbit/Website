@@ -36,6 +36,8 @@ const ContactForm = () => {
       input.subject == "" ||
       input.message == ""
     ) {
+      setLoad(false);
+
       setError({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
@@ -45,10 +47,12 @@ const ContactForm = () => {
         val: true,
       });
     } else {
+      setLoad(true);
+
       try {
         const response = await axios.post("/api/website/ContactUs", input);
         console.log(response);
-        setError("");
+
         setInput({
           name: "",
           email: "",
@@ -67,6 +71,7 @@ const ContactForm = () => {
         });
       } catch (err) {
         console.log(err);
+
         setError({
           mainColor: "#FDEDED",
           secondaryColor: "#F16360",
