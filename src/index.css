@@ -90,6 +90,10 @@ body {
   margin: 0px !important;
 }
 
+.required {
+  color: #ff0000;
+}
+
 @media screen and (max-width: 850px) {
   .slider-wrapper {
     height: 45%;
