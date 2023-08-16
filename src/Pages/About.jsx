@@ -5,6 +5,7 @@ import AboutUs from "./../components/About/AboutUs";
 import Team from "../components/About/Team";
 import Business from "../components/About/Business";
 
+// img
 import image from "./../assets/AboutUS/HEXBIT.png";
 
 export default function About() {
