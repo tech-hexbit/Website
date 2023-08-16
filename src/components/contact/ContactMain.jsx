@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 // components
 import { Alert } from "./../../MicroInteraction/Alert";
 import Load from "./../../MicroInteraction/Load";
+import ContactForm from "./ContactForm";
 
 // icon
 import mail from "./../../assets/AboutUS/Icon.svg";
