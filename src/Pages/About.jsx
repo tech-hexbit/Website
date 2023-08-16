@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 
 // Components
-import AboutUs from "./../components/About/AboutUs";
 import Team from "../components/About/Team";
+import AboutUs from "./../components/About/AboutUs";
 import Business from "../components/About/Business";
 
 // img
