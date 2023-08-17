@@ -3,17 +3,22 @@ import { Blurhash } from "react-blurhash";
 
 import "./ImageComponent.css";
 
-export default function ImageComponent({ src, blur }) {
+export default function ImageComponent({ src, blur, load }) {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
     const img = new Image();
 
     img.onload = () => {
+      imageLoaded ? load(false) : "";
       setImageLoaded(true);
     };
     img.src = src;
   }, [src]);
+
+  //   useEffect(() => {
+  //     imageLoaded ? load(false) : "";
+  //   }, [imageLoaded]);
 
   return (
     <>
