@@ -29,8 +29,8 @@ export default function About() {
         <LoadingPage />
       ) : (
         <> */}
-      {/* <img src={image} alt="" width="100%" /> */}
-      <Blur src={image} blur="LHL;gVRl9FtQIBt8WBWB_KobWBRj" load={load} />
+      <img src={image} alt="" width="100%" />
+      {/* <Blur src={image} blur="LHL;gVRl9FtQIBt8WBWB_KobWBRj" load={load} /> */}
       <AboutUs />
       <Team />
       <Business />
