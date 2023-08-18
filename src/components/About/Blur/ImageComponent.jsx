@@ -32,7 +32,6 @@ export default function ImageComponent({ src, blur }) {
       <div
         style={{
           display: imageLoaded ? "none" : "inline",
-          aspectRatio: "3/1.75",
         }}
       >
         {/* <Blurhash
