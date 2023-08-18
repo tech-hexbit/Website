@@ -12,7 +12,6 @@ import LoadingPage from "./../MicroInteraction/Loading";
 import image from "./../assets/AboutUS/HEXBITAbtUsHeader.jpg";
 
 export default function About() {
-  // const [show, load] = useState(true);
   // scroll to top
   useEffect(() => {
     window.scrollTo(0, 0);
