@@ -5,7 +5,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import styles from "./Header.module.css";
 
 // img
-import imgLogo from "./../../assets/logo/Hexbit 2.png";
+import imgLogo from "./../../assets/logo/HexbitLogo.png";
 
 import AuthContext from "../../store/auth-context";
 
@@ -17,6 +17,7 @@ const Header = () => {
     redirect("/signIn");
     authCtx.logout();
   };
+
   return (
     <div className={styles.mDiv}>
       <div className={styles.mContDiv}>
