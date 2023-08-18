@@ -3,7 +3,7 @@ import { Blurhash } from "react-blurhash";
 
 import "./ImageComponent.css";
 
-export default function ImageComponent({ src, blur, load }) {
+export default function ImageComponent({ src, blur, load, show }) {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
@@ -16,9 +16,14 @@ export default function ImageComponent({ src, blur, load }) {
     img.src = src;
   }, [src]);
 
-  //   useEffect(() => {
-  //     imageLoaded ? load(false) : "";
-  //   }, [imageLoaded]);
+  useEffect(() => {
+    console.log(show + " <- ImageComponent");
+  }, [show]);
+
+  useEffect(() => {
+    console.log(imageLoaded + " <- imageLoaded");
+    imageLoaded ? "True" : "False";
+  }, [imageLoaded]);
 
   return (
     <>
