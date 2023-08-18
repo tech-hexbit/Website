@@ -9,7 +9,7 @@ import Blur from "./../components/About/Blur/ImageComponent";
 import LoadingPage from "./../MicroInteraction/Loading";
 
 // img
-import image from "./../assets/AboutUS/HEXBITAbtUsHeader.png";
+import image from "./../assets/AboutUS/HEXBITAbtUsHeader.jpg";
 
 export default function About() {
   // const [show, load] = useState(true);
@@ -20,26 +20,10 @@ export default function About() {
 
   return (
     <>
-      {/* {show ? "Loading..." : "Done ✅"} */}
-
-      {/* <p onClick={() => load(false)}>CLick</p> */}
-      {/* {show ? (
-        <LoadingPage />
-      ) : (
-        <> */}
-      {/* <img src={image} alt="" width="100%" /> */}
-      <Blur
-        src={image}
-        blur="LHL;gVRl9FtQIBt8WBWB_KobWBRj"
-        // load={load}
-        // show={show}
-      />
+      <Blur src={image} blur="LHL;gVRl9FtQIBt8WBWB_KobWBRj" />
       <AboutUs />
       <Team />
       <Business />
     </>
-    // )}
-    // {}
-    // </>
   );
 }
