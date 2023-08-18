@@ -12,7 +12,7 @@ import LoadingPage from "./../MicroInteraction/Loading";
 import image from "./../assets/AboutUS/HEXBITAbtUsHeader.png";
 
 export default function About() {
-  const [show, load] = useState(true);
+  // const [show, load] = useState(true);
   // scroll to top
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -20,26 +20,26 @@ export default function About() {
 
   return (
     <>
-      {show ? "Loading..." : "Done ✅"}
+      {/* {show ? "Loading..." : "Done ✅"} */}
 
-      <p onClick={() => load(false)}>CLick</p>
+      {/* <p onClick={() => load(false)}>CLick</p> */}
       {/* {show ? (
         <LoadingPage />
       ) : (
         <> */}
-      <img src={image} alt="" width="100%" />
+      {/* <img src={image} alt="" width="100%" /> */}
       <Blur
         src={image}
         blur="LHL;gVRl9FtQIBt8WBWB_KobWBRj"
-        load={load}
-        show={show}
+        // load={load}
+        // show={show}
       />
       <AboutUs />
       <Team />
       <Business />
-      {/* </>
-      )} */}
-      {}
     </>
+    // )}
+    // {}
+    // </>
   );
 }
