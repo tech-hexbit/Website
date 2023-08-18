@@ -9,7 +9,7 @@ import Blur from "./../components/About/Blur/ImageComponent";
 import LoadingPage from "./../MicroInteraction/Loading";
 
 // img
-import image from "./../assets/AboutUS/HEXBIT.png";
+import image from "./../assets/AboutUS/HEXBITAbtUsHeader.png";
 
 export default function About() {
   const [show, load] = useState(true);
