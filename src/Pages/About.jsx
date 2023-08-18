@@ -18,19 +18,22 @@ export default function About() {
     window.scrollTo(0, 0);
   }, []);
 
-  useEffect(() => {
-    console.log(show);
-  }, [show]);
-
   return (
     <>
-      {show ? "" : ""}
+      {show ? "Loading..." : "Done ✅"}
+
+      <p onClick={() => load(false)}>CLick</p>
       {/* {show ? (
         <LoadingPage />
       ) : (
         <> */}
       <img src={image} alt="" width="100%" />
-      {/* <Blur src={image} blur="LHL;gVRl9FtQIBt8WBWB_KobWBRj" load={load} /> */}
+      <Blur
+        src={image}
+        blur="LHL;gVRl9FtQIBt8WBWB_KobWBRj"
+        load={load}
+        show={show}
+      />
       <AboutUs />
       <Team />
       <Business />
