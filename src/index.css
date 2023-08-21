@@ -47,6 +47,22 @@ body {
   color: #c0a0fd;
   font-weight: 600;
 }
+.LinkStyle.sideBarNonActive{
+  color: #595959;
+  font-weight: 400;
+  font-family: 18px;
+}
+.LinkStyle.sideBarActive{
+  color: #0132BF;
+  font-weight: 600;
+  font-family: 18px;
+}
+.LinkStyle.sideBarNonActive .temp{
+  fill : #231963
+}
+.LinkStyle.sideBarActive .temp{
+  fill : #0132BF
+}
 
 .error{
   text-align: center;

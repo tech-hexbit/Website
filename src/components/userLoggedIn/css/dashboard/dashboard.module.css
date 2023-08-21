@@ -1,0 +1,49 @@
+.mainDiv{
+    font-family: "Rubik", sans-serif;
+    /* background-color: red; */
+    /* width: 100%; */
+}
+.top{
+    /* background-color: green; */
+    display: flex;
+    justify-content: space-between;
+}
+.profile{
+    display: flex;
+}
+.image{
+    height: 50px;
+}
+.image img{
+    height: 100%;
+}
+.des{
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.name{
+    color: #000;
+    font-size: 20px;
+}
+.sub{
+    color: #777;
+    font-size: 16px;
+}
+button{
+    border: none;
+    border-radius: 5px;
+    background: rgba(63, 129, 224, 0.50);
+    color: #1746A2;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 6px 30px;
+    cursor: pointer;
+}
+.bottom{
+    padding-top: 55px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 45px;
+}

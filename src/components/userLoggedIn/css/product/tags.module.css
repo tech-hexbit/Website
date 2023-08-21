@@ -1,0 +1,12 @@
+.mainDiv{
+    background-color: rgba(63, 129, 224, 0.3);
+    display: flex;
+    color: #1746A2;
+    font-size: 14px;
+    width: fit-content;
+    padding: 3px 10px;
+    border-radius: 5px;
+}
+.element{
+    padding-right: 10px;
+}

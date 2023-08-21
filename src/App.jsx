@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import React, { useState, useEffect, useContext, Suspense } from "react";
 
-import { Helmet } from "react-helmet";
+// import { Helmet } from "react-helmet";
 
 const Home = React.lazy(() => import("./Pages/Home"));
 const Terms = React.lazy(() => import("./Pages/Terms"));
@@ -12,6 +12,13 @@ const Contact = React.lazy(() => import("./Pages/Contact"));
 const Privacy = React.lazy(() => import("./Pages/Privacy"));
 const Register = React.lazy(() => import("./Pages/Register"));
 const SignIn = React.lazy(() => import("./Pages/SignIn"));
+const Dashboard = React.lazy(() => import("./Pages/User/Dashboard"));
+const Categories = React.lazy(() => import("./Pages/User/Categories"));
+const Products = React.lazy(() => import("./Pages/User/Products"));
+const Sales = React.lazy(() => import("./Pages/User/Sales"));
+const Gateway = React.lazy(() => import("./Pages/User/Gateway"));
+const Profile = React.lazy(() => import("./Pages/User/Profile"));
+const AddProduct = React.lazy(() => import("./Pages/User/AddProduct"));
 
 import AuthContext from "./store/auth-context";
 import axios from "axios";
@@ -94,16 +101,84 @@ function App() {
             }
           />
         )}
-
-        {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
-        <Route
+        {authCtx.isLoggedIn && (
+          <Route
+            path="/user/dashboard"
+            element={
+              <Suspense fallback={<LoadingPage />}>
+                <Dashboard />
+              </Suspense>
+            }
+          />
+        )}
+        {authCtx.isLoggedIn && (
+          <Route
+            path="/user/categories"
+            element={
+              <Suspense fallback={<LoadingPage />}>
+                <Categories />
+              </Suspense>
+            }
+          />
+        )}
+        {authCtx.isLoggedIn && (
+          <Route
+            path="/user/products"
+            element={
+              <Suspense fallback={<LoadingPage />}>
+                <Products />
+              </Suspense>
+            }
+          />
+        )}
+        {authCtx.isLoggedIn && (
+          <Route
+            path="/user/sales"
+            element={
+              <Suspense fallback={<LoadingPage />}>
+                <Sales />
+              </Suspense>
+            }
+          />
+        )}
+        {authCtx.isLoggedIn && (
+          <Route
+            path="/user/gateway"
+            element={
+              <Suspense fallback={<LoadingPage />}>
+                <Gateway />
+              </Suspense>
+            }
+          />
+        )}
+        {authCtx.isLoggedIn && (
+          <Route
+            path="/user/profile"
+            element={
+              <Suspense fallback={<LoadingPage />}>
+                <Profile />
+              </Suspense>
+            }
+          />
+        )}
+        {authCtx.isLoggedIn && (
+          <Route
+            path="/user/addProduct"
+            element={
+              <Suspense fallback={<LoadingPage />}>
+                <AddProduct />
+              </Suspense>
+            }
+          />
+        )}
+        {/* <Route
           path="*"
           element={
             <Suspense fallback={<LoadingPage />}>
               <Error />
             </Suspense>
           }
-        />
+        /> */}
       </Routes>
       <Footer />
     </Router>

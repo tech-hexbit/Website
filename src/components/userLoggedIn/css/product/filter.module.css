@@ -1,0 +1,44 @@
+.mainDiv{
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 10px 0px;
+    width: 30%;
+}
+.div1{
+    padding: 10px;
+    border-bottom: #DDD 1px solid;
+}
+.heading{
+    color: #000;
+    font-size: 16px;
+    font-weight: 700;
+    padding-left: 4px;
+    padding-bottom: 15px;
+}
+.select{
+    background-color: transparent;
+    border: none;
+    color: #000;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: "Rubik", sans-serif;
+    width: 100%;
+}
+#rate{
+    border-bottom: none;
+}
+.tags{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.categoryOption{
+    padding: 5px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+.categoryOption input[type="checkbox" i]{
+    width: 19px;
+    accent-color: rgba(255, 115, 29, 1);
+    cursor: pointer;
+}

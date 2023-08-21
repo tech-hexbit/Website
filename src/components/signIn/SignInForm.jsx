@@ -29,7 +29,7 @@ export default function SignInForm() {
           input
         );
 
-        redirect("/");
+        redirect("/user/dashboard");
         setError("");
 
         await authCtx.login(

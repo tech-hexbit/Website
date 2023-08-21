@@ -1,0 +1,43 @@
+.mainDiv{
+    background-color: #fff;
+    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.50);
+    border-radius: 10px;
+    padding: 16px 0px;
+    font-family: "Rubik", sans-serif;
+}
+.heading{
+    color: #000;
+    font-size: 18px;
+    font-weight: 700;
+    padding-left: 20px;
+}
+.list{
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    background-color: #7D629B;
+    gap: 2px;
+}
+.elements{
+    background-color: #E5E7FF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    padding: 10px 0px;
+}
+.text{
+    color: #000;
+    font-size: 20px;
+}
+.charts{
+    display: flex;
+    padding: 30px;
+    justify-content: space-between;
+}
+.chartHead{
+    color: #323C4D;
+    font-size: 14px;
+    font-weight: 700;
+}
