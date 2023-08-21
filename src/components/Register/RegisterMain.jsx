@@ -43,7 +43,7 @@ export default function RegisterMain() {
       window.scrollTo(0, 0);
     } else {
       const response = await axios.post(
-        "http://localhost:8000/api/website/register/",
+        "http://localhost:8000/api/website/auth/register/",
         input
       );
       console.log(response);

@@ -25,7 +25,7 @@ export default function SignInForm() {
       try {
         setLoad(true);
         const response = await axios.post(
-          "http://localhost:8000/api/website/login/",
+          "http://localhost:8000/api/website/auth/login/",
           input
         );
 
