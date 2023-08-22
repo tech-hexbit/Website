@@ -41,7 +41,7 @@ export default function Description() {
             </div>
           </div>
         </div>
-        <div>
+        <div className={DCss.button}>
           <button>+ Add product</button>
         </div>
       </div>
