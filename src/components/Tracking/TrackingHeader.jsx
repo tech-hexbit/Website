@@ -14,7 +14,7 @@ export default function TrackingHeader(props) {
 
       <div className={THCss.listTrackingDiv}>
         <div className={THCss.trackingDiv}>
-          <div className={THCss.trackingDiv}>
+          <div className={THCss.trackingDivMain}>
             <div className={THCss.trackinglineDiv}></div>
           </div>
         </div>
