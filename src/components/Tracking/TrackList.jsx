@@ -7,7 +7,7 @@ export default function TrackList(props) {
   return (
     <div className={THCss.listmDiv}>
       <div className={THCss.circleDiv}></div>
-      <div>
+      <div className={THCss.allContent}>
         <p>{props.title}</p>
         <p>{props.des}</p>
       </div>
