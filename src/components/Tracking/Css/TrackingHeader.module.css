@@ -14,8 +14,11 @@
   width: 250px;
   display: flex;
   flex-direction: row;
-  background-color: pink;
+  align-items: center;
   gap: 0px 20px;
+}
+
+.allContent {
 }
 
 .listTrackingDiv {
@@ -29,6 +32,8 @@
 
 .circleDiv {
   width: 20px;
-  height: 30px;
-  background-color: red;
+  height: 20px;
+  background-color: #56117c;
+  opacity: 0.6;
+  border-radius: 50%;
 }
