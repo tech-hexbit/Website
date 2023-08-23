@@ -4,6 +4,7 @@ import React, { useState, useEffect, useContext, Suspense } from "react";
 
 import { Helmet } from "react-helmet";
 
+// Pages
 const Home = React.lazy(() => import("./Pages/Home"));
 const Terms = React.lazy(() => import("./Pages/Terms"));
 const About = React.lazy(() => import("./Pages/About"));
@@ -13,14 +14,19 @@ const Privacy = React.lazy(() => import("./Pages/Privacy"));
 const Register = React.lazy(() => import("./Pages/Register"));
 const SignIn = React.lazy(() => import("./Pages/SignIn"));
 
+// state
 import AuthContext from "./store/auth-context";
+
+// axios
 import axios from "axios";
 
-import LoadingPage from "./MicroInteraction/Loading";
-
+// components
 import Nav from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import MobileNav from "./components/header/MobileHeader";
+
+// MicroInteraction
+import LoadingPage from "./MicroInteraction/Loading";
 
 axios.defaults.baseURL = import.meta.env.VITE_SERVER_URL;
 
