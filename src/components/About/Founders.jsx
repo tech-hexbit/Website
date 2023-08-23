@@ -9,9 +9,8 @@ import TeamMemCard from "./TeamMemCard";
 import image1 from "../../assets/AboutUS/Team/AnujPrakash.png";
 import image2 from "../../assets/AboutUS/Team/TathagatChoudhary.png";
 import Timg1 from "./../../assets/AboutUS/Team/tathagatgr1.png";
-import Timg2 from "./../../assets/AboutUS/Team/tathagatgr2.png";
 import Aimg1 from "./../../assets/AboutUS/Team/anujgr1.png";
-import Aimg2 from "./../../assets/AboutUS/Team/anujgr2.png";
+import Aimg2 from "./../../assets/AboutUS/Team/tathagatgr2.png";
 
 export default function Team() {
   return (
@@ -30,7 +29,7 @@ export default function Team() {
           name="Tathagat Choudhary"
           designation="COO & Co-founder"
           img1={Timg1}
-          img2={Timg2}
+          img2={Aimg2}
         />
       </div>
     </div>
