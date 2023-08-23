@@ -7,7 +7,7 @@ export default function TrackingHeader(props) {
   return (
     <>
       <p className={THCss.titlePTag}>
-        Order ID :<span>{props.id}</span>
+        Order ID : <span>{props.id}</span>
       </p>
     </>
   );
