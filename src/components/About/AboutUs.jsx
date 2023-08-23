@@ -159,7 +159,6 @@ export default function AboutUs() {
           <img src={logo} alt="" />
         </div>
       </div>
-      {/* <div></div> */}
     </div>
   );
 }
