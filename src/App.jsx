@@ -11,9 +11,11 @@ const About = React.lazy(() => import("./Pages/About"));
 const Error = React.lazy(() => import("./Pages/Error"));
 const Contact = React.lazy(() => import("./Pages/Contact"));
 const Privacy = React.lazy(() => import("./Pages/Privacy"));
-const Register = React.lazy(() => import("./Pages/Register"));
-const SignIn = React.lazy(() => import("./Pages/SignIn"));
 const TrackingPage = React.lazy(() => import("./Pages/TrackingPage"));
+
+// Pages || Authentication
+const SignIn = React.lazy(() => import("./Pages/SignIn"));
+const Register = React.lazy(() => import("./Pages/Register"));
 
 // state
 import AuthContext from "./store/auth-context";
