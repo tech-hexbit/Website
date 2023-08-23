@@ -1,6 +1,7 @@
 // import React from 'react'
 
 import RCss from "../css/dashboard/recentOrders.module.css";
+import BarChart from "./charts/BarChart";
 
 const data = [
   {
@@ -95,7 +96,10 @@ export default function RecentOrders() {
             <div className={RCss.view}>View all</div>
           </div>
         </div>
-        <div className={RCss.costHeading}>Costs</div>
+        <div className={RCss.costHeading}>
+          Costs
+          <BarChart />
+        </div>
       </div>
     </div>
   );

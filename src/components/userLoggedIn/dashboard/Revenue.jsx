@@ -1,5 +1,7 @@
 // import React from 'react'
 import RCss from "../css/dashboard/revenue.module.css";
+import DoughnutChart from "./charts/Doughnut";
+import StackedBar from "./charts/StackedBar";
 
 export default function Revenue() {
   return (
@@ -26,8 +28,14 @@ export default function Revenue() {
         </div>
       </div>
       <div className={RCss.charts}>
-        <div className={RCss.chartHead}>Sales Division By Buyer Apps</div>
-        <div className={RCss.chartHead}>Weekly Sales Review</div>
+        <div className={RCss.chartHead}>
+          Sales Division By Buyer Apps
+          <DoughnutChart />
+        </div>
+        <div className={RCss.chartHead}>
+          Weekly Sales Review
+          <StackedBar />
+        </div>
       </div>
     </div>
   );
