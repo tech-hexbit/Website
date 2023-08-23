@@ -13,6 +13,7 @@ const Contact = React.lazy(() => import("./Pages/Contact"));
 const Privacy = React.lazy(() => import("./Pages/Privacy"));
 const Register = React.lazy(() => import("./Pages/Register"));
 const SignIn = React.lazy(() => import("./Pages/SignIn"));
+const TrackingPage = React.lazy(() => import("./Pages/TrackingPage"));
 
 // state
 import AuthContext from "./store/auth-context";
@@ -63,6 +64,15 @@ function App() {
         />
 
         <Route
+          path="/TrackingPage/:id"
+          element={
+            <Suspense fallback={<LoadingPage />}>
+              <TrackingPage />
+            </Suspense>
+          }
+        />
+
+        <Route
           path="/privacy"
           element={
             <Suspense fallback={<LoadingPage />}>
@@ -90,6 +100,7 @@ function App() {
             }
           />
         )}
+
         {!authCtx.isLoggedIn && (
           <Route
             path="/signIn"
