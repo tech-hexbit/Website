@@ -2,14 +2,18 @@
   display: flex;
   font-family: "Rubik", sans-serif;
   max-width: 650px;
+  background-color: red;
 }
 
 .image {
-  height: 200px;
+  /* width: 100%; */
+  height: 400px;
+  /* height: ; */
 }
 
 .image img {
   height: 100%;
+  object-fit: cover;
 }
 
 .details {
