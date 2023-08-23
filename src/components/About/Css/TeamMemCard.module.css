@@ -22,26 +22,26 @@
 
 .name {
   color: #2d2d2d;
-  font-size: 45px;
+  font-size: 36px;
   font-weight: 600;
-  width: 10%;
 }
 
 .designation {
-  border-radius: 4px;
-  background: #350b5e;
-  border: none;
-  color: #fff;
-  text-align: center;
   font-size: 15px;
-  font-weight: 900;
-  padding: 10px 20px;
-  width: 100%;
+  color: rgba(22, 22, 22, 0.5);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 35.625px;
 }
 
-.img1,
+.img1 {
+  width: 75%;
+  margin: 20px 0px;
+}
+
 .img2 {
-  width: 100%;
+  width: 50%;
 }
 
 @media screen and (max-width: 950px) {
