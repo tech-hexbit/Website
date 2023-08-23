@@ -16,9 +16,23 @@
   flex-direction: row;
   align-items: center;
   gap: 0px 20px;
+  height: 45px;
+  padding: 70px 0px;
 }
 
 .allContent {
+}
+
+.lineDiv {
+  width: 5px;
+  height: 100%;
+  background-color: #56117c;
+  opacity: 0.6;
+}
+
+.logoDiv {
+  background-color: red;
+  height: 100%;
 }
 
 .listTrackingDiv {
@@ -27,7 +41,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 70px 0px;
+  /* gap: 70px 0px; */
 }
 
 .circleDiv {
