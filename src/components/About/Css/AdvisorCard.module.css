@@ -1,41 +1,50 @@
-.mainDiv{
-    width: 100%;
-    font-family: "Rubik", sans-serif;
-    padding: 20px 0px;
-    border-radius: 15px;
-    border: 2px solid #D2D2D2;
+.mainDiv {
+  width: 100%;
+  font-family: "Rubik", sans-serif;
+  padding: 20px 0px;
+  border-radius: 15px;
+  border: 2px solid #d2d2d2;
+  max-width: 31%;
+  min-width: 31%;
 }
-.image{
-    height: 150px;
-    display: flex;
-    justify-content: center;
+
+.image {
+  height: 150px;
+  display: flex;
+  justify-content: center;
 }
-.image img{
-    height: 100%;
+
+.image img {
+  height: 100%;
 }
-.details{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.name{
-    color: #1A1A1A;
-    font-size: 20px;
-    font-weight: 500;
-    text-align: center;
-    padding: 20px 0px;
+
+.name {
+  color: #1a1a1a;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  padding: 20px 0px;
 }
-.company{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    /* padding-top: 10px; */
+
+.company {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* padding-top: 10px; */
 }
-.company img{
-    width: 50%;
+
+.company img {
+  width: 50%;
 }
-@media screen and (max-width:780px){
-    .image{
-      height: 120px;
-    }
+
+@media screen and (max-width: 780px) {
+  .image {
+    height: 120px;
   }
+}

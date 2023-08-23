@@ -36,11 +36,6 @@ export default function Advisors() {
             company={company2}
           />
           <AdvisorCard
-            image={advisor3}
-            name="Kapil Pathak"
-            company={company3}
-          />
-          <AdvisorCard
             image={advisor4}
             name="Mayank Tiwari"
             company={company4}

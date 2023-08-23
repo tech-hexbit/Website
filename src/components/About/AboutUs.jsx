@@ -35,7 +35,7 @@ export default function AboutUs() {
           <div className={AbCss.aimDiv}>
             <div className={AbCss.aimHead}>We AIM TO : </div>
             <div className={AbCss.aimDesc}>
-              Empower micro, small, and MSME’s for digital success{" "}
+              Provide Inclusive & Interoperable Ecosystem :
             </div>
           </div>
           <div className={AbCss.desc}>
@@ -91,9 +91,9 @@ export default function AboutUs() {
             Healthy Pipeline of Network Participants (Via ONDC)
           </div>
           <div className={AbCss.topSubHead}>
-            Unlocking the power of ONDC: Forge ahead with an abundant network of
-            industry giants, turbocharging your sales and elevating your journey
-            to excellence!
+            "Unlocking the power of ONDC: Forge ahead with an abundant network
+            of industry giants, turbocharging your sales and elevating your
+            journey to excellence!"
           </div>
           <div></div>
         </div>
@@ -149,17 +149,16 @@ export default function AboutUs() {
       <div className={AbCss.part2}>
         <div className={AbCss.part2Desc}>
           <div>
-            <span>Hexbit.io</span> Is a{" "}
+            <span>"Hexbit.io</span> Is a{" "}
             <span>Revolutionary Full-Stack Solution</span>, Enabling{" "}
             <span>Sellers</span> Across the Globe <span>to Sell Online</span>{" "}
-            across <span>Platforms and Networks</span>
+            across <span>Platforms and Networks."</span>
           </div>
         </div>
         <div className={AbCss.part2Img}>
           <img src={logo} alt="" />
         </div>
       </div>
-      {/* <div></div> */}
     </div>
   );
 }

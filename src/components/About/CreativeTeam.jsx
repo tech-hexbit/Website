@@ -52,7 +52,7 @@ export default function CreativeTeam() {
               </svg>
             </div>
             <div className={CTCss.text}>
-              A team consisting of skilled members
+              We are available 24/7 for your support.
             </div>
           </div>
         </div>

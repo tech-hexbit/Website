@@ -1,48 +1,59 @@
-.mainDiv{
-  /* margin-top: 150px; */
+.mainDiv {
   padding: 0px 10px 20px 10px;
   font-family: "Rubik", sans-serif;
 }
-.heading{
-  color: #8A898E;
+
+.heading {
+  color: #8a898e;
   text-align: center;
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 6.3px;
 }
-.subHeading{
-  color: #0B1B35;
+
+.subHeading {
+  color: #0b1b35;
   text-align: center;
   font-size: 52px;
   font-weight: 700;
 }
-.advisorHead{
-  color: #1A1A1A;
+
+.advisorHead {
+  color: #1a1a1a;
   font-size: 42px;
   padding: 10px 0px 10px 10px;
 }
-.advisorList{
-  display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(4,1fr);
-}
-@media screen and (max-width: 700px) {
-  .advisorList{
-  grid-template-columns: repeat(2,1fr);
 
-  }
+.advisorList {
+  /* display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4, 1fr); */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 30px 30px;
 }
+
+/* @media screen and (max-width: 700px) {
+  .advisorList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+} */
+
 @media screen and (max-width: 540px) {
-  .subHeading{
+  .subHeading {
     font-size: 48px;
   }
-  .advisorHead{
+
+  .advisorHead {
     font-size: 32px;
     text-align: center;
   }
 }
-@media screen and (max-width:430px){
-  .advisorList{
-    grid-template-columns: repeat(1,1fr);
+
+/* @media screen and (max-width: 430px) {
+  .advisorList {
+    grid-template-columns: repeat(1, 1fr);
   }
-}
+} */
