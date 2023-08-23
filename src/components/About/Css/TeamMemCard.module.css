@@ -46,10 +46,14 @@
 .img1 {
   width: 75%;
   margin: 20px 0px;
+  height: 75px;
+  object-fit: cover;
 }
 
 .img2 {
   width: 50%;
+  height: 75px;
+  object-fit: cover;
 }
 
 @media screen and (max-width: 950px) {
