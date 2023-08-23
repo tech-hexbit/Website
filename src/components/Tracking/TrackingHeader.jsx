@@ -12,7 +12,7 @@ export default function TrackingHeader(props) {
         Order ID : <span>{props.id}</span>
       </p>
 
-      <div>
+      <div className={THCss.listTrackingDiv}>
         <TrackList title="Order Created" des="We have received your order" />
         <TrackList title="Order Packed" des="Your order has been packed" />
         <TrackList title="Order Shipped" des="Your order has been shipped" />
