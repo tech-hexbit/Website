@@ -4,3 +4,10 @@
   justify-content: space-evenly;
   align-items: center;
 }
+
+@media screen and (max-width: 830px) {
+  .gridDiv {
+    flex-direction: column;
+    gap: 30px 0px;
+  }
+}
