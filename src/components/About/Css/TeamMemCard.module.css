@@ -39,6 +39,11 @@
   width: 100%;
 }
 
+.img1,
+.img2 {
+  width: 100%;
+}
+
 @media screen and (max-width: 950px) {
   .designation {
     font-size: 14px;
