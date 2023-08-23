@@ -12,6 +12,7 @@ export default function TeamMemCard(props) {
         <div className={TeamCss.name}>{props.name}</div>
         <div>
           <img src={props.img1} alt="" />
+          <br />
           <img src={props.img2} alt="" />
           {/* <button className={TeamCss.designation}>{props.designation}</button> */}
         </div>
