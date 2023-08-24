@@ -19,32 +19,32 @@ export default function SignInForm() {
 
   const redirect = useNavigate();
   const login = async () => {
-    if (input.email == "" || input.password == "") {
-      setError("Please fill all fields!");
-    } else {
-      try {
-        setLoad(true);
-        const response = await axios.post(
-          "http://localhost:8000/api/website/auth/login/",
-          input
-        );
+    // if (input.email == "" || input.password == "") {
+    //   setError("Please fill all fields!");
+    // } else {
+    //   try {
+    //     setLoad(true);
+    //     const response = await axios.post(
+    //       "http://localhost:8000/api/website/auth/login/",
+    //       input
+    //     );
 
-        redirect("/user/dashboard");
-        setError("");
+    redirect("/user/dashboard");
+    //   setError("");
 
-        await authCtx.login(
-          response.data.user.ShopName,
-          response.data.user.Email,
-          response.data.user.image,
-          response.data.token,
-          10800000
-        );
-      } catch (e) {
-        setError("Inavlid Credentials");
-      } finally {
-        setLoad(false);
-      }
-    }
+    //   await authCtx.login(
+    //     response.data.user.ShopName,
+    //     response.data.user.Email,
+    //     response.data.user.image,
+    //     response.data.token,
+    //     10800000
+    //   );
+    // } catch (e) {
+    //   setError("Inavlid Credentials");
+    // } finally {
+    //   setLoad(false);
+    // }
+    // }
   };
   return (
     <>
