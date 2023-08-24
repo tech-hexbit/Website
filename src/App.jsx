@@ -62,7 +62,6 @@ function App() {
             </Suspense>
           }
         />
-
         <Route
           path="/privacy"
           element={
@@ -71,7 +70,6 @@ function App() {
             </Suspense>
           }
         />
-
         <Route
           path="/terms"
           element={
@@ -80,7 +78,6 @@ function App() {
             </Suspense>
           }
         />
-
         {!authCtx.isLoggedIn && (
           <Route
             path="/register"
@@ -101,76 +98,76 @@ function App() {
             }
           />
         )}
-        {authCtx.isLoggedIn && (
-          <Route
-            path="/user/dashboard"
-            element={
-              <Suspense fallback={<LoadingPage />}>
-                <Dashboard />
-              </Suspense>
-            }
-          />
-        )}
-        {authCtx.isLoggedIn && (
-          <Route
-            path="/user/categories"
-            element={
-              <Suspense fallback={<LoadingPage />}>
-                <Categories />
-              </Suspense>
-            }
-          />
-        )}
-        {authCtx.isLoggedIn && (
-          <Route
-            path="/user/products"
-            element={
-              <Suspense fallback={<LoadingPage />}>
-                <Products />
-              </Suspense>
-            }
-          />
-        )}
-        {authCtx.isLoggedIn && (
-          <Route
-            path="/user/sales"
-            element={
-              <Suspense fallback={<LoadingPage />}>
-                <Sales />
-              </Suspense>
-            }
-          />
-        )}
-        {authCtx.isLoggedIn && (
-          <Route
-            path="/user/gateway"
-            element={
-              <Suspense fallback={<LoadingPage />}>
-                <Gateway />
-              </Suspense>
-            }
-          />
-        )}
-        {authCtx.isLoggedIn && (
-          <Route
-            path="/user/profile"
-            element={
-              <Suspense fallback={<LoadingPage />}>
-                <Profile />
-              </Suspense>
-            }
-          />
-        )}
-        {authCtx.isLoggedIn && (
-          <Route
-            path="/user/addProduct"
-            element={
-              <Suspense fallback={<LoadingPage />}>
-                <AddProduct />
-              </Suspense>
-            }
-          />
-        )}
+        {/* {authCtx.isLoggedIn && ( */}
+        <Route
+          path="/user/dashboard"
+          element={
+            <Suspense fallback={<LoadingPage />}>
+              <Dashboard />
+            </Suspense>
+          }
+        />
+        {/* )} */}
+        {/* {authCtx.isLoggedIn && ( */}
+        <Route
+          path="/user/categories"
+          element={
+            <Suspense fallback={<LoadingPage />}>
+              <Categories />
+            </Suspense>
+          }
+        />
+        {/* {)}} */}
+        {/* {authCtx.isLoggedIn && ( */}
+        <Route
+          path="/user/products"
+          element={
+            <Suspense fallback={<LoadingPage />}>
+              <Products />
+            </Suspense>
+          }
+        />
+        {/* )} */}
+        {/* {authCtx.isLoggedIn && ( */}
+        <Route
+          path="/user/sales"
+          element={
+            <Suspense fallback={<LoadingPage />}>
+              <Sales />
+            </Suspense>
+          }
+        />
+        {/* )} */}
+        {/* {authCtx.isLoggedIn && ( */}
+        <Route
+          path="/user/gateway"
+          element={
+            <Suspense fallback={<LoadingPage />}>
+              <Gateway />
+            </Suspense>
+          }
+        />
+        {/* )} */}
+        {/* {authCtx.isLoggedIn && ( */}
+        <Route
+          path="/user/profile"
+          element={
+            <Suspense fallback={<LoadingPage />}>
+              <Profile />
+            </Suspense>
+          }
+        />
+        {/* )} */}
+        {/* {authCtx.isLoggedIn && ( */}
+        <Route
+          path="/user/addProduct"
+          element={
+            <Suspense fallback={<LoadingPage />}>
+              <AddProduct />
+            </Suspense>
+          }
+        />
+        {/* )} */}
         {/* <Route
           path="*"
           element={
