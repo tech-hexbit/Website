@@ -45,10 +45,7 @@ export default function RegisterMain() {
     } else {
       console.log(input);
 
-      const response = await axios.post(
-        "http://localhost:8000/api/website/auth/register/",
-        input
-      );
+      const response = await axios.post("/api/website/auth/register/", input);
       console.log(response);
       setError("");
       redirect("/");
