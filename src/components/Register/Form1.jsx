@@ -1,8 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 import FCss from "./Css/Form.module.css";
 
 export default function Form1(props) {
+  // const [disable, setDisable] = useState(true);
+  const [error, setError] = useState("");
+  const [input, setInput] = useState({ WhatsAppNumber: 0, Otp: 0 });
+
+  // const sendOTP = async () => {
+  //   if (input.WhatsAppNumber == "") {
+  //     setDisable(true);
+  //     setError("Please enter phone number");
+  //   } else {
+  //     if (input.WhatsAppNumber.length == 10) {
+  //       setError("");
+  //       setDisable(false);
+  //     } else {
+  //       setDisable(true);
+  //       setError("Invalid phone no.");
+  //     }
+  //   }
+  // };
+
+  const nextFN = async () => {
+    if (
+      props.input.Phone == 0 ||
+      input.Otp == 0 ||
+      props.input.Email == "" ||
+      props.input.Password == "" ||
+      props.input.BusinessName == "" ||
+      props.input.ImporterLicense == "" ||
+      props.input.GSTIN == ""
+    ) {
+      setError("Please fill all fields!!");
+      window.scrollTo(0, 0);
+    } else {
+      if (props.input.Phone.length != 10) {
+        setError("Invalid phone number!");
+      } else {
+        setError("");
+        props.setCount(2);
+        window.scrollTo(0, 0);
+      }
+    }
+  };
+
   return (
     <div className={FCss.mainDiv}>
       <div className={FCss.top}>
@@ -17,46 +60,114 @@ export default function Form1(props) {
         <div className={FCss.phoneInput}>
           <div className={FCss.formInputs}>
             <label htmlFor="phone">Phone</label>
-            <input type="number" id="phone" placeholder="Enter phone no." />
+            <input
+              type="number"
+              id="phone"
+              placeholder="Enter phone no."
+              name="Phone"
+              // disabled={!disable}
+              onChange={(e) => {
+                props.setInput({ ...props.input, Phone: e.target.value });
+                setInput({ ...input, WhatsAppNumber: e.target.value });
+              }}
+            />
           </div>
           <div className={FCss.otp}>
             <div className={FCss.otpText}>
-              <input type="text" name="" id="" />
+              <input
+                type="text"
+                id="otp"
+                placeholder="Enter the OTP sent"
+                // disabled={disable}
+                name="Password"
+                onChange={(e) => {
+                  setInput({ ...input, Otp: e.target.value });
+                }}
+              />
             </div>
             <div className={FCss.otpButton}>
-              <button>Send OTP</button>
+              <button
+              // onClick={sendOTP}
+              >
+                Send OTP
+              </button>
             </div>
           </div>
         </div>
         <div className={FCss.formInputs}>
           <label htmlFor="email">Email</label>
-          <input type="email" id="email" placeholder="Enter the email" />
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter the email"
+            name="Email"
+            value={props.input.Email}
+            onChange={(e) => {
+              props.setInput({ ...props.input, Email: e.target.value });
+            }}
+          />
         </div>
         <div className={FCss.formInputs}>
           <label htmlFor="pass">Password</label>
-          <input type="password" id="pass" placeholder="Enter your password" />
+          <input
+            type="password"
+            id="pass"
+            placeholder="Enter your password"
+            name="Password"
+            value={props.input.Password}
+            onChange={(e) => {
+              props.setInput({ ...props.input, Password: e.target.value });
+            }}
+          />
         </div>
         <div className={FCss.formInputs}>
           <label htmlFor="busName">Business Name</label>
-          <input type="text" id="busName" placeholder="Your business name" />
+          <input
+            type="text"
+            id="busName"
+            placeholder="Your business name"
+            name="BusinessName"
+            value={props.input.BusinessName}
+            onChange={(e) => {
+              props.setInput({ ...props.input, BusinessName: e.target.value });
+            }}
+          />
         </div>
         <div className={FCss.formInputs}>
           <label htmlFor="license">Importer License</label>
-          <input type="text" id="license" placeholder="Importer License no." />
+          <input
+            type="text"
+            id="license"
+            placeholder="Importer License no."
+            name="ImporterLicense"
+            value={props.input.ImporterLicense}
+            onChange={(e) => {
+              props.setInput({
+                ...props.input,
+                ImporterLicense: e.target.value,
+              });
+            }}
+          />
         </div>
         <div className={FCss.formInputs}>
           <label htmlFor="gstin">GSTIN</label>
-          <input type="text" id="gstin" placeholder="Your GSTIN" />
+          <input
+            type="text"
+            id="gstin"
+            placeholder="Your GSTIN"
+            name="GSTIN"
+            value={props.input.GSTIN}
+            onChange={(e) => {
+              props.setInput({ ...props.input, GSTIN: e.target.value });
+            }}
+          />
         </div>
       </div>
+      <div className="error">{error}</div>
       <div className={FCss.button}>
         <div></div>
         <div>
-          <button
-            onClick={() => {
-              props.setCount(2);
-            }}
-          >
+          <button onClick={nextFN}>
             {props.button}{" "}
             <svg
               xmlns="http://www.w3.org/2000/svg"
