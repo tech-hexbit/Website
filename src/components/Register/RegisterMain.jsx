@@ -20,6 +20,7 @@ export default function RegisterMain() {
   const [input, setInput] = useState({
     Phone: 0,
     Email: "",
+    Address: "",
     Password: "",
     BusinessName: "",
     ImporterLicense: "",
@@ -42,6 +43,8 @@ export default function RegisterMain() {
       setError("Please fill all fields!!");
       window.scrollTo(0, 0);
     } else {
+      console.log(input);
+
       const response = await axios.post(
         "http://localhost:8000/api/website/auth/register/",
         input
