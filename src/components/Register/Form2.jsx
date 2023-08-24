@@ -43,7 +43,16 @@ export default function Form2(props) {
         </div>
         <div className={FCss.formInputs}>
           <label htmlFor="address">Address</label>
-          <input type="text" id="address" placeholder="Enter your address" />
+          <input
+            type="text"
+            id="address"
+            name="Address"
+            value={props.input.Address}
+            placeholder="Enter your address"
+            onChange={(e) => {
+              props.setInput({ ...props.input, Address: e.target.value });
+            }}
+          />
         </div>
         <div className={FCss.formInputs}>
           <label htmlFor="state">State / District</label>
