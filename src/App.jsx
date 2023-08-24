@@ -19,6 +19,7 @@ const Sales = React.lazy(() => import("./Pages/User/Sales"));
 const Gateway = React.lazy(() => import("./Pages/User/Gateway"));
 const Profile = React.lazy(() => import("./Pages/User/Profile"));
 const AddProduct = React.lazy(() => import("./Pages/User/AddProduct"));
+const TrackingPage = React.lazy(() => import("./Pages/TrackingPage"));
 
 import AuthContext from "./store/auth-context";
 import axios from "axios";
@@ -75,6 +76,14 @@ function App() {
           element={
             <Suspense fallback={<LoadingPage />}>
               <Terms />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/Tracking/:id"
+          element={
+            <Suspense fallback={<LoadingPage />}>
+              <TrackingPage />
             </Suspense>
           }
         />
