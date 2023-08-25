@@ -12,7 +12,6 @@ import THCss from "./Css/TrackingHeader.module.css";
 export default function TrackingHeader(props) {
   const handleOpenPDF = async (e) => {
     try {
-      // Replace with your API endpoint
       const response = await fetch(
         "http://localhost:8000/api/common/invoice/Download/Invoice"
       );
