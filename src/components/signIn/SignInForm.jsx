@@ -88,7 +88,7 @@ export default function SignInForm() {
           secondaryColor: "#F16360",
           symbol: "error",
           title: "Error",
-          text: "An Unexpected Error Occured",
+          text: "Invalid Credentials",
           val: true,
         });
       }
@@ -110,12 +110,6 @@ export default function SignInForm() {
 
   return (
     <>
-      {/* {load ? (
-        <>
-          <LoadingPage />
-        </>
-      ) : (
-        <> */}
       <div className={style.mainDiv}>
         <div className={style.left}>
           <div>
@@ -240,9 +234,7 @@ export default function SignInForm() {
           </div>
         </div>
       </div>
-      {/* </>
-      )}
-    */}
+
       <Alert variant={variants} val={setError} />
     </>
   );
