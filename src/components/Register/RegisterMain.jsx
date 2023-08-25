@@ -19,8 +19,8 @@ import icon3 from "../../assets/register/icon3.png";
 import icon4 from "../../assets/register/icon4.png";
 
 export default function RegisterMain() {
-  const redirect = useNavigate();
   const [count, setCount] = useState(1);
+  const [load, setLoad] = useState(false);
   const [error, setError] = useState("");
   const [input, setInput] = useState({
     Phone: 0,
@@ -36,6 +36,8 @@ export default function RegisterMain() {
     Pincode: "",
     AdditionalInfo: "",
   });
+
+  const redirect = useNavigate();
 
   const register = async () => {
     if (
