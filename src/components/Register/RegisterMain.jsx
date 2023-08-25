@@ -2,12 +2,17 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+// components
+import Form1 from "./Form1";
+import Form2 from "./Form2";
+import GrowCard from "./GrowCard";
+import { Alert } from "./../../MicroInteraction/Alert";
+import Load from "./../../MicroInteraction/Load";
+
 // css
 import RFCss from "./Css/Register.module.css";
 
-import GrowCard from "./GrowCard";
-import Form1 from "./Form1";
-import Form2 from "./Form2";
+// img
 import icon1 from "../../assets/register/icon1.png";
 import icon2 from "../../assets/register/icon2.png";
 import icon3 from "../../assets/register/icon3.png";
