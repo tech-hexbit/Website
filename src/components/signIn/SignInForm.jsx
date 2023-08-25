@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 // axios
@@ -35,23 +35,34 @@ export default function SignInForm() {
   const redirect = useNavigate();
 
   const login = async () => {
+    setLoad(true);
+
     if (input.email == "" || input.password == "") {
-      setError("Please fill all fields!");
+      setLoad(false);
+
+      setError({
+        mainColor: "#FFC0CB",
+        secondaryColor: "#FF69B4",
+        symbol: "pets",
+        title: "Check it out",
+        text: "Please Fill All The Details",
+        val: true,
+      });
     } else {
       try {
-        setLoad(true);
         const response = await axios.post("/api/website/auth/login/", input);
 
-        redirect("/user/dashboard");
-        setError("");
+        console.log(response);
+        // redirect("/user/dashboard");
+        // setError("");
 
-        await authCtx.login(
-          response.data.user.ShopName,
-          response.data.user.Email,
-          response.data.user.image,
-          response.data.token,
-          10800000
-        );
+        // await authCtx.login(
+        //   response.data.user.ShopName,
+        //   response.data.user.Email,
+        //   response.data.user.image,
+        //   response.data.token,
+        //   10800000
+        // );
       } catch (e) {
         setError("Inavlid Credentials");
       } finally {
@@ -59,6 +70,19 @@ export default function SignInForm() {
       }
     }
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setError({
+        mainColor: "",
+        secondaryColor: "",
+        symbol: "",
+        title: "",
+        text: "",
+        val: false,
+      });
+    }, 10000);
+  }, [variants]);
 
   return (
     <>
