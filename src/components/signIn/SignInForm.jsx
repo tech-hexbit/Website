@@ -1,14 +1,20 @@
 import React, { useContext, useState } from "react";
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
+// axios
+import axios from "axios";
+
+// MicroInteraction
+import LoadingPage from "../../MicroInteraction/Loading";
+
+// state
+import AuthContext from "../../store/auth-context";
+
+// css
 import style from "./SignInForm.module.css";
 
-// import slider from "../../assets/Slider.png";
-// import Slider from "./slider/Slider";
+// img
 import slider1 from "../../assets/slider/Group3.png";
-import LoadingPage from "../../MicroInteraction/Loading";
-import AuthContext from "../../store/auth-context";
 
 export default function SignInForm() {
   const [input, setInput] = useState({ email: "", password: "" });
