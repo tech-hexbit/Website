@@ -1,13 +1,23 @@
-import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 // css
 import style from "./MobileHeader.module.css";
 
 import imgLogo from "./../../assets/logo/HexbitLogo.png";
 
+import AuthContext from "../../store/auth-context";
+
 const MobileHeader = () => {
   const [count, setCount] = useState(false);
+
+  const authCtx = useContext(AuthContext);
+  const redirect = useNavigate();
+
+  const logout = async () => {
+    redirect("/signIn");
+    authCtx.logout();
+  };
 
   return (
     <div className={style.mobileNav}>
@@ -52,16 +62,30 @@ const MobileHeader = () => {
             <p>Contact Us</p>
           </NavLink>
         </div>
-        <div className={style.mobileList} onClick={() => setCount(false)}>
-          <NavLink to="/signIn" className="LinkStyle">
-            <p>Login</p>
-          </NavLink>
-        </div>
-        <div className={style.mobileList} onClick={() => setCount(false)}>
-          <NavLink to="/register" className="LinkStyle">
-            <p id={style.Register}>Register for free</p>
-          </NavLink>
-        </div>
+        {authCtx.isLoggedIn ? (
+          <>
+            <div
+              className="LinkStyle"
+              style={{ cursor: "pointer" }}
+              onClick={logout}
+            >
+              <p className={style.mobileList}>Logout</p>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className={style.mobileList} onClick={() => setCount(false)}>
+              <NavLink to="/signIn" className="LinkStyle">
+                <p>Login</p>
+              </NavLink>
+            </div>
+            <div className={style.mobileList} onClick={() => setCount(false)}>
+              <NavLink to="/register" className="LinkStyle">
+                <p id={style.Register}>Register for free</p>
+              </NavLink>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
