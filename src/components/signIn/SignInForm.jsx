@@ -80,7 +80,6 @@ export default function SignInForm() {
           );
         }
       } catch (e) {
-        console.log("--------------------");
         setLoad(false);
 
         setError({
