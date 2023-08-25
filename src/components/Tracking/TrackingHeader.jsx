@@ -1,10 +1,6 @@
 import React, { useState } from "react";
-import { Document, Page, pdfjs } from "react-pdf";
-
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 import TrackList from "./TrackList";
-import axios from "axios";
 
 // css
 import THCss from "./Css/TrackingHeader.module.css";
@@ -25,13 +21,11 @@ export default function TrackingHeader(props) {
   };
   return (
     <>
-      <div>
+      <div className={THCss.titleDiv}>
         <p className={THCss.titlePTag}>
           Order ID : <span>{props.id}</span>
         </p>
-        <div>
-          <button onClick={handleOpenPDF}>Open PDF</button>
-        </div>
+        <button onClick={handleOpenPDF}>Open PDF</button>
       </div>
 
       <div className={THCss.listTrackingDiv}>
