@@ -6,6 +6,8 @@ import axios from "axios";
 
 // MicroInteraction
 import LoadingPage from "../../MicroInteraction/Loading";
+import { Alert } from "./../../MicroInteraction/Alert";
+import Load from "../../MicroInteraction/Load";
 
 // state
 import AuthContext from "../../store/auth-context";
@@ -18,12 +20,20 @@ import slider1 from "../../assets/slider/Group3.png";
 
 export default function SignInForm() {
   const [input, setInput] = useState({ email: "", password: "" });
-  const [error, setError] = useState("");
   const [load, setLoad] = useState(false);
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
 
   const authCtx = useContext(AuthContext);
 
   const redirect = useNavigate();
+
   const login = async () => {
     if (input.email == "" || input.password == "") {
       setError("Please fill all fields!");
