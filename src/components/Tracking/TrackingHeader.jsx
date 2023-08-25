@@ -11,6 +11,7 @@ export default function TrackingHeader(props) {
       const response = await fetch(
         "http://localhost:8000/api/common/invoice/Download/Invoice"
       );
+
       const blob = await response.blob();
 
       const blobUrl = URL.createObjectURL(blob);
