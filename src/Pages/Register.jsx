@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 
 // components
-// import RegisterHeader from "../components/Register/RegisterHeader";
 import RegisterMain from "../components/Register/RegisterMain";
 
 export default function Register() {
@@ -12,7 +11,6 @@ export default function Register() {
 
   return (
     <div>
-      {/* <RegisterHeader /> */}
       <RegisterMain />
     </div>
   );
