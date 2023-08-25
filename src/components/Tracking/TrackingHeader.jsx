@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { Document, Page, pdfjs } from "react-pdf";
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 import TrackList from "./TrackList";
 import axios from "axios";
@@ -7,20 +10,19 @@ import axios from "axios";
 import THCss from "./Css/TrackingHeader.module.css";
 
 export default function TrackingHeader(props) {
-  const [DonlUrl, setDonlUrl] = useState("");
-  const Download = async (e) => {
-    const response = await axios.post("/api/common/invoice/Download/Invoice");
+  const handleOpenPDF = async (e) => {
+    try {
+      // Replace with your API endpoint
+      const response = await fetch(
+        "http://localhost:8000/api/common/invoice/Download/Invoice"
+      );
+      const blob = await response.blob();
 
-    console.log(response.data);
-    setDonlUrl(response.data);
-
-    const pdfBlob = new Blob([response.data], { type: "application/pdf" });
-
-    // Create a Blob URL
-    const blobUrl = URL.createObjectURL(pdfBlob);
-
-    // Open a new tab with the Blob URL
-    window.open(blobUrl, "_blank");
+      const blobUrl = URL.createObjectURL(blob);
+      window.open(blobUrl, "_blank");
+    } catch (error) {
+      console.error("Error fetching or displaying the PDF:", error);
+    }
   };
   return (
     <>
@@ -28,7 +30,9 @@ export default function TrackingHeader(props) {
         <p className={THCss.titlePTag}>
           Order ID : <span>{props.id}</span>
         </p>
-        <p onClick={Download}>Download Invoice</p>
+        <div>
+          <button onClick={handleOpenPDF}>Open PDF</button>
+        </div>
       </div>
 
       <div className={THCss.listTrackingDiv}>
