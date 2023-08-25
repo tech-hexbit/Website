@@ -1,16 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 
 import TrackList from "./TrackList";
+import axios from "axios";
 
 // css
 import THCss from "./Css/TrackingHeader.module.css";
 
 export default function TrackingHeader(props) {
+  const [DonlUrl, setDonlUrl] = useState("");
+  const Download = async (e) => {
+    const response = await axios.post("/api/common/invoice/Download/Invoice");
+
+    console.log(response.data);
+    setDonlUrl(response.data);
+
+    const pdfBlob = new Blob([response.data], { type: "application/pdf" });
+
+    // Create a Blob URL
+    const blobUrl = URL.createObjectURL(pdfBlob);
+
+    // Open a new tab with the Blob URL
+    window.open(blobUrl, "_blank");
+  };
   return (
     <>
-      <p className={THCss.titlePTag}>
-        Order ID : <span>{props.id}</span>
-      </p>
+      <div>
+        <p className={THCss.titlePTag}>
+          Order ID : <span>{props.id}</span>
+        </p>
+        <p onClick={Download}>Download Invoice</p>
+      </div>
 
       <div className={THCss.listTrackingDiv}>
         <div className={THCss.trackingDiv}>
