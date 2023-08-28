@@ -19,6 +19,8 @@ const Header = () => {
     authCtx.logout();
   };
 
+  console.log(authCtx.isLoggedIn);
+
   return (
     <div className={styles.mDiv}>
       <div className={styles.mContDiv}>
