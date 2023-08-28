@@ -116,7 +116,7 @@ function App() {
             }
           />
         )}
-        {!authCtx.isLoggedIn && (
+        {authCtx.isLoggedIn && (
           <Route
             path="/me"
             element={
