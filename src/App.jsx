@@ -19,7 +19,7 @@ const Privacy = React.lazy(() => import("./Pages/Privacy"));
 //        || Auth
 const Register = React.lazy(() => import("./Pages/Register"));
 const SignIn = React.lazy(() => import("./Pages/SignIn"));
-//
+// Dashboard
 const Dashboard = React.lazy(() => import("./Pages/User/Dashboard"));
 const Categories = React.lazy(() => import("./Pages/User/Categories"));
 const Products = React.lazy(() => import("./Pages/User/Products"));
