@@ -193,6 +193,8 @@ function App() {
             </Suspense>
           }
         />
+
+        {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
       </Routes>
       <Footer />
     </Router>
