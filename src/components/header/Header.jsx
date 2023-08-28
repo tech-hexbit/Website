@@ -40,7 +40,7 @@ const Header = () => {
           </NavLink>
           {authCtx.isLoggedIn ? (
             <>
-              <NavLink to="/user/dashboard" className="LinkStyle">
+              <NavLink to="/me" className="LinkStyle">
                 <img
                   src={authCtx.user.image}
                   alt=""
