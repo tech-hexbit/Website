@@ -4,6 +4,11 @@ import React, { useState, useEffect, useContext, Suspense } from "react";
 
 // import { Helmet } from "react-helmet";
 
+// components
+import Nav from "./components/header/Header";
+import Footer from "./components/footer/Footer";
+import MobileNav from "./components/header/MobileHeader";
+
 // Pages
 const Home = React.lazy(() => import("./Pages/Home"));
 const About = React.lazy(() => import("./Pages/About"));
@@ -26,11 +31,6 @@ const TrackingPage = React.lazy(() => import("./Pages/TrackingPage"));
 
 // MicroInteraction
 import LoadingPage from "./MicroInteraction/Loading";
-
-// components
-import Nav from "./components/header/Header";
-import Footer from "./components/footer/Footer";
-import MobileNav from "./components/header/MobileHeader";
 
 // state
 import AuthContext from "./store/auth-context";
