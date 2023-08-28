@@ -74,7 +74,7 @@ export default function SignInForm() {
           await authCtx.login(
             response.data.user.ShopName,
             response.data.user.Email,
-            response.data.user.image,
+            response.data.user[0].image,
             response.data.token,
             10800000
           );
