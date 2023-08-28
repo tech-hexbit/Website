@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 
 // css
@@ -18,8 +18,6 @@ const Header = () => {
     redirect("/signIn");
     authCtx.logout();
   };
-
-  console.log(authCtx.user.pic);
 
   return (
     <div className={styles.mDiv}>
@@ -45,9 +43,14 @@ const Header = () => {
               <div
                 className="LinkStyle"
                 style={{ cursor: "pointer" }}
-                onClick={logout}
+                // onClick={logout}
               >
-                <p>Logout</p>
+                <img
+                  src={authCtx.user.image}
+                  alt=""
+                  className={styles.imgAuth}
+                />
+                {/* <p>Logout</p> */}
               </div>
             </>
           ) : (
