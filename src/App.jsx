@@ -25,7 +25,6 @@ const Categories = React.lazy(() => import("./Pages/User/Categories"));
 const Products = React.lazy(() => import("./Pages/User/Products"));
 const Sales = React.lazy(() => import("./Pages/User/Sales"));
 const Gateway = React.lazy(() => import("./Pages/User/Gateway"));
-// const Profile = React.lazy(() => import("./Pages/User/Profile"));
 const Profile = React.lazy(() => import("./Pages/Profile"));
 const AddProduct = React.lazy(() => import("./Pages/User/AddProduct"));
 const TrackingPage = React.lazy(() => import("./Pages/TrackingPage"));
@@ -176,16 +175,6 @@ function App() {
             }
           />
         )}
-        {/* {authCtx.isLoggedIn && (
-          <Route
-            path="/user/profile"
-            element={
-              <Suspense fallback={<LoadingPage />}>
-                <Profile />
-              </Suspense>
-            }
-          />
-        )} */}
         {authCtx.isLoggedIn && (
           <Route
             path="/user/addProduct"
