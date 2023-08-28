@@ -10,7 +10,7 @@ export default function Profile() {
   return (
     <div className={PCss.mDiv}>
       <UserSideBar />
-      <div className={PCss.CDiv}>Profile s</div>
+      <div className={PCss.CDiv}>Profile</div>
     </div>
   );
 }
