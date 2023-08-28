@@ -4,14 +4,17 @@ import React, { useState, useEffect, useContext, Suspense } from "react";
 
 // import { Helmet } from "react-helmet";
 
+// Pages
 const Home = React.lazy(() => import("./Pages/Home"));
-const Terms = React.lazy(() => import("./Pages/Terms"));
 const About = React.lazy(() => import("./Pages/About"));
+const Terms = React.lazy(() => import("./Pages/Terms"));
 const Error = React.lazy(() => import("./Pages/Error"));
 const Contact = React.lazy(() => import("./Pages/Contact"));
 const Privacy = React.lazy(() => import("./Pages/Privacy"));
+//        || Auth
 const Register = React.lazy(() => import("./Pages/Register"));
 const SignIn = React.lazy(() => import("./Pages/SignIn"));
+//
 const Dashboard = React.lazy(() => import("./Pages/User/Dashboard"));
 const Categories = React.lazy(() => import("./Pages/User/Categories"));
 const Products = React.lazy(() => import("./Pages/User/Products"));
@@ -21,14 +24,19 @@ const Profile = React.lazy(() => import("./Pages/User/Profile"));
 const AddProduct = React.lazy(() => import("./Pages/User/AddProduct"));
 const TrackingPage = React.lazy(() => import("./Pages/TrackingPage"));
 
-import AuthContext from "./store/auth-context";
-import axios from "axios";
-
+// MicroInteraction
 import LoadingPage from "./MicroInteraction/Loading";
 
+// components
 import Nav from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import MobileNav from "./components/header/MobileHeader";
+
+// state
+import AuthContext from "./store/auth-context";
+
+// axios
+import axios from "axios";
 
 axios.defaults.baseURL = import.meta.env.VITE_SERVER_URL;
 
