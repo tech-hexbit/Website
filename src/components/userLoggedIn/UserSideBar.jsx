@@ -152,31 +152,6 @@ export default function UserSideBar() {
         </div>
       </NavLink>
       <NavLink
-        to="/user/profile"
-        className={({ isActive }) =>
-          isActive ? "LinkStyle sideBarActive" : "LinkStyle sideBarNonActive"
-        }
-      >
-        <div className={sidebarCSS.navElement}>
-          <div className={sidebarCSS.icons}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="21"
-              viewBox="0 0 20 21"
-              className="temp"
-              //   fill="none"
-            >
-              <path
-                d="M10 0.5C4.48421 0.5 0 4.98421 0 10.5C0 16.0158 4.48421 20.5 10 20.5C15.5158 20.5 20 16.0158 20 10.5C20 4.98421 15.5158 0.5 10 0.5ZM10 6.22632C11.7264 6.22632 13.1369 7.63684 13.1369 9.3632C13.1369 11.0895 11.7264 12.5001 10 12.5001C8.27365 12.5001 6.86312 11.0895 6.86312 9.3632C6.86312 7.63684 8.27365 6.22632 10 6.22632ZM4.52632 16.5632V16.1C4.52632 14.7736 5.59996 13.679 6.94729 13.679H13.0526C14.3789 13.679 15.4735 14.7527 15.4735 16.1V16.5632C14.0209 17.8684 12.105 18.6684 9.99985 18.6684C7.89489 18.6684 5.97917 17.8684 4.52654 16.5632H4.52632Z"
-                // fill="#231963"
-              />
-            </svg>
-          </div>
-          <div className={sidebarCSS.heading}>Profile</div>
-        </div>
-      </NavLink>
-      <NavLink
         to="/user/addProduct"
         className={({ isActive }) =>
           isActive ? "LinkStyle sideBarActive" : "LinkStyle sideBarNonActive"
