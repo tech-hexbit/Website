@@ -7,6 +7,7 @@ import styles from "./Header.module.css";
 // img
 import imgLogo from "./../../assets/logo/HexbitLogo.png";
 
+// state
 import AuthContext from "../../store/auth-context";
 
 const Header = () => {
