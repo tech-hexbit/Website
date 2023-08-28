@@ -40,18 +40,15 @@ const Header = () => {
           </NavLink>
           {authCtx.isLoggedIn ? (
             <>
-              <div
-                className="LinkStyle"
-                style={{ cursor: "pointer" }}
-                // onClick={logout}
-              >
+              <NavLink to="/user/dashboard" className="LinkStyle">
+                {/* <div className="LinkStyle" style={{ cursor: "pointer" }}> */}
                 <img
                   src={authCtx.user.image}
                   alt=""
                   className={styles.imgAuth}
                 />
-                {/* <p>Logout</p> */}
-              </div>
+              </NavLink>
+              {/* </div> */}
             </>
           ) : (
             <>
