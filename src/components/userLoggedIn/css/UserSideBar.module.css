@@ -7,10 +7,12 @@
   height: fit-content;
   /* display: inline; */
 }
+
 .navElement {
   display: flex;
   cursor: pointer;
 }
+
 .icons {
   padding-right: 10px;
 }
