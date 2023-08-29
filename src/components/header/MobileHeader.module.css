@@ -97,6 +97,13 @@
   transform: translateX(-100%);
 }
 
+.imgAuth {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 @media only screen and (max-width: 650px) {
   .mobileNav {
     display: block;
