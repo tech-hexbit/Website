@@ -69,12 +69,23 @@ export default function SignInForm() {
             val: true,
           });
 
-          redirect("/user/dashboard");
+          redirect("/me");
 
           await authCtx.login(
-            response.data.user.ShopName,
-            response.data.user.Email,
             response.data.user[0].image,
+            response.data.user[0].Email,
+            response.data.user[0].Phone,
+            response.data.user[0].access,
+            response.data.user[0].BusinessName,
+            response.data.user[0].ImporterLicense,
+            response.data.user[0].GSTIN,
+            response.data.user[0].ShopName,
+            response.data.user[0].Address,
+            response.data.user[0].State,
+            response.data.user[0].City,
+            response.data.user[0].Pincode,
+            response.data.user[0].AdditionalInfo,
+            response.data.user[0].Store,
             response.data.token,
             10800000
           );

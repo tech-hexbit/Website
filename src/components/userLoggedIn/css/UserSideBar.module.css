@@ -1,16 +1,29 @@
-.mainDiv{
-    width: fit-content;
-    padding: 30px 50px 30px 30px;
-    font-family: "Rubik", sans-serif;
-    gap: 30px;
-    display: grid;
-    height: fit-content;
-    /* display: inline; */
+.mainDiv {
+  width: fit-content;
+  padding: 30px 50px 30px 30px;
+  font-family: "Rubik", sans-serif;
+  gap: 30px;
+  display: grid;
+  height: fit-content;
+  border-style: solid;
+  border-width: 0px 1px 0px 0px;
+  border-color: #d3d3d3;
 }
-.navElement{
-    display: flex;
-    cursor: pointer;
+
+.navElement {
+  display: flex;
+  cursor: pointer;
 }
-.icons{
-    padding-right: 10px;
+
+.icons {
+  padding-right: 10px;
+}
+
+@media only screen and (max-width: 650px) {
+  .heading {
+    display: none;
+  }
+  .mainDiv {
+    padding: 20px 10px;
+  }
 }
