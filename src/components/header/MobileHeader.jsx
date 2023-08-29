@@ -64,13 +64,16 @@ const MobileHeader = () => {
         </div>
         {authCtx.isLoggedIn ? (
           <>
-            <div
+            {/* <div
               className="LinkStyle"
               style={{ cursor: "pointer" }}
               onClick={logout}
             >
               <p className={style.mobileList}>Logout</p>
-            </div>
+            </div> */}
+            <NavLink to="/me" className="LinkStyle">
+              <img src={authCtx.user.image} alt="" className={style.imgAuth} />
+            </NavLink>
           </>
         ) : (
           <>
