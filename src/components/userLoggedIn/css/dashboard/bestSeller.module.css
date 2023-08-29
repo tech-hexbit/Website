@@ -7,42 +7,52 @@
   font-family: "Rubik", sans-serif;
   width: fit-content;
 }
+
 .heading {
   color: #000;
   font-size: 18px;
   font-weight: 700;
 }
+
 .table {
   padding-top: 50px;
 }
+
 .col1 {
   display: flex;
   width: 200px;
   /* justify-content: space-between; */
 }
+
 .image {
   height: 25px;
   padding-right: 10px;
 }
+
 img {
   height: 100%;
 }
+
 #th {
   color: #000;
   font-size: 16px;
   font-weight: 400;
   text-align: left;
 }
+
 #td {
   padding: 25px 15px 15px 0px;
   border-bottom: #ddd 1px solid;
 }
+
 .amount {
   width: 100px;
 }
+
 .sales {
   width: 60px;
 }
+
 .stock {
   width: 110px;
 }
