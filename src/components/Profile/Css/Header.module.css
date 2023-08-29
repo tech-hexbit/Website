@@ -18,11 +18,12 @@
 }
 
 .delHeader {
+  font-family: "Rubik", sans-serif;
   margin-left: 30px;
 }
 
 .delPName {
-  font-family: Open Sans;
+  /* font-family: Open Sans; */
   font-size: 24px;
   font-style: normal;
   font-weight: 400;
@@ -31,4 +32,9 @@
 }
 
 .delDes {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0.16px;
 }
