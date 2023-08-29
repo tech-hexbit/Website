@@ -47,24 +47,28 @@ body {
   color: #c0a0fd;
   font-weight: 600;
 }
-.LinkStyle.sideBarNonActive{
+
+.LinkStyle.sideBarNonActive {
   color: #595959;
   font-weight: 400;
   font-family: 18px;
 }
-.LinkStyle.sideBarActive{
-  color: #0132BF;
+
+.LinkStyle.sideBarActive {
+  color: #0132bf;
   font-weight: 600;
   font-family: 18px;
 }
-.LinkStyle.sideBarNonActive .temp{
-  fill : #231963
-}
-.LinkStyle.sideBarActive .temp{
-  fill : #0132BF
+
+.LinkStyle.sideBarNonActive .temp {
+  fill: #231963;
 }
 
-.error{
+.LinkStyle.sideBarActive .temp {
+  fill: #0132bf;
+}
+
+.error {
   text-align: center;
   color: red;
   font-weight: bold;
