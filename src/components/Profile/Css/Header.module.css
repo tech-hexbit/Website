@@ -15,6 +15,9 @@
   -webkit-user-drag: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+  transition: all 0.3s;
+}
+.imgHeaderP:hover {
 }
 
 .delHeader {
