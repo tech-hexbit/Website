@@ -47,4 +47,14 @@
   .mDiv {
     margin-top: 30px;
   }
+  .imgHeaderP {
+    width: 70px;
+    height: 70px;
+  }
+  .delPName {
+    font-size: 20px;
+  }
+  .delDes {
+    font-size: 12px;
+  }
 }
