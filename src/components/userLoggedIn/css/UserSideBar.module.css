@@ -18,3 +18,12 @@
 .icons {
   padding-right: 10px;
 }
+
+@media only screen and (max-width: 650px) {
+  .heading {
+    display: none;
+  }
+  .mainDiv {
+    padding: 20px 10px;
+  }
+}
