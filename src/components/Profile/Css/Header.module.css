@@ -16,3 +16,19 @@
   -webkit-user-select: none;
   -ms-user-select: none;
 }
+
+.delHeader {
+  margin-left: 30px;
+}
+
+.delPName {
+  font-family: Open Sans;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 33px;
+  letter-spacing: 0.24px;
+}
+
+.delDes {
+}
