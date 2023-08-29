@@ -12,9 +12,11 @@ export default function Header() {
   return (
     <div className={HPCss.mDiv}>
       <img src={authCtx.user.image} alt="" className={HPCss.imgHeaderP} />
-      <div>
-        <p>Pranav Sheth</p>
-        <p>Owner & founder</p>
+      <div className={HPCss.delHeader}>
+        <p className={HPCss.delPName}>
+          <b>Pranav Sheth</b>
+        </p>
+        <p className={HPCss.delDes}>Owner & founder</p>
       </div>
     </div>
   );
