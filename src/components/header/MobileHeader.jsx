@@ -48,6 +48,11 @@ const MobileHeader = () => {
         id={count ? style.visible : style.notVisible}
       >
         <div className={style.mobileList} onClick={() => setCount(false)}>
+          <NavLink to="/me" className="LinkStyle">
+            <img src={authCtx.user.image} alt="" className={style.imgAuth} />
+          </NavLink>
+        </div>
+        <div className={style.mobileList} onClick={() => setCount(false)}>
           <NavLink to="/" className="LinkStyle">
             <p>Home</p>
           </NavLink>
