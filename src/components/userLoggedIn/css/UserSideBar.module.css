@@ -1,16 +1,16 @@
-.mainDiv{
-    width: fit-content;
-    padding: 30px 50px 30px 30px;
-    font-family: "Rubik", sans-serif;
-    gap: 30px;
-    display: grid;
-    height: fit-content;
-    /* display: inline; */
+.mainDiv {
+  width: fit-content;
+  padding: 30px 50px 30px 30px;
+  font-family: "Rubik", sans-serif;
+  gap: 30px;
+  display: grid;
+  height: fit-content;
+  /* display: inline; */
 }
-.navElement{
-    display: flex;
-    cursor: pointer;
+.navElement {
+  display: flex;
+  cursor: pointer;
 }
-.icons{
-    padding-right: 10px;
+.icons {
+  padding-right: 10px;
 }
