@@ -48,6 +48,11 @@ const MobileHeader = () => {
         id={count ? style.visible : style.notVisible}
       >
         <div className={style.mobileList} onClick={() => setCount(false)}>
+          <NavLink to="/me" className="LinkStyle">
+            <img src={authCtx.user.image} alt="" className={style.imgAuth} />
+          </NavLink>
+        </div>
+        <div className={style.mobileList} onClick={() => setCount(false)}>
           <NavLink to="/" className="LinkStyle">
             <p>Home</p>
           </NavLink>
@@ -62,17 +67,7 @@ const MobileHeader = () => {
             <p>Contact Us</p>
           </NavLink>
         </div>
-        {authCtx.isLoggedIn ? (
-          <>
-            <div
-              className="LinkStyle"
-              style={{ cursor: "pointer" }}
-              onClick={logout}
-            >
-              <p className={style.mobileList}>Logout</p>
-            </div>
-          </>
-        ) : (
+        {!authCtx.isLoggedIn && (
           <>
             <div className={style.mobileList} onClick={() => setCount(false)}>
               <NavLink to="/signIn" className="LinkStyle">

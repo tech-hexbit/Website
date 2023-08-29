@@ -28,6 +28,7 @@ const Header = () => {
             <img src={imgLogo} alt="" className={styles.imgLogo} />
           </div>
         </Link>
+
         <div className={styles.rightDiv}>
           <NavLink to="/" className="LinkStyle">
             Home
