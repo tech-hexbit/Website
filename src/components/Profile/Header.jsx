@@ -14,9 +14,9 @@ export default function Header() {
       <img src={authCtx.user.image} alt="" className={HPCss.imgHeaderP} />
       <div className={HPCss.delHeader}>
         <p className={HPCss.delPName}>
-          <b>Pranav Sheth</b>
+          <b>{authCtx.user.BusinessName}</b>
         </p>
-        <p className={HPCss.delDes}>Owner & founder</p>
+        <p className={HPCss.delDes}>{authCtx.user.GSTIN}</p>
       </div>
     </div>
   );
