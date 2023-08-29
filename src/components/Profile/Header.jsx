@@ -4,5 +4,5 @@ import React from "react";
 import HPCss from "./Css/Header.module.css";
 
 export default function Header() {
-  return <div>Header</div>;
+  return <div className={HPCss.mDiv}>Header</div>;
 }
