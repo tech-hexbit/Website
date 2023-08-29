@@ -21,7 +21,6 @@
 .col1 {
   display: flex;
   width: 200px;
-  /* justify-content: space-between; */
 }
 
 .image {
