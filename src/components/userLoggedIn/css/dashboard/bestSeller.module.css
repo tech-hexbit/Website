@@ -1,47 +1,48 @@
-.mainDiv{
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.50);
-    padding: 20px;
-    font-family: "Rubik", sans-serif;
-    width: fit-content;
+.mainDiv {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  margin: 0px 30px 30px 30px;
+  font-family: "Rubik", sans-serif;
+  width: fit-content;
 }
-.heading{
-    color: #000;
-    font-size: 18px;
-    font-weight: 700;
+.heading {
+  color: #000;
+  font-size: 18px;
+  font-weight: 700;
 }
-.table{
-    padding-top: 50px;
+.table {
+  padding-top: 50px;
 }
-.col1{
-    display: flex;
-    width: 200px;
-    /* justify-content: space-between; */
+.col1 {
+  display: flex;
+  width: 200px;
+  /* justify-content: space-between; */
 }
-.image{
-    height: 25px;
-    padding-right: 10px;
+.image {
+  height: 25px;
+  padding-right: 10px;
 }
-img{
-    height: 100%;
+img {
+  height: 100%;
 }
-#th{
-    color: #000;
-    font-size: 16px;
-    font-weight: 400;
-    text-align: left;
+#th {
+  color: #000;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: left;
 }
-#td{
-    padding: 25px 15px 15px 0px;
-    border-bottom: #DDD 1px solid;
+#td {
+  padding: 25px 15px 15px 0px;
+  border-bottom: #ddd 1px solid;
 }
-.amount{
-    width: 100px;
+.amount {
+  width: 100px;
 }
-.sales{
-    width: 60px;
+.sales {
+  width: 60px;
 }
-.stock{
-    width: 110px;
+.stock {
+  width: 110px;
 }
