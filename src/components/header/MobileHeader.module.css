@@ -98,10 +98,14 @@
 }
 
 .imgAuth {
-  height: 40px;
-  width: 40px;
+  height: 70px;
+  width: 70px;
   border-radius: 50%;
   object-fit: cover;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #56117c;
+  transition: all 0.3s;
 }
 
 @media only screen and (max-width: 650px) {
