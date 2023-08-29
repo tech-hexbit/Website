@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 
 // Css
 import HPCss from "./Css/Header.module.css";
 
+// state
+import AuthContext from "../../store/auth-context";
+
 export default function Header() {
-  return <div className={HPCss.mDiv}>Header</div>;
+  const authCtx = useContext(AuthContext);
+
+  return (
+    <div className={HPCss.mDiv}>
+      <img src={authCtx.user.image} alt="" className={HPCss.imgHeaderP} />
+      <div></div>
+    </div>
+  );
 }
