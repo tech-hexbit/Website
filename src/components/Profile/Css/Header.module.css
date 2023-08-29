@@ -1,3 +1,9 @@
 .mDiv {
-  background-image: linear-gradient(to bottom right, #3f81e0, transparent);
+  /* background-image: linear-gradient(to bottom right, #3f81e0, transparent); */
+}
+
+.imgHeaderP {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
 }
