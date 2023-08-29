@@ -69,28 +69,23 @@ export default function SignInForm() {
             val: true,
           });
 
-          // redirect("/user/dashboard");
-
-          // console.log("Email -> " + response.data.user[0].Email);
-          // console.log("Phone -> " + response.data.user[0].Phone);
-          // console.log("access -> " + response.data.user[0].access);
-          // console.log("BusinessName -> " + response.data.user[0].BusinessName);
-          // console.log(
-          // "ImporterLicense -> " + response.data.user[0].ImporterLicense
-          // );
-          // console.log("GSTIN -> " + response.data.user[0].GSTIN);
-          // console.log("ShopName -> " + response.data.user[0].ShopName);
-          // console.log("Address -> " + response.data.user[0].Address);
-          // console.log("State -> " + response.data.user[0].State);
-          // console.log("City -> " + response.data.user[0].City);
-          // console.log("Pincode -> " + response.data.user[0].Pincode);
-          // console.log(
-          // "AdditionalInfo -> " + response.data.user[0].AdditionalInfo
-          // );
-          // console.log("Store -> " + response.data.user[0].Store);
+          redirect("/me");
 
           await authCtx.login(
             response.data.user[0].image,
+            response.data.user[0].Email,
+            response.data.user[0].Phone,
+            response.data.user[0].access,
+            response.data.user[0].BusinessName,
+            response.data.user[0].ImporterLicense,
+            response.data.user[0].GSTIN,
+            response.data.user[0].ShopName,
+            response.data.user[0].Address,
+            response.data.user[0].State,
+            response.data.user[0].City,
+            response.data.user[0].Pincode,
+            response.data.user[0].AdditionalInfo,
+            response.data.user[0].Store,
             response.data.token,
             10800000
           );
