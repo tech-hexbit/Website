@@ -37,17 +37,6 @@
   font-size: 16px;
 }
 
-.button button {
-  border: none;
-  border-radius: 5px;
-  background: rgba(63, 129, 224, 0.5);
-  color: #1746a2;
-  font-size: 20px;
-  font-weight: 700;
-  padding: 6px 30px;
-  cursor: pointer;
-}
-
 .bottom {
   padding-top: 55px;
   display: grid;
