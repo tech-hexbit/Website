@@ -117,7 +117,7 @@ function App() {
         )}
         {authCtx.isLoggedIn && (
           <Route
-            path="/me"
+            path="/me/*"
             element={
               <Suspense fallback={<LoadingPage />}>
                 <Profile />
@@ -125,17 +125,17 @@ function App() {
             }
           />
         )}
-        {authCtx.isLoggedIn && (
+        {/* {authCtx.isLoggedIn && (
           <Route
-            path="/user/dashboard"
+            path="/user"
             element={
               <Suspense fallback={<LoadingPage />}>
                 <Dashboard />
               </Suspense>
             }
           />
-        )}
-        {authCtx.isLoggedIn && (
+        )} */}
+        {/* {authCtx.isLoggedIn && (
           <Route
             path="/user/categories"
             element={
@@ -154,8 +154,8 @@ function App() {
               </Suspense>
             }
           />
-        )}
-        {authCtx.isLoggedIn && (
+        )} */}
+        {/* {authCtx.isLoggedIn && (
           <Route
             path="/user/sales"
             element={
@@ -174,8 +174,8 @@ function App() {
               </Suspense>
             }
           />
-        )}
-        {authCtx.isLoggedIn && (
+        )} */}
+        {/* {authCtx.isLoggedIn && (
           <Route
             path="/user/addProduct"
             element={
@@ -184,7 +184,7 @@ function App() {
               </Suspense>
             }
           />
-        )}
+        )} */}
         <Route
           path="*"
           element={
