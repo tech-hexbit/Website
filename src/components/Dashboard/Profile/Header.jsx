@@ -4,7 +4,7 @@ import React, { useContext } from "react";
 import HPCss from "./Css/Header.module.css";
 
 // state
-import AuthContext from "../../store/auth-context";
+import AuthContext from "./../../../store/auth-context";
 
 export default function Header() {
   const authCtx = useContext(AuthContext);
