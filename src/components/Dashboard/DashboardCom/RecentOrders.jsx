@@ -1,6 +1,6 @@
 // import React from 'react'
 
-import RCss from "../css/dashboard/recentOrders.module.css";
+import RCss from "./css/recentOrders.module.css";
 import BarChart from "./charts/BarChart";
 
 const data = [
