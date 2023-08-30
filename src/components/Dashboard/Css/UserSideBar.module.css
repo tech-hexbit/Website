@@ -1,10 +1,11 @@
 .mainDiv {
-  width: fit-content;
-  padding: 30px 50px 30px 30px;
   font-family: "Rubik", sans-serif;
-  gap: 30px;
-  display: grid;
+  padding: 50px 50px 30px 30px;
+  width: fit-content;
   height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
   border-style: solid;
   border-width: 0px 1px 0px 0px;
   border-color: #d3d3d3;
