@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 // components
 import UserSideBar from "./../components/userLoggedIn/UserSideBar";
-import Header from "./../components/Profile/Header";
+// import Header from "./../components/Profile/Header";
 
 // Css
 import PCss from "./Css/Profile.module.css";
