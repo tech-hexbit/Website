@@ -7,7 +7,7 @@ import AuthContext from "./../../store/auth-context";
 // Css
 import sidebarCSS from "./css/UserSideBar.module.css";
 
-export default function UserSideBar() {
+export default function UserSideBar(props) {
   const authCtx = useContext(AuthContext);
   const redirect = useNavigate();
 
@@ -19,7 +19,7 @@ export default function UserSideBar() {
   return (
     <div className={sidebarCSS.mainDiv}>
       <NavLink
-        to="/user/dashboard"
+        to="/me/dashboard"
         className={({ isActive }) =>
           isActive ? "LinkStyle sideBarActive" : "LinkStyle sideBarNonActive"
         }
@@ -40,7 +40,7 @@ export default function UserSideBar() {
         </div>
       </NavLink>
       <NavLink
-        to="/user/categories"
+        to="/me/categories"
         className={({ isActive }) =>
           isActive ? "LinkStyle sideBarActive" : "LinkStyle sideBarNonActive"
         }
@@ -65,7 +65,7 @@ export default function UserSideBar() {
         </div>
       </NavLink>
       <NavLink
-        to="/user/products"
+        to="/me/products"
         className={({ isActive }) =>
           isActive ? "LinkStyle sideBarActive" : "LinkStyle sideBarNonActive"
         }
@@ -90,7 +90,7 @@ export default function UserSideBar() {
         </div>
       </NavLink>
       <NavLink
-        to="/user/sales"
+        to="/me/sales"
         className={({ isActive }) =>
           isActive ? "LinkStyle sideBarActive" : "LinkStyle sideBarNonActive"
         }
@@ -116,7 +116,7 @@ export default function UserSideBar() {
         </div>
       </NavLink>
       <NavLink
-        to="/user/gateway"
+        to="/me/gateway"
         className={({ isActive }) =>
           isActive ? "LinkStyle sideBarActive" : "LinkStyle sideBarNonActive"
         }
@@ -137,7 +137,7 @@ export default function UserSideBar() {
         </div>
       </NavLink>
       <NavLink
-        to="/user/addProduct"
+        to="/me/addProduct"
         className={({ isActive }) =>
           isActive ? "LinkStyle sideBarActive" : "LinkStyle sideBarNonActive"
         }
