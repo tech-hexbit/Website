@@ -98,7 +98,7 @@ export default function OverallSales() {
   return (
     <div className={osCss.mainDiv}>
       <div className={osCss.top}>
-        <div className={osCss.OverallSales}>Overall Sales</div>
+        <div>Overall Sales</div>
         <div className={osCss.filters}>
           <div className={osCss.select}>
             <div className={osCss.selectInner}>
