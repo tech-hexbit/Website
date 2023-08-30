@@ -102,19 +102,19 @@ export default function AboutUs() {
             <div className={AbCss.blHead}>Buyer Side</div>
             <div className={AbCss.blImages}>
               <div className={AbCss.img}>
-                <img src={buyer1} alt="" />
+                <img src={buyer1} alt="" className={AbCss.imgLogo} />
               </div>
               <div className={AbCss.img}>
-                <img src={buyer2} alt="" />
+                <img src={buyer2} alt="" className={AbCss.imgLogo} />
               </div>
               <div className={AbCss.img}>
-                <img src={buyer3} alt="" />
+                <img src={buyer3} alt="" className={AbCss.imgLogo} />
               </div>
               <div className={AbCss.img}>
-                <img src={buyer4} alt="" />
+                <img src={buyer4} alt="" className={AbCss.imgLogo} />
               </div>
               <div className={AbCss.img}>
-                <img src={buyer5} alt="" />
+                <img src={buyer5} alt="" className={AbCss.imgLogo} />
               </div>
               <div className={AbCss.img} id={AbCss.yatraDiv}>
                 <img src={buyer6} alt="" id={AbCss.yatra} />
@@ -125,22 +125,22 @@ export default function AboutUs() {
             <div className={AbCss.blHead}>Logistics Side</div>
             <div className={AbCss.blImages}>
               <div className={AbCss.img}>
-                <img src={logistics1} alt="" />
+                <img src={logistics1} alt="" className={AbCss.imgLogo} />
               </div>
               <div className={AbCss.img}>
-                <img src={logistics2} alt="" />
+                <img src={logistics2} alt="" className={AbCss.imgLogo} />
               </div>
               <div className={AbCss.img}>
-                <img src={logistics3} alt="" />
+                <img src={logistics3} alt="" className={AbCss.imgLogo} />
               </div>
               <div className={AbCss.img}>
-                <img src={logistics4} alt="" />
+                <img src={logistics4} alt="" className={AbCss.imgLogo} />
               </div>
               <div className={AbCss.img}>
-                <img src={logistics5} alt="" />
+                <img src={logistics5} alt="" className={AbCss.imgLogo} />
               </div>
               <div className={AbCss.img}>
-                <img src={logistics6} alt="" />
+                <img src={logistics6} alt="" className={AbCss.imgLogo} />
               </div>
             </div>
           </div>
