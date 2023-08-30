@@ -83,6 +83,20 @@ const MobileHeader = () => {
             </div>
           </>
         )}
+        {authCtx.isLoggedIn && (
+          <>
+            <div
+              className={style.mobileList}
+              id={style.logout}
+              onClick={() => {
+                setCount(false);
+                logout();
+              }}
+            >
+              <p>Logout</p>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
