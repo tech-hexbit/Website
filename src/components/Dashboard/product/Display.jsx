@@ -1,6 +1,6 @@
 // import React from 'react'
 
-import DCss from "../css/product/display.module.css";
+import DCss from "./Css/display.module.css";
 
 import image from "../../../assets/dashboard/tablerow.png";
 
