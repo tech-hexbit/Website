@@ -1,4 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
+
+// components
+import Header from "./../components/Profile/Header";
+import Header from "";
 
 export default function Profile() {
   return <div>Profile</div>;
