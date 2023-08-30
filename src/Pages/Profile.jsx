@@ -10,7 +10,7 @@ import Categories from "./../components/Dashboard/Categories";
 import AddProduct from "./../components/Dashboard/AddProduct";
 import Dashboard from "./../components/Dashboard/DashboardMain";
 //          || SideBar
-import UserSideBar from "./../components/userLoggedIn/UserSideBar";
+import UserSideBar from "./../components/Dashboard/UserSideBar";
 
 // Css
 import PCss from "./Css/Profile.module.css";
