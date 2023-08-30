@@ -73,24 +73,20 @@
 }
 
 .table {
-  /* padding-top: 40px; */
   padding: 40px 15px;
 }
 
 .table th {
   color: #777;
-  /* font-size: 12px; */
   font-weight: 400;
   text-align: left;
 }
 
 .table table {
-  /* background-color: red; */
   width: 100%;
 }
 
 .table td {
-  /* background-color: red; */
   padding: 27px 0px 27px;
   border-bottom: 1px solid #ddd;
 }
