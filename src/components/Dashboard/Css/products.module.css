@@ -1,5 +1,11 @@
+.mdiv {
+  display: flex;
+  justify-content: space-between;
+  gap: 0px 20px;
+}
+
 .mainDiv {
-  width: 85%;
+  /* width: 85%; */
   padding-right: 10px;
   /* padding: 0px 25px 50px 0px; */
   display: grid;
@@ -7,6 +13,7 @@
   gap: 20px;
   font-family: "Rubik", sans-serif;
 }
+
 .heading {
   /* background-color: white; */
   height: fit-content;
@@ -15,6 +22,7 @@
   font-size: 20px;
   font-weight: 700;
 }
+
 .components {
   display: flex;
   justify-content: space-between;
