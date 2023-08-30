@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 
 // components
@@ -11,20 +11,18 @@ import ProfileMain from "./../components/Dashboard/Profile";
 import PCss from "./Css/Profile.module.css";
 
 export default function Profile() {
-  const [currTab, setCurrTab] = useState("me");
-
   // scroll to top
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   return (
     <div className={PCss.mDiv}>
-      <UserSideBar currTab={currTab} setCurrTab={setCurrTab} />
+      <UserSideBar />
       <div className={PCss.CDiv}>
         <Routes>
+          <Route path="/" element={<ProfileMain />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/categories" element={<Categories />} />
-          <Route path="/" element={<ProfileMain />} />
         </Routes>
       </div>
     </div>
