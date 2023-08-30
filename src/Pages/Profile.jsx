@@ -7,6 +7,7 @@ import Gateway from "../components/Dashboard/Gateway";
 import Products from "./../components/Dashboard/Products";
 import ProfileMain from "./../components/Dashboard/Profile";
 import Categories from "./../components/Dashboard/Categories";
+import AddProduct from "./../components/Dashboard/AddProduct";
 import Dashboard from "./../components/Dashboard/DashboardMain";
 //          || SideBar
 import UserSideBar from "./../components/userLoggedIn/UserSideBar";
@@ -30,6 +31,7 @@ export default function Profile() {
           <Route path="/products" element={<Products />} />
           <Route path="/sales" element={<Sales />} />
           <Route path="/gateway" element={<Gateway />} />
+          <Route path="/addProduct" element={<AddProduct />} />
         </Routes>
       </div>
     </div>
