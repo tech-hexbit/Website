@@ -49,6 +49,11 @@
   width: 40px;
   border-radius: 50%;
   object-fit: cover;
+  transition: all 0.3s;
+}
+
+.imgAuth:hover {
+  box-shadow: 1px 1px 10px #56117c;
 }
 
 @media only screen and (max-width: 940px) {
