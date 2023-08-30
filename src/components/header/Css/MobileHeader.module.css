@@ -1,0 +1,133 @@
+.mobileNav {
+  position: fixed;
+  top: 0;
+  left: 0px;
+  width: 100%;
+  background-color: #fff;
+  font-family: "Rubik", sans-serif;
+  box-shadow: 1px 1px 1px #d3d3d3;
+  display: none;
+  z-index: 1000;
+}
+
+.logoSign {
+  width: 100%;
+  display: flex;
+  height: 50px;
+  padding: 10px 10px 0px 20px;
+  justify-content: space-between;
+  display: none;
+}
+
+#bur1,
+#bur2,
+#bur3 {
+  border-radius: 4px;
+  background-color: black;
+  height: 3px;
+}
+
+#bur1 {
+  width: 100%;
+  margin-top: 4px;
+  margin-bottom: 7px;
+}
+
+#bur2 {
+  width: 75%;
+  margin-bottom: 7px;
+}
+
+#bur3 {
+  width: 50%;
+}
+
+.imgLogo {
+  margin-top: -3px;
+  width: 150px;
+}
+
+.cancel {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.hamburger {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  background-color: transparent;
+  transition: all 0.3s;
+}
+
+.navList {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background-color: #fff;
+  /* background-color: #ff0000; */
+  position: fixed;
+  top: 50px;
+  border-style: solid;
+  border-width: 1px 0px 0px 0px;
+  border-color: #d3d3d3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s;
+  z-index: 1000;
+}
+
+.mobileList {
+  font-size: 20px;
+  padding: 15px 0px;
+  text-align: center;
+}
+
+#Register {
+  padding: 10px 0px;
+  color: #fff;
+  width: 220px;
+  background: linear-gradient(270deg, #0009d1 0%, #ff00c7 100%);
+  border-radius: 32px;
+}
+
+#visible {
+  transform: translateX(0%);
+}
+
+#notVisible {
+  transform: translateX(-100%);
+}
+
+.imgAuth {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #56117c;
+  transition: all 0.3s;
+}
+
+.imgAuth:hover {
+  box-shadow: 3px 3px 50px #c176ff;
+}
+
+#logout {
+  color: maroon;
+  font-weight: 500;
+}
+
+@media only screen and (max-width: 650px) {
+  .mobileNav {
+    display: block;
+  }
+  .logoSign {
+    display: flex;
+  }
+}

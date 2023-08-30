@@ -1,6 +1,5 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
 import React, { useState, useEffect, useContext, Suspense } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // import { Helmet } from "react-helmet";
 
@@ -19,14 +18,8 @@ const Privacy = React.lazy(() => import("./Pages/Privacy"));
 //        || Auth
 const Register = React.lazy(() => import("./Pages/Register"));
 const SignIn = React.lazy(() => import("./Pages/SignIn"));
-// Dashboard
-const Dashboard = React.lazy(() => import("./Pages/User/Dashboard"));
-const Categories = React.lazy(() => import("./Pages/User/Categories"));
-const Products = React.lazy(() => import("./Pages/User/Products"));
-const Sales = React.lazy(() => import("./Pages/User/Sales"));
-const Gateway = React.lazy(() => import("./Pages/User/Gateway"));
+//        || Dashboard
 const Profile = React.lazy(() => import("./Pages/Profile"));
-const AddProduct = React.lazy(() => import("./Pages/User/AddProduct"));
 const TrackingPage = React.lazy(() => import("./Pages/TrackingPage"));
 
 // MicroInteraction
@@ -117,70 +110,10 @@ function App() {
         )}
         {authCtx.isLoggedIn && (
           <Route
-            path="/me"
+            path="/me/*"
             element={
               <Suspense fallback={<LoadingPage />}>
                 <Profile />
-              </Suspense>
-            }
-          />
-        )}
-        {authCtx.isLoggedIn && (
-          <Route
-            path="/user/dashboard"
-            element={
-              <Suspense fallback={<LoadingPage />}>
-                <Dashboard />
-              </Suspense>
-            }
-          />
-        )}
-        {authCtx.isLoggedIn && (
-          <Route
-            path="/user/categories"
-            element={
-              <Suspense fallback={<LoadingPage />}>
-                <Categories />
-              </Suspense>
-            }
-          />
-        )}
-        {authCtx.isLoggedIn && (
-          <Route
-            path="/user/products"
-            element={
-              <Suspense fallback={<LoadingPage />}>
-                <Products />
-              </Suspense>
-            }
-          />
-        )}
-        {authCtx.isLoggedIn && (
-          <Route
-            path="/user/sales"
-            element={
-              <Suspense fallback={<LoadingPage />}>
-                <Sales />
-              </Suspense>
-            }
-          />
-        )}
-        {authCtx.isLoggedIn && (
-          <Route
-            path="/user/gateway"
-            element={
-              <Suspense fallback={<LoadingPage />}>
-                <Gateway />
-              </Suspense>
-            }
-          />
-        )}
-        {authCtx.isLoggedIn && (
-          <Route
-            path="/user/addProduct"
-            element={
-              <Suspense fallback={<LoadingPage />}>
-                <AddProduct />
               </Suspense>
             }
           />

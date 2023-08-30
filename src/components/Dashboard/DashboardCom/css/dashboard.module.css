@@ -1,0 +1,44 @@
+.mainDiv {
+  font-family: "Rubik", sans-serif;
+  margin: 0px 30px 30px 30px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile {
+  display: flex;
+}
+
+.image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.des {
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.name {
+  color: #000;
+  font-size: 20px;
+}
+
+.sub {
+  color: #777;
+  font-size: 16px;
+}
+
+.bottom {
+  padding-top: 55px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 45px;
+}

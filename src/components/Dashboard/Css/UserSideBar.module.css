@@ -1,0 +1,33 @@
+.mainDiv {
+  font-family: "Rubik", sans-serif;
+  padding: 50px 20px;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  border-style: solid;
+  border-width: 0px 1px 0px 0px;
+  border-color: #d3d3d3;
+}
+
+.navElement {
+  display: flex;
+  cursor: pointer;
+}
+
+.icons {
+  padding-right: 10px;
+}
+
+.logoutIcon {
+  color: #231963;
+}
+
+@media only screen and (max-width: 650px) {
+  .heading {
+    display: none;
+  }
+  .mainDiv {
+    padding: 20px 10px;
+  }
+}
