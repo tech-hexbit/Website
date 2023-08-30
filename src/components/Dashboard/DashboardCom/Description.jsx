@@ -2,7 +2,7 @@
 
 import image from "../../../assets/dashboard/userimg.png";
 
-import DCss from "../css/dashboard/dashboard.module.css";
+import DCss from "./css/dashboard.module.css";
 import DesCard from "./DesCard";
 
 const data = [
