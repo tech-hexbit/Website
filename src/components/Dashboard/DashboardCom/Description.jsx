@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 
 // components
 import DesCard from "./DesCard";
+
+// state
+import AuthContext from "./../../../store/auth-context";
 
 // css
 import DCss from "./css/dashboard.module.css";
@@ -31,6 +34,8 @@ const data = [
 ];
 
 export default function Description() {
+  const authCtx = useContext(AuthContext);
+
   return (
     <div className={DCss.mainDiv}>
       <div className={DCss.top}>
@@ -39,7 +44,7 @@ export default function Description() {
             <img src={image} alt="" />
           </div>
           <div className={DCss.des}>
-            <div className={DCss.name}>Hello, Anna</div>
+            <div className={DCss.name}>Hello, {authCtx.user.BusinessName}</div>
             <div className={DCss.sub}>
               Here’s what’s happening with your business today
             </div>
