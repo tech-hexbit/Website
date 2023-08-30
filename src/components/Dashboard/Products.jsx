@@ -9,9 +9,9 @@ import pdtCSS from "./Css/products.module.css";
 
 export default function Products() {
   return (
-    <>
-      <Display />
+    <div className={pdtCSS.mdiv}>
       <Filter />
-    </>
+      <Display />
+    </div>
   );
 }
