@@ -29,7 +29,7 @@ export default function Profile() {
           <Route path="/categories" element={<Categories />} />
           <Route path="/products" element={<Products />} />
           <Route path="/sales" element={<Sales />} />
-          <Route path="/Gateway" element={<Gateway />} />
+          <Route path="/gateway" element={<Gateway />} />
         </Routes>
       </div>
     </div>
