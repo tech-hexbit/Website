@@ -9,9 +9,6 @@ import AuthContext from "./../../../store/auth-context";
 // css
 import DCss from "./css/dashboard.module.css";
 
-// img
-import image from "../../../assets/dashboard/userimg.png";
-
 const data = [
   {
     cardHeading: "Total orders",
@@ -40,9 +37,7 @@ export default function Description() {
     <div className={DCss.mainDiv}>
       <div className={DCss.top}>
         <div className={DCss.profile}>
-          <div className={DCss.image}>
-            <img src={image} alt="" />
-          </div>
+          <img className={DCss.image} src={authCtx.user.image} alt="" />
           <div className={DCss.des}>
             <div className={DCss.name}>Hello, {authCtx.user.BusinessName}</div>
             <div className={DCss.sub}>
