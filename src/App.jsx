@@ -19,14 +19,8 @@ const Privacy = React.lazy(() => import("./Pages/Privacy"));
 //        || Auth
 const Register = React.lazy(() => import("./Pages/Register"));
 const SignIn = React.lazy(() => import("./Pages/SignIn"));
-// Dashboard
-const Dashboard = React.lazy(() => import("./Pages/User/Dashboard"));
-const Categories = React.lazy(() => import("./Pages/User/Categories"));
-const Products = React.lazy(() => import("./Pages/User/Products"));
-const Sales = React.lazy(() => import("./Pages/User/Sales"));
-const Gateway = React.lazy(() => import("./Pages/User/Gateway"));
+//        || Dashboard
 const Profile = React.lazy(() => import("./Pages/Profile"));
-const AddProduct = React.lazy(() => import("./Pages/User/AddProduct"));
 const TrackingPage = React.lazy(() => import("./Pages/TrackingPage"));
 
 // MicroInteraction
