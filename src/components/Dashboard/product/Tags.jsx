@@ -1,6 +1,6 @@
 // import React from 'react'
 
-import TCss from "../css/product/tags.module.css";
+import TCss from "./Css/tags.module.css";
 
 export default function Tags(props) {
   return (
