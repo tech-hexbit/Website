@@ -14,11 +14,6 @@ const Header = () => {
   const authCtx = useContext(AuthContext);
   const redirect = useNavigate();
 
-  const logout = async () => {
-    redirect("/signIn");
-    authCtx.logout();
-  };
-
   return (
     <div className={styles.mDiv}>
       <div className={styles.mContDiv}>
