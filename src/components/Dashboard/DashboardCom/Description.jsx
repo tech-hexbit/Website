@@ -1,9 +1,13 @@
 import React from "react";
 
-import image from "../../../assets/dashboard/userimg.png";
-
-import DCss from "./css/dashboard.module.css";
+// components
 import DesCard from "./DesCard";
+
+// css
+import DCss from "./css/dashboard.module.css";
+
+// img
+import image from "../../../assets/dashboard/userimg.png";
 
 const data = [
   {
