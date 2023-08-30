@@ -3,6 +3,7 @@ import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 
 // components
 import Sales from "./../components/Dashboard/Sales";
+import Gateway from "../components/Dashboard/Gateway";
 import Products from "./../components/Dashboard/Products";
 import ProfileMain from "./../components/Dashboard/Profile";
 import Categories from "./../components/Dashboard/Categories";
@@ -28,6 +29,7 @@ export default function Profile() {
           <Route path="/categories" element={<Categories />} />
           <Route path="/products" element={<Products />} />
           <Route path="/sales" element={<Sales />} />
+          <Route path="/Gateway" element={<Gateway />} />
         </Routes>
       </div>
     </div>
