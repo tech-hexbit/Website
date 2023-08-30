@@ -1,7 +1,10 @@
-// import React from "react";
+import React from "react";
 
-import FCss from "../css/product/filter.module.css";
+// components
 import Tags from "./Tags";
+
+// css
+import FCss from "./Css/filter.module.css";
 
 const data = [
   "Shoes",
