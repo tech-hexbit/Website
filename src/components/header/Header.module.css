@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 2px 2px 3px #d3d3d3;
 }
 
 .mContDiv {
