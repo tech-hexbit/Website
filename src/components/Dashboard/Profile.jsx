@@ -2,10 +2,14 @@ import React, { useEffect } from "react";
 
 // components
 import Header from "./../components/Profile/Header";
-import Header from "";
+import Header from "./Profile/Header";
 
 export default function Profile() {
-  return <div>Profile</div>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 }
 
 // import React, { useEffect } from "react";
