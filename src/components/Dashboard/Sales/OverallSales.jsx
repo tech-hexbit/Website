@@ -1,9 +1,16 @@
-// import React from 'react'
+import React, { useState } from "react";
 
-import { useState } from "react";
+// Css
 import osCss from "./Css/overallSales.module.css";
 
 export default function OverallSales() {
+  const [active, setActive] = useState({
+    pdt: true,
+    fashion: false,
+    grocery: false,
+    furniture: false,
+  });
+
   const data = [
     {
       orderId: "#617GF",
@@ -87,12 +94,7 @@ export default function OverallSales() {
       status: "Returned",
     },
   ];
-  const [active, setActive] = useState({
-    pdt: true,
-    fashion: false,
-    grocery: false,
-    furniture: false,
-  });
+
   return (
     <div className={osCss.mainDiv}>
       <div className={osCss.top}>
