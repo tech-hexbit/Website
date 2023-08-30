@@ -1,4 +1,7 @@
 .mDiv {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0; /* required */
   color: #fff;
   padding: 15px 30px;
   display: flex;
