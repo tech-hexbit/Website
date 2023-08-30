@@ -3,10 +3,9 @@ import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 
 // components
 import UserSideBar from "./../components/userLoggedIn/UserSideBar";
-import Header from "./../components/Profile/Header";
-
-import DashboardMain from "./../components/Dashboard/DashboardMain";
+import Dashboard from "./../components/Dashboard/DashboardMain";
 import Categories from "./../components/Dashboard/Categories";
+import ProfileMain from "./../components/Dashboard/Profile";
 
 // Css
 import PCss from "./Css/Profile.module.css";
@@ -23,9 +22,9 @@ export default function Profile() {
       <UserSideBar currTab={currTab} setCurrTab={setCurrTab} />
       <div className={PCss.CDiv}>
         <Routes>
-          <Route path="/dashboard" element={<DashboardMain />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/categories" element={<Categories />} />
-          <Route path="/" element={<Header />} />
+          <Route path="/" element={<ProfileMain />} />
         </Routes>
       </div>
     </div>
