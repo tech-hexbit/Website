@@ -125,66 +125,6 @@ function App() {
             }
           />
         )}
-        {/* {authCtx.isLoggedIn && (
-          <Route
-            path="/user"
-            element={
-              <Suspense fallback={<LoadingPage />}>
-                <Dashboard />
-              </Suspense>
-            }
-          />
-        )} */}
-        {/* {authCtx.isLoggedIn && (
-          <Route
-            path="/user/categories"
-            element={
-              <Suspense fallback={<LoadingPage />}>
-                <Categories />
-              </Suspense>
-            }
-          />
-        )}
-        {authCtx.isLoggedIn && (
-          <Route
-            path="/user/products"
-            element={
-              <Suspense fallback={<LoadingPage />}>
-                <Products />
-              </Suspense>
-            }
-          />
-        )} */}
-        {/* {authCtx.isLoggedIn && (
-          <Route
-            path="/user/sales"
-            element={
-              <Suspense fallback={<LoadingPage />}>
-                <Sales />
-              </Suspense>
-            }
-          />
-        )}
-        {authCtx.isLoggedIn && (
-          <Route
-            path="/user/gateway"
-            element={
-              <Suspense fallback={<LoadingPage />}>
-                <Gateway />
-              </Suspense>
-            }
-          />
-        )} */}
-        {/* {authCtx.isLoggedIn && (
-          <Route
-            path="/user/addProduct"
-            element={
-              <Suspense fallback={<LoadingPage />}>
-                <AddProduct />
-              </Suspense>
-            }
-          />
-        )} */}
         <Route
           path="*"
           element={
