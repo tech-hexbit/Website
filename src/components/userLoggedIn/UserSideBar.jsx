@@ -15,6 +15,7 @@ export default function UserSideBar() {
     redirect("/signIn");
     authCtx.logout();
   };
+
   return (
     <div className={sidebarCSS.mainDiv}>
       <NavLink
