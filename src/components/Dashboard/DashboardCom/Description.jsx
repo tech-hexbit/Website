@@ -45,9 +45,6 @@ export default function Description() {
             </div>
           </div>
         </div>
-        {/* <div className={DCss.button}>
-          <button>+ Add product</button>
-        </div> */}
       </div>
       <div className={DCss.bottom}>
         {data.map((element, i) => {
