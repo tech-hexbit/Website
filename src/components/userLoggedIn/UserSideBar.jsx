@@ -7,7 +7,7 @@ import AuthContext from "./../../store/auth-context";
 // Css
 import sidebarCSS from "./css/UserSideBar.module.css";
 
-export default function UserSideBar(props) {
+export default function UserSideBar() {
   const authCtx = useContext(AuthContext);
   const redirect = useNavigate();
 
