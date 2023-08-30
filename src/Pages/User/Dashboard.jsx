@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 
 // // components
-// import UserSideBar from "../../components/userLoggedIn/UserSideBar";
+import { UserSideBar } from "../../components/userLoggedIn/UserSideBar";
 // import BestSellers from "../../components/userLoggedIn/dashboard/BestSellers";
 // import Description from "../../components/userLoggedIn/dashboard/Description";
 // import RecentOrders from "../../components/userLoggedIn/dashboard/RecentOrders";
@@ -24,10 +24,22 @@ export default function Dashboard() {
     <div style={{ display: "flex", backgroundColor: "#F7F8FA" }}>
       <UserSideBar setCurrTab={setCurrTab} currTab={currTab} />
       <div className={PCss.CDiv}>
-        <Description />
+        <Routes>
+          {/* {currTab === "Dashboard" && ( */}
+          <Route path="/me/dashboard" element={<DashboardMain />} />
+          {/* )} */}
+          {/* {currTab === "Dashboard" && ( */}
+          <Route path="/me/categories" element={<Categories />} />
+          {/* )} */}
+          {/* <DashboardMain /> */}
+          {/* {level == 'admin' && (
+          <Route path="/adminmembers" element={<AdminMembers />} />
+        )} */}
+        </Routes>
+        {/* <Description />
         <Revenue />
         <RecentOrders />
-        <BestSellers />
+        <BestSellers /> */}
       </div>
     </div>
   );
