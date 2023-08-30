@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 
 // components
 import UserSideBar from "../../components/userLoggedIn/UserSideBar";
@@ -11,13 +12,14 @@ import Revenue from "../../components/userLoggedIn/dashboard/Revenue";
 import PCss from "./../Css/Profile.module.css";
 
 export default function Dashboard() {
+  const [currTab, setCurrTab] = useState("me");
   // scroll to top
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   return (
     <div style={{ display: "flex", backgroundColor: "#F7F8FA" }}>
-      <UserSideBar />
+      <UserSideBar setCurrTab={setCurrTab} currTab={currTab} />
       <div className={PCss.CDiv}>
         <Description />
         <Revenue />
