@@ -1,5 +1,5 @@
 // import React from 'react'
-import RCss from "../css/dashboard/revenue.module.css";
+import RCss from "./css/revenue.module.css";
 import DoughnutChart from "./charts/Doughnut";
 import StackedBar from "./charts/StackedBar";
 
