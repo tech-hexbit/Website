@@ -2,7 +2,7 @@ import React from "react";
 
 import image from "../../../assets/dashboard/tablerow.png";
 
-import BSCss from "../css/dashboard/bestSeller.module.css";
+import BSCss from "./css/bestSeller.module.css";
 
 const data = [
   {
