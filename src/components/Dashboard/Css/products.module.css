@@ -5,9 +5,7 @@
 }
 
 .mainDiv {
-  /* width: 85%; */
   padding-right: 10px;
-  /* padding: 0px 25px 50px 0px; */
   display: grid;
   height: fit-content;
   gap: 20px;
@@ -15,7 +13,6 @@
 }
 
 .heading {
-  /* background-color: white; */
   height: fit-content;
   padding: 20px 0px 0px 20px;
   color: #000;
