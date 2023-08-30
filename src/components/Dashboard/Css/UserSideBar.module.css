@@ -1,11 +1,10 @@
 .mainDiv {
   font-family: "Rubik", sans-serif;
-  padding: 50px 0px;
-  width: 205px;
+  padding: 50px 20px;
+  width: fit-content;
   /* height: 100%; */
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 30px;
   border-style: solid;
   border-width: 0px 1px 0px 0px;
