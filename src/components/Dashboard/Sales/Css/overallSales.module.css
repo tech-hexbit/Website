@@ -1,4 +1,5 @@
 .mainDiv {
+  font-family: "Open Sans", sans-serif;
   background-color: #fff;
   border-radius: 15px;
   margin-bottom: 50px;
@@ -6,6 +7,9 @@
 
 .top {
   padding: 15px;
+}
+
+.OverallSales {
 }
 
 .filters {
