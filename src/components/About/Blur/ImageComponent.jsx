@@ -32,12 +32,12 @@ export default function ImageComponent({ src, blur }) {
 
   return (
     <>
-      <div
+      {/* <div
         style={{
           display: imageLoaded ? "none" : "inline",
         }}
-      >
-        {/* <Blurhash
+      > */}
+      {/* <Blurhash
           hash={blur}
           width={1800}
           height={1052}
@@ -45,13 +45,13 @@ export default function ImageComponent({ src, blur }) {
           resolutionY={32}
           punch={1}
         /> */}
-        <LoadingPage />
-      </div>
+      {/* <LoadingPage /> */}
+      {/* </div> */}
       <img
         src={src}
         alt=""
         className="CorememCardImg"
-        style={{ display: !imageLoaded ? "none" : "inline" }}
+        // style={{ display: !imageLoaded ? "none" : "inline" }}
       />
     </>
   );
