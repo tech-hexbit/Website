@@ -4,3 +4,15 @@
   max-height: 1000px;
   object-fit: contain;
 }
+
+@media only screen and (max-width: 650px) {
+  .CorememCardImg {
+    height: 70vh;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .CorememCardImg {
+    height: 50vh;
+  }
+}
