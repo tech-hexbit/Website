@@ -22,8 +22,8 @@ export default function MissionBlur({ src, blur }) {
       >
         <Blurhash
           hash={blur}
-          //   width={471}
-          //   height={619.625}
+          width={471}
+          height={619.625}
           resolutionX={32}
           resolutionY={32}
           punch={1}
