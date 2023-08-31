@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+// components
 import Title from "../Home/Title";
+import MissionBlur from "./Blur/MissionBlur";
 
 // Css
 import AbCss from "./Css/AboutUs.module.css";
@@ -28,7 +30,8 @@ export default function AboutUs() {
       <Title title="About Us" />
       <div className={AbCss.part1}>
         <div className={AbCss.left}>
-          <img src={img} alt="" />
+          <MissionBlur src={img} blur="L28zoltmxv-;?GR-^+%N~px]ozIT" />
+          {/* <img src={img} alt="" /> */}
         </div>
         <div className={AbCss.right}>
           <div className={AbCss.head}>We are On a Mission</div>
