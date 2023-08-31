@@ -12,6 +12,7 @@
 .left {
   width: 30%;
   border-radius: 15px;
+  overflow: hidden;
 }
 
 .left img {
