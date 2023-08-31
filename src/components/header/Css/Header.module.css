@@ -72,4 +72,7 @@
   .mDiv {
     display: none;
   }
+  .replaceDiv {
+    height: 50px;
+  }
 }
