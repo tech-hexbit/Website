@@ -3,9 +3,10 @@
   top: 0;
   left: 0px;
   width: 100%;
+  height: 64px;
   background-color: #fff;
   color: #fff;
-  padding: 15px 30px;
+  padding: 10px 30px;
   align-items: center;
   justify-content: center;
   box-shadow: 2px 2px 3px #d3d3d3;
@@ -14,7 +15,8 @@
 
 .replaceDiv {
   width: 100%;
-  height: 50px;
+  height: 64px;
+  background-color: red;
 }
 
 .mContDiv {
@@ -23,6 +25,7 @@
   align-items: center;
   justify-content: space-between;
   font-family: "Rubik", sans-serif;
+  gap: 0px 30px;
 }
 
 .imgLogo {
@@ -30,15 +33,15 @@
 }
 
 .rightDiv {
+  width: 70%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 0px 35px;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .registerPTag {
-  padding: 12px 42px;
+  padding: 8px 24px;
   border-radius: 10px;
   background: linear-gradient(270deg, #0009d1 0%, #ff00c7 100%);
   color: white;
@@ -56,29 +59,20 @@
   box-shadow: 1px 1px 10px #56117c;
 }
 
-@media only screen and (max-width: 940px) {
+@media only screen and (max-width: 850px) {
   .rightDiv {
-    gap: 0px 30px;
-    font-size: 14px;
-  }
-}
-
-@media only screen and (max-width: 900px) {
-  .registerPTag {
-    padding: 12px 22px;
-    border-radius: 32px;
-  }
-}
-
-@media only screen and (max-width: 890px) {
-  .rightDiv {
-    gap: 0px 10px;
     font-size: 12px;
+  }
+  .registerPTag {
+    padding: 8px 15px;
   }
 }
 
 @media only screen and (max-width: 650px) {
   .mDiv {
     display: none;
+  }
+  .replaceDiv {
+    height: 50px;
   }
 }

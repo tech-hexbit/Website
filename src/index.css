@@ -12,16 +12,17 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
+.page {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: lightgrey;
 }
 
-#root {
+.pageExt {
+  max-width: 1750px;
   width: 100%;
-  max-width: 1700px;
   background-color: #fff;
   overflow: hidden;
 }
