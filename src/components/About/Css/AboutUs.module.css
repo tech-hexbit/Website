@@ -232,6 +232,12 @@ span {
   }
 }
 
+@media screen and (max-width: 800px) {
+  .blImages {
+    column-gap: 25px;
+  }
+}
+
 @media screen and (max-width: 780px) {
   .part1 {
     padding: 50px;
@@ -335,22 +341,7 @@ span {
   }
 }
 
-@media screen and (max-width: 800px) {
-  .blImages {
-    column-gap: 25px;
-  }
-}
-
 @media only screen and (max-width: 650px) {
-  .part3Top {
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  .blImages {
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 80px;
-    row-gap: 20px;
-  }
 }
 
 @media screen and (max-width: 500px) {
