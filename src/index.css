@@ -26,6 +26,20 @@ body {
   overflow: hidden;
 }
 
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #0f0e0e;
+}
+
+.pageExt {
+  max-width: 1750px;
+  width: 100%;
+  background-color: #e5e5e5;
+}
+
 .LinkStyle {
   text-decoration: none;
   color: inherit;
