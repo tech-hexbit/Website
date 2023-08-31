@@ -7,16 +7,24 @@
   padding: 90px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .left {
   width: 30%;
+  height: 100%;
+  min-height: 620px;
+  background-color: red;
   border-radius: 15px;
   overflow: hidden;
 }
 
 .left img {
   width: 100%;
+  /* width: 400px; */
+  /* height: 800px; */
+  height: 101%;
+  overflow: hidden;
 }
 
 .right {
