@@ -12,32 +12,19 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: lightgrey;
-}
-
-#root {
-  width: 100%;
-  max-width: 1700px;
-  background-color: #fff;
-  overflow: hidden;
-}
-
 .page {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #0f0e0e;
+  background-color: lightgrey;
 }
 
 .pageExt {
   max-width: 1750px;
   width: 100%;
-  background-color: #e5e5e5;
+  background-color: #fff;
+  overflow: hidden;
 }
 
 .LinkStyle {
