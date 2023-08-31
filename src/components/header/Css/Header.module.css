@@ -31,10 +31,10 @@
 }
 
 .rightDiv {
+  width: 70%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 0px 35px;
   font-size: 14px;
 }
 
@@ -57,24 +57,12 @@
   box-shadow: 1px 1px 10px #56117c;
 }
 
-@media only screen and (max-width: 940px) {
+@media only screen and (max-width: 850px) {
   .rightDiv {
-    gap: 0px 30px;
-    font-size: 14px;
-  }
-}
-
-@media only screen and (max-width: 900px) {
-  .registerPTag {
-    padding: 12px 22px;
-    border-radius: 32px;
-  }
-}
-
-@media only screen and (max-width: 890px) {
-  .rightDiv {
-    gap: 0px 10px;
     font-size: 12px;
+  }
+  .registerPTag {
+    padding: 8px 15px;
   }
 }
 
