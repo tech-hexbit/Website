@@ -39,96 +39,100 @@ function App() {
     <Router>
       <Nav />
       <MobileNav />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Suspense fallback={<LoadingPage />}>
-              <Home />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/AboutUs"
-          element={
-            <Suspense fallback={<LoadingPage />}>
-              <About />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/contact"
-          element={
-            <Suspense fallback={<LoadingPage />}>
-              <Contact />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/privacy"
-          element={
-            <Suspense fallback={<LoadingPage />}>
-              <Privacy />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/terms"
-          element={
-            <Suspense fallback={<LoadingPage />}>
-              <Terms />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/Tracking/:id"
-          element={
-            <Suspense fallback={<LoadingPage />}>
-              <TrackingPage />
-            </Suspense>
-          }
-        />
-        {!authCtx.isLoggedIn && (
-          <Route
-            path="/register"
-            element={
-              <Suspense fallback={<LoadingPage />}>
-                <Register />
-              </Suspense>
-            }
-          />
-        )}
-        {!authCtx.isLoggedIn && (
-          <Route
-            path="/signIn"
-            element={
-              <Suspense fallback={<LoadingPage />}>
-                <SignIn />
-              </Suspense>
-            }
-          />
-        )}
-        {authCtx.isLoggedIn && (
-          <Route
-            path="/me/*"
-            element={
-              <Suspense fallback={<LoadingPage />}>
-                <Profile />
-              </Suspense>
-            }
-          />
-        )}
-        <Route
-          path="*"
-          element={
-            <Suspense fallback={<LoadingPage />}>
-              <Error />
-            </Suspense>
-          }
-        />
+      <div className="page">
+        <div className="pageExt">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Suspense fallback={<LoadingPage />}>
+                  <Home />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/AboutUs"
+              element={
+                <Suspense fallback={<LoadingPage />}>
+                  <About />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/contact"
+              element={
+                <Suspense fallback={<LoadingPage />}>
+                  <Contact />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/privacy"
+              element={
+                <Suspense fallback={<LoadingPage />}>
+                  <Privacy />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/terms"
+              element={
+                <Suspense fallback={<LoadingPage />}>
+                  <Terms />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/Tracking/:id"
+              element={
+                <Suspense fallback={<LoadingPage />}>
+                  <TrackingPage />
+                </Suspense>
+              }
+            />
+            {!authCtx.isLoggedIn && (
+              <Route
+                path="/register"
+                element={
+                  <Suspense fallback={<LoadingPage />}>
+                    <Register />
+                  </Suspense>
+                }
+              />
+            )}
+            {!authCtx.isLoggedIn && (
+              <Route
+                path="/signIn"
+                element={
+                  <Suspense fallback={<LoadingPage />}>
+                    <SignIn />
+                  </Suspense>
+                }
+              />
+            )}
+            {authCtx.isLoggedIn && (
+              <Route
+                path="/me/*"
+                element={
+                  <Suspense fallback={<LoadingPage />}>
+                    <Profile />
+                  </Suspense>
+                }
+              />
+            )}
+            <Route
+              path="*"
+              element={
+                <Suspense fallback={<LoadingPage />}>
+                  <Error />
+                </Suspense>
+              }
+            />
 
-        {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
-      </Routes>
+            {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
+          </Routes>
+        </div>
+      </div>
       <Footer />
     </Router>
   );
