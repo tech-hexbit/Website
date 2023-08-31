@@ -30,12 +30,7 @@ export default function AboutUs() {
       <Title title="About Us" />
       <div className={AbCss.part1}>
         <div className={AbCss.left}>
-          <MissionBlur
-            src={img}
-            blur="L28zoltmxv-;?GR-^+%N~px]ozIT"
-            style={{ width: "100%", height: "100%" }}
-          />
-          {/* <img src={img} alt="" /> */}
+          <MissionBlur src={img} blur="L28zoltmxv-;?GR-^+%N~px]ozIT" />
         </div>
         <div className={AbCss.right}>
           <div className={AbCss.head}>We are On a Mission</div>
