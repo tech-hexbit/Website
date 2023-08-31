@@ -1,6 +1,6 @@
 .CorememCardImg {
   width: 100%;
-  height: 10vh;
+  height: 100vh;
   max-height: 1000px;
   object-fit: cover;
 }
