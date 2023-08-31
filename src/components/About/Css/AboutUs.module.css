@@ -215,6 +215,21 @@ span {
   .part2Img img {
     height: 100%;
   }
+  .part3Top {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .topHead {
+    width: 100%;
+  }
+
+  .topSubHead {
+    width: 100%;
+  }
+
+  .blImages {
+    column-gap: 50px;
+  }
 }
 
 @media screen and (max-width: 780px) {
@@ -317,24 +332,6 @@ span {
   .part2Desc {
     padding-top: 10px;
     text-align: center;
-  }
-}
-
-@media screen and (max-width: 950px) {
-  .part3Top {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .topHead {
-    width: 100%;
-  }
-
-  .topSubHead {
-    width: 100%;
-  }
-
-  .blImages {
-    column-gap: 50px;
   }
 }
 
