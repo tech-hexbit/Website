@@ -208,9 +208,6 @@ span {
   .part2Desc {
     font-size: 36px;
   }
-}
-
-@media screen and (max-width: 950px) {
   .part2Img {
     width: 100%;
   }
