@@ -17,7 +17,7 @@
 }
 
 .headerTitle {
-  font-size: clamp(1.4rem, 2vw + 2rem, 4.063rem);
+  font-size: clamp(1.4rem, 1.6vw + 1.7rem, 4.063rem);
   font-weight: 700;
   width: 100%;
   letter-spacing: -2px;
@@ -75,5 +75,15 @@
 @media only screen and (max-width: 550px) {
   .mDiv {
     flex-direction: column;
+  }
+}
+@media only screen and (max-width: 651px) {
+   .headerTitle {
+      margin-right: 4.3vw;
+  } 
+}
+@media only screen and (max-width: 900px) {
+  .headerTitle {
+      margin-left:11vw;
   }
 }
