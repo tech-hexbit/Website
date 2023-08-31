@@ -9,7 +9,7 @@ import Blur from "./../components/About/Blur/ImageComponent";
 import LoadingPage from "./../MicroInteraction/Loading";
 
 // img
-import image from "./../assets/AboutUS/HEXBITAbtUsHeader.jpg";
+import image from "./../assets/AboutUS/abUsHeader.png";
 
 export default function About() {
   // scroll to top
