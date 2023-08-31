@@ -23,6 +23,7 @@
   align-items: center;
   justify-content: space-between;
   font-family: "Rubik", sans-serif;
+  gap: 0px 30px;
 }
 
 .imgLogo {
@@ -34,11 +35,11 @@
   justify-content: space-between;
   align-items: center;
   gap: 0px 35px;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .registerPTag {
-  padding: 12px 42px;
+  padding: 8px 24px;
   border-radius: 10px;
   background: linear-gradient(270deg, #0009d1 0%, #ff00c7 100%);
   color: white;
