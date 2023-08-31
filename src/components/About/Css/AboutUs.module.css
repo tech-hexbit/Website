@@ -1,5 +1,5 @@
 .mainDiv {
-  margin-top: -12%;
+  /* margin-top: -12%; */
   font-family: "Rubik", sans-serif;
 }
 
@@ -344,7 +344,7 @@ span {
   }
 }
 
-@media screen and (max-width: 650px) {
+@media only screen and (max-width: 650px) {
   .part3Top {
     grid-template-columns: repeat(1, 1fr);
   }
