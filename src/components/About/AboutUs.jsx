@@ -37,7 +37,7 @@ export default function AboutUs() {
           <div className={AbCss.aimDiv}>
             <div className={AbCss.aimHead}>We AIM TO : </div>
             <div className={AbCss.aimDesc}>
-              Provide Inclusive & Interoperable Ecosystem :
+              Provide Inclusive & Interoperable Ecosystem:
             </div>
           </div>
           <div className={AbCss.desc}>
