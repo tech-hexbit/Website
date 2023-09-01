@@ -78,6 +78,7 @@
   font-weight: 900;
   line-height: 40.811px;
   letter-spacing: 0.653px;
+  margin-bottom: 30px;
 }
 
 .labelDes {
@@ -88,4 +89,21 @@
   line-height: 19px;
   letter-spacing: 0.14px;
   margin: 15px 0px 10px 0px;
+}
+
+.upAddImgDragPTag {
+  color: #777;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0.14px;
+  margin-top: 10px;
+}
+
+.upAddImg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
