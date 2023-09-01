@@ -120,4 +120,20 @@
   border-radius: 5px;
   border: 1px solid #1746a2;
   background: rgba(63, 129, 224, 0.3);
+  color: var(--secondary-dark-blue, #1746a2);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0.12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: fit-content;
+  padding: 3px 12px;
+}
+
+.CloseX {
+  margin-left: 7px;
+  font-weight: bold;
 }
