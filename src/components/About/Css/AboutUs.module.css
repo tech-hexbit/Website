@@ -1,5 +1,4 @@
 .mainDiv {
-  /* margin-top: -12%; */
   font-family: "Rubik", sans-serif;
 }
 
@@ -7,15 +6,21 @@
   padding: 90px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .left {
   width: 30%;
+  height: 400px;
+  background-color: red;
   border-radius: 15px;
+  overflow: hidden;
 }
 
 .left img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .right {
@@ -43,7 +48,7 @@
 
 .aimDesc {
   color: #1a1a1a;
-  font-size: 40px;
+  font-size: clamp(28px, 1vw + 36px, 40px);
   letter-spacing: -0.939px;
   margin-bottom: 10px;
 }
@@ -160,15 +165,29 @@ span {
 
 .part2Img img {
   width: 300px;
-  /* height: 40%; */
+}
+
+@media screen and (max-width: 1000px) {
+  .part1 {
+    padding: 30px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    flex-direction: column-reverse;
+    gap: 30px 0px;
+  }
+
+  .right {
+    width: 100%;
+  }
+  .left {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 1120px) {
   .head {
-    font-size: 36px;
-  }
-
-  .aimDesc {
     font-size: 36px;
   }
 
@@ -186,9 +205,9 @@ span {
     font-size: 32px;
   }
 
-  .aimDesc {
+  /* .aimDesc {
     font-size: 32px;
-  }
+  } */
 
   .desc {
     font-size: 16px;
@@ -205,9 +224,6 @@ span {
   .part2Desc {
     font-size: 36px;
   }
-}
-
-@media screen and (max-width: 950px) {
   .part2Img {
     width: 100%;
   }
@@ -215,112 +231,6 @@ span {
   .part2Img img {
     height: 100%;
   }
-}
-
-@media screen and (max-width: 780px) {
-  .part1 {
-    padding: 50px;
-  }
-}
-
-@media screen and (max-width: 750px) {
-  .part2Img {
-    width: 100%;
-    align-items: center;
-  }
-
-  .part2Img img {
-    width: 300px;
-    height: 300px;
-  }
-}
-
-@media screen and (max-width: 650px) {
-  .part1 {
-    padding: 30px;
-  }
-
-  .left {
-    width: 45%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .left img {
-    width: 95%;
-  }
-
-  .right {
-    width: 50%;
-  }
-
-  .aimDesc {
-    font-size: 28px;
-  }
-
-  .register {
-    margin-left: -10px;
-    padding-top: 5px;
-  }
-
-  .part2Desc {
-    font-size: 30px;
-  }
-}
-
-@media screen and (max-width: 620px) {
-  .part2Desc {
-    font-size: 28px;
-  }
-
-  .part2Img {
-    width: 100%;
-    align-items: center;
-  }
-
-  .part2Img img {
-    width: 200px;
-    height: 200px;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .part1 {
-    flex-direction: column;
-  }
-
-  .desc {
-    text-align: justify;
-  }
-
-  .left {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .left img {
-    width: 50%;
-  }
-
-  .right {
-    width: 100%;
-    padding-top: 10px;
-  }
-
-  .part2 {
-    flex-direction: column-reverse;
-  }
-
-  .part2Desc {
-    padding-top: 10px;
-    text-align: center;
-  }
-}
-
-@media screen and (max-width: 950px) {
   .part3Top {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -344,7 +254,31 @@ span {
   }
 }
 
-@media only screen and (max-width: 650px) {
+@media screen and (max-width: 750px) {
+  .part2Img {
+    width: 100%;
+    align-items: center;
+  }
+
+  .part2Img img {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .part1 {
+    padding: 30px;
+  }
+
+  .register {
+    margin-left: -10px;
+    padding-top: 5px;
+  }
+
+  .part2Desc {
+    font-size: 30px;
+  }
   .part3Top {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -356,7 +290,35 @@ span {
   }
 }
 
+@media screen and (max-width: 620px) {
+  .part2Desc {
+    font-size: 28px;
+  }
+
+  .part2Img {
+    width: 100%;
+    align-items: center;
+  }
+
+  .part2Img img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
 @media screen and (max-width: 500px) {
+  .desc {
+    text-align: justify;
+  }
+
+  .part2 {
+    flex-direction: column-reverse;
+  }
+
+  .part2Desc {
+    padding-top: 10px;
+    text-align: center;
+  }
   .blImages {
     column-gap: 40px;
   }
