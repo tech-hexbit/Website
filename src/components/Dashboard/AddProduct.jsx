@@ -10,6 +10,7 @@ export default function AddProduct() {
   return (
     <div className={ApCss.mDiv}>
       <p className={ApCss.AddHPTag}>Add Product</p>
+      <Form />
     </div>
   );
 }
