@@ -47,7 +47,8 @@
 
 .aimDesc {
   color: #1a1a1a;
-  font-size: 40px;
+  font-size: clamp(28px, 1vw + 36px, 40px);
+  /* font-size: 40px; */
   letter-spacing: -0.939px;
   margin-bottom: 10px;
 }
@@ -164,6 +165,16 @@ span {
 
 .part2Img img {
   width: 300px;
+}
+
+@media screen and (max-width: 1000px) {
+  .part1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    flex-direction: column-reverse;
+  }
 }
 
 @media screen and (max-width: 1120px) {
