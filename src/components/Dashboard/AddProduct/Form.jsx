@@ -102,7 +102,45 @@ export default function Form() {
             />
           </div>
         </div>
-        <div className={FCss.right}></div>
+        <div className={FCss.right}>
+          <p className={FCss.labelMain}>Publish</p>
+
+          <div className={FCss.inpDiv}>
+            <p className={FCss.label}>Status</p>
+
+            <select name="" id="" className={FCss.inp}>
+              <option value="Draft">Draft</option>
+            </select>
+          </div>
+
+          <div className={FCss.inpDiv}>
+            <p className={FCss.label}>Visibility</p>
+
+            <select name="" id="" className={FCss.inp}>
+              <option value="Public">Public</option>
+            </select>
+          </div>
+
+          <p className={FCss.labelMain}>Publish schedule</p>
+
+          <div className={FCss.inpDiv}>
+            <p className={FCss.label}>Select date & time</p>
+
+            <select name="" id="" className={FCss.inp}>
+              <option value="Public">Enter date</option>
+            </select>
+          </div>
+
+          <p className={FCss.labelMain}>Product category</p>
+
+          <div className={FCss.inpDiv}>
+            <p className={FCss.label}>Select product category</p>
+
+            <select name="" id="" className={FCss.inp}>
+              <option value="Fashion">Fashion</option>
+            </select>
+          </div>
+        </div>
       </div>
       <div className={FCss.inpDiv}>
         <p className={FCss.label}>Product image</p>
