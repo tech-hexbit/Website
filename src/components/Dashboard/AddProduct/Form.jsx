@@ -152,6 +152,18 @@ export default function Form() {
               </div>
             </div>
           </div>
+
+          <div className={FCss.inpDiv}>
+            <p className={FCss.label}>Additional text</p>
+            <textarea
+              name=""
+              id=""
+              cols="30"
+              rows="10"
+              placeholder="Enter additional text description of the product"
+              className={FCss.inpTA}
+            ></textarea>
+          </div>
         </div>
       </div>
       <div className={FCss.inpDiv}>
@@ -174,6 +186,10 @@ export default function Form() {
             </p>
           </div>
         </div>
+      </div>
+
+      <div className={FCss.SubmitBtnDiv}>
+        <p className={FCss.SubmitBtn}>Submit</p>
       </div>
     </div>
   );
