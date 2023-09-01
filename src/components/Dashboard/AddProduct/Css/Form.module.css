@@ -15,7 +15,6 @@
 }
 
 .label {
-  color: #000;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -43,6 +42,12 @@
 }
 
 .inpTA {
+  outline: none;
+  width: 100%;
   resize: none;
+  margin-top: 15px;
+  padding: 10px 15px;
+  border: 1px solid rgb(161, 161, 161);
+  border-radius: 3px;
   overflow-x: hidden;
 }
