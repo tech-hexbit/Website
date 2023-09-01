@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Blurhash } from "react-blurhash";
+// import { Blurhash } from "react-blurhash";
 
 // MicroInteraction
 import LoadingPage from "./../../../MicroInteraction/Loading";
