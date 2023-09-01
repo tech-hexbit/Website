@@ -20,6 +20,7 @@
 .left img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 .right {
@@ -169,11 +170,20 @@ span {
 
 @media screen and (max-width: 1000px) {
   .part1 {
+    padding: 30px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     flex-direction: column-reverse;
+    gap: 30px 0px;
+  }
+
+  .right {
+    width: 100%;
+  }
+  .left {
+    width: 100%;
   }
 }
 
@@ -182,9 +192,9 @@ span {
     font-size: 36px;
   }
 
-  .aimDesc {
+  /* .aimDesc {
     font-size: 36px;
-  }
+  } */
 
   .desc {
     font-size: 20px;
@@ -200,9 +210,9 @@ span {
     font-size: 32px;
   }
 
-  .aimDesc {
+  /* .aimDesc {
     font-size: 32px;
-  }
+  } */
 
   .desc {
     font-size: 16px;
@@ -249,12 +259,6 @@ span {
   }
 }
 
-@media screen and (max-width: 780px) {
-  .part1 {
-    padding: 50px;
-  }
-}
-
 @media screen and (max-width: 750px) {
   .part2Img {
     width: 100%;
@@ -272,24 +276,24 @@ span {
     padding: 30px;
   }
 
-  .left {
+  /* .left {
     width: 45%;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+  } */
 
-  .left img {
+  /* .left img {
     width: 95%;
-  }
+  } */
 
-  .right {
+  /* .right {
     width: 50%;
-  }
+  } */
 
-  .aimDesc {
+  /* .aimDesc {
     font-size: 28px;
-  }
+  } */
 
   .register {
     margin-left: -10px;
@@ -327,29 +331,29 @@ span {
 }
 
 @media screen and (max-width: 500px) {
-  .part1 {
+  /* .part1 {
     flex-direction: column;
-  }
+  } */
 
   .desc {
     text-align: justify;
   }
 
-  .left {
+  /* .left {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+  } */
 
-  .left img {
+  /* .left img {
     width: 50%;
   }
 
   .right {
     width: 100%;
     padding-top: 10px;
-  }
+  } */
 
   .part2 {
     flex-direction: column-reverse;
