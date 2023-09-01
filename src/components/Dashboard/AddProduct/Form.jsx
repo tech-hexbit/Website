@@ -148,7 +148,7 @@ export default function Form() {
 
             <div className={FCss.inpTag}>
               <div className={FCss.TagP}>
-                <p>Fashion</p> <p>X</p>
+                <p>Fashion</p> <p className={FCss.CloseX}>X</p>
               </div>
             </div>
           </div>
