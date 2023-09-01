@@ -19,21 +19,14 @@ export default function Form() {
         </div>
 
         <div className={FCss.inpDiv}>
-          <p className={FCss.label}>Product title</p>
-          {/* <input
-            type="text"
-            name=""
-            id=""
-            placeholder="Enter product title"
-            className={FCss.inp} */}
-          {/* /> */}
+          <p className={FCss.label}>Product Description</p>
           <textarea
             name=""
             id=""
             cols="30"
             rows="10"
             placeholder="Write product description here..."
-            className={FCss.inp}
+            className={FCss.inpTA}
           ></textarea>
         </div>
       </div>
