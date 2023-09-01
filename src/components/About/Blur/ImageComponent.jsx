@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 // import { Blurhash } from "react-blurhash";
 
-import "./ImageComponent.css";
+// MicroInteraction
 import LoadingPage from "./../../../MicroInteraction/Loading";
+
+// css
+import "./Css/ImageComponent.css";
 
 export default function ImageComponent({ src, blur }) {
   // const [show, load] = useState(true);
