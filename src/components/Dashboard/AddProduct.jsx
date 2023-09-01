@@ -1,5 +1,8 @@
 import React from "react";
 
+// components
+import Form from "./AddProduct/Form";
+
 // css
 import ApCss from "./Css/AddProduct.module.css";
 
