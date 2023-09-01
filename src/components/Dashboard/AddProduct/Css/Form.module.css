@@ -5,6 +5,15 @@
   gap: 20px 0px;
 }
 
+.left,
+.right {
+  width: 45%;
+}
+
+.inpDiv {
+  margin-bottom: 30px;
+}
+
 .label {
   color: #000;
   font-size: 14px;
@@ -23,7 +32,8 @@
   border-radius: 3px;
 }
 
-.inp::placeholder {
+.inp::placeholder,
+.inpTA::placeholder {
   font-family: "Open Sans", sans-serif;
   font-size: 12px;
   font-style: normal;
@@ -32,7 +42,7 @@
   letter-spacing: 0.12px;
 }
 
-.left,
-.right {
-  width: 45%;
+.inpTA {
+  resize: none;
+  overflow-x: hidden;
 }
