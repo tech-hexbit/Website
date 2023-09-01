@@ -31,6 +31,72 @@ export default function Form() {
         </div>
 
         <p className={FCss.labelMain}>General info</p>
+
+        <div className={FCss.inpDiv}>
+          <p className={FCss.label}>Product title</p>
+          <input
+            type="text"
+            name=""
+            id=""
+            placeholder="Enter product title"
+            className={FCss.inp}
+          />
+        </div>
+
+        <div className={FCss.inpDiv}>
+          <p className={FCss.label}>Product title</p>
+          <input
+            type="text"
+            name=""
+            id=""
+            placeholder="Enter product title"
+            className={FCss.inp}
+          />
+        </div>
+
+        <div className={FCss.inpDiv}>
+          <p className={FCss.label}>Product title</p>
+          <input
+            type="text"
+            name=""
+            id=""
+            placeholder="Enter product title"
+            className={FCss.inp}
+          />
+        </div>
+
+        <div className={FCss.inpDiv}>
+          <p className={FCss.label}>Product title</p>
+          <input
+            type="text"
+            name=""
+            id=""
+            placeholder="Enter product title"
+            className={FCss.inp}
+          />
+        </div>
+
+        <div className={FCss.inpDiv}>
+          <p className={FCss.label}>Product title</p>
+          <input
+            type="text"
+            name=""
+            id=""
+            placeholder="Enter product title"
+            className={FCss.inp}
+          />
+        </div>
+
+        <div className={FCss.inpDiv}>
+          <p className={FCss.label}>Product title</p>
+          <input
+            type="text"
+            name=""
+            id=""
+            placeholder="Enter product title"
+            className={FCss.inp}
+          />
+        </div>
       </div>
       <div className={FCss.right}></div>
     </div>
