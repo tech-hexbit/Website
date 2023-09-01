@@ -140,6 +140,18 @@ export default function Form() {
               <option value="Fashion">Fashion</option>
             </select>
           </div>
+
+          <p className={FCss.labelMain}>Product Tags</p>
+
+          <div className={FCss.inpDiv}>
+            <p className={FCss.label}>Enter tags related to your products</p>
+
+            <div className={FCss.inpTag}>
+              <div className={FCss.TagP}>
+                <p>Fashion</p> <p>X</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div className={FCss.inpDiv}>
