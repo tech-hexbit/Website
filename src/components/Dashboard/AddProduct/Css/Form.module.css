@@ -1,0 +1,38 @@
+.mDiv {
+  padding: 30px 0px 0px 0px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px 0px;
+}
+
+.label {
+  color: #000;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0.14px;
+}
+
+.inp {
+  outline: none;
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px 15px;
+  border: 1px solid rgb(161, 161, 161);
+  border-radius: 3px;
+}
+
+.inp::placeholder {
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0.12px;
+}
+
+.left,
+.right {
+  width: 45%;
+}
