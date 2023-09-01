@@ -7,7 +7,7 @@ export default function Form() {
   return (
     <div className={FCss.mDiv}>
       <div className={FCss.left}>
-        <div>
+        <div className={FCss.inpDiv}>
           <p className={FCss.label}>Product title</p>
           <input
             type="text"
@@ -16,6 +16,25 @@ export default function Form() {
             placeholder="Enter product title"
             className={FCss.inp}
           />
+        </div>
+
+        <div className={FCss.inpDiv}>
+          <p className={FCss.label}>Product title</p>
+          {/* <input
+            type="text"
+            name=""
+            id=""
+            placeholder="Enter product title"
+            className={FCss.inp} */}
+          {/* /> */}
+          <textarea
+            name=""
+            id=""
+            cols="30"
+            rows="10"
+            placeholder="Write product description here..."
+            className={FCss.inp}
+          ></textarea>
         </div>
       </div>
       <div className={FCss.right}></div>
