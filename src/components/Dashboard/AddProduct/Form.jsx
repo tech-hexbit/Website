@@ -1,5 +1,8 @@
 import React from "react";
 
+// img
+import upload from "./../../../assets/dashboard/upload.svg";
+
 // css
 import FCss from "./Css/Form.module.css";
 
@@ -108,6 +111,17 @@ export default function Form() {
         <div className={FCss.addimgDivMain}>
           <div className={FCss.addImgDiv}>
             <p>+</p>
+          </div>
+        </div>
+
+        <p className={FCss.labelDes}>Add additional product images</p>
+
+        <div className={FCss.addimgDivMain}>
+          <div className={FCss.upAddImg}>
+            <img src={upload} alt="" srcset="" />
+            <p className={FCss.upAddImgDragPTag}>
+              Drag and drop files here OR click to upload
+            </p>
           </div>
         </div>
       </div>
