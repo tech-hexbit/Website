@@ -33,67 +33,78 @@ export default function Form() {
         <p className={FCss.labelMain}>General info</p>
 
         <div className={FCss.inpDiv}>
-          <p className={FCss.label}>Product title</p>
+          <p className={FCss.label}>Manufacturer name</p>
           <input
             type="text"
             name=""
             id=""
-            placeholder="Enter product title"
+            placeholder="Enter Manufacturer name"
             className={FCss.inp}
           />
         </div>
 
         <div className={FCss.inpDiv}>
-          <p className={FCss.label}>Product title</p>
+          <p className={FCss.label}>Brand</p>
           <input
             type="text"
             name=""
             id=""
-            placeholder="Enter product title"
+            placeholder="Enter brand name"
             className={FCss.inp}
           />
         </div>
 
         <div className={FCss.inpDiv}>
-          <p className={FCss.label}>Product title</p>
+          <p className={FCss.label}>Original price</p>
           <input
             type="text"
             name=""
             id=""
-            placeholder="Enter product title"
+            placeholder="Enter price"
             className={FCss.inp}
           />
         </div>
 
         <div className={FCss.inpDiv}>
-          <p className={FCss.label}>Product title</p>
+          <p className={FCss.label}>Discounts / Offers</p>
           <input
             type="text"
             name=""
             id=""
-            placeholder="Enter product title"
+            placeholder="Enter discounts/offers if any"
             className={FCss.inp}
           />
         </div>
 
         <div className={FCss.inpDiv}>
-          <p className={FCss.label}>Product title</p>
+          <p className={FCss.label}>Sizes available</p>
           <input
             type="text"
             name=""
             id=""
-            placeholder="Enter product title"
+            placeholder="Enter the different sizes available"
             className={FCss.inp}
           />
         </div>
 
         <div className={FCss.inpDiv}>
-          <p className={FCss.label}>Product title</p>
+          <p className={FCss.label}>Colors</p>
           <input
             type="text"
             name=""
             id=""
-            placeholder="Enter product title"
+            placeholder="Enter the different colors available"
+            className={FCss.inp}
+          />
+        </div>
+
+        <div className={FCss.inpDiv}>
+          <p className={FCss.label}>Product image</p>
+          <input
+            type="text"
+            name=""
+            id=""
+            placeholder="Enter the different colors available"
             className={FCss.inp}
           />
         </div>
