@@ -29,6 +29,8 @@ export default function Form() {
             className={FCss.inpTA}
           ></textarea>
         </div>
+
+        <p className={FCss.labelMain}>General info</p>
       </div>
       <div className={FCss.right}></div>
     </div>
