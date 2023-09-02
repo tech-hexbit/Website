@@ -1,5 +1,4 @@
 import React from "react";
-
 import DCCss from "./css/desCard.module.css";
 
 export default function DesCard(props) {

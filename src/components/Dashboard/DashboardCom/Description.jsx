@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 
 // components
 import DesCard from "./DesCard";
-
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 // state
 import AuthContext from "./../../../store/auth-context";
 
@@ -31,6 +32,20 @@ const data = [
 ];
 
 export default function Description() {
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  };
   const authCtx = useContext(AuthContext);
 
   return (
@@ -46,19 +61,21 @@ export default function Description() {
           </div>
         </div>
       </div>
-      <div className={DCss.bottom}>
-        {data.map((element, i) => {
-          return (
-            <DesCard
-              key={i}
-              heading={element.cardHeading}
-              value={element.cardValue}
-              change={element.changeInValue}
-              arrow={element.arrow}
-            />
-          );
-        })}
-      </div>
+      {/* <div className={DCss.bottom}> */}
+        <Carousel responsive={responsive} className={DCss.desCardCarousel} removeArrowOnDeviceType={["tablet", "mobile"]} containerClass="carousel-container" itemClass="carousel-item">
+          {data.map((element, i) => {
+            return (
+              <DesCard
+                key={i}
+                heading={element.cardHeading}
+                value={element.cardValue}
+                change={element.changeInValue}
+                arrow={element.arrow}
+              />
+            );
+          })}
+        </Carousel>
+      {/* </div> */}
     </div>
   );
 }

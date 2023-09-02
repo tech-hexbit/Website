@@ -22,6 +22,7 @@
   padding-right: 30px;
 }
 
+
 #th {
   color: #777;
   font-size: 18px;
@@ -50,6 +51,7 @@
   color: #323c4d;
   font-size: 14px;
   font-weight: 700;
+  width: 100%;
 }
 
 .bottom {
@@ -69,4 +71,31 @@
   font-size: 16px;
   text-decoration: underline;
   cursor: pointer;
+}
+
+@media screen and (max-width:1600px) {
+  .middle{
+    flex-direction: column;
+  }
+  .table>table {
+    width: 100%;
+  }
+  
+}
+@media screen and (max-width:890px) {
+ 
+ 
+  #td{
+    font-size: 12px;
+    padding: 10px;
+  }
+  
+}
+@media screen and (max-width:728px) {
+  #td{
+    font-size: 12px;
+    padding-left:5px;
+    padding-right:5px;
+  }
+  
 }

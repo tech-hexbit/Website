@@ -35,6 +35,7 @@ axios.defaults.baseURL = import.meta.env.VITE_SERVER_URL;
 
 function App() {
   const authCtx = useContext(AuthContext);
+  console.log(import.meta.env.VITE_SERVER_URL)
   return (
     <Router>
       <Nav />

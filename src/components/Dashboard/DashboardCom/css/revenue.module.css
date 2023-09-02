@@ -47,4 +47,31 @@
   color: #323c4d;
   font-size: 14px;
   font-weight: 700;
+  width: 50%;
+}
+
+/* .chartHead > canvas{
+  width: 50%;
+  height: 50%;
+} */
+
+@media screen and (max-width:1120px){
+  .charts{
+    flex-direction:column;
+    align-items: center;
+  
+  }
+  .chartHead{
+    width: 100%;
+  }
+}
+@media screen and (max-width:760px){
+  .charts{
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+  }
+  .chartHead{
+    width: 100%;
+  }
 }
