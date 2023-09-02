@@ -8,7 +8,6 @@
   width: 100%;
   border-radius: 32px;
   padding-top: 95px;
-  /* border: 5px solid #b814e2; */
 }
 
 .gridDivParent {
@@ -21,7 +20,7 @@
 .gridDiv {
   width: 80%;
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
 }
 
@@ -39,12 +38,12 @@
 
 @media only screen and (max-width: 775px) {
   .gridDiv {
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media only screen and (max-width: 480px) {
   .gridDiv {
-    grid-template-columns: repeat(1,1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
 }
