@@ -1,5 +1,6 @@
 // components
 import Title from "./Title";
+import GridItem from "./GridItem";
 
 // css
 import styles from "./Css/WhoAreWe.module.css";
@@ -8,26 +9,6 @@ import styles from "./Css/WhoAreWe.module.css";
 import image1 from "../../assets/whoAreWe/Activity.png";
 import image2 from "../../assets/whoAreWe/Video.png";
 import image3 from "../../assets/whoAreWe/Chart.png";
-import { Link } from "react-router-dom";
-
-const GridItem = ({ text, img, subText }) => {
-  return (
-    <div className={styles.tripleGridItem}>
-      <div className={styles.image}>
-        <img src={img} alt="" />
-      </div>
-      <div className={styles.text}>
-        <div className={styles.title}>{text}</div>
-        <div className={styles.subTitle}>{subText}</div>
-      </div>
-      <button className={styles.contactButton}>
-        <Link to="/contact" className="LinkStyle">
-          <p>Contact Us</p>
-        </Link>
-      </button>
-    </div>
-  );
-};
 
 const WhoAreWe = () => {
   return (
