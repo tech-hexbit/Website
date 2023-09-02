@@ -23,8 +23,6 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  /* display: grid; */
-  /* grid-template-columns: repeat(3, 1fr); */
   gap: 30px;
 }
 
@@ -37,17 +35,5 @@
 @media only screen and (max-width: 650px) {
   .ConDiv {
     padding-top: 30px;
-  }
-}
-
-@media only screen and (max-width: 775px) {
-  .gridDiv {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  .gridDiv {
-    grid-template-columns: repeat(1, 1fr);
   }
 }
