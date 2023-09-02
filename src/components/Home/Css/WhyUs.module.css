@@ -14,13 +14,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 50px 30px;
+  padding: 50px;
 }
 
 .gridDiv {
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  /* display: grid; */
+  /* grid-template-columns: repeat(3, 1fr); */
   gap: 30px;
 }
 
