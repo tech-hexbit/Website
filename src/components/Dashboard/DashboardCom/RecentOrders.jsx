@@ -99,11 +99,11 @@ export default function RecentOrders() {
                     <tr key={key}>
                       <td id={RCss.td}>{val._id}</td>
                       <td id={RCss.td} className={RCss.product}>
-                        {val.col2}
+                        {val.Items[0].ItemID.descriptor.name}
                       </td>
-                      <td id={RCss.td}>{val.col3}</td>
+                      <td id={RCss.td}>{val.amount}</td>
                       <td id={RCss.td} className={RCss.quantity}>
-                        {val.col4}
+                        {val.Items[0].quantity}
                       </td>
                       {val.col5 == "Delivered" && (
                         <td id={RCss.td} style={{ color: "#4BB543" }}>
