@@ -34,7 +34,7 @@ const data = [
 ];
 
 export default function Description() {
-  const [] = useState({
+  const [orderDel, setOrderDel] = useState({
     totalOrders: 0,
     totalAmount: 0,
     totalNewCustomers: 0,
@@ -52,7 +52,15 @@ export default function Description() {
         headers: { Authorization: `${authCtx.token}` },
       });
 
-      console.log(response.data);
+      if (response.data.success) {
+        setOrderDel({
+          totalOrders: response.data.totalOrder,
+          totalAmount: response.data.totalAmount,
+          totalNewCustomers: response.data.totalNewCustomers,
+        });
+      } else {
+        console.log(e);
+      }
     } catch (e) {
       console.log(e);
     }
@@ -71,6 +79,7 @@ export default function Description() {
           </div>
         </div>
       </div>
+
       <div className={DCss.bottom}>
         {data.map((element, i) => {
           return (
