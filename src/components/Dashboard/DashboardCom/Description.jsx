@@ -52,7 +52,7 @@ export default function Description() {
         headers: { Authorization: `${authCtx.token}` },
       });
 
-      console.log(response);
+      console.log(response.data);
     } catch (e) {
       console.log(e);
     }
