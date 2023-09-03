@@ -1,4 +1,7 @@
-import React, { useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
+
+// axios
+import axios from "axios";
 
 // components
 import DesCard from "./DesCard";
@@ -31,7 +34,41 @@ const data = [
 ];
 
 export default function Description() {
+  const [orderDel, setOrderDel] = useState({
+    totalOrders: 0,
+    totalAmount: 0,
+    totalNewCustomers: 0,
+  });
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
   const authCtx = useContext(AuthContext);
+
+  const loadData = async () => {
+    try {
+      const response = await axios.get("/api/website/DashBoard/Data", {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+
+      if (response.data.success) {
+        setOrderDel({
+          totalOrders: response.data.totalOrders,
+          totalAmount: response.data.totalAmount,
+          totalNewCustomers: response.data.totalNewCustomers,
+        });
+      } else {
+        console.log(e);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    console.log(orderDel);
+  }, [orderDel]);
 
   return (
     <div className={DCss.mainDiv}>
@@ -46,18 +83,33 @@ export default function Description() {
           </div>
         </div>
       </div>
+
       <div className={DCss.bottom}>
-        {data.map((element, i) => {
-          return (
-            <DesCard
-              key={i}
-              heading={element.cardHeading}
-              value={element.cardValue}
-              change={element.changeInValue}
-              arrow={element.arrow}
-            />
-          );
-        })}
+        {/* {data.map((element, i) => { */}
+        {/* return ( */}
+        <DesCard
+          // key={i}
+          heading="Total orders"
+          value={orderDel.totalOrders}
+          change="+5.21%"
+          arrow="increase"
+        />
+        <DesCard
+          // key={i}
+          heading="Total Earnings"
+          value={orderDel.totalAmount}
+          change="+5.21%"
+          arrow="decrease"
+        />
+        <DesCard
+          // key={i}
+          heading="New customers"
+          value={orderDel.totalNewCustomers}
+          change="+5.21%"
+          arrow="increase"
+        />
+        {/* ); */}
+        {/* })} */}
       </div>
     </div>
   );
