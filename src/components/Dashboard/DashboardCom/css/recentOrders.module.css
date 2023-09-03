@@ -79,11 +79,5 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  width: 100px; /* Set the width to your desired value */
-}
-
-.truncate::before {
-  content: "...";
-  display: inline-block;
-  width: 1em; /* Adjust as needed to control the spacing between text and ellipsis */
+  width: 50px; /* Set the width to your desired value */
 }
