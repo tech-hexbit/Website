@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 // components
 import DesCard from "./DesCard";
@@ -31,6 +31,12 @@ const data = [
 ];
 
 export default function Description() {
+  const [] = useState({
+    totalOrders: 0,
+    totalAmount: 0,
+    totalNewCustomers: 0,
+  });
+
   const authCtx = useContext(AuthContext);
 
   return (
