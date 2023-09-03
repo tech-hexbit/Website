@@ -30,9 +30,7 @@
 }
 
 #td {
-  /* background-color: red; */
   padding: 15px;
-  /* padding-left: ; */
   border-bottom: #ddd 1px solid;
 }
 
@@ -69,4 +67,10 @@
   font-size: 16px;
   text-decoration: underline;
   cursor: pointer;
+}
+
+.NoOrders {
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
 }
