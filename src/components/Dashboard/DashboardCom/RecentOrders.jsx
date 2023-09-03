@@ -85,9 +85,9 @@ export default function RecentOrders() {
     <div className={RCss.mainDiv}>
       <div className={RCss.heading}>Recent orders</div>
       <div className={RCss.middle}>
-        <div className={RCss.table}>
-          {!orderDel?.length > 0 ? (
-            <>
+        {!orderDel?.length > 0 ? (
+          <>
+            <div className={RCss.table}>
               <table style={{ borderCollapse: "collapse" }}>
                 <tr>
                   <th id={RCss.th}>Order ID</th>
@@ -150,11 +150,11 @@ export default function RecentOrders() {
                 Costs
                 <BarChart />
               </div>
-            </>
-          ) : (
-            <p className={RCss.NoOrders}>No Orders</p>
-          )}
-        </div>
+            </div>
+          </>
+        ) : (
+          <p className={RCss.NoOrders}>No Orders</p>
+        )}
       </div>
     </div>
   );
