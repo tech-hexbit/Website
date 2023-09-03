@@ -86,67 +86,74 @@ export default function RecentOrders() {
       <div className={RCss.heading}>Recent orders</div>
       <div className={RCss.middle}>
         <div className={RCss.table}>
-          <table style={{ borderCollapse: "collapse" }}>
-            <tr>
-              <th id={RCss.th}>Order ID</th>
-              <th id={RCss.th} className={RCss.product}>
-                Product
-              </th>
-              <th id={RCss.th}>Amount</th>
-              <th id={RCss.th} className={RCss.quantity}>
-                Quantity
-              </th>
-              <th id={RCss.th}>Status</th>
-            </tr>
-            {orderDel ? (
-              <>
-                {orderDel.map((val, key) => {
-                  return (
-                    <tr key={key}>
-                      <td id={RCss.td}>{val._id}</td>
-                      <td id={RCss.td} className={RCss.product}>
-                        {val.Items[0].ItemID.descriptor.name}
-                      </td>
-                      <td id={RCss.td}>{val.amount}</td>
-                      <td id={RCss.td} className={RCss.quantity}>
-                        {val.Items[0].quantity}
-                      </td>
-                      {val.Status == "Delivered" && (
-                        <td id={RCss.td} style={{ color: "#4BB543" }}>
-                          {val.Status}
-                        </td>
-                      )}
-                      {val.Status == "Pending" && (
-                        <td id={RCss.td} style={{ color: "#3F81E0" }}>
-                          {val.Status}
-                        </td>
-                      )}
-                      {val.Status == "Cancelled" && (
-                        <td id={RCss.td} style={{ color: "#D0342C" }}>
-                          {val.Status}
-                        </td>
-                      )}
-                    </tr>
-                  );
-                })}
-              </>
-            ) : (
-              "No Data"
-            )}
-          </table>
+          {!orderDel?.length > 0 ? (
+            <>
+              <table style={{ borderCollapse: "collapse" }}>
+                <tr>
+                  <th id={RCss.th}>Order ID</th>
+                  <th id={RCss.th} className={RCss.product}>
+                    Product
+                  </th>
+                  <th id={RCss.th}>Amount</th>
+                  <th id={RCss.th} className={RCss.quantity}>
+                    Quantity
+                  </th>
+                  <th id={RCss.th}>Status</th>
+                </tr>
+                {orderDel ? (
+                  <>
+                    {orderDel.map((val, key) => {
+                      return (
+                        <tr key={key}>
+                          <td id={RCss.td}>{val._id}</td>
+                          <td id={RCss.td} className={RCss.product}>
+                            {val.Items[0].ItemID.descriptor.name}
+                          </td>
+                          <td id={RCss.td}>{val.amount}</td>
+                          <td id={RCss.td} className={RCss.quantity}>
+                            {val.Items[0].quantity}
+                          </td>
+                          {val.Status == "Delivered" && (
+                            <td id={RCss.td} style={{ color: "#4BB543" }}>
+                              {val.Status}
+                            </td>
+                          )}
+                          {val.Status == "Pending" && (
+                            <td id={RCss.td} style={{ color: "#3F81E0" }}>
+                              {val.Status}
+                            </td>
+                          )}
+                          {val.Status == "Cancelled" && (
+                            <td id={RCss.td} style={{ color: "#D0342C" }}>
+                              {val.Status}
+                            </td>
+                          )}
+                        </tr>
+                      );
+                    })}
+                  </>
+                ) : (
+                  "No Data"
+                )}
+              </table>
 
-          <div className={RCss.bottom}>
-            <div className={RCss.show}>
-              Showing
-              {orderNumber <= 5 ? <b> {orderNumber} </b> : <b>5</b>}
-              of <b>{orderNumber}</b> results
-            </div>
-            <div className={RCss.view}>View all</div>
-          </div>
-        </div>
-        <div className={RCss.costHeading}>
-          Costs
-          <BarChart />
+              <div className={RCss.bottom}>
+                <div className={RCss.show}>
+                  Showing
+                  {orderNumber <= 5 ? <b> {orderNumber} </b> : <b>5</b>}
+                  of <b>{orderNumber}</b> results
+                </div>
+                <div className={RCss.view}>View all</div>
+              </div>
+
+              <div className={RCss.costHeading}>
+                Costs
+                <BarChart />
+              </div>
+            </>
+          ) : (
+            <p className={RCss.NoOrders}>No Orders</p>
+          )}
         </div>
       </div>
     </div>
