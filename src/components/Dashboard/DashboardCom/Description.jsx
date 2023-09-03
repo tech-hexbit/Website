@@ -45,10 +45,6 @@ export default function Description() {
     }
   };
 
-  useEffect(() => {
-    console.log(orderDel);
-  }, [orderDel]);
-
   return (
     <div className={DCss.mainDiv}>
       <div className={DCss.top}>
