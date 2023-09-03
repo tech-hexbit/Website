@@ -52,6 +52,7 @@ const data = [
 
 export default function RecentOrders() {
   const [orderDel, setOrderDel] = useState([]);
+  const [orderNumber, setOrderNumber] = useState(0);
 
   useEffect(() => {
     loadData();
@@ -65,7 +66,12 @@ export default function RecentOrders() {
         headers: { Authorization: `${authCtx.token}` },
       });
 
-      setOrderDel(response.data.orders);
+      if (response.data.success) {
+        setOrderDel(response.data.orders);
+        setOrderNumber(response.data.orders?.length);
+      } else {
+        console.log(e);
+      }
     } catch (e) {
       console.log(e);
     }
@@ -127,39 +133,13 @@ export default function RecentOrders() {
             ) : (
               "No Data"
             )}
-            {data.map((element, i) => {
-              return (
-                <tr key={i}>
-                  <td id={RCss.td}>{element.col1}</td>
-                  <td id={RCss.td} className={RCss.product}>
-                    {element.col2}
-                  </td>
-                  <td id={RCss.td}>{element.col3}</td>
-                  <td id={RCss.td} className={RCss.quantity}>
-                    {element.col4}
-                  </td>
-                  {element.col5 == "Delivered" && (
-                    <td id={RCss.td} style={{ color: "#4BB543" }}>
-                      {element.col5}
-                    </td>
-                  )}
-                  {element.col5 == "Pending" && (
-                    <td id={RCss.td} style={{ color: "#3F81E0" }}>
-                      {element.col5}
-                    </td>
-                  )}
-                  {element.col5 == "Cancelled" && (
-                    <td id={RCss.td} style={{ color: "#D0342C" }}>
-                      {element.col5}
-                    </td>
-                  )}
-                </tr>
-              );
-            })}
           </table>
+
           <div className={RCss.bottom}>
             <div className={RCss.show}>
-              Showing <b>5</b> of <b>25</b> results
+              Showing
+              {orderNumber <= 5 ? <b> {orderNumber} </b> : <b>5</b>}
+              of <b>{orderNumber}</b> results
             </div>
             <div className={RCss.view}>View all</div>
           </div>
