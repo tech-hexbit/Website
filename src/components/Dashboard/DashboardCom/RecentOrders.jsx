@@ -51,13 +51,7 @@ const data = [
 ];
 
 export default function RecentOrders() {
-  const [orderDel, setOrderDel] = useState({
-    id: "",
-    name: "",
-    amount: 0,
-    quantity: 0,
-    Status: "",
-  });
+  const [orderDel, setOrderDel] = useState([]);
 
   useEffect(() => {
     loadData();
@@ -65,7 +59,17 @@ export default function RecentOrders() {
 
   const authCtx = useContext(AuthContext);
 
-  const loadData = async () => {};
+  const loadData = async () => {
+    try {
+      const response = await axios.get("/api/website/DashBoard/OrderList", {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+
+      setOrderDel(response.data.orders);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <div className={RCss.mainDiv}>
