@@ -45,10 +45,6 @@ export default function Description() {
     }
   };
 
-  useEffect(() => {
-    console.log(orderDel);
-  }, [orderDel]);
-
   return (
     <div className={DCss.mainDiv}>
       <div className={DCss.top}>
@@ -64,31 +60,24 @@ export default function Description() {
       </div>
 
       <div className={DCss.bottom}>
-        {/* {data.map((element, i) => { */}
-        {/* return ( */}
         <DesCard
-          // key={i}
           heading="Total orders"
           value={orderDel.totalOrders}
           change="+5.21%"
           arrow="increase"
         />
         <DesCard
-          // key={i}
           heading="Total Earnings"
           value={orderDel.totalAmount}
           change="+5.21%"
           arrow="decrease"
         />
         <DesCard
-          // key={i}
           heading="New customers"
           value={orderDel.totalNewCustomers}
           change="+5.21%"
           arrow="increase"
         />
-        {/* ); */}
-        {/* })} */}
       </div>
     </div>
   );
