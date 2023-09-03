@@ -12,27 +12,6 @@ import AuthContext from "./../../../store/auth-context";
 // css
 import DCss from "./css/dashboard.module.css";
 
-const data = [
-  {
-    cardHeading: "Total orders",
-    cardValue: "36,778",
-    changeInValue: "+5.21%",
-    arrow: "increase",
-  },
-  {
-    cardHeading: "Total Earnings",
-    cardValue: "₹ 96,778",
-    changeInValue: "-3.89%",
-    arrow: `decrease`,
-  },
-  {
-    cardHeading: "New customers",
-    cardValue: "36,778",
-    changeInValue: "+11.1%",
-    arrow: `increase`,
-  },
-];
-
 export default function Description() {
   const [orderDel, setOrderDel] = useState({
     totalOrders: 0,
