@@ -71,6 +71,10 @@ export default function RecentOrders() {
     }
   };
 
+  useEffect(() => {
+    console.log(orderDel);
+  }, [orderDel]);
+
   return (
     <div className={RCss.mainDiv}>
       <div className={RCss.heading}>Recent orders</div>
@@ -88,6 +92,41 @@ export default function RecentOrders() {
               </th>
               <th id={RCss.th}>Status</th>
             </tr>
+            {orderDel ? (
+              <>
+                {orderDel.map((val, key) => {
+                  return (
+                    <tr key={key}>
+                      <td id={RCss.td}>{val._id}</td>
+                      <td id={RCss.td} className={RCss.product}>
+                        {val.col2}
+                      </td>
+                      <td id={RCss.td}>{val.col3}</td>
+                      <td id={RCss.td} className={RCss.quantity}>
+                        {val.col4}
+                      </td>
+                      {val.col5 == "Delivered" && (
+                        <td id={RCss.td} style={{ color: "#4BB543" }}>
+                          {val.col5}
+                        </td>
+                      )}
+                      {val.col5 == "Pending" && (
+                        <td id={RCss.td} style={{ color: "#3F81E0" }}>
+                          {val.col5}
+                        </td>
+                      )}
+                      {val.col5 == "Cancelled" && (
+                        <td id={RCss.td} style={{ color: "#D0342C" }}>
+                          {val.col5}
+                        </td>
+                      )}
+                    </tr>
+                  );
+                })}
+              </>
+            ) : (
+              "No Data"
+            )}
             {data.map((element, i) => {
               return (
                 <tr key={i}>
