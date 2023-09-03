@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 
+// axios
+import axios from "axios";
+
 // components
 import DesCard from "./DesCard";
 
@@ -37,7 +40,21 @@ export default function Description() {
     totalNewCustomers: 0,
   });
 
+  useEffect(() => {
+    loadData();
+  }, []);
+
   const authCtx = useContext(AuthContext);
+
+  const loadData = async () => {
+    try {
+      const response = await axios.get("/api/website/DashBoard/Data");
+
+      console.log(response);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <div className={DCss.mainDiv}>
