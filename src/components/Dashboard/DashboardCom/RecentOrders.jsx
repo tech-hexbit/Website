@@ -84,6 +84,7 @@ export default function RecentOrders() {
   return (
     <div className={RCss.mainDiv}>
       <div className={RCss.heading}>Recent orders</div>
+
       <div className={RCss.middle}>
         {orderDel?.length > 0 ? (
           <>
@@ -105,7 +106,9 @@ export default function RecentOrders() {
                     {orderDel.map((val, key) => {
                       return (
                         <tr key={key}>
-                          <td id={RCss.td}>{val._id}</td>
+                          <td id={RCss.td} class={RCss.truncate}>
+                            {val._id}
+                          </td>
                           <td id={RCss.td} className={RCss.product}>
                             {val.Items[0].ItemID.descriptor.name}
                           </td>
