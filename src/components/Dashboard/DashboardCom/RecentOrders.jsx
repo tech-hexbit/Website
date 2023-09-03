@@ -85,7 +85,7 @@ export default function RecentOrders() {
     <div className={RCss.mainDiv}>
       <div className={RCss.heading}>Recent orders</div>
       <div className={RCss.middle}>
-        {!orderDel?.length > 0 ? (
+        {orderDel?.length > 0 ? (
           <>
             <div className={RCss.table}>
               <table style={{ borderCollapse: "collapse" }}>
