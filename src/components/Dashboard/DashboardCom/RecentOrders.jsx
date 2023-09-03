@@ -1,6 +1,15 @@
-// import React from 'react'
+import React, { useState, useEffect, useContext } from "react";
 
+// axios
+import axios from "axios";
+
+// state
+import AuthContext from "./../../../store/auth-context";
+
+// css
 import RCss from "./css/recentOrders.module.css";
+
+// components
 import BarChart from "./charts/BarChart";
 
 const data = [
@@ -42,6 +51,22 @@ const data = [
 ];
 
 export default function RecentOrders() {
+  const [orderDel, setOrderDel] = useState({
+    id: "",
+    name: "",
+    amount: 0,
+    quantity: 0,
+    Status: "",
+  });
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const authCtx = useContext(AuthContext);
+
+  const loadData = async () => {};
+
   return (
     <div className={RCss.mainDiv}>
       <div className={RCss.heading}>Recent orders</div>
