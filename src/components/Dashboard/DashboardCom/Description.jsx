@@ -48,7 +48,9 @@ export default function Description() {
 
   const loadData = async () => {
     try {
-      const response = await axios.get("/api/website/DashBoard/Data");
+      const response = await axios.get("/api/website/DashBoard/Data", {
+        headers: { Authorization: `${authCtx.token}` },
+      });
 
       console.log(response);
     } catch (e) {
