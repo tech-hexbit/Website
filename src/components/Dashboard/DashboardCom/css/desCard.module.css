@@ -9,37 +9,45 @@
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.5);
   /* width: fit-content; */
 }
+
 .top {
   display: flex;
   justify-content: space-between;
 }
+
 .heading {
   color: #555;
   font-size: 18px;
 }
+
 .svg {
   border-radius: 5px;
   background: rgba(255, 115, 29, 0.3);
   box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
   padding: 8px 11px;
 }
+
 .bottom {
   display: flex;
   justify-content: space-between;
 }
+
 .value {
   color: #000;
   font-size: 32px;
   font-weight: 700;
 }
+
 .incDec {
   display: flex;
   align-items: flex-end;
 }
+
 .positive {
   color: #4bb543;
   font-size: 14px;
 }
+
 .decrease {
   color: #d0342c;
   font-size: 14px;
