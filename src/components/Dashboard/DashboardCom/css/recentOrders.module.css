@@ -93,9 +93,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
-@media screen and (max-width: 1600px) {
+/* @media screen and (max-width: 1600px) {
   .middle {
     flex-direction: column;
   }
@@ -105,9 +106,9 @@
   .mainDiv {
     margin: 45px;
   }
-}
+} */
 
-@media screen and (max-width: 900px) {
+/* @media screen and (max-width: 900px) {
   #th {
     display: none;
   }
@@ -128,4 +129,4 @@
     font-weight: 700;
     text-transform: capitalize;
   }
-}
+} */
