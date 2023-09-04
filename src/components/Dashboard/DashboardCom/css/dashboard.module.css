@@ -12,12 +12,11 @@
   display: flex;
 }
 
-.desCardCarousel{
+.desCardCarousel {
   width: 100%;
-
 }
 
-.carousel-item{
+.carousel-item {
   margin: 20px;
 }
 
@@ -49,10 +48,14 @@
 
 .bottom {
   overflow-y: scroll;
-  padding-top: 55px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 45px;
+  padding: 30px 0px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 0px 10px;
+  /* display: grid; */
+  /* grid-template-columns: repeat(3, 1fr); */
+  /* gap: 45px; */
 }
 .bottom::-webkit-scrollbar {
   display: none;
