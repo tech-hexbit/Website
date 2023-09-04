@@ -13,11 +13,9 @@ export default function DashboardMain() {
     <>
       <Description defaultSet={defaultSet} setDefaultSet={setDefaultSet} />
 
-      {/* <div className={DBCss.containDiv}> */}
       {defaultSet === "Revenue" && <Revenue />}
       {defaultSet === "RecentOrders" && <RecentOrders />}
       {defaultSet === "BestSellers" && <BestSellers />}
-      {/* </div> */}
     </>
   );
 }
