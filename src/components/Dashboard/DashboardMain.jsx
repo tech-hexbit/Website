@@ -13,9 +13,11 @@ export default function DashboardMain() {
     <>
       <Description defaultSet={defaultSet} setDefaultSet={setDefaultSet} />
 
-      {defaultSet === "Revenue" && <Revenue />}
-      {defaultSet === "RecentOrders" && <RecentOrders />}
-      {defaultSet === "BestSellers" && <BestSellers />}
+      <div>
+        {defaultSet === "Revenue" && <Revenue />}
+        {defaultSet === "RecentOrders" && <RecentOrders />}
+        {defaultSet === "BestSellers" && <BestSellers />}
+      </div>
     </>
   );
 }
