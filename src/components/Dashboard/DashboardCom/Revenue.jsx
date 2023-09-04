@@ -1,5 +1,9 @@
-// import React from 'react'
+import React from "react";
+
+// css
 import RCss from "./css/revenue.module.css";
+
+// components
 import DoughnutChart from "./charts/Doughnut";
 import StackedBar from "./charts/StackedBar";
 
