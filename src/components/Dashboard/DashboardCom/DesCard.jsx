@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
 // css
 import DCCss from "./css/desCard.module.css";
 
 export default function DesCard(props) {
+  const changeDefault = () => {
+    props.setDefaultSet(`${props.boxof}`);
+  };
   return (
-    <div className={DCCss.mainDiv}>
+    <div className={DCCss.mainDiv} onClick={changeDefault}>
       <div className={DCCss.top}>
         <div className={DCCss.heading}>{props.heading}</div>
         <div className={DCCss.svg}>
