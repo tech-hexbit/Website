@@ -27,6 +27,8 @@ export default function RecentOrders() {
   const authCtx = useContext(AuthContext);
 
   const loadData = async () => {
+    setLoad(true);
+
     try {
       const response = await axios.get("/api/website/DashBoard/OrderList", {
         headers: { Authorization: `${authCtx.token}` },
@@ -35,10 +37,16 @@ export default function RecentOrders() {
       if (response.data.success) {
         setOrderDel(response.data.orders);
         setOrderNumber(response.data.orders?.length);
+
+        setLoad(false);
       } else {
+        setLoad(false);
+
         console.log(e);
       }
     } catch (e) {
+      setLoad(false);
+
       console.log(e);
     }
   };
