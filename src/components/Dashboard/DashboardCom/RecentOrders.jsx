@@ -16,7 +16,7 @@ import Load from "./../../../MicroInteraction/Load";
 import RCss from "./css/recentOrders.module.css";
 
 export default function RecentOrders() {
-  const [load, setLoad] = useState(false);
+  const [load, setLoad] = useState(true);
   const [orderDel, setOrderDel] = useState([]);
   const [orderNumber, setOrderNumber] = useState(0);
 
