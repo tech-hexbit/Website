@@ -53,6 +53,7 @@
   align-items: center;
   gap: 0px 10px;
 }
+
 .bottom::-webkit-scrollbar {
   display: none;
 }
