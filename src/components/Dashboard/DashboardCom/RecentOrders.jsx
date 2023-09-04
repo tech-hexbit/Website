@@ -16,9 +16,9 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 import RCss from "./css/recentOrders.module.css";
 
 export default function RecentOrders() {
-  const [load, setLoad] = useState(true);
-  const [orderDel, setOrderDel] = useState([]);
   const [orderNumber, setOrderNumber] = useState(0);
+  const [orderDel, setOrderDel] = useState([]);
+  const [load, setLoad] = useState(false);
 
   useEffect(() => {
     loadData();
@@ -27,7 +27,7 @@ export default function RecentOrders() {
   const authCtx = useContext(AuthContext);
 
   const loadData = async () => {
-    // setLoad(true);
+    setLoad(true);
 
     try {
       const response = await axios.get("/api/website/DashBoard/OrderList", {
@@ -38,14 +38,14 @@ export default function RecentOrders() {
         setOrderDel(response.data.orders);
         setOrderNumber(response.data.orders?.length);
 
-        // setLoad(false);
+        setLoad(false);
       } else {
-        // setLoad(false);
+        setLoad(false);
 
         console.log(e);
       }
     } catch (e) {
-      // setLoad(false);
+      setLoad(false);
 
       console.log(e);
     }
