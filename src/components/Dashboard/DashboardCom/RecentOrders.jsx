@@ -69,7 +69,7 @@ export default function RecentOrders() {
                       return (
                         <tr key={key}>
                           <td id={RCss.td} class={RCss.truncate}>
-                            {val._id}
+                            {val._id.slice(-4)}
                           </td>
                           <td id={RCss.td} className={RCss.product}>
                             {val.Items[0].ItemID.descriptor.name}
