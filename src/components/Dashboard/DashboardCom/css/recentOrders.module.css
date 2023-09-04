@@ -20,18 +20,24 @@
 
 .table {
   padding-right: 30px;
+  width: 100%;
+  overflow-x: auto;
 }
 
 #th {
   color: #777;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 400;
-  padding-bottom: 30px;
+  /*  padding-bottom: 30px;  */
+  padding: 6px;
+  text-align: left;
 }
 
 #td {
-  padding: 15px;
-  border-bottom: #ddd 1px solid;
+  /* background-color: red; */
+  padding: 6px;
+  /* padding-left: ; */
+  text-align: left;
 }
 
 .product {
@@ -48,6 +54,7 @@
   color: #323c4d;
   font-size: 14px;
   font-weight: 700;
+  width: 100%;
 }
 
 .bottom {
