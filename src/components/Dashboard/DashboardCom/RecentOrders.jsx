@@ -6,11 +6,14 @@ import axios from "axios";
 // state
 import AuthContext from "./../../../store/auth-context";
 
-// css
-import RCss from "./css/recentOrders.module.css";
-
 // components
 import BarChart from "./charts/BarChart";
+
+// MicroInteraction
+import Load from "./../../../MicroInteraction/Load";
+
+// css
+import RCss from "./css/recentOrders.module.css";
 
 export default function RecentOrders() {
   const [orderDel, setOrderDel] = useState([]);
