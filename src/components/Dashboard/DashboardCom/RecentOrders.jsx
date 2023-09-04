@@ -10,7 +10,7 @@ import AuthContext from "./../../../store/auth-context";
 import BarChart from "./charts/BarChart";
 
 // MicroInteraction
-import Load from "./../../../MicroInteraction/Load";
+import Load from "./../../../MicroInteraction/LoadBlack";
 
 // css
 import RCss from "./css/recentOrders.module.css";
@@ -57,7 +57,9 @@ export default function RecentOrders() {
 
       <div className={RCss.middle}>
         {load ? (
-          <Load />
+          <div className={RCss.loadCenterDiv}>
+            <Load />
+          </div>
         ) : (
           <>
             {orderDel?.length > 0 ? (
