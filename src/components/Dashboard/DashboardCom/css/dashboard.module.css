@@ -52,8 +52,9 @@
   justify-content: space-between;
   align-items: center;
   gap: 0px 10px;
+  background-color: #ff0000;
 }
 
-.bottom::-webkit-scrollbar {
+/* .bottom::-webkit-scrollbar {
   display: none;
-}
+} */
