@@ -12,44 +12,6 @@ import RCss from "./css/recentOrders.module.css";
 // components
 import BarChart from "./charts/BarChart";
 
-const data = [
-  {
-    col1: "#718821",
-    col2: "Nike shoes",
-    col3: "₹ 2,779",
-    col4: "1",
-    col5: "Delivered",
-  },
-  {
-    col1: "#546172",
-    col2: "Nike shoes",
-    col3: "₹ 12,779",
-    col4: "2",
-    col5: "Pending",
-  },
-  {
-    col1: "#22341",
-    col2: "Heels",
-    col3: "₹ 3,999",
-    col4: "1",
-    col5: "Delivered",
-  },
-  {
-    col1: "#718821",
-    col2: "Nike shoes",
-    col3: "₹ 2,779",
-    col4: "1",
-    col5: "Delivered",
-  },
-  {
-    col1: "#718821",
-    col2: "Office chair",
-    col3: "₹ 10,769",
-    col4: "1",
-    col5: "Cancelled",
-  },
-];
-
 export default function RecentOrders() {
   const [orderDel, setOrderDel] = useState([]);
   const [orderNumber, setOrderNumber] = useState(0);
