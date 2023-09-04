@@ -16,6 +16,7 @@ import Load from "./../../../MicroInteraction/Load";
 import RCss from "./css/recentOrders.module.css";
 
 export default function RecentOrders() {
+  const [load, setLoad] = useState(false);
   const [orderDel, setOrderDel] = useState([]);
   const [orderNumber, setOrderNumber] = useState(0);
 
@@ -41,10 +42,6 @@ export default function RecentOrders() {
       console.log(e);
     }
   };
-
-  useEffect(() => {
-    console.log(orderDel);
-  }, [orderDel]);
 
   return (
     <div className={RCss.mainDiv}>
