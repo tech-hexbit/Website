@@ -88,3 +88,38 @@
   text-overflow: ellipsis;
   width: 50px;
 }
+
+@media screen and (max-width: 1600px) {
+  .middle {
+    flex-direction: column;
+  }
+  .table > table {
+    width: 100%;
+  }
+  .mainDiv {
+    margin: 45px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  #th {
+    display: none;
+  }
+  #td {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: 15ch auto;
+    padding: 0.75rem 1rem;
+  }
+  td:first-child {
+    padding-top: 2rem;
+  }
+  td:last-child {
+    padding-bottom: 2rem;
+  }
+  td::before {
+    content: attr(data-cell) ": ";
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+}
