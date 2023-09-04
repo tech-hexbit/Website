@@ -101,7 +101,7 @@ img {
   #td {
     margin-right: 30px;
     width: auto;
-    gap: ;
+    /* gap: ; */
   }
   .col1 {
     flex-direction: column;
