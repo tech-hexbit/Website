@@ -12,7 +12,7 @@ import AuthContext from "./../../../store/auth-context";
 // css
 import DCss from "./css/dashboard.module.css";
 
-export default function Description() {
+export default function Description(props) {
   const [orderDel, setOrderDel] = useState({
     totalOrders: 0,
     totalAmount: 0,
@@ -21,6 +21,8 @@ export default function Description() {
 
   useEffect(() => {
     loadData();
+
+    console.log(props.defaultSet);
   }, []);
 
   const authCtx = useContext(AuthContext);
