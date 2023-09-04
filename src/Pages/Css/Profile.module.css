@@ -27,3 +27,9 @@
     padding: 0px;
   }
 }
+
+@media screen and (max-width: 450px) {
+  .CDiv {
+    padding: 0px 15px 0px 15px;
+  }
+}
