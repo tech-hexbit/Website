@@ -47,15 +47,11 @@
 }
 
 .bottom {
-  /* overflow-y: scroll; */
   padding: 30px 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 0px 10px;
-  /* display: grid; */
-  /* grid-template-columns: repeat(3, 1fr); */
-  /* gap: 45px; */
 }
 .bottom::-webkit-scrollbar {
   display: none;
