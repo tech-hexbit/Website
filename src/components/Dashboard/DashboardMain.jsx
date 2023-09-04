@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 // components
 import Revenue from "./DashboardCom/Revenue";
@@ -7,9 +7,10 @@ import BestSellers from "./DashboardCom/BestSellers";
 import RecentOrders from "./DashboardCom/RecentOrders";
 
 export default function DashboardMain() {
+  const [defaultSet, setDefaultSet] = useState("RecentOrders");
   return (
     <>
-      <Description />
+      <Description defaultSet={defaultSet} setDefaultSet={setDefaultSet} />
       <Revenue />
       <RecentOrders />
       <BestSellers />
