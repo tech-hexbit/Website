@@ -1,4 +1,7 @@
 .mainDiv {
+  max-width: 30%;
+  width: 28%;
+  min-width: 260px;
   padding: 20px;
   display: flex;
   flex-direction: column;
