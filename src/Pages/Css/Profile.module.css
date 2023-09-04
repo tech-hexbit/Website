@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-evenly;
   font-family: "Open Sans", sans-serif;
-  gap: 30px;
+  /* gap: 30px; */
 }
 
 .CDiv {
