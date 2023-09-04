@@ -10,6 +10,18 @@
   margin: 40px 0px 20px 0px;
 }
 
+@media screen and (max-width: 1050px) {
+  .CDiv {
+    padding: 0px 15px 0px 15px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .CDiv {
+    padding: 0px 30px 0px 30px;
+  }
+}
+
 @media screen and (max-width: 650px) {
   .CDiv {
     margin: 0px 0px 20px 0px;
