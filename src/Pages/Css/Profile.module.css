@@ -2,10 +2,11 @@
   display: flex;
   justify-content: space-evenly;
   font-family: "Open Sans", sans-serif;
-  gap: 20px;
+  gap: 10px;
 }
 
 .CDiv {
   width: 80%;
   margin-top: 40px;
+  background-color: red;
 }
