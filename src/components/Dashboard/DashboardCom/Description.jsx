@@ -21,8 +21,6 @@ export default function Description(props) {
 
   useEffect(() => {
     loadData();
-
-    console.log(props.defaultSet);
   }, []);
 
   const authCtx = useContext(AuthContext);
@@ -67,18 +65,24 @@ export default function Description(props) {
           value={orderDel.totalOrders}
           change="+5.21%"
           arrow="increase"
+          defaultSet={props.defaultSet}
+          setDefaultSet={props.setDefaultSet}
         />
         <DesCard
           heading="Total Earnings"
           value={orderDel.totalAmount}
           change="+5.21%"
           arrow="decrease"
+          defaultSet={props.defaultSet}
+          setDefaultSet={props.setDefaultSet}
         />
         <DesCard
           heading="New customers"
           value={orderDel.totalNewCustomers}
           change="+5.21%"
           arrow="increase"
+          defaultSet={props.defaultSet}
+          setDefaultSet={props.setDefaultSet}
         />
       </div>
     </div>
