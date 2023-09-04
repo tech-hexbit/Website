@@ -52,7 +52,37 @@
   justify-content: space-between;
   align-items: center;
   gap: 0px 10px;
-  background-color: #ff0000;
+  /* background-color: #ff0000; */
+}
+
+@media only screen and (max-width: 1080px) {
+  .bottom {
+    overflow-x: scroll;
+  }
+
+  /* Webkit-based browsers (Chrome, Safari) */
+  /* Width and height of the scrollbar track */
+  .bottom::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+  }
+
+  /* Styles for the scrollbar thumb (the draggable part) */
+  .bottom::-webkit-scrollbar-thumb {
+    background: transparent; /* Background color of the thumb */
+    border-radius: 6px; /* Rounded corners */
+  }
+
+  /* Styles for the scrollbar track (the background) */
+  .bottom::-webkit-scrollbar-track {
+    background: transparent; /* Background color of the track */
+    border-radius: 6px; /* Rounded corners */
+  }
+
+  /* Styles for the scrollbar corners */
+  .bottom::-webkit-scrollbar-corner {
+    background: transparent; /* Background color of the corners */
+  }
 }
 
 /* .bottom::-webkit-scrollbar {
