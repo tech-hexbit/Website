@@ -89,6 +89,12 @@
   width: 50px;
 }
 
+.loadCenterDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media screen and (max-width: 1600px) {
   .middle {
     flex-direction: column;
