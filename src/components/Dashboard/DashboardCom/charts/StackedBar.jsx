@@ -47,7 +47,6 @@ export default function StackedBar() {
   return (
     <div className="stacked-bar">
       <Chart
-       
         data={data}
         type="bar"
         stacked="true"

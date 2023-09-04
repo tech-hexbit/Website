@@ -48,8 +48,12 @@
 }
 
 .bottom {
+  overflow-y: scroll;
   padding-top: 55px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 45px;
+}
+.bottom::-webkit-scrollbar {
+  display: none;
 }

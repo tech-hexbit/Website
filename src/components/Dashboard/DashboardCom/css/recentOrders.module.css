@@ -20,21 +20,25 @@
 
 .table {
   padding-right: 30px;
+  width: 100%; 
+  overflow-x: auto;
 }
 
 
 #th {
   color: #777;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 400;
-  padding-bottom: 30px;
+ /*  padding-bottom: 30px;  */
+  padding: 6px;  
+  text-align: left; 
 }
 
 #td {
   /* background-color: red; */
-  padding: 15px;
+  padding: 6px;
   /* padding-left: ; */
-  border-bottom: #ddd 1px solid;
+  text-align: left;
 }
 
 .product {
@@ -80,22 +84,37 @@
   .table>table {
     width: 100%;
   }
-  
-}
-@media screen and (max-width:890px) {
- 
- 
-  #td{
-    font-size: 12px;
-    padding: 10px;
+  .mainDiv{
+    margin: 45px;
   }
   
 }
-@media screen and (max-width:728px) {
-  #td{
-    font-size: 12px;
-    padding-left:5px;
-    padding-right:5px;
+
+@media screen  and  (max-width:900px){
+  #th{
+    display: none;
   }
-  
-}
+  #td{
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: 15ch auto;
+    padding: 0.75rem 1rem;
+  }
+  td:first-child{
+    padding-top: 2rem;
+  }
+  td:last-child{
+    padding-bottom: 2rem;
+  }
+  td::before{
+    content: attr(data-cell) ": ";
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+
+    
+} 
+
+
+
+

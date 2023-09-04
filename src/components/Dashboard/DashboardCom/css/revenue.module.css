@@ -50,10 +50,10 @@
   width: 50%;
 }
 
-/* .chartHead > canvas{
+ .chartHead > canvas{
   width: 50%;
   height: 50%;
-} */
+} 
 
 @media screen and (max-width:1120px){
   .charts{
@@ -75,3 +75,30 @@
     width: 100%;
   }
 }
+@media screen and (max-width:840px) {
+ .mainDiv{
+  margin:45px;
+ }
+}
+@media screen and (max-width:600px) {
+  .text{
+    font-size: 15px;
+    padding: 5px;
+  }
+ }
+ @media screen and (max-width:530px) {
+  .text{
+    font-size: 12px;
+    
+  }
+ 
+ }
+ @media screen and (max-width:485px) {
+  .text{
+    font-size: 10px;
+    
+  }
+  .elements{
+    height: 65px;
+  }
+ }

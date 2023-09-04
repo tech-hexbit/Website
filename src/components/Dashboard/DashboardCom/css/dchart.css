@@ -1,0 +1,11 @@
+.d-chart{
+    width: 400px;
+
+}
+
+@media screen and (max-width: 690px ){
+      .d-chart{
+        width: auto;
+      }
+}
+    

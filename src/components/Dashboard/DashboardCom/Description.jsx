@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 
 // components
 import DesCard from "./DesCard";
-import Carousel from "react-multi-carousel";
+
 import "react-multi-carousel/lib/styles.css";
 // state
 import AuthContext from "./../../../store/auth-context";
@@ -61,8 +61,8 @@ export default function Description() {
           </div>
         </div>
       </div>
-      {/* <div className={DCss.bottom}> */}
-        <Carousel responsive={responsive} className={DCss.desCardCarousel} removeArrowOnDeviceType={["tablet", "mobile"]} containerClass="carousel-container" itemClass="carousel-item">
+      <div className={DCss.bottom}>
+     
           {data.map((element, i) => {
             return (
               <DesCard
@@ -74,8 +74,8 @@ export default function Description() {
               />
             );
           })}
-        </Carousel>
-      {/* </div> */}
+        
+      </div>
     </div>
   );
 }
