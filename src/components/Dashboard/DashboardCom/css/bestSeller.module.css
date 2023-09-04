@@ -1,9 +1,9 @@
 .mainDiv {
   background-color: #fff;
-    border-radius: 15px;
-    padding: 16px 20px;
-    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.5);
-    font-family: "Rubik", sans-serif;
+  border-radius: 15px;
+  padding: 16px 20px;
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.5);
+  font-family: "Rubik", sans-serif;
   margin: 0px 30px 30px 30px;
   font-family: "Rubik", sans-serif;
 }
@@ -24,7 +24,6 @@
 .col1 {
   display: flex;
   width: 200px;
-  
 }
 
 .image {
@@ -59,25 +58,22 @@ img {
 .stock {
   width: 110px;
 }
-@media screen and (max-width:800px){
-
-  .mainDiv{
+@media screen and (max-width: 800px) {
+  .mainDiv {
     margin: 50px;
-     
   }
   .table {
     padding: 20px;
   }
-  #td{
+  #td {
     font-size: 15px;
     margin-right: auto;
   }
-  #th{
+  #th {
     font-size: 15px;
-  
   }
 }
- @media screen  and  (max-width:880px){
+/* @media screen  and  (max-width:880px){
   #th{
     display: none;
   }
@@ -99,15 +95,15 @@ img {
     text-transform: capitalize;
   }
    
-} 
-@media screen and (max-width:566px){
-  #td{
+}  */
+
+@media screen and (max-width: 566px) {
+  #td {
     margin-right: 30px;
     width: auto;
     gap: ;
   }
-  .col1{
+  .col1 {
     flex-direction: column;
   }
 }
-
