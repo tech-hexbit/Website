@@ -9,9 +9,6 @@ import RecentOrders from "./DashboardCom/RecentOrders";
 export default function DashboardMain() {
   const [defaultSet, setDefaultSet] = useState("RecentOrders");
 
-  useEffect(() => {
-    console.log(defaultSet);
-  }, [defaultSet]);
   return (
     <>
       <Description defaultSet={defaultSet} setDefaultSet={setDefaultSet} />
