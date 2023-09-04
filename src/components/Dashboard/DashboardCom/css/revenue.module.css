@@ -16,10 +16,15 @@
 
 .list {
   margin-top: 30px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  background-color: #7d629b;
-  gap: 2px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* display: grid; */
+  /* grid-template-columns: repeat(4, 1fr); */
+  /* background-color: #7d629b; */
+  /* gap: 2px; */
+  background-color: #e5e7ff;
 }
 
 .elements {
