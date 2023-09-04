@@ -65,6 +65,7 @@ export default function Description(props) {
           value={orderDel.totalOrders}
           change="+5.21%"
           arrow="increase"
+          boxof="RecentOrders"
           defaultSet={props.defaultSet}
           setDefaultSet={props.setDefaultSet}
         />
@@ -73,6 +74,7 @@ export default function Description(props) {
           value={orderDel.totalAmount}
           change="+5.21%"
           arrow="decrease"
+          boxof="Revenue"
           defaultSet={props.defaultSet}
           setDefaultSet={props.setDefaultSet}
         />
@@ -81,6 +83,7 @@ export default function Description(props) {
           value={orderDel.totalNewCustomers}
           change="+5.21%"
           arrow="increase"
+          boxof="BestSellers"
           defaultSet={props.defaultSet}
           setDefaultSet={props.setDefaultSet}
         />
