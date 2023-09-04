@@ -13,14 +13,6 @@ export default function Revenue() {
       <div className={RCss.heading}>Revenue</div>
       <div className={RCss.list}>
         <div className={RCss.elements}>
-          <div className={RCss.text}>56,012</div>
-          <div className={RCss.text}>Orders</div>
-        </div>
-        <div className={RCss.elements}>
-          <div className={RCss.text}>₹ 2,47,901</div>
-          <div className={RCss.text}>Earnings</div>
-        </div>
-        <div className={RCss.elements}>
           <div className={RCss.text}>892</div>
           <div className={RCss.text}>Refunds</div>
         </div>
