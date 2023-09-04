@@ -30,7 +30,6 @@
 }
 
 .elements {
-  /* background-color: #e5e7ff; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
