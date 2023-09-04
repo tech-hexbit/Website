@@ -1,7 +1,7 @@
 // import React from 'react'
 import "chart.js/auto";
 import { Chart } from "react-chartjs-2";
-
+import '../css/stackedbar.css'
 export default function StackedBar() {
   const data = {
     labels: ["M", "T", "W", "T", "F", "S", "S"],
@@ -40,13 +40,13 @@ export default function StackedBar() {
       y: {
         stacked: true,
       },
+      maintainAspectRatio:false ,
+      responsive:true,
     },
   };
   return (
-    <div>
+    <div className="stacked-bar">
       <Chart
-        width={500}
-        height={250}
         data={data}
         type="bar"
         stacked="true"

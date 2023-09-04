@@ -12,11 +12,21 @@
   display: flex;
 }
 
+.desCardCarousel{
+  width: 100%;
+
+}
+
+.carousel-item{
+  margin: 20px;
+}
+
 .image {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   object-fit: cover;
+  padding-bottom: 5px;
 }
 
 .des {
@@ -24,6 +34,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding-bottom: 19px;
 }
 
 .name {
@@ -37,8 +48,12 @@
 }
 
 .bottom {
+  overflow-y: scroll;
   padding-top: 55px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 45px;
+}
+.bottom::-webkit-scrollbar {
+  display: none;
 }

@@ -1,0 +1,23 @@
+/* @media only screen and (max-width: 1430px) {
+    .barChart{
+        width:420px;
+        height: 420px;
+        
+        
+    }
+}
+@media only screen and (max-width: 1350px) {
+    .barChart{
+        width:380px;
+    }
+}  */
+.barChart{
+    width: 100%;
+    
+ }
+.barChart>canvas{
+    width: 100%;
+    height: 100%;
+}
+
+
