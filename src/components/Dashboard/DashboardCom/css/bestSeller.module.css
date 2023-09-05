@@ -129,6 +129,13 @@ img {
   text-align: center;
 }
 
+.imageCenter {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 @media screen and (max-width: 800px) {
   .table {
     padding: 20px;
