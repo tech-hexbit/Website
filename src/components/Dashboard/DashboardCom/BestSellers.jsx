@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
+
+// axios
+import axios from "axios";
+
+// state
+import AuthContext from "./../../../store/auth-context";
+
+// MicroInteraction
+import Load from "./../../../MicroInteraction/LoadBlack";
 
 import image from "../../../assets/dashboard/tablerow.png";
 
+// css
 import BSCss from "./css/bestSeller.module.css";
 
 const data = [
@@ -35,6 +45,41 @@ const data = [
 ];
 
 export default function BestSellers() {
+  const [orderNumber, setOrderNumber] = useState(0);
+  const [orderDel, setOrderDel] = useState([]);
+  const [load, setLoad] = useState(false);
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const authCtx = useContext(AuthContext);
+
+  const loadData = async () => {
+    setLoad(true);
+
+    try {
+      const response = await axios.get("/api/website/DashBoard/sellersList", {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+
+      if (response.data.success) {
+        // setOrderDel(response.data.orders);
+        // setOrderNumber(response.data.orders?.length);
+
+        setLoad(false);
+      } else {
+        setLoad(false);
+
+        console.log(e);
+      }
+    } catch (e) {
+      setLoad(false);
+
+      console.log(e);
+    }
+  };
+
   return (
     <div className={BSCss.mainDiv}>
       <div className={BSCss.heading}>Best sellers</div>
