@@ -14,6 +14,7 @@
 .table {
   padding-top: 30px;
 }
+
 .table table {
   width: 100%;
 }
@@ -55,21 +56,26 @@ img {
 .stock {
   width: 110px;
 }
+
 @media screen and (max-width: 800px) {
   .mainDiv {
     margin: 50px;
   }
+
   .table {
     padding: 20px;
   }
+
   #td {
     font-size: 15px;
     margin-right: auto;
   }
+
   #th {
     font-size: 15px;
   }
 }
+
 /* @media screen  and  (max-width:880px){
   #th{
     display: none;
@@ -100,6 +106,7 @@ img {
     width: auto;
     /* gap: ; */
   }
+
   .col1 {
     flex-direction: column;
   }
