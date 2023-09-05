@@ -116,6 +116,27 @@ img {
   min-width: 150px;
 }
 
+.loadCenterDiv {
+  margin: 30px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.NoOrders {
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+}
+
+.imageCenter {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 @media screen and (max-width: 800px) {
   .table {
     padding: 20px;
