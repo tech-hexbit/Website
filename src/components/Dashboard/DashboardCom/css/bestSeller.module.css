@@ -1,11 +1,8 @@
 .mainDiv {
-  background-color: #fff;
   border-radius: 15px;
+  padding: 16px 20px;
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.5);
-  padding: 20px;
-  margin: 0px 30px 30px 30px;
   font-family: "Rubik", sans-serif;
-  width: fit-content;
 }
 
 .heading {
@@ -15,7 +12,11 @@
 }
 
 .table {
-  padding-top: 50px;
+  padding-top: 30px;
+}
+
+.table table {
+  width: 100%;
 }
 
 .col1 {
@@ -25,7 +26,7 @@
 
 .image {
   height: 25px;
-  padding-right: 10px;
+  padding-right: 12px;
 }
 
 img {
@@ -34,9 +35,8 @@ img {
 
 #th {
   color: #000;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 400;
-  text-align: left;
 }
 
 #td {
@@ -54,4 +54,79 @@ img {
 
 .stock {
   width: 110px;
+}
+
+.tableTag {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  display: block;
+  position: relative;
+  overflow-x: scroll;
+}
+
+.tableTag::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+.tableTag::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 6px;
+}
+
+.tableTag::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 6px;
+}
+
+.tableTag::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.tableTag tr th:first-child,
+.tableTag tr td:first-child {
+  width: 70px;
+  min-width: 70px;
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background-color: #fff;
+  text-align: center;
+}
+
+.tableTag tr th,
+.tableTag tr td {
+  text-align: center;
+  width: 20%;
+}
+
+.tableTag tr th:nth-child(2),
+.tableTag tr td:nth-child(2) {
+  min-width: 150px;
+}
+
+.tableTag tr th:nth-child(3),
+.tableTag tr td:nth-child(3) {
+  min-width: 150px;
+}
+
+.tableTag tr th:nth-child(4),
+.tableTag tr td:nth-child(4) {
+  min-width: 150px;
+}
+
+@media screen and (max-width: 800px) {
+  .table {
+    padding: 20px;
+  }
+
+  #td {
+    font-size: 15px;
+    margin-right: auto;
+  }
+
+  #th {
+    font-size: 15px;
+  }
 }

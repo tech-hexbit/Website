@@ -39,7 +39,7 @@ export default function BestSellers() {
     <div className={BSCss.mainDiv}>
       <div className={BSCss.heading}>Best sellers</div>
       <div className={BSCss.table}>
-        <table style={{ borderCollapse: "collapse" }}>
+        <table className={BSCss.tableTag}>
           <tr>
             <th id={BSCss.th} className={BSCss.product}>
               Product
@@ -58,7 +58,7 @@ export default function BestSellers() {
           {data.map((element, i) => {
             return (
               <tr key={i}>
-                <td id={BSCss.td}>
+                <td data-cell="Product" id={BSCss.td} className="prod">
                   <div className={BSCss.col1}>
                     <div className={BSCss.image}>
                       <img src={element.col1Image} />
@@ -66,9 +66,13 @@ export default function BestSellers() {
                     <div>{element.col1Text}</div>
                   </div>
                 </td>
-                <td id={BSCss.td}>{element.col2}</td>
-                <td id={BSCss.td}>{element.col3}</td>
-                <td id={BSCss.td}>
+                <td data-cell="Amount" id={BSCss.td}>
+                  {element.col2}
+                </td>
+                <td data-cell="Sales" id={BSCss.td}>
+                  {element.col3}
+                </td>
+                <td data-cell="Stock" id={BSCss.td} className="stock">
                   <div>
                     <div>{element.col4Top}</div>
                     {element.col4Bottom == "Instock" && (
@@ -83,7 +87,9 @@ export default function BestSellers() {
                     )}
                   </div>
                 </td>
-                <td id={BSCss.td}>{element.col5}</td>
+                <td data-cell="Ratings" id={BSCss.td}>
+                  {element.col5}
+                </td>
               </tr>
             );
           })}

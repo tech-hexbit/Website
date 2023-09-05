@@ -12,7 +12,7 @@ import AuthContext from "./../../../store/auth-context";
 // css
 import DCss from "./css/dashboard.module.css";
 
-export default function Description() {
+export default function Description(props) {
   const [orderDel, setOrderDel] = useState({
     totalOrders: 0,
     totalAmount: 0,
@@ -65,18 +65,27 @@ export default function Description() {
           value={orderDel.totalOrders}
           change="+5.21%"
           arrow="increase"
+          boxof="RecentOrders"
+          defaultSet={props.defaultSet}
+          setDefaultSet={props.setDefaultSet}
         />
         <DesCard
           heading="Total Earnings"
           value={orderDel.totalAmount}
           change="+5.21%"
           arrow="decrease"
+          boxof="Revenue"
+          defaultSet={props.defaultSet}
+          setDefaultSet={props.setDefaultSet}
         />
         <DesCard
           heading="New customers"
           value={orderDel.totalNewCustomers}
           change="+5.21%"
           arrow="increase"
+          boxof="BestSellers"
+          defaultSet={props.defaultSet}
+          setDefaultSet={props.setDefaultSet}
         />
       </div>
     </div>

@@ -122,6 +122,15 @@ html {
   color: #ff0000;
 }
 
+#activeBox {
+  box-shadow: 0px 2px 3px 0px #c075ff;
+  transition: all 0.5s;
+}
+
+#activeBox:hover {
+  box-shadow: 0px 2px 3px 0px #c075ff;
+}
+
 @media screen and (max-width: 850px) {
   .slider-wrapper {
     height: 45%;

@@ -1,10 +1,8 @@
 .mainDiv {
-  background-color: #fff;
   border-radius: 15px;
   padding: 16px 20px;
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.5);
   font-family: "Rubik", sans-serif;
-  margin: 0px 30px 30px 30px;
 }
 
 .heading {
@@ -14,26 +12,74 @@
 }
 
 .middle {
-  padding-top: 50px;
+  padding: 50px 0px;
   display: flex;
 }
 
 .table {
-  padding-right: 30px;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.tableTag {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  display: block;
+  position: relative;
+  overflow-x: scroll;
+}
+
+.tableTag::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+.tableTag::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 6px;
+}
+
+.tableTag::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 6px;
+}
+
+.tableTag::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.tableTag tr th:first-child,
+.tableTag tr td:first-child {
+  width: 70px;
+  min-width: 70px;
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background-color: #fff;
+  text-align: center;
+}
+
+.tableTag tr th,
+.tableTag tr td {
+  text-align: center;
+  width: 20%;
+}
+
+.tableTag tr th:nth-child(2),
+.tableTag tr td:nth-child(2) {
+  min-width: 200px;
 }
 
 #th {
   color: #777;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 400;
-  padding-bottom: 30px;
+  padding: 6px;
 }
 
 #td {
-  /* background-color: red; */
-  padding: 15px;
-  /* padding-left: ; */
-  border-bottom: #ddd 1px solid;
+  padding: 6px;
 }
 
 .product {
@@ -50,18 +96,18 @@
   color: #323c4d;
   font-size: 14px;
   font-weight: 700;
+  width: 100%;
 }
 
 .bottom {
-  padding-top: 60px;
+  padding: 30px 0px;
   display: flex;
   justify-content: space-between;
-  padding-bottom: 30px;
 }
 
 .show {
   color: #888;
-  font-size: 16px;
+  font-size: 12px;
 }
 
 .view {
@@ -69,4 +115,24 @@
   font-size: 16px;
   text-decoration: underline;
   cursor: pointer;
+}
+
+.NoOrders {
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+}
+
+.truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 50px;
+}
+
+.loadCenterDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
