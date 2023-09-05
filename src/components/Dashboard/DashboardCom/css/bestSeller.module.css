@@ -37,7 +37,7 @@ img {
   color: #000;
   font-size: 15px;
   font-weight: 400;
-  text-align: left;
+  /* text-align: left; */
 }
 
 #td {
@@ -55,6 +55,56 @@ img {
 
 .stock {
   width: 110px;
+}
+
+.tableTag {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  display: block;
+  position: relative;
+  overflow-x: scroll;
+}
+
+.tableTag::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+.tableTag::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 6px;
+}
+
+.tableTag::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 6px;
+}
+
+.tableTag::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.tableTag tr th:first-child,
+.tableTag tr td:first-child {
+  width: 70px;
+  min-width: 70px;
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background-color: #fff;
+  text-align: center;
+}
+
+.tableTag tr th,
+.tableTag tr td {
+  text-align: center;
+  width: 20%;
+}
+
+.tableTag tr th:nth-child(2),
+.tableTag tr td:nth-child(2) {
+  min-width: 200px;
 }
 
 @media screen and (max-width: 800px) {
