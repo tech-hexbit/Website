@@ -89,7 +89,7 @@ export default function BestSellers() {
       <div className={BSCss.heading}>Best sellers</div>
 
       {load ? (
-        <div className={RCss.loadCenterDiv}>
+        <div className={BSCss.loadCenterDiv}>
           <Load />
         </div>
       ) : (
