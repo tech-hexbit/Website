@@ -113,9 +113,10 @@ export default function BestSellers() {
                   <th id={BSCss.th}>Ratings</th>
                 </tr>
 
-                {data.map((element, i) => {
+                {orderDel ? <></> : "No Data"}
+                {orderDel.map((val, key) => {
                   return (
-                    <tr key={i}>
+                    <tr key={key}>
                       <td data-cell="Product" id={BSCss.td} className="prod">
                         <div className={BSCss.col1}>
                           <div className={BSCss.image}>
@@ -154,7 +155,7 @@ export default function BestSellers() {
               </table>
             </div>
           ) : (
-            <p className={RCss.NoOrders}>No Orders</p>
+            <p className={BSCss.NoOrders}>No Orders</p>
           )}
         </>
       )}
