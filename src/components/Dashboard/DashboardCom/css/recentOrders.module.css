@@ -52,8 +52,6 @@
 
 .tableTag tr th:first-child,
 .tableTag tr td:first-child {
-  /* display: inline-block; */
-  /* background-color: #d3d3d3; */
   width: 70px;
   min-width: 70px;
   position: sticky;
@@ -61,7 +59,6 @@
   z-index: 2;
   background-color: #fff;
   text-align: center;
-  /* box-shadow: -10px 0px 10px red; */
 }
 
 .tableTag tr th,
