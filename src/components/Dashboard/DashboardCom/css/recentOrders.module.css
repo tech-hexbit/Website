@@ -71,6 +71,7 @@
 .tableTag tr th:first-child,
 .tableTag tr td:first-child {
   width: 70px;
+  min-width: 70px;
   position: sticky;
   left: 0;
   z-index: 2;
@@ -79,9 +80,19 @@
   text-align: center;
 }
 
+.tableTag tr th,
+.tableTag tr td {
+  text-align: center;
+  width: 20%;
+}
+
+.tableTag tr th:nth-child(2),
+.tableTag tr td:nth-child(2) {
+  min-width: 200px;
+}
+
 .tableTag tr th {
   /* .tableTag tr td { */
-  text-align: center;
   /* background-color: pink; */
 }
 
