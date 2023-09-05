@@ -16,6 +16,7 @@
 
 .table {
   padding-top: 30px;
+  
 }
 .table table {
   width: 100%;
@@ -77,7 +78,7 @@ img {
   
   }
 }
- @media screen  and  (max-width:880px){
+ @media screen  and  (max-width:800px){
   #th{
     display: none;
   }
@@ -85,7 +86,7 @@ img {
     display: grid;
     
     grid-template-columns: 15ch auto;
-    padding: 0.75rem 0.5rem;
+    padding: 0.75rem 1rem;
   }
   td:first-child{
     padding-top: 2rem;

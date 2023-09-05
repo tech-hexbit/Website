@@ -191,11 +191,11 @@ export default function OverallSales() {
           </div>
           <div></div>
         </div>
-        <div className={osCss.table}>
-          <table style={{ borderCollapse: "collapse" }}>
+        <div id="wrap" className={osCss.table}>
+          <table style={{ borderCollapse: "collapse"  }}>
             <tr>
               <th></th>
-              <th>
+              <th className="sticky-col">
                 Order id{" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -252,7 +252,7 @@ export default function OverallSales() {
                   />
                 </svg>
               </th>
-              <th>
+              <th >
                 Price{" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -271,7 +271,7 @@ export default function OverallSales() {
                   />
                 </svg>
               </th>
-              <th>
+              <th >
                 Ordered on{" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -290,7 +290,7 @@ export default function OverallSales() {
                   />
                 </svg>
               </th>
-              <th className={osCss.payment}>
+              <th  className={osCss.payment}>
                 Payment method{" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -309,7 +309,7 @@ export default function OverallSales() {
                   />
                 </svg>
               </th>
-              <th className={osCss.payment}>
+              <th  className={osCss.payment}>
                 Delivery status{" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
