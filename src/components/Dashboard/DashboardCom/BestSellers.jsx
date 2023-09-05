@@ -66,8 +66,12 @@ export default function BestSellers() {
                     <div>{element.col1Text}</div>
                   </div>
                 </td>
-                <td data-cell="Amount" id={BSCss.td}>{element.col2}</td>
-                <td data-cell="Sales" id={BSCss.td}>{element.col3}</td>
+                <td data-cell="Amount" id={BSCss.td}>
+                  {element.col2}
+                </td>
+                <td data-cell="Sales" id={BSCss.td}>
+                  {element.col3}
+                </td>
                 <td data-cell="Stock" id={BSCss.td} className="stock">
                   <div>
                     <div>{element.col4Top}</div>
@@ -83,7 +87,9 @@ export default function BestSellers() {
                     )}
                   </div>
                 </td>
-                <td data-cell="Ratings" id={BSCss.td}>{element.col5}</td>
+                <td data-cell="Ratings" id={BSCss.td}>
+                  {element.col5}
+                </td>
               </tr>
             );
           })}
