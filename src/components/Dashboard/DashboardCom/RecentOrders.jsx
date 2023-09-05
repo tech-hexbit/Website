@@ -65,7 +65,7 @@ export default function RecentOrders() {
             {orderDel?.length > 0 ? (
               <>
                 <div className={RCss.table}>
-                  <table style={{ borderCollapse: "collapse" }}>
+                  <table className={RCss.tableTag}>
                     <tr>
                       <th id={RCss.th}>Order ID</th>
                       <th id={RCss.th} className={RCss.product}>
