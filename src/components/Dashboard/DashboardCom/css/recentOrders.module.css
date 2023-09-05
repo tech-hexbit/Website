@@ -55,8 +55,27 @@
   position: sticky;
   left: 0;
   z-index: 2;
-  background-color: pink;
+  background-color: #fff;
   box-shadow: 0px 5px 0px 0px 1px lightgrey;
+}
+
+.tableTag::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+.tableTag::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 6px;
+}
+
+.tableTag::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 6px;
+}
+
+.tableTag::-webkit-scrollbar-corner {
+  background: transparent;
 }
 
 .tableTag tr th {
