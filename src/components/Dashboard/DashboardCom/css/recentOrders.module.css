@@ -76,6 +76,7 @@
   z-index: 2;
   background-color: #fff;
   box-shadow: 0px 5px 0px 0px 1px lightgrey;
+  text-align: center;
 }
 
 .tableTag tr th {
@@ -96,7 +97,7 @@
   /* background-color: red; */
   padding: 6px;
   /* padding-left: ; */
-  text-align: left;
+  /* text-align: left; */
 }
 
 .product {
