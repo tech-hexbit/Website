@@ -37,7 +37,7 @@
 .tableTag tr th {
   /* .tableTag tr td { */
   text-align: center;
-  background-color: pink;
+  /* background-color: pink; */
 }
 
 #th {
