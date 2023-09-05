@@ -9,40 +9,8 @@ import AuthContext from "./../../../store/auth-context";
 // MicroInteraction
 import Load from "./../../../MicroInteraction/LoadBlack";
 
-import image from "../../../assets/dashboard/tablerow.png";
-
 // css
 import BSCss from "./css/bestSeller.module.css";
-
-const data = [
-  {
-    col1Image: image,
-    col1Text: "Bentwood chair",
-    col2: "₹ 10,769",
-    col3: "899",
-    col4Top: "89K",
-    col4Bottom: "Instock",
-    col5: "5.0",
-  },
-  {
-    col1Image: image,
-    col1Text: "Nike shoes",
-    col2: "₹ 6,999",
-    col3: "1209",
-    col4Top: "71K",
-    col4Bottom: "Instock",
-    col5: "5.0",
-  },
-  {
-    col1Image: image,
-    col1Text: "One seater sofa",
-    col2: "₹ 21,769",
-    col3: "1101",
-    col4Top: "89",
-    col4Bottom: "Out of stock",
-    col5: "4.9",
-  },
-];
 
 export default function BestSellers() {
   const [orderNumber, setOrderNumber] = useState(0);
