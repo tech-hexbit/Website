@@ -116,6 +116,13 @@ img {
   min-width: 150px;
 }
 
+.loadCenterDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 @media screen and (max-width: 800px) {
   .table {
     padding: 20px;
