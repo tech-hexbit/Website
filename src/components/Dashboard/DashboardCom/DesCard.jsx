@@ -11,7 +11,7 @@ export default function DesCard(props) {
     <div
       className={DCCss.mainDiv}
       onClick={changeDefault}
-      id={props.defaultSet === props.boxof ? "" : ""}
+      id={props.defaultSet === props.boxof ? "activeBox" : "notActiveBox"}
     >
       <div className={DCCss.top}>
         <div className={DCCss.heading}>{props.heading}</div>
