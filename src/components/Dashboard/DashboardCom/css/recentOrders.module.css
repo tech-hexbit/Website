@@ -25,6 +25,7 @@
 .tableTag {
   width: 100%;
   max-width: 100%;
+
   border-collapse: collapse;
   display: block;
   position: relative;
