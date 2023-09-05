@@ -90,7 +90,7 @@ export default function RecentOrders() {
                               </td>
                               <td id={RCss.td}>₹ {val.amount}</td>
                               <td id={RCss.td} className={RCss.quantity}>
-                                ₹{val.Items[0].quantity}
+                                {val.Items[0].quantity}
                               </td>
                               {val.Status == "Delivered" && (
                                 <td id={RCss.td} style={{ color: "#4BB543" }}>
