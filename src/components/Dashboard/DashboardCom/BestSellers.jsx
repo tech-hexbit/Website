@@ -64,8 +64,8 @@ export default function BestSellers() {
       });
 
       if (response.data.success) {
-        // setOrderDel(response.data.orders);
-        // setOrderNumber(response.data.orders?.length);
+        setOrderDel(response.data.seller);
+        setOrderNumber(response.data.seller?.length);
 
         setLoad(false);
       } else {
