@@ -131,39 +131,3 @@ img {
     font-size: 15px;
   }
 }
-
-/* @media screen  and  (max-width:880px){
-  #th{
-    display: none;
-  }
-  #td{
-    display: grid;
-    
-    grid-template-columns: 15ch auto;
-    padding: 0.75rem 0.5rem;
-  }
-  td:first-child{
-    padding-top: 2rem;
-  }
-  td:last-child{
-    padding-bottom: 2rem;
-  }
-  td::before{
-    content: attr(data-cell) ": ";
-    font-weight: 700;
-    text-transform: capitalize;
-  }
-   
-}  */
-
-/* @media screen and (max-width: 566px) {
-  #td {
-    margin-right: 30px;
-    width: auto; */
-/* gap: ; */
-/* } */
-
-/* .col1 {
-    flex-direction: column;
-  }
-} */
