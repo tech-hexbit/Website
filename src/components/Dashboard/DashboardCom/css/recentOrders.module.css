@@ -38,12 +38,25 @@
   /* overflow-y: hidden; */
   overflow-x: scroll;
 
-  background-color: pink;
+  /* background-color: pink; */
 }
+
+/* .tableTag tr td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background-color: pink;
+  box-shadow: 0px 5px 0px 0px 1px lightgrey;
+} */
 
 .tableTag tr th:first-child,
 .tableTag tr td:first-child {
   width: 70px;
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background-color: pink;
+  box-shadow: 0px 5px 0px 0px 1px lightgrey;
 }
 
 .tableTag tr th {
