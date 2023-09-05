@@ -113,45 +113,54 @@ export default function BestSellers() {
                   <th id={BSCss.th}>Ratings</th>
                 </tr>
 
-                {orderDel ? <></> : "No Data"}
-                {orderDel.map((val, key) => {
-                  return (
-                    <tr key={key}>
-                      <td data-cell="Product" id={BSCss.td} className="prod">
-                        <div className={BSCss.col1}>
-                          <div className={BSCss.image}>
-                            <img src={element.col1Image} />
-                          </div>
-                          <div>{element.col1Text}</div>
-                        </div>
-                      </td>
-                      <td data-cell="Amount" id={BSCss.td}>
-                        {element.col2}
-                      </td>
-                      <td data-cell="Sales" id={BSCss.td}>
-                        {element.col3}
-                      </td>
-                      <td data-cell="Stock" id={BSCss.td} className="stock">
-                        <div>
-                          <div>{element.col4Top}</div>
-                          {element.col4Bottom == "Instock" && (
-                            <div style={{ color: "#4BB543" }}>
-                              {element.col4Bottom}
+                {orderDel ? (
+                  <>
+                    {orderDel.map((val, key) => {
+                      return (
+                        <tr key={key}>
+                          <td
+                            data-cell="Product"
+                            id={BSCss.td}
+                            className="prod"
+                          >
+                            <div className={BSCss.col1}>
+                              <div className={BSCss.image}>
+                                <img src={val.image} />
+                              </div>
+                              <div>{val.BusinessName}</div>
                             </div>
-                          )}
-                          {element.col4Bottom == "Out of stock" && (
-                            <div style={{ color: "#D0342C" }}>
-                              {element.col4Bottom}
+                          </td>
+                          <td data-cell="Amount" id={BSCss.td}>
+                            {val.revenue}
+                          </td>
+                          <td data-cell="Sales" id={BSCss.td}>
+                            59k
+                          </td>
+                          <td data-cell="Stock" id={BSCss.td} className="stock">
+                            <div>
+                              <div>3</div>
+                              {"Instock" == "Instock" && (
+                                <div style={{ color: "#4BB543" }}>
+                                  {val.col4Bottom}
+                                </div>
+                              )}
+                              {/* {"Out of stock" == "Out of stock" && (
+                                <div style={{ color: "#D0342C" }}>
+                                  {val.col4Bottom}
+                                </div>
+                              )} */}
                             </div>
-                          )}
-                        </div>
-                      </td>
-                      <td data-cell="Ratings" id={BSCss.td}>
-                        {element.col5}
-                      </td>
-                    </tr>
-                  );
-                })}
+                          </td>
+                          <td data-cell="Ratings" id={BSCss.td}>
+                            5.0
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </>
+                ) : (
+                  "No Data"
+                )}
               </table>
             </div>
           ) : (
