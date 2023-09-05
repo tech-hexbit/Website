@@ -39,7 +39,7 @@ export default function BestSellers() {
     <div className={BSCss.mainDiv}>
       <div className={BSCss.heading}>Best sellers</div>
       <div className={BSCss.table}>
-        <table style={{ borderCollapse: "collapse" }}>
+        <table className={BSCss.tableTag}>
           <tr>
             <th id={BSCss.th} className={BSCss.product}>
               Product
