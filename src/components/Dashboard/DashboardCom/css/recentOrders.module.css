@@ -24,11 +24,20 @@
   overflow-x: auto;
 }
 
+.tableTag {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableTag tr th:first-child,
+.tableTag tr td:first-child {
+  width: 70px;
+}
+
 #th {
   color: #777;
   font-size: 15px;
   font-weight: 400;
-  /*  padding-bottom: 30px;  */
   padding: 6px;
   text-align: left;
 }
