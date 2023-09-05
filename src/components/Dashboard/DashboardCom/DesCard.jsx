@@ -8,7 +8,11 @@ export default function DesCard(props) {
     props.setDefaultSet(`${props.boxof}`);
   };
   return (
-    <div className={DCCss.mainDiv} onClick={changeDefault}>
+    <div
+      className={DCCss.mainDiv}
+      onClick={changeDefault}
+      id={props.defaultSet === props.boxof ? "" : ""}
+    >
       <div className={DCCss.top}>
         <div className={DCCss.heading}>{props.heading}</div>
         <div className={DCCss.svg}>
