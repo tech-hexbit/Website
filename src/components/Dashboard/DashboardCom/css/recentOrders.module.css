@@ -34,12 +34,18 @@
   width: 70px;
 }
 
+.tableTag tr th {
+  /* .tableTag tr td { */
+  text-align: center;
+  background-color: pink;
+}
+
 #th {
   color: #777;
   font-size: 15px;
   font-weight: 400;
   padding: 6px;
-  text-align: left;
+  /* text-align: left; */
 }
 
 #td {
