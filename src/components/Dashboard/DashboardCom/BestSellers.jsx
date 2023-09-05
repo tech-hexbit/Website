@@ -80,6 +80,10 @@ export default function BestSellers() {
     }
   };
 
+  useEffect(() => {
+    console.log(orderDel);
+  }, [orderDel]);
+
   return (
     <div className={BSCss.mainDiv}>
       <div className={BSCss.heading}>Best sellers</div>
@@ -100,6 +104,7 @@ export default function BestSellers() {
             </th>
             <th id={BSCss.th}>Ratings</th>
           </tr>
+
           {data.map((element, i) => {
             return (
               <tr key={i}>
