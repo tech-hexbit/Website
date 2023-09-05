@@ -26,7 +26,19 @@
 
 .tableTag {
   width: 100%;
+  max-width: 100%;
   border-collapse: collapse;
+
+  display: block;
+  /* font-family: arial, sans-serif; */
+  /* border-collapse: collapse; */
+  /* width: 100%; */
+  position: relative;
+  /* max-height: 450px; */
+  /* overflow-y: hidden; */
+  overflow-x: scroll;
+
+  background-color: pink;
 }
 
 .tableTag tr th:first-child,
