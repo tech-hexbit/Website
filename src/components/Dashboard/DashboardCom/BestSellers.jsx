@@ -93,7 +93,10 @@ export default function BestSellers() {
                           >
                             <div className={BSCss.col1}>
                               <div className={BSCss.image}>
-                                <img src={val.image} />
+                                <img
+                                  src={val.image}
+                                  className={BSCss.imageCenter}
+                                />
                               </div>
                               <div>{val.BusinessName}</div>
                             </div>
