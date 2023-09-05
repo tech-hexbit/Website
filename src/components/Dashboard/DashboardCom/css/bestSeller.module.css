@@ -58,10 +58,6 @@ img {
 }
 
 @media screen and (max-width: 800px) {
-  .mainDiv {
-    margin: 50px;
-  }
-
   .table {
     padding: 20px;
   }
@@ -100,14 +96,14 @@ img {
    
 }  */
 
-@media screen and (max-width: 566px) {
+/* @media screen and (max-width: 566px) {
   #td {
     margin-right: 30px;
-    width: auto;
-    /* gap: ; */
-  }
+    width: auto; */
+/* gap: ; */
+/* } */
 
-  .col1 {
+/* .col1 {
     flex-direction: column;
   }
-}
+} */
