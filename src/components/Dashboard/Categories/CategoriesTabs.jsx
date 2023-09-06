@@ -4,5 +4,5 @@ import React from "react";
 import CCss from "./Css/Categories.module.css";
 
 export default function CategoriesTabs(props) {
-  return <div>{props.name}</div>;
+  return <div className={CCss.nameDiv}>{props.name}</div>;
 }
