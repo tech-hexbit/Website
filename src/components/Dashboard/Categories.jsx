@@ -4,10 +4,11 @@ import React from "react";
 import CategoriesTabs from "./Categories/CategoriesTabs";
 
 // css
+import Ccss from "./Css/Categories.module.css";
 
 export default function Categories() {
   return (
-    <div>
+    <div className={Ccss.mDIvTabs}>
       <CategoriesTabs name="Ecommerce" />
       <CategoriesTabs name="Service providers" />
       <CategoriesTabs name="Education" />
