@@ -136,6 +136,11 @@ html {
   color: #fff;
 }
 
+.test {
+  width: 100%;
+  object-fit: contain;
+}
+
 @media screen and (max-width: 850px) {
   .slider-wrapper {
     height: 45%;
