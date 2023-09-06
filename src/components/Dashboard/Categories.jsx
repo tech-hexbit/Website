@@ -3,6 +3,8 @@ import React from "react";
 // components
 import CategoriesTabs from "./Categories/CategoriesTabs";
 
+// css
+
 export default function Categories() {
   return (
     <div>
