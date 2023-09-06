@@ -1,9 +1,5 @@
-.nameDiv {
-  font-family: "Open Sans", sans-serif;
-  color: #3f81e0;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #3f81e0;
-  border-radius: 8px;
-  padding: 8px 20px;
+.mDIvTabs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
