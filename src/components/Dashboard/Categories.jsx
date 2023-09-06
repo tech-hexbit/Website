@@ -8,6 +8,7 @@ import Ccss from "./Css/Categories.module.css";
 import osCss from "./Sales/Css/overallSales.module.css";
 
 export default function Categories() {
+  const [current, setCurrent] = useState("Ecommerce");
   const [active, setActive] = useState({
     pdt: true,
     fashion: false,
@@ -101,11 +102,27 @@ export default function Categories() {
   return (
     <div>
       <div className={Ccss.mDIvTabs}>
-        <CategoriesTabs name="Ecommerce" />
-        <CategoriesTabs name="Service providers" />
-        <CategoriesTabs name="Education" />
-        <CategoriesTabs name="Food" />
-        <CategoriesTabs name="Automobile" />
+        <CategoriesTabs
+          name="Ecommerce"
+          setCurrent={setCurrent}
+          current={current}
+        />
+        <CategoriesTabs
+          name="Service providers"
+          setCurrent={setCurrent}
+          current={current}
+        />
+        <CategoriesTabs
+          name="Education"
+          setCurrent={setCurrent}
+          current={current}
+        />
+        <CategoriesTabs name="Food" setCurrent={setCurrent} current={current} />
+        <CategoriesTabs
+          name="Automobile"
+          setCurrent={setCurrent}
+          current={current}
+        />
       </div>
 
       <div className={osCss.middle}>
