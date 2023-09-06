@@ -8,7 +8,7 @@ import Ccss from "./Css/Categories.module.css";
 
 export default function Categories() {
   return (
-    <div className={Ccss.mDIvTabs}>
+    <div className={Ccss.mDIvTab}>
       <CategoriesTabs name="Ecommerce" />
       <CategoriesTabs name="Service providers" />
       <CategoriesTabs name="Education" />
