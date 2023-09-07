@@ -59,6 +59,22 @@
   box-shadow: 1px 1px 10px #56117c;
 }
 
+.tabsDiv:hover > .tabLineDiv {
+  width: 100%;
+}
+
+.tabLineDiv {
+  margin-top: 3px;
+  width: 0%;
+  height: 2px;
+  background-color: #c075ff;
+  transition: all 0.3s;
+}
+
+/* .tabLineDiv:hover {
+  width: 100%;
+} */
+
 @media only screen and (max-width: 850px) {
   .rightDiv {
     font-size: 12px;
