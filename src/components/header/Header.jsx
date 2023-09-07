@@ -1,11 +1,11 @@
 import React, { useContext, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 
-// css
-import styles from "./Css/Header.module.css";
-
 // state
 import AuthContext from "../../store/auth-context";
+
+// css
+import styles from "./Css/Header.module.css";
 
 // img
 import imgLogo from "./../../assets/logo/HexbitLogo.png";
@@ -27,13 +27,22 @@ const Header = () => {
 
           <div className={styles.rightDiv}>
             <NavLink to="/" className="LinkStyle">
-              Home
+              <div className={styles.tabsDiv}>
+                <p>Home</p>
+                <div className={styles.tabLineDiv}></div>
+              </div>
             </NavLink>
             <NavLink to="/AboutUs" className="LinkStyle">
-              <p>About Us</p>
+              <div className={styles.tabsDiv}>
+                <p>About Us</p>
+                <div className={styles.tabLineDiv}></div>
+              </div>
             </NavLink>
             <NavLink to="/contact" className="LinkStyle">
-              <p>Contact Us</p>
+              <div className={styles.tabsDiv}>
+                <p>Contact Us</p>
+                <div className={styles.tabLineDiv}></div>
+              </div>
             </NavLink>
             {authCtx.isLoggedIn ? (
               <>
@@ -48,7 +57,10 @@ const Header = () => {
             ) : (
               <>
                 <NavLink to="/signIn" className="LinkStyle">
-                  <p>Login</p>
+                  <div className={styles.tabsDiv}>
+                    <p>Login</p>
+                    <div className={styles.tabLineDiv}></div>
+                  </div>
                 </NavLink>
                 <NavLink to="/register" className="LinkStyle">
                   <p className={styles.registerPTag}>
