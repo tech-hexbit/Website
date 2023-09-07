@@ -61,7 +61,6 @@
 
 .tabsDiv {
   position: relative;
-  background-color: pink;
 }
 
 .tabsDiv:hover > .tabLineDiv {
