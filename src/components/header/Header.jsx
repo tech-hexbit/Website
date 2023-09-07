@@ -33,10 +33,16 @@ const Header = () => {
               </div>
             </NavLink>
             <NavLink to="/AboutUs" className="LinkStyle">
-              <p>About Us</p>
+              <div className={styles.tabsDiv}>
+                <p>About Us</p>
+                <div className={styles.tabLineDiv}></div>
+              </div>
             </NavLink>
             <NavLink to="/contact" className="LinkStyle">
-              <p>Contact Us</p>
+              <div className={styles.tabsDiv}>
+                <p>Contact Us</p>
+                <div className={styles.tabLineDiv}></div>
+              </div>
             </NavLink>
             {authCtx.isLoggedIn ? (
               <>
@@ -51,7 +57,10 @@ const Header = () => {
             ) : (
               <>
                 <NavLink to="/signIn" className="LinkStyle">
-                  <p>Login</p>
+                  <div className={styles.tabsDiv}>
+                    <p>Login</p>
+                    <div className={styles.tabLineDiv}></div>
+                  </div>
                 </NavLink>
                 <NavLink to="/register" className="LinkStyle">
                   <p className={styles.registerPTag}>
