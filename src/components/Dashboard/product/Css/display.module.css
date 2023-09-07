@@ -33,10 +33,28 @@
     padding: 6px 25px;
     cursor: pointer;
 }
-.table{
+.table table{
     padding: 50px 8px 40px 8px;
     width: 100%;
+    overflow-x: scroll;
 }
+::-webkit-scrollbar {
+    display: none;
+}
+td:first-child,th:first-child{
+    position: sticky;
+    left: 0px;
+    z-index: 300;
+    box-shadow: #777;
+    
+  }
+ td:nth-child(2),  th:nth-child(2){
+    position: sticky;
+    left: 20px;
+    z-index: 300;
+  }
+
+
 .table th{
     color: #555;
     font-size: 14px;

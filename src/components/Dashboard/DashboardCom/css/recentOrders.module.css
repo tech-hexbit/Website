@@ -27,7 +27,6 @@
   border-collapse: collapse;
   display: block;
   position: relative;
-  overflow-x: scroll;
 }
 
 .tableTag::-webkit-scrollbar {
@@ -55,8 +54,8 @@
   min-width: 70px;
   position: sticky;
   left: 0;
-  z-index: 2;
-  background-color: #fff;
+  z-index: 20;
+  background-color:#fff;
   text-align: center;
 }
 
@@ -68,7 +67,9 @@
 
 .tableTag tr th:nth-child(2),
 .tableTag tr td:nth-child(2) {
-  min-width: 200px;
+
+  
+  background-color: #fff;
 }
 
 #th {

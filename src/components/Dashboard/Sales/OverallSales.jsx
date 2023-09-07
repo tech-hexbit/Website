@@ -191,7 +191,7 @@ export default function OverallSales() {
           </div>
           <div></div>
         </div>
-        <div id="wrap" className={osCss.table}>
+        <div  className={osCss.table}>
           <table style={{ borderCollapse: "collapse"  }}>
             <tr>
               <th></th>
