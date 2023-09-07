@@ -27,7 +27,10 @@ const Header = () => {
 
           <div className={styles.rightDiv}>
             <NavLink to="/" className="LinkStyle">
-              Home
+              <div className={styles.tabsDiv}>
+                <p>Home</p>
+                <div className={styles.tabLineDiv}></div>
+              </div>
             </NavLink>
             <NavLink to="/AboutUs" className="LinkStyle">
               <p>About Us</p>
