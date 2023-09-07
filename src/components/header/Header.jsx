@@ -1,11 +1,11 @@
 import React, { useContext, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 
-// css
-import styles from "./Css/Header.module.css";
-
 // state
 import AuthContext from "../../store/auth-context";
+
+// css
+import styles from "./Css/Header.module.css";
 
 // img
 import imgLogo from "./../../assets/logo/HexbitLogo.png";
