@@ -1,124 +1,150 @@
-.mainDiv{
-    background-color: #fff;
-    width: 67%;
-    height: fit-content;
-    border-radius: 15px;
-    margin-bottom: 40px;
+.mainDiv {
+  background-color: #fff;
+  width: 67%;
+  height: fit-content;
+  border-radius: 15px;
+  margin-bottom: 40px;
 }
-.top{
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    border-bottom: 1px solid #DDD;
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
 }
-.search input{
-    background-color: transparent;
-    border: none;
-    border-radius: 5px;
-    border: 1px solid #DDD;
-    padding: 8px;
-    font-size: 15px;
-    outline: none;
-    width: 400px;
+
+.search input {
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-size: 15px;
+  outline: none;
+  width: 400px;
 }
-.search input::placeholder{
-    color: #DDD;
+
+.search input::placeholder {
+  color: #ddd;
 }
-.button button{
-    border: none;
-    border-radius: 5px;
-    background: rgba(63, 129, 224, 0.50);
-    color: #1746A2;
-    font-size: 18px;
-    padding: 6px 25px;
-    cursor: pointer;
+
+.button button {
+  border: none;
+  border-radius: 5px;
+  background: rgba(63, 129, 224, 0.5);
+  color: #1746a2;
+  font-size: 18px;
+  padding: 6px 25px;
+  cursor: pointer;
 }
-.table{
-    padding: 50px 8px 40px 8px;
-    width: 100%;
+
+.table {
+  padding: 50px 8px 40px 8px;
+  width: 100%;
 }
-.table th{
-    color: #555;
-    font-size: 14px;
-    font-weight: 400;
+
+.table th {
+  color: #555;
+  font-size: 14px;
+  font-weight: 400;
 }
-.row{
-    padding: 17px 0px 17px 15px;   
-    border-bottom: 1px solid #DDD;
+
+.row {
+  padding: 17px 0px 17px 15px;
+  border-bottom: 1px solid #ddd;
 }
-#checkBox{
-    /* background-color: red; */
+
+#checkBox {
+  /* background-color: red; */
 }
-#col1{
-    width: 50%;
+
+#col1 {
+  width: 50%;
 }
-.col1{
-    display: flex;
+
+.col1 {
+  display: flex;
 }
-.image{
-    height: 30px;
+
+.image {
+  height: 30px;
 }
-.image img{
-    height: 100%;
+
+.image img {
+  height: 100%;
 }
-.col1Text{
-    padding-left: 10px;
+
+.col1Text {
+  padding-left: 10px;
 }
-.textTop{
-    color: #000;
-    font-size: 16px;
+
+.textTop {
+  color: #000;
+  font-size: 16px;
 }
-.textBottom{
-    color: #AAA;
-    font-size: 14px;
+
+.textBottom {
+  color: #aaa;
+  font-size: 14px;
 }
-#price, #stock, #orders{
-    padding-right: 10px;
+
+#price,
+#stock,
+#orders {
+  padding-right: 10px;
 }
-#published{
-    width: max-content;
+
+#published {
+  width: max-content;
 }
-.dots{
-    border-radius: 5px;
-    background: rgba(255, 115, 29, 0.30);
-    color: #DF5E0F;
-    font-size: 20px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    line-height: 27px;
-    letter-spacing: 0.2px;
-    padding: 0px 5px 3px 5px;
-    cursor: pointer;
+
+.dots {
+  border-radius: 5px;
+  background: rgba(255, 115, 29, 0.3);
+  color: #df5e0f;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  line-height: 27px;
+  letter-spacing: 0.2px;
+  padding: 0px 5px 3px 5px;
+  cursor: pointer;
 }
-.bottom{
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 20px;
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
 }
-.pages{
-    display: flex;
-    gap: 10px;
+
+.pages {
+  display: flex;
+  gap: 10px;
 }
-.arrow{
-    color: #777;
-    cursor: pointer;
+
+.arrow {
+  color: #777;
+  cursor: pointer;
 }
-.numbers{
-    display: flex;
-    gap: 10px;
+
+.numbers {
+  display: flex;
+  gap: 10px;
 }
-.active{
-    padding: 2px 9px;
-    border-radius: 5px;
-    border: 1px solid #3F81E0;
-    background-color: #3F81E0;
-    color: white;
-    /* margin: 0px ; */
+
+.active {
+  padding: 2px 9px;
+  border-radius: 5px;
+  border: 1px solid #3f81e0;
+  background-color: #3f81e0;
+  color: white;
+  /* margin: 0px ; */
 }
-.inactive{
-    padding: 2px 9px;
-    border-radius: 5px;
-    border: 1px solid #3F81E0;
-    color: #777;
+
+.inactive {
+  padding: 2px 9px;
+  border-radius: 5px;
+  border: 1px solid #3f81e0;
+  color: #777;
 }

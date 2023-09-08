@@ -1,7 +1,10 @@
-// import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
 
+// css
 import DCss from "./Css/display.module.css";
 
+// img
 import image from "../../../assets/dashboard/tablerow.png";
 
 const data = [
@@ -105,7 +108,9 @@ export default function Display() {
           <input type="text" placeholder="Search your product here.." />
         </div>
         <div className={DCss.button}>
-          <button>+ Add product</button>
+          <Link to="/me/addProduct" className="LinkStyle">
+            <button>+ Add product</button>
+          </Link>
         </div>
       </div>
       <div className={DCss.table}>
