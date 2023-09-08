@@ -62,7 +62,6 @@
   justify-content: space-around;
   gap: 0px 20px;
   width: 60%;
-  /* background-color: red; */
 }
 
 .tabs div {
@@ -253,10 +252,6 @@ th:nth-child(2) {
 }
 
 @media screen and (max-width: 790px) {
-  /* .tabs {
-    display: flex;
-    flex-direction: column;
-  } */
   .tabs {
     width: 100%;
   }
