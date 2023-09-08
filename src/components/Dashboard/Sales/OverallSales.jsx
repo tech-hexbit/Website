@@ -112,9 +112,13 @@ export default function OverallSales() {
               </select>
             </div>
           </div>
-          <div className={osCss.search}>
-            <input type="text" placeholder="Search order" />
-          </div>
+          {/* <div className={osCss.search}> */}
+          <input
+            type="text"
+            placeholder="Search order"
+            className={osCss.searchInp}
+          />
+          {/* </div> */}
         </div>
       </div>
       <div className={osCss.middle}>
