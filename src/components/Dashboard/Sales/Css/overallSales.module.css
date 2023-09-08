@@ -275,6 +275,19 @@ th:nth-child(2) {
   }
 }
 
+@media screen and (max-width: 900px) {
+  .filters {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .select {
+    width: 100%;
+  }
+  .searchInp {
+    width: 100%;
+  }
+}
+
 @media screen and (max-width: 790px) {
   .tabs {
     display: flex;
