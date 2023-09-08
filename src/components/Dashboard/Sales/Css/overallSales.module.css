@@ -60,7 +60,9 @@
 .tabs {
   display: flex;
   justify-content: space-around;
-  width: 50%;
+  gap: 0px 20px;
+  width: 60%;
+  /* background-color: red; */
 }
 
 .tabs div {
