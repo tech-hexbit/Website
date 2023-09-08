@@ -90,7 +90,7 @@ img {
   min-width: 70px;
   position: sticky;
   left: 0;
-  z-index: 2;
+  z-index: 11;
   background-color: #fff;
   text-align: center;
 }
