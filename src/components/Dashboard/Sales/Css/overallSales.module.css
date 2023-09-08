@@ -9,9 +9,10 @@
 }
 
 .filters {
-  padding-top: 50px;
+  /* padding-top: 50px; */
   display: flex;
   justify-content: space-between;
+  /* background-color: red; */
 }
 
 .select {
@@ -35,19 +36,27 @@
   outline: none;
 }
 
-.search {
+/* .search {
   width: 50%;
   display: flex;
   justify-content: flex-end;
-}
+} */
 
-.search input {
-  width: 70%;
+/* .search input {
+  width: 45%;
   padding: 0px 20px;
   border: none;
   border-radius: 5px;
   border: 1px solid#DDD;
   outline: none;
+} */
+
+.searchInp {
+  outline: none;
+  width: 35%;
+  border-radius: 5px;
+  border: 1px solid#DDD;
+  padding: 0px 20px;
 }
 
 .middle {
