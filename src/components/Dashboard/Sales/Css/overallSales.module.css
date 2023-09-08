@@ -232,14 +232,22 @@ th:nth-child(2) {
 
 @media screen and (max-width: 900px) {
   .filters {
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 20px;
   }
   .select {
     width: 100%;
   }
   .searchInp {
+    padding: 10px 20px;
     width: 100%;
+  }
+  .selectInner {
+    min-width: fit-content;
+  }
+
+  .selectInner select {
+    min-width: auto;
   }
 }
 
