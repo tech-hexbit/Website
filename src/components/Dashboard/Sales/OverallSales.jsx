@@ -173,7 +173,6 @@ export default function OverallSales() {
             <div
               style={{
                 color: active.furniture ? "#4BB543" : "black",
-                fontWeight: active.furniture ? "700" : "400",
                 borderBottom: active.furniture ? "2px solid #4BB543" : "none",
               }}
               onClick={() => {
