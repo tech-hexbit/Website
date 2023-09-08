@@ -1,7 +1,9 @@
-// import React from 'react'
+import React from "react";
 
+// css
 import DCss from "./Css/display.module.css";
 
+// img
 import image from "../../../assets/dashboard/tablerow.png";
 
 const data = [
