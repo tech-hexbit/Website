@@ -13,6 +13,7 @@
 .navElement {
   display: flex;
   cursor: pointer;
+  min-width: 125px;
 }
 
 .icons {
