@@ -125,7 +125,6 @@ export default function OverallSales() {
             <div
               style={{
                 color: active.pdt ? "#4BB543" : "black",
-                // fontWeight: active.pdt ? "700" : "400",
                 borderBottom: active.pdt ? "2px solid #4BB543" : "none",
               }}
               onClick={() => {
@@ -142,7 +141,6 @@ export default function OverallSales() {
             <div
               style={{
                 color: active.fashion ? "#4BB543" : "black",
-                // fontWeight: active.fashion ? "700" : "400",
                 borderBottom: active.fashion ? "2px solid #4BB543" : "none",
               }}
               onClick={() => {
@@ -159,7 +157,6 @@ export default function OverallSales() {
             <div
               style={{
                 color: active.grocery ? "#4BB543" : "black",
-                // fontWeight: active.grocery ? "700" : "400",
                 borderBottom: active.grocery ? "2px solid #4BB543" : "none",
               }}
               onClick={() => {
