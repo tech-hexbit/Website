@@ -23,10 +23,11 @@
   color: #231963;
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 700px) {
   .heading {
     display: none;
   }
+
   .mainDiv {
     padding: 20px 10px;
   }
