@@ -10,11 +10,10 @@
   font-size: 14px;
   text-align: center;
   cursor: pointer;
-  transition: all 0.7s;
+  transition: all 0.3s;
   letter-spacing: 0.2px;
 }
 
 .nameDiv:hover {
-  color: #fff;
-  box-shadow: inset -10.5em 0 0 0 #3f81e0, inset 10.5em 0 0 0 #3f81e0;
+  border-color: transparent transparent #3f81e0 transparent;
 }
