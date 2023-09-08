@@ -6,4 +6,5 @@
   overflow-x: scroll;
   overflow-y: hidden;
   padding: 0px 3px;
+  transition: all 0.3;
 }
