@@ -9,6 +9,7 @@ import sidebarCSS from "./Css/UserSideBar.module.css";
 
 export default function UserSideBar() {
   const authCtx = useContext(AuthContext);
+
   const redirect = useNavigate();
 
   const logout = async () => {
