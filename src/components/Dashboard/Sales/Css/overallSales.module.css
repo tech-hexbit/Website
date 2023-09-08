@@ -40,21 +40,6 @@
   min-width: 150px;
 }
 
-/* .search {
-  width: 50%;
-  display: flex;
-  justify-content: flex-end;
-} */
-
-/* .search input {
-  width: 45%;
-  padding: 0px 20px;
-  border: none;
-  border-radius: 5px;
-  border: 1px solid#DDD;
-  outline: none;
-} */
-
 .searchInp {
   outline: none;
   width: 35%;
