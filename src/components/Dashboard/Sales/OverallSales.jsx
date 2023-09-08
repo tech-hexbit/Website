@@ -112,18 +112,19 @@ export default function OverallSales() {
               </select>
             </div>
           </div>
-          <div className={osCss.search}>
-            <input type="text" placeholder="Search order" />
-          </div>
+          <input
+            type="text"
+            placeholder="Search order"
+            className={osCss.searchInp}
+          />
         </div>
       </div>
       <div className={osCss.middle}>
-        <div className={osCss.tabMain}>
+        {/* <div className={osCss.tabMain}>
           <div className={osCss.tabs}>
             <div
               style={{
                 color: active.pdt ? "#4BB543" : "black",
-                fontWeight: active.pdt ? "700" : "400",
                 borderBottom: active.pdt ? "2px solid #4BB543" : "none",
               }}
               onClick={() => {
@@ -140,7 +141,6 @@ export default function OverallSales() {
             <div
               style={{
                 color: active.fashion ? "#4BB543" : "black",
-                fontWeight: active.fashion ? "700" : "400",
                 borderBottom: active.fashion ? "2px solid #4BB543" : "none",
               }}
               onClick={() => {
@@ -157,7 +157,6 @@ export default function OverallSales() {
             <div
               style={{
                 color: active.grocery ? "#4BB543" : "black",
-                fontWeight: active.grocery ? "700" : "400",
                 borderBottom: active.grocery ? "2px solid #4BB543" : "none",
               }}
               onClick={() => {
@@ -174,7 +173,6 @@ export default function OverallSales() {
             <div
               style={{
                 color: active.furniture ? "#4BB543" : "black",
-                fontWeight: active.furniture ? "700" : "400",
                 borderBottom: active.furniture ? "2px solid #4BB543" : "none",
               }}
               onClick={() => {
@@ -190,7 +188,7 @@ export default function OverallSales() {
             </div>
           </div>
           <div></div>
-        </div>
+        </div> */}
         <div id="wrap" className={osCss.table}>
           <table style={{ borderCollapse: "collapse" }}>
             <tr>
