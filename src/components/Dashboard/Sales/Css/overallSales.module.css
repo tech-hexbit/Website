@@ -253,9 +253,12 @@ th:nth-child(2) {
 }
 
 @media screen and (max-width: 790px) {
-  .tabs {
+  /* .tabs {
     display: flex;
     flex-direction: column;
+  } */
+  .tabs {
+    width: 100%;
   }
 
   .table {
