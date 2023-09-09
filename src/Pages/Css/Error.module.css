@@ -1,11 +1,15 @@
 .mDiv {
   margin: 20px 0px;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   justify-content: center;
   align-items: center;
 }
 
 .imgDiv {
   width: 20%;
+}
+
+.pTag {
+  font-size: 32px;
 }
