@@ -1,10 +1,11 @@
+import React from "react";
 import { Link } from "react-router-dom";
 
 // css
+import dss from "../../assets/dss.png";
 import FCss from "./Css/Footer.module.css";
 
-// css
-import dss from "../../assets/dss.png";
+// img
 import madeInIndia from "../../assets/madeInIndia.png";
 import hexbitLogo from "../../assets/logo/HexbitLogo.png";
 import twitter from "../../assets/socialMedia/twitter.png";
