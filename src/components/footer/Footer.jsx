@@ -63,7 +63,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/" className="LinkStyle">
+                <Link to="/terms" className="LinkStyle">
                   Refund & Cancellation Policies
                 </Link>
               </li>
