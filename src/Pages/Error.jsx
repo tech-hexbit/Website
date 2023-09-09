@@ -9,7 +9,7 @@ const Error = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  return <div className="">Error 404</div>;
+  return <div className={EC.mDiv}>Error 404</div>;
 };
 
 export default Error;
