@@ -49,6 +49,18 @@ export default function Form() {
             ></textarea>
           </div>
 
+          {/* Stock */}
+          <div className={FCss.inpDiv}>
+            <p className={FCss.label}>Stocks</p>
+            <input
+              type="number"
+              name=""
+              id=""
+              placeholder="Total Stocks"
+              className={FCss.inp}
+            />
+          </div>
+
           <p className={FCss.labelMain}>General info</p>
 
           <div className={FCss.inpDiv}>
