@@ -23,7 +23,19 @@ export default function Form() {
           </div>
 
           <div className={FCss.inpDiv}>
-            <p className={FCss.label}>Product Description</p>
+            <p className={FCss.label}>Product Short Description</p>
+            <textarea
+              name=""
+              id=""
+              cols="30"
+              rows="10"
+              placeholder="Write product description here..."
+              className={FCss.inpTA}
+            ></textarea>
+          </div>
+
+          <div className={FCss.inpDiv}>
+            <p className={FCss.label}>Product Long Description</p>
             <textarea
               name=""
               id=""
