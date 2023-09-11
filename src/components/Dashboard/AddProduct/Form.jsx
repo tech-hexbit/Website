@@ -49,18 +49,6 @@ export default function Form() {
             ></textarea>
           </div>
 
-          {/* Stock */}
-          <div className={FCss.inpDiv}>
-            <p className={FCss.label}>Stocks</p>
-            <input
-              type="number"
-              name=""
-              id=""
-              placeholder="Total Stocks"
-              className={FCss.inp}
-            />
-          </div>
-
           <p className={FCss.labelMain}>General info</p>
 
           <div className={FCss.inpDiv}>
@@ -85,13 +73,26 @@ export default function Form() {
             />
           </div>
 
+          {/* Price */}
           <div className={FCss.inpDiv}>
-            <p className={FCss.label}>Original price</p>
+            <p className={FCss.label}>Material Requirements Planning price</p>
             <input
               type="text"
               name=""
               id=""
               placeholder="Enter price"
+              className={FCss.inp}
+            />
+          </div>
+
+          {/* Stock */}
+          <div className={FCss.inpDiv}>
+            <p className={FCss.label}>Stocks</p>
+            <input
+              type="number"
+              name=""
+              id=""
+              placeholder="Total Stocks"
               className={FCss.inp}
             />
           </div>
