@@ -11,6 +11,7 @@ export default function Form() {
     <div>
       <div className={FCss.mDiv}>
         <div className={FCss.left}>
+          {/* Name */}
           <div className={FCss.inpDiv}>
             <p className={FCss.label}>Product title</p>
             <input
@@ -22,6 +23,7 @@ export default function Form() {
             />
           </div>
 
+          {/* Short Description */}
           <div className={FCss.inpDiv}>
             <p className={FCss.label}>Product Short Description</p>
             <textarea
@@ -34,6 +36,7 @@ export default function Form() {
             ></textarea>
           </div>
 
+          {/* Long Description */}
           <div className={FCss.inpDiv}>
             <p className={FCss.label}>Product Long Description</p>
             <textarea
