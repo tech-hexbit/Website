@@ -27,11 +27,12 @@ export default function Profile() {
       <div className={PCss.CDiv}>
         <Routes>
           <Route path="/" element={<ProfileMain />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/categories" element={<Categories />} />
-          <Route path="/products" element={<Products />} />
+
           <Route path="/sales" element={<Sales />} />
           <Route path="/gateway" element={<Gateway />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/categories" element={<Categories />} />
           <Route path="/addProduct" element={<AddProduct />} />
         </Routes>
       </div>
