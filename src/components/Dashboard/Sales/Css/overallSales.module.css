@@ -76,7 +76,7 @@
   width: 100%;
 }
 
-::-webkit-scrollbar {
+.table::-webkit-scrollbar {
   display: none;
 }
 
