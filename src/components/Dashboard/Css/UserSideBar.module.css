@@ -11,18 +11,19 @@
   overflow-x: hidden;
   /* background-color: red; */
 
-  width: 55px;
+  width: 60px;
+  transition: all 0.5s;
 }
 
 .mainDiv:hover {
   width: 200px;
 }
 
-/* .heading {
+.heading {
   display: none;
-} */
+}
 
-.mainDiv:hover > .heading {
+.mainDiv:hover .navElement .heading {
   display: block;
 }
 
