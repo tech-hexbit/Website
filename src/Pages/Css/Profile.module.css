@@ -1,12 +1,12 @@
 .mDiv {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   gap: 10px;
 }
 
 .CDiv {
-  width: 80%;
-  margin: 40px 0px 20px 0px;
+  width: 94%;
+  margin: 40px 20px 20px 0px;
 }
 
 @media screen and (max-width: 1050px) {

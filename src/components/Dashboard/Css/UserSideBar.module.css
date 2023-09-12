@@ -1,13 +1,36 @@
 .mainDiv {
   font-family: "Rubik", sans-serif;
   padding: 50px 20px;
-  width: fit-content;
+  width: 60px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 30px 0px;
   border-style: solid;
   border-width: 0px 1px 0px 0px;
   border-color: #d3d3d3;
+  overflow-x: hidden;
+  transition: all 0.5s;
+}
+
+.mainDiv:hover {
+  width: 200px;
+}
+
+.heading {
+  display: none;
+  transition: all 0.3s;
+}
+
+.heading:hover {
+  color: #56117c;
+}
+
+#headingLogout:hover {
+  color: #ff0000;
+}
+
+.mainDiv:hover .navElement .heading {
+  display: block;
 }
 
 .navElement {

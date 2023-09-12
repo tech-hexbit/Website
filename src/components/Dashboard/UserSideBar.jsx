@@ -185,7 +185,9 @@ export default function UserSideBar() {
               <line x1="21" x2="9" y1="12" y2="12" />
             </svg>
           </div>
-          <div className={sidebarCSS.heading}>Logout</div>
+          <div className={sidebarCSS.heading} id={sidebarCSS.headingLogout}>
+            Logout
+          </div>
         </div>
       </div>
     </div>
