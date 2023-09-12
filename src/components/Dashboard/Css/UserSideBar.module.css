@@ -1,10 +1,11 @@
 .mainDiv {
   font-family: "Rubik", sans-serif;
-  padding: 50px 20px;
+  /* padding: 50px 20px; */
+  padding: 20px 10px;
   width: fit-content;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 30px 0px;
   border-style: solid;
   border-width: 0px 1px 0px 0px;
   border-color: #d3d3d3;
@@ -13,6 +14,14 @@
 .navElement {
   display: flex;
   cursor: pointer;
+}
+
+/* .heading {
+  display: none;
+} */
+
+.navElement:hover > .heading {
+  /* display: block; */
 }
 
 .icons {
