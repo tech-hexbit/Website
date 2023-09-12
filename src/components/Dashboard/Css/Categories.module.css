@@ -9,3 +9,7 @@
   transition: all 0.3;
   margin-bottom: 30px;
 }
+
+.mDIvTabs::-webkit-scrollbar {
+  display: none;
+}

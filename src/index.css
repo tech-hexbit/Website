@@ -29,6 +29,24 @@ html {
   overflow: hidden;
 }
 
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  padding: 0px 20px;
+  background-color: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgb(161, 161, 161);
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: rgb(222, 222, 222);
+}
+
 .LinkStyle {
   text-decoration: none;
   color: inherit;
