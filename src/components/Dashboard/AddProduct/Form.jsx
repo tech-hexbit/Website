@@ -51,6 +51,7 @@ export default function Form() {
 
           <p className={FCss.labelMain}>General info</p>
 
+          {/* Name */}
           <div className={FCss.inpDiv}>
             <p className={FCss.label}>Manufacturer name</p>
             <input
@@ -62,6 +63,7 @@ export default function Form() {
             />
           </div>
 
+          {/* Brand */}
           <div className={FCss.inpDiv}>
             <p className={FCss.label}>Brand</p>
             <input
