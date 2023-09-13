@@ -229,10 +229,13 @@ export default function Form() {
             <div className={FCss.inpDiv}>
               <p className={FCss.label}>Return Window</p>
 
-              <select name="" id="" className={FCss.inp}>
-                <option value="true">True</option>
-                <option value="false">False</option>
-              </select>
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="Ex: P7D"
+                className={FCss.inp}
+              />
             </div>
           </>
         </div>
