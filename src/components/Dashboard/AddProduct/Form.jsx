@@ -139,7 +139,9 @@ export default function Form() {
         {/* Publish */}
         <div className={FCss.right}>
           <>
-            <p className={FCss.labelMain}>Publish</p>
+            <p className={FCss.labelMain}>
+              <b>Publish</b>
+            </p>
 
             <div className={FCss.inpDiv}>
               <p className={FCss.label}>Status</p>
