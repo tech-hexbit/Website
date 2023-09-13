@@ -101,12 +101,12 @@ export default function Form() {
 
           {/* Discounts */}
           <div className={FCss.inpDiv}>
-            <p className={FCss.label}>Discounts / Offers</p>
+            <p className={FCss.label}>Discounts / Offers (in %)</p>
             <input
               type="text"
               name=""
               id=""
-              placeholder="Enter discounts/offers if any"
+              placeholder="Enter discounts/offers (if any)"
               className={FCss.inp}
             />
           </div>
