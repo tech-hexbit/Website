@@ -270,6 +270,18 @@ export default function Form() {
                 <option value="false">False</option>
               </select>
             </div>
+
+            {/* Time To Ship */}
+            <div className={FCss.inpDiv}>
+              <p className={FCss.label}>
+                Month/Year of Manufacture Packing Import
+              </p>
+
+              <select name="" id="" className={FCss.inp}>
+                <option value="true">True</option>
+                <option value="false">False</option>
+              </select>
+            </div>
           </>
         </div>
       </div>
