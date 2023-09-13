@@ -51,6 +51,7 @@ export default function Form() {
 
           <p className={FCss.labelMain}>General info</p>
 
+          {/* Name */}
           <div className={FCss.inpDiv}>
             <p className={FCss.label}>Manufacturer name</p>
             <input
@@ -62,6 +63,7 @@ export default function Form() {
             />
           </div>
 
+          {/* Brand */}
           <div className={FCss.inpDiv}>
             <p className={FCss.label}>Brand</p>
             <input
@@ -97,17 +99,19 @@ export default function Form() {
             />
           </div>
 
+          {/* Discounts */}
           <div className={FCss.inpDiv}>
-            <p className={FCss.label}>Discounts / Offers</p>
+            <p className={FCss.label}>Discounts / Offers (in %)</p>
             <input
               type="text"
               name=""
               id=""
-              placeholder="Enter discounts/offers if any"
+              placeholder="Enter discounts/offers (if any)"
               className={FCss.inp}
             />
           </div>
 
+          {/* Sizes */}
           <div className={FCss.inpDiv}>
             <p className={FCss.label}>Sizes available</p>
             <input
@@ -119,6 +123,7 @@ export default function Form() {
             />
           </div>
 
+          {/* Colors */}
           <div className={FCss.inpDiv}>
             <p className={FCss.label}>Colors</p>
             <input
@@ -130,70 +135,179 @@ export default function Form() {
             />
           </div>
         </div>
+
+        {/* Publish */}
         <div className={FCss.right}>
-          <p className={FCss.labelMain}>Publish</p>
+          <>
+            <p className={FCss.labelMain}>
+              <b>Publish</b>
+            </p>
 
-          <div className={FCss.inpDiv}>
-            <p className={FCss.label}>Status</p>
+            <div className={FCss.inpDiv}>
+              <p className={FCss.label}>Status</p>
 
-            <select name="" id="" className={FCss.inp}>
-              <option value="Draft">Draft</option>
-            </select>
-          </div>
+              <select name="" id="" className={FCss.inp}>
+                <option value="Draft">Draft</option>
+              </select>
+            </div>
 
-          <div className={FCss.inpDiv}>
-            <p className={FCss.label}>Visibility</p>
+            <div className={FCss.inpDiv}>
+              <p className={FCss.label}>Visibility</p>
 
-            <select name="" id="" className={FCss.inp}>
-              <option value="Public">Public</option>
-            </select>
-          </div>
+              <select name="" id="" className={FCss.inp}>
+                <option value="Public">Public</option>
+              </select>
+            </div>
 
-          <p className={FCss.labelMain}>Publish schedule</p>
+            <p className={FCss.labelMain}>Publish schedule</p>
 
-          <div className={FCss.inpDiv}>
-            <p className={FCss.label}>Select date & time</p>
+            <div className={FCss.inpDiv}>
+              <p className={FCss.label}>Select date & time</p>
 
-            <select name="" id="" className={FCss.inp}>
-              <option value="Public">Enter date</option>
-            </select>
-          </div>
+              <select name="" id="" className={FCss.inp}>
+                <option value="Public">Enter date</option>
+              </select>
+            </div>
 
-          <p className={FCss.labelMain}>Product category</p>
+            <p className={FCss.labelMain}>Product category</p>
 
-          <div className={FCss.inpDiv}>
-            <p className={FCss.label}>Select product category</p>
+            <div className={FCss.inpDiv}>
+              <p className={FCss.label}>Select product category</p>
 
-            <select name="" id="" className={FCss.inp}>
-              <option value="Fashion">Fashion</option>
-            </select>
-          </div>
+              <select name="" id="" className={FCss.inp}>
+                <option value="Fashion">Fashion</option>
+              </select>
+            </div>
 
-          <p className={FCss.labelMain}>Product Tags</p>
+            <p className={FCss.labelMain}>Product Tags</p>
 
-          <div className={FCss.inpDiv}>
-            <p className={FCss.label}>Enter tags related to your products</p>
+            <div className={FCss.inpDiv}>
+              <p className={FCss.label}>Enter tags related to your products</p>
 
-            <div className={FCss.inpTag}>
-              <div className={FCss.TagP}>
-                <p>Fashion</p> <p className={FCss.CloseX}>X</p>
+              <div className={FCss.inpTag}>
+                <div className={FCss.TagP}>
+                  <p>Fashion</p> <p className={FCss.CloseX}>X</p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className={FCss.inpDiv}>
-            <p className={FCss.label}>Additional text</p>
-            <textarea
-              name=""
-              id=""
-              cols="30"
-              rows="10"
-              placeholder="Enter additional text description of the product"
-              className={FCss.inpTA}
-            ></textarea>
-          </div>
+            <div className={FCss.inpDiv}>
+              <p className={FCss.label}>Additional text</p>
+              <textarea
+                name=""
+                id=""
+                cols="30"
+                rows="10"
+                placeholder="Enter additional text description of the product"
+                className={FCss.inpTA}
+              ></textarea>
+            </div>
+          </>
+
+          <>
+            <p className={FCss.labelMain}>
+              <b>Service</b>
+            </p>
+
+            {/* Returnable */}
+            <div className={FCss.inpDiv}>
+              <p className={FCss.label}>Returnable</p>
+
+              <select name="" id="" className={FCss.inp}>
+                <option value="true">True</option>
+                <option value="false">False</option>
+              </select>
+            </div>
+
+            {/* Cancellable */}
+            <div className={FCss.inpDiv}>
+              <p className={FCss.label}>Cancellable</p>
+
+              <select name="" id="" className={FCss.inp}>
+                <option value="true">True</option>
+                <option value="false">False</option>
+              </select>
+            </div>
+
+            {/* Return Window */}
+            <div className={FCss.inpDiv}>
+              <p className={FCss.label}>Return Window</p>
+
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="Ex: P7D"
+                className={FCss.inp}
+              />
+            </div>
+
+            {/* Pickup Return */}
+            <div className={FCss.inpDiv}>
+              <p className={FCss.label}>Pickup Return</p>
+
+              <select name="" id="" className={FCss.inp}>
+                <option value="true">True</option>
+                <option value="false">False</option>
+              </select>
+            </div>
+
+            {/* Time To Ship */}
+            <div className={FCss.inpDiv}>
+              <p className={FCss.label}>Time To Ship</p>
+
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="Ex: PT45M"
+                className={FCss.inp}
+              />
+            </div>
+
+            {/* COD */}
+            <div className={FCss.inpDiv}>
+              <p className={FCss.label}>Cash On Delivery(COD)</p>
+
+              <select name="" id="" className={FCss.inp}>
+                <option value="true">True</option>
+                <option value="false">False</option>
+              </select>
+            </div>
+
+            {/* Time To Ship */}
+            <div className={FCss.inpDiv}>
+              <p className={FCss.label}>
+                Net Quantity/Measure Of Commodity (in Kg)
+              </p>
+
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="Ex: 121"
+                className={FCss.inp}
+              />
+            </div>
+
+            {/* Month/Year of Manufacture Packing Import */}
+            <div className={FCss.inpDiv}>
+              <p className={FCss.label}>
+                Month/Year of Manufacture Packing Import
+              </p>
+
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="08/2022"
+                className={FCss.inp}
+              />
+            </div>
+          </>
         </div>
       </div>
+
       <div className={FCss.inpDiv}>
         <p className={FCss.label}>Product image</p>
 
