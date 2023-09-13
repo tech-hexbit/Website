@@ -12,9 +12,11 @@ export default function Form() {
 
   const openModal = (msg) => {
     if (msg === "Service") {
-      console.log("Service");
+      setPublishOpen(!PublishOpen);
+      setServiceOpen(!ServiceOpen);
     } else if (msg === "Publish") {
-      console.log("Publish");
+      setPublishOpen(!PublishOpen);
+      setServiceOpen(!ServiceOpen);
     }
   };
   return (
@@ -150,7 +152,7 @@ export default function Form() {
           {/* Publish */}
           <>
             <p
-              className={FCss.labelMain}
+              className={FCss.labelMainArrowPTag}
               onClick={() => {
                 openModal("Publish");
               }}
