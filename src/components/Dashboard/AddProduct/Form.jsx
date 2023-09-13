@@ -237,6 +237,16 @@ export default function Form() {
                 className={FCss.inp}
               />
             </div>
+
+            {/* Return Window */}
+            <div className={FCss.inpDiv}>
+              <p className={FCss.label}>Pickup Return</p>
+
+              <select name="" id="" className={FCss.inp}>
+                <option value="true">True</option>
+                <option value="false">False</option>
+              </select>
+            </div>
           </>
         </div>
       </div>
