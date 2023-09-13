@@ -201,6 +201,7 @@ export default function Form() {
           </div>
         </div>
       </div>
+
       <div className={FCss.inpDiv}>
         <p className={FCss.label}>Product image</p>
 
