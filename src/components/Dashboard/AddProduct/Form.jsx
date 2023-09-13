@@ -205,8 +205,19 @@ export default function Form() {
           <>
             <p className={FCss.labelMain}>Service</p>
 
+            {/* Returnable */}
             <div className={FCss.inpDiv}>
               <p className={FCss.label}>Returnable</p>
+
+              <select name="" id="" className={FCss.inp}>
+                <option value="true">True</option>
+                <option value="false">False</option>
+              </select>
+            </div>
+
+            {/* Cancellable */}
+            <div className={FCss.inpDiv}>
+              <p className={FCss.label}>Cancellable</p>
 
               <select name="" id="" className={FCss.inp}>
                 <option value="true">True</option>
