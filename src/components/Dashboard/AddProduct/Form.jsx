@@ -146,6 +146,16 @@ export default function Form() {
               className={FCss.inp}
             />
           </div>
+
+          {/* Veg */}
+          <div className={FCss.inpDiv}>
+            <p className={FCss.label}>Veg</p>
+
+            <select name="" id="" className={FCss.inp}>
+              <option value="true">True</option>
+              <option value="false">False</option>
+            </select>
+          </div>
         </div>
 
         <div className={FCss.right}>
