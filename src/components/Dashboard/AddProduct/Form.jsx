@@ -11,7 +11,11 @@ export default function Form() {
   const [ServiceOpen, setServiceOpen] = useState(false);
 
   const openModal = (msg) => {
-    console.log(msg);
+    if (msg === "Service") {
+      console.log("Service");
+    } else if (msg === "Publish") {
+      console.log("Publish");
+    }
   };
   return (
     <div>
@@ -145,7 +149,12 @@ export default function Form() {
         <div className={FCss.right}>
           {/* Publish */}
           <>
-            <p className={FCss.labelMain}>
+            <p
+              className={FCss.labelMain}
+              onClick={() => {
+                openModal("Publish");
+              }}
+            >
               <b>Publish</b>
             </p>
 
@@ -222,7 +231,9 @@ export default function Form() {
           <>
             <p
               className={FCss.labelMainArrowPTag}
-              onClick={openModal("Service")}
+              onClick={() => {
+                openModal("Service");
+              }}
             >
               <b>Service</b>
 
