@@ -99,6 +99,7 @@ export default function Form() {
             />
           </div>
 
+          {/* Discounts */}
           <div className={FCss.inpDiv}>
             <p className={FCss.label}>Discounts / Offers</p>
             <input
