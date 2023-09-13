@@ -260,6 +260,19 @@ export default function Form() {
                 className={FCss.inp}
               />
             </div>
+
+            {/* Time To Ship */}
+            <div className={FCss.inpDiv}>
+              <p className={FCss.label}>Cash On Delivery(COD)</p>
+
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="Ex: PT45M"
+                className={FCss.inp}
+              />
+            </div>
           </>
         </div>
       </div>
