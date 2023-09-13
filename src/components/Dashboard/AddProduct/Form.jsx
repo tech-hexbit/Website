@@ -261,7 +261,7 @@ export default function Form() {
               />
             </div>
 
-            {/* Time To Ship */}
+            {/* COD */}
             <div className={FCss.inpDiv}>
               <p className={FCss.label}>Cash On Delivery(COD)</p>
 
@@ -272,6 +272,21 @@ export default function Form() {
             </div>
 
             {/* Time To Ship */}
+            <div className={FCss.inpDiv}>
+              <p className={FCss.label}>
+                Month/Year of Manufacture Packing Import
+              </p>
+
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="08/2022"
+                className={FCss.inp}
+              />
+            </div>
+
+            {/* Month/Year of Manufacture Packing Import */}
             <div className={FCss.inpDiv}>
               <p className={FCss.label}>
                 Month/Year of Manufacture Packing Import
