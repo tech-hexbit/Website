@@ -111,6 +111,7 @@ export default function Form() {
             />
           </div>
 
+          {/* Sizes */}
           <div className={FCss.inpDiv}>
             <p className={FCss.label}>Sizes available</p>
             <input
@@ -122,6 +123,7 @@ export default function Form() {
             />
           </div>
 
+          {/* Colors */}
           <div className={FCss.inpDiv}>
             <p className={FCss.label}>Colors</p>
             <input
