@@ -274,14 +274,14 @@ export default function Form() {
             {/* Time To Ship */}
             <div className={FCss.inpDiv}>
               <p className={FCss.label}>
-                Month/Year of Manufacture Packing Import
+                Net Quantity/Measure Of Commodity (in Kg)
               </p>
 
               <input
                 type="text"
                 name=""
                 id=""
-                placeholder="08/2022"
+                placeholder="Ex: 121"
                 className={FCss.inp}
               />
             </div>
