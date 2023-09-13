@@ -202,7 +202,17 @@ export default function Form() {
             </div>
           </>
 
-          <></>
+          <>
+            <p className={FCss.labelMain}>Publish</p>
+
+            <div className={FCss.inpDiv}>
+              <p className={FCss.label}>Status</p>
+
+              <select name="" id="" className={FCss.inp}>
+                <option value="Draft">Draft</option>
+              </select>
+            </div>
+          </>
         </div>
       </div>
 
