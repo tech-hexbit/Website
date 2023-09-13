@@ -203,7 +203,9 @@ export default function Form() {
           </>
 
           <>
-            <p className={FCss.labelMain}>Service</p>
+            <p className={FCss.labelMain}>
+              <b>Service</b>
+            </p>
 
             {/* Returnable */}
             <div className={FCss.inpDiv}>
