@@ -256,7 +256,7 @@ export default function Form() {
                 type="text"
                 name=""
                 id=""
-                placeholder="Ex: P7D"
+                placeholder="Ex: PT45M"
                 className={FCss.inp}
               />
             </div>
