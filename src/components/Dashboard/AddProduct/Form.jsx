@@ -277,10 +277,13 @@ export default function Form() {
                 Month/Year of Manufacture Packing Import
               </p>
 
-              <select name="" id="" className={FCss.inp}>
-                <option value="true">True</option>
-                <option value="false">False</option>
-              </select>
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="08/2022"
+                className={FCss.inp}
+              />
             </div>
           </>
         </div>
