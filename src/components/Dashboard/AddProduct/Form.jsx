@@ -8,7 +8,7 @@ import FCss from "./Css/Form.module.css";
 
 export default function Form() {
   const [PublishOpen, setPublishOpen] = useState(true);
-  const [PublishOpen, setPublishOpen] = useState(false);
+  const [ServiceOpen, setServiceOpen] = useState(false);
   return (
     <div>
       <div className={FCss.mDiv}>
