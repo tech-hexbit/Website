@@ -9,6 +9,10 @@ import FCss from "./Css/Form.module.css";
 export default function Form() {
   const [PublishOpen, setPublishOpen] = useState(true);
   const [ServiceOpen, setServiceOpen] = useState(false);
+
+  const openModal = (msg) => {
+    console.log(msg);
+  };
   return (
     <div>
       <div className={FCss.mDiv}>
@@ -216,7 +220,10 @@ export default function Form() {
 
           {/* Service */}
           <>
-            <p className={FCss.labelMainArrowPTag} onClick={}>
+            <p
+              className={FCss.labelMainArrowPTag}
+              onClick={openModal("Service")}
+            >
               <b>Service</b>
 
               {ServiceOpen ? (
