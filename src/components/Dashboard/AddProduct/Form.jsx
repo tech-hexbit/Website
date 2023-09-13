@@ -247,6 +247,19 @@ export default function Form() {
                 <option value="false">False</option>
               </select>
             </div>
+
+            {/* Time To Ship */}
+            <div className={FCss.inpDiv}>
+              <p className={FCss.label}>Time To Ship</p>
+
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="Ex: P7D"
+                className={FCss.inp}
+              />
+            </div>
           </>
         </div>
       </div>
