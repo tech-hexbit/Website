@@ -145,65 +145,73 @@ export default function Form() {
               <b>Publish</b>
             </p>
 
-            <div className={FCss.inpDiv}>
-              <p className={FCss.label}>Status</p>
+            {PublishOpen ? (
+              <>
+                <div className={FCss.inpDiv}>
+                  <p className={FCss.label}>Status</p>
 
-              <select name="" id="" className={FCss.inp}>
-                <option value="Draft">Draft</option>
-              </select>
-            </div>
-
-            <div className={FCss.inpDiv}>
-              <p className={FCss.label}>Visibility</p>
-
-              <select name="" id="" className={FCss.inp}>
-                <option value="Public">Public</option>
-              </select>
-            </div>
-
-            <p className={FCss.labelMain}>Publish schedule</p>
-
-            <div className={FCss.inpDiv}>
-              <p className={FCss.label}>Select date & time</p>
-
-              <select name="" id="" className={FCss.inp}>
-                <option value="Public">Enter date</option>
-              </select>
-            </div>
-
-            <p className={FCss.labelMain}>Product category</p>
-
-            <div className={FCss.inpDiv}>
-              <p className={FCss.label}>Select product category</p>
-
-              <select name="" id="" className={FCss.inp}>
-                <option value="Fashion">Fashion</option>
-              </select>
-            </div>
-
-            <p className={FCss.labelMain}>Product Tags</p>
-
-            <div className={FCss.inpDiv}>
-              <p className={FCss.label}>Enter tags related to your products</p>
-
-              <div className={FCss.inpTag}>
-                <div className={FCss.TagP}>
-                  <p>Fashion</p> <p className={FCss.CloseX}>X</p>
+                  <select name="" id="" className={FCss.inp}>
+                    <option value="Draft">Draft</option>
+                  </select>
                 </div>
-              </div>
-            </div>
 
-            <div className={FCss.inpDiv}>
-              <p className={FCss.label}>Additional text</p>
-              <textarea
-                name=""
-                id=""
-                cols="30"
-                rows="10"
-                placeholder="Enter additional text description of the product"
-                className={FCss.inpTA}
-              ></textarea>
-            </div>
+                <div className={FCss.inpDiv}>
+                  <p className={FCss.label}>Visibility</p>
+
+                  <select name="" id="" className={FCss.inp}>
+                    <option value="Public">Public</option>
+                  </select>
+                </div>
+
+                <p className={FCss.labelMain}>Publish schedule</p>
+
+                <div className={FCss.inpDiv}>
+                  <p className={FCss.label}>Select date & time</p>
+
+                  <select name="" id="" className={FCss.inp}>
+                    <option value="Public">Enter date</option>
+                  </select>
+                </div>
+
+                <p className={FCss.labelMain}>Product category</p>
+
+                <div className={FCss.inpDiv}>
+                  <p className={FCss.label}>Select product category</p>
+
+                  <select name="" id="" className={FCss.inp}>
+                    <option value="Fashion">Fashion</option>
+                  </select>
+                </div>
+
+                <p className={FCss.labelMain}>Product Tags</p>
+
+                <div className={FCss.inpDiv}>
+                  <p className={FCss.label}>
+                    Enter tags related to your products
+                  </p>
+
+                  <div className={FCss.inpTag}>
+                    <div className={FCss.TagP}>
+                      <p>Fashion</p> <p className={FCss.CloseX}>X</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className={FCss.inpDiv}>
+                  <p className={FCss.label}>Additional text</p>
+                  <textarea
+                    name=""
+                    id=""
+                    cols="30"
+                    rows="10"
+                    placeholder="Enter additional text description of the product"
+                    className={FCss.inpTA}
+                  ></textarea>
+                </div>
+              </>
+            ) : (
+              ""
+            )}
           </>
 
           {/* Service */}
