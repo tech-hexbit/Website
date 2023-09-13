@@ -220,101 +220,107 @@ export default function Form() {
               <b>Service</b>
             </p>
 
-            {/* Returnable */}
-            <div className={FCss.inpDiv}>
-              <p className={FCss.label}>Returnable</p>
+            {ServiceOpen ? (
+              <>
+                {/* Returnable */}
+                <div className={FCss.inpDiv}>
+                  <p className={FCss.label}>Returnable</p>
 
-              <select name="" id="" className={FCss.inp}>
-                <option value="true">True</option>
-                <option value="false">False</option>
-              </select>
-            </div>
+                  <select name="" id="" className={FCss.inp}>
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                  </select>
+                </div>
 
-            {/* Cancellable */}
-            <div className={FCss.inpDiv}>
-              <p className={FCss.label}>Cancellable</p>
+                {/* Cancellable */}
+                <div className={FCss.inpDiv}>
+                  <p className={FCss.label}>Cancellable</p>
 
-              <select name="" id="" className={FCss.inp}>
-                <option value="true">True</option>
-                <option value="false">False</option>
-              </select>
-            </div>
+                  <select name="" id="" className={FCss.inp}>
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                  </select>
+                </div>
 
-            {/* Return Window */}
-            <div className={FCss.inpDiv}>
-              <p className={FCss.label}>Return Window</p>
+                {/* Return Window */}
+                <div className={FCss.inpDiv}>
+                  <p className={FCss.label}>Return Window</p>
 
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="Ex: P7D"
-                className={FCss.inp}
-              />
-            </div>
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    placeholder="Ex: P7D"
+                    className={FCss.inp}
+                  />
+                </div>
 
-            {/* Pickup Return */}
-            <div className={FCss.inpDiv}>
-              <p className={FCss.label}>Pickup Return</p>
+                {/* Pickup Return */}
+                <div className={FCss.inpDiv}>
+                  <p className={FCss.label}>Pickup Return</p>
 
-              <select name="" id="" className={FCss.inp}>
-                <option value="true">True</option>
-                <option value="false">False</option>
-              </select>
-            </div>
+                  <select name="" id="" className={FCss.inp}>
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                  </select>
+                </div>
 
-            {/* Time To Ship */}
-            <div className={FCss.inpDiv}>
-              <p className={FCss.label}>Time To Ship</p>
+                {/* Time To Ship */}
+                <div className={FCss.inpDiv}>
+                  <p className={FCss.label}>Time To Ship</p>
 
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="Ex: PT45M"
-                className={FCss.inp}
-              />
-            </div>
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    placeholder="Ex: PT45M"
+                    className={FCss.inp}
+                  />
+                </div>
 
-            {/* COD */}
-            <div className={FCss.inpDiv}>
-              <p className={FCss.label}>Cash On Delivery(COD)</p>
+                {/* COD */}
+                <div className={FCss.inpDiv}>
+                  <p className={FCss.label}>Cash On Delivery(COD)</p>
 
-              <select name="" id="" className={FCss.inp}>
-                <option value="true">True</option>
-                <option value="false">False</option>
-              </select>
-            </div>
+                  <select name="" id="" className={FCss.inp}>
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                  </select>
+                </div>
 
-            {/* Time To Ship */}
-            <div className={FCss.inpDiv}>
-              <p className={FCss.label}>
-                Net Quantity/Measure Of Commodity (in Kg)
-              </p>
+                {/* Time To Ship */}
+                <div className={FCss.inpDiv}>
+                  <p className={FCss.label}>
+                    Net Quantity/Measure Of Commodity (in Kg)
+                  </p>
 
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="Ex: 121"
-                className={FCss.inp}
-              />
-            </div>
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    placeholder="Ex: 121"
+                    className={FCss.inp}
+                  />
+                </div>
 
-            {/* Month/Year of Manufacture Packing Import */}
-            <div className={FCss.inpDiv}>
-              <p className={FCss.label}>
-                Month/Year of Manufacture Packing Import
-              </p>
+                {/* Month/Year of Manufacture Packing Import */}
+                <div className={FCss.inpDiv}>
+                  <p className={FCss.label}>
+                    Month/Year of Manufacture Packing Import
+                  </p>
 
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="08/2022"
-                className={FCss.inp}
-              />
-            </div>
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    placeholder="08/2022"
+                    className={FCss.inp}
+                  />
+                </div>
+              </>
+            ) : (
+              ""
+            )}
           </>
         </div>
       </div>
