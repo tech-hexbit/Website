@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // img
 import upload from "./../../../assets/dashboard/upload.svg";
@@ -7,6 +7,8 @@ import upload from "./../../../assets/dashboard/upload.svg";
 import FCss from "./Css/Form.module.css";
 
 export default function Form() {
+  const [PublishOpen, setPublishOpen] = useState(true);
+  const [PublishOpen, setPublishOpen] = useState(false);
   return (
     <div>
       <div className={FCss.mDiv}>
@@ -136,8 +138,8 @@ export default function Form() {
           </div>
         </div>
 
-        {/* Publish */}
         <div className={FCss.right}>
+          {/* Publish */}
           <>
             <p className={FCss.labelMain}>
               <b>Publish</b>
@@ -204,6 +206,7 @@ export default function Form() {
             </div>
           </>
 
+          {/* Service */}
           <>
             <p className={FCss.labelMain}>
               <b>Service</b>
