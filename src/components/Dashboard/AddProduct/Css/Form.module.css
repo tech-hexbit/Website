@@ -14,17 +14,26 @@
   margin-bottom: 30px;
 }
 
-.labelMain {
+.labelMain,
+.labelMainArrowPTag {
   margin: 30px 0px;
 }
 
 .label,
-.labelMain {
+.labelMain,
+.labelMainArrowPTag {
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 19px;
   letter-spacing: 0.14px;
+}
+
+.labelMainArrowPTag {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
 }
 
 .inp {

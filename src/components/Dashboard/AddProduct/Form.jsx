@@ -9,6 +9,16 @@ import FCss from "./Css/Form.module.css";
 export default function Form() {
   const [PublishOpen, setPublishOpen] = useState(true);
   const [ServiceOpen, setServiceOpen] = useState(false);
+
+  const openModal = (msg) => {
+    if (msg === "Service") {
+      setPublishOpen(!PublishOpen);
+      setServiceOpen(!ServiceOpen);
+    } else if (msg === "Publish") {
+      setPublishOpen(!PublishOpen);
+      setServiceOpen(!ServiceOpen);
+    }
+  };
   return (
     <div>
       <div className={FCss.mDiv}>
@@ -141,172 +151,260 @@ export default function Form() {
         <div className={FCss.right}>
           {/* Publish */}
           <>
-            <p className={FCss.labelMain}>
+            <p
+              className={FCss.labelMainArrowPTag}
+              onClick={() => {
+                openModal("Publish");
+              }}
+            >
               <b>Publish</b>
+
+              {PublishOpen ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-chevron-down"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-chevron-up"
+                >
+                  <path d="m18 15-6-6-6 6" />
+                </svg>
+              )}
             </p>
 
-            <div className={FCss.inpDiv}>
-              <p className={FCss.label}>Status</p>
+            {PublishOpen ? (
+              <>
+                <div className={FCss.inpDiv}>
+                  <p className={FCss.label}>Status</p>
 
-              <select name="" id="" className={FCss.inp}>
-                <option value="Draft">Draft</option>
-              </select>
-            </div>
-
-            <div className={FCss.inpDiv}>
-              <p className={FCss.label}>Visibility</p>
-
-              <select name="" id="" className={FCss.inp}>
-                <option value="Public">Public</option>
-              </select>
-            </div>
-
-            <p className={FCss.labelMain}>Publish schedule</p>
-
-            <div className={FCss.inpDiv}>
-              <p className={FCss.label}>Select date & time</p>
-
-              <select name="" id="" className={FCss.inp}>
-                <option value="Public">Enter date</option>
-              </select>
-            </div>
-
-            <p className={FCss.labelMain}>Product category</p>
-
-            <div className={FCss.inpDiv}>
-              <p className={FCss.label}>Select product category</p>
-
-              <select name="" id="" className={FCss.inp}>
-                <option value="Fashion">Fashion</option>
-              </select>
-            </div>
-
-            <p className={FCss.labelMain}>Product Tags</p>
-
-            <div className={FCss.inpDiv}>
-              <p className={FCss.label}>Enter tags related to your products</p>
-
-              <div className={FCss.inpTag}>
-                <div className={FCss.TagP}>
-                  <p>Fashion</p> <p className={FCss.CloseX}>X</p>
+                  <select name="" id="" className={FCss.inp}>
+                    <option value="Draft">Draft</option>
+                  </select>
                 </div>
-              </div>
-            </div>
 
-            <div className={FCss.inpDiv}>
-              <p className={FCss.label}>Additional text</p>
-              <textarea
-                name=""
-                id=""
-                cols="30"
-                rows="10"
-                placeholder="Enter additional text description of the product"
-                className={FCss.inpTA}
-              ></textarea>
-            </div>
+                <div className={FCss.inpDiv}>
+                  <p className={FCss.label}>Visibility</p>
+
+                  <select name="" id="" className={FCss.inp}>
+                    <option value="Public">Public</option>
+                  </select>
+                </div>
+
+                <p className={FCss.labelMain}>Publish schedule</p>
+
+                <div className={FCss.inpDiv}>
+                  <p className={FCss.label}>Select date & time</p>
+
+                  <select name="" id="" className={FCss.inp}>
+                    <option value="Public">Enter date</option>
+                  </select>
+                </div>
+
+                <p className={FCss.labelMain}>Product category</p>
+
+                <div className={FCss.inpDiv}>
+                  <p className={FCss.label}>Select product category</p>
+
+                  <select name="" id="" className={FCss.inp}>
+                    <option value="Fashion">Fashion</option>
+                  </select>
+                </div>
+
+                <p className={FCss.labelMain}>Product Tags</p>
+
+                <div className={FCss.inpDiv}>
+                  <p className={FCss.label}>
+                    Enter tags related to your products
+                  </p>
+
+                  <div className={FCss.inpTag}>
+                    <div className={FCss.TagP}>
+                      <p>Fashion</p> <p className={FCss.CloseX}>X</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className={FCss.inpDiv}>
+                  <p className={FCss.label}>Additional text</p>
+                  <textarea
+                    name=""
+                    id=""
+                    cols="30"
+                    rows="10"
+                    placeholder="Enter additional text description of the product"
+                    className={FCss.inpTA}
+                  ></textarea>
+                </div>
+              </>
+            ) : (
+              ""
+            )}
           </>
 
           {/* Service */}
           <>
-            <p className={FCss.labelMain}>
+            <p
+              className={FCss.labelMainArrowPTag}
+              onClick={() => {
+                openModal("Service");
+              }}
+            >
               <b>Service</b>
+
+              {ServiceOpen ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-chevron-down"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-chevron-up"
+                >
+                  <path d="m18 15-6-6-6 6" />
+                </svg>
+              )}
             </p>
 
-            {/* Returnable */}
-            <div className={FCss.inpDiv}>
-              <p className={FCss.label}>Returnable</p>
+            {ServiceOpen ? (
+              <>
+                {/* Returnable */}
+                <div className={FCss.inpDiv}>
+                  <p className={FCss.label}>Returnable</p>
 
-              <select name="" id="" className={FCss.inp}>
-                <option value="true">True</option>
-                <option value="false">False</option>
-              </select>
-            </div>
+                  <select name="" id="" className={FCss.inp}>
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                  </select>
+                </div>
 
-            {/* Cancellable */}
-            <div className={FCss.inpDiv}>
-              <p className={FCss.label}>Cancellable</p>
+                {/* Cancellable */}
+                <div className={FCss.inpDiv}>
+                  <p className={FCss.label}>Cancellable</p>
 
-              <select name="" id="" className={FCss.inp}>
-                <option value="true">True</option>
-                <option value="false">False</option>
-              </select>
-            </div>
+                  <select name="" id="" className={FCss.inp}>
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                  </select>
+                </div>
 
-            {/* Return Window */}
-            <div className={FCss.inpDiv}>
-              <p className={FCss.label}>Return Window</p>
+                {/* Return Window */}
+                <div className={FCss.inpDiv}>
+                  <p className={FCss.label}>Return Window</p>
 
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="Ex: P7D"
-                className={FCss.inp}
-              />
-            </div>
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    placeholder="Ex: P7D"
+                    className={FCss.inp}
+                  />
+                </div>
 
-            {/* Pickup Return */}
-            <div className={FCss.inpDiv}>
-              <p className={FCss.label}>Pickup Return</p>
+                {/* Pickup Return */}
+                <div className={FCss.inpDiv}>
+                  <p className={FCss.label}>Pickup Return</p>
 
-              <select name="" id="" className={FCss.inp}>
-                <option value="true">True</option>
-                <option value="false">False</option>
-              </select>
-            </div>
+                  <select name="" id="" className={FCss.inp}>
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                  </select>
+                </div>
 
-            {/* Time To Ship */}
-            <div className={FCss.inpDiv}>
-              <p className={FCss.label}>Time To Ship</p>
+                {/* Time To Ship */}
+                <div className={FCss.inpDiv}>
+                  <p className={FCss.label}>Time To Ship</p>
 
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="Ex: PT45M"
-                className={FCss.inp}
-              />
-            </div>
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    placeholder="Ex: PT45M"
+                    className={FCss.inp}
+                  />
+                </div>
 
-            {/* COD */}
-            <div className={FCss.inpDiv}>
-              <p className={FCss.label}>Cash On Delivery(COD)</p>
+                {/* COD */}
+                <div className={FCss.inpDiv}>
+                  <p className={FCss.label}>Cash On Delivery(COD)</p>
 
-              <select name="" id="" className={FCss.inp}>
-                <option value="true">True</option>
-                <option value="false">False</option>
-              </select>
-            </div>
+                  <select name="" id="" className={FCss.inp}>
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                  </select>
+                </div>
 
-            {/* Time To Ship */}
-            <div className={FCss.inpDiv}>
-              <p className={FCss.label}>
-                Net Quantity/Measure Of Commodity (in Kg)
-              </p>
+                {/* Time To Ship */}
+                <div className={FCss.inpDiv}>
+                  <p className={FCss.label}>
+                    Net Quantity/Measure Of Commodity (in Kg)
+                  </p>
 
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="Ex: 121"
-                className={FCss.inp}
-              />
-            </div>
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    placeholder="Ex: 121"
+                    className={FCss.inp}
+                  />
+                </div>
 
-            {/* Month/Year of Manufacture Packing Import */}
-            <div className={FCss.inpDiv}>
-              <p className={FCss.label}>
-                Month/Year of Manufacture Packing Import
-              </p>
+                {/* Month/Year of Manufacture Packing Import */}
+                <div className={FCss.inpDiv}>
+                  <p className={FCss.label}>
+                    Month/Year of Manufacture Packing Import
+                  </p>
 
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="08/2022"
-                className={FCss.inp}
-              />
-            </div>
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    placeholder="08/2022"
+                    className={FCss.inp}
+                  />
+                </div>
+              </>
+            ) : (
+              ""
+            )}
           </>
         </div>
       </div>
