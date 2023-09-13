@@ -265,13 +265,10 @@ export default function Form() {
             <div className={FCss.inpDiv}>
               <p className={FCss.label}>Cash On Delivery(COD)</p>
 
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="Ex: PT45M"
-                className={FCss.inp}
-              />
+              <select name="" id="" className={FCss.inp}>
+                <option value="true">True</option>
+                <option value="false">False</option>
+              </select>
             </div>
           </>
         </div>
