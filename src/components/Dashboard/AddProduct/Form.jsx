@@ -136,6 +136,7 @@ export default function Form() {
           </div>
         </div>
 
+        {/* Publish */}
         <div className={FCss.right}>
           <p className={FCss.labelMain}>Publish</p>
 
