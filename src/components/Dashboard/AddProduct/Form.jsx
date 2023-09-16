@@ -15,6 +15,15 @@ export default function Form() {
     short_desc: "",
     long_desc: "",
     images: "",
+    maximumCount: "",
+    value: "",
+    maximum_value: "",
+    category_id: "",
+    fulfillment_id: "",
+    location_id: "",
+    ondcOrgreturnable: "",
+    ondcOrgcancellable: "",
+    ondcOrgreturn_window: "",
   });
 
   const openModal = (msg) => {
