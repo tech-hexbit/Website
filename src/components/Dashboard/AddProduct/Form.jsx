@@ -118,10 +118,12 @@ export default function Form() {
             <p className={FCss.label}>Manufacturer name</p>
             <input
               type="text"
-              name=""
+              name="manufacturer_or_packer_name"
               id=""
+              value={data.manufacturer_or_packer_name}
               placeholder="Enter Manufacturer name"
               className={FCss.inp}
+              onChange={updateData}
             />
           </div>
 
