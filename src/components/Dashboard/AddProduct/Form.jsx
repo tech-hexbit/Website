@@ -126,12 +126,12 @@ export default function Form() {
 
     if (
       name == "" ||
-      symbol == "" ||
+      // symbol == "" ||
       short_desc == "" ||
       long_desc == "" ||
       images == "" ||
       maximumCount == "" ||
-      value == "" ||
+      // value == "" ||
       maximum_value == "" ||
       category_id == "" ||
       fulfillment_id == "" ||
@@ -165,6 +165,7 @@ export default function Form() {
       schedule_Date_and_time == ""
     ) {
       console.log("Fill Data");
+      console.log(data);
     } else {
       console.log(data);
     }
@@ -536,7 +537,15 @@ export default function Form() {
                 <div className={FCss.inpDiv}>
                   <p className={FCss.label}>Returnable</p>
 
-                  <select name="" id="" className={FCss.inp}>
+                  <select
+                    name="ondcOrgreturnable"
+                    id=""
+                    className={FCss.inp}
+                    onChange={updateData}
+                  >
+                    <option value="" hidden selected>
+                      Select the item Returnable
+                    </option>
                     <option value="true">True</option>
                     <option value="false">False</option>
                   </select>
