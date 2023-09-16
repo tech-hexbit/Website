@@ -382,6 +382,7 @@ export default function Form() {
                     rows="10"
                     placeholder="Enter additional text description of the product"
                     className={FCss.inpTA}
+                    onChange={updateData}
                   ></textarea>
                 </div>
               </>
