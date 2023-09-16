@@ -59,12 +59,14 @@ export default function Form() {
           <div className={FCss.inpDiv}>
             <p className={FCss.label}>Product Short Description</p>
             <textarea
-              name=""
+              name="short_desc"
               id=""
               cols="30"
               rows="10"
+              value={data.short_desc}
               placeholder="Write product description here..."
               className={FCss.inpTA}
+              onChange={updateData}
             ></textarea>
           </div>
 
