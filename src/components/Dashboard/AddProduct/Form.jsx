@@ -34,6 +34,13 @@ export default function Form() {
     net_quantity_or_measure_of_commodity_in_pkg: "",
     month_year_of_manufacture_packing_import: "",
     nutritional_info: "",
+    additives_info: "",
+    brand_owner_FSSAI_license_no: "",
+    other_FSSAI_license_no: "",
+    importer_FSSAI_license_no: "",
+    net_quantity: "",
+    veg: "",
+    non_veg: "",
   });
 
   const openModal = (msg) => {
