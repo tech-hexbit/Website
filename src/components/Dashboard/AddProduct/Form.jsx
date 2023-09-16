@@ -24,6 +24,16 @@ export default function Form() {
     ondcOrgreturnable: "",
     ondcOrgcancellable: "",
     ondcOrgreturn_window: "",
+    ondcOrgseller_pickup_return: "",
+    ondcOrgtime_to_ship: "",
+    ondcOrgavailable_on_cod: "",
+    ondcOrgcontact_details_consumer_care: "",
+    manufacturer_or_packer_name: "",
+    manufacturer_or_packer_address: "",
+    common_or_generic_name_of_commodity: "",
+    net_quantity_or_measure_of_commodity_in_pkg: "",
+    month_year_of_manufacture_packing_import: "",
+    nutritional_info: "",
   });
 
   const openModal = (msg) => {
