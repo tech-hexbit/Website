@@ -71,8 +71,6 @@ export default function Form() {
     value
       ? setData({ ...data, veg: true, non_veg: false })
       : setData({ ...data, veg: false, non_veg: true });
-
-    console.log(name + " <---> " + value);
   };
 
   useEffect(() => {
