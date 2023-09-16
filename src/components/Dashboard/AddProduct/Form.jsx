@@ -164,8 +164,10 @@ export default function Form() {
       Visibility == "" ||
       schedule_Date_and_time == ""
     ) {
+      console.log("Fill Data");
+    } else {
+      console.log(data);
     }
-    console.log(data);
   };
 
   useEffect(() => {
