@@ -45,6 +45,10 @@ export default function Form() {
     net_quantity: "",
     veg: false,
     non_veg: false,
+    Status: "",
+    Visibility: "",
+    schedule_Date: "",
+    schedule_Time: "",
   });
 
   const openModal = (msg) => {
@@ -289,7 +293,15 @@ export default function Form() {
                 <div className={FCss.inpDiv}>
                   <p className={FCss.label}>Status</p>
 
-                  <select name="" id="" className={FCss.inp}>
+                  <select
+                    name="Status"
+                    id=""
+                    className={FCss.inp}
+                    onChange={updateData}
+                  >
+                    <option value="" hidden selected>
+                      Selete the Status
+                    </option>
                     <option value="Draft">Draft</option>
                   </select>
                 </div>
