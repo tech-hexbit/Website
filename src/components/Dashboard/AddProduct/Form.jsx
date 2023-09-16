@@ -64,6 +64,15 @@ export default function Form() {
     setData({ ...data, [name]: value });
   };
 
+  const handleSelectChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    console.log(name, +"---" + value);
+
+    // setData({ veg: "", non_veg: "" });
+  };
+
   useEffect(() => {
     console.log(data);
   }, [data]);
@@ -219,7 +228,12 @@ export default function Form() {
           <div className={FCss.inpDiv}>
             <p className={FCss.label}>Veg</p>
 
-            <select name="" id="" className={FCss.inp}>
+            <select
+              name=""
+              id=""
+              className={FCss.inp}
+              onChange={handleSelectChange}
+            >
               <option value="true">True</option>
               <option value="false">False</option>
             </select>
