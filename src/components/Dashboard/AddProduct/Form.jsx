@@ -170,9 +170,9 @@ export default function Form() {
     }
   };
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
+  // useEffect(() => {
+  //   console.log(data);
+  // }, [data]);
 
   return (
     <div>
