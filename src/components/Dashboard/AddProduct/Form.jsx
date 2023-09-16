@@ -78,6 +78,7 @@ export default function Form() {
               id=""
               cols="30"
               rows="10"
+              value={data.long_desc}
               placeholder="Write product description here..."
               className={FCss.inpTA}
               onChange={updateData}
