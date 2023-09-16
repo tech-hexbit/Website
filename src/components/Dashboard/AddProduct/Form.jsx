@@ -29,6 +29,7 @@ export default function Form() {
     ondcOrgavailable_on_cod: "",
     ondcOrgcontact_details_consumer_care: "",
     manufacturer_or_packer_name: "",
+    brand_name: "",
     manufacturer_or_packer_address: "",
     common_or_generic_name_of_commodity: "",
     net_quantity_or_measure_of_commodity_in_pkg: "",
@@ -132,10 +133,12 @@ export default function Form() {
             <p className={FCss.label}>Brand</p>
             <input
               type="text"
-              name=""
+              name="brand_name"
               id=""
+              value={data.brand_name}
               placeholder="Enter brand name"
               className={FCss.inp}
+              onChange={updateData}
             />
           </div>
 
