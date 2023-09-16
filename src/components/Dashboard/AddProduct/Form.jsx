@@ -311,7 +311,15 @@ export default function Form() {
                 <div className={FCss.inpDiv}>
                   <p className={FCss.label}>Visibility</p>
 
-                  <select name="" id="" className={FCss.inp}>
+                  <select
+                    name="Visibility"
+                    id=""
+                    className={FCss.inp}
+                    onChange={updateData}
+                  >
+                    <option value="" selected hidden>
+                      Select the Visibility
+                    </option>
                     <option value="Public">Public</option>
                   </select>
                 </div>
