@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
 
+// axios
+import axios from "axios";
+
+// state
+import AuthContext from "../../../store/auth-context";
+
 // img
 import upload from "./../../../assets/dashboard/upload.svg";
 
