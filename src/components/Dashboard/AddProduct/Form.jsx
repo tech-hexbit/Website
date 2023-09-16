@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // img
 import upload from "./../../../assets/dashboard/upload.svg";
@@ -9,6 +9,10 @@ import FCss from "./Css/Form.module.css";
 export default function Form() {
   const [PublishOpen, setPublishOpen] = useState(true);
   const [ServiceOpen, setServiceOpen] = useState(false);
+  const [data, setData] = useState({
+    name: "",
+    symbol: "",
+  });
 
   const openModal = (msg) => {
     if (msg === "Service") {
@@ -19,6 +23,17 @@ export default function Form() {
       setServiceOpen(!ServiceOpen);
     }
   };
+
+  const updateData = () => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    setUser({ ...setData, [name]: value });
+  };
+
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
   return (
     <div>
       <div className={FCss.mDiv}>
@@ -30,8 +45,10 @@ export default function Form() {
               type="text"
               name=""
               id=""
+              value={data.name}
               placeholder="Enter product title"
               className={FCss.inp}
+              onChange={updateData}
             />
           </div>
 
