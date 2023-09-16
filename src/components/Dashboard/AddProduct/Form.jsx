@@ -79,6 +79,7 @@ export default function Form() {
   useEffect(() => {
     console.log(data);
   }, [data]);
+
   return (
     <div>
       <div className={FCss.mDiv}>
@@ -376,10 +377,11 @@ export default function Form() {
                 <div className={FCss.inpDiv}>
                   <p className={FCss.label}>Additional text</p>
                   <textarea
-                    name=""
+                    name="additives_info"
                     id=""
                     cols="30"
                     rows="10"
+                    value={data.additives_info}
                     placeholder="Enter additional text description of the product"
                     className={FCss.inpTA}
                     onChange={updateData}
