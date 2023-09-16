@@ -30,6 +30,8 @@ export default function Form() {
     ondcOrgcontact_details_consumer_care: "",
     manufacturer_or_packer_name: "",
     brand_name: "",
+    Discounts: "",
+    Sizes: "",
     manufacturer_or_packer_address: "",
     common_or_generic_name_of_commodity: "",
     net_quantity_or_measure_of_commodity_in_pkg: "",
@@ -174,11 +176,13 @@ export default function Form() {
           <div className={FCss.inpDiv}>
             <p className={FCss.label}>Discounts / Offers (in %)</p>
             <input
-              type="text"
-              name=""
+              type="number"
+              name="Discounts"
               id=""
+              value={data.Discounts}
               placeholder="Enter discounts/offers (if any)"
               className={FCss.inp}
+              onChange={updateData}
             />
           </div>
 
@@ -187,8 +191,10 @@ export default function Form() {
             <p className={FCss.label}>Sizes available</p>
             <input
               type="text"
-              name=""
+              name="Sizes"
               id=""
+              value={data.Sizes}
+              onChange={updateData}
               placeholder="Enter the different sizes available"
               className={FCss.inp}
             />
