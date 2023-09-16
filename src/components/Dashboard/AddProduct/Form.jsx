@@ -47,8 +47,7 @@ export default function Form() {
     non_veg: false,
     Status: "",
     Visibility: "",
-    schedule_Date: "",
-    schedule_Time: "",
+    schedule_Date_and_time: "",
   });
 
   const openModal = (msg) => {
@@ -329,7 +328,15 @@ export default function Form() {
                 <div className={FCss.inpDiv}>
                   <p className={FCss.label}>Select date & time</p>
 
-                  <select name="" id="" className={FCss.inp}>
+                  <select
+                    name="schedule_Date_and_time"
+                    id=""
+                    className={FCss.inp}
+                    onChange={updateData}
+                  >
+                    <option value="" selected hidden>
+                      Select date and time
+                    </option>
                     <option value="Public">Enter date</option>
                   </select>
                 </div>
@@ -339,7 +346,15 @@ export default function Form() {
                 <div className={FCss.inpDiv}>
                   <p className={FCss.label}>Select product category</p>
 
-                  <select name="" id="" className={FCss.inp}>
+                  <select
+                    name="category_id"
+                    id=""
+                    className={FCss.inp}
+                    onChange={updateData}
+                  >
+                    <option value="" selected hidden>
+                      Select the Category
+                    </option>
                     <option value="Fashion">Fashion</option>
                   </select>
                 </div>
