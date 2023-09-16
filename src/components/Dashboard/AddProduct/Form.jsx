@@ -146,11 +146,13 @@ export default function Form() {
           <div className={FCss.inpDiv}>
             <p className={FCss.label}>Material Requirements Planning price</p>
             <input
-              type="text"
-              name=""
+              type="number"
+              name="maximum_value"
               id=""
+              value={data.maximum_value}
               placeholder="Enter price"
               className={FCss.inp}
+              onChange={updateData}
             />
           </div>
 
@@ -159,8 +161,10 @@ export default function Form() {
             <p className={FCss.label}>Stocks</p>
             <input
               type="number"
-              name=""
+              name="maximumCount"
               id=""
+              value={data.maximumCount}
+              onChange={updateData}
               placeholder="Total Stocks"
               className={FCss.inp}
             />
