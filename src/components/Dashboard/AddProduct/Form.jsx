@@ -657,8 +657,10 @@ export default function Form() {
         </div>
       </div>
 
-      <div className={FCss.SubmitBtnDiv} onClick={onSubmit}>
-        <p className={FCss.SubmitBtn}>Submit</p>
+      <div className={FCss.SubmitBtnDiv}>
+        <p className={FCss.SubmitBtn} onClick={onSubmit}>
+          Submit
+        </p>
       </div>
     </div>
   );
