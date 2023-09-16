@@ -27,8 +27,8 @@ export default function Form() {
     category_id: "",
     fulfillment_id: "",
     location_id: "",
-    ondcOrgreturnable: "",
-    ondcOrgcancellable: "",
+    ondcOrgreturnable: true,
+    ondcOrgcancellable: true,
     ondcOrgreturn_window: "",
     ondcOrgseller_pickup_return: "",
     ondcOrgtime_to_ship: "",
@@ -537,12 +537,7 @@ export default function Form() {
                 <div className={FCss.inpDiv}>
                   <p className={FCss.label}>Returnable</p>
 
-                  <select
-                    name="ondcOrgreturnable"
-                    id=""
-                    className={FCss.inp}
-                    onChange={updateData}
-                  >
+                  <select name="ondcOrgreturnable" id="" className={FCss.inp}>
                     <option value="" hidden selected>
                       Select the item Returnable
                     </option>
