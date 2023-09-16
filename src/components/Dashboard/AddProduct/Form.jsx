@@ -32,6 +32,7 @@ export default function Form() {
     brand_name: "",
     Discounts: "",
     Sizes: "",
+    Colors: "",
     manufacturer_or_packer_address: "",
     common_or_generic_name_of_commodity: "",
     net_quantity_or_measure_of_commodity_in_pkg: "",
@@ -194,9 +195,9 @@ export default function Form() {
               name="Sizes"
               id=""
               value={data.Sizes}
-              onChange={updateData}
               placeholder="Enter the different sizes available"
               className={FCss.inp}
+              onChange={updateData}
             />
           </div>
 
@@ -205,10 +206,12 @@ export default function Form() {
             <p className={FCss.label}>Colors</p>
             <input
               type="text"
-              name=""
+              name="Colors"
               id=""
+              value={data.Colors}
               placeholder="Enter the different colors available"
               className={FCss.inp}
+              onChange={updateData}
             />
           </div>
 
