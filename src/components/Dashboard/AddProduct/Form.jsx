@@ -29,11 +29,12 @@ export default function Form() {
     location_id: "",
     ondcOrgreturnable: true,
     ondcOrgcancellable: true,
-    ondcOrgreturn_window: "",
-    ondcOrgseller_pickup_return: "",
-    ondcOrgtime_to_ship: "",
-    ondcOrgavailable_on_cod: "",
-    ondcOrgcontact_details_consumer_care: "",
+    ondcOrgreturn_window: "P7D",
+    ondcOrgseller_pickup_return: false,
+    ondcOrgtime_to_ship: "PT45M",
+    ondcOrgavailable_on_cod: false,
+    ondcOrgcontact_details_consumer_care:
+      "Ramesh1, Koramangala, Bengaluru, ramesh@abc.com, 9876543210",
     manufacturer_or_packer_name: "",
     brand_name: "",
     Discounts: "",
@@ -129,13 +130,13 @@ export default function Form() {
       // symbol == "" ||
       short_desc == "" ||
       long_desc == "" ||
-      images == "" ||
+      // images == "" ||
       maximumCount == "" ||
       // value == "" ||
       maximum_value == "" ||
       category_id == "" ||
-      fulfillment_id == "" ||
-      location_id == "" ||
+      // fulfillment_id == "" ||
+      // location_id == "" ||
       ondcOrgreturnable == "" ||
       ondcOrgcancellable == "" ||
       ondcOrgreturn_window == "" ||
@@ -148,16 +149,16 @@ export default function Form() {
       Discounts == "" ||
       Sizes == "" ||
       Colors == "" ||
-      manufacturer_or_packer_address == "" ||
-      common_or_generic_name_of_commodity == "" ||
-      net_quantity_or_measure_of_commodity_in_pkg == "" ||
-      month_year_of_manufacture_packing_import == "" ||
-      nutritional_info == "" ||
+      // manufacturer_or_packer_address == "" ||
+      // common_or_generic_name_of_commodity == "" ||
+      // net_quantity_or_measure_of_commodity_in_pkg == "" ||
+      // month_year_of_manufacture_packing_import == "" ||
+      // nutritional_info == "" ||
       additives_info == "" ||
-      brand_owner_FSSAI_license_no == "" ||
-      other_FSSAI_license_no == "" ||
-      importer_FSSAI_license_no == "" ||
-      net_quantity == "" ||
+      // brand_owner_FSSAI_license_no == "" ||
+      // other_FSSAI_license_no == "" ||
+      // importer_FSSAI_license_no == "" ||
+      // net_quantity == "" ||
       veg == "" ||
       non_veg == "" ||
       Status == "" ||
