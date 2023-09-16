@@ -12,6 +12,9 @@ export default function Form() {
   const [data, setData] = useState({
     name: "",
     symbol: "",
+    short_desc: "",
+    long_desc: "",
+    images: "",
   });
 
   const openModal = (msg) => {
@@ -24,11 +27,11 @@ export default function Form() {
     }
   };
 
-  const updateData = () => {
+  const updateData = (e) => {
     const name = e.target.name;
     const value = e.target.value;
 
-    setUser({ ...setData, [name]: value });
+    setData({ ...data, [name]: value });
   };
 
   useEffect(() => {
@@ -43,7 +46,7 @@ export default function Form() {
             <p className={FCss.label}>Product title</p>
             <input
               type="text"
-              name=""
+              name="name"
               id=""
               value={data.name}
               placeholder="Enter product title"
