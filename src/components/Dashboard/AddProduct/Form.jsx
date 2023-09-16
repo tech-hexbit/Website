@@ -290,6 +290,7 @@ export default function Form() {
 
             {PublishOpen ? (
               <>
+                {/* Status */}
                 <div className={FCss.inpDiv}>
                   <p className={FCss.label}>Status</p>
 
