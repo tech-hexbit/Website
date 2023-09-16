@@ -76,6 +76,10 @@ export default function Form() {
       : setData({ ...data, veg: false, non_veg: true });
   };
 
+  const onSubmit = () => {
+    console.log(data);
+  };
+
   useEffect(() => {
     console.log(data);
   }, [data]);
@@ -563,7 +567,7 @@ export default function Form() {
         </div>
       </div>
 
-      <div className={FCss.SubmitBtnDiv}>
+      <div className={FCss.SubmitBtnDiv} onClick={onSubmit}>
         <p className={FCss.SubmitBtn}>Submit</p>
       </div>
     </div>
