@@ -1,4 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
+
+// axios
+import axios from "axios";
+
+// state
+import AuthContext from "../../../store/auth-context";
 
 // img
 import upload from "./../../../assets/dashboard/upload.svg";
@@ -9,6 +15,52 @@ import FCss from "./Css/Form.module.css";
 export default function Form() {
   const [PublishOpen, setPublishOpen] = useState(true);
   const [ServiceOpen, setServiceOpen] = useState(false);
+  const [data, setData] = useState({
+    name: "",
+    symbol:
+      "https://beebom.com/wp-content/uploads/2021/07/rog-phone-5-review-2.jpg?quality=75&strip=all",
+    short_desc: "",
+    long_desc: "",
+    images:
+      "https://beebom.com/wp-content/uploads/2021/07/rog-phone-5-review-2.jpg?quality=75&strip=all",
+    maximumCount: 0,
+    value: 0,
+    maximum_value: 0,
+    category_id: "",
+    fulfillment_id: 1,
+    location_id: "asus-store-location-id-1",
+    ondcOrgreturnable: true,
+    ondcOrgcancellable: true,
+    ondcOrgreturn_window: "P7D",
+    ondcOrgseller_pickup_return: false,
+    ondcOrgtime_to_ship: "PT45M",
+    ondcOrgavailable_on_cod: false,
+    ondcOrgcontact_details_consumer_care:
+      "Ramesh1, Koramangala, Bengaluru, ramesh@abc.com, 9876543210",
+    manufacturer_or_packer_name: "",
+    brand_name: "",
+    Discounts: "",
+    Sizes: "",
+    Colors: "",
+    manufacturer_or_packer_address: "123, xyz street, Bengaluru",
+    common_or_generic_name_of_commodity: "asus shoe 1",
+    net_quantity_or_measure_of_commodity_in_pkg: 121,
+    month_year_of_manufacture_packing_import: "08/2022",
+    nutritional_info:
+      "Energy(KCal)-(per 100kg) 420, (per serving 50g)250; Protein(g)-(per 100kg) 12, (per serving 50g) 6",
+    additives_info: "",
+    brand_owner_FSSAI_license_no: "1234567890",
+    other_FSSAI_license_no: "1234567890",
+    importer_FSSAI_license_no: "1234567890",
+    net_quantity: "120g",
+    veg: false,
+    non_veg: false,
+    Status: "",
+    Visibility: "",
+    schedule_Date_and_time: "",
+  });
+
+  const authCtx = useContext(AuthContext);
 
   const openModal = (msg) => {
     if (msg === "Service") {
@@ -19,6 +71,44 @@ export default function Form() {
       setServiceOpen(!ServiceOpen);
     }
   };
+
+  const updateData = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    setData({ ...data, [name]: value });
+  };
+
+  const handleSelectChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    value
+      ? setData({ ...data, veg: true, non_veg: false })
+      : setData({ ...data, veg: false, non_veg: true });
+  };
+
+  const onSubmit = async () => {
+    try {
+      const response = await axios.post(
+        "/api/common/product/AddProduct",
+        data,
+        { headers: { Authorization: `${authCtx.token}` } }
+      );
+
+      if (response.data.success) {
+        console.log(response.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+    console.log(data);
+  };
+
+  // useEffect(() => {
+  //   console.log(data);
+  // }, [data]);
+
   return (
     <div>
       <div className={FCss.mDiv}>
@@ -28,10 +118,12 @@ export default function Form() {
             <p className={FCss.label}>Product title</p>
             <input
               type="text"
-              name=""
+              name="name"
               id=""
+              value={data.name}
               placeholder="Enter product title"
               className={FCss.inp}
+              onChange={updateData}
             />
           </div>
 
@@ -39,12 +131,14 @@ export default function Form() {
           <div className={FCss.inpDiv}>
             <p className={FCss.label}>Product Short Description</p>
             <textarea
-              name=""
+              name="short_desc"
               id=""
               cols="30"
               rows="10"
+              value={data.short_desc}
               placeholder="Write product description here..."
               className={FCss.inpTA}
+              onChange={updateData}
             ></textarea>
           </div>
 
@@ -52,12 +146,14 @@ export default function Form() {
           <div className={FCss.inpDiv}>
             <p className={FCss.label}>Product Long Description</p>
             <textarea
-              name=""
+              name="long_desc"
               id=""
               cols="30"
               rows="10"
+              value={data.long_desc}
               placeholder="Write product description here..."
               className={FCss.inpTA}
+              onChange={updateData}
             ></textarea>
           </div>
 
@@ -68,10 +164,12 @@ export default function Form() {
             <p className={FCss.label}>Manufacturer name</p>
             <input
               type="text"
-              name=""
+              name="manufacturer_or_packer_name"
               id=""
+              value={data.manufacturer_or_packer_name}
               placeholder="Enter Manufacturer name"
               className={FCss.inp}
+              onChange={updateData}
             />
           </div>
 
@@ -80,10 +178,12 @@ export default function Form() {
             <p className={FCss.label}>Brand</p>
             <input
               type="text"
-              name=""
+              name="brand_name"
               id=""
+              value={data.brand_name}
               placeholder="Enter brand name"
               className={FCss.inp}
+              onChange={updateData}
             />
           </div>
 
@@ -91,11 +191,13 @@ export default function Form() {
           <div className={FCss.inpDiv}>
             <p className={FCss.label}>Material Requirements Planning price</p>
             <input
-              type="text"
-              name=""
+              type="number"
+              name="maximum_value"
               id=""
+              value={data.maximum_value}
               placeholder="Enter price"
               className={FCss.inp}
+              onChange={updateData}
             />
           </div>
 
@@ -104,8 +206,10 @@ export default function Form() {
             <p className={FCss.label}>Stocks</p>
             <input
               type="number"
-              name=""
+              name="maximumCount"
               id=""
+              value={data.maximumCount}
+              onChange={updateData}
               placeholder="Total Stocks"
               className={FCss.inp}
             />
@@ -115,11 +219,13 @@ export default function Form() {
           <div className={FCss.inpDiv}>
             <p className={FCss.label}>Discounts / Offers (in %)</p>
             <input
-              type="text"
-              name=""
+              type="number"
+              name="Discounts"
               id=""
+              value={data.Discounts}
               placeholder="Enter discounts/offers (if any)"
               className={FCss.inp}
+              onChange={updateData}
             />
           </div>
 
@@ -128,10 +234,12 @@ export default function Form() {
             <p className={FCss.label}>Sizes available</p>
             <input
               type="text"
-              name=""
+              name="Sizes"
               id=""
+              value={data.Sizes}
               placeholder="Enter the different sizes available"
               className={FCss.inp}
+              onChange={updateData}
             />
           </div>
 
@@ -140,10 +248,12 @@ export default function Form() {
             <p className={FCss.label}>Colors</p>
             <input
               type="text"
-              name=""
+              name="Colors"
               id=""
+              value={data.Colors}
               placeholder="Enter the different colors available"
               className={FCss.inp}
+              onChange={updateData}
             />
           </div>
 
@@ -151,7 +261,12 @@ export default function Form() {
           <div className={FCss.inpDiv}>
             <p className={FCss.label}>Veg</p>
 
-            <select name="" id="" className={FCss.inp}>
+            <select
+              name="veg"
+              id=""
+              className={FCss.inp}
+              onChange={handleSelectChange}
+            >
               <option value="true">True</option>
               <option value="false">False</option>
             </select>
@@ -204,18 +319,36 @@ export default function Form() {
 
             {PublishOpen ? (
               <>
+                {/* Status */}
                 <div className={FCss.inpDiv}>
                   <p className={FCss.label}>Status</p>
 
-                  <select name="" id="" className={FCss.inp}>
+                  <select
+                    name="Status"
+                    id=""
+                    className={FCss.inp}
+                    onChange={updateData}
+                  >
+                    <option value="" hidden selected>
+                      Selete the Status
+                    </option>
                     <option value="Draft">Draft</option>
                   </select>
                 </div>
 
+                {/* Visibility */}
                 <div className={FCss.inpDiv}>
                   <p className={FCss.label}>Visibility</p>
 
-                  <select name="" id="" className={FCss.inp}>
+                  <select
+                    name="Visibility"
+                    id=""
+                    className={FCss.inp}
+                    onChange={updateData}
+                  >
+                    <option value="" selected hidden>
+                      Select the Visibility
+                    </option>
                     <option value="Public">Public</option>
                   </select>
                 </div>
@@ -225,7 +358,15 @@ export default function Form() {
                 <div className={FCss.inpDiv}>
                   <p className={FCss.label}>Select date & time</p>
 
-                  <select name="" id="" className={FCss.inp}>
+                  <select
+                    name="schedule_Date_and_time"
+                    id=""
+                    className={FCss.inp}
+                    onChange={updateData}
+                  >
+                    <option value="" selected hidden>
+                      Select date and time
+                    </option>
                     <option value="Public">Enter date</option>
                   </select>
                 </div>
@@ -235,7 +376,15 @@ export default function Form() {
                 <div className={FCss.inpDiv}>
                   <p className={FCss.label}>Select product category</p>
 
-                  <select name="" id="" className={FCss.inp}>
+                  <select
+                    name="category_id"
+                    id=""
+                    className={FCss.inp}
+                    onChange={updateData}
+                  >
+                    <option value="" selected hidden>
+                      Select the Category
+                    </option>
                     <option value="Fashion">Fashion</option>
                   </select>
                 </div>
@@ -257,12 +406,14 @@ export default function Form() {
                 <div className={FCss.inpDiv}>
                   <p className={FCss.label}>Additional text</p>
                   <textarea
-                    name=""
+                    name="additives_info"
                     id=""
                     cols="30"
                     rows="10"
+                    value={data.additives_info}
                     placeholder="Enter additional text description of the product"
                     className={FCss.inpTA}
+                    onChange={updateData}
                   ></textarea>
                 </div>
               </>
@@ -320,7 +471,10 @@ export default function Form() {
                 <div className={FCss.inpDiv}>
                   <p className={FCss.label}>Returnable</p>
 
-                  <select name="" id="" className={FCss.inp}>
+                  <select name="ondcOrgreturnable" id="" className={FCss.inp}>
+                    <option value="" hidden selected>
+                      Select the item Returnable
+                    </option>
                     <option value="true">True</option>
                     <option value="false">False</option>
                   </select>
@@ -442,7 +596,9 @@ export default function Form() {
       </div>
 
       <div className={FCss.SubmitBtnDiv}>
-        <p className={FCss.SubmitBtn}>Submit</p>
+        <p className={FCss.SubmitBtn} onClick={onSubmit}>
+          Submit
+        </p>
       </div>
     </div>
   );
