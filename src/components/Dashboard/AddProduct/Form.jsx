@@ -43,8 +43,8 @@ export default function Form() {
     other_FSSAI_license_no: "",
     importer_FSSAI_license_no: "",
     net_quantity: "",
-    veg: "",
-    non_veg: "",
+    veg: false,
+    non_veg: false,
   });
 
   const openModal = (msg) => {
@@ -68,9 +68,11 @@ export default function Form() {
     const name = e.target.name;
     const value = e.target.value;
 
-    console.log(name, +"---" + value);
+    value
+      ? setData({ ...data, veg: true, non_veg: false })
+      : setData({ ...data, veg: false, non_veg: true });
 
-    // setData({ veg: "", non_veg: "" });
+    console.log(name + " <---> " + value);
   };
 
   useEffect(() => {
@@ -229,7 +231,7 @@ export default function Form() {
             <p className={FCss.label}>Veg</p>
 
             <select
-              name=""
+              name="veg"
               id=""
               className={FCss.inp}
               onChange={handleSelectChange}
