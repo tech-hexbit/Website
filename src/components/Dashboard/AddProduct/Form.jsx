@@ -307,6 +307,7 @@ export default function Form() {
                   </select>
                 </div>
 
+                {/* Visibility */}
                 <div className={FCss.inpDiv}>
                   <p className={FCss.label}>Visibility</p>
 
