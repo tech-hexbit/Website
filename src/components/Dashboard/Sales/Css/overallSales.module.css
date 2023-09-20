@@ -56,20 +56,32 @@
 }
 
 .middle {
-  padding-top: 20px;
-  border-top: 1px solid #f6f6f6;
-  
+
+border-top: 1px solid #f6f6f6;
+display: inline-flex;
+padding: 15px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+
 }
 
 .tabMain {
-  display: flex;
-  justify-content: space-between;
+
+
 }
 
 .tabs {
   display: flex;
-  justify-content: space-around;
-  width: 50%;
+  flex-direction: column;
+  width: 120px;
+  height: 48px;
+  padding: 10px;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: -376px;
+  border-radius: 5px;
+  
 }
 
 .tabs div {
@@ -79,7 +91,7 @@
 }
 
 .table {
-  padding: 40px 15px;
+  padding: 40px 30px;
   overflow-x: scroll;
   width: 100%;
 }
