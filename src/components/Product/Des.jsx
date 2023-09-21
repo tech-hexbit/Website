@@ -15,7 +15,22 @@ export default function Des() {
         </p>
       </div>
 
-      <div className={DCss.mDiv}></div>
+      <div className={DCss.mDiv}>
+        <p className={DCss.subTitlePTag}>Features :</p>
+        <p className={DCss.desDPTag}>
+          Midsole:- Core Instant Step In Comfort Long Lasting Reponsive
+          Cushionig And Super Plush Feel. Outsole :- The Rubber Outsole With
+          Perfect Grip And Durability.
+        </p>
+      </div>
+      <div className={DCss.mDiv}>
+        <p className={DCss.subTitlePTag}>Services :</p>
+        <p className={DCss.desDPTag}>
+          Midsole:- Core Instant Step In Comfort Long Lasting Reponsive
+          Cushionig And Super Plush Feel. Outsole :- The Rubber Outsole With
+          Perfect Grip And Durability.
+        </p>
+      </div>
     </>
   );
 }
