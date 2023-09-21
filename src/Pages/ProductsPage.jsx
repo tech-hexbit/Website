@@ -29,7 +29,7 @@ export default function ProductsPage() {
           </p>
 
           <div className={PPCss.boxmDiv}>
-            <Box title="Stock" value={35} />
+            <Box title="Prices" value={35} />
             <Box title="Stock" value={35} />
             <Box title="Stock" value={35} />
             <Box title="Stock" value={35} />
