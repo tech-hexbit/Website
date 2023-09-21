@@ -55,9 +55,14 @@ export default function OverallSales() {
     }
   };
 
-  const UpdateData = async (id) => {
+  const UpdateData = async (id, state) => {
     try {
-      console.log(id);
+      let data = {
+        value: state,
+        Id: id,
+      };
+
+      console.log(data);
       // const response = await axios.post("/api/common/Order/UpdateState", {
       //   headers: { Authorization: `${authCtx.token}` },
       // });
@@ -384,7 +389,7 @@ export default function OverallSales() {
                             stroke-linejoin="round"
                             class="lucide lucide-save"
                             onClick={() => {
-                              UpdateData(val._id);
+                              UpdateData(val.OrderID, val.state);
                             }}
                           >
                             <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
