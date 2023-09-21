@@ -127,7 +127,7 @@ function App() {
                 path="/products/:id"
                 element={
                   <Suspense fallback={<LoadingPage />}>
-                    <Profile />
+                    <Products />
                   </Suspense>
                 }
               />
