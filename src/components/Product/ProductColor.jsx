@@ -5,9 +5,8 @@ import CBss from "./Css/ColorBox.module.css";
 
 export default function Box(props) {
   return (
-    <div className={CBss.CBss}>
-      <p className={CBss.subTitlePTag}>Color</p>
-      <div></div>
+    <div className={CBss.PBDash}>
+      <img src={props.imgSrc} alt="" className={CBss.imgProCo} />
     </div>
   );
 }
