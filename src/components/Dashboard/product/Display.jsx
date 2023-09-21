@@ -132,7 +132,7 @@ export default function Display() {
                     <input type="checkbox" name="" id="" />
                   </td>
                   <td className={DCss.row} id={DCss.col1}>
-                    <Link to="/products/:id">
+                    <Link to="/products/:id" className="LinkStyle">
                       <div className={DCss.col1}>
                         <div className={DCss.image}>
                           <img src={element.image} />
