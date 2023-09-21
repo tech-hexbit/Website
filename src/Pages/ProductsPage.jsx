@@ -4,5 +4,9 @@ import React from "react";
 import PPCss from "./Css/ProductPage.module.css";
 
 export default function ProductsPage() {
-  return <div>ProductsPage</div>;
+  return (
+    <div className={PPCss.mDiv}>
+      <p className={PPCss.AddHPTag}>Product Details</p>
+    </div>
+  );
 }
