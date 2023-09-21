@@ -7,6 +7,7 @@ export default function Box(props) {
   return (
     <div className={BCss.mDiv}>
       <p>{props.title}</p>
+      <p>{props.value}</p>
     </div>
   );
 }
