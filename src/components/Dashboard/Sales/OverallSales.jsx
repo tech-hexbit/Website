@@ -400,6 +400,8 @@ export default function OverallSales() {
                         <input type="checkbox" />
                       </td>
                       <td>{val._id}</td>
+                      <td>{val.ONDCBilling.name}</td>
+                      <td>{val.buyer}</td>
                     </tr>
                   );
                 })}
