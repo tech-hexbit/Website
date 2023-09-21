@@ -34,6 +34,7 @@ export default function ProductsPage() {
             <Box title="Stock" value={35} />
             <Box title="Stock" value={35} />
           </div>
+
           <ColorBox />
           <SizeBox />
         </div>
