@@ -7,7 +7,7 @@ export default function Box(props) {
   return (
     <div className={CBss.PBDash}>
       <img src={props.imgSrc} alt="" className={CBss.imgProCo} />
-      <div>
+      <div className={CBss.LabelDivMain}>
         <div
           style={{ backgroundColor: `${props.code}` }}
           className={CBss.colorBox}
