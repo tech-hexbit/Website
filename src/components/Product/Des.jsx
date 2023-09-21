@@ -33,6 +33,17 @@ export default function Des() {
           </p>
         </div>
       </div>
+
+      <div className={DCss.mDiv}>
+        <p className={DCss.subTitlePTag}>
+          Special offers & product promotions :
+        </p>
+        <p className={DCss.desDPTag}>
+          Midsole:- Core Instant Step In Comfort Long Lasting Reponsive
+          Cushionig And Super Plush Feel. Outsole :- The Rubber Outsole With
+          Perfect Grip And Durability.
+        </p>
+      </div>
     </>
   );
 }
