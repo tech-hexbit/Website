@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 // Css
 import osCss from "./Css/overallSales.module.css";
@@ -112,19 +113,18 @@ export default function OverallSales() {
               </select>
             </div>
           </div>
-          <input
-            type="text"
-            placeholder="Search order"
-            className={osCss.searchInp}
-          />
+          <div className={osCss.search}>
+            <input type="text" placeholder="Search order" />
+          </div>
         </div>
       </div>
       <div className={osCss.middle}>
-        {/* <div className={osCss.tabMain}>
+        <div className={osCss.tabMain}>
           <div className={osCss.tabs}>
             <div
               style={{
                 color: active.pdt ? "#4BB543" : "black",
+                fontWeight: active.pdt ? "700" : "400",
                 borderBottom: active.pdt ? "2px solid #4BB543" : "none",
               }}
               onClick={() => {
@@ -141,6 +141,7 @@ export default function OverallSales() {
             <div
               style={{
                 color: active.fashion ? "#4BB543" : "black",
+                fontWeight: active.fashion ? "700" : "400",
                 borderBottom: active.fashion ? "2px solid #4BB543" : "none",
               }}
               onClick={() => {
@@ -157,6 +158,7 @@ export default function OverallSales() {
             <div
               style={{
                 color: active.grocery ? "#4BB543" : "black",
+                fontWeight: active.grocery ? "700" : "400",
                 borderBottom: active.grocery ? "2px solid #4BB543" : "none",
               }}
               onClick={() => {
@@ -173,6 +175,7 @@ export default function OverallSales() {
             <div
               style={{
                 color: active.furniture ? "#4BB543" : "black",
+                fontWeight: active.furniture ? "700" : "400",
                 borderBottom: active.furniture ? "2px solid #4BB543" : "none",
               }}
               onClick={() => {
@@ -188,8 +191,8 @@ export default function OverallSales() {
             </div>
           </div>
           <div></div>
-        </div> */}
-        <div id="wrap" className={osCss.table}>
+        </div>
+        <div className={osCss.table}>
           <table style={{ borderCollapse: "collapse" }}>
             <tr>
               <th></th>
@@ -355,7 +358,11 @@ export default function OverallSales() {
                     </td>
                     <td>{element.orderId}</td>
                     <td>{element.customer}</td>
-                    <td>{element.product}</td>
+                    <td>
+                      <Link to="/me/orderdetails" className="LinkStyle">
+                        {element.product}
+                      </Link>
+                    </td>
                     <td>{element.price}</td>
                     <td>{element.order}</td>
                     <td>{element.payment}</td>
