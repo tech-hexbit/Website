@@ -359,7 +359,9 @@ export default function OverallSales() {
                     <td>{element.orderId}</td>
                     <td>{element.customer}</td>
                     <td>
-                      <Link to="/me/orderdetails">{element.product}</Link>
+                      <Link to="/me/orderdetails" className="LinkStyle">
+                        {element.product}
+                      </Link>
                     </td>
                     <td>{element.price}</td>
                     <td>{element.order}</td>
