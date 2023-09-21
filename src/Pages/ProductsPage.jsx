@@ -1,5 +1,8 @@
 import React from "react";
 
+// components
+import Box from "./../components/Product/Box";
+
 // css
 import PPCss from "./Css/ProductPage.module.css";
 
@@ -24,6 +27,13 @@ export default function ProductsPage() {
           <p className={PPCss.pPublished}>
             Seller: Adidas Published on: 10 March 2022
           </p>
+
+          <div>
+            <Box />
+            <Box />
+            <Box />
+            <Box />
+          </div>
         </div>
       </div>
     </div>
