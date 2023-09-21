@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 // state
 import AuthContext from "./../../../store/auth-context";
@@ -25,89 +25,7 @@ export default function OverallSales() {
     furniture: false,
   });
 
-  const data = [
-    {
-      orderId: "#617GF",
-      customer: "Jonathan James",
-      product: "Adidas Mens Restound M Running Shoe",
-      price: "₹ 1,699",
-      order: "10-04-2023",
-      payment: "Paytm",
-      status: "Delivered",
-    },
-    {
-      orderId: "#617GF",
-      customer: "Jonathan James",
-      product: "Adidas Mens Restound M Running Shoe",
-      price: "₹ 1,699",
-      order: "10-04-2023",
-      payment: "Paytm",
-      status: "Delivered",
-    },
-    {
-      orderId: "#617GF",
-      customer: "Jonathan James",
-      product: "Adidas Mens Restound M Running Shoe",
-      price: "₹ 1,699",
-      order: "10-04-2023",
-      payment: "Paytm",
-      status: "Pending",
-    },
-    {
-      orderId: "#617GF",
-      customer: "Jonathan James",
-      product: "Adidas Mens Restound M Running Shoe",
-      price: "₹ 1,699",
-      order: "10-04-2023",
-      payment: "Paytm",
-      status: "Delivered",
-    },
-    {
-      orderId: "#617GF",
-      customer: "Jonathan James",
-      product: "Adidas Mens Restound M Running Shoe",
-      price: "₹ 1,699",
-      order: "10-04-2023",
-      payment: "Paytm",
-      status: "Returned",
-    },
-    {
-      orderId: "#617GF",
-      customer: "Jonathan James",
-      product: "Adidas Mens Restound M Running Shoe",
-      price: "₹ 1,699",
-      order: "10-04-2023",
-      payment: "Paytm",
-      status: "Pending",
-    },
-    {
-      orderId: "#617GF",
-      customer: "Jonathan James",
-      product: "Adidas Mens Restound M Running Shoe",
-      price: "₹ 1,699",
-      order: "10-04-2023",
-      payment: "Paytm",
-      status: "Delivered",
-    },
-    {
-      orderId: "#617GF",
-      customer: "Jonathan James",
-      product: "Adidas Mens Restound M Running Shoe",
-      price: "₹ 1,699",
-      order: "10-04-2023",
-      payment: "Paytm",
-      status: "Delivered",
-    },
-    {
-      orderId: "#617GF",
-      customer: "Jonathan James",
-      product: "Adidas Mens Restound M Running Shoe",
-      price: "₹ 1,699",
-      order: "10-04-2023",
-      payment: "Paytm",
-      status: "Returned",
-    },
-  ];
+  const { id } = useParams();
 
   useEffect(() => {
     loadData();
@@ -140,6 +58,16 @@ export default function OverallSales() {
   };
 
   const UpdateData = async () => {
+    try {
+      // const response = await axios.post("/api/common/Order/UpdateState", {
+      //   headers: { Authorization: `${authCtx.token}` },
+      // });
+    } catch (e) {
+      setLoad(false);
+
+      console.log(e);
+    }
+
     setEdit(!edit);
   };
 
@@ -456,7 +384,9 @@ export default function OverallSales() {
                             stroke-linecap="round"
                             stroke-linejoin="round"
                             class="lucide lucide-save"
-                            onClick={UpdateData}
+                            onClick={() => {
+                              setEdit(!edit);
+                            }}
                           >
                             <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
                             <polyline points="17 21 17 13 7 13 7 21" />
