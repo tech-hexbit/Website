@@ -275,7 +275,7 @@ export default function OverallSales() {
                   />
                 </svg>
               </th>
-              <th>
+              {/* <th>
                 Product{" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -293,7 +293,7 @@ export default function OverallSales() {
                     fill="#777777"
                   />
                 </svg>
-              </th>
+              </th> */}
               <th>
                 Price{" "}
                 <svg
@@ -399,8 +399,12 @@ export default function OverallSales() {
                       <td>
                         <input type="checkbox" />
                       </td>
-                      <td>{val._id}</td>
+                      <td>#{val._id.slice(-4)}</td>
                       <td>{val.ONDCBilling.name}</td>
+                      <td>{val.amount}</td>
+                      <td>{val.when.date}</td>
+                      <td>{val.status}</td>
+                      <td>{val.state}</td>
                       <td>{val.buyer}</td>
                     </tr>
                   );
@@ -409,45 +413,6 @@ export default function OverallSales() {
             ) : (
               <p>No Orders</p>
             )}
-
-            {data.map((element, i) => {
-              return (
-                <>
-                  <tr key={i}>
-                    <td>
-                      <input type="checkbox" />
-                    </td>
-                    <td>{element.orderId}</td>
-                    <td>{element.customer}</td>
-                    <td>
-                      <Link to="/me/orderdetails" className="LinkStyle">
-                        {element.product}
-                      </Link>
-                    </td>
-                    <td>{element.price}</td>
-                    <td>{element.order}</td>
-                    <td>{element.payment}</td>
-                    <td
-                      style={{
-                        color:
-                          element.status == "Delivered"
-                            ? "#4BB543"
-                            : element.status == "Pending"
-                            ? "#3F81E0"
-                            : "#D0342C",
-                      }}
-                    >
-                      {element.status}
-                    </td>
-                    <td>
-                      <div className={osCss.dots}>
-                        <div style={{ marginTop: "-5px" }}>...</div>
-                      </div>
-                    </td>
-                  </tr>
-                </>
-              );
-            })}
           </table>
         </div>
       </div>
