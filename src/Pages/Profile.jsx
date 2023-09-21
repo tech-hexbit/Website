@@ -35,7 +35,7 @@ export default function Profile() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/categories" element={<Categories />} />
           <Route path="/addProduct" element={<AddProduct />} />
-          <Route path="/orderdetails" element={<Orderdetails />} />
+          <Route path="/orderdetails/:id" element={<Orderdetails />} />
         </Routes>
       </div>
     </div>
