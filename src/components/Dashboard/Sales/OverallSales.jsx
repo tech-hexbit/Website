@@ -1,5 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+
+// axios
+import axios from "axios";
+
+// MicroInteraction
+import Load from "./../../../MicroInteraction/LoadBlack";
 
 // Css
 import osCss from "./Css/overallSales.module.css";
@@ -95,6 +101,8 @@ export default function OverallSales() {
       status: "Returned",
     },
   ];
+
+  useEffect(() => {}, []);
 
   return (
     <div className={osCss.mainDiv}>
