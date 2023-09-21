@@ -12,9 +12,11 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 
 // Css
 import osCss from "./Css/overallSales.module.css";
+import { Update } from "@mui/icons-material";
 
 export default function OverallSales() {
   const [orderDel, setOrderDel] = useState([]);
+  const [edit, setEdit] = useState(false);
   const [load, setLoad] = useState(false);
   const [active, setActive] = useState({
     pdt: true,
@@ -135,6 +137,10 @@ export default function OverallSales() {
 
       console.log(e);
     }
+  };
+
+  const UpdateData = async () => {
+    setEdit(!edit);
   };
 
   return (
@@ -411,6 +417,7 @@ export default function OverallSales() {
                       <td>{val.amount}</td>
                       <td>{val.when.date}</td>
                       <td>{val.status}</td>
+
                       <td
                         style={{
                           color:
@@ -421,23 +428,59 @@ export default function OverallSales() {
                               : "#D0342C",
                         }}
                       >
-                        {val.state}
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          class="lucide lucide-pencil"
-                          className={osCss.lucidePencil}
-                        >
-                          <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
-                          <path d="m15 5 4 4" />
-                        </svg>
+                        {edit ? (
+                          <>
+                            <select name="" id="">
+                              <option value="none" selected hidden>
+                                Select the Updated Status
+                              </option>
+                              <option value="Accepted">Accepted</option>
+                              <option value="In-progress">In-progress</option>
+                              <option value="Completed">Completed</option>
+                              <option value="Cancelled">Cancelled</option>
+                            </select>
+                          </>
+                        ) : (
+                          <>{val.state}</>
+                        )}
+
+                        {edit ? (
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-save"
+                            onClick={UpdateData}
+                          >
+                            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
+                            <polyline points="17 21 17 13 7 13 7 21" />
+                            <polyline points="7 3 7 8 15 8" />
+                          </svg>
+                        ) : (
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-pencil"
+                            className={osCss.lucidePencil}
+                            onClick={UpdateData}
+                          >
+                            <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+                            <path d="m15 5 4 4" />
+                          </svg>
+                        )}
                       </td>
                       <td>{val.buyer}</td>
                     </tr>
