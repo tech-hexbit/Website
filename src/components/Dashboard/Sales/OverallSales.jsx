@@ -14,7 +14,6 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 import osCss from "./Css/overallSales.module.css";
 
 export default function OverallSales() {
-  const [orderNumber, setOrderNumber] = useState(0);
   const [orderDel, setOrderDel] = useState([]);
   const [load, setLoad] = useState(false);
   const [active, setActive] = useState({
@@ -123,8 +122,10 @@ export default function OverallSales() {
       });
 
       if (response.data.success) {
-        setOrderDel(response.data.orders);
-        setOrderNumber(response.data.orders?.length);
+        console.log(response.data.orderList);
+
+        // setOrderDel(response.data.orders);
+        // setOrderNumber(response.data.orders?.length);
 
         setLoad(false);
       } else {
