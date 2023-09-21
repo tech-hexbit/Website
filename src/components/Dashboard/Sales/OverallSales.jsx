@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 // Css
 import osCss from "./Css/overallSales.module.css";
@@ -191,8 +192,8 @@ export default function OverallSales() {
           </div>
           <div></div>
         </div>
-        <div  className={osCss.table}>
-          <table style={{ borderCollapse: "collapse"  }}>
+        <div className={osCss.table}>
+          <table style={{ borderCollapse: "collapse" }}>
             <tr>
               <th></th>
               <th className="sticky-col">
@@ -252,7 +253,7 @@ export default function OverallSales() {
                   />
                 </svg>
               </th>
-              <th >
+              <th>
                 Price{" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -271,7 +272,7 @@ export default function OverallSales() {
                   />
                 </svg>
               </th>
-              <th >
+              <th>
                 Ordered on{" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -290,7 +291,7 @@ export default function OverallSales() {
                   />
                 </svg>
               </th>
-              <th  className={osCss.payment}>
+              <th className={osCss.payment}>
                 Payment method{" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -309,7 +310,7 @@ export default function OverallSales() {
                   />
                 </svg>
               </th>
-              <th  className={osCss.payment}>
+              <th className={osCss.payment}>
                 Delivery status{" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -357,7 +358,9 @@ export default function OverallSales() {
                     </td>
                     <td>{element.orderId}</td>
                     <td>{element.customer}</td>
-                    <td>{element.product}</td>
+                    <td>
+                      <Link to="/me/orderdetails">{element.product}</Link>
+                    </td>
                     <td>{element.price}</td>
                     <td>{element.order}</td>
                     <td>{element.payment}</td>
