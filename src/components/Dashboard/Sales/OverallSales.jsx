@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // state
 import AuthContext from "./../../../store/auth-context";
@@ -24,8 +24,6 @@ export default function OverallSales() {
     grocery: false,
     furniture: false,
   });
-
-  const { id } = useParams();
 
   useEffect(() => {
     loadData();
@@ -57,8 +55,9 @@ export default function OverallSales() {
     }
   };
 
-  const UpdateData = async () => {
+  const UpdateData = async (id) => {
     try {
+      console.log(id);
       // const response = await axios.post("/api/common/Order/UpdateState", {
       //   headers: { Authorization: `${authCtx.token}` },
       // });
