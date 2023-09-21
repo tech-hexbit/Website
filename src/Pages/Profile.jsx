@@ -9,7 +9,7 @@ import ProfileMain from "./../components/Dashboard/Profile";
 import Categories from "./../components/Dashboard/Categories";
 import AddProduct from "./../components/Dashboard/AddProduct";
 import Dashboard from "./../components/Dashboard/DashboardMain";
-import  Orderdetails from "./../components/Dashboard/Orderdetails"
+import Orderdetails from "./../components/Dashboard/Orderdetails";
 //          || SideBar
 import UserSideBar from "./../components/Dashboard/UserSideBar";
 
