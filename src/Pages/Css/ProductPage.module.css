@@ -1,0 +1,60 @@
+.mDiv {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 27px;
+}
+
+.AddHPTag {
+  border-style: solid;
+  border-width: 0px 0px 1px 0px;
+  border-color: #d3d3d3;
+  padding-bottom: 7px;
+}
+
+.divDiv {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  gap: 0px 10px;
+}
+
+.leftDiv {
+  width: 30%;
+}
+
+.productImg {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.rightDiv {
+  width: 65%;
+}
+
+.titleName {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 27px;
+  letter-spacing: 0.2px;
+  margin-bottom: 7px;
+}
+
+.pID,
+.pSeller,
+.pPublished {
+  color: #888;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0.14px;
+  margin: 2px 0px;
+}
+
+.boxmDiv {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 0px;
+}

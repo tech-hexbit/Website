@@ -132,19 +132,21 @@ export default function Display() {
                     <input type="checkbox" name="" id="" />
                   </td>
                   <td className={DCss.row} id={DCss.col1}>
-                    <div className={DCss.col1}>
-                      <div className={DCss.image}>
-                        <img src={element.image} />
-                      </div>
-                      <div className={DCss.col1Text}>
-                        <div className={DCss.textTop}>
-                          {element.col1TextTop}
+                    <Link to="/products/:id" className="LinkStyle">
+                      <div className={DCss.col1}>
+                        <div className={DCss.image}>
+                          <img src={element.image} />
                         </div>
-                        <div className={DCss.textBottom}>
-                          Category : {element.col1TextBottom}
+                        <div className={DCss.col1Text}>
+                          <div className={DCss.textTop}>
+                            {element.col1TextTop}
+                          </div>
+                          <div className={DCss.textBottom}>
+                            Category : {element.col1TextBottom}
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    </Link>
                   </td>
                   <td className={DCss.row} id={DCss.price}>
                     {element.price}
