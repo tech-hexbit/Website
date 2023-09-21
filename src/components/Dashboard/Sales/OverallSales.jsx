@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
+// state
+import AuthContext from "./../../../store/auth-context";
+
 // axios
 import axios from "axios";
 
@@ -105,6 +108,33 @@ export default function OverallSales() {
   useEffect(() => {
     loadData();
   }, []);
+
+  const authCtx = useContext(AuthContext);
+
+  const loadData = async () => {
+    setLoad(true);
+
+    try {
+      const response = await axios.get("/api/common/Order/all", {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+
+      if (response.data.success) {
+        setOrderDel(response.data.orders);
+        setOrderNumber(response.data.orders?.length);
+
+        setLoad(false);
+      } else {
+        setLoad(false);
+
+        console.log(e);
+      }
+    } catch (e) {
+      setLoad(false);
+
+      console.log(e);
+    }
+  };
 
   return (
     <div className={osCss.mainDiv}>
