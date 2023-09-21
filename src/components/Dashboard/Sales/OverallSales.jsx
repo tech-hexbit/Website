@@ -384,7 +384,7 @@ export default function OverallSales() {
                             stroke-linejoin="round"
                             class="lucide lucide-save"
                             onClick={() => {
-                              setEdit(!edit);
+                              UpdateData(val._id);
                             }}
                           >
                             <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
@@ -404,7 +404,9 @@ export default function OverallSales() {
                             stroke-linejoin="round"
                             class="lucide lucide-pencil"
                             className={osCss.lucidePencil}
-                            onClick={UpdateData}
+                            onClick={() => {
+                              setEdit(!edit);
+                            }}
                           >
                             <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
                             <path d="m15 5 4 4" />
