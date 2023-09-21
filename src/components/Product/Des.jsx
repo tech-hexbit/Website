@@ -44,6 +44,28 @@ export default function Des() {
           Perfect Grip And Durability.
         </p>
       </div>
+
+      <div className={DCss.mDiv}>
+        <p className={DCss.subTitlePTag}>Product description :</p>
+        <table>
+          <tr>
+            <td className={DCss.headingName}>Category :</td>
+            <td className={DCss.desName}>Shoes</td>
+          </tr>
+          <tr>
+            <td className={DCss.headingName}>Brand :</td>
+            <td className={DCss.desName}>Asus</td>
+          </tr>
+          <tr>
+            <td className={DCss.headingName}>Color :</td>
+            <td className={DCss.desName}>Nave Blue</td>
+          </tr>
+          <tr>
+            <td className={DCss.headingName}>Weight :</td>
+            <td className={DCss.desName}>121</td>
+          </tr>
+        </table>
+      </div>
     </>
   );
 }
