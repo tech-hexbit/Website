@@ -400,7 +400,14 @@ export default function OverallSales() {
                         <input type="checkbox" />
                       </td>
                       <td>#{val._id.slice(-4)}</td>
-                      <td>{val.ONDCBilling.name}</td>
+                      <td>
+                        <Link
+                          to={`/me/orderdetails/${val._id}`}
+                          className="LinkStyle"
+                        >
+                          {val.ONDCBilling.name}
+                        </Link>
+                      </td>
                       <td>{val.amount}</td>
                       <td>{val.when.date}</td>
                       <td>{val.status}</td>
