@@ -1,10 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+
+// state
+import AuthContext from "./../../../store/auth-context";
+
+// axios
+import axios from "axios";
+
+// MicroInteraction
+import Load from "./../../../MicroInteraction/LoadBlack";
 
 // Css
 import osCss from "./Css/overallSales.module.css";
+import { Update } from "@mui/icons-material";
 
 export default function OverallSales() {
+  const [orderDel, setOrderDel] = useState([]);
+  const [edit, setEdit] = useState(false);
+  const [load, setLoad] = useState(false);
+  const [selectedValue, setSelectedValue] = useState("");
   const [active, setActive] = useState({
     pdt: true,
     fashion: false,
@@ -12,89 +26,61 @@ export default function OverallSales() {
     furniture: false,
   });
 
-  const data = [
-    {
-      orderId: "#617GF",
-      customer: "Jonathan James",
-      product: "Adidas Mens Restound M Running Shoe",
-      price: "₹ 1,699",
-      order: "10-04-2023",
-      payment: "Paytm",
-      status: "Delivered",
-    },
-    {
-      orderId: "#617GF",
-      customer: "Jonathan James",
-      product: "Adidas Mens Restound M Running Shoe",
-      price: "₹ 1,699",
-      order: "10-04-2023",
-      payment: "Paytm",
-      status: "Delivered",
-    },
-    {
-      orderId: "#617GF",
-      customer: "Jonathan James",
-      product: "Adidas Mens Restound M Running Shoe",
-      price: "₹ 1,699",
-      order: "10-04-2023",
-      payment: "Paytm",
-      status: "Pending",
-    },
-    {
-      orderId: "#617GF",
-      customer: "Jonathan James",
-      product: "Adidas Mens Restound M Running Shoe",
-      price: "₹ 1,699",
-      order: "10-04-2023",
-      payment: "Paytm",
-      status: "Delivered",
-    },
-    {
-      orderId: "#617GF",
-      customer: "Jonathan James",
-      product: "Adidas Mens Restound M Running Shoe",
-      price: "₹ 1,699",
-      order: "10-04-2023",
-      payment: "Paytm",
-      status: "Returned",
-    },
-    {
-      orderId: "#617GF",
-      customer: "Jonathan James",
-      product: "Adidas Mens Restound M Running Shoe",
-      price: "₹ 1,699",
-      order: "10-04-2023",
-      payment: "Paytm",
-      status: "Pending",
-    },
-    {
-      orderId: "#617GF",
-      customer: "Jonathan James",
-      product: "Adidas Mens Restound M Running Shoe",
-      price: "₹ 1,699",
-      order: "10-04-2023",
-      payment: "Paytm",
-      status: "Delivered",
-    },
-    {
-      orderId: "#617GF",
-      customer: "Jonathan James",
-      product: "Adidas Mens Restound M Running Shoe",
-      price: "₹ 1,699",
-      order: "10-04-2023",
-      payment: "Paytm",
-      status: "Delivered",
-    },
-    {
-      orderId: "#617GF",
-      customer: "Jonathan James",
-      product: "Adidas Mens Restound M Running Shoe",
-      price: "₹ 1,699",
-      order: "10-04-2023",
-      payment: "Paytm",
-      status: "Returned",
-    },
-  ];
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const authCtx = useContext(AuthContext);
+
+  const handleSelectChange = (event) => {
+    setSelectedValue(event.target.value);
+  };
+
+  const loadData = async () => {
+    setLoad(true);
+
+    try {
+      const response = await axios.get("/api/common/Order/all", {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+
+      if (response.data.success) {
+        setOrderDel(response.data.orderList);
+
+        setLoad(false);
+      } else {
+        setLoad(false);
+
+        console.log(e);
+      }
+    } catch (e) {
+      setLoad(false);
+
+      console.log(e);
+    }
+  };
+
+  const UpdateData = async (id) => {
+    try {
+      let data = {
+        value: selectedValue,
+        Id: id,
+      };
+
+      const response = await axios.post("/api/common/Order/UpdateState", data, {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+
+      console.log(response.data);
+      console.log(data);
+    } catch (e) {
+      setLoad(false);
+
+      console.log(e);
+    }
+
+    setEdit(!edit);
+  };
 
   return (
     <div className={osCss.mainDiv}>
@@ -119,7 +105,7 @@ export default function OverallSales() {
         </div>
       </div>
       <div className={osCss.middle}>
-        <div className={osCss.tabMain}>
+        {/* <div className={osCss.tabMain}>
           <div className={osCss.tabs}>
             <div
               style={{
@@ -191,7 +177,7 @@ export default function OverallSales() {
             </div>
           </div>
           <div></div>
-        </div>
+        </div> */}
         <div className={osCss.table}>
           <table style={{ borderCollapse: "collapse" }}>
             <tr>
@@ -234,7 +220,7 @@ export default function OverallSales() {
                   />
                 </svg>
               </th>
-              <th>
+              {/* <th>
                 Product{" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -252,7 +238,7 @@ export default function OverallSales() {
                     fill="#777777"
                   />
                 </svg>
-              </th>
+              </th> */}
               <th>
                 Price{" "}
                 <svg
@@ -349,44 +335,109 @@ export default function OverallSales() {
                 </svg>
               </th>
             </tr>
-            {data.map((element, i) => {
-              return (
-                <>
-                  <tr key={i}>
-                    <td>
-                      <input type="checkbox" />
-                    </td>
-                    <td>{element.orderId}</td>
-                    <td>{element.customer}</td>
-                    <td>
-                      <Link to="/me/orderdetails" className="LinkStyle">
-                        {element.product}
-                      </Link>
-                    </td>
-                    <td>{element.price}</td>
-                    <td>{element.order}</td>
-                    <td>{element.payment}</td>
-                    <td
-                      style={{
-                        color:
-                          element.status == "Delivered"
-                            ? "#4BB543"
-                            : element.status == "Pending"
-                            ? "#3F81E0"
-                            : "#D0342C",
-                      }}
-                    >
-                      {element.status}
-                    </td>
-                    <td>
-                      <div className={osCss.dots}>
-                        <div style={{ marginTop: "-5px" }}>...</div>
-                      </div>
-                    </td>
-                  </tr>
-                </>
-              );
-            })}
+
+            {orderDel?.length > 0 ? (
+              <>
+                {orderDel.map((val, key) => {
+                  return (
+                    <tr key={key}>
+                      <td>
+                        <input type="checkbox" />
+                      </td>
+                      <td>#{val._id.slice(-4)}</td>
+                      <td>
+                        <Link
+                          to={`/me/orderdetails/${val._id}`}
+                          className="LinkStyle"
+                        >
+                          {val.ONDCBilling.name}
+                        </Link>
+                      </td>
+                      <td>{val.amount}</td>
+                      <td>{val.when.date}</td>
+                      <td>{val.status}</td>
+
+                      <td
+                        style={{
+                          color:
+                            val.state == "Accepted"
+                              ? "#4BB543"
+                              : val.state == "In-progress"
+                              ? "#3F81E0"
+                              : "#D0342C",
+                        }}
+                      >
+                        {edit ? (
+                          <>
+                            <select
+                              name=""
+                              id=""
+                              value={selectedValue}
+                              onChange={handleSelectChange}
+                            >
+                              <option value="none" selected hidden>
+                                Select the Updated Status
+                              </option>
+                              <option value="Accepted">Accepted</option>
+                              <option value="In-progress">In-progress</option>
+                              <option value="Completed">Completed</option>
+                              <option value="Cancelled">Cancelled</option>
+                            </select>
+                          </>
+                        ) : (
+                          <>{val.state}</>
+                        )}
+
+                        {edit ? (
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-save"
+                            onClick={() => {
+                              UpdateData(val._id);
+                            }}
+                          >
+                            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
+                            <polyline points="17 21 17 13 7 13 7 21" />
+                            <polyline points="7 3 7 8 15 8" />
+                          </svg>
+                        ) : (
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-pencil"
+                            className={osCss.lucidePencil}
+                            onClick={() => {
+                              setEdit(!edit);
+                            }}
+                          >
+                            <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+                            <path d="m15 5 4 4" />
+                          </svg>
+                        )}
+                      </td>
+                      <td>{val.buyer}</td>
+                    </tr>
+                  );
+                })}
+              </>
+            ) : (
+              <p>No Orders</p>
+            )}
           </table>
         </div>
       </div>
