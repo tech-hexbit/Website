@@ -102,7 +102,9 @@ export default function OverallSales() {
     },
   ];
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    loadData();
+  }, []);
 
   return (
     <div className={osCss.mainDiv}>
