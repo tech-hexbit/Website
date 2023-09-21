@@ -1,204 +1,179 @@
+.order-detail {
+  box-shadow: 0px 1px;
+}
+.order-id1 {
+  width: 1140px;
+  height: 70px;
+  flex-shrink: 0;
+  display: flex;
+  padding-top: 50px;
+}
+.details {
+  display: flex;
+  justify-content: space-between;
+}
+.customer-details {
+  padding-top: 35px;
+  font-size: 20px;
+}
+.email {
+  display: flex;
+}
+.mail {
+  margin-left: 30px;
+}
+.mobile {
+  display: flex;
+}
+.phone {
+  margin-left: 30px;
+}
+.customer-details1 {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.shipping-address {
+  padding-top: 35px;
+  font-size: 20px;
+}
+.payment-details {
+  padding-top: 35px;
+  padding-right: 110px;
+  font-size: 20px;
+}
+.payment-method {
+  padding: 10px;
+  margin-top: 10px;
+}
+.name-text {
+  padding: 15px;
+  margin-top: 5px;
+  font-size: 18px;
+  color: gray;
+}
+.c-name {
+  color: gray;
+}
+.mail {
+  margin-bottom: 29px;
+  color: gray;
+}
+.addressdetails {
+  margin-top: 15px;
 
-.order-detail{
-    background-color: orange;
-    box-shadow:0px 1px;
-   
+  font-size: 18px;
+  color: gray;
 }
-.order-id1{
-    width: 1140px;
-    height: 70px;
-    flex-shrink: 0;
-    display: flex;
-    padding-top: 50px;
+.name {
+  margin-bottom: 29px;
 }
-.details{
-    display: flex;
-    justify-content: space-between;
+.adress {
+  margin-top: 20px;
 }
-.customer-details{
-    padding-top: 35px;
-    font-size: 20px;
-    
-
+.transactions {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  color: gray;
 }
-.email{
-    display: flex;
+.t-id {
+  margin-top: 5px;
+  font-size: 18px;
+  color: gray;
 }
-.mail{
-    margin-left: 30px;
+.p-method,
+.c-holdername,
+.cno,
+.div3 {
+  font-size: 18px;
 }
-.mobile{
-    display: flex;
+.div3 {
+  padding-top: 10px;
 }
-.phone{
-    margin-left: 30px;
+.details-list {
+  margin-left: -9px;
+  padding-top: 4px;
 }
-.customer-details1{
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+.product-details1 {
+  text-decoration: solid;
+  font-size: 20px;
 }
-.shipping-address{
-    padding-top: 35px;
-    font-size: 20px;
-    
+.products-table th {
+  padding-top: 50px;
 }
-.payment-details{
-    padding-top: 35px;
-    padding-right: 110px;
-    font-size: 20px;
+.products-table tbody td {
+  padding-left: 100px;
+  margin-bottom: 50px;
+  font-size: 20px;
 }
-.payment-method{
-    padding: 10px;
-    margin-top: 10px;
-
+td {
 }
-.name-text{
-    padding: 15px;
-    margin-top: 5px;
-    font-size: 18px;
-    color: gray;
-    
+table,
+th,
+td {
+  border-collapse: collapse;
+  padding: 10px;
 }
-.c-name{
-    color: gray;
-   
+.products-table table {
+  width: 100%;
 }
-.mail{
-    margin-bottom: 29px;
-    color: gray;
+.text-wrapper {
+  font-size: 20px;
+  padding-top: 60px;
 }
-.addressdetails{
-     
-    margin-top: 15px;
-    
-    font-size: 18px;
-    color: gray;
+.logistic-img {
+  height: 15vw;
 }
-.name{
-    margin-bottom: 29px;
+.div {
+  font-size: 20px;
 }
-.adress{
-    margin-top: 20px;
+.name {
+  display: flex;
 }
-.transactions{
-    display: flex;
-    align-items: center;
-    font-size: 18px;
-    color: gray;
-   
+.product_rating {
+  display: flex;
+  margin-left: 130px;
 }
-.t-id{
-    margin-top: 5px;
-    font-size: 18px;
-    color: gray;
+.text-wrapper-2 {
+  color: gray;
 }
-.p-method,.c-holdername,.cno,.div3{
-    font-size: 18px;
-    
+.text-content {
+  display: flex;
 }
-.div3{
-    padding-top: 10px;
+.total-bill {
+  padding-top: 60px;
+  padding-left: 150px;
 }
-.details-list{
-    margin-left: -9px;
-    padding-top: 4px;
+.tbtext {
+  font-size: 25px;
+  font-weight: bold;
 }
-.product-details1{
-    text-decoration: solid;
-    font-size: 20px;
+.total-billdetails {
+  padding-top: 40px;
 }
-.products-table th{
-    padding-top: 50px;
-    
-    
-   
+.dt1 {
+  display: flex;
+  padding-top: 20px;
+  align-items: center;
 }
- .products-table tbody td{
-    padding-left: 100px;
-    margin-bottom: 50px;
-    font-size: 20px;
-   
-} 
- td {
-   
-  }
-  table, th, td {
-    border-collapse: collapse;
-    padding: 10px;
-  }
-.products-table table{
-    width: 100%;
+.amt1 {
+  margin-left: 550px;
 }
-.text-wrapper{
-    font-size: 20px;
-    padding-top: 60px;
-    
+.amt2 {
+  margin-left: 540px;
 }
-.logistic-img{
-
-    height:15vw;
+.amt3 {
+  margin-left: 550px;
 }
-.div{
-    font-size: 20px;
-    
+.amt4 {
+  margin-left: 587px;
 }
-.name{
-    display: flex;  
-    
+.total-amt {
+  display: flex;
+  padding-top: 40px;
+  font-size: 18px;
+  font-weight: bold;
 }
-  .product_rating{
-    display: flex;
-    margin-left: 130px;
-  }
-.text-wrapper-2{
-     color: gray;
+.amtbold {
+  margin-left: 485px;
+  font-weight: bold;
 }
-.text-content{
-    display: flex;
-    
-}
-.total-bill{
-    padding-top: 60px;
-    padding-left: 150px;
-}
-.tbtext{
-    font-size: 25px;
-    font-weight: bold;
-}
-.total-billdetails{
-    padding-top: 40px;
-    
-}
-.dt1{
-    display: flex;
-    padding-top: 20px;
-    align-items: center;
-}
-.amt1{
-    margin-left: 550px;
-   
-}
-.amt2{
-    margin-left: 540px;
-   
-}
-.amt3{
-    margin-left: 550px;
-   
-}
-.amt4{
-    margin-left: 587px;
-   
-}
-.total-amt{
-    display: flex;
-    padding-top: 40px;
-    font-size: 18px;
-    font-weight: bold;
-}
-.amtbold{
-    margin-left: 485px;
-    font-weight: bold;
-}
-
-
- 
