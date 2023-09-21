@@ -28,3 +28,10 @@
   line-height: 19px;
   letter-spacing: 0.14px;
 }
+
+.desDiv2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0px 20px;
+}
