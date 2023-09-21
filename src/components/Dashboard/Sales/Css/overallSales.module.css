@@ -1,7 +1,6 @@
 * {
   box-sizing: border-box;
 }
-
 .mainDiv {
   font-family: "Open Sans", sans-serif;
   background-color: #fff;
@@ -62,6 +61,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
+  width: 100%;
 }
 
 .tabMain {
@@ -90,7 +90,6 @@
   overflow-x: scroll;
   width: 100%;
 }
-
 ::-webkit-scrollbar {
   display: none;
 }
@@ -165,7 +164,6 @@
   border: 1px solid #3f81e0;
   color: #777;
 }
-
 td:first-child,
 th:first-child {
   position: sticky;
@@ -173,14 +171,12 @@ th:first-child {
   z-index: 2;
   box-shadow: #777;
 }
-
 .table tr td:nth-child(2),
 .table tr th:nth-child(2) {
   position: sticky;
   left: 20px;
   z-index: 2;
 }
-
 tr:nth-child(odd) td {
   background: #fff;
 }
@@ -188,7 +184,6 @@ tr:nth-child(odd) td {
 tr:nth-child(even) td {
   background: #fff;
 }
-
 /* @media only screen and (max-width: 1260px) {
     .table{
       height: 550px;
@@ -219,14 +214,12 @@ tr:nth-child(even) td {
   .table table {
     width: 100vw;
   }
-
   td:nth-child(2),
   th:nth-child(2) {
     /* box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.6); */
     background-color: #fff;
     z-index: 10;
   }
-
   td:first-child,
   th:first-child {
     /* box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.6); */
@@ -236,7 +229,6 @@ tr:nth-child(even) td {
     z-index: 10;
   }
 }
-
 @media screen and (max-width: 960px) {
   table {
     margin: auto;
@@ -246,7 +238,6 @@ tr:nth-child(even) td {
     width: fit-content;
     max-width: 100%;
   }
-
   td,
   th {
     padding: 0.5rem;
@@ -268,29 +259,24 @@ tr:nth-child(even) td {
     color: rgb(20, 20, 20);
   }
 }
-
 @media screen and (max-width: 790px) {
   .tabs {
     display: flex;
     flex-direction: column;
   }
-
   .table {
     padding: 0px;
   }
-
   .filters {
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding-top: 35px;
   }
-
   .search {
     width: 100%;
     height: 50%;
   }
-
   .search input {
     width: 100%;
     height: 100%;
