@@ -184,6 +184,12 @@ tr:nth-child(odd) td {
 tr:nth-child(even) td {
   background: #fff;
 }
+
+.lucidePencil {
+  margin-left: 5px;
+  cursor: pointer;
+}
+
 /* @media only screen and (max-width: 1260px) {
     .table{
       height: 550px;
