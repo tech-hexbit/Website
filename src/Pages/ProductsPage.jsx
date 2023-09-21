@@ -7,6 +7,11 @@ export default function ProductsPage() {
   return (
     <div className={PPCss.mDiv}>
       <p className={PPCss.AddHPTag}>Product Details</p>
+
+      <div className={PPCss.AddHPTag}>
+        <div></div>
+        <div></div>
+      </div>
     </div>
   );
 }
