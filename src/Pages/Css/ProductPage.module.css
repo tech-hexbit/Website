@@ -11,3 +11,18 @@
   border-color: #d3d3d3;
   padding-bottom: 7px;
 }
+
+.divDiv {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.leftDiv {
+  width: 30%;
+}
+
+.productImg {
+  width: 100%;
+  border-radius: 5px;
+}
