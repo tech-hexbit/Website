@@ -411,7 +411,18 @@ export default function OverallSales() {
                       <td>{val.amount}</td>
                       <td>{val.when.date}</td>
                       <td>{val.status}</td>
-                      <td>{val.state}</td>
+                      <td
+                        style={{
+                          color:
+                            val.state == "Accepted"
+                              ? "#4BB543"
+                              : val.state == "Created"
+                              ? "#3F81E0"
+                              : "#D0342C",
+                        }}
+                      >
+                        {val.state}
+                      </td>
                       <td>{val.buyer}</td>
                     </tr>
                   );
