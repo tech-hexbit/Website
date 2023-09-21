@@ -8,7 +8,7 @@ import CBss from "./Css/ColorBox.module.css";
 
 export default function Box(props) {
   return (
-    <div className={CBss.CBss}>
+    <div className={CBss.Midv}>
       <p className={CBss.subTitlePTag}>Color</p>
       <div className={CBss.boxesDiv}>
         <ProductColor
