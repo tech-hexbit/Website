@@ -52,3 +52,8 @@
   letter-spacing: 0.14px;
   margin: 2px 0px;
 }
+
+.boxmDiv {
+  display: flex;
+  justify-content: space-between;
+}
