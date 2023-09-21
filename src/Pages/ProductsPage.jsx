@@ -17,7 +17,7 @@ export default function ProductsPage() {
           />
         </div>
         <div className={PPCss.rightDiv}>
-          <p>Adidas Mens Restound M Running Shoe</p>
+          <p className={PPCss.titleName}>Adidas Mens Restound M Running Shoe</p>
         </div>
       </div>
     </div>
