@@ -330,7 +330,7 @@ export default function OverallSales() {
                 </svg>
               </th>
               <th>
-                Action{" "}
+                Buyer
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="9"
