@@ -1,3 +1,15 @@
+.Midv {
+  border-style: dashed;
+  border-width: 1px;
+  border-color: #ddd;
+  padding: 5px 12px;
+  transition: all 0.3s;
+}
+
+.mDiv:hover {
+  border-color: #56117c;
+}
+
 .subTitlePTag {
   font-size: 16px;
   font-style: normal;
