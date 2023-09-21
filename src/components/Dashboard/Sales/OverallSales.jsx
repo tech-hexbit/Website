@@ -18,6 +18,7 @@ export default function OverallSales() {
   const [orderDel, setOrderDel] = useState([]);
   const [edit, setEdit] = useState(false);
   const [load, setLoad] = useState(false);
+  const [selectedValue, setSelectedValue] = useState("");
   const [active, setActive] = useState({
     pdt: true,
     fashion: false,
@@ -30,6 +31,10 @@ export default function OverallSales() {
   }, []);
 
   const authCtx = useContext(AuthContext);
+
+  const handleSelectChange = (event) => {
+    setSelectedValue(event.target.value);
+  };
 
   const loadData = async () => {
     setLoad(true);
@@ -55,17 +60,19 @@ export default function OverallSales() {
     }
   };
 
-  const UpdateData = async (id, state) => {
+  const UpdateData = async (id) => {
     try {
       let data = {
-        value: state,
+        value: selectedValue,
         Id: id,
       };
 
+      const response = await axios.post("/api/common/Order/UpdateState", data, {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+
+      console.log(response.data);
       console.log(data);
-      // const response = await axios.post("/api/common/Order/UpdateState", {
-      //   headers: { Authorization: `${authCtx.token}` },
-      // });
     } catch (e) {
       setLoad(false);
 
@@ -362,7 +369,12 @@ export default function OverallSales() {
                       >
                         {edit ? (
                           <>
-                            <select name="" id="">
+                            <select
+                              name=""
+                              id=""
+                              value={selectedValue}
+                              onChange={handleSelectChange}
+                            >
                               <option value="none" selected hidden>
                                 Select the Updated Status
                               </option>
@@ -389,7 +401,7 @@ export default function OverallSales() {
                             stroke-linejoin="round"
                             class="lucide lucide-save"
                             onClick={() => {
-                              UpdateData(val.OrderID, val.state);
+                              UpdateData(val._id);
                             }}
                           >
                             <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
