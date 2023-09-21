@@ -28,11 +28,11 @@ export default function ProductsPage() {
             Seller: Adidas Published on: 10 March 2022
           </p>
 
-          <div>
-            <Box />
-            <Box />
-            <Box />
-            <Box />
+          <div className={PPCss.boxmDiv}>
+            <Box title="Stock" value={35} />
+            <Box title="Stock" value={35} />
+            <Box title="Stock" value={35} />
+            <Box title="Stock" value={35} />
           </div>
         </div>
       </div>
