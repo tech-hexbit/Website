@@ -160,7 +160,7 @@ export default function OverallSales() {
         </div>
       </div>
       <div className={osCss.middle}>
-        <div className={osCss.tabMain}>
+        {/* <div className={osCss.tabMain}>
           <div className={osCss.tabs}>
             <div
               style={{
@@ -232,7 +232,7 @@ export default function OverallSales() {
             </div>
           </div>
           <div></div>
-        </div>
+        </div> */}
         <div className={osCss.table}>
           <table style={{ borderCollapse: "collapse" }}>
             <tr>
