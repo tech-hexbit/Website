@@ -390,6 +390,24 @@ export default function OverallSales() {
                 </svg>
               </th>
             </tr>
+
+            {orderDel?.length > 0 ? (
+              <>
+                {orderDel.map((val, key) => {
+                  return (
+                    <tr key={key}>
+                      <td>
+                        <input type="checkbox" />
+                      </td>
+                      <td>{val._id}</td>
+                    </tr>
+                  );
+                })}
+              </>
+            ) : (
+              <p>No Orders</p>
+            )}
+
             {data.map((element, i) => {
               return (
                 <>
