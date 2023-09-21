@@ -2,6 +2,7 @@ import React from "react";
 
 // components
 import Box from "./../components/Product/Box";
+import ColorBox from "./../components/Product/ColorBox";
 
 // css
 import PPCss from "./Css/ProductPage.module.css";
@@ -35,9 +36,7 @@ export default function ProductsPage() {
             <Box title="Stock" value={35} />
           </div>
 
-          <div>
-            <p className={PPCss.subTitlePTag}>Color</p>
-          </div>
+          <ColorBox />
         </div>
       </div>
     </div>
