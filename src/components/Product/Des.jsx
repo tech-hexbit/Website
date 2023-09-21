@@ -14,6 +14,8 @@ export default function Des() {
           Perfect Grip And Durability.
         </p>
       </div>
+
+      <div className={DCss.mDiv}></div>
     </>
   );
 }
