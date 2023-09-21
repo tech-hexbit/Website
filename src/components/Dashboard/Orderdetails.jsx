@@ -1,6 +1,10 @@
 import React from "react";
-import "../Dashboard/Css/Orderdetails.css";
+
+// icons
 import { Mail, Phone } from "@mui/icons-material";
+
+// css
+import "../Dashboard/Css/Orderdetails.css";
 
 const Orderdetails = () => {
   return (
