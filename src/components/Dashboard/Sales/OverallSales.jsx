@@ -122,10 +122,7 @@ export default function OverallSales() {
       });
 
       if (response.data.success) {
-        console.log(response.data.orderList);
-
-        // setOrderDel(response.data.orders);
-        // setOrderNumber(response.data.orders?.length);
+        setOrderDel(response.data.orderList);
 
         setLoad(false);
       } else {
