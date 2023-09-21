@@ -4,5 +4,9 @@ import React from "react";
 import BCss from "./Css/Box.module.css";
 
 export default function Box(props) {
-  return <div className={BCss.mDiv}>Box</div>;
+  return (
+    <div className={BCss.mDiv}>
+      <p>{props.title}</p>
+    </div>
+  );
 }
