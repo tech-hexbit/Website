@@ -1,5 +1,8 @@
 import React from "react";
 
-export default function Box() {
-  return <div>Box</div>;
+// css
+import BCss from "./Css/Box.module.css";
+
+export default function Box(props) {
+  return <div className={BCss.mDiv}>Box</div>;
 }
