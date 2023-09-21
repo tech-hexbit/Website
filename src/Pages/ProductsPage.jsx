@@ -34,6 +34,10 @@ export default function ProductsPage() {
             <Box title="Stock" value={35} />
             <Box title="Stock" value={35} />
           </div>
+
+          <div>
+            <p className={PPCss.subTitlePTag}>Color</p>
+          </div>
         </div>
       </div>
     </div>
