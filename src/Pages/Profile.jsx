@@ -9,6 +9,7 @@ import ProfileMain from "./../components/Dashboard/Profile";
 import Categories from "./../components/Dashboard/Categories";
 import AddProduct from "./../components/Dashboard/AddProduct";
 import Dashboard from "./../components/Dashboard/DashboardMain";
+import  Orderdetails from "./../components/Dashboard/Orderdetails"
 //          || SideBar
 import UserSideBar from "./../components/Dashboard/UserSideBar";
 
@@ -33,6 +34,7 @@ export default function Profile() {
           <Route path="/sales" element={<Sales />} />
           <Route path="/gateway" element={<Gateway />} />
           <Route path="/addProduct" element={<AddProduct />} />
+          <Route path="/orderdetails" element={<Orderdetails />} />
         </Routes>
       </div>
     </div>
