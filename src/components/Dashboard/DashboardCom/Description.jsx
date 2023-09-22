@@ -71,7 +71,11 @@ export default function Description(props) {
         />
         <DesCard
           heading="Total Earnings"
-          value={orderDel.totalAmount}
+          value={orderDel.totalAmount.toLocaleString("en-IN", {
+            maximumFractionDigits: 2,
+            style: "currency",
+            currency: "INR",
+          })}
           change="+5.21%"
           arrow="decrease"
           boxof="Revenue"
