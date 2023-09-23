@@ -132,7 +132,7 @@ export default function RecentOrders() {
                 </div>
               </>
             ) : (
-              <p className={RCss.NoOrders}>No Orders</p>
+              <p className="NoOrders">No Orders</p>
             )}
           </>
         )}
