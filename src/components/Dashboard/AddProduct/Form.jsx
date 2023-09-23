@@ -605,10 +605,16 @@ export default function Form() {
         <p className={FCss.labelDes}>Add additional product images</p>
 
         <div className={FCss.addimgDivMain}>
-          <div className={FCss.upAddImg}>
-            <img src={upload} alt="" srcset="" />
-            <p className={FCss.upAddImgDragPTag}>
-              Drag and drop files here OR click to upload
+
+          <div {...getRootProps({ className: "dropzone" })}>
+            <input className="input-zone" {...getInputProps()} />
+            <p className="dropzone-content">
+              <div className={FCss.upAddImg}>
+                <img src={upload} alt="" srcset="" />
+                <p className={FCss.upAddImgDragPTag}>
+                  Drag and drop files here OR click to upload
+                </p>
+              </div>
             </p>
           </div>
         </div>
