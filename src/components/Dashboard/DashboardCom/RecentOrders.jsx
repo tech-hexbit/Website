@@ -57,7 +57,7 @@ export default function RecentOrders() {
 
       <div className={RCss.middle}>
         {load ? (
-          <div className={RCss.loadCenterDiv}>
+          <div className="loadCenterDiv">
             <Load />
           </div>
         ) : (
