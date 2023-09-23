@@ -105,6 +105,12 @@ export default function Form() {
     console.log(data);
   };
 
+
+  const [image, setImage] = useState('')
+  const handleImage = (e) => {
+    console.log(e.target.files);
+    setImage(e.target.files[0])
+  }
   // useEffect(() => {
   //   console.log(data);
   // }, [data]);
@@ -578,8 +584,10 @@ export default function Form() {
 
         <p className={FCss.labelDes}>Add the product main image</p>
         <div className={FCss.addimgDivMain}>
-          <div className={FCss.addImgDiv}>
-            <p>+</p>
+          {/* <div className={FCss.addImgDiv}> */}
+          <div>
+            <input type="file" name="file" onChange={handleImage} />
+            {/* <p>+</p> */}
           </div>
         </div>
 
