@@ -16,7 +16,6 @@
     "@mui/material": "^5.14.10",
     "axios": "^1.4.0",
     "bcryptjs-react": "^2.4.6",
-    "chart.js": "^3.9.1",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-blurhash": "^0.3.0",
