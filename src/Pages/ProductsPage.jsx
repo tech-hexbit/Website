@@ -1,4 +1,11 @@
-import React from "react";
+import React, { useEffect, useContext, useState } from "react";
+import { useParams } from "react-router-dom";
+
+// axios
+import axios from "axios";
+
+// state
+import AuthContext from "../store/auth-context";
 
 // components
 import Box from "./../components/Product/Box";
@@ -10,37 +17,66 @@ import ColorBox from "./../components/Product/ColorBox";
 import PPCss from "./Css/ProductPage.module.css";
 
 export default function ProductsPage() {
+  const [res, setres] = useState();
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    loadProducts();
+  }, []);
+
+  const authCtx = useContext(AuthContext);
+
+  const loadProducts = async () => {
+    try {
+      const response = await axios.get(`/api/common/product/details/${id}`, {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+
+      if (response.data.success) {
+        setres(response?.data?.ProductDetail);
+      } else {
+        console.log("error");
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
   return (
     <div className={PPCss.mDiv}>
       <p className={PPCss.AddHPTag}>Product Details</p>
 
-      <div className={PPCss.divDiv}>
-        <div className={PPCss.leftDiv}>
-          <img
-            src="https://images.unsplash.com/photo-1580910051074-3eb694886505?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1965&q=80"
-            alt=""
-            className={PPCss.productImg}
-          />
-        </div>
-        <div className={PPCss.rightDiv}>
-          <p className={PPCss.titleName}>Adidas Mens Restound M Running Shoe <button>Edit</button></p>
-          <p className={PPCss.pID}>Product id: 229FR1</p>
-          <p className={PPCss.pSeller}>Seller: Adidas</p>
-          <p className={PPCss.pPublished}>
-            Seller: Adidas Published on: 10 March 2022
-          </p>
-          <div className={PPCss.boxmDiv}>
-            <Box title="Prices" value={35} />
-            <Box title="Stock" value={35} />
-            <Box title="Stock" value={35} />
-            <Box title="Stock" value={35} />
+      {res ? (
+        <div className={PPCss.divDiv}>
+          <div className={PPCss.leftDiv}>
+            <img
+              src={res.descriptor.images[0]}
+              alt=""
+              className={PPCss.productImg}
+            />
           </div>
+          <div className={PPCss.rightDiv}>
+            <p className={PPCss.titleName}>{res.descriptor.name}</p>
+            <p className={PPCss.pID}>{res._id}</p>
+            <p className={PPCss.pSeller}>seller</p>
+            <p className={PPCss.pPublished}>
+              Seller:seller Published on: {res.when.date}
+            </p>
+            <div className={PPCss.boxmDiv}>
+              <Box res={res} />
+              <Box res={res} />
+              <Box res={res} />
+              <Box res={res} />
+            </div>
 
-          <ColorBox />
-          <SizeBox />
-          <Des />
+            <ColorBox res={res} />
+            <SizeBox res={res} />
+            <Des res={res} />
+          </div>
         </div>
-      </div>
+      ) : (
+        <p>No Orders</p>
+      )}
     </div>
   );
 }
