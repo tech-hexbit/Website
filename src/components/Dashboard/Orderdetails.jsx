@@ -56,7 +56,7 @@ const Orderdetails = () => {
           <div className={odcss["order-id"]}>
             <div className={odcss["order-id1"]}>
               <div className={odcss["od-1"]}>Order id :</div>
-              <div className={odcss["od-1"]}>#GHG34</div>
+              <div className={odcss["od-1"]}>#{res._id.slice(-4)}</div>
             </div>
           </div>
           <div className={odcss.details}>
