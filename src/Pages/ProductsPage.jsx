@@ -1,4 +1,8 @@
-import React from "react";
+import React, { useEffect, useContext, useState } from "react";
+import { useParams } from "react-router";
+
+// state
+import AuthContext from "../store/auth-context";
 
 // components
 import Box from "./../components/Product/Box";
@@ -10,6 +14,30 @@ import ColorBox from "./../components/Product/ColorBox";
 import PPCss from "./Css/ProductPage.module.css";
 
 export default function ProductsPage() {
+  const [res, setres] = useState();
+
+  const { id } = useParams();
+
+  const authCtx = useContext(AuthContext);
+
+  useEffect(() => {
+    loadProducts();
+  }, []);
+
+  const loadProducts = async () => {
+    try {
+      console.log(id);
+      const response = await axios.get(`/api/common/product/details/${id}`, {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+      console.log(response);
+      setres(response?.data?.ProductDetail);
+      console.log(res);
+      return response.data.ProductDetails;
+    } catch (e) {
+      console.log(e);
+    }
+  };
   return (
     <div className={PPCss.mDiv}>
       <p className={PPCss.AddHPTag}>Product Details</p>
