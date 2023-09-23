@@ -71,19 +71,18 @@ export default function Display() {
       ) : (
         <div className={DCss.table}>
           <table style={{ borderCollapse: "collapse" }}>
-            <tr>
-              <th></th>
-              <th>Product</th>
-              <th>Price</th>
-              <th id={DCss.stock}>Stock</th>
-              <th id={DCss.orders}>Orders</th>
-              <th id={DCss.published}>Published on</th>
-              <th>Action</th>
-            </tr>
             {orderDel?.length > 0 ? (
               <>
+                <tr>
+                  <th></th>
+                  <th>Product</th>
+                  <th>Price</th>
+                  <th id={DCss.stock}>Stock</th>
+                  <th id={DCss.orders}>Orders</th>
+                  <th id={DCss.published}>Published on</th>
+                  <th>Action</th>
+                </tr>
                 {orderDel.map((val, key) => {
-                  console.log(val);
                   return (
                     <>
                       <tr key={key}>
