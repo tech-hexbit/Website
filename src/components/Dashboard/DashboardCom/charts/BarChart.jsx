@@ -1,7 +1,9 @@
 // import React from 'react'
 import "chart.js/auto";
-// import { Chart } from "react-chartjs-2";
-import '../css/barChart.css'
+import { Chart } from "react-chartjs-2";
+
+// css
+import "../css/barChart.css";
 
 export default function BarChart() {
   const data = {
@@ -12,7 +14,6 @@ export default function BarChart() {
         data: [500, 200, 450],
         backgroundColor: ["green", "purple", "blue"],
         maxBarThickness: 14,
-
       },
       //   {
       //     label: "Planning",
@@ -27,12 +28,11 @@ export default function BarChart() {
       //     maxBarThickness: 14,
       //   },
     ],
-   
   };
-  const options={
-    maintainAspectRatio:false ,
-    responsive:true
-  }
+  const options = {
+    maintainAspectRatio: false,
+    responsive: true,
+  };
   return (
     <div className="barChart">
       <Chart data={data} type="bar" options={options} />
