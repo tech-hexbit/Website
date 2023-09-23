@@ -107,47 +107,55 @@ export default function OverallSales() {
       <div className={osCss.middle}>
         <div className={osCss.table}>
           <table style={{ borderCollapse: "collapse" }}>
-            <tr>
-              <th></th>
-              <th className="sticky-col">
-                Order id{" "}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="9"
-                  height="14"
-                  viewBox="0 0 9 14"
-                  fill="none"
-                >
-                  <path
-                    d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                    fill="#777777"
-                  />
-                  <path
-                    d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                    fill="#777777"
-                  />
-                </svg>
-              </th>
-              <th>
-                Customer{" "}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="9"
-                  height="14"
-                  viewBox="0 0 9 14"
-                  fill="none"
-                >
-                  <path
-                    d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                    fill="#777777"
-                  />
-                  <path
-                    d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                    fill="#777777"
-                  />
-                </svg>
-              </th>
-              {/* <th>
+            {load ? (
+              <div className="loadCenterDiv">
+                <Load />
+              </div>
+            ) : (
+              <>
+                {orderDel?.length > 0 ? (
+                  <>
+                    <tr>
+                      <th></th>
+                      <th className="sticky-col">
+                        Order id{" "}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="9"
+                          height="14"
+                          viewBox="0 0 9 14"
+                          fill="none"
+                        >
+                          <path
+                            d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
+                            fill="#777777"
+                          />
+                          <path
+                            d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
+                            fill="#777777"
+                          />
+                        </svg>
+                      </th>
+                      <th>
+                        Customer{" "}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="9"
+                          height="14"
+                          viewBox="0 0 9 14"
+                          fill="none"
+                        >
+                          <path
+                            d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
+                            fill="#777777"
+                          />
+                          <path
+                            d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
+                            fill="#777777"
+                          />
+                        </svg>
+                      </th>
+                      {/* <th>
                 Product{" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -166,111 +174,102 @@ export default function OverallSales() {
                   />
                 </svg>
               </th> */}
-              <th>
-                Price{" "}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="9"
-                  height="14"
-                  viewBox="0 0 9 14"
-                  fill="none"
-                >
-                  <path
-                    d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                    fill="#777777"
-                  />
-                  <path
-                    d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                    fill="#777777"
-                  />
-                </svg>
-              </th>
-              <th>
-                Ordered on{" "}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="9"
-                  height="14"
-                  viewBox="0 0 9 14"
-                  fill="none"
-                >
-                  <path
-                    d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                    fill="#777777"
-                  />
-                  <path
-                    d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                    fill="#777777"
-                  />
-                </svg>
-              </th>
-              <th className={osCss.payment}>
-                Payment method{" "}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="9"
-                  height="14"
-                  viewBox="0 0 9 14"
-                  fill="none"
-                >
-                  <path
-                    d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                    fill="#777777"
-                  />
-                  <path
-                    d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                    fill="#777777"
-                  />
-                </svg>
-              </th>
-              <th className={osCss.payment}>
-                Delivery status{" "}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="9"
-                  height="14"
-                  viewBox="0 0 9 14"
-                  fill="none"
-                >
-                  <path
-                    d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                    fill="#777777"
-                  />
-                  <path
-                    d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                    fill="#777777"
-                  />
-                </svg>
-              </th>
-              <th>
-                Buyer
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="9"
-                  height="14"
-                  viewBox="0 0 9 14"
-                  fill="none"
-                >
-                  <path
-                    d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                    fill="#777777"
-                  />
-                  <path
-                    d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                    fill="#777777"
-                  />
-                </svg>
-              </th>
-            </tr>
-
-            {load ? (
-              <div className="loadCenterDiv">
-                <Load />
-              </div>
-            ) : (
-              <>
-                {orderDel?.length > 0 ? (
-                  <>
+                      <th>
+                        Price{" "}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="9"
+                          height="14"
+                          viewBox="0 0 9 14"
+                          fill="none"
+                        >
+                          <path
+                            d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
+                            fill="#777777"
+                          />
+                          <path
+                            d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
+                            fill="#777777"
+                          />
+                        </svg>
+                      </th>
+                      <th>
+                        Ordered on{" "}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="9"
+                          height="14"
+                          viewBox="0 0 9 14"
+                          fill="none"
+                        >
+                          <path
+                            d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
+                            fill="#777777"
+                          />
+                          <path
+                            d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
+                            fill="#777777"
+                          />
+                        </svg>
+                      </th>
+                      <th className={osCss.payment}>
+                        Payment method{" "}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="9"
+                          height="14"
+                          viewBox="0 0 9 14"
+                          fill="none"
+                        >
+                          <path
+                            d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
+                            fill="#777777"
+                          />
+                          <path
+                            d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
+                            fill="#777777"
+                          />
+                        </svg>
+                      </th>
+                      <th className={osCss.payment}>
+                        Delivery status{" "}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="9"
+                          height="14"
+                          viewBox="0 0 9 14"
+                          fill="none"
+                        >
+                          <path
+                            d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
+                            fill="#777777"
+                          />
+                          <path
+                            d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
+                            fill="#777777"
+                          />
+                        </svg>
+                      </th>
+                      <th>
+                        Buyer
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="9"
+                          height="14"
+                          viewBox="0 0 9 14"
+                          fill="none"
+                        >
+                          <path
+                            d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
+                            fill="#777777"
+                          />
+                          <path
+                            d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
+                            fill="#777777"
+                          />
+                        </svg>
+                      </th>
+                    </tr>
                     {orderDel.map((val, key) => {
                       return (
                         <tr key={key}>
@@ -371,10 +370,7 @@ export default function OverallSales() {
                     })}
                   </>
                 ) : (
-                  // <p>No Orders</p>
-                  <div className="loadCenterDiv">
-                    <Load />
-                  </div>
+                  <p className="NoOrders">No Orders</p>
                 )}
               </>
             )}
