@@ -14,12 +14,16 @@ import { useParams } from "react-router-dom";
 import AuthContext from "../store/auth-context";
 
 export default function ProductsPage() {
-  const [res, setres] = useState();
+  const [res, setres] = useState([]);
+
   const { id } = useParams();
+
   useEffect(() => {
     loadProducts();
   }, []);
+
   const authCtx = useContext(AuthContext);
+
   const loadProducts = async () => {
     try {
       console.log(id);
@@ -38,7 +42,7 @@ export default function ProductsPage() {
     <div className={PPCss.mDiv}>
       <p className={PPCss.AddHPTag}>Product Details</p>
 
-      {res ? (
+      {res?.length > 0 ? (
         <div className={PPCss.divDiv}>
           <div className={PPCss.leftDiv}>
             <img
