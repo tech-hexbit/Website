@@ -65,7 +65,9 @@ export default function Display() {
         </div>
       </div>
       {load ? (
-        ""
+        <div className="loadCenterDiv">
+          <Load />
+        </div>
       ) : (
         <div className={DCss.table}>
           <table style={{ borderCollapse: "collapse" }}>
@@ -136,7 +138,7 @@ export default function Display() {
                 })}
               </>
             ) : (
-              <p>No Orders</p>
+              <p className="NoOrders">No Orders</p>
             )}
           </table>
         </div>
