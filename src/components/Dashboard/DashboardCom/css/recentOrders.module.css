@@ -55,7 +55,7 @@
   position: sticky;
   left: 0;
   z-index: 20;
-  background-color:#fff;
+  background-color: #fff;
   text-align: center;
 }
 
@@ -67,8 +67,6 @@
 
 .tableTag tr th:nth-child(2),
 .tableTag tr td:nth-child(2) {
-
-  
   background-color: #fff;
 }
 
@@ -129,11 +127,4 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   width: 50px;
-}
-
-.loadCenterDiv {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
 }
