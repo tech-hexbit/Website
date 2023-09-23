@@ -138,58 +138,6 @@ export default function Display() {
             ) : (
               <p>No Orders</p>
             )}
-
-            {/* {data.map((val, i) => {
-          return (
-            <>
-              <tr key={i}>
-                <td id={DCss.checkBox}>
-                  <input type="checkbox" name="" id="" />
-                </td>
-                <td className={DCss.row} id={DCss.col1}>
-                  <Link
-                    to="/products/650bc24250c9d6985943bf3d"
-                    className="LinkStyle"
-                  >
-                    <div className={DCss.col1}>
-                      <div className={DCss.image}>
-                        <img src={element.image} />
-                      </div>
-                      <div className={DCss.col1Text}>
-                        <div className={DCss.textTop}>
-                          {element.col1TextTop}
-                        </div>
-                        <div className={DCss.textBottom}>
-                          Category : {element.col1TextBottom}
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                </td>
-                <td className={DCss.row} id={DCss.price}>
-                  {element.price}
-                </td>
-                <td className={DCss.row} id={DCss.stock}>
-                  {element.stock}
-                </td>
-                <td className={DCss.row} id={DCss.orders}>
-                  {element.orders}
-                </td>
-                <td className={DCss.row}>
-                  <div className={DCss.col5}>
-                    <div className={DCss.textTop}>{element.date}</div>
-                    <div className={DCss.textBottom}>{element.time}</div>
-                  </div>
-                </td>
-                <td className={DCss.row} id={DCss.col6}>
-                  <div className={DCss.dots}>
-                    <div style={{ marginTop: "-5px" }}>...</div>
-                  </div>
-                </td>
-              </tr>
-            </>
-          );
-        })} */}
           </table>
         </div>
       )}
