@@ -1,5 +1,14 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+
+// state
+import AuthContext from "./../../../store/auth-context";
+
+// axios
+import axios from "axios";
+
+// MicroInteraction
+import Load from "./../../../MicroInteraction/LoadBlack";
 
 // css
 import DCss from "./Css/display.module.css";
@@ -7,100 +16,42 @@ import DCss from "./Css/display.module.css";
 // img
 import image from "../../../assets/dashboard/tablerow.png";
 
-const data = [
-  {
-    image: image,
-    col1TextTop: "Urban Ladder Pashe chair",
-    col1TextBottom: "Furniture",
-    price: "₹ 9,000",
-    stock: "74",
-    orders: "32",
-    date: "10-02-2021",
-    time: "10:00AM",
-  },
-  {
-    image: image,
-    col1TextTop: "Urban Ladder Pashe chair",
-    col1TextBottom: "Furniture",
-    price: "₹ 9,000",
-    stock: "74",
-    orders: "32",
-    date: "10-02-2021",
-    time: "10:00AM",
-  },
-  {
-    image: image,
-    col1TextTop: "Urban Ladder Pashe chair",
-    col1TextBottom: "Furniture",
-    price: "₹ 9,000",
-    stock: "74",
-    orders: "32",
-    date: "10-02-2021",
-    time: "10:00AM",
-  },
-  {
-    image: image,
-    col1TextTop: "Urban Ladder Pashe chair",
-    col1TextBottom: "Furniture",
-    price: "₹ 9,000",
-    stock: "74",
-    orders: "32",
-    date: "10-02-2021",
-    time: "10:00AM",
-  },
-  {
-    image: image,
-    col1TextTop: "Urban Ladder Pashe chair",
-    col1TextBottom: "Furniture",
-    price: "₹ 9,000",
-    stock: "74",
-    orders: "32",
-    date: "10-02-2021",
-    time: "10:00AM",
-  },
-  {
-    image: image,
-    col1TextTop: "Urban Ladder Pashe chair",
-    col1TextBottom: "Furniture",
-    price: "₹ 9,000",
-    stock: "74",
-    orders: "32",
-    date: "10-02-2021",
-    time: "10:00AM",
-  },
-  {
-    image: image,
-    col1TextTop: "Urban Ladder Pashe chair",
-    col1TextBottom: "Furniture",
-    price: "₹ 9,000",
-    stock: "74",
-    orders: "32",
-    date: "10-02-2021",
-    time: "10:00AM",
-  },
-  {
-    image: image,
-    col1TextTop: "Urban Ladder Pashe chair",
-    col1TextBottom: "Furniture",
-    price: "₹ 9,000",
-    stock: "74",
-    orders: "32",
-    date: "10-02-2021",
-    time: "10:00AM",
-  },
-  {
-    image: image,
-    col1TextTop: "Urban Ladder Pashe chair",
-    col1TextBottom: "Furniture",
-    price: "₹ 9,000",
-    stock: "74",
-    orders: "32",
-    date: "10-02-2021",
-    time: "10:00AM",
-  },
-];
-
 export default function Display() {
+  const [orderDel, setOrderDel] = useState([]);
+  const [load, setLoad] = useState(false);
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const authCtx = useContext(AuthContext);
+
+  const loadData = async () => {
+    setLoad(true);
+
+    try {
+      const response = await axios.get("/api/common/product/all", {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+
+      if (response.data.success) {
+        console.log(response.data.orderList);
+
+        setOrderDel(response.data.orderList);
+
+        setLoad(false);
+      } else {
+        setLoad(false);
+
+        console.log(e);
+      }
+    } catch (e) {
+      setLoad(false);
+
+      console.log(e);
+    }
+  };
+
   return (
     <div className={DCss.mainDiv}>
       <div className={DCss.top}>
@@ -124,7 +75,63 @@ export default function Display() {
             <th id={DCss.published}>Published on</th>
             <th>Action</th>
           </tr>
-          {data.map((element, i) => {
+          {orderDel?.length > 0 ? (
+            <>
+              {orderDel.map((val, key) => {
+                console.log(val);
+                return (
+                  <>
+                    <tr key={key}>
+                      <td id={DCss.checkBox}>
+                        <input type="checkbox" name="" id="" />
+                      </td>
+                      <td className={DCss.row} id={DCss.col1}>
+                        <Link to={`/products/${val._id}`} className="LinkStyle">
+                          <div className={DCss.col1}>
+                            <div className={DCss.image}>
+                              <img src={val.descriptor.images[0]} />
+                            </div>
+                            <div className={DCss.col1Text}>
+                              <div className={DCss.textTop}>
+                                {val.descriptor.name}
+                              </div>
+                              <div className={DCss.textBottom}>
+                                Category : {val.category_id}
+                              </div>
+                            </div>
+                          </div>
+                        </Link>
+                      </td>
+                      <td className={DCss.row} id={DCss.price}>
+                        {val.price.value}
+                      </td>
+                      <td className={DCss.row} id={DCss.stock}>
+                        {val.quantity.maximum.count}
+                      </td>
+                      <td className={DCss.row} id={DCss.orders}>
+                        {val.fulfillment_id}
+                      </td>
+                      <td className={DCss.row}>
+                        <div className={DCss.col5}>
+                          <div className={DCss.textTop}>{val.when.date}</div>
+                          <div className={DCss.textBottom}>{val.when.time}</div>
+                        </div>
+                      </td>
+                      <td className={DCss.row} id={DCss.col6}>
+                        <div className={DCss.dots}>
+                          <div style={{ marginTop: "-5px" }}>...</div>
+                        </div>
+                      </td>
+                    </tr>
+                  </>
+                );
+              })}
+            </>
+          ) : (
+            <p>No Orders</p>
+          )}
+
+          {/* {data.map((val, i) => {
             return (
               <>
                 <tr key={i}>
@@ -132,7 +139,10 @@ export default function Display() {
                     <input type="checkbox" name="" id="" />
                   </td>
                   <td className={DCss.row} id={DCss.col1}>
-                    <Link to="/products/:id" className="LinkStyle">
+                    <Link
+                      to="/products/650bc24250c9d6985943bf3d"
+                      className="LinkStyle"
+                    >
                       <div className={DCss.col1}>
                         <div className={DCss.image}>
                           <img src={element.image} />
@@ -171,7 +181,7 @@ export default function Display() {
                 </tr>
               </>
             );
-          })}
+          })} */}
         </table>
       </div>
       <div className={DCss.bottom}>
