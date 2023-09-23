@@ -25,16 +25,22 @@ const UploadCsvPopup = ({ setShowPopup, setError }) => {
       });
       return;
     }
+
     console.log("file->", file);
+
     const formData = new FormData();
+
     formData.append("Excel", file);
     formData.append("ExcelName", file.name);
+
     const response = await axios.post("/api/common/product/AddBulk", formData, {
       headers: {
         "content-type": "multipart/form-data",
       },
     });
+
     console.log(response);
+
     if (response.status === 200) {
       setError({
         mainColor: "#EDFEEE",
@@ -54,11 +60,14 @@ const UploadCsvPopup = ({ setShowPopup, setError }) => {
         val: true,
       });
     }
+
     setShowPopup(false);
   };
+
   const handleClick = (event) => {
     fileInp.current.click();
   };
+
   const handleChange = (event) => {
     const fileUploaded = event.target.files[0];
     setFile(fileUploaded);
@@ -70,6 +79,7 @@ const UploadCsvPopup = ({ setShowPopup, setError }) => {
 
     console.log(fileUploaded);
   };
+
   return (
     <>
       <div className={Upcss.mainDiv}>
