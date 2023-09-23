@@ -23,7 +23,7 @@ export default function ProductsPage() {
           />
         </div>
         <div className={PPCss.rightDiv}>
-          <p className={PPCss.titleName}>Adidas Mens Restound M Running Shoe</p>
+          <p className={PPCss.titleName}>Adidas Mens Restound M Running Shoe <button>Edit</button></p>
           <p className={PPCss.pID}>Product id: 229FR1</p>
           <p className={PPCss.pSeller}>Seller: Adidas</p>
           <p className={PPCss.pPublished}>
