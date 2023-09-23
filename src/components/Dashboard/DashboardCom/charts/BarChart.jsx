@@ -15,18 +15,6 @@ export default function BarChart() {
         backgroundColor: ["green", "purple", "blue"],
         maxBarThickness: 14,
       },
-      //   {
-      //     label: "Planning",
-      //     data: 500,
-      //     backgroundColor: "purple",
-      //     maxBarThickness: 14,
-      //   },
-      //   {
-      //     label: "Budget",
-      //     data: 700,
-      //     backgroundColor: "blue",
-      //     maxBarThickness: 14,
-      //   },
     ],
   };
   const options = {
