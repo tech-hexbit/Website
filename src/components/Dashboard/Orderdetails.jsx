@@ -11,6 +11,16 @@ import odcss from "./Css/Orderdetails.module.css";
 import AuthContext from "../../store/auth-context";
 
 const Orderdetails = () => {
+  const [res, setres] = useState();
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    loadOrderdel();
+  }, []);
+
+  const authCtx = useContext(AuthContext);
+
   return (
     <div className={odcss.orderdetails}>
       <div className={odcss.header}>
