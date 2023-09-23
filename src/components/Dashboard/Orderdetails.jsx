@@ -21,6 +21,17 @@ const Orderdetails = () => {
 
   const authCtx = useContext(AuthContext);
 
+  const loadOrderdel = async () => {
+    try {
+      const response = await axios.get(`/api/common/order/details/${id}`, {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+
+      setres(response.data.Orderdetail);
+    } catch (e) {
+      console.log(e);
+    }
+  };
   return (
     <div className={odcss.orderdetails}>
       <div className={odcss.header}>
