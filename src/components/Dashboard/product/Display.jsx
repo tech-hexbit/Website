@@ -168,7 +168,63 @@ export default function Display() {
             <th id={DCss.published}>Published on</th>
             <th>Action</th>
           </tr>
-          {data.map((element, i) => {
+          {orderDel?.length > 0 ? (
+            <>
+              {orderDel.map((val, key) => {
+                console.log(val);
+                return (
+                  <>
+                    <tr key={key}>
+                      <td id={DCss.checkBox}>
+                        <input type="checkbox" name="" id="" />
+                      </td>
+                      <td className={DCss.row} id={DCss.col1}>
+                        <Link to={`/products/${val._id}`} className="LinkStyle">
+                          <div className={DCss.col1}>
+                            <div className={DCss.image}>
+                              <img src={val.descriptor.images[0]} />
+                            </div>
+                            <div className={DCss.col1Text}>
+                              <div className={DCss.textTop}>
+                                {val.descriptor.name}
+                              </div>
+                              <div className={DCss.textBottom}>
+                                Category : {val.category_id}
+                              </div>
+                            </div>
+                          </div>
+                        </Link>
+                      </td>
+                      <td className={DCss.row} id={DCss.price}>
+                        {val.price.value}
+                      </td>
+                      <td className={DCss.row} id={DCss.stock}>
+                        {val.quantity.maximum.count}
+                      </td>
+                      <td className={DCss.row} id={DCss.orders}>
+                        {val.fulfillment_id}
+                      </td>
+                      <td className={DCss.row}>
+                        <div className={DCss.col5}>
+                          <div className={DCss.textTop}>{val.when.date}</div>
+                          <div className={DCss.textBottom}>{val.when.time}</div>
+                        </div>
+                      </td>
+                      <td className={DCss.row} id={DCss.col6}>
+                        <div className={DCss.dots}>
+                          <div style={{ marginTop: "-5px" }}>...</div>
+                        </div>
+                      </td>
+                    </tr>
+                  </>
+                );
+              })}
+            </>
+          ) : (
+            <p>No Orders</p>
+          )}
+
+          {/* {data.map((val, i) => {
             return (
               <>
                 <tr key={i}>
@@ -218,7 +274,7 @@ export default function Display() {
                 </tr>
               </>
             );
-          })}
+          })} */}
         </table>
       </div>
       <div className={DCss.bottom}>
