@@ -14,7 +14,7 @@ import { useParams } from "react-router-dom";
 import AuthContext from "../store/auth-context";
 
 export default function ProductsPage() {
-  const [res, setres] = useState([]);
+  const [res, setres] = useState();
 
   const { id } = useParams();
 
@@ -26,7 +26,6 @@ export default function ProductsPage() {
 
   const loadProducts = async () => {
     try {
-      console.log(id);
       const response = await axios.get(`/api/common/product/details/${id}`, {
         headers: { Authorization: `${authCtx.token}` },
       });
@@ -42,7 +41,7 @@ export default function ProductsPage() {
     <div className={PPCss.mDiv}>
       <p className={PPCss.AddHPTag}>Product Details</p>
 
-      {res?.length > 0 ? (
+      {res ? (
         <div className={PPCss.divDiv}>
           <div className={PPCss.leftDiv}>
             <img
