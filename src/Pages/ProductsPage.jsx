@@ -38,33 +38,37 @@ export default function ProductsPage() {
     <div className={PPCss.mDiv}>
       <p className={PPCss.AddHPTag}>Product Details</p>
 
-      <div className={PPCss.divDiv}>
-        <div className={PPCss.leftDiv}>
-          <img
-            src={res.descriptor.images}
-            alt=""
-            className={PPCss.productImg}
-          />
-        </div>
-        <div className={PPCss.rightDiv}>
-          <p className={PPCss.titleName}>{res.descriptor.name}</p>
-          <p className={PPCss.pID}>{res._id}</p>
-          <p className={PPCss.pSeller}>seller</p>
-          <p className={PPCss.pPublished}>
-            Seller:seller Published on: {res.when.date}
-          </p>
-          <div className={PPCss.boxmDiv}>
-            <Box res={res} />
-            <Box res={res} />
-            <Box res={res} />
-            <Box res={res} />
+      {res ? (
+        <div className={PPCss.divDiv}>
+          <div className={PPCss.leftDiv}>
+            <img
+              src={res.descriptor.images[0]}
+              alt=""
+              className={PPCss.productImg}
+            />
           </div>
+          <div className={PPCss.rightDiv}>
+            <p className={PPCss.titleName}>{res.descriptor.name}</p>
+            <p className={PPCss.pID}>{res._id}</p>
+            <p className={PPCss.pSeller}>seller</p>
+            <p className={PPCss.pPublished}>
+              Seller:seller Published on: {res.when.date}
+            </p>
+            <div className={PPCss.boxmDiv}>
+              <Box res={res} />
+              <Box res={res} />
+              <Box res={res} />
+              <Box res={res} />
+            </div>
 
-          <ColorBox res={res} />
-          <SizeBox res={res} />
-          <Des res={res} />
+            <ColorBox res={res} />
+            <SizeBox res={res} />
+            <Des res={res} />
+          </div>
         </div>
-      </div>
+      ) : (
+        <p>No Orders</p>
+      )}
     </div>
   );
 }
