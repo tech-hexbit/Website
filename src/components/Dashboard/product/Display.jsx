@@ -64,84 +64,90 @@ export default function Display() {
           </Link>
         </div>
       </div>
-      {load ? (
-        <div className="loadCenterDiv">
-          <Load />
-        </div>
-      ) : (
-        <div className={DCss.table}>
-          <table style={{ borderCollapse: "collapse" }}>
-            {orderDel?.length > 0 ? (
-              <>
-                <tr>
-                  <th></th>
-                  <th>Product</th>
-                  <th>Price</th>
-                  <th id={DCss.stock}>Stock</th>
-                  <th id={DCss.orders}>Orders</th>
-                  <th id={DCss.published}>Published on</th>
-                  <th>Action</th>
-                </tr>
-                {orderDel.map((val, key) => {
-                  return (
-                    <>
-                      <tr key={key}>
-                        <td id={DCss.checkBox}>
-                          <input type="checkbox" name="" id="" />
-                        </td>
-                        <td className={DCss.row} id={DCss.col1}>
-                          <Link
-                            to={`/products/${val._id}`}
-                            className="LinkStyle"
-                          >
-                            <div className={DCss.col1}>
-                              <div className={DCss.image}>
-                                <img src={val.descriptor.images[0]} />
+
+      <div className={DCss.middle}>
+        {load ? (
+          <div className="loadCenterDiv">
+            <Load />
+          </div>
+        ) : (
+          <div className={DCss.table}>
+            <table style={{ borderCollapse: "collapse" }}>
+              {orderDel?.length > 0 ? (
+                <>
+                  <tr>
+                    <th></th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th id={DCss.stock}>Stock</th>
+                    <th id={DCss.orders}>Orders</th>
+                    <th id={DCss.published}>Published on</th>
+                    <th>Action</th>
+                  </tr>
+                  {orderDel.map((val, key) => {
+                    return (
+                      <>
+                        <tr key={key}>
+                          <td id={DCss.checkBox}>
+                            <input type="checkbox" name="" id="" />
+                          </td>
+                          <td className={DCss.row} id={DCss.col1}>
+                            <Link
+                              to={`/products/${val._id}`}
+                              className="LinkStyle"
+                            >
+                              <div className={DCss.col1}>
+                                <div className={DCss.image}>
+                                  <img src={val.descriptor.images[0]} />
+                                </div>
+                                <div className={DCss.col1Text}>
+                                  <div className={DCss.textTop}>
+                                    {val.descriptor.name}
+                                  </div>
+                                  <div className={DCss.textBottom}>
+                                    Category : {val.category_id}
+                                  </div>
+                                </div>
                               </div>
-                              <div className={DCss.col1Text}>
-                                <div className={DCss.textTop}>
-                                  {val.descriptor.name}
-                                </div>
-                                <div className={DCss.textBottom}>
-                                  Category : {val.category_id}
-                                </div>
+                            </Link>
+                          </td>
+                          <td className={DCss.row} id={DCss.price}>
+                            {val.price.value}
+                          </td>
+                          <td className={DCss.row} id={DCss.stock}>
+                            {val.quantity.maximum.count}
+                          </td>
+                          <td className={DCss.row} id={DCss.orders}>
+                            {val.fulfillment_id}
+                          </td>
+                          <td className={DCss.row}>
+                            <div className={DCss.col5}>
+                              <div className={DCss.textTop}>
+                                {val.when.date}
+                              </div>
+                              <div className={DCss.textBottom}>
+                                {val.when.time}
                               </div>
                             </div>
-                          </Link>
-                        </td>
-                        <td className={DCss.row} id={DCss.price}>
-                          {val.price.value}
-                        </td>
-                        <td className={DCss.row} id={DCss.stock}>
-                          {val.quantity.maximum.count}
-                        </td>
-                        <td className={DCss.row} id={DCss.orders}>
-                          {val.fulfillment_id}
-                        </td>
-                        <td className={DCss.row}>
-                          <div className={DCss.col5}>
-                            <div className={DCss.textTop}>{val.when.date}</div>
-                            <div className={DCss.textBottom}>
-                              {val.when.time}
+                          </td>
+                          <td className={DCss.row} id={DCss.col6}>
+                            <div className={DCss.dots}>
+                              <div style={{ marginTop: "-5px" }}>...</div>
                             </div>
-                          </div>
-                        </td>
-                        <td className={DCss.row} id={DCss.col6}>
-                          <div className={DCss.dots}>
-                            <div style={{ marginTop: "-5px" }}>...</div>
-                          </div>
-                        </td>
-                      </tr>
-                    </>
-                  );
-                })}
-              </>
-            ) : (
-              <p className="NoOrders">No Orders</p>
-            )}
-          </table>
-        </div>
-      )}
+                          </td>
+                        </tr>
+                      </>
+                    );
+                  })}
+                </>
+              ) : (
+                <p className="NoOrders">No Orders</p>
+              )}
+            </table>
+          </div>
+        )}
+      </div>
+
       <div className={DCss.bottom}>
         <div></div>
         <div className={DCss.pages}>
