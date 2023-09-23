@@ -1,29 +1,25 @@
-import React, { useEffect, useContext, useState } from "react";
-import { useParams } from "react-router";
-
-// state
-import AuthContext from "../store/auth-context";
+import React from "react";
+import axios from "axios";
 
 // components
 import Box from "./../components/Product/Box";
 import Des from "./../components/Product/Des";
 import SizeBox from "./../components/Product/SizeBox";
 import ColorBox from "./../components/Product/ColorBox";
+import { useEffect, useContext, useState } from "react";
 
 // css
 import PPCss from "./Css/ProductPage.module.css";
+import { useParams } from "react-router-dom";
+import AuthContext from "../store/auth-context";
 
 export default function ProductsPage() {
   const [res, setres] = useState();
-
   const { id } = useParams();
-
-  const authCtx = useContext(AuthContext);
-
   useEffect(() => {
     loadProducts();
   }, []);
-
+  const authCtx = useContext(AuthContext);
   const loadProducts = async () => {
     try {
       console.log(id);
@@ -45,28 +41,28 @@ export default function ProductsPage() {
       <div className={PPCss.divDiv}>
         <div className={PPCss.leftDiv}>
           <img
-            src="https://images.unsplash.com/photo-1580910051074-3eb694886505?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1965&q=80"
+            src={res.descriptor.images}
             alt=""
             className={PPCss.productImg}
           />
         </div>
         <div className={PPCss.rightDiv}>
-          <p className={PPCss.titleName}>Adidas Mens Restound M Running Shoe</p>
-          <p className={PPCss.pID}>Product id: 229FR1</p>
-          <p className={PPCss.pSeller}>Seller: Adidas</p>
+          <p className={PPCss.titleName}>{res.descriptor.name}</p>
+          <p className={PPCss.pID}>{res._id}</p>
+          <p className={PPCss.pSeller}>seller</p>
           <p className={PPCss.pPublished}>
-            Seller: Adidas Published on: 10 March 2022
+            Seller:seller Published on: {res.when.date}
           </p>
           <div className={PPCss.boxmDiv}>
-            <Box title="Prices" value={35} />
-            <Box title="Stock" value={35} />
-            <Box title="Stock" value={35} />
-            <Box title="Stock" value={35} />
+            <Box res={res} />
+            <Box res={res} />
+            <Box res={res} />
+            <Box res={res} />
           </div>
 
-          <ColorBox />
-          <SizeBox />
-          <Des />
+          <ColorBox res={res} />
+          <SizeBox res={res} />
+          <Des res={res} />
         </div>
       </div>
     </div>
