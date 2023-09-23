@@ -12,6 +12,7 @@ import { useEffect, useContext, useState } from "react";
 import PPCss from "./Css/ProductPage.module.css";
 import { useParams } from "react-router-dom";
 import AuthContext from "../store/auth-context";
+import { error } from "console";
 
 export default function ProductsPage() {
   const [res, setres] = useState();
@@ -29,10 +30,12 @@ export default function ProductsPage() {
       const response = await axios.get(`/api/common/product/details/${id}`, {
         headers: { Authorization: `${authCtx.token}` },
       });
-      console.log(response);
-      setres(response?.data?.ProductDetail);
-      console.log(res);
-      return response.data.ProductDetails;
+
+      if (response.data.success) {
+        setres(response?.data?.ProductDetail);
+      } else {
+        console.log("error");
+      }
     } catch (e) {
       console.log(e);
     }
