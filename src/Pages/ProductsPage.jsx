@@ -1,18 +1,20 @@
-import React from "react";
+import React, { useEffect, useContext, useState } from "react";
+import { useParams } from "react-router-dom";
+
+// axios
 import axios from "axios";
+
+// state
+import AuthContext from "../store/auth-context";
 
 // components
 import Box from "./../components/Product/Box";
 import Des from "./../components/Product/Des";
 import SizeBox from "./../components/Product/SizeBox";
 import ColorBox from "./../components/Product/ColorBox";
-import { useEffect, useContext, useState } from "react";
 
 // css
 import PPCss from "./Css/ProductPage.module.css";
-import { useParams } from "react-router-dom";
-import AuthContext from "../store/auth-context";
-import { error } from "console";
 
 export default function ProductsPage() {
   const [res, setres] = useState();
