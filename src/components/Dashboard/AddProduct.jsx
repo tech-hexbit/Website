@@ -5,7 +5,7 @@ import Form from "./AddProduct/Form";
 
 // css
 import ApCss from "./Css/AddProduct.module.css";
-import UploadCsvPopup from "./AddProduct/uploadCsvPopup";
+import UploadCsvPopup from "./AddProduct/UploadCsvPopup";
 import { Alert } from "../../MicroInteraction/Alert";
 
 export default function AddProduct() {
