@@ -1,7 +1,10 @@
 import React from "react";
-import "chart.js/auto";
 import { Doughnut } from "react-chartjs-2";
+import "chart.js/auto";
+
+// css
 import "../css/dchart.css";
+
 export default function DoughnutChart() {
   const data = {
     labels: ["Direct", "Google", "Apple"],
