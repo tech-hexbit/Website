@@ -1,5 +1,14 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+
+// state
+import AuthContext from "./../../../store/auth-context";
+
+// axios
+import axios from "axios";
+
+// MicroInteraction
+import Load from "./../../../MicroInteraction/LoadBlack";
 
 // css
 import DCss from "./Css/display.module.css";
@@ -101,6 +110,41 @@ const data = [
 ];
 
 export default function Display() {
+  const [orderDel, setOrderDel] = useState([]);
+  const [load, setLoad] = useState(false);
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const authCtx = useContext(AuthContext);
+
+  const loadData = async () => {
+    setLoad(true);
+
+    try {
+      const response = await axios.get("/api/common/product/all", {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+
+      if (response.data.success) {
+        console.log(response.data.orderList);
+
+        setOrderDel(response.data.orderList);
+
+        setLoad(false);
+      } else {
+        setLoad(false);
+
+        console.log(e);
+      }
+    } catch (e) {
+      setLoad(false);
+
+      console.log(e);
+    }
+  };
+
   return (
     <div className={DCss.mainDiv}>
       <div className={DCss.top}>
