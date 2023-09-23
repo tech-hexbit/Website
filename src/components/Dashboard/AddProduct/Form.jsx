@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 
+import { useDropzone } from "react-dropzone";
+
 // axios
 import axios from "axios";
 
@@ -106,11 +108,12 @@ export default function Form() {
   };
 
 
-  const [image, setImage] = useState('')
-  const handleImage = (e) => {
-    console.log(e.target.files);
-    setImage(e.target.files[0])
-  }
+  // const [image, setImage] = useState('')
+  // const handleImage = (e) => {
+  //   console.log(e.target.files);
+  //   setImage(e.target.files[0])
+  // }
+  const { getRootProps, getInputProps } = useDropzone({});
   // useEffect(() => {
   //   console.log(data);
   // }, [data]);
@@ -584,10 +587,18 @@ export default function Form() {
 
         <p className={FCss.labelDes}>Add the product main image</p>
         <div className={FCss.addimgDivMain}>
-          {/* <div className={FCss.addImgDiv}> */}
-          <div>
-            <input type="file" name="file" onChange={handleImage} />
-            {/* <p>+</p> */}
+          <div className={FCss.addImgDiv}>
+            {/* <div> */}
+            {/* <button>+</button>
+            <input type="file" name="file" onChange={handleImage} /> */}
+            <div {...getRootProps({ className: "dropzone" })}>
+              <input className="input-zone" {...getInputProps()} />
+              <div className="text-center">
+                <p className="dropzone-content">
+                  +
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
