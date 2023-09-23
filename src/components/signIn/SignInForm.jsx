@@ -50,7 +50,7 @@ export default function SignInForm() {
       });
     } else {
       try {
-        const response = await axios.post("/api/website/auth/login/", input);
+        const response = await axios.post("/api/website/auth/login", input);
 
         if (response.data.success) {
           setLoad(false);
