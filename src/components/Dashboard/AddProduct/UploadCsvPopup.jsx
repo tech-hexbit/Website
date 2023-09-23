@@ -24,7 +24,7 @@ const UploadCsvPopup = ({ setShowPopup, setError }) => {
     const formData = new FormData();
     formData.append("Excel", file);
     formData.append("ExcelName", file.name);
-    const response = await axios.post("/api/User/AddBulk", formData, {
+    const response = await axios.post("/api/common/product/AddBulk", formData, {
       headers: {
         "content-type": "multipart/form-data",
       },
@@ -82,13 +82,13 @@ const UploadCsvPopup = ({ setShowPopup, setError }) => {
               onClick={handleClick}
               id="uploadImg"
             />
-            <p>Please select a file</p>
             <input
               type="file"
               onChange={handleChange}
               ref={fileInp}
               style={{ display: "none" }}
             />
+            <p>Please select a file</p>
           </div>
           <div className={Upcss.btns}>
             <button type="file" onClick={handleSubmit}>
