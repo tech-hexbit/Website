@@ -12,12 +12,15 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 
 // Css
 import osCss from "./Css/overallSales.module.css";
-import { Update } from "@mui/icons-material";
+
+// img
+import LoadingSvg from "./../../../assets/SEO/Rolling.svg";
 
 export default function OverallSales() {
   const [orderDel, setOrderDel] = useState([]);
   const [edit, setEdit] = useState(false);
   const [load, setLoad] = useState(false);
+  const [Saveload, setSaveLoad] = useState(false);
   const [selectedValue, setSelectedValue] = useState("");
   const [active, setActive] = useState({
     pdt: true,
@@ -61,6 +64,7 @@ export default function OverallSales() {
   };
 
   const UpdateData = async (id) => {
+    setSaveLoad(true);
     try {
       if (selectedValue !== "" || selectedValue !== "Select") {
         let data = {
@@ -77,13 +81,20 @@ export default function OverallSales() {
         );
 
         if (response.data.success) {
+          setSaveLoad(false);
+
           loadData();
 
           setEdit(!edit);
+        } else {
+          setSaveLoad(false);
         }
+      } else {
+        setSaveLoad(false);
       }
     } catch (e) {
       setLoad(false);
+      setSaveLoad(false);
 
       console.log(e);
     }
@@ -384,6 +395,7 @@ export default function OverallSales() {
           </table>
         </div>
       </div>
+
       <div className={osCss.bottom}>
         <div></div>
         <div className={osCss.pages}>
