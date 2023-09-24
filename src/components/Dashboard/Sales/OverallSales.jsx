@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import { Link } from "react-router-dom";
 
 // state
@@ -26,6 +26,8 @@ export default function OverallSales() {
     grocery: false,
     furniture: false,
   });
+
+  const inputRef = useRef(null);
 
   useEffect(() => {
     loadData();
@@ -62,41 +64,43 @@ export default function OverallSales() {
   };
 
   const UpdateData = async (id) => {
-    setSaveLoad(true);
-    try {
-      if (selectedValue !== "" || selectedValue !== "Select") {
-        let data = {
-          value: selectedValue,
-          Id: id,
-        };
+    console.log(inputRef.current.id);
 
-        const response = await axios.post(
-          "/api/common/Order/UpdateState",
-          data,
-          {
-            headers: { Authorization: `${authCtx.token}` },
-          }
-        );
+    // setSaveLoad(true);
+    // try {
+    //   if (selectedValue !== "" || selectedValue !== "Select") {
+    //     let data = {
+    //       value: selectedValue,
+    //       Id: id,
+    //     };
 
-        if (response.data.success) {
-          setSaveLoad(false);
-          setSelectedValue("Select");
+    //     const response = await axios.post(
+    //       "/api/common/Order/UpdateState",
+    //       data,
+    //       {
+    //         headers: { Authorization: `${authCtx.token}` },
+    //       }
+    //     );
 
-          loadData();
+    //     if (response.data.success) {
+    //       setSaveLoad(false);
+    //       setSelectedValue("Select");
 
-          setEdit(!edit);
-        } else {
-          setSaveLoad(false);
-        }
-      } else {
-        setSaveLoad(false);
-      }
-    } catch (e) {
-      setLoad(false);
-      setSaveLoad(false);
+    //       loadData();
 
-      console.log(e);
-    }
+    //       setEdit(!edit);
+    //     } else {
+    //       setSaveLoad(false);
+    //     }
+    //   } else {
+    //     setSaveLoad(false);
+    //   }
+    // } catch (e) {
+    //   setLoad(false);
+    //   setSaveLoad(false);
+
+    //   console.log(e);
+    // }
   };
 
   return (
@@ -172,25 +176,6 @@ export default function OverallSales() {
                           />
                         </svg>
                       </th>
-                      {/* <th>
-                Product{" "}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="9"
-                  height="14"
-                  viewBox="0 0 9 14"
-                  fill="none"
-                >
-                  <path
-                    d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                    fill="#777777"
-                  />
-                  <path
-                    d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                    fill="#777777"
-                  />
-                </svg>
-              </th> */}
                       <th>
                         Price{" "}
                         <svg
@@ -320,8 +305,9 @@ export default function OverallSales() {
                               <>
                                 <select
                                   name=""
-                                  id=""
+                                  id={key}
                                   value={selectedValue}
+                                  ref={inputRef}
                                   onChange={handleSelectChange}
                                 >
                                   <option value="Select" selected hidden>
@@ -355,6 +341,7 @@ export default function OverallSales() {
                                     stroke-linecap="round"
                                     stroke-linejoin="round"
                                     class="lucide lucide-save"
+                                    className={osCss.lucidePencil}
                                     onClick={() => {
                                       UpdateData(val._id);
                                     }}
