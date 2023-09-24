@@ -14,9 +14,6 @@ import SmallLoad from "./../../../MicroInteraction/SmallLoad";
 // Css
 import osCss from "./Css/overallSales.module.css";
 
-// img
-import LoadingSvg from "./../../../assets/SEO/Rolling-1s-156px.svg";
-
 export default function OverallSales() {
   const [orderDel, setOrderDel] = useState([]);
   const [edit, setEdit] = useState(false);
