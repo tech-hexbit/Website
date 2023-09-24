@@ -62,13 +62,11 @@ export default function OverallSales() {
 
   const UpdateData = async (id) => {
     try {
-      if (selectedValue === "" || selectedValue === "Select") {
+      if (selectedValue !== "" || selectedValue !== "Select") {
         let data = {
           value: selectedValue,
           Id: id,
         };
-
-        console.table(data);
 
         const response = await axios.post(
           "/api/common/Order/UpdateState",
@@ -78,16 +76,17 @@ export default function OverallSales() {
           }
         );
 
-        console.log(response.data);
-        console.log(data);
+        if (response.data.success) {
+          loadData();
+
+          setEdit(!edit);
+        }
       }
     } catch (e) {
       setLoad(false);
 
       console.log(e);
     }
-
-    setEdit(!edit);
   };
 
   return (
