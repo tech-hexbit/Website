@@ -64,9 +64,6 @@
   width: 100%;
 }
 
-.tabMain {
-}
-
 .tabs {
   display: flex;
   flex-direction: column;
