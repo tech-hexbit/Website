@@ -135,7 +135,7 @@ export default function OverallSales() {
                     <tr>
                       <th></th>
                       <th className="sticky-col">
-                        Order id{" "}
+                        Order id
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="9"
@@ -154,7 +154,7 @@ export default function OverallSales() {
                         </svg>
                       </th>
                       <th>
-                        Customer{" "}
+                        Customer
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="9"
@@ -173,7 +173,7 @@ export default function OverallSales() {
                         </svg>
                       </th>
                       <th>
-                        Price{" "}
+                        Price
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="9"
@@ -192,7 +192,7 @@ export default function OverallSales() {
                         </svg>
                       </th>
                       <th>
-                        Ordered on{" "}
+                        Ordered on
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="9"
@@ -211,7 +211,7 @@ export default function OverallSales() {
                         </svg>
                       </th>
                       <th className={osCss.payment}>
-                        Payment method{" "}
+                        Payment method
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="9"
@@ -230,7 +230,7 @@ export default function OverallSales() {
                         </svg>
                       </th>
                       <th className={osCss.payment}>
-                        Delivery status{" "}
+                        Delivery status
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="9"
