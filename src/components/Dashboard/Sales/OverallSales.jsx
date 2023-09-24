@@ -62,17 +62,25 @@ export default function OverallSales() {
 
   const UpdateData = async (id) => {
     try {
-      let data = {
-        value: selectedValue,
-        Id: id,
-      };
+      if (selectedValue === "" || selectedValue === "Select") {
+        let data = {
+          value: selectedValue,
+          Id: id,
+        };
 
-      //   const response = await axios.post("/api/common/Order/UpdateState", data, {
-      //     headers: { Authorization: `${authCtx.token}` },
-      //   });
+        console.table(data);
 
-      //   console.log(response.data);
-      //   console.log(data);
+        const response = await axios.post(
+          "/api/common/Order/UpdateState",
+          data,
+          {
+            headers: { Authorization: `${authCtx.token}` },
+          }
+        );
+
+        console.log(response.data);
+        console.log(data);
+      }
     } catch (e) {
       setLoad(false);
 
@@ -307,7 +315,7 @@ export default function OverallSales() {
                                   value={selectedValue}
                                   onChange={handleSelectChange}
                                 >
-                                  <option value="none" selected hidden>
+                                  <option value="Select" selected hidden>
                                     Select the Updated Status
                                   </option>
                                   <option value="Accepted">Accepted</option>
