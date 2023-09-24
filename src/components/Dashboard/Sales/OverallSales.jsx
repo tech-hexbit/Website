@@ -9,6 +9,7 @@ import axios from "axios";
 
 // MicroInteraction
 import Load from "./../../../MicroInteraction/LoadBlack";
+import SmallLoad from "./../../../MicroInteraction/SmallLoad";
 
 // Css
 import osCss from "./Css/overallSales.module.css";
@@ -343,19 +344,7 @@ export default function OverallSales() {
                             {edit ? (
                               <>
                                 {Saveload ? (
-                                  <svg
-                                    className={osCss.spinner}
-                                    viewBox="0 0 50 50"
-                                  >
-                                    <circle
-                                      className={osCss.path}
-                                      cx="24"
-                                      cy="24"
-                                      r="20"
-                                      fill="none"
-                                      stroke-width="5"
-                                    ></circle>
-                                  </svg>
+                                  <SmallLoad />
                                 ) : (
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
