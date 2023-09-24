@@ -1,37 +1,46 @@
 import React, { useRef, useState } from "react";
 
-import Upcss from "./Css/uploadCsvPopup.module.css";
-import upload_image from "../../../assets/dashboard/upload.svg";
+// axios
 import axios from "axios";
 
+// css
+import Upcss from "./Css/uploadCsvPopup.module.css";
+
+// ing
+import upload_image from "../../../assets/dashboard/upload.svg";
 
 const UploadCsvPopup = ({ setShowPopup, setError }) => {
   const [file, setFile] = useState();
   const fileInp = useRef(null);
 
   const handleSubmit = async () => {
-    if(!file){
-        setError({
-            mainColor: "#FDEDED",
-            secondaryColor: "#F16360",
-            symbol: "error",
-            title: "Error",
-            text: "Please Select a file",
-            val: true,
-          });
-          return;
-
+    if (!file) {
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "Please Select a file",
+        val: true,
+      });
+      return;
     }
+
     console.log("file->", file);
+
     const formData = new FormData();
+
     formData.append("Excel", file);
     formData.append("ExcelName", file.name);
+
     const response = await axios.post("/api/common/product/AddBulk", formData, {
       headers: {
         "content-type": "multipart/form-data",
       },
     });
+
     console.log(response);
+
     if (response.status === 200) {
       setError({
         mainColor: "#EDFEEE",
@@ -41,22 +50,24 @@ const UploadCsvPopup = ({ setShowPopup, setError }) => {
         text: "Uploaded CSV",
         val: true,
       });
+    } else {
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "Cannot upload file",
+        val: true,
+      });
     }
-    else{
-        setError({
-            mainColor: "#FDEDED",
-            secondaryColor: "#F16360",
-            symbol: "error",
-            title: "Error",
-            text: "Cannot upload file",
-            val: true,
-          });
-    }
+
     setShowPopup(false);
   };
+
   const handleClick = (event) => {
     fileInp.current.click();
   };
+
   const handleChange = (event) => {
     const fileUploaded = event.target.files[0];
     setFile(fileUploaded);
@@ -68,6 +79,7 @@ const UploadCsvPopup = ({ setShowPopup, setError }) => {
 
     console.log(fileUploaded);
   };
+
   return (
     <>
       <div className={Upcss.mainDiv}>
@@ -96,7 +108,9 @@ const UploadCsvPopup = ({ setShowPopup, setError }) => {
             <button type="file" onClick={handleSubmit}>
               Upload file
             </button>
-            <a href="https://hexbitbucket2023.s3.ap-south-1.amazonaws.com/sample_csv/test.items2.xlsx"><button>Download Sample file</button></a>
+            <a href="https://hexbitbucket2023.s3.ap-south-1.amazonaws.com/sample_csv/test.items2.xlsx">
+              <button>Download Sample file</button>
+            </a>
           </div>
         </div>
       </div>

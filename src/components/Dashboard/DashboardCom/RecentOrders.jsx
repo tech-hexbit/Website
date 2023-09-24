@@ -57,7 +57,7 @@ export default function RecentOrders() {
 
       <div className={RCss.middle}>
         {load ? (
-          <div className={RCss.loadCenterDiv}>
+          <div className="loadCenterDiv">
             <Load />
           </div>
         ) : (
@@ -132,7 +132,7 @@ export default function RecentOrders() {
                 </div>
               </>
             ) : (
-              <p className={RCss.NoOrders}>No Orders</p>
+              <p className="NoOrders">No Orders</p>
             )}
           </>
         )}
