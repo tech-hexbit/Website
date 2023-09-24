@@ -67,12 +67,12 @@ export default function OverallSales() {
         Id: id,
       };
 
-      const response = await axios.post("/api/common/Order/UpdateState", data, {
-        headers: { Authorization: `${authCtx.token}` },
-      });
+      //   const response = await axios.post("/api/common/Order/UpdateState", data, {
+      //     headers: { Authorization: `${authCtx.token}` },
+      //   });
 
-      console.log(response.data);
-      console.log(data);
+      //   console.log(response.data);
+      //   console.log(data);
     } catch (e) {
       setLoad(false);
 
