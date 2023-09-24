@@ -341,6 +341,7 @@ export default function OverallSales() {
                                     stroke-linecap="round"
                                     stroke-linejoin="round"
                                     class="lucide lucide-save"
+                                    className={osCss.lucidePencil}
                                     onClick={() => {
                                       UpdateData(val._id);
                                     }}
