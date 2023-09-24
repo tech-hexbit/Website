@@ -14,7 +14,7 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 import osCss from "./Css/overallSales.module.css";
 
 // img
-import LoadingSvg from "./../../../assets/SEO/Rolling.svg";
+import LoadingSvg from "./../../../assets/SEO/Rolling-1s-156px.svg";
 
 export default function OverallSales() {
   const [orderDel, setOrderDel] = useState([]);
@@ -340,27 +340,69 @@ export default function OverallSales() {
                               <>{val.state}</>
                             )}
 
+                            <svg className={osCss.spinner} viewBox="0 0 50 50">
+                              <circle
+                                className={osCss.path}
+                                cx="24"
+                                cy="24"
+                                r="20"
+                                fill="none"
+                                stroke-width="5"
+                              ></circle>
+                            </svg>
+
                             {edit ? (
                               <>
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="16"
-                                  height="16"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  class="lucide lucide-save"
-                                  onClick={() => {
-                                    UpdateData(val._id);
-                                  }}
-                                >
-                                  <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
-                                  <polyline points="17 21 17 13 7 13 7 21" />
-                                  <polyline points="7 3 7 8 15 8" />
-                                </svg>
+                                {Saveload ? (
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    style="margin: auto; background: none; display: block; shape-rendering: auto;"
+                                    width="156px"
+                                    height="156px"
+                                    viewBox="0 0 100 100"
+                                    preserveAspectRatio="xMidYMid"
+                                  >
+                                    <circle
+                                      cx="24"
+                                      cy="24"
+                                      fill="none"
+                                      stroke="#0a0a0a"
+                                      stroke-width="6"
+                                      r="20"
+                                      stroke-dasharray="94.24777960769379 33.41592653589793"
+                                    >
+                                      <animateTransform
+                                        attributeName="transform"
+                                        type="rotate"
+                                        repeatCount="indefinite"
+                                        dur="1s"
+                                        values="0 50 50;360 50 50"
+                                        keyTimes="0;1"
+                                      ></animateTransform>
+                                    </circle>
+                                  </svg>
+                                ) : (
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="lucide lucide-save"
+                                    onClick={() => {
+                                      UpdateData(val._id);
+                                    }}
+                                  >
+                                    <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
+                                    <polyline points="17 21 17 13 7 13 7 21" />
+                                    <polyline points="7 3 7 8 15 8" />
+                                  </svg>
+                                )}
                               </>
                             ) : (
                               <svg
