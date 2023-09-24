@@ -19,6 +19,7 @@ import image from "../../../assets/dashboard/tablerow.png";
 export default function Display() {
   const [orderDel, setOrderDel] = useState([]);
   const [load, setLoad] = useState(false);
+  const [query, setquery] = useState("")
 
   useEffect(() => {
     loadData();
@@ -51,15 +52,22 @@ export default function Display() {
       console.log(e);
     }
   };
-
+  
   return (
     <div className={DCss.mainDiv}>
       <div className={DCss.top}>
         <div className={DCss.search}>
-          <input type="text" placeholder="Search your product here.." />
+          <input type="text" placeholder="Search your product here.."value={query} onChange={(e)=>setquery(e.target.value)} />
+          {orderDel.filter((product)=>{
+             if(query===""){
+              return product
+             }
+             
+             
+          })}
         </div>
         <div className={DCss.button}>
-          <Link to="/me/addProduct" className="LinkStyle">
+          <Link to="/me/addProduct" className={DCss.LinkStyle}>
             <button>+ Add product</button>
           </Link>
         </div>
@@ -67,7 +75,7 @@ export default function Display() {
 
       <div className={DCss.middle}>
         {load ? (
-          <div className="loadCenterDiv">
+          <div className={DCss.loadCenterDiv}>
             <Load />
           </div>
         ) : (
@@ -94,7 +102,7 @@ export default function Display() {
                           <td className={DCss.row} id={DCss.col1}>
                             <Link
                               to={`/products/${val._id}`}
-                              className="LinkStyle"
+                              className={DCss.LinkStyle}
                             >
                               <div className={DCss.col1}>
                                 <div className={DCss.image}>
@@ -141,7 +149,7 @@ export default function Display() {
                   })}
                 </>
               ) : (
-                <p className="NoOrders">No Orders</p>
+                <p className={DCss.NoOrders}>No Orders</p>
               )}
             </table>
           </div>
