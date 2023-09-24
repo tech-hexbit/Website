@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import { Link } from "react-router-dom";
 
 // state
@@ -135,7 +135,7 @@ export default function OverallSales() {
                     <tr>
                       <th></th>
                       <th className="sticky-col">
-                        Order id{" "}
+                        Order id
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="9"
@@ -154,45 +154,7 @@ export default function OverallSales() {
                         </svg>
                       </th>
                       <th>
-                        Customer{" "}
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="9"
-                          height="14"
-                          viewBox="0 0 9 14"
-                          fill="none"
-                        >
-                          <path
-                            d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                            fill="#777777"
-                          />
-                          <path
-                            d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                            fill="#777777"
-                          />
-                        </svg>
-                      </th>
-                      {/* <th>
-                Product{" "}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="9"
-                  height="14"
-                  viewBox="0 0 9 14"
-                  fill="none"
-                >
-                  <path
-                    d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                    fill="#777777"
-                  />
-                  <path
-                    d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                    fill="#777777"
-                  />
-                </svg>
-              </th> */}
-                      <th>
-                        Price{" "}
+                        Customer
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="9"
@@ -211,7 +173,26 @@ export default function OverallSales() {
                         </svg>
                       </th>
                       <th>
-                        Ordered on{" "}
+                        Price
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="9"
+                          height="14"
+                          viewBox="0 0 9 14"
+                          fill="none"
+                        >
+                          <path
+                            d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
+                            fill="#777777"
+                          />
+                          <path
+                            d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
+                            fill="#777777"
+                          />
+                        </svg>
+                      </th>
+                      <th>
+                        Ordered on
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="9"
@@ -230,7 +211,7 @@ export default function OverallSales() {
                         </svg>
                       </th>
                       <th className={osCss.payment}>
-                        Payment method{" "}
+                        Payment method
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="9"
@@ -249,7 +230,7 @@ export default function OverallSales() {
                         </svg>
                       </th>
                       <th className={osCss.payment}>
-                        Delivery status{" "}
+                        Delivery status
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="9"
@@ -320,7 +301,7 @@ export default function OverallSales() {
                               <>
                                 <select
                                   name=""
-                                  id=""
+                                  id={key}
                                   value={selectedValue}
                                   onChange={handleSelectChange}
                                 >
@@ -355,6 +336,7 @@ export default function OverallSales() {
                                     stroke-linecap="round"
                                     stroke-linejoin="round"
                                     class="lucide lucide-save"
+                                    className={osCss.lucidePencil}
                                     onClick={() => {
                                       UpdateData(val._id);
                                     }}

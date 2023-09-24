@@ -69,6 +69,13 @@ th:nth-child(2) {
   font-weight: 400;
 }
 
+.imgTag {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .row {
   padding: 17px 0px 17px 15px;
   border-bottom: 1px solid #ddd;
