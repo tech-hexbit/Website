@@ -27,8 +27,6 @@ export default function OverallSales() {
     furniture: false,
   });
 
-  const inputRef = useRef(null);
-
   useEffect(() => {
     loadData();
   }, []);
@@ -64,43 +62,41 @@ export default function OverallSales() {
   };
 
   const UpdateData = async (id) => {
-    console.log(inputRef.current.id);
+    setSaveLoad(true);
+    try {
+      if (selectedValue !== "" || selectedValue !== "Select") {
+        let data = {
+          value: selectedValue,
+          Id: id,
+        };
 
-    // setSaveLoad(true);
-    // try {
-    //   if (selectedValue !== "" || selectedValue !== "Select") {
-    //     let data = {
-    //       value: selectedValue,
-    //       Id: id,
-    //     };
+        const response = await axios.post(
+          "/api/common/Order/UpdateState",
+          data,
+          {
+            headers: { Authorization: `${authCtx.token}` },
+          }
+        );
 
-    //     const response = await axios.post(
-    //       "/api/common/Order/UpdateState",
-    //       data,
-    //       {
-    //         headers: { Authorization: `${authCtx.token}` },
-    //       }
-    //     );
+        if (response.data.success) {
+          setSaveLoad(false);
+          setSelectedValue("Select");
 
-    //     if (response.data.success) {
-    //       setSaveLoad(false);
-    //       setSelectedValue("Select");
+          loadData();
 
-    //       loadData();
+          setEdit(!edit);
+        } else {
+          setSaveLoad(false);
+        }
+      } else {
+        setSaveLoad(false);
+      }
+    } catch (e) {
+      setLoad(false);
+      setSaveLoad(false);
 
-    //       setEdit(!edit);
-    //     } else {
-    //       setSaveLoad(false);
-    //     }
-    //   } else {
-    //     setSaveLoad(false);
-    //   }
-    // } catch (e) {
-    //   setLoad(false);
-    //   setSaveLoad(false);
-
-    //   console.log(e);
-    // }
+      console.log(e);
+    }
   };
 
   return (
@@ -307,7 +303,6 @@ export default function OverallSales() {
                                   name=""
                                   id={key}
                                   value={selectedValue}
-                                  ref={inputRef}
                                   onChange={handleSelectChange}
                                 >
                                   <option value="Select" selected hidden>
