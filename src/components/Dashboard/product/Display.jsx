@@ -98,7 +98,10 @@ export default function Display() {
                             >
                               <div className={DCss.col1}>
                                 <div className={DCss.image}>
-                                  <img src={val.descriptor.images[0]} />
+                                  <img
+                                    src={val.descriptor.images[0]}
+                                    className={DCss.imgTag}
+                                  />
                                 </div>
                                 <div className={DCss.col1Text}>
                                   <div className={DCss.textTop}>
