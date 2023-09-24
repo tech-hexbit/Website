@@ -83,6 +83,7 @@ export default function OverallSales() {
 
         if (response.data.success) {
           setSaveLoad(false);
+          setSelectedValue("Select");
 
           loadData();
 
