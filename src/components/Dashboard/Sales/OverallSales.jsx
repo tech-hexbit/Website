@@ -64,7 +64,7 @@ export default function OverallSales() {
   };
 
   const UpdateData = async (id) => {
-    console.log(inputRef.current);
+    console.log(inputRef.current.id);
 
     // setSaveLoad(true);
     // try {
@@ -176,25 +176,6 @@ export default function OverallSales() {
                           />
                         </svg>
                       </th>
-                      {/* <th>
-                Product{" "}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="9"
-                  height="14"
-                  viewBox="0 0 9 14"
-                  fill="none"
-                >
-                  <path
-                    d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                    fill="#777777"
-                  />
-                  <path
-                    d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                    fill="#777777"
-                  />
-                </svg>
-              </th> */}
                       <th>
                         Price{" "}
                         <svg
@@ -324,7 +305,7 @@ export default function OverallSales() {
                               <>
                                 <select
                                   name=""
-                                  id=""
+                                  id={key}
                                   value={selectedValue}
                                   ref={inputRef}
                                   onChange={handleSelectChange}
