@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import { Link } from "react-router-dom";
 
 // state
@@ -27,11 +27,17 @@ export default function OverallSales() {
     furniture: false,
   });
 
+  const inputRef = useRef(null);
+
   useEffect(() => {
     loadData();
   }, []);
 
   const authCtx = useContext(AuthContext);
+
+  const handleFocusButtonClick = () => {
+    inputRef.current;
+  };
 
   const handleSelectChange = (event) => {
     setSelectedValue(event.target.value);
@@ -62,41 +68,43 @@ export default function OverallSales() {
   };
 
   const UpdateData = async (id) => {
-    setSaveLoad(true);
-    try {
-      if (selectedValue !== "" || selectedValue !== "Select") {
-        let data = {
-          value: selectedValue,
-          Id: id,
-        };
+    console.log(inputRef.current);
 
-        const response = await axios.post(
-          "/api/common/Order/UpdateState",
-          data,
-          {
-            headers: { Authorization: `${authCtx.token}` },
-          }
-        );
+    // setSaveLoad(true);
+    // try {
+    //   if (selectedValue !== "" || selectedValue !== "Select") {
+    //     let data = {
+    //       value: selectedValue,
+    //       Id: id,
+    //     };
 
-        if (response.data.success) {
-          setSaveLoad(false);
-          setSelectedValue("Select");
+    //     const response = await axios.post(
+    //       "/api/common/Order/UpdateState",
+    //       data,
+    //       {
+    //         headers: { Authorization: `${authCtx.token}` },
+    //       }
+    //     );
 
-          loadData();
+    //     if (response.data.success) {
+    //       setSaveLoad(false);
+    //       setSelectedValue("Select");
 
-          setEdit(!edit);
-        } else {
-          setSaveLoad(false);
-        }
-      } else {
-        setSaveLoad(false);
-      }
-    } catch (e) {
-      setLoad(false);
-      setSaveLoad(false);
+    //       loadData();
 
-      console.log(e);
-    }
+    //       setEdit(!edit);
+    //     } else {
+    //       setSaveLoad(false);
+    //     }
+    //   } else {
+    //     setSaveLoad(false);
+    //   }
+    // } catch (e) {
+    //   setLoad(false);
+    //   setSaveLoad(false);
+
+    //   console.log(e);
+    // }
   };
 
   return (
@@ -322,6 +330,7 @@ export default function OverallSales() {
                                   name=""
                                   id=""
                                   value={selectedValue}
+                                  ref={inputRef}
                                   onChange={handleSelectChange}
                                 >
                                   <option value="Select" selected hidden>
