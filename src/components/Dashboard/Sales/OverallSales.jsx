@@ -35,10 +35,6 @@ export default function OverallSales() {
 
   const authCtx = useContext(AuthContext);
 
-  const handleFocusButtonClick = () => {
-    inputRef.current;
-  };
-
   const handleSelectChange = (event) => {
     setSelectedValue(event.target.value);
   };
