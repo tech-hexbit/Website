@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // components
 import Display from "./product/Display";
@@ -8,10 +8,11 @@ import Filter from "./product/Filter";
 import pdtCSS from "./Css/products.module.css";
 
 export default function Products() {
+  const [resarray, setresarray] = useState([]);
   return (
     <div className={pdtCSS.mdiv}>
-      <Filter />
-      <Display />
+      <Filter resarray = {resarray} setresarray = {setresarray}/>
+      <Display resarray = {resarray} />
     </div>
   );
 }

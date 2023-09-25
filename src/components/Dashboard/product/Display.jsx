@@ -16,15 +16,20 @@ import DCss from "./Css/display.module.css";
 // img
 import image from "../../../assets/dashboard/tablerow.png";
 
-
-export default function Display() {
+export default function Display({ resarray }) {
   const [orderDel, setOrderDel] = useState([]);
   const [load, setLoad] = useState(false);
-  const [records, setrecords] = useState(orderDel)
-  
+  const [records, setrecords] = useState(resarray);
+
   useEffect(() => {
+   // console.log("recors->",records)
+    // setrecords(resarray);
     loadData();
   }, []);
+  
+  useEffect(()=>{
+    setrecords(resarray);
+  },[resarray])
 
   const authCtx = useContext(AuthContext);
 
@@ -38,10 +43,10 @@ export default function Display() {
 
       if (response.data.success) {
         console.log(response.data.orderList);
-       
+
         setOrderDel(response?.data?.orderList);
-        setrecords(response?.data?.orderList)
-        console.log(orderDel[0]?.descriptor?.name)
+        // setrecords(response?.data?.orderList);
+        console.log(orderDel[0]?.descriptor?.name);
         setLoad(false);
       } else {
         setLoad(false);
@@ -54,16 +59,25 @@ export default function Display() {
       console.log(e);
     }
   };
-  const filter=(event)=>{
-       setrecords(orderDel.filter((f=>f?.descriptor?.name.toLowerCase().includes(event.target.value.toLowerCase()))))
-  }
- 
+  const filter = (event) => {
+    setrecords(
+      resarray.filter((f) =>
+        f?.descriptor?.name
+          .toLowerCase()
+          .includes(event.target.value.toLowerCase())
+      )
+    );
+  };
 
   return (
     <div className={DCss.mainDiv}>
       <div className={DCss.top}>
         <div className={DCss.search}>
-          <input type="text" placeholder="Search your product here.." onChange={filter} />
+          <input
+            type="text"
+            placeholder="Search your product here.."
+            onChange={filter}
+          />
           {/* { orderDel.filter((product)=>{
             if(search===""){
               return product

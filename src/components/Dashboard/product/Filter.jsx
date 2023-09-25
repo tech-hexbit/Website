@@ -6,7 +6,7 @@ import Tags from "./Tags";
 // css
 import FCss from "./Css/filter.module.css";
 import { useState, useEffect, useContext } from "react";
-import axios from "axios";
+import axios, { all } from "axios";
 import AuthContext from "./../../../store/auth-context";
 
 const data = [
@@ -19,12 +19,14 @@ const data = [
   "Sneckers",
 ];
 
-export default function Filter() {
+export default function Filter({ resarray, setresarray }) {
   const [orderDel, setOrderDel] = useState([]);
   const [load, setLoad] = useState(false);
   const [records, setrecords] = useState(orderDel);
   const [category, setcategory] = useState([]);
-
+  const [allcategory, setallcategory] = useState([]);
+  const [uniquecat, setuniquecat] = useState([]);
+  // const [resarray, setresarray] = useState([]);
   useEffect(() => {
     loadData();
   }, []);
@@ -44,9 +46,13 @@ export default function Filter() {
 
         setOrderDel(response?.data?.orderList);
         setrecords(response?.data?.orderList);
-        // orderDel?.forEach((order) => {
-        //   //setcategory((prevState) => [...prevState, order?.category_id]);
-        // });
+        orderDel.forEach((order) => {
+          setallcategory((prevState) => [...prevState, order?.category_id]);
+        });
+        //console.log(allcategory)
+        const unique = (allcategory) => [...new Set(allcategory)];
+        setuniquecat(unique(allcategory));
+        //console.log(unique(allcategory));
 
         // console.log(orderDel[0]?.descriptor?.name)
         // console.log(orderDel[0]?.category_id)
@@ -62,19 +68,12 @@ export default function Filter() {
       console.log(e);
     }
   };
+ 
+  useEffect(() => {
+    
+  }, []);
 
-  //console.log(category);
-  
-  const handlechange=(e)=>{
-    console.log(e.target.value)
-    if(e.target.checked){
-    setcategory(prevState=>[...prevState,e.target.value])
-      
-    }else{
-      const arr = category.filter((c)=> c !== e.target.value)
-      setcategory(arr);
-    }
-  }
+
 
   return (
     <div className={FCss.mainDiv}>
@@ -82,26 +81,28 @@ export default function Filter() {
         <div className={FCss.heading}>Filters</div>
         <div className={FCss.tags}>
           {category?.map((e, i) => {
-            return (
-              <Tags key={i} text={e}  />
-            );
+            return <Tags key={i} text={e} />;
           })}
         </div>
       </div>
       <div className={FCss.div1}>
         <div className={FCss.heading}>Category</div>
         <div>
-          <div className={FCss.categoryOption}>
-            Fashion <input type="checkbox" onChange={(e) => handlechange(e)} value="fashion"/>
-          </div>
-          <div className={FCss.categoryOption}>
-            Grocery <input type="checkbox" className={FCss.checkbox} onChange={(e) => handlechange(e)} value="Grocery" />
-          </div>
-          <div className={FCss.categoryOption}>
-            Furniture <input type="checkbox" onChange={(e) => handlechange(e)} value="Furniture" />
-          </div>
+          {uniquecat?.map((e) => {
+            return (
+              <div className={FCss.categoryOption}>
+                {e}{" "}
+                <input
+                  type="checkbox"
+                  onChange={(e) => handlechange(e)}
+                  value={e}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
+
       <div className={FCss.div1}>
         <select className={FCss.select}>
           <option hidden>Brands</option>
