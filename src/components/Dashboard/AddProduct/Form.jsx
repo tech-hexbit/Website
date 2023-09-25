@@ -132,6 +132,10 @@ export default function Form() {
     e.target.value = ''
   }
 
+  const removeTag = (index) => {
+    setTags(tags.filter((el, i) => i != index))
+  }
+
   return (
     <div>
       <div className={FCss.mDiv}>
@@ -425,9 +429,9 @@ export default function Form() {
                       <p>Fashion</p> <p className={FCss.CloseX}>X</p>
                     </div> */}
                     {tags.map((tag, index) => (
-                      <div className={FCss.TagP}>
+                      <div className={FCss.TagP} key={index}>
                         <span className="text">{tag}</span>
-                        <span className={FCss.CloseX}>&times;</span>
+                        <span className={FCss.CloseX} onClick={() => removeTag(index)}>&times;</span>
                       </div>
                     ))}
                     <input onKeyDown={handelKeyDown} type="text" className="" placeholder="Enter tags" />
