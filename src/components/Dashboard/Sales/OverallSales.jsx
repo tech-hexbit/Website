@@ -293,8 +293,8 @@ export default function OverallSales() {
                                 val.state == "Accepted"
                                   ? "#4BB543"
                                   : val.state == "In-progress"
-                                  ? "#3F81E0"
-                                  : "#D0342C",
+                                    ? "#3F81E0"
+                                    : "#D0342C",
                             }}
                           >
                             {edit ? (

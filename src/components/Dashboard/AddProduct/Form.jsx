@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 
+// react-dropzone
 import { useDropzone } from "react-dropzone";
 
 // axios
@@ -113,10 +114,23 @@ export default function Form() {
   //   console.log(e.target.files);
   //   setImage(e.target.files[0])
   // }
+
   const { getRootProps, getInputProps } = useDropzone({});
   // useEffect(() => {
   //   console.log(data);
   // }, [data]);
+
+  // Add Tags
+  const [tags, setTags] = useState([]);
+
+  const handelKeyDown = (e) => {
+    if (e.key !== "Enter") return
+    const value = e.target.value
+    if (!value.trim()) return
+    console.log('Adding tag:', value);
+    setTags([...tags, value]);
+    e.target.value = ''
+  }
 
   return (
     <div>
@@ -398,6 +412,7 @@ export default function Form() {
                   </select>
                 </div>
 
+                {/* Add Tags */}
                 <p className={FCss.labelMain}>Product Tags</p>
 
                 <div className={FCss.inpDiv}>
@@ -406,9 +421,16 @@ export default function Form() {
                   </p>
 
                   <div className={FCss.inpTag}>
-                    <div className={FCss.TagP}>
+                    {/* <div className={FCss.TagP}>
                       <p>Fashion</p> <p className={FCss.CloseX}>X</p>
-                    </div>
+                    </div> */}
+                    {tags.map((tag, index) => (
+                      <div className={FCss.TagP}>
+                        <span className="text">{tag}</span>
+                        <span className={FCss.CloseX}>&times;</span>
+                      </div>
+                    ))}
+                    <input onKeyDown={handelKeyDown} type="text" className="" placeholder="Enter tags" />
                   </div>
                 </div>
 
