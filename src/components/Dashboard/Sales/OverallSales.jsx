@@ -27,8 +27,6 @@ export default function OverallSales() {
     furniture: false,
   });
 
-  const inputRef = useRef(null);
-
   useEffect(() => {
     loadData();
   }, []);
@@ -64,43 +62,41 @@ export default function OverallSales() {
   };
 
   const UpdateData = async (id) => {
-    console.log(inputRef.current.id);
+    setSaveLoad(true);
+    try {
+      if (selectedValue !== "" || selectedValue !== "Select") {
+        let data = {
+          value: selectedValue,
+          Id: id,
+        };
 
-    // setSaveLoad(true);
-    // try {
-    //   if (selectedValue !== "" || selectedValue !== "Select") {
-    //     let data = {
-    //       value: selectedValue,
-    //       Id: id,
-    //     };
+        const response = await axios.post(
+          "/api/common/Order/UpdateState",
+          data,
+          {
+            headers: { Authorization: `${authCtx.token}` },
+          }
+        );
 
-    //     const response = await axios.post(
-    //       "/api/common/Order/UpdateState",
-    //       data,
-    //       {
-    //         headers: { Authorization: `${authCtx.token}` },
-    //       }
-    //     );
+        if (response.data.success) {
+          setSaveLoad(false);
+          setSelectedValue("Select");
 
-    //     if (response.data.success) {
-    //       setSaveLoad(false);
-    //       setSelectedValue("Select");
+          loadData();
 
-    //       loadData();
+          setEdit(!edit);
+        } else {
+          setSaveLoad(false);
+        }
+      } else {
+        setSaveLoad(false);
+      }
+    } catch (e) {
+      setLoad(false);
+      setSaveLoad(false);
 
-    //       setEdit(!edit);
-    //     } else {
-    //       setSaveLoad(false);
-    //     }
-    //   } else {
-    //     setSaveLoad(false);
-    //   }
-    // } catch (e) {
-    //   setLoad(false);
-    //   setSaveLoad(false);
-
-    //   console.log(e);
-    // }
+      console.log(e);
+    }
   };
 
   return (
@@ -139,7 +135,7 @@ export default function OverallSales() {
                     <tr>
                       <th></th>
                       <th className="sticky-col">
-                        Order id{" "}
+                        Order id
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="9"
@@ -158,7 +154,7 @@ export default function OverallSales() {
                         </svg>
                       </th>
                       <th>
-                        Customer{" "}
+                        Customer
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="9"
@@ -177,7 +173,7 @@ export default function OverallSales() {
                         </svg>
                       </th>
                       <th>
-                        Price{" "}
+                        Price
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="9"
@@ -196,7 +192,7 @@ export default function OverallSales() {
                         </svg>
                       </th>
                       <th>
-                        Ordered on{" "}
+                        Ordered on
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="9"
@@ -215,7 +211,7 @@ export default function OverallSales() {
                         </svg>
                       </th>
                       <th className={osCss.payment}>
-                        Payment method{" "}
+                        Payment method
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="9"
@@ -234,7 +230,7 @@ export default function OverallSales() {
                         </svg>
                       </th>
                       <th className={osCss.payment}>
-                        Delivery status{" "}
+                        Delivery status
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="9"
@@ -307,7 +303,6 @@ export default function OverallSales() {
                                   name=""
                                   id={key}
                                   value={selectedValue}
-                                  ref={inputRef}
                                   onChange={handleSelectChange}
                                 >
                                   <option value="Select" selected hidden>
