@@ -25,10 +25,11 @@ export default function Filter({ resarray, setresarray }) {
   const [records, setrecords] = useState(orderDel);
   const [category, setcategory] = useState([]);
   const [allcategory, setallcategory] = useState([]);
-  const [uniquecat, setuniquecat] = useState([]);
+  const [unique, setunique] = useState([]);
   // const [resarray, setresarray] = useState([]);
   useEffect(() => {
     loadData();
+    // handlechange();
   }, []);
 
   const authCtx = useContext(AuthContext);
@@ -51,7 +52,7 @@ export default function Filter({ resarray, setresarray }) {
         });
         //console.log(allcategory)
         const unique = (allcategory) => [...new Set(allcategory)];
-        setuniquecat(unique(allcategory));
+        setunique(unique(allcategory));
         //console.log(unique(allcategory));
 
         // console.log(orderDel[0]?.descriptor?.name)
@@ -68,12 +69,27 @@ export default function Filter({ resarray, setresarray }) {
       console.log(e);
     }
   };
- 
-  useEffect(() => {
-    
-  }, []);
 
-
+  const handlechange = (e) => {
+    console.log(e.target.value);
+    if (e.target.checked) {
+      setcategory((prevState) => [...prevState, e.target.value]);
+      // category?.map((e) => {
+      orderDel?.forEach((orderDel) => {
+        if (orderDel.category_id === e.target.value) {
+          setresarray((prevState) => [...prevState, orderDel]);
+          console.log(orderDel);
+        } else {
+        }
+      });
+      // });
+    } else {
+      const arr = category.filter((c) => c !== e.target.value);
+      setcategory(arr);
+      const arr2 = resarray.filter((c) => c !== e.target.value);
+      setresarray(arr2);
+    }
+  };
 
   return (
     <div className={FCss.mainDiv}>
@@ -88,7 +104,7 @@ export default function Filter({ resarray, setresarray }) {
       <div className={FCss.div1}>
         <div className={FCss.heading}>Category</div>
         <div>
-          {uniquecat?.map((e) => {
+          {unique?.map((e) => {
             return (
               <div className={FCss.categoryOption}>
                 {e}{" "}
