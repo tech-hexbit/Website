@@ -92,15 +92,19 @@ export default function Form() {
 
   const onSubmit = async () => {
     const formData= new FormData();
-    formData.append('data',data);
+    formData.append('data',JSON.stringify(data));
     formData.append('images',image);
+    // console.log(formData);
+    for (var key of formData.entries()) {
+      console.log(key[0] + ', ' + key[1]);
+  }
     try {
       const response = await axios.post(
         "/api/common/product/AddProduct",
         formData,
         { headers: 
           { 
-            "Content-Type": "multipart/form-data",
+            // "Content-Type": "multipart/form-data",
             Authorization: `${authCtx.token}` 
           } 
         }
