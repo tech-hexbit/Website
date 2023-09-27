@@ -6,7 +6,7 @@ import CTCss from "./Css/CreativeTeam.module.css";
 
 import mem1 from "../../assets/AboutUS/creativeTeam/mem1.png";
 import mem2 from "../../assets/AboutUS/creativeTeam/mem2.png";
-
+import MissionBlur from "./Blur/MissionBlur";
 export default function CreativeTeam() {
   return (
     <div className={CTCss.mainDiv}>
@@ -60,11 +60,13 @@ export default function CreativeTeam() {
       <div className={CTCss.right}>
         <CreativeCard
           img={mem1}
+          blur="LGMs$jm]VBv|+XM{%%x]00cD01WS"
           name="Rishabh Kant"
           designation="Project Manager"
         />
         <CreativeCard
           img={mem2}
+          blur="LBDb_;?Z000M02IW~n?F02R*~Toe"
           name="Abhishek Pathak"
           designation="Director, Operations"
         />

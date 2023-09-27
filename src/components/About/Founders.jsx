@@ -19,6 +19,7 @@ export default function Team() {
       <div className={TeamCss.gridDiv}>
         <TeamMemCard
           image={image1}
+          blur="LPGIfeM{OWRj?bNG%MRP~Vjab_jZ"
           name="Anuj Prakash"
           designation="CEO & Co-founder"
           img1={Aimg1}
@@ -26,6 +27,7 @@ export default function Team() {
         />
         <TeamMemCard
           image={image2}
+          blur="LLF#??w?KRk?~2jKNHS#0LM|s8V?"
           name="Tathagat Choudhary"
           designation="COO & Co-founder"
           img1={Timg1}

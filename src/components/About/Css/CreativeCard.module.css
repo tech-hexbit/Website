@@ -25,6 +25,11 @@
         height: 180px;
     }
 }
+@media screen and (max-width:968px){
+    .name{
+        font-size: 25px;
+    }
+}
 @media screen and (max-width:400px) {
     .image{
         height: 130px;
