@@ -46,7 +46,7 @@ export default function Filter({ resarray, setresarray }) {
         console.log(response?.data?.orderList);
 
         setOrderDel(response?.data?.orderList);
-        setrecords(response?.data?.orderList);
+        //setrecords(response?.data?.orderList);
         orderDel.forEach((order) => {
           setallcategory((prevState) => [...prevState, order?.category_id]);
         });
@@ -118,7 +118,6 @@ export default function Filter({ resarray, setresarray }) {
           })}
         </div>
       </div>
-
       <div className={FCss.div1}>
         <select className={FCss.select}>
           <option hidden>Brands</option>
@@ -129,6 +128,7 @@ export default function Filter({ resarray, setresarray }) {
           <option hidden>Price</option>
         </select>
       </div>
+      s
       <div className={FCss.div1}>
         <select className={FCss.select}>
           <option hidden>Discounts</option>

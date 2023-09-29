@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-
+import { useParams } from "react-router-dom";
 // state
 import AuthContext from "./../../../store/auth-context";
 
@@ -15,21 +15,26 @@ import DCss from "./Css/display.module.css";
 
 // img
 import image from "../../../assets/dashboard/tablerow.png";
+import { Trash2 } from "lucide-react";
 
 export default function Display({ resarray }) {
   const [orderDel, setOrderDel] = useState([]);
   const [load, setLoad] = useState(false);
   const [records, setrecords] = useState(resarray);
+  const [popupfdelete, setpopupfdelete] = useState(false);
+  const [updatedproduct, setupdatedproduct] = useState([]);
+
+  const { id } = useParams();
 
   useEffect(() => {
-   // console.log("recors->",records)
+    // console.log("recors->",records)
     // setrecords(resarray);
     loadData();
   }, []);
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     setrecords(resarray);
-  },[resarray])
+  }, [resarray]);
 
   const authCtx = useContext(AuthContext);
 
@@ -57,6 +62,22 @@ export default function Display({ resarray }) {
       setLoad(false);
 
       console.log(e);
+    }
+  };
+  const deleteproduct = async (_id) => {
+    try {
+      const response = await axios.delete(`/api/common/product/delete/${_id}`, {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+      // console.log(updatedproduct)
+      if (response.status === 200) {
+        setupdatedproduct(records.filter((p) => p._id != _id));
+        setrecords(updatedproduct);
+      } else {
+        console.log("error");
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
   const filter = (event) => {
@@ -165,7 +186,12 @@ export default function Display({ resarray }) {
                           </td>
                           <td className={DCss.row} id={DCss.col6}>
                             <div className={DCss.dots}>
-                              <div style={{ marginTop: "-5px" }}>...</div>
+                              <div
+                                style={{ marginTop: "-5px" }}
+                                onClick={() => deleteproduct(val._id)}
+                              >
+                                <Trash2 />
+                              </div>
                             </div>
                           </td>
                         </tr>
