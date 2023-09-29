@@ -23,6 +23,7 @@ export default function Display({ resarray }) {
   const [records, setrecords] = useState(resarray);
   const [popupfdelete, setpopupfdelete] = useState(false);
   const [updatedproduct, setupdatedproduct] = useState([]);
+  const [filteredlist, setfilteredlist] = useState([]);
 
   const { id } = useParams();
 
@@ -50,8 +51,9 @@ export default function Display({ resarray }) {
         console.log(response.data.orderList);
 
         setOrderDel(response?.data?.orderList);
+        setfilteredlist(response?.data?.orderList);
         // setrecords(response?.data?.orderList);
-        console.log(orderDel[0]?.descriptor?.name);
+        //console.log(orderDel[0]?.descriptor?.name);
         setLoad(false);
       } else {
         setLoad(false);
@@ -73,6 +75,8 @@ export default function Display({ resarray }) {
       if (response.status === 200) {
         setupdatedproduct(records.filter((p) => p._id != _id));
         setrecords(updatedproduct);
+        console.log(records);
+        console.log("deleted");
       } else {
         console.log("error");
       }
@@ -81,13 +85,17 @@ export default function Display({ resarray }) {
     }
   };
   const filter = (event) => {
-    setrecords(
-      resarray.filter((f) =>
-        f?.descriptor?.name
-          .toLowerCase()
-          .includes(event.target.value.toLowerCase())
-      )
+    var updatedprod = orderDel.filter((f) =>
+      f?.descriptor?.name
+        .toLowerCase()
+        .includes(event.target.value.toLowerCase())
     );
+    if (event.target.value === "") {
+      setfilteredlist(orderDel);
+    } else {
+      setfilteredlist(updatedprod);
+    }
+    console.log(updatedprod);
   };
 
   return (
@@ -135,7 +143,7 @@ export default function Display({ resarray }) {
                     <th id={DCss.published}>Published on</th>
                     <th>Action</th>
                   </tr>
-                  {records.map((val, key) => {
+                  {filteredlist.map((val, key) => {
                     return (
                       <>
                         <tr key={key}>
