@@ -32,6 +32,8 @@ export default function Description(props) {
       });
 
       if (response.data.success) {
+        console.log(response.data.totalOrders);
+
         setOrderDel({
           totalOrders: response.data.totalOrders,
           totalAmount: response.data.totalAmount,
