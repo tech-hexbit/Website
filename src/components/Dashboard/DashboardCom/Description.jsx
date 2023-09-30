@@ -32,10 +32,12 @@ export default function Description(props) {
       });
 
       if (response.data.success) {
-        console.log(response.data.totalOrders);
+        let formattedNumber = formatNumberToIndianSystem(
+          response.data.totalOrders
+        );
 
         setOrderDel({
-          totalOrders: response.data.totalOrders,
+          totalOrders: formattedNumber,
           totalAmount: response.data.totalAmount,
           totalNewCustomers: response.data.totalNewCustomers,
         });
@@ -46,6 +48,32 @@ export default function Description(props) {
       console.log(e);
     }
   };
+
+  function formatNumberToIndianSystem(number) {
+    const suffixes = [
+      "",
+      "k",
+      "L",
+      "Crore",
+      "Arab",
+      "Kharab",
+      "Neel",
+      "Padma",
+      "Shankh",
+    ];
+
+    let suffixIndex = 0;
+    while (number >= 1000) {
+      number /= 1000;
+      suffixIndex++;
+    }
+
+    // Use parseInt to remove decimal part if it's .0
+    number = parseInt(number) === number ? parseInt(number) : number.toFixed(1);
+
+    // Append the appropriate suffix from the suffixes array
+    return number + suffixes[suffixIndex];
+  }
 
   return (
     <div className={DCss.mainDiv}>
