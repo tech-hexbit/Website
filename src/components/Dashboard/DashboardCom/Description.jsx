@@ -54,7 +54,7 @@ export default function Description(props) {
       "",
       "k",
       "L",
-      "Crore",
+      "Cr",
       "Arab",
       "Kharab",
       "Neel",
