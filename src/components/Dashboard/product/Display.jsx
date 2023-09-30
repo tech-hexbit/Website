@@ -21,7 +21,6 @@ export default function Display({ resarray }) {
   const [orderDel, setOrderDel] = useState([]);
   const [load, setLoad] = useState(false);
   const [records, setrecords] = useState(resarray);
-  const [popupfdelete, setpopupfdelete] = useState(false);
   const [updatedproduct, setupdatedproduct] = useState([]);
   const [filteredlist, setfilteredlist] = useState([]);
 

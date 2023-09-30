@@ -47,14 +47,16 @@ export default function Filter({ resarray, setresarray }) {
 
         setOrderDel(response?.data?.orderList);
         //setrecords(response?.data?.orderList);
+
         orderDel.forEach((order) => {
           setallcategory((prevState) => [...prevState, order?.category_id]);
-          //console.log(allcategory)
+          console.log(allcategory);
         });
+
         //console.log(allcategory)
         const unique = (allcategory) => [...new Set(allcategory)];
         setunique(unique(allcategory));
-        //console.log(unique(allcategory));
+        console.log(unique(allcategory));
 
         // console.log(orderDel[0]?.descriptor?.name)
         // console.log(orderDel[0]?.category_id)

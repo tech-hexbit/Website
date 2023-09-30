@@ -196,3 +196,28 @@
     line-height:20px;
   }
 }
+@media screen and (max-width: 350px){
+  .image{
+    width: 70%;
+  }
+  .name{
+    font-size:18px;
+  }
+  .designation{
+    font-size: 12px;
+    line-height:20px;
+  }
+}
+@media screen and (max-width: 305px){
+  .image{
+    width: 90%;
+    height: 90%;
+  }
+  .name{
+    font-size:16px;
+  }
+  .designation{
+    line-height: 15px;
+  }
+  
+}

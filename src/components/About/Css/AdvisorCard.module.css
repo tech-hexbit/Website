@@ -57,5 +57,16 @@
   .mainDiv{
     padding: 20px 20px;
   }
+  .company img{
+    width: 80%;
+  }
  
+}
+@media screen and (max-width: 295px){
+  .mainDiv{
+    max-width: 70%;
+  }
+  .company img{
+    width: 80%;
+  }
 }
