@@ -7,6 +7,7 @@ export default function DesCard(props) {
   const changeDefault = () => {
     props.setDefaultSet(`${props.boxof}`);
   };
+
   return (
     <div
       className={DCCss.mainDiv}
