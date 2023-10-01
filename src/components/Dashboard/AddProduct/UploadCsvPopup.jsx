@@ -1,8 +1,13 @@
 import React, { useRef, useState } from "react";
 
-import Upcss from "./Css/uploadCsvPopup.module.css";
-import upload_image from "../../../assets/dashboard/upload.svg";
+// axios
 import axios from "axios";
+
+// css
+import Upcss from "./Css/uploadCsvPopup.module.css";
+
+// img
+import upload_image from "../../../assets/dashboard/upload.svg";
 
 const UploadCsvPopup = ({ setShowPopup, setError }) => {
   const [file, setFile] = useState();
