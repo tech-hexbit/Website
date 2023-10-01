@@ -79,6 +79,7 @@ th:nth-child(2) {
 .row {
   padding: 17px 0px 17px 15px;
   border-bottom: 1px solid #ddd;
+  position: relative;
 }
 
 .middle {
@@ -126,16 +127,12 @@ th:nth-child(2) {
 }
 
 .dots {
-  border-radius: 5px;
-  background: rgba(255, 115, 29, 0.3);
-  color: #df5e0f;
+
   font-size: 20px;
   font-weight: 700;
   display: flex;
   align-items: center;
-  line-height: 27px;
-  letter-spacing: 0.2px;
-  padding: 0px 5px 3px 5px;
+ 
   cursor: pointer;
 }
 
@@ -175,3 +172,5 @@ th:nth-child(2) {
   border: 1px solid #3f81e0;
   color: #777;
 }
+
+

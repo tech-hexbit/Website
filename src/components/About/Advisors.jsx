@@ -1,7 +1,7 @@
 import React from "react";
 
 import AdvisorCard from "./AdvisorCard";
-
+import MissionBlur from "./Blur/MissionBlur";
 // Css
 import ACss from "./Css/Advisors.module.css";
 
@@ -27,16 +27,19 @@ export default function Advisors() {
         <div className={ACss.advisorList}>
           <AdvisorCard
             image={advisor1}
+            blur="L6FrS10N00~U00t6P;R53Z}?00Nb"
             name="Badrinath Mishra"
             company={company1}
           />
           <AdvisorCard
             image={advisor2}
+            blur="LWI5c8R*x]s:_4ogRjRP00oL8^kC"
             name="Dharmender Khanna"
             company={company2}
           />
           <AdvisorCard
             image={advisor4}
+            blur="LWCsmz9FRj%M_4IURi%MRPxuM{xu"
             name="Mayank Tiwari"
             company={company4}
           />

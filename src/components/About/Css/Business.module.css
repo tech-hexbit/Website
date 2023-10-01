@@ -23,8 +23,9 @@
 }
 .subHead{
     color: rgba(45, 45, 45, 0.5);
-    font-size: 18px;
-    padding: 10px;
+    font-size: 22px;
+    padding: -2px;
+    
 }
 .buttons{
     width: 90%;
@@ -40,6 +41,7 @@
     font-weight: 600;
     color: white;
     width: 160px;
+    margin-top: 15px;
 }
 .image{
     width: 40%;
@@ -84,7 +86,7 @@
         width: 100%;
     }
     .subHead{
-        font-size: 15px;
+        font-size: 20px;
     }
 }
 @media screen and (max-width:800px) {

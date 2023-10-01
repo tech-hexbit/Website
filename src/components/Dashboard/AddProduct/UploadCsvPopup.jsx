@@ -6,7 +6,7 @@ import axios from "axios";
 // css
 import Upcss from "./Css/uploadCsvPopup.module.css";
 
-// ing
+// img
 import upload_image from "../../../assets/dashboard/upload.svg";
 
 const UploadCsvPopup = ({ setShowPopup, setError }) => {
@@ -25,14 +25,10 @@ const UploadCsvPopup = ({ setShowPopup, setError }) => {
       });
       return;
     }
-
     console.log("file->", file);
-
     const formData = new FormData();
-
     formData.append("Excel", file);
     formData.append("ExcelName", file.name);
-
     const response = await axios.post("/api/common/product/AddBulk", formData, {
       headers: {
         "content-type": "multipart/form-data",
@@ -60,7 +56,6 @@ const UploadCsvPopup = ({ setShowPopup, setError }) => {
         val: true,
       });
     }
-
     setShowPopup(false);
   };
 
@@ -74,8 +69,6 @@ const UploadCsvPopup = ({ setShowPopup, setError }) => {
     event.target.style.display = "block";
     const img = document.getElementById("uploadImg");
     img.style.display = "none";
-
-    // await handleFile(fileUploaded);
 
     console.log(fileUploaded);
   };
@@ -108,7 +101,7 @@ const UploadCsvPopup = ({ setShowPopup, setError }) => {
             <button type="file" onClick={handleSubmit}>
               Upload file
             </button>
-            <a href="https://hexbitbucket2023.s3.ap-south-1.amazonaws.com/sample_csv/test.items2.xlsx">
+            <a href="https://hexbitbucket2023.s3.ap-south-1.amazonaws.com/sample_csv/sample_csv.xlsx">
               <button>Download Sample file</button>
             </a>
           </div>

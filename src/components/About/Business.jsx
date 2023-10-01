@@ -5,7 +5,7 @@ import BCss from "./Css/Business.module.css";
 // import image from "./../../assets/AboutUS/contactUs.png";
 import image from "./../../assets/AboutUS/Imagebusiness.png";
 import { Link } from "react-router-dom";
-
+import MissionBlurBusiness from "./Blur/MissionBlurBusiness";
 export default function Business() {
   return (
     <div className={BCss.mainDiv}>
@@ -25,7 +25,8 @@ export default function Business() {
         </div>
       </div>
       <div className={BCss.image}>
-        <img src={image} alt="" />
+       <MissionBlurBusiness src={image} blur="LCFNB1W-8~w$+V.6xt4oV#M|xp%e"/>
+        
       </div>
     </div>
   );

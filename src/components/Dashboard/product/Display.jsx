@@ -14,11 +14,12 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 import DCss from "./Css/display.module.css";
 
 // img
-import image from "../../../assets/dashboard/tablerow.png";
+import { Trash2 } from "lucide-react";
 
-export default function Display() {
+export default function Display({ filteredlist, setfilteredlist }) {
   const [orderDel, setOrderDel] = useState([]);
   const [load, setLoad] = useState(false);
+  const [updatedproduct, setupdatedproduct] = useState([]);
 
   useEffect(() => {
     loadData();
@@ -35,10 +36,8 @@ export default function Display() {
       });
 
       if (response.data.success) {
-        console.log(response.data.orderList);
-
-        setOrderDel(response.data.orderList);
-
+        setOrderDel(response?.data?.orderList);
+        setfilteredlist(response?.data?.orderList);
         setLoad(false);
       } else {
         setLoad(false);
@@ -52,14 +51,50 @@ export default function Display() {
     }
   };
 
+  const deleteproduct = async (_id) => {
+    try {
+      const response = await axios.delete(`/api/common/product/delete/${_id}`, {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+      // console.log(updatedproduct)
+      if (response.status === 200) {
+        setupdatedproduct(filteredlist.filter((p) => p._id != _id));
+        setfilteredlist(updatedproduct);
+        console.log("deleted");
+      } else {
+        console.log("error");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const filter = (event) => {
+    var updatedprod = orderDel.filter((f) =>
+      f?.descriptor?.name
+        .toLowerCase()
+        .includes(event.target.value.toLowerCase())
+    );
+    if (event.target.value === "") {
+      setfilteredlist(orderDel);
+    } else {
+      setfilteredlist(updatedprod);
+    }
+    console.log(updatedprod);
+  };
+
   return (
     <div className={DCss.mainDiv}>
       <div className={DCss.top}>
         <div className={DCss.search}>
-          <input type="text" placeholder="Search your product here.." />
+          <input
+            type="text"
+            placeholder="Search your product here.."
+            onChange={filter}
+          />
         </div>
         <div className={DCss.button}>
-          <Link to="/me/addProduct" className="LinkStyle">
+          <Link to="/me/addProduct" className={DCss.LinkStyle}>
             <button>+ Add product</button>
           </Link>
         </div>
@@ -84,7 +119,7 @@ export default function Display() {
                     <th id={DCss.published}>Published on</th>
                     <th>Action</th>
                   </tr>
-                  {orderDel.map((val, key) => {
+                  {filteredlist.map((val, key) => {
                     return (
                       <>
                         <tr key={key}>
@@ -94,7 +129,7 @@ export default function Display() {
                           <td className={DCss.row} id={DCss.col1}>
                             <Link
                               to={`/products/${val._id}`}
-                              className="LinkStyle"
+                              className={DCss.LinkStyle}
                             >
                               <div className={DCss.col1}>
                                 <div className={DCss.image}>
@@ -135,7 +170,12 @@ export default function Display() {
                           </td>
                           <td className={DCss.row} id={DCss.col6}>
                             <div className={DCss.dots}>
-                              <div style={{ marginTop: "-5px" }}>...</div>
+                              <div
+                                style={{ marginTop: "-5px" }}
+                                onClick={() => deleteproduct(val._id)}
+                              >
+                                <Trash2 />
+                              </div>
                             </div>
                           </td>
                         </tr>
@@ -144,7 +184,7 @@ export default function Display() {
                   })}
                 </>
               ) : (
-                <p className="NoOrders">No Orders</p>
+                <p className={DCss.NoOrders}>No Orders</p>
               )}
             </table>
           </div>

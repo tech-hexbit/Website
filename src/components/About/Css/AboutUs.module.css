@@ -15,6 +15,7 @@
   background-color: red;
   border-radius: 15px;
   overflow: hidden;
+  
 }
 
 .left img {
@@ -39,7 +40,7 @@
 
 .aimHead {
   color: #5925dc;
-  font-size: 12px;
+  font-size: 20px;
   font-weight: 600;
   letter-spacing: 0.4px;
   text-transform: uppercase;
@@ -100,7 +101,7 @@
 
 .topSubHead {
   color: #252525;
-  font-size: 16px;
+  font-size: 22px;
   line-height: 32px;
   font-weight: 300;
   text-transform: capitalize;
@@ -185,6 +186,13 @@ span {
     width: 100%;
   }
 }
+/* @media screen and (max-width: 1230px) {
+  .topHead{
+    margin-left: 30px;
+  }
+} */
+
+
 
 @media screen and (max-width: 1120px) {
   .head {
@@ -198,6 +206,12 @@ span {
   .part2Desc {
     font-size: 42px;
   }
+}
+@media screen and (max-width: 1190px) {
+.topSubHead{
+  margin: -1px;
+  margin-top: 10px;
+}
 }
 
 @media screen and (max-width: 950px) {
@@ -288,6 +302,7 @@ span {
     column-gap: 80px;
     row-gap: 20px;
   }
+  
 }
 
 @media screen and (max-width: 620px) {

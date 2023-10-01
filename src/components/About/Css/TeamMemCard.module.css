@@ -15,10 +15,11 @@
 /* } */
 
 .image {
-  width: 40%;
+  width:60%;
   /* height: 30%; */
   object-fit: cover;
   aspect-ratio: 3/4;
+
 }
 
 .details {
@@ -31,7 +32,7 @@
 
 .name {
   color: #2d2d2d;
-  font-size: 26px;
+  font-size: 36px;
   font-weight: 600;
 }
 
@@ -41,7 +42,7 @@
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
-  line-height: 36px;
+  line-height: 25px;
   margin-bottom: 20px;
 }
 
@@ -57,11 +58,49 @@
   height: 75px;
   object-fit: contain;
 }
+@media screen and (max-width: 1100px){
+  .name{
+    font-size: 30px;
+  }
+  .img2{
+    height: 58px;
+  }
+}
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1015px){
+  .img1{
+    height: 55px;
+
+  }
+}
+
+@media screen and (max-width: 953px) {
   .designation {
     font-size: 14px;
     font-weight: 600;
+  }
+  .name{
+    font-size: 25px;
+  }
+  .img1{
+    height: 50px;
+  }
+  .img2{
+    height: 50px;
+  }
+}
+@media screen and (max-width: 870px){
+  .name{
+    font-size: 30px;
+  }
+  .designation{
+    font-size: 15px;
+  }
+  .img1{
+    height: 55px;
+  }
+  .img2{
+    height: 55px;
   }
 }
 
@@ -75,11 +114,55 @@
   .mainCard {
     width: 100%;
   }
+  .image{
+    width: 50%;
+  }
+  .name{
+    font-size: 30px;
+  }
+  .img1{
+    height: 65px;
+  }
+  .img2{
+  height: 65px;
+  }
 }
 
 @media screen and (max-width: 620px) {
   .name {
-    font-size: 36px;
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 577px){
+  .img1{
+    height: 50px;
+  }
+  .img2{
+    height: 50px;
+  }
+}
+@media screen and (max-width: 550px) {
+.image{
+  width: 50%;
+}.name{
+  font-size: 28px;
+}
+.designation{
+  font-size: 13px;
+}
+.img2{
+  height: 65px;
+}
+}
+@media screen and (max-width: 536px){
+  .name{
+    font-size: 25px;
+  }
+  .img1{
+    height: 45px;
+  }
+  .img2{
+    height: 45px;
   }
 }
 
@@ -94,24 +177,47 @@
         margin-left: -25px;
     }
 } */
-@media screen and (max-width: 400px) {
-  .image {
-    height: 150px;
-  }
 
-  /* .mainCard{
-        margin-left: 60px;
-    } */
-  .details {
-    padding: 0px 10px;
-  }
 
-  .name {
-    font-size: 30px;
+@media screen and (max-width: 485px){
+  .img1{
+    height: 40px;
   }
-
-  .designation {
-    /* background-color: gray; */
+  .img2{
+    height: 40px;
+  }
+}
+@media screen and (max-width: 400px){
+  .name{
+    font-size:22px;
+  }
+  .designation{
     font-size: 12px;
+    line-height:20px;
   }
+}
+@media screen and (max-width: 350px){
+  .image{
+    width: 70%;
+  }
+  .name{
+    font-size:18px;
+  }
+  .designation{
+    font-size: 12px;
+    line-height:20px;
+  }
+}
+@media screen and (max-width: 305px){
+  .image{
+    width: 90%;
+    height: 90%;
+  }
+  .name{
+    font-size:16px;
+  }
+  .designation{
+    line-height: 15px;
+  }
+  
 }

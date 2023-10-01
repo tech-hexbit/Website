@@ -26,7 +26,7 @@
 
 .name {
   color: #1a1a1a;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 500;
   text-align: center;
   padding: 20px 0px;
@@ -46,5 +46,27 @@
 @media screen and (max-width: 780px) {
   .image {
     height: 120px;
+  }
+}
+@media screen and (max-width: 510px){
+  .mainDiv{
+    max-width: 50%;
+  }
+}
+@media screen and (max-width: 505px) {
+  .mainDiv{
+    padding: 20px 20px;
+  }
+  .company img{
+    width: 80%;
+  }
+ 
+}
+@media screen and (max-width: 295px){
+  .mainDiv{
+    max-width: 70%;
+  }
+  .company img{
+    width: 80%;
   }
 }

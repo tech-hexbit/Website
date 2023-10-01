@@ -5,6 +5,9 @@ import Tags from "./Tags";
 
 // css
 import FCss from "./Css/filter.module.css";
+import { useState, useEffect, useContext } from "react";
+import axios, { all } from "axios";
+import AuthContext from "./../../../store/auth-context";
 
 const data = [
   "Shoes",
@@ -16,13 +19,93 @@ const data = [
   "Sneckers",
 ];
 
-export default function Filter() {
+export default function Filter({ filteredlist, setfilteredlist }) {
+  const [orderDel, setOrderDel] = useState([]);
+  const [load, setLoad] = useState(false);
+  const [records, setrecords] = useState(orderDel);
+  const [category, setcategory] = useState([]);
+  const [allcategory, setallcategory] = useState([]);
+  const [unique, setunique] = useState([]);
+  // const [resarray, setresarray] = useState([]);
+  useEffect(() => {
+    loadData();
+
+    // handlechange();
+  }, []);
+
+  useEffect(() => {
+    const u = (allcategory) => [...new Set(allcategory)];
+    setunique(u(allcategory));
+    console.log(unique);
+  }, [allcategory]);
+
+  const authCtx = useContext(AuthContext);
+
+  const loadData = async () => {
+    setLoad(true);
+
+    try {
+      const response = await axios.get("/api/common/product/all", {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+
+      if (response.data.success) {
+        console.log(response?.data?.orderList);
+
+        setOrderDel(response?.data?.orderList);
+        //setrecords(response?.data?.orderList);
+
+        response?.data?.orderList?.forEach((order) => {
+          setallcategory((prevState) => [...prevState, order.category_id]);
+          console.log(allcategory);
+        });
+
+        //console.log(allcategory)
+
+        console.log(unique(allcategory));
+
+        // console.log(orderDel[0]?.descriptor?.name)
+        // console.log(orderDel[0]?.category_id)
+        setLoad(false);
+      } else {
+        setLoad(false);
+
+        console.log(e);
+      }
+    } catch (e) {
+      setLoad(false);
+
+      console.log(e);
+    }
+  };
+
+  const handlechange = (e) => {
+    console.log(e.target.value);
+    if (e.target.checked) {
+      setcategory((prevState) => [...prevState, e.target.value]);
+      // category?.map((e) => {
+      orderDel?.forEach((orderDel) => {
+        if (orderDel.category_id === e.target.value) {
+          setfilteredlist((prevState) => [...prevState, orderDel]);
+          console.log(orderDel);
+        } else {
+        }
+      });
+      // });
+    } else {
+      const arr = category.filter((c) => c !== e.target.value);
+      setcategory(arr);
+      const arr2 = filteredlist.filter((c) => c !== e.target.value);
+      setfilteredlist(arr2);
+    }
+  };
+
   return (
     <div className={FCss.mainDiv}>
       <div className={FCss.div1}>
         <div className={FCss.heading}>Filters</div>
         <div className={FCss.tags}>
-          {data.map((e, i) => {
+          {category?.map((e, i) => {
             return <Tags key={i} text={e} />;
           })}
         </div>
@@ -30,15 +113,18 @@ export default function Filter() {
       <div className={FCss.div1}>
         <div className={FCss.heading}>Category</div>
         <div>
-          <div className={FCss.categoryOption}>
-            Fashion <input type="checkbox" />
-          </div>
-          <div className={FCss.categoryOption}>
-            Grocery <input type="checkbox" className={FCss.checkbox} />
-          </div>
-          <div className={FCss.categoryOption}>
-            Furniture <input type="checkbox" />
-          </div>
+          {unique?.map((e) => {
+            return (
+              <div className={FCss.categoryOption}>
+                {e}{" "}
+                <input
+                  type="checkbox"
+                  onChange={(e) => handlechange(e)}
+                  value={e}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
       <div className={FCss.div1}>
@@ -51,6 +137,7 @@ export default function Filter() {
           <option hidden>Price</option>
         </select>
       </div>
+      s
       <div className={FCss.div1}>
         <select className={FCss.select}>
           <option hidden>Discounts</option>

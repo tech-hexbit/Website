@@ -1,12 +1,15 @@
 import React from "react";
 
 import TeamCss from "./Css/TeamMemCard.module.css";
-
+import MissionBlurFounder from "./Blur/MissionBlurFounder";
 export default function TeamMemCard(props) {
   return (
     <div className={TeamCss.mainCard}>
       {/* <div className={TeamCss.image}> */}
-      <img src={props.image} alt="" className={TeamCss.image} />
+      {/* <img src={props.image} alt="" className={TeamCss.image} /> */}
+      <div className={TeamCss.image}>
+      <MissionBlurFounder src={props.image}  blur={props.blur} />
+      </div>
       {/* </div> */}
       <div className={TeamCss.details}>
         <div className={TeamCss.name}>{props.name}</div>
