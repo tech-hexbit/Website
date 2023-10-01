@@ -47,7 +47,7 @@ export default function OverallSales() {
 
       if (response.data.success) {
         setOrderDel(response.data.orderList);
-        console.log(response.data.orderList)
+        console.log(response.data.orderList);
 
         setLoad(false);
       } else {
@@ -126,7 +126,7 @@ export default function OverallSales() {
         <div className={osCss.table}>
           <table style={{ borderCollapse: "collapse" }}>
             {load ? (
-              <div className={osCss.loadCenterDiv}>
+              <div className="loadCenterDiv">
                 <Load />
               </div>
             ) : (
