@@ -14,7 +14,6 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 import DCss from "./Css/display.module.css";
 
 // img
-import image from "../../../assets/dashboard/tablerow.png";
 import { Trash2 } from "lucide-react";
 
 export default function Display({ filteredlist, setfilteredlist }) {
