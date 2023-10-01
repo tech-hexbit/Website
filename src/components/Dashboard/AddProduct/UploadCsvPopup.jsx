@@ -34,7 +34,9 @@ const UploadCsvPopup = ({ setShowPopup, setError }) => {
         "content-type": "multipart/form-data",
       },
     });
+
     console.log(response);
+
     if (response.status === 200) {
       setError({
         mainColor: "#EDFEEE",
@@ -56,9 +58,11 @@ const UploadCsvPopup = ({ setShowPopup, setError }) => {
     }
     setShowPopup(false);
   };
+
   const handleClick = (event) => {
     fileInp.current.click();
   };
+
   const handleChange = (event) => {
     const fileUploaded = event.target.files[0];
     setFile(fileUploaded);
@@ -66,10 +70,9 @@ const UploadCsvPopup = ({ setShowPopup, setError }) => {
     const img = document.getElementById("uploadImg");
     img.style.display = "none";
 
-    // await handleFile(fileUploaded);
-
     console.log(fileUploaded);
   };
+
   return (
     <>
       <div className={Upcss.mainDiv}>
