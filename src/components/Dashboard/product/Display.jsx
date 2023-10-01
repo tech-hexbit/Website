@@ -17,12 +17,11 @@ import DCss from "./Css/display.module.css";
 import image from "../../../assets/dashboard/tablerow.png";
 import { Trash2 } from "lucide-react";
 
-export default function Display({ filteredlist,setfilteredlist }) {
+export default function Display({ filteredlist, setfilteredlist }) {
   const [orderDel, setOrderDel] = useState([]);
   const [load, setLoad] = useState(false);
   // const [records, setrecords] = useState(resarray);
   const [updatedproduct, setupdatedproduct] = useState([]);
-  
 
   const { id } = useParams();
 
@@ -124,7 +123,7 @@ export default function Display({ filteredlist,setfilteredlist }) {
 
       <div className={DCss.middle}>
         {load ? (
-          <div className={DCss.loadCenterDiv}>
+          <div className="loadCenterDiv">
             <Load />
           </div>
         ) : (
