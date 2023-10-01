@@ -107,16 +107,7 @@ export default function Form() {
     console.log(data);
   };
 
-
-  // const [image, setImage] = useState('')
-  // const handleImage = (e) => {
-  //   console.log(e.target.files);
-  //   setImage(e.target.files[0])
-  // }
   const { getRootProps, getInputProps } = useDropzone({});
-  // useEffect(() => {
-  //   console.log(data);
-  // }, [data]);
 
   return (
     <div>
@@ -594,9 +585,7 @@ export default function Form() {
             <div {...getRootProps({ className: "dropzone" })}>
               <input className="input-zone" {...getInputProps()} />
               <div className="text-center">
-                <p className="dropzone-content">
-                  +
-                </p>
+                <p className="dropzone-content">+</p>
               </div>
             </div>
           </div>
@@ -605,7 +594,6 @@ export default function Form() {
         <p className={FCss.labelDes}>Add additional product images</p>
 
         <div className={FCss.addimgDivMain}>
-
           <div {...getRootProps({ className: "dropzone" })}>
             <input className="input-zone" {...getInputProps()} />
             <p className="dropzone-content">
