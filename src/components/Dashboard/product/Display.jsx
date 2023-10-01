@@ -104,15 +104,6 @@ export default function Display({ filteredlist, setfilteredlist }) {
             placeholder="Search your product here.."
             onChange={filter}
           />
-          {/* { orderDel.filter((product)=>{
-            if(search===""){
-              return product
-            }
-            else if(product.descriptor.name.toLowerCase().includes(search.toLowerCase())){
-              return product
-            }
-            
-          })}  */}
         </div>
         <div className={DCss.button}>
           <Link to="/me/addProduct" className={DCss.LinkStyle}>
