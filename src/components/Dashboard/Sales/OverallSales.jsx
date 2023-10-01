@@ -47,7 +47,6 @@ export default function OverallSales() {
 
       if (response.data.success) {
         setOrderDel(response.data.orderList);
-        console.log(response.data.orderList);
 
         setLoad(false);
       } else {
@@ -135,7 +134,7 @@ export default function OverallSales() {
                   <>
                     <tr>
                       <th></th>
-                      <th className={osCss["sticky-col"]}>
+                      <th className="sticky-col">
                         Order id
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -279,7 +278,7 @@ export default function OverallSales() {
                           <td>
                             <Link
                               to={`/me/orderdetails/${val._id}`}
-                              className={osCss.LinkStyle}
+                              className="LinkStyle"
                             >
                               {val.ONDCBilling.name}
                             </Link>
@@ -336,7 +335,7 @@ export default function OverallSales() {
                                     stroke-width="2"
                                     stroke-linecap="round"
                                     stroke-linejoin="round"
-                                    class={osCss["lucide lucide-save"]}
+                                    class="lucide lucide-save"
                                     className={osCss.lucidePencil}
                                     onClick={() => {
                                       UpdateData(val._id);
@@ -359,7 +358,7 @@ export default function OverallSales() {
                                 stroke-width="2"
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
-                                class={osCss["lucide lucide-pencil"]}
+                                class="lucide lucide-pencil"
                                 className={osCss.lucidePencil}
                                 onClick={() => {
                                   setEdit(!edit);
@@ -376,7 +375,7 @@ export default function OverallSales() {
                     })}
                   </>
                 ) : (
-                  <p className={osCss.NoOrders}>No Orders</p>
+                  <p className="NoOrders">No Orders</p>
                 )}
               </>
             )}
