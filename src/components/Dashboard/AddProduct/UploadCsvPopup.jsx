@@ -4,23 +4,21 @@ import Upcss from "./Css/uploadCsvPopup.module.css";
 import upload_image from "../../../assets/dashboard/upload.svg";
 import axios from "axios";
 
-
 const UploadCsvPopup = ({ setShowPopup, setError }) => {
   const [file, setFile] = useState();
   const fileInp = useRef(null);
 
   const handleSubmit = async () => {
-    if(!file){
-        setError({
-            mainColor: "#FDEDED",
-            secondaryColor: "#F16360",
-            symbol: "error",
-            title: "Error",
-            text: "Please Select a file",
-            val: true,
-          });
-          return;
-
+    if (!file) {
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "Please Select a file",
+        val: true,
+      });
+      return;
     }
     console.log("file->", file);
     const formData = new FormData();
@@ -41,16 +39,15 @@ const UploadCsvPopup = ({ setShowPopup, setError }) => {
         text: "Uploaded CSV",
         val: true,
       });
-    }
-    else{
-        setError({
-            mainColor: "#FDEDED",
-            secondaryColor: "#F16360",
-            symbol: "error",
-            title: "Error",
-            text: "Cannot upload file",
-            val: true,
-          });
+    } else {
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "Cannot upload file",
+        val: true,
+      });
     }
     setShowPopup(false);
   };
