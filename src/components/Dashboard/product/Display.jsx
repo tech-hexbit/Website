@@ -46,12 +46,8 @@ export default function Display({ filteredlist, setfilteredlist }) {
       });
 
       if (response.data.success) {
-        console.log(response.data.orderList);
-
         setOrderDel(response?.data?.orderList);
         setfilteredlist(response?.data?.orderList);
-        // setrecords(response?.data?.orderList);
-        //console.log(orderDel[0]?.descriptor?.name);
         setLoad(false);
       } else {
         setLoad(false);
@@ -64,6 +60,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
       console.log(e);
     }
   };
+
   const deleteproduct = async (_id) => {
     try {
       const response = await axios.delete(`/api/common/product/delete/${_id}`, {
@@ -81,6 +78,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
       console.log(error);
     }
   };
+
   const filter = (event) => {
     var updatedprod = orderDel.filter((f) =>
       f?.descriptor?.name
