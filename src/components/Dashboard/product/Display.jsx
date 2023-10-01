@@ -17,12 +17,12 @@ import DCss from "./Css/display.module.css";
 import image from "../../../assets/dashboard/tablerow.png";
 import { Trash2 } from "lucide-react";
 
-export default function Display({ resarray }) {
+export default function Display({ filteredlist,setfilteredlist }) {
   const [orderDel, setOrderDel] = useState([]);
   const [load, setLoad] = useState(false);
-  const [records, setrecords] = useState(resarray);
+  // const [records, setrecords] = useState(resarray);
   const [updatedproduct, setupdatedproduct] = useState([]);
-  const [filteredlist, setfilteredlist] = useState([]);
+  
 
   const { id } = useParams();
 
@@ -32,9 +32,9 @@ export default function Display({ resarray }) {
     loadData();
   }, []);
 
-  useEffect(() => {
-    setrecords(resarray);
-  }, [resarray]);
+  // useEffect(() => {
+  //   setrecords(resarray);
+  // }, [resarray]);
 
   const authCtx = useContext(AuthContext);
 
@@ -72,9 +72,8 @@ export default function Display({ resarray }) {
       });
       // console.log(updatedproduct)
       if (response.status === 200) {
-        setupdatedproduct(records.filter((p) => p._id != _id));
-        setrecords(updatedproduct);
-        console.log(records);
+        setupdatedproduct(filteredlist.filter((p) => p._id != _id));
+        setfilteredlist(updatedproduct);
         console.log("deleted");
       } else {
         console.log("error");

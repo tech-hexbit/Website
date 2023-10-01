@@ -8,11 +8,12 @@ import Filter from "./product/Filter";
 import pdtCSS from "./Css/products.module.css";
 
 export default function Products() {
-  const [resarray, setresarray] = useState([]);
+  // const [resarray, setresarray] = useState([]);
+  const [filteredlist, setfilteredlist] = useState([]);
   return (
     <div className={pdtCSS.mdiv}>
-      <Filter resarray = {resarray} setresarray = {setresarray}/>
-      <Display resarray = {resarray} />
+      <Filter filteredlist = {filteredlist} setfilteredlist = {setfilteredlist}/>
+      <Display filteredlist = {filteredlist} setfilteredlist = {setfilteredlist}/>
     </div>
   );
 }

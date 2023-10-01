@@ -19,7 +19,7 @@ const data = [
   "Sneckers",
 ];
 
-export default function Filter({ resarray, setresarray }) {
+export default function Filter({ filteredlist, setfilteredlist }) {
   const [orderDel, setOrderDel] = useState([]);
   const [load, setLoad] = useState(false);
   const [records, setrecords] = useState(orderDel);
@@ -29,8 +29,15 @@ export default function Filter({ resarray, setresarray }) {
   // const [resarray, setresarray] = useState([]);
   useEffect(() => {
     loadData();
+
     // handlechange();
   }, []);
+
+  useEffect(() => {
+    const u = (allcategory) => [...new Set(allcategory)];
+    setunique(u(allcategory));
+    console.log(unique);
+  }, [allcategory]);
 
   const authCtx = useContext(AuthContext);
 
@@ -48,14 +55,13 @@ export default function Filter({ resarray, setresarray }) {
         setOrderDel(response?.data?.orderList);
         //setrecords(response?.data?.orderList);
 
-        orderDel.forEach((order) => {
-          setallcategory((prevState) => [...prevState, order?.category_id]);
+        response?.data?.orderList?.forEach((order) => {
+          setallcategory((prevState) => [...prevState, order.category_id]);
           console.log(allcategory);
         });
 
         //console.log(allcategory)
-        const unique = (allcategory) => [...new Set(allcategory)];
-        setunique(unique(allcategory));
+
         console.log(unique(allcategory));
 
         // console.log(orderDel[0]?.descriptor?.name)
@@ -80,7 +86,7 @@ export default function Filter({ resarray, setresarray }) {
       // category?.map((e) => {
       orderDel?.forEach((orderDel) => {
         if (orderDel.category_id === e.target.value) {
-          setresarray((prevState) => [...prevState, orderDel]);
+          setfilteredlist((prevState) => [...prevState, orderDel]);
           console.log(orderDel);
         } else {
         }
@@ -89,8 +95,8 @@ export default function Filter({ resarray, setresarray }) {
     } else {
       const arr = category.filter((c) => c !== e.target.value);
       setcategory(arr);
-      const arr2 = resarray.filter((c) => c !== e.target.value);
-      setresarray(arr2);
+      const arr2 = filteredlist.filter((c) => c !== e.target.value);
+      setfilteredlist(arr2);
     }
   };
 
