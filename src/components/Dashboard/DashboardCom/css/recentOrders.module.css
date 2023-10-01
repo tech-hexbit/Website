@@ -63,11 +63,13 @@
 .tableTag tr td {
   text-align: center;
   width: 20%;
+  z-index: 1;
 }
 
 .tableTag tr th:nth-child(2),
 .tableTag tr td:nth-child(2) {
   background-color: #fff;
+  width: 40%;
 }
 
 #th {
@@ -121,4 +123,11 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   width: 50px;
+}
+
+@media screen and (max-width: 650px) {
+  .tableTag tr th:nth-child(2),
+  .tableTag tr td:nth-child(2) {
+    width: auto;
+  }
 }

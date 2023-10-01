@@ -14,8 +14,8 @@ export default function DashboardMain() {
       <Description defaultSet={defaultSet} setDefaultSet={setDefaultSet} />
 
       {defaultSet === "Revenue" && <Revenue />}
-      {defaultSet === "RecentOrders" && <RecentOrders />}
       {defaultSet === "BestSellers" && <BestSellers />}
+      {defaultSet === "RecentOrders" && <RecentOrders />}
     </>
   );
 }

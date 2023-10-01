@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 
+import { useDropzone } from "react-dropzone";
+
 // axios
 import axios from "axios";
 
@@ -15,14 +17,14 @@ import FCss from "./Css/Form.module.css";
 export default function Form() {
   const [PublishOpen, setPublishOpen] = useState(true);
   const [ServiceOpen, setServiceOpen] = useState(false);
-  const [image, setImage] = useState()
   const [data, setData] = useState({
     name: "",
     symbol:
       "https://beebom.com/wp-content/uploads/2021/07/rog-phone-5-review-2.jpg?quality=75&strip=all",
     short_desc: "",
     long_desc: "",
-    images:[],
+    images:
+      "https://beebom.com/wp-content/uploads/2021/07/rog-phone-5-review-2.jpg?quality=75&strip=all",
     maximumCount: 0,
     value: 0,
     maximum_value: 0,
@@ -77,9 +79,7 @@ export default function Form() {
     const value = e.target.value;
 
     setData({ ...data, [name]: value });
-
   };
-  console.log(data)
 
   const handleSelectChange = (e) => {
     const name = e.target.name;
@@ -91,23 +91,11 @@ export default function Form() {
   };
 
   const onSubmit = async () => {
-    const formData= new FormData();
-    formData.append('data',JSON.stringify(data));
-    formData.append('images',image);
-    // console.log(formData);
-    for (var key of formData.entries()) {
-      console.log(key[0] + ', ' + key[1]);
-  }
     try {
       const response = await axios.post(
         "/api/common/product/AddProduct",
-        formData,
-        { headers: 
-          { 
-            // "Content-Type": "multipart/form-data",
-            Authorization: `${authCtx.token}` 
-          } 
-        }
+        data,
+        { headers: { Authorization: `${authCtx.token}` } }
       );
 
       if (response.data.success) {
@@ -120,12 +108,12 @@ export default function Form() {
   };
 
 
-  
-  const handleImage = (e) => {
-    console.log(e.target.files);
-    setImage(e.target.files[0])
-    console.log(image);
-  }
+  // const [image, setImage] = useState('')
+  // const handleImage = (e) => {
+  //   console.log(e.target.files);
+  //   setImage(e.target.files[0])
+  // }
+  const { getRootProps, getInputProps } = useDropzone({});
   // useEffect(() => {
   //   console.log(data);
   // }, [data]);
@@ -599,20 +587,34 @@ export default function Form() {
 
         <p className={FCss.labelDes}>Add the product main image</p>
         <div className={FCss.addimgDivMain}>
-          {/* <div className={FCss.addImgDiv}> */}
-          <div>
-            <input type="file" name="images" onChange={handleImage} />
-            {/* <p>+</p> */}
+          <div className={FCss.addImgDiv}>
+            {/* <div> */}
+            {/* <button>+</button>
+            <input type="file" name="file" onChange={handleImage} /> */}
+            <div {...getRootProps({ className: "dropzone" })}>
+              <input className="input-zone" {...getInputProps()} />
+              <div className="text-center">
+                <p className="dropzone-content">
+                  +
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
         <p className={FCss.labelDes}>Add additional product images</p>
 
         <div className={FCss.addimgDivMain}>
-          <div className={FCss.upAddImg}>
-            <img src={upload} alt="" srcset="" />
-            <p className={FCss.upAddImgDragPTag}>
-              Drag and drop files here OR click to upload
+
+          <div {...getRootProps({ className: "dropzone" })}>
+            <input className="input-zone" {...getInputProps()} />
+            <p className="dropzone-content">
+              <div className={FCss.upAddImg}>
+                <img src={upload} alt="" srcset="" />
+                <p className={FCss.upAddImgDragPTag}>
+                  Drag and drop files here OR click to upload
+                </p>
+              </div>
             </p>
           </div>
         </div>
