@@ -13,3 +13,6 @@
 .mDIvTabs::-webkit-scrollbar {
   display: none;
 }
+.mDIvSideTabs{
+   align-items: flex-start;
+}

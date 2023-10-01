@@ -47,6 +47,7 @@ export default function OverallSales() {
 
       if (response.data.success) {
         setOrderDel(response.data.orderList);
+        console.log(response.data.orderList)
 
         setLoad(false);
       } else {
@@ -125,7 +126,7 @@ export default function OverallSales() {
         <div className={osCss.table}>
           <table style={{ borderCollapse: "collapse" }}>
             {load ? (
-              <div className="loadCenterDiv">
+              <div className={osCss.loadCenterDiv}>
                 <Load />
               </div>
             ) : (
@@ -134,7 +135,7 @@ export default function OverallSales() {
                   <>
                     <tr>
                       <th></th>
-                      <th className="sticky-col">
+                      <th className={osCss["sticky-col"]}>
                         Order id
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -278,7 +279,7 @@ export default function OverallSales() {
                           <td>
                             <Link
                               to={`/me/orderdetails/${val._id}`}
-                              className="LinkStyle"
+                              className={osCss.LinkStyle}
                             >
                               {val.ONDCBilling.name}
                             </Link>
@@ -335,7 +336,7 @@ export default function OverallSales() {
                                     stroke-width="2"
                                     stroke-linecap="round"
                                     stroke-linejoin="round"
-                                    class="lucide lucide-save"
+                                    class={osCss["lucide lucide-save"]}
                                     className={osCss.lucidePencil}
                                     onClick={() => {
                                       UpdateData(val._id);
@@ -358,7 +359,7 @@ export default function OverallSales() {
                                 stroke-width="2"
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
-                                class="lucide lucide-pencil"
+                                class={osCss["lucide lucide-pencil"]}
                                 className={osCss.lucidePencil}
                                 onClick={() => {
                                   setEdit(!edit);
@@ -375,7 +376,7 @@ export default function OverallSales() {
                     })}
                   </>
                 ) : (
-                  <p className="NoOrders">No Orders</p>
+                  <p className={osCss.NoOrders}>No Orders</p>
                 )}
               </>
             )}

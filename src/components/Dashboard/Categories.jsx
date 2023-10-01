@@ -1,20 +1,53 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 // components
 import CategoriesTabs from "./Categories/CategoriesTabs";
-
+import Sidecategoriestab from "./Categories/Sidecategoriestab";
 // css
 import Ccss from "./Css/Categories.module.css";
 import osCss from "./Sales/Css/overallSales.module.css";
 
+import AuthContext from "../../store/auth-context";
+
+import axios from "axios";
 export default function Categories() {
   const [current, setCurrent] = useState("Ecommerce");
+  const [itemid, setitemid] = useState([]);
+  const [orderlist, setorderlist] = useState([]);
   const [active, setActive] = useState({
     pdt: true,
     fashion: false,
     grocery: false,
     furniture: false,
   });
+
+  useEffect(() => {
+    loadData();
+  }, []);
+  const authCtx = useContext(AuthContext);
+  const loadData = async () => {
+    try {
+      const response = await axios.get("/api/common/Order/all", {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+
+      if (response.data.success) {
+        setorderlist(response?.data?.orderList);
+        // response?.data?.orderList?.forEach((order) => {
+        //   // setitemid((prevState) => [...prevState, order.Items.ItemID]);
+        //   // order.Items.forEach((item) => {
+        //   //   setitemid((prevsstate) => [...prevsstate, item.ItemID]);
+        //   // });
+        //   // console.log(itemid);
+        // });
+        console.log(orderlist);
+      } else {
+        console.log(e);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   const data = [
     {
@@ -124,199 +157,184 @@ export default function Categories() {
           current={current}
         />
       </div>
-
-      <div className={osCss.middle}>
+      <div className={osCss.middlecontent}>
+        <div className={osCss.middle}>
+          <div className={Ccss.mDIvSideTabs}>
+            <Sidecategoriestab
+              name="Fashion"
+              setCurrent={setCurrent}
+              current={current}
+            />
+            <Sidecategoriestab
+              name="Groccery"
+              setCurrent={setCurrent}
+              current={current}
+            />
+            <Sidecategoriestab
+              name="Furniture"
+              setCurrent={setCurrent}
+              current={current}
+            />
+            <Sidecategoriestab
+              name="Electronics"
+              setCurrent={setCurrent}
+              current={current}
+            />
+            <Sidecategoriestab
+              name="Shoes"
+              setCurrent={setCurrent}
+              current={current}
+            />
+          </div>
+        </div>
         <div id="wrap" className={osCss.table}>
           <table style={{ borderCollapse: "collapse" }}>
-            <tr>
-              <th></th>
-              <th className="sticky-col">
-                Order id{" "}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="9"
-                  height="14"
-                  viewBox="0 0 9 14"
-                  fill="none"
-                >
-                  <path
-                    d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                    fill="#777777"
-                  />
-                  <path
-                    d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                    fill="#777777"
-                  />
-                </svg>
-              </th>
-              <th>
-                Customer{" "}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="9"
-                  height="14"
-                  viewBox="0 0 9 14"
-                  fill="none"
-                >
-                  <path
-                    d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                    fill="#777777"
-                  />
-                  <path
-                    d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                    fill="#777777"
-                  />
-                </svg>
-              </th>
-              <th>
-                Product{" "}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="9"
-                  height="14"
-                  viewBox="0 0 9 14"
-                  fill="none"
-                >
-                  <path
-                    d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                    fill="#777777"
-                  />
-                  <path
-                    d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                    fill="#777777"
-                  />
-                </svg>
-              </th>
-              <th>
-                Price{" "}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="9"
-                  height="14"
-                  viewBox="0 0 9 14"
-                  fill="none"
-                >
-                  <path
-                    d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                    fill="#777777"
-                  />
-                  <path
-                    d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                    fill="#777777"
-                  />
-                </svg>
-              </th>
-              <th>
-                Ordered on{" "}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="9"
-                  height="14"
-                  viewBox="0 0 9 14"
-                  fill="none"
-                >
-                  <path
-                    d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                    fill="#777777"
-                  />
-                  <path
-                    d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                    fill="#777777"
-                  />
-                </svg>
-              </th>
-              <th className={osCss.payment}>
-                Payment method{" "}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="9"
-                  height="14"
-                  viewBox="0 0 9 14"
-                  fill="none"
-                >
-                  <path
-                    d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                    fill="#777777"
-                  />
-                  <path
-                    d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                    fill="#777777"
-                  />
-                </svg>
-              </th>
-              <th className={osCss.payment}>
-                Delivery status{" "}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="9"
-                  height="14"
-                  viewBox="0 0 9 14"
-                  fill="none"
-                >
-                  <path
-                    d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                    fill="#777777"
-                  />
-                  <path
-                    d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                    fill="#777777"
-                  />
-                </svg>
-              </th>
-              <th>
-                Action{" "}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="9"
-                  height="14"
-                  viewBox="0 0 9 14"
-                  fill="none"
-                >
-                  <path
-                    d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                    fill="#777777"
-                  />
-                  <path
-                    d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                    fill="#777777"
-                  />
-                </svg>
-              </th>
-            </tr>
-            {data.map((element, i) => {
-              return (
-                <>
-                  <tr key={i}>
-                    <td>
-                      <input type="checkbox" />
-                    </td>
-                    <td>{element.orderId}</td>
-                    <td>{element.customer}</td>
-                    <td>{element.product}</td>
-                    <td>{element.price}</td>
-                    <td>{element.order}</td>
-                    <td>{element.payment}</td>
-                    <td
-                      style={{
-                        color:
-                          element.status == "Delivered"
-                            ? "#4BB543"
-                            : element.status == "Pending"
-                            ? "#3F81E0"
-                            : "#D0342C",
-                      }}
+            {orderlist.length > 0 ? (
+              <>
+                <tr>
+                  <th></th>
+                  <th className={Ccss["sticky-col"]}>
+                    Product{" "}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="9"
+                      height="14"
+                      viewBox="0 0 9 14"
+                      fill="none"
                     >
-                      {element.status}
-                    </td>
-                    <td>
-                      <div className={osCss.dots}>
-                        <div style={{ marginTop: "-5px" }}>...</div>
-                      </div>
-                    </td>
-                  </tr>
-                </>
-              );
-            })}
+                      <path
+                        d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
+                        fill="#777777"
+                      />
+                      <path
+                        d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
+                        fill="#777777"
+                      />
+                    </svg>
+                  </th>
+                  <th>
+                    Price{" "}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="9"
+                      height="14"
+                      viewBox="0 0 9 14"
+                      fill="none"
+                    >
+                      <path
+                        d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
+                        fill="#777777"
+                      />
+                      <path
+                        d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
+                        fill="#777777"
+                      />
+                    </svg>
+                  </th>
+                  <th>
+                    Stock{" "}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="9"
+                      height="14"
+                      viewBox="0 0 9 14"
+                      fill="none"
+                    >
+                      <path
+                        d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
+                        fill="#777777"
+                      />
+                      <path
+                        d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
+                        fill="#777777"
+                      />
+                    </svg>
+                  </th>
+                  <th>
+                    Orders{" "}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="9"
+                      height="14"
+                      viewBox="0 0 9 14"
+                      fill="none"
+                    >
+                      <path
+                        d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
+                        fill="#777777"
+                      />
+                      <path
+                        d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
+                        fill="#777777"
+                      />
+                    </svg>
+                  </th>
+                  <th>
+                    Published on{" "}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="9"
+                      height="14"
+                      viewBox="0 0 9 14"
+                      fill="none"
+                    >
+                      <path
+                        d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
+                        fill="#777777"
+                      />
+                      <path
+                        d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
+                        fill="#777777"
+                      />
+                    </svg>
+                  </th>
+
+                  <th>
+                    Action{" "}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="9"
+                      height="14"
+                      viewBox="0 0 9 14"
+                      fill="none"
+                    >
+                      <path
+                        d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
+                        fill="#777777"
+                      />
+                      <path
+                        d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
+                        fill="#777777"
+                      />
+                    </svg>
+                  </th>
+                </tr>
+                {orderlist?.map((val, key) => {
+                  return (
+                    <>
+                      <tr key={key}>
+                        <td>
+                          <input type="checkbox" />
+                        </td>
+                        <td>#{"Asus Rog"}</td>
+                        <td> {val.amount}</td>
+                        <td>32</td>
+                        <td>18</td>
+                        <td>{val.when.date}</td>
+
+                        <td>
+                          <div className={osCss.dots}>
+                            <div style={{ marginTop: "-5px" }}>...</div>
+                          </div>
+                        </td>
+                      </tr>
+                    </>
+                  );
+                })}
+              </>
+            ) : (
+              <p className={osCss.NoOrder}>No Orders</p>
+            )}
           </table>
         </div>
       </div>
