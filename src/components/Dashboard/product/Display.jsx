@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
+
 // state
 import AuthContext from "./../../../store/auth-context";
 
@@ -20,10 +20,7 @@ import { Trash2 } from "lucide-react";
 export default function Display({ filteredlist, setfilteredlist }) {
   const [orderDel, setOrderDel] = useState([]);
   const [load, setLoad] = useState(false);
-  // const [records, setrecords] = useState(resarray);
   const [updatedproduct, setupdatedproduct] = useState([]);
-
-  const { id } = useParams();
 
   useEffect(() => {
     loadData();
