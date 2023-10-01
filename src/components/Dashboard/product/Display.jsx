@@ -26,14 +26,8 @@ export default function Display({ filteredlist, setfilteredlist }) {
   const { id } = useParams();
 
   useEffect(() => {
-    // console.log("recors->",records)
-    // setrecords(resarray);
     loadData();
   }, []);
-
-  // useEffect(() => {
-  //   setrecords(resarray);
-  // }, [resarray]);
 
   const authCtx = useContext(AuthContext);
 
