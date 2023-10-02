@@ -68,7 +68,7 @@ export default function Categories() {
         />
       </div>
       <div className={osCss.middlecontent}>
-        <div className={osCss.middle}>
+        <div className={Ccss.middle}>
           <div className={Ccss.mDIvSideTabs}>
             <Sidecategoriestab
               name="Fashion"
