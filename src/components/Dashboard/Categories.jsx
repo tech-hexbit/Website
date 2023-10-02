@@ -33,7 +33,16 @@ export default function Categories() {
       });
 
       if (response.data.success) {
-        console.log(orderlist);
+        const categoryIds = response.data?.orderList.flatMap((order) => {
+          return order.Items.map((item) => {
+            console.log(item);
+            item.ItemID.category_id;
+          });
+        });
+
+        const uniqueCategoryIds = [...new Set(categoryIds)];
+
+        console.log(uniqueCategoryIds);
 
         setorderlist(response?.data?.orderList);
       } else {
