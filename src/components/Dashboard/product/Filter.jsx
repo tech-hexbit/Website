@@ -26,11 +26,9 @@ export default function Filter({ filteredlist, setfilteredlist }) {
   const [category, setcategory] = useState([]);
   const [allcategory, setallcategory] = useState([]);
   const [unique, setunique] = useState([]);
-  // const [resarray, setresarray] = useState([]);
+
   useEffect(() => {
     loadData();
-
-    // handlechange();
   }, []);
 
   useEffect(() => {
@@ -53,19 +51,14 @@ export default function Filter({ filteredlist, setfilteredlist }) {
         console.log(response?.data?.orderList);
 
         setOrderDel(response?.data?.orderList);
-        //setrecords(response?.data?.orderList);
 
         response?.data?.orderList?.forEach((order) => {
           setallcategory((prevState) => [...prevState, order.category_id]);
           console.log(allcategory);
         });
 
-        //console.log(allcategory)
-
         console.log(unique(allcategory));
 
-        // console.log(orderDel[0]?.descriptor?.name)
-        // console.log(orderDel[0]?.category_id)
         setLoad(false);
       } else {
         setLoad(false);
@@ -80,10 +73,9 @@ export default function Filter({ filteredlist, setfilteredlist }) {
   };
 
   const handlechange = (e) => {
-    console.log(e.target.value);
     if (e.target.checked) {
       setcategory((prevState) => [...prevState, e.target.value]);
-      // category?.map((e) => {
+
       orderDel?.forEach((orderDel) => {
         if (orderDel.category_id === e.target.value) {
           setfilteredlist((prevState) => [...prevState, orderDel]);
@@ -91,7 +83,6 @@ export default function Filter({ filteredlist, setfilteredlist }) {
         } else {
         }
       });
-      // });
     } else {
       const arr = category.filter((c) => c !== e.target.value);
       setcategory(arr);
