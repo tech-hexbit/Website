@@ -35,8 +35,7 @@ export default function Categories() {
       if (response.data.success) {
         const categoryIds = response.data?.orderList.flatMap((order) => {
           return order.Items.map((item) => {
-            console.log(item);
-            item.ItemID.category_id;
+            item.ItemID?.category_id;
           });
         });
 
