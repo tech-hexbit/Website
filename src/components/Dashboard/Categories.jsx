@@ -12,7 +12,6 @@ import AuthContext from "../../store/auth-context";
 import axios from "axios";
 export default function Categories() {
   const [current, setCurrent] = useState("Ecommerce");
-  const [itemid, setitemid] = useState([]);
   const [orderlist, setorderlist] = useState([]);
   const [active, setActive] = useState({
     pdt: true,
