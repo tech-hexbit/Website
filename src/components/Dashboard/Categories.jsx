@@ -23,7 +23,9 @@ export default function Categories() {
   useEffect(() => {
     loadData();
   }, []);
+
   const authCtx = useContext(AuthContext);
+
   const loadData = async () => {
     try {
       const response = await axios.get("/api/common/Order/all", {
@@ -67,6 +69,7 @@ export default function Categories() {
           current={current}
         />
       </div>
+
       <div className={osCss.middlecontent}>
         <div className={Ccss.middle}>
           <div className={Ccss.mDIvSideTabs}>
