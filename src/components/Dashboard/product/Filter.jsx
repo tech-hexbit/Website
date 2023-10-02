@@ -1,31 +1,23 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
+
+// axios
+import axios from "axios";
 
 // components
 import Tags from "./Tags";
 
 // css
 import FCss from "./Css/filter.module.css";
-import { useState, useEffect, useContext } from "react";
-import axios, { all } from "axios";
+
+// state
 import AuthContext from "./../../../store/auth-context";
 
-const data = [
-  "Shoes",
-  "Heels",
-  "Chairs",
-  "Dry fruits",
-  "Sofa sets",
-  "Sneckers",
-  "Sneckers",
-];
-
 export default function Filter({ filteredlist, setfilteredlist }) {
-  const [orderDel, setOrderDel] = useState([]);
   const [load, setLoad] = useState(false);
-  const [records, setrecords] = useState(orderDel);
+  const [unique, setunique] = useState([]);
+  const [orderDel, setOrderDel] = useState([]);
   const [category, setcategory] = useState([]);
   const [allcategory, setallcategory] = useState([]);
-  const [unique, setunique] = useState([]);
 
   useEffect(() => {
     loadData();
