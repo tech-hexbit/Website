@@ -32,15 +32,9 @@ export default function Categories() {
       });
 
       if (response.data.success) {
-        setorderlist(response?.data?.orderList);
-        // response?.data?.orderList?.forEach((order) => {
-        //   // setitemid((prevState) => [...prevState, order.Items.ItemID]);
-        //   // order.Items.forEach((item) => {
-        //   //   setitemid((prevsstate) => [...prevsstate, item.ItemID]);
-        //   // });
-        //   // console.log(itemid);
-        // });
         console.log(orderlist);
+
+        setorderlist(response?.data?.orderList);
       } else {
         console.log(e);
       }
