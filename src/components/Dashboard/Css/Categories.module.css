@@ -13,6 +13,19 @@
 .mDIvTabs::-webkit-scrollbar {
   display: none;
 }
-.mDIvSideTabs{
-   align-items: flex-start;
+.mDIvSideTabs {
+  display: flex;
+  /* align-items: flex-start; */
+}
+
+.middle {
+  /* background-color: red; */
+  border-top: 1px solid #f6f6f6;
+  /* display: flex; */
+  /* display: inline-flex; */
+  /* padding: 15px; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* gap: 10px; */
+  /* width: 100%; */
 }
