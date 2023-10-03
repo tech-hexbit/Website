@@ -84,8 +84,8 @@ export default function Filter({ filteredlist, setfilteredlist }) {
         <div className={FCss.tags}>
           {category.length > 0 ? (
             <>
-              {category?.map((e, i) => {
-                return <Tags key={i} text={e} />;
+              {category?.map((val, key) => {
+                return <Tags key={key} text={val} />;
               })}
             </>
           ) : (
