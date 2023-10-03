@@ -69,6 +69,7 @@ export default function Filter({ filteredlist, setfilteredlist }) {
 
   useEffect(() => {
     let newFIltered = [];
+
     if (category.length > 0) {
       filteredlist.forEach((orderDel) => {
         category.forEach((e) => {
