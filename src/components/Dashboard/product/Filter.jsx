@@ -64,12 +64,7 @@ export default function Filter({ filteredlist, setfilteredlist }) {
 
       orderDel?.forEach((orderDel) => {
         if (orderDel.category_id === e.target.value) {
-          console.log(orderDel.category_id + " <--> " + e.target.value);
           setfilteredlist([orderDel]);
-          console.log(orderDel);
-
-          console.log("orderDel type --> " + typeof orderDel);
-          console.log("filteredlist type --> " + typeof filteredlist);
         } else {
         }
       });
