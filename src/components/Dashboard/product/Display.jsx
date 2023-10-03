@@ -205,8 +205,8 @@ export default function Display({ filteredlist, setfilteredlist }) {
           <div className={DCss.arrow}>{`<<`}</div>
           <div className={DCss.numbers}>
             <div className={DCss.active}>1</div>
-            <div className={DCss.inactive}>2</div>
-            <div className={DCss.inactive}>3</div>
+            {/* <div className={DCss.inactive}>2</div> */}
+            {/* <div className={DCss.inactive}>3</div> */}
           </div>
           <div className={DCss.arrow}>{`>>`}</div>
         </div>
