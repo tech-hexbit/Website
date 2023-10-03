@@ -79,12 +79,11 @@ export default function Filter({ filteredlist, setfilteredlist }) {
             console.log(`Match ${orderDel.category_id} === ${e}`);
 
             newFIltered.push(orderDel);
-            // setfilteredlist([orderDel]);
           }
         });
       });
 
-      console.log(newFIltered);
+      setfilteredlist(newFIltered);
 
       // const filteredOrders =
       //   category.length > 0
