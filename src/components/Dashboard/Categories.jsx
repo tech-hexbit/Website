@@ -12,7 +12,6 @@ import AuthContext from "../../store/auth-context";
 import axios from "axios";
 export default function Categories() {
   const [current, setCurrent] = useState("Ecommerce");
-  const [itemid, setitemid] = useState([]);
   const [orderlist, setorderlist] = useState([]);
   const [active, setActive] = useState({
     pdt: true,
@@ -24,7 +23,9 @@ export default function Categories() {
   useEffect(() => {
     loadData();
   }, []);
+
   const authCtx = useContext(AuthContext);
+
   const loadData = async () => {
     try {
       const response = await axios.get("/api/common/Order/all", {
@@ -32,15 +33,9 @@ export default function Categories() {
       });
 
       if (response.data.success) {
+        console.log(response.data?.orderList);
+
         setorderlist(response?.data?.orderList);
-        // response?.data?.orderList?.forEach((order) => {
-        //   // setitemid((prevState) => [...prevState, order.Items.ItemID]);
-        //   // order.Items.forEach((item) => {
-        //   //   setitemid((prevsstate) => [...prevsstate, item.ItemID]);
-        //   // });
-        //   // console.log(itemid);
-        // });
-        console.log(orderlist);
       } else {
         console.log(e);
       }
@@ -49,92 +44,9 @@ export default function Categories() {
     }
   };
 
-  const data = [
-    {
-      orderId: "#617GF",
-      customer: "Jonathan James",
-      product: "Adidas Mens Restound M Running Shoe",
-      price: "₹ 1,699",
-      order: "10-04-2023",
-      payment: "Paytm",
-      status: "Delivered",
-    },
-    {
-      orderId: "#617GF",
-      customer: "Jonathan James",
-      product: "Adidas Mens Restound M Running Shoe",
-      price: "₹ 1,699",
-      order: "10-04-2023",
-      payment: "Paytm",
-      status: "Delivered",
-    },
-    {
-      orderId: "#617GF",
-      customer: "Jonathan James",
-      product: "Adidas Mens Restound M Running Shoe",
-      price: "₹ 1,699",
-      order: "10-04-2023",
-      payment: "Paytm",
-      status: "Pending",
-    },
-    {
-      orderId: "#617GF",
-      customer: "Jonathan James",
-      product: "Adidas Mens Restound M Running Shoe",
-      price: "₹ 1,699",
-      order: "10-04-2023",
-      payment: "Paytm",
-      status: "Delivered",
-    },
-    {
-      orderId: "#617GF",
-      customer: "Jonathan James",
-      product: "Adidas Mens Restound M Running Shoe",
-      price: "₹ 1,699",
-      order: "10-04-2023",
-      payment: "Paytm",
-      status: "Returned",
-    },
-    {
-      orderId: "#617GF",
-      customer: "Jonathan James",
-      product: "Adidas Mens Restound M Running Shoe",
-      price: "₹ 1,699",
-      order: "10-04-2023",
-      payment: "Paytm",
-      status: "Pending",
-    },
-    {
-      orderId: "#617GF",
-      customer: "Jonathan James",
-      product: "Adidas Mens Restound M Running Shoe",
-      price: "₹ 1,699",
-      order: "10-04-2023",
-      payment: "Paytm",
-      status: "Delivered",
-    },
-    {
-      orderId: "#617GF",
-      customer: "Jonathan James",
-      product: "Adidas Mens Restound M Running Shoe",
-      price: "₹ 1,699",
-      order: "10-04-2023",
-      payment: "Paytm",
-      status: "Delivered",
-    },
-    {
-      orderId: "#617GF",
-      customer: "Jonathan James",
-      product: "Adidas Mens Restound M Running Shoe",
-      price: "₹ 1,699",
-      order: "10-04-2023",
-      payment: "Paytm",
-      status: "Returned",
-    },
-  ];
   return (
     <div>
-      <div className={Ccss.mDIvTabs}>
+      {/* <div className={Ccss.mDIvTabs}>
         <CategoriesTabs
           name="Ecommerce"
           setCurrent={setCurrent}
@@ -156,34 +68,11 @@ export default function Categories() {
           setCurrent={setCurrent}
           current={current}
         />
-      </div>
-      <div>
-        <div className={Ccss.filters}>
-        <div className={Ccss.filtername}>Filtered by</div>
-        <select className={Ccss.filteroptions} name="" id="">
-          <option value="Men's">Men's</option>
-        </select>
-        <div className={Ccss.filtername}>Size</div>
-        <select name="" id="">
-          <option value="7.5">7.5</option>
-        </select>
-        <div className={Ccss.filtername}>Style</div>
-        <select name="" id="">
-          <option value="Running">Running</option>
-        </select>
-        <div className={Ccss.filtername}>Price</div>
-        <select name="" id="">
-          <option value="500-1000">500-1000</option>
-        </select>
-        <div className={Ccss.filtername}>Color</div>
-        <select name="" id="">
-          <option value="Black">Black</option>
-        </select>
-        </div>
-    
+      </div> */}
+
       <div className={osCss.middlecontent}>
-        <div className={osCss.middle}>
-          <div className={Ccss.mDIvSideTabs}>
+        <div className={Ccss.middle}>
+          {/* <div className={Ccss.mDIvSideTabs}>
             <Sidecategoriestab
               name="Fashion"
               setCurrent={setCurrent}
@@ -209,7 +98,7 @@ export default function Categories() {
               setCurrent={setCurrent}
               current={current}
             />
-          </div>
+          </div> */}
         </div>
         <div id="wrap" className={osCss.table}>
           <table style={{ borderCollapse: "collapse" }}>
@@ -357,12 +246,12 @@ export default function Categories() {
                 })}
               </>
             ) : (
-              <p className={osCss.NoOrder}>No Orders</p>
+              <p className={Ccss.NoOrders}>No Orders</p>
             )}
           </table>
         </div>
       </div>
       </div>
-    </div>
+    
   );
 }

@@ -13,8 +13,12 @@
 .mDIvTabs::-webkit-scrollbar {
   display: none;
 }
-.mDIvSideTabs{
-   align-items: flex-start;
+.mDIvSideTabs {
+  display: flex;
+}
+
+.middle {
+  border-top: 1px solid #f6f6f6;
 }
 .filters{
   display: flex;
