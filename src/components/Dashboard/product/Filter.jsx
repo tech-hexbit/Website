@@ -96,14 +96,14 @@ export default function Filter({ filteredlist, setfilteredlist }) {
       <div className={FCss.div1}>
         <div className={FCss.heading}>Category</div>
         <div>
-          {unique?.map((e) => {
+          {unique?.map((val, key) => {
             return (
-              <div className={FCss.categoryOption}>
-                {e}{" "}
+              <div className={FCss.categoryOption} key={key}>
+                {val}
                 <input
                   type="checkbox"
-                  onChange={(e) => handlechange(e)}
-                  value={e}
+                  onChange={(val) => handlechange(val)}
+                  value={val}
                 />
               </div>
             );
