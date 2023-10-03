@@ -63,6 +63,7 @@ export default function Filter({ filteredlist, setfilteredlist }) {
       setcategory((prevState) => [...prevState, e.target.value]);
 
       orderDel?.forEach((orderDel) => {
+        console.log(orderDel.category_id + " <--> " + "e.target.value");
         if (orderDel.category_id === e.target.value) {
           setfilteredlist((prevState) => [...prevState, orderDel]);
           console.log(orderDel);
