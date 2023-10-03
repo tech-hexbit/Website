@@ -190,6 +190,11 @@ export default function Display({ filteredlist, setfilteredlist }) {
                 <p className={DCss.NoOrders}>No Orders</p>
               )}
             </table>
+            <p className={DCss.showingPTag}>
+              Showing{" "}
+              {orderDel?.length <= 5 ? <b>{orderDel?.length}</b> : <b>5</b>}
+              of <b>{orderDel?.length}</b> results
+            </p>
           </div>
         )}
       </div>
