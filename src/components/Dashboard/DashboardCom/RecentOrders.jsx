@@ -86,9 +86,7 @@ export default function RecentOrders() {
                                 {val._id.slice(-4)}
                               </td>
                               <td id={RCss.td} className={RCss.product}>
-                                {val.Items[0].ItemID.descriptor.name
-                                  ? val.Items[0].ItemID.descriptor.name
-                                  : "Name"}
+                                {val.Items[0].ItemID.descriptor.name}
                               </td>
                               <td id={RCss.td}>₹ {val.amount}</td>
                               <td id={RCss.td} className={RCss.quantity}>
