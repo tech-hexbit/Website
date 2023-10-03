@@ -68,13 +68,15 @@ export default function Filter({ filteredlist, setfilteredlist }) {
   };
 
   useEffect(() => {
-    console.log(category);
-
     if (category.length > 0) {
+      console.log(category);
       filteredlist.forEach((orderDel) => {
         category.forEach((e) => {
           if (orderDel.category_id === e) {
             console.log("Match");
+            console.log(orderDel.category_id === e);
+            console.log(`Match ${orderDel.category_id} === ${e}`);
+
             setfilteredlist([orderDel]);
           }
         });
