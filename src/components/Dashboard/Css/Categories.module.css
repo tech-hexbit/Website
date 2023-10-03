@@ -16,3 +16,18 @@
 .mDIvSideTabs{
    align-items: flex-start;
 }
+.filters{
+  display: flex;
+  margin-left: 270px;
+  margin-top: 90px;
+  border-bottom: #ddd 1px solid;
+  
+}
+.filtername{
+  font-size: 16px;
+  color: gray;
+  margin: 0 18px;
+}
+.filteroptions{
+  width: 90px;
+}

@@ -157,6 +157,30 @@ export default function Categories() {
           current={current}
         />
       </div>
+      <div>
+        <div className={Ccss.filters}>
+        <div className={Ccss.filtername}>Filtered by</div>
+        <select className={Ccss.filteroptions} name="" id="">
+          <option value="Men's">Men's</option>
+        </select>
+        <div className={Ccss.filtername}>Size</div>
+        <select name="" id="">
+          <option value="7.5">7.5</option>
+        </select>
+        <div className={Ccss.filtername}>Style</div>
+        <select name="" id="">
+          <option value="Running">Running</option>
+        </select>
+        <div className={Ccss.filtername}>Price</div>
+        <select name="" id="">
+          <option value="500-1000">500-1000</option>
+        </select>
+        <div className={Ccss.filtername}>Color</div>
+        <select name="" id="">
+          <option value="Black">Black</option>
+        </select>
+        </div>
+    
       <div className={osCss.middlecontent}>
         <div className={osCss.middle}>
           <div className={Ccss.mDIvSideTabs}>
@@ -337,6 +361,7 @@ export default function Categories() {
             )}
           </table>
         </div>
+      </div>
       </div>
     </div>
   );

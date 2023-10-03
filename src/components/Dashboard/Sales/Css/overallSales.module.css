@@ -62,7 +62,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  width: 100%;
+  
 }
 
 .tabs {
@@ -108,7 +108,10 @@
   border-bottom: 1px solid #ddd;
   /* background-color: #777; */
 }
-
+.middlecontent{
+  display: flex;
+  flex-direction: row;
+}
 .payment {
   width: 100px;
 }
