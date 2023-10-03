@@ -188,8 +188,12 @@ export default function Display({ filteredlist, setfilteredlist }) {
             </table>
             <p className={DCss.showingPTag}>
               Showing{" "}
-              {orderDel?.length <= 5 ? <b>{orderDel?.length}</b> : <b>5</b>}
-              of <b>{orderDel?.length}</b> results
+              {filteredlist?.length <= 5 ? (
+                <b>{filteredlist?.length}</b>
+              ) : (
+                <b>5</b>
+              )}
+              of <b>{filteredlist?.length}</b> results
             </p>
           </div>
         )}
