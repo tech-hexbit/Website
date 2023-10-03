@@ -162,7 +162,6 @@ th:nth-child(2) {
   border: 1px solid #3f81e0;
   background-color: #3f81e0;
   color: white;
-  /* margin: 0px ; */
 }
 
 .inactive {
@@ -170,4 +169,10 @@ th:nth-child(2) {
   border-radius: 5px;
   border: 1px solid #3f81e0;
   color: #777;
+}
+
+.showingPTag {
+  font-size: 12px;
+  margin: 12px 0px;
+  color: #888;
 }
