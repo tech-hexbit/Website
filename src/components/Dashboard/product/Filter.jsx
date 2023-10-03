@@ -82,16 +82,25 @@ export default function Filter({ filteredlist, setfilteredlist }) {
   };
 
   useEffect(() => {
-    // orderDel?.forEach((orderDel) => {
-    //   console.log(category);
-    //   console.log("orderDel");
-    //   console.log(orderDel.category_id);
-    // if (orderDel.category_id === e.target.value) {
-    //   setfilteredlist([orderDel]);
-    // }
-    //else {
-    // }
-    // });
+    console.log(category);
+
+    if (category.length > 0) {
+      filteredlist.forEach((orderDel) => {
+        category.forEach((e) => {
+          if (orderDel.category_id === e) {
+            console.log("Match");
+            setfilteredlist([orderDel]);
+          }
+        });
+        // console.log(category);
+        // console.log("orderDel");
+        // console.log(orderDel.category_id);
+        //else {
+        // }
+      });
+    } else {
+      setfilteredlist(orderDel);
+    }
 
     // const filteredOrders = filteredlist.filter((order) => {
     //   const itemCategories = category.Items.map(
@@ -102,14 +111,16 @@ export default function Filter({ filteredlist, setfilteredlist }) {
     //   );
     // });
 
-    const filteredOrders = category.filter((val) => {
-      const itemCategories = filteredlist.map((cat_ID) => {
-        console.log("cat_ID -->" + cat_ID.category_id);
-        console.log("val -->" + val);
-      });
+    // const filteredOrders = category.filter((val) => {
+    //   const itemCategories = filteredlist.map((cat_ID) => {
+    //     if (cat_ID.category_id === val) {
+    //       console.log(cat_ID);
+    //       setfilteredlist([cat_ID]);
+    //     }
+    //   });
 
-      return;
-    });
+    //   return;
+    // });
   }, [category]);
 
   return (
