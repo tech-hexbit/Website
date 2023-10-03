@@ -137,29 +137,29 @@ export default function Filter({ filteredlist, setfilteredlist }) {
         </div>
       </div>
 
-      <div className={FCss.div1}>
+      {/* <div className={FCss.div1}>
         <select className={FCss.select}>
           <option hidden>Brands</option>
         </select>
-      </div>
+      </div> */}
 
-      <div className={FCss.div1}>
+      {/* <div className={FCss.div1}>
         <select className={FCss.select}>
           <option hidden>Price</option>
         </select>
-      </div>
+      </div> */}
 
-      <div className={FCss.div1}>
+      {/* <div className={FCss.div1}>
         <select className={FCss.select}>
           <option hidden>Discounts</option>
         </select>
-      </div>
+      </div> */}
 
-      <div className={FCss.div1} id={FCss.rate}>
+      {/* <div className={FCss.div1} id={FCss.rate}>
         <select className={FCss.select}>
           <option hidden>Rating</option>
-        </select>
-      </div>
+        </select> 
+      </div>*/}
     </div>
   );
 }
