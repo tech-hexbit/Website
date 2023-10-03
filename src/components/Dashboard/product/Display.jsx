@@ -17,8 +17,8 @@ import DCss from "./Css/display.module.css";
 import { Trash2 } from "lucide-react";
 
 export default function Display({ filteredlist, setfilteredlist }) {
-  const [orderDel, setOrderDel] = useState([]);
   const [load, setLoad] = useState(false);
+  const [orderDel, setOrderDel] = useState([]);
   const [updatedproduct, setupdatedproduct] = useState([]);
 
   useEffect(() => {
