@@ -82,10 +82,6 @@ export default function Display({ filteredlist, setfilteredlist }) {
     }
   };
 
-  useEffect(() => {
-    console.log(filteredlist);
-  }, [filteredlist]);
-
   return (
     <div className={DCss.mainDiv}>
       <div className={DCss.top}>
