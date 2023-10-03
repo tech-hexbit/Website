@@ -81,7 +81,36 @@ export default function Filter({ filteredlist, setfilteredlist }) {
     }
   };
 
-  useEffect(() => {}, [category]);
+  useEffect(() => {
+    // orderDel?.forEach((orderDel) => {
+    //   console.log(category);
+    //   console.log("orderDel");
+    //   console.log(orderDel.category_id);
+    // if (orderDel.category_id === e.target.value) {
+    //   setfilteredlist([orderDel]);
+    // }
+    //else {
+    // }
+    // });
+
+    // const filteredOrders = filteredlist.filter((order) => {
+    //   const itemCategories = category.Items.map(
+    //     (item) => item.ItemID.category_id
+    //   );
+    //   return itemCategories.some((categoryId) =>
+    //     desiredCategoryIds.includes(categoryId)
+    //   );
+    // });
+
+    const filteredOrders = category.filter((val) => {
+      const itemCategories = filteredlist.map((cat_ID) => {
+        console.log("cat_ID -->" + cat_ID.category_id);
+        console.log("val -->" + val);
+      });
+
+      return;
+    });
+  }, [category]);
 
   return (
     <div className={FCss.mainDiv}>
