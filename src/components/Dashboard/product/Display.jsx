@@ -80,7 +80,6 @@ export default function Display({ filteredlist, setfilteredlist }) {
     } else {
       setfilteredlist(updatedprod);
     }
-    console.log(updatedprod);
   };
 
   return (
