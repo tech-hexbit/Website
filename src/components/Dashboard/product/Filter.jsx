@@ -84,10 +84,17 @@ export default function Filter({ filteredlist, setfilteredlist }) {
       const filteredOrders =
         category.length > 0
           ? filteredlist.filter((order) => {
-              [order].some((item) => {
-                console.log(item.category_id, category[0]);
-                console.log(item.category_id === category[0]);
-                item.category_id === category;
+              return [order].some((item) => {
+                category.forEach((e) => {
+                  console.log(
+                    "more than 0 --> " +
+                      category.length +
+                      `item.category_id === e --> ${item.category_id} === ${e}` +
+                      item.category_id ===
+                      e
+                  );
+                  item.category_id === e;
+                });
               });
             })
           : filteredlist;
