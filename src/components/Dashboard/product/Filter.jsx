@@ -49,8 +49,6 @@ export default function Filter({ filteredlist, setfilteredlist }) {
           console.log(allcategory);
         });
 
-        console.log(unique(allcategory));
-
         setLoad(false);
       } else {
         setLoad(false);
