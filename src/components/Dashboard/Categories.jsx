@@ -46,7 +46,7 @@ export default function Categories() {
 
   return (
     <div>
-      <div className={Ccss.mDIvTabs}>
+      {/* <div className={Ccss.mDIvTabs}>
         <CategoriesTabs
           name="Ecommerce"
           setCurrent={setCurrent}
@@ -68,11 +68,11 @@ export default function Categories() {
           setCurrent={setCurrent}
           current={current}
         />
-      </div>
+      </div> */}
 
       <div className={osCss.middlecontent}>
         <div className={Ccss.middle}>
-          <div className={Ccss.mDIvSideTabs}>
+          {/* <div className={Ccss.mDIvSideTabs}>
             <Sidecategoriestab
               name="Fashion"
               setCurrent={setCurrent}
@@ -98,7 +98,7 @@ export default function Categories() {
               setCurrent={setCurrent}
               current={current}
             />
-          </div>
+          </div> */}
         </div>
         <div id="wrap" className={osCss.table}>
           <table style={{ borderCollapse: "collapse" }}>
@@ -246,7 +246,7 @@ export default function Categories() {
                 })}
               </>
             ) : (
-              <p className={osCss.NoOrder}>No Orders</p>
+              <p className="NoOrders">No Orders</p>
             )}
           </table>
         </div>
