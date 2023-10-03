@@ -77,16 +77,20 @@ export default function Filter({ filteredlist, setfilteredlist }) {
     }
   };
 
-  console.log(category);
-
   return (
     <div className={FCss.mainDiv}>
       <div className={FCss.div1}>
         <div className={FCss.heading}>Filters</div>
         <div className={FCss.tags}>
-          {category?.map((e, i) => {
-            return <Tags key={i} text={e} />;
-          })}
+          {category.length > 0 ? (
+            <>
+              {category?.map((e, i) => {
+                return <Tags key={i} text={e} />;
+              })}
+            </>
+          ) : (
+            <></>
+          )}
         </div>
       </div>
       <div className={FCss.div1}>
