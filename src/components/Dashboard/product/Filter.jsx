@@ -68,6 +68,7 @@ export default function Filter({ filteredlist, setfilteredlist }) {
   };
 
   useEffect(() => {
+    let newFIltered = [];
     if (category.length > 0) {
       filteredlist.forEach((orderDel) => {
         category.forEach((e) => {
@@ -76,10 +77,13 @@ export default function Filter({ filteredlist, setfilteredlist }) {
             console.log(orderDel.category_id === e);
             console.log(`Match ${orderDel.category_id} === ${e}`);
 
-            setfilteredlist([orderDel]);
+            newFIltered.push(orderDel);
+            // setfilteredlist([orderDel]);
           }
         });
       });
+
+      console.log(newFIltered);
 
       // const filteredOrders =
       //   category.length > 0
