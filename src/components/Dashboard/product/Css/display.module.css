@@ -127,12 +127,11 @@ th:nth-child(2) {
 }
 
 .dots {
-
   font-size: 20px;
   font-weight: 700;
   display: flex;
   align-items: center;
- 
+
   cursor: pointer;
 }
 
@@ -163,7 +162,6 @@ th:nth-child(2) {
   border: 1px solid #3f81e0;
   background-color: #3f81e0;
   color: white;
-  /* margin: 0px ; */
 }
 
 .inactive {
@@ -173,4 +171,8 @@ th:nth-child(2) {
   color: #777;
 }
 
-
+.showingPTag {
+  font-size: 12px;
+  margin: 12px 0px;
+  color: #888;
+}

@@ -17,8 +17,8 @@ import DCss from "./Css/display.module.css";
 import { Trash2 } from "lucide-react";
 
 export default function Display({ filteredlist, setfilteredlist }) {
-  const [orderDel, setOrderDel] = useState([]);
   const [load, setLoad] = useState(false);
+  const [orderDel, setOrderDel] = useState([]);
   const [updatedproduct, setupdatedproduct] = useState([]);
 
   useEffect(() => {
@@ -56,7 +56,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
       const response = await axios.delete(`/api/common/product/delete/${_id}`, {
         headers: { Authorization: `${authCtx.token}` },
       });
-      // console.log(updatedproduct)
+
       if (response.status === 200) {
         setupdatedproduct(filteredlist.filter((p) => p._id != _id));
         setfilteredlist(updatedproduct);
@@ -80,7 +80,6 @@ export default function Display({ filteredlist, setfilteredlist }) {
     } else {
       setfilteredlist(updatedprod);
     }
-    console.log(updatedprod);
   };
 
   return (
@@ -184,9 +183,14 @@ export default function Display({ filteredlist, setfilteredlist }) {
                   })}
                 </>
               ) : (
-                <p className={DCss.NoOrders}>No Orders</p>
+                <p className="NoOrders">No Orders</p>
               )}
             </table>
+            <p className={DCss.showingPTag}>
+              Showing{" "}
+              {orderDel?.length <= 5 ? <b>{orderDel?.length}</b> : <b>5</b>}
+              of <b>{orderDel?.length}</b> results
+            </p>
           </div>
         )}
       </div>
@@ -197,8 +201,8 @@ export default function Display({ filteredlist, setfilteredlist }) {
           <div className={DCss.arrow}>{`<<`}</div>
           <div className={DCss.numbers}>
             <div className={DCss.active}>1</div>
-            <div className={DCss.inactive}>2</div>
-            <div className={DCss.inactive}>3</div>
+            {/* <div className={DCss.inactive}>2</div> */}
+            {/* <div className={DCss.inactive}>3</div> */}
           </div>
           <div className={DCss.arrow}>{`>>`}</div>
         </div>
