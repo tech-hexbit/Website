@@ -69,37 +69,35 @@ export default function Filter({ filteredlist, setfilteredlist }) {
 
   useEffect(() => {
     if (category.length > 0) {
-      // filteredlist.forEach((orderDel) => {
-      //   category.forEach((e) => {
-      //     if (orderDel.category_id === e) {
-      //       console.log("Match");
-      //       console.log(orderDel.category_id === e);
-      //       console.log(`Match ${orderDel.category_id} === ${e}`);
+      filteredlist.forEach((orderDel) => {
+        category.forEach((e) => {
+          if (orderDel.category_id === e) {
+            console.log("Match");
+            console.log(orderDel.category_id === e);
+            console.log(`Match ${orderDel.category_id} === ${e}`);
 
-      //       setfilteredlist([orderDel]);
-      //     }
-      //   });
-      // });
+            setfilteredlist([orderDel]);
+          }
+        });
+      });
 
-      const filteredOrders =
-        category.length > 0
-          ? filteredlist.filter((order) => {
-              return [order].some((item) => {
-                category.forEach((e) => {
-                  console.log(
-                    "more than 0 --> " +
-                      category.length +
-                      `item.category_id === e --> ${item.category_id} === ${e}` +
-                      item.category_id ===
-                      e
-                  );
-                  item.category_id === e;
-                });
-              });
-            })
-          : filteredlist;
-
-      console.log(filteredOrders);
+      // const filteredOrders =
+      //   category.length > 0
+      //     ? filteredlist.filter((order) => {
+      //         return [order].some((item) => {
+      //           category.forEach((e) => {
+      //             console.log(
+      //               "more than 0 --> " +
+      //                 category.length +
+      //                 `item.category_id === e --> ${item.category_id} === ${e}` +
+      //                 item.category_id ===
+      //                 e
+      //             );
+      //             item.category_id === e;
+      //           });
+      //         });
+      //       })
+      //     : filteredlist;
     } else {
       setfilteredlist(orderDel);
     }
