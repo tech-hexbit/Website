@@ -69,18 +69,28 @@ export default function Filter({ filteredlist, setfilteredlist }) {
 
   useEffect(() => {
     if (category.length > 0) {
-      console.log(category);
-      filteredlist.forEach((orderDel) => {
-        category.forEach((e) => {
-          if (orderDel.category_id === e) {
-            console.log("Match");
-            console.log(orderDel.category_id === e);
-            console.log(`Match ${orderDel.category_id} === ${e}`);
+      // filteredlist.forEach((orderDel) => {
+      //   category.forEach((e) => {
+      //     if (orderDel.category_id === e) {
+      //       console.log("Match");
+      //       console.log(orderDel.category_id === e);
+      //       console.log(`Match ${orderDel.category_id} === ${e}`);
 
-            setfilteredlist([orderDel]);
-          }
-        });
-      });
+      //       setfilteredlist([orderDel]);
+      //     }
+      //   });
+      // });
+
+      const filteredOrders =
+        category.length > 0
+          ? filteredlist.filter((order) =>
+              [order].some((item) => {
+                item.category_id && item.category_id === category;
+              })
+            )
+          : filteredlist;
+
+      console.log(filteredOrders);
     } else {
       setfilteredlist(orderDel);
     }
