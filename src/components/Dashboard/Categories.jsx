@@ -33,15 +33,18 @@ export default function Categories() {
       });
 
       if (response.data.success) {
-        const categoryIds = response.data?.orderList.flatMap((order) => {
-          return order.Items.map((item) => {
-            item.ItemID?.category_id;
-          });
-        });
+        console.log(response.data?.orderList);
 
-        const uniqueCategoryIds = [...new Set(categoryIds)];
+        // const categoryIds = response.data?.orderList.flatMap((order) => {
+        //   return order.Items.map((item) => {
+        //     item.ItemID?.category_id;
+        //   });
+        // });
 
-        console.log(uniqueCategoryIds);
+        // const uniqueCategoryIds = [...new Set(categoryIds)];
+
+        // console.log(uniqueCategoryIds);
+        // console.log(categoryIds);
 
         setorderlist(response?.data?.orderList);
       } else {
