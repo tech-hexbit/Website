@@ -56,7 +56,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
       const response = await axios.delete(`/api/common/product/delete/${_id}`, {
         headers: { Authorization: `${authCtx.token}` },
       });
-      // console.log(updatedproduct)
+
       if (response.status === 200) {
         setupdatedproduct(filteredlist.filter((p) => p._id != _id));
         setfilteredlist(updatedproduct);
