@@ -61,23 +61,9 @@ export default function Filter({ filteredlist, setfilteredlist }) {
   const handlechange = (e) => {
     if (e.target.checked) {
       setcategory((prevState) => [...prevState, e.target.value]);
-
-      // orderDel?.forEach((orderDel) => {
-      //   if (orderDel.category_id === e.target.value) {
-      //     setfilteredlist([orderDel]);
-      //   } else {
-      //   }
-      // });
     } else {
       const arr = category.filter((c) => c !== e.target.value);
       setcategory(arr);
-
-      // const arr2 = filteredlist.filter((c) => c !== e.target.value);
-      // setfilteredlist(arr2);
-
-      // console.log(arr + " <-- category");
-      // console.log("filteredlist");
-      // console.log(filteredlist);
     }
   };
 
@@ -92,35 +78,10 @@ export default function Filter({ filteredlist, setfilteredlist }) {
             setfilteredlist([orderDel]);
           }
         });
-        // console.log(category);
-        // console.log("orderDel");
-        // console.log(orderDel.category_id);
-        //else {
-        // }
       });
     } else {
       setfilteredlist(orderDel);
     }
-
-    // const filteredOrders = filteredlist.filter((order) => {
-    //   const itemCategories = category.Items.map(
-    //     (item) => item.ItemID.category_id
-    //   );
-    //   return itemCategories.some((categoryId) =>
-    //     desiredCategoryIds.includes(categoryId)
-    //   );
-    // });
-
-    // const filteredOrders = category.filter((val) => {
-    //   const itemCategories = filteredlist.map((cat_ID) => {
-    //     if (cat_ID.category_id === val) {
-    //       console.log(cat_ID);
-    //       setfilteredlist([cat_ID]);
-    //     }
-    //   });
-
-    //   return;
-    // });
   }, [category]);
 
   return (
