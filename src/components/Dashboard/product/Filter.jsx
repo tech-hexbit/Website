@@ -62,19 +62,26 @@ export default function Filter({ filteredlist, setfilteredlist }) {
     if (e.target.checked) {
       setcategory((prevState) => [...prevState, e.target.value]);
 
-      orderDel?.forEach((orderDel) => {
-        if (orderDel.category_id === e.target.value) {
-          setfilteredlist([orderDel]);
-        } else {
-        }
-      });
+      // orderDel?.forEach((orderDel) => {
+      //   if (orderDel.category_id === e.target.value) {
+      //     setfilteredlist([orderDel]);
+      //   } else {
+      //   }
+      // });
     } else {
       const arr = category.filter((c) => c !== e.target.value);
       setcategory(arr);
-      const arr2 = filteredlist.filter((c) => c !== e.target.value);
-      setfilteredlist(arr2);
+
+      // const arr2 = filteredlist.filter((c) => c !== e.target.value);
+      // setfilteredlist(arr2);
+
+      // console.log(arr + " <-- category");
+      // console.log("filteredlist");
+      // console.log(filteredlist);
     }
   };
+
+  useEffect(() => {}, [category]);
 
   return (
     <div className={FCss.mainDiv}>
