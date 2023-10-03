@@ -183,7 +183,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
                   })}
                 </>
               ) : (
-                <p className={DCss.NoOrders}>No Orders</p>
+                <p className="NoOrders">No Orders</p>
               )}
             </table>
             <p className={DCss.showingPTag}>
