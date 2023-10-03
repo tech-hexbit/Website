@@ -26,7 +26,6 @@ export default function Filter({ filteredlist, setfilteredlist }) {
   useEffect(() => {
     const u = (allcategory) => [...new Set(allcategory)];
     setunique(u(allcategory));
-    console.log(unique);
   }, [allcategory]);
 
   const authCtx = useContext(AuthContext);
@@ -40,13 +39,10 @@ export default function Filter({ filteredlist, setfilteredlist }) {
       });
 
       if (response.data.success) {
-        console.log(response?.data?.orderList);
-
         setOrderDel(response?.data?.orderList);
 
         response?.data?.orderList?.forEach((order) => {
           setallcategory((prevState) => [...prevState, order.category_id]);
-          console.log(allcategory);
         });
 
         setLoad(false);
@@ -80,6 +76,8 @@ export default function Filter({ filteredlist, setfilteredlist }) {
       setfilteredlist(arr2);
     }
   };
+
+  console.log(category);
 
   return (
     <div className={FCss.mainDiv}>
