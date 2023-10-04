@@ -403,6 +403,11 @@ export default function OverallSales() {
               </>
             )}
           </table>
+
+          <p className={osCss.showingPTag}>
+            Showing <b>{orderDel?.length} </b>
+            of <b>{orderDel?.length}</b> results
+          </p>
         </div>
       </div>
 
