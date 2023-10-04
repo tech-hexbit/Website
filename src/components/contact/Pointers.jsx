@@ -8,8 +8,8 @@ export default function Pointers(props) {
     <div className={styles.pointers}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
+        width="30"
+        height="25"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
