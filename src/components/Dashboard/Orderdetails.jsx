@@ -278,34 +278,6 @@ const Orderdetails = () => {
                     </span>
                   </h3>
                 </div>
-
-                {/* <div className={odcss["total-bill"]}>
-                  <div className={odcss.tbtext}>Total bill</div>
-
-                  <div className={odcss["total-billdetails"]}>
-                    <div className={odcss.dt1}>
-                      Subtotal:
-                      <div className={odcss.amt1}>28</div>
-                    </div>
-                    <div className={odcss.dt1}>
-                      Discounts:
-                      <div className={odcss.amt2}>29</div>
-                    </div>
-                    <div className={odcss.dt1}>
-                      Logistics:
-                      <div className={odcss.amt3}>29</div>
-                    </div>
-                    <div className={odcss.dt1}>
-                      Tax:
-                      <div className={odcss.amt4}>29</div>
-                    </div>
-                  </div>
-                  <div className={odcss["total-amt"]}>
-                    <div className={odcss.amttext}>Total amount:</div>
-
-                    <div className={odcss.amtbold}>2324</div>
-                  </div>
-                </div> */}
               </div>
             </>
           ) : (
