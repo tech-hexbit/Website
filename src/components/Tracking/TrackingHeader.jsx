@@ -32,15 +32,20 @@ export default function TrackingHeader(props) {
               <p className={THCss.titlePTag}>
                 <b>Order ID</b> : <span>{props.data.OrderID}</span>
               </p>
-              <p
-                style={{
-                  color: props.data.status === "PAID" ? "#4BB543" : "#9e6a03",
-                }}
-              >
-                {props.data.status}
+              <p>
+                <span
+                  style={{
+                    color: props.data.status === "PAID" ? "#4BB543" : "#9e6a03",
+                  }}
+                >
+                  {props.data.status}
+                </span>{" "}
+                ||
+                <a onClick={handleOpenPDF} className={THCss.openPDF}>
+                  Open PDF
+                </a>
               </p>
             </div>
-            <button onClick={handleOpenPDF}>Open PDF</button>
           </div>
 
           <div className={THCss.listTrackingDiv}>
