@@ -182,12 +182,12 @@ td {
 }
 
 .dt1 {
-  display: flex;
-  padding-top: 20px;
-  align-items: center;
+  /* display: flex; */
+  /* padding-top: 20px; */
+  /* align-items: center; */
 }
 
-.amt1 {
+/* .amt1 {
   margin-left: 550px;
 }
 
@@ -201,7 +201,7 @@ td {
 
 .amt4 {
   margin-left: 587px;
-}
+} */
 
 .total-amt {
   display: flex;
