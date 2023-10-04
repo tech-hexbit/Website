@@ -4,6 +4,8 @@ import React from "react";
 import THCss from "./Css/TrackingHeader.module.css";
 
 export default function TrackList(props) {
+  console.log(props.currentState);
+
   return (
     <div className={THCss.listmDiv}>
       <div className={THCss.circleDiv}></div>
