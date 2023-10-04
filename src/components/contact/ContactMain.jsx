@@ -6,7 +6,7 @@ import ContactForm from "./ContactForm";
 // icon
 import mail from "./../../assets/AboutUS/Icon.svg";
 import Icon_Call from "./../../assets/AboutUS/Icon_call.svg";
-import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
+// import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 
 // css
 import styles from "./Css/ContactForm.module.css";
@@ -48,24 +48,84 @@ export default function ContactMain() {
 
           <div className={styles.pointerDiv}>
             <div className={styles.pointers}>
-              <ArrowRightAltIcon fontSize="large" />
+              {/* <ArrowRightAltIcon fontSize="large" /> */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="35"
+                height="35"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-arrow-right"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
               <p>An overview of the platform and its features</p>
             </div>
 
             <div className={styles.pointers}>
-              <ArrowRightAltIcon fontSize="large" />
+              {/* <ArrowRightAltIcon fontSize="large" /> */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="35"
+                height="35"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-arrow-right"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
               <p>
                 Consultation on how to leverage the platform for your community
               </p>
             </div>
 
             <div className={styles.pointers}>
-              <ArrowRightAltIcon fontSize="large" />
+              {/* <ArrowRightAltIcon fontSize="large" /> */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="35"
+                height="35"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-arrow-right"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
               <p>Share few success stories with you</p>
             </div>
 
             <div className={styles.pointers}>
-              <ArrowRightAltIcon fontSize="large" />
+              {/* <ArrowRightAltIcon fontSize="large" /> */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="35"
+                height="35"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-arrow-right"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
               <p>
                 Many desktop publishing packages and web page editors now use
               </p>
