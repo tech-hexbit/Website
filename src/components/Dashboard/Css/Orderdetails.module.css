@@ -181,6 +181,12 @@ td {
   padding-top: 40px;
 }
 
+.mapDivBU {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: c; */
+}
+
 .dt1 {
   /* display: flex; */
   /* padding-top: 20px; */
