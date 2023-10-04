@@ -75,7 +75,7 @@ export default function TrackingHeader(props) {
               title="Delivered"
               des="Your order is delivered successfully"
               currentState={props.data?.state}
-              state="Delivered"
+              state="Compeleted"
             />
             <TrackList
               title="Cancelled"
