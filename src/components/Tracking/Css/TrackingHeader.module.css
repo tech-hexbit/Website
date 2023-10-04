@@ -63,6 +63,17 @@
   border-color: #56117c;
 }
 
+.HcircleDiv {
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #56117c;
+  opacity: 0.6;
+  border-radius: 50%;
+}
+
 .circleDiv {
   width: 20px;
   height: 20px;
