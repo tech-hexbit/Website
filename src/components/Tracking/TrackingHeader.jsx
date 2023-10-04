@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import TrackList from "./TrackList";
 
@@ -20,6 +20,7 @@ export default function TrackingHeader(props) {
       console.error("Error fetching or displaying the PDF:", error);
     }
   };
+
   return (
     <>
       <div className={THCss.titleDiv}>
