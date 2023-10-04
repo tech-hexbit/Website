@@ -109,7 +109,7 @@ export default function OverallSales() {
       <div className={osCss.top}>
         <div>Overall Sales</div>
         <div className={osCss.filters}>
-          <div className={osCss.select}>
+          {/* <div className={osCss.select}>
             <div className={osCss.selectInner}>
               <select>
                 <option hidden>Ecommerce</option>
@@ -120,7 +120,7 @@ export default function OverallSales() {
                 <option hidden>Status</option>
               </select>
             </div>
-          </div>
+          </div> */}
           <div className={osCss.search}>
             <input
               type="text"
