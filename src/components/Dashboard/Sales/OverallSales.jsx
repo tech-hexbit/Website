@@ -312,7 +312,7 @@ export default function OverallSales() {
                               style={{
                                 color:
                                   val.state == "Created"
-                                    ? ""
+                                    ? "#9e6a03"
                                     : "Accepted"
                                     ? "#4BB543"
                                     : val.state == "In-progress"
