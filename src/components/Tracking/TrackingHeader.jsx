@@ -21,7 +21,7 @@ export default function TrackingHeader(props) {
     }
   };
 
-  console.log(props.data.OrderID);
+  console.log(props.data);
 
   return (
     <>
@@ -30,7 +30,13 @@ export default function TrackingHeader(props) {
           <p className={THCss.titlePTag}>
             <b>Order ID</b> : <span>{props.data.OrderID}</span>
           </p>
-          <p>{props.data.status}</p>
+          <p
+            style={{
+              color: props.data.status === "PAID" ? "#9e6a03" : "#4BB543",
+            }}
+          >
+            {props.data.status}
+          </p>
         </div>
         <button onClick={handleOpenPDF}>Open PDF</button>
       </div>
