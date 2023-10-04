@@ -204,6 +204,14 @@ td {
   /* align-items: center; */
 }
 
+.LogisticsGif {
+  margin: -40px 0px;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+}
+
 /* .amt1 {
   margin-left: 550px;
 }
