@@ -13,9 +13,6 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 // css
 import DCss from "./Css/display.module.css";
 
-// img
-// import { Trash2 } from "lucide-react";
-
 export default function Display({ filteredlist, setfilteredlist }) {
   const [load, setLoad] = useState(false);
   const [orderDel, setOrderDel] = useState([]);
