@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 // components
 import TrackList from "./TrackList";
@@ -7,6 +7,21 @@ import TrackList from "./TrackList";
 import THCss from "./Css/TrackingHeader.module.css";
 
 export default function TrackingHeader(props) {
+  const [stateVal, setStateVal] = useState();
+
+  useEffect(() => {
+    if (props.data.state === "Created") {
+      setStateVal(0);
+    } else if (props.data.state === "Accepted") {
+      setStateVal(1);
+    } else if (props.data.state === "In-progress") {
+      setStateVal(2);
+    } else if (props.data.state === "Compeleted") {
+      setStateVal(3);
+    } else if (props.data.state === "Cancelled") {
+      setStateVal(4);
+    }
+  }, [props]);
   return (
     <>
       {props.data ? (
