@@ -10,9 +10,6 @@ import Load from "./../MicroInteraction/Loading";
 //components
 import TrackingHeader from "./../components/Tracking/TrackingHeader";
 
-// css
-import TPCss from "./Css/TrackPage.module.css";
-
 export default function TrackingPage() {
   const [load, setLoad] = useState(false);
 
