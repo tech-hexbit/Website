@@ -11,6 +11,7 @@ import Load from "./../MicroInteraction/Loading";
 import TrackingHeader from "./../components/Tracking/TrackingHeader";
 
 export default function TrackingPage() {
+  const [data, setData] = useState();
   const [load, setLoad] = useState(false);
 
   const { id } = useParams();
@@ -26,7 +27,7 @@ export default function TrackingPage() {
       const response = await axios.get(`/api/common/order/track/${id}`);
 
       if (response.data.success) {
-        console.log(response.data.orderTrack);
+        setData(response.data.orderTrack);
 
         setLoad(false);
       } else {
@@ -40,5 +41,5 @@ export default function TrackingPage() {
       console.log(e);
     }
   };
-  return <>{load ? <Load /> : <TrackingHeader id={id} />}</>;
+  return <>{load ? <Load /> : <TrackingHeader id={id} data={data} />}</>;
 }
