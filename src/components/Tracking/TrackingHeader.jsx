@@ -21,8 +21,6 @@ export default function TrackingHeader(props) {
     }
   };
 
-  console.log(props.data?.state);
-
   return (
     <>
       {props.data ? (
@@ -62,16 +60,16 @@ export default function TrackingHeader(props) {
               state="Created"
             />
             <TrackList
-              title="Order Packed"
-              des="Your order has been packed"
+              title="Order Accepted"
+              des="Your order has been Accepted"
               currentState={props.data?.state}
-              state="Packed"
+              state="Accepted"
             />
             <TrackList
-              title="Order Shipped"
-              des="Your order has been shipped"
+              title="Order  In-Progress"
+              des="Your order is In-progress"
               currentState={props.data?.state}
-              state="Shipped"
+              state="In-progress"
             />
             <TrackList
               title="Ready for Delivery"
