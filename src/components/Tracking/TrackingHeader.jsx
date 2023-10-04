@@ -21,7 +21,7 @@ export default function TrackingHeader(props) {
     }
   };
 
-  console.log(props.data?.Invoice);
+  console.log(props.data?.state);
 
   return (
     <>
