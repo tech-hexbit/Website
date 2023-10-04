@@ -13,7 +13,7 @@ export default function TrackList(props) {
       <div
         className={THCss.listmDiv}
         style={{
-          opacity: props.state == props.currentState ? "1" : "0.5",
+          opacity: props.state == props.currentState ? "1" : "0.8",
         }}
       >
         <div className={THCss.circleDiv}></div>
