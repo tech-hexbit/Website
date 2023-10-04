@@ -6,6 +6,8 @@ import TrackList from "./TrackList";
 import THCss from "./Css/TrackingHeader.module.css";
 
 export default function TrackingHeader(props) {
+  const [load, setLoad] = useState(false);
+
   const handleOpenPDF = async (e) => {
     try {
       const response = await fetch(
