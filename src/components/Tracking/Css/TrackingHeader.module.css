@@ -9,6 +9,13 @@
   text-transform: capitalize;
 }
 
+.TitleDiv {
+  margin: 0px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .listmDiv {
   font-family: "Rubik", sans-serif;
   width: 300px;
@@ -71,4 +78,9 @@
 
 .des {
   letter-spacing: 0.18px;
+}
+
+.openPDF {
+  color: #000;
+  text-decoration: none;
 }

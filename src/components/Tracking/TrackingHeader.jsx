@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import TrackList from "./TrackList";
 
@@ -20,35 +20,82 @@ export default function TrackingHeader(props) {
       console.error("Error fetching or displaying the PDF:", error);
     }
   };
+
+  console.log(props.data?.state);
+
   return (
     <>
-      <div className={THCss.titleDiv}>
-        <p className={THCss.titlePTag}>
-          Order ID : <span>{props.id}</span>
-        </p>
-        <button onClick={handleOpenPDF}>Open PDF</button>
-      </div>
-
-      <div className={THCss.listTrackingDiv}>
-        <div className={THCss.trackingDiv}>
-          <div className={THCss.trackingDivMain}>
-            <div className={THCss.trackinglineDiv}></div>
+      {props.data ? (
+        <>
+          <div className={THCss.titleDiv}>
+            <div className={THCss.TitleDiv}>
+              <p className={THCss.titlePTag}>
+                <b>Order ID</b> : <span>{props.data.OrderID}</span>
+              </p>
+              <p>
+                <span
+                  style={{
+                    color: props.data.status === "PAID" ? "#4BB543" : "#9e6a03",
+                  }}
+                >
+                  {props.data.status}
+                </span>{" "}
+                ||
+                <a href={props.data?.Invoice} className={THCss.openPDF}>
+                  Open PDF
+                </a>
+              </p>
+            </div>
           </div>
-        </div>
 
-        <TrackList title="Order Created" des="We have received your order" />
-        <TrackList title="Order Packed" des="Your order has been packed" />
-        <TrackList title="Order Shipped" des="Your order has been shipped" />
-        <TrackList
-          title="Ready for Delivery"
-          des="Your order is out for delivery"
-        />
-        <TrackList
-          title="Delivered"
-          des="Your order is delivered successfully"
-        />
-        <TrackList title="Cancelled" des="Your order is cancelled" />
-      </div>
+          <div className={THCss.listTrackingDiv}>
+            <div className={THCss.trackingDiv}>
+              <div className={THCss.trackingDivMain}>
+                <div className={THCss.trackinglineDiv}></div>
+              </div>
+            </div>
+
+            <TrackList
+              title="Order Created"
+              des="We have received your order"
+              currentState={props.data?.state}
+              state="Created"
+            />
+            <TrackList
+              title="Order Packed"
+              des="Your order has been packed"
+              currentState={props.data?.state}
+              state="Packed"
+            />
+            <TrackList
+              title="Order Shipped"
+              des="Your order has been shipped"
+              currentState={props.data?.state}
+              state="Shipped"
+            />
+            <TrackList
+              title="Ready for Delivery"
+              des="Your order is out for delivery"
+              currentState={props.data?.state}
+              state="Delivery"
+            />
+            <TrackList
+              title="Delivered"
+              des="Your order is delivered successfully"
+              currentState={props.data?.state}
+              state="Delivered"
+            />
+            <TrackList
+              title="Cancelled"
+              des="Your order is cancelled"
+              currentState={props.data?.state}
+              state="Cancelled"
+            />
+          </div>
+        </>
+      ) : (
+        ""
+      )}
     </>
   );
 }
