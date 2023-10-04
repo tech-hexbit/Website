@@ -27,6 +27,8 @@ export default function TrackingPage() {
       const response = await axios.get(`/api/common/order/track/${id}`);
 
       if (response.data.success) {
+        console.log(response.data.orderTrack);
+
         setData(response.data.orderTrack);
 
         setLoad(false);
