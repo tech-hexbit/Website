@@ -21,7 +21,7 @@ export default function TrackingHeader(props) {
     }
   };
 
-  console.log(props.data);
+  console.log(props);
 
   return (
     <>
