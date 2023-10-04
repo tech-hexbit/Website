@@ -59,32 +59,32 @@ export default function TrackingHeader(props) {
               title="Order Created"
               des="We have received your order"
               currentState={props.data?.state}
-              state={Created}
+              state="Created"
             />
             <TrackList title="Order Packed" des="Your order has been packed" />
             <TrackList
               title="Order Shipped"
               des="Your order has been shipped"
               currentState={props.data?.state}
-              state={Shipped}
+              state="Shipped"
             />
             <TrackList
               title="Ready for Delivery"
               des="Your order is out for delivery"
               currentState={props.data?.state}
-              state={Delivery}
+              state="Delivery"
             />
             <TrackList
               title="Delivered"
               des="Your order is delivered successfully"
               currentState={props.data?.state}
-              state={Delivered}
+              state="Delivered"
             />
             <TrackList
               title="Cancelled"
               des="Your order is cancelled"
               currentState={props.data?.state}
-              state={Cancelled}
+              state="Cancelled"
             />
           </div>
         </>
