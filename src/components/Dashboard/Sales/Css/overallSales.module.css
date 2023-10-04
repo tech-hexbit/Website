@@ -16,7 +16,8 @@
 .filters {
   padding-top: 50px;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  justify-content: flex-end;
 }
 
 .select {
@@ -53,6 +54,7 @@
   border-radius: 5px;
   border: 1px solid#DDD;
   outline: none;
+  padding: 12px 7px;
 }
 
 .middle {
