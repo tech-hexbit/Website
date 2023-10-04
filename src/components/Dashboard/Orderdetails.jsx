@@ -223,7 +223,7 @@ const Orderdetails = () => {
               </div>
 
               <div className={odcss["text-content"]}>
-                <div className={odcss["overlap-group"]}>
+                {/* <div className={odcss["overlap-group"]}>
                   <div className={odcss["text-wrapper"]}>Logistics details</div>
                   <div className={odcss["logistic-img"]}>
                     <img
@@ -254,17 +254,26 @@ const Orderdetails = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
 
-                {res.breakup.map((val, key) => {
-                  return (
-                    <div key={key}>
-                      <p className={odcss.dt1}>
-                        {val[0].title}:<span className={odcss.amt1}>28</span>
-                      </p>
-                    </div>
-                  );
-                })}
+                <div className={odcss.mapDivBU}>
+                  {res.breakup.map((val, key) => {
+                    return (
+                      <div key={key}>
+                        <p className={odcss.dt1}>
+                          {val[0].title}:{" "}
+                          <span className={odcss.amt1}>
+                            ₹ {val[0].price.value}
+                          </span>
+                        </p>
+                      </div>
+                    );
+                  })}
+                  <p className={odcss.dt1}>
+                    Grand Total:{" "}
+                    <span className={odcss.amt1}>₹ {res.amount}</span>
+                  </p>
+                </div>
 
                 {/* <div className={odcss["total-bill"]}>
                   <div className={odcss.tbtext}>Total bill</div>
