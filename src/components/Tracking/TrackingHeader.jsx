@@ -26,9 +26,11 @@ export default function TrackingHeader(props) {
   return (
     <>
       <div className={THCss.titleDiv}>
-        <p className={THCss.titlePTag}>
-          <b>Order ID</b> : <span>{props.data.OrderID}</span>
-        </p>
+        <div className={THCss.TitleDiv}>
+          <p className={THCss.titlePTag}>
+            <b>Order ID</b> : <span>{props.data.OrderID}</span>
+          </p>
+        </div>
         <button onClick={handleOpenPDF}>Open PDF</button>
       </div>
 
