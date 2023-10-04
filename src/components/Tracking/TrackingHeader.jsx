@@ -21,11 +21,13 @@ export default function TrackingHeader(props) {
     }
   };
 
+  console.log(props.data.OrderID);
+
   return (
     <>
       <div className={THCss.titleDiv}>
         <p className={THCss.titlePTag}>
-          Order ID : <span>{props.id}</span>
+          Order ID : <span>{props.data.OrderID}</span>
         </p>
         <button onClick={handleOpenPDF}>Open PDF</button>
       </div>
