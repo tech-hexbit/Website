@@ -187,6 +187,17 @@ td {
   /* justify-content: c; */
 }
 
+.titleVal {
+  display: inline-block;
+  width: 200px;
+  font-weight: bold;
+}
+
+.gt {
+  text-align: center;
+  margin: 7px 0px;
+}
+
 .dt1 {
   /* display: flex; */
   /* padding-top: 20px; */
