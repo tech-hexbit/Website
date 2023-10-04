@@ -17,7 +17,7 @@ export default function TrackingHeader(props) {
         setStateVal(1);
       } else if (props.data.state === "In-progress") {
         setStateVal(2);
-      } else if (props.data.state === "Compeleted") {
+      } else if (props.data.state === "Completed") {
         setStateVal(3);
       } else if (props.data.state === "Cancelled") {
         setStateVal(4);
@@ -84,7 +84,7 @@ export default function TrackingHeader(props) {
               title="Delivered"
               des="Your order is delivered successfully"
               currentState={props.data?.state}
-              state="Compeleted"
+              state="Completed"
               val={3}
               stateVal={stateVal}
             />
