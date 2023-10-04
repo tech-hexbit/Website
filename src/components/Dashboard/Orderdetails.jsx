@@ -10,6 +10,9 @@ import odcss from "./Css/Orderdetails.module.css";
 // state
 import AuthContext from "../../store/auth-context";
 
+// img
+import LogisticsGif from "./../../assets/Logistic/Logistics.gif";
+
 const Orderdetails = () => {
   const [res, setres] = useState(null);
 
@@ -227,8 +230,9 @@ const Orderdetails = () => {
                   <div className={odcss["text-wrapper"]}>Logistics details</div>
                   <div className={odcss["logistic-img"]}>
                     <img
-                      src="https://s3-alpha-sig.figma.com/img/bbac/f931/7712ade3835dbe65a300f6fb805345dc?Expires=1697414400&Signature=n0iGMe8Hzo7eI9wYvsP449IOpIr7rnNxoLQIKLGKfDpRmUs2k1SF-0uUaWIKz7MZaemr-gWD-6wzNb8OeCsexdHWxJVA9RhUQk~0-Hmm~tHBgQ0mWxLFwpGFkVUJVIU9qguspQqWBgOKTKWu5KN~dvzGf77H8XZo2O2iix0~B5aFk4egkp2v3PqUVrOFtyyrPUbJVbHdo6R4KMQrDL0sT9ON6ULKwjl2xU3lCqQlYHMr0B4tgeYRPOcoSto8N2V0fWcBslPXShSlKEOtmxc7wBftPWzgNpOkcshDpOTI1-AYA0Mw0K7R45NBVk1tOhqM~UKEUxbRQEmaR~RLJ2NFLw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                      src={LogisticsGif}
                       alt=""
+                      className={odcss.LogisticsGif}
                     />
                   </div>
                   <div className={odcss["text-l"]}>
