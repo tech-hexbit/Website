@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 // components
 import ContactForm from "./ContactForm";
+import Pointers from "./Pointers";
 
 // css
 import styles from "./Css/ContactForm.module.css";
@@ -46,85 +47,10 @@ export default function ContactMain() {
           </div>
 
           <div className={styles.pointerDiv}>
-            <div className={styles.pointers}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="35"
-                height="35"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-arrow-right"
-              >
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-              <p>An overview of the platform and its features</p>
-            </div>
-
-            <div className={styles.pointers}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="35"
-                height="35"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-arrow-right"
-              >
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-              <p>
-                Consultation on how to leverage the platform for your community
-              </p>
-            </div>
-
-            <div className={styles.pointers}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="35"
-                height="35"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-arrow-right"
-              >
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-              <p>Share few success stories with you</p>
-            </div>
-
-            <div className={styles.pointers}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="35"
-                height="35"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-arrow-right"
-              >
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-              <p>
-                Many desktop publishing packages and web page editors now use
-              </p>
-            </div>
+            <Pointers label="An overview of the platform and its features" />
+            <Pointers label="Consultation on how to leverage the platform for your community" />
+            <Pointers label="Share few success stories with you" />
+            <Pointers label="Many desktop publishing packages and web page editors now use" />
           </div>
         </div>
         <ContactForm />
