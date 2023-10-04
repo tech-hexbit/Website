@@ -22,9 +22,6 @@ export default function TrackList(props) {
         <div className={THCss.allContent}>
           <p className={THCss.title}>{props.title}</p>
           <p className={THCss.des}>{props.des}</p>
-          <p>
-            {props.state} + {props.currentState}
-          </p>
         </div>
       </div>
     </>
