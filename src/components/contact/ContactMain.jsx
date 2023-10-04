@@ -3,12 +3,12 @@ import React, { useState, useEffect } from "react";
 // components
 import ContactForm from "./ContactForm";
 
+// css
+import styles from "./Css/ContactForm.module.css";
+
 // icon
 import mail from "./../../assets/AboutUS/Icon.svg";
 import Icon_Call from "./../../assets/AboutUS/Icon_call.svg";
-
-// css
-import styles from "./Css/ContactForm.module.css";
 
 export default function ContactMain() {
   return (
