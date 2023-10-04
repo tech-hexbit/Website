@@ -66,16 +66,10 @@ export default function TrackingHeader(props) {
               state="Accepted"
             />
             <TrackList
-              title="Order  In-Progress"
+              title="Order In-Progress"
               des="Your order is In-progress"
               currentState={props.data?.state}
               state="In-progress"
-            />
-            <TrackList
-              title="Ready for Delivery"
-              des="Your order is out for delivery"
-              currentState={props.data?.state}
-              state="Delivery"
             />
             <TrackList
               title="Delivered"
