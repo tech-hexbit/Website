@@ -37,8 +37,6 @@ const Orderdetails = () => {
     }
   };
 
-  console.log(res);
-
   return (
     <>
       {res ? (
@@ -257,7 +255,18 @@ const Orderdetails = () => {
                     </div>
                   </div>
                 </div>
-                <div className={odcss["total-bill"]}>
+
+                {res.breakup.map((val, key) => {
+                  return (
+                    <div key={key}>
+                      <p className={odcss.dt1}>
+                        {val[0].title}:<span className={odcss.amt1}>28</span>
+                      </p>
+                    </div>
+                  );
+                })}
+
+                {/* <div className={odcss["total-bill"]}>
                   <div className={odcss.tbtext}>Total bill</div>
 
                   <div className={odcss["total-billdetails"]}>
@@ -283,7 +292,7 @@ const Orderdetails = () => {
 
                     <div className={odcss.amtbold}>2324</div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </>
           ) : (
