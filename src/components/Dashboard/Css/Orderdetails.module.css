@@ -24,16 +24,8 @@
   display: flex;
 }
 
-.mail {
-  margin-left: 30px;
-}
-
 .mobile {
   display: flex;
-}
-
-.phone {
-  margin-left: 30px;
 }
 
 .customer-details1 {
@@ -173,6 +165,9 @@ td {
 
 .text-content {
   display: flex;
+  justify-content: space-evenly;
+  margin: 20px 30px;
+  gap: 0px 20px;
 }
 
 .total-bill {
@@ -189,13 +184,39 @@ td {
   padding-top: 40px;
 }
 
-.dt1 {
+.mapDivBU {
   display: flex;
-  padding-top: 20px;
-  align-items: center;
+  flex-direction: column;
 }
 
-.amt1 {
+.titleVal {
+  display: inline-block;
+  width: 200px;
+  font-weight: bold;
+}
+
+.gt {
+  text-align: center;
+  margin: 7px 0px;
+}
+
+.dt1 {
+  margin: 12px 0px;
+  font-size: 16px;
+  /* display: flex; */
+  /* padding-top: 20px; */
+  /* align-items: center; */
+}
+
+.LogisticsGif {
+  margin: -40px 0px;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+}
+
+/* .amt1 {
   margin-left: 550px;
 }
 
@@ -209,7 +230,7 @@ td {
 
 .amt4 {
   margin-left: 587px;
-}
+} */
 
 .total-amt {
   display: flex;
