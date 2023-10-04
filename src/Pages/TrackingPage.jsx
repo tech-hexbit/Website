@@ -41,5 +41,5 @@ export default function TrackingPage() {
       console.log(e);
     }
   };
-  return <>{load ? <Load /> : <TrackingHeader id={id} data={data} />}</>;
+  return <>{load ? <Load /> : <TrackingHeader data={data} />}</>;
 }
