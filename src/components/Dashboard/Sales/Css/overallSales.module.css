@@ -1,9 +1,4 @@
-* {
-  box-sizing: border-box;
-}
-
 .mainDiv {
-  font-family: "Open Sans", sans-serif;
   background-color: #fff;
   border-radius: 15px;
   margin-bottom: 50px;
