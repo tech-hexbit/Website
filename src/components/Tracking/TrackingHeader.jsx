@@ -59,6 +59,7 @@ export default function TrackingHeader(props) {
               des="We have received your order"
               currentState={props.data?.state}
               state="Created"
+              val={0}
               stateVal={stateVal}
             />
             <TrackList
@@ -66,6 +67,7 @@ export default function TrackingHeader(props) {
               des="Your order has been Accepted"
               currentState={props.data?.state}
               state="Accepted"
+              val={1}
               stateVal={stateVal}
             />
             <TrackList
@@ -73,6 +75,7 @@ export default function TrackingHeader(props) {
               des="Your order is In-progress"
               currentState={props.data?.state}
               state="In-progress"
+              val={2}
               stateVal={stateVal}
             />
             <TrackList
@@ -80,6 +83,7 @@ export default function TrackingHeader(props) {
               des="Your order is delivered successfully"
               currentState={props.data?.state}
               state="Compeleted"
+              val={3}
               stateVal={stateVal}
             />
             <TrackList
@@ -87,6 +91,7 @@ export default function TrackingHeader(props) {
               des="Your order is cancelled"
               currentState={props.data?.state}
               state="Cancelled"
+              val={4}
               stateVal={stateVal}
             />
           </div>
