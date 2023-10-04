@@ -8,10 +8,15 @@ import Sidecategoriestab from "./Categories/Sidecategoriestab";
 import Ccss from "./Css/Categories.module.css";
 import osCss from "./Sales/Css/overallSales.module.css";
 
+// state
 import AuthContext from "../../store/auth-context";
+
+// MicroInteraction
+import Load from "./../../MicroInteraction/LoadBlack";
 
 import axios from "axios";
 export default function Categories() {
+  const [load, setLoad] = useState(false);
   const [current, setCurrent] = useState("Ecommerce");
   const [orderlist, setorderlist] = useState([]);
   const [active, setActive] = useState({
@@ -28,19 +33,25 @@ export default function Categories() {
   const authCtx = useContext(AuthContext);
 
   const loadData = async () => {
+    setLoad(true);
+
     try {
       const response = await axios.get("/api/common/Order/all", {
         headers: { Authorization: `${authCtx.token}` },
       });
 
       if (response.data.success) {
-        console.log(response.data?.orderList);
-
         setorderlist(response?.data?.orderList);
+
+        setLoad(false);
       } else {
+        setLoad(false);
+
         console.log(e);
       }
     } catch (e) {
+      setLoad(false);
+
       console.log(e);
     }
   };
