@@ -5,13 +5,13 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 // MicroInteraction
-import Load from "./../MicroInteraction/LoadBlack";
+import Load from "./../MicroInteraction/Loading";
 
 //components
 import TrackingHeader from "./../components/Tracking/TrackingHeader";
 
 // css
-import d from "./Css/TrackPage.module.css";
+import TPCss from "./Css/TrackPage.module.css";
 
 export default function TrackingPage() {
   const [load, setLoad] = useState(false);
@@ -45,11 +45,11 @@ export default function TrackingPage() {
   };
   return (
     <>
-      {load ? (
-        <div>
-          <Load />
-        </div>
+      {!load ? (
+        // <div className={TPCss.mDiv}>
+        <Load />
       ) : (
+        // </div>
         <TrackingHeader id={id} />
       )}
     </>
