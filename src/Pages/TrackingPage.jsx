@@ -40,15 +40,5 @@ export default function TrackingPage() {
       console.log(e);
     }
   };
-  return (
-    <>
-      {!load ? (
-        // <div className={TPCss.mDiv}>
-        <Load />
-      ) : (
-        // </div>
-        <TrackingHeader id={id} />
-      )}
-    </>
-  );
+  return <>{load ? <Load /> : <TrackingHeader id={id} />}</>;
 }
