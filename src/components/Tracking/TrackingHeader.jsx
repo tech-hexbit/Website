@@ -1,28 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
+// components
 import TrackList from "./TrackList";
 
 // css
 import THCss from "./Css/TrackingHeader.module.css";
 
 export default function TrackingHeader(props) {
-  const handleOpenPDF = async (e) => {
-    try {
-      const response = await fetch(
-        "http://localhost:8000/api/common/invoice/Download/Invoice"
-      );
+  const [stateVal, setStateVal] = useState();
 
-      const blob = await response.blob();
-
-      const blobUrl = URL.createObjectURL(blob);
-      window.open(blobUrl, "_blank");
-    } catch (error) {
-      console.error("Error fetching or displaying the PDF:", error);
+  useEffect(() => {
+    if (props.data) {
+      if (props.data.state === "Created") {
+        setStateVal(0);
+      } else if (props.data.state === "Accepted") {
+        setStateVal(1);
+      } else if (props.data.state === "In-progress") {
+        setStateVal(2);
+      } else if (props.data.state === "Completed") {
+        setStateVal(3);
+      } else if (props.data.state === "Cancelled") {
+        setStateVal(4);
+      }
     }
-  };
-
-  console.log(props.data?.state);
-
+  }, [props]);
   return (
     <>
       {props.data ? (
@@ -60,36 +61,40 @@ export default function TrackingHeader(props) {
               des="We have received your order"
               currentState={props.data?.state}
               state="Created"
+              val={0}
+              stateVal={stateVal}
             />
             <TrackList
-              title="Order Packed"
-              des="Your order has been packed"
+              title="Order Accepted"
+              des="Your order has been Accepted"
               currentState={props.data?.state}
-              state="Packed"
+              state="Accepted"
+              val={1}
+              stateVal={stateVal}
             />
             <TrackList
-              title="Order Shipped"
-              des="Your order has been shipped"
+              title="Order In-Progress"
+              des="Your order is In-progress"
               currentState={props.data?.state}
-              state="Shipped"
-            />
-            <TrackList
-              title="Ready for Delivery"
-              des="Your order is out for delivery"
-              currentState={props.data?.state}
-              state="Delivery"
+              state="In-progress"
+              val={2}
+              stateVal={stateVal}
             />
             <TrackList
               title="Delivered"
               des="Your order is delivered successfully"
               currentState={props.data?.state}
-              state="Delivered"
+              state="Completed"
+              val={3}
+              stateVal={stateVal}
             />
             <TrackList
               title="Cancelled"
               des="Your order is cancelled"
               currentState={props.data?.state}
               state="Cancelled"
+              val={4}
+              stateVal={stateVal}
             />
           </div>
         </>
