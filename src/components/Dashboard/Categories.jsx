@@ -3,6 +3,7 @@ import React, { useState, useEffect, useContext } from "react";
 // components
 import CategoriesTabs from "./Categories/CategoriesTabs";
 import Sidecategoriestab from "./Categories/Sidecategoriestab";
+
 // css
 import Ccss from "./Css/Categories.module.css";
 import osCss from "./Sales/Css/overallSales.module.css";
