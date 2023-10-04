@@ -144,7 +144,7 @@ export default function OverallSales() {
                     <tr>
                       <th></th>
                       <th className="sticky-col">
-                        Order id
+                        <p>Id</p>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="9"
@@ -403,6 +403,11 @@ export default function OverallSales() {
               </>
             )}
           </table>
+
+          <p className={osCss.showingPTag}>
+            Showing <b>{orderDel?.length} </b>
+            of <b>{orderDel?.length}</b> results
+          </p>
         </div>
       </div>
 
