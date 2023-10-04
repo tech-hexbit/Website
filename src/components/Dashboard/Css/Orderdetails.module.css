@@ -184,7 +184,6 @@ td {
 .mapDivBU {
   display: flex;
   flex-direction: column;
-  /* justify-content: c; */
 }
 
 .titleVal {
@@ -199,6 +198,7 @@ td {
 }
 
 .dt1 {
+  font-size: 16px;
   /* display: flex; */
   /* padding-top: 20px; */
   /* align-items: center; */
