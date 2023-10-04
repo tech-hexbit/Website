@@ -6,7 +6,6 @@ import ContactForm from "./ContactForm";
 // icon
 import mail from "./../../assets/AboutUS/Icon.svg";
 import Icon_Call from "./../../assets/AboutUS/Icon_call.svg";
-// import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 
 // css
 import styles from "./Css/ContactForm.module.css";
@@ -48,7 +47,6 @@ export default function ContactMain() {
 
           <div className={styles.pointerDiv}>
             <div className={styles.pointers}>
-              {/* <ArrowRightAltIcon fontSize="large" /> */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="35"
@@ -68,7 +66,6 @@ export default function ContactMain() {
             </div>
 
             <div className={styles.pointers}>
-              {/* <ArrowRightAltIcon fontSize="large" /> */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="35"
@@ -90,7 +87,6 @@ export default function ContactMain() {
             </div>
 
             <div className={styles.pointers}>
-              {/* <ArrowRightAltIcon fontSize="large" /> */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="35"
