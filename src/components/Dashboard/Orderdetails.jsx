@@ -223,11 +223,11 @@ const Orderdetails = () => {
               </div>
 
               <div className={odcss["text-content"]}>
-                {/* <div className={odcss["overlap-group"]}>
+                <div className={odcss["overlap-group"]}>
                   <div className={odcss["text-wrapper"]}>Logistics details</div>
                   <div className={odcss["logistic-img"]}>
                     <img
-                      src="https://s3-alpha-sig.figma.com/img/bbac/f931/7712ade3835dbe65a300f6fb805345dc?Expires=1696204800&Signature=iNLUfDuEOEJ154BGcFfHKVkddx3WJEUKTjbofUgJtSYNid8llA0amue2MRF-qja~o9set5ajq5pOrbqaOBMkUVCbbZFphPQwTrf011yk8Wf-sTtgEw8YyKP~iZwjaqGny3afO~4nKxJCv1OgQWrm6d4qj4K0pjkuY7PkBXTsABrvf~bvs4NQ317YIw70YIPKUkDoPcbSdp6gcLoSsghVDCxu3jABOiGvj89-TVGcMrFqzLkGHHcSFYXRzWgM4HJ4XnNDGcyYd1pYIxHl35560Oj8OSnKiipEq1MEXsoQO1Jt7AzhtrlyQurKRyFMaZvdfZ2py7x6i4h~Zka2Wu3SQA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                      src="https://s3-alpha-sig.figma.com/img/bbac/f931/7712ade3835dbe65a300f6fb805345dc?Expires=1697414400&Signature=n0iGMe8Hzo7eI9wYvsP449IOpIr7rnNxoLQIKLGKfDpRmUs2k1SF-0uUaWIKz7MZaemr-gWD-6wzNb8OeCsexdHWxJVA9RhUQk~0-Hmm~tHBgQ0mWxLFwpGFkVUJVIU9qguspQqWBgOKTKWu5KN~dvzGf77H8XZo2O2iix0~B5aFk4egkp2v3PqUVrOFtyyrPUbJVbHdo6R4KMQrDL0sT9ON6ULKwjl2xU3lCqQlYHMr0B4tgeYRPOcoSto8N2V0fWcBslPXShSlKEOtmxc7wBftPWzgNpOkcshDpOTI1-AYA0Mw0K7R45NBVk1tOhqM~UKEUxbRQEmaR~RLJ2NFLw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
                       alt=""
                     />
                   </div>
@@ -254,7 +254,7 @@ const Orderdetails = () => {
                       </div>
                     </div>
                   </div>
-                </div> */}
+                </div>
 
                 <div className={odcss.mapDivBU}>
                   {res.breakup.map((val, key) => {
