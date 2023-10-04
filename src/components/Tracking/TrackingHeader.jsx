@@ -6,21 +6,6 @@ import TrackList from "./TrackList";
 import THCss from "./Css/TrackingHeader.module.css";
 
 export default function TrackingHeader(props) {
-  const handleOpenPDF = async (e) => {
-    try {
-      const response = await fetch(
-        "http://localhost:8000/api/common/invoice/Download/Invoice"
-      );
-
-      const blob = await response.blob();
-
-      const blobUrl = URL.createObjectURL(blob);
-      window.open(blobUrl, "_blank");
-    } catch (error) {
-      console.error("Error fetching or displaying the PDF:", error);
-    }
-  };
-
   return (
     <>
       {props.data ? (
