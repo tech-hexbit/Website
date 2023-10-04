@@ -60,6 +60,7 @@ const Orderdetails = () => {
                   <div className={odcss["od-1"]}>#{res._id.slice(-4)}</div>
                 </div>
               </div>
+
               <div className={odcss.details}>
                 <div className={odcss["customer-details"]}>
                   <div className={odcss["texxt-content"]}>
@@ -261,7 +262,6 @@ const Orderdetails = () => {
 
                   <div className={odcss["total-billdetails"]}>
                     <div className={odcss.dt1}>
-                      {" "}
                       Subtotal:
                       <div className={odcss.amt1}>28</div>
                     </div>
