@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
+// axios
+import axios from "axios";
+
 // MicroInteraction
 import Load from "./../MicroInteraction/LoadBlack";
 
 //components
 import TrackingHeader from "./../components/Tracking/TrackingHeader";
+
+// css
+import d from "./Css/TrackPage.module.css";
 
 export default function TrackingPage() {
   const [load, setLoad] = useState(false);
@@ -38,8 +44,14 @@ export default function TrackingPage() {
     }
   };
   return (
-    <div>
-      <TrackingHeader id={id} />
-    </div>
+    <>
+      {load ? (
+        <div>
+          <Load />
+        </div>
+      ) : (
+        <TrackingHeader id={id} />
+      )}
+    </>
   );
 }
