@@ -311,7 +311,9 @@ export default function OverallSales() {
                             <td
                               style={{
                                 color:
-                                  val.state == "Accepted"
+                                  val.state == "Created"
+                                    ? ""
+                                    : "Accepted"
                                     ? "#4BB543"
                                     : val.state == "In-progress"
                                     ? "#3F81E0"
