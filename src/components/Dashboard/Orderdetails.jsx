@@ -261,18 +261,22 @@ const Orderdetails = () => {
                     return (
                       <div key={key}>
                         <p className={odcss.dt1}>
-                          {val[0].title}:{" "}
+                          <span className={odcss.titleVal}>
+                            {val[0].title}:
+                          </span>{" "}
                           <span className={odcss.amt1}>
-                            ₹ {val[0].price.value}
+                            ₹ {Number(val[0].price.value).toFixed(2)}
                           </span>
                         </p>
                       </div>
                     );
                   })}
-                  <p className={odcss.dt1}>
+                  <h3 className={odcss.gt}>
                     Grand Total:{" "}
-                    <span className={odcss.amt1}>₹ {res.amount}</span>
-                  </p>
+                    <span className={odcss.amt1}>
+                      ₹ {res.amount.toFixed(2)}
+                    </span>
+                  </h3>
                 </div>
 
                 {/* <div className={odcss["total-bill"]}>
