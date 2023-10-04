@@ -112,12 +112,16 @@
 }
 
 .pointers svg path {
+  width: 35px;
+}
+
+.pointers svg path {
   color: #29a0f5;
 }
 
 .pointers p {
   padding-left: 5px;
-  font-size: 22px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 600;
 }
