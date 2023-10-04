@@ -21,7 +21,7 @@ export default function TrackingHeader(props) {
     }
   };
 
-  console.log(props);
+  console.log(props.data?.Invoice);
 
   return (
     <>
@@ -41,7 +41,7 @@ export default function TrackingHeader(props) {
                   {props.data.status}
                 </span>{" "}
                 ||
-                <a onClick={handleOpenPDF} className={THCss.openPDF}>
+                <a href={props.data?.Invoice} className={THCss.openPDF}>
                   Open PDF
                 </a>
               </p>
