@@ -17,6 +17,9 @@ import FCss from "./Css/Form.module.css";
 export default function Form() {
   const [PublishOpen, setPublishOpen] = useState(true);
   const [ServiceOpen, setServiceOpen] = useState(false);
+  const [tags, settags] = useState([])
+  const [tagvalue, settagvalue] = useState("")
+
   const [data, setData] = useState({
     name: "",
     symbol:
@@ -106,6 +109,17 @@ export default function Form() {
     }
     console.log(data);
   };
+  const addtags=(e)=>{
+    if(e.keyCode===13 && tagvalue||e.keyCode===188 && tagvalue){
+      settags([...tags,tagvalue])
+      settagvalue("")
+    }
+    
+  }
+  const deletetag=(val)=>{
+    let remaintags=tags.filter((t)=>t!=val)
+    settags(remaintags)
+  }
 
   const { getRootProps, getInputProps } = useDropzone({});
 
@@ -295,7 +309,7 @@ export default function Form() {
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  class="lucide lucide-chevron-down"
+                  class={FCss["lucide lucide-chevron-down"]}
                 >
                   <path d="m6 9 6 6 6-6" />
                 </svg>
@@ -310,7 +324,7 @@ export default function Form() {
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  class="lucide lucide-chevron-up"
+                  class={FCss["lucide lucide-chevron-up"]}
                 >
                   <path d="m18 15-6-6-6 6" />
                 </svg>
@@ -397,10 +411,21 @@ export default function Form() {
                   </p>
 
                   <div className={FCss.inpTag}>
-                    <div className={FCss.TagP}>
-                      <p>Fashion</p> <p className={FCss.CloseX}>X</p>
-                    </div>
+                  {
+                    tags.map((tag,index)=>
+                    <div key={index} className={FCss.TagP}>
+                    <p>{tag}</p> <p onClick={()=>deletetag(tag)}  className={FCss.CloseX}>X</p>
+                    
+                  </div>)
+                  }
+                  <div className={FCss.inputt}>
+                    <input value={tagvalue} type="text" placeholder="Press Enter to input"  onChange={(e)=>settagvalue(e.target.value)}onKeyDown={addtags}/>
                   </div>
+                   
+                    
+                   
+                  </div>
+                  
                 </div>
 
                 <div className={FCss.inpDiv}>
@@ -414,6 +439,7 @@ export default function Form() {
                     placeholder="Enter additional text description of the product"
                     className={FCss.inpTA}
                     onChange={updateData}
+                   
                   ></textarea>
                 </div>
               </>
@@ -443,7 +469,7 @@ export default function Form() {
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  class="lucide lucide-chevron-down"
+                  class={FCss["lucide lucide-chevron-down"]}
                 >
                   <path d="m6 9 6 6 6-6" />
                 </svg>
@@ -458,7 +484,7 @@ export default function Form() {
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  class="lucide lucide-chevron-up"
+                  class={FCss["lucide lucide-chevron-up"]}
                 >
                   <path d="m18 15-6-6-6 6" />
                 </svg>
@@ -583,9 +609,9 @@ export default function Form() {
             {/* <button>+</button>
             <input type="file" name="file" onChange={handleImage} /> */}
             <div {...getRootProps({ className: "dropzone" })}>
-              <input className="input-zone" {...getInputProps()} />
-              <div className="text-center">
-                <p className="dropzone-content">+</p>
+              <input className={FCss["input-zone"]} {...getInputProps()} />
+              <div className={FCss["text-center"]}>
+                <p className={FCss["dropzone-content"]}>+</p>
               </div>
             </div>
           </div>
@@ -595,8 +621,8 @@ export default function Form() {
 
         <div className={FCss.addimgDivMain}>
           <div {...getRootProps({ className: "dropzone" })}>
-            <input className="input-zone" {...getInputProps()} />
-            <p className="dropzone-content">
+            <input className={FCss["input-zone"]} {...getInputProps()} />
+            <p className={FCss["dropzone-content"]}>
               <div className={FCss.upAddImg}>
                 <img src={upload} alt="" srcset="" />
                 <p className={FCss.upAddImgDragPTag}>

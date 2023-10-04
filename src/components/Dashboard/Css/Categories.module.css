@@ -22,7 +22,7 @@
 }
 .filters{
   display: flex;
-  margin-left: 270px;
+  margin-left: 68px;
   margin-top: 90px;
  
   
@@ -34,4 +34,7 @@
 }
 .filteroptions{
   width: 90px;
+  border: 0.5px solid;
+  border-color: rgba(221, 221, 221, 1);
+  border-radius: 5px;
 }
