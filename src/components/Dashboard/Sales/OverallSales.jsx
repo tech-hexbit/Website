@@ -276,11 +276,15 @@ export default function OverallSales() {
                         >
                           <path
                             d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                            fill="#777777"
+                            fill={
+                              sortPriceOrder === "desc" ? "#777777" : "#00FF00"
+                            }
                           />
                           <path
                             d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                            fill="#777777"
+                            fill={
+                              sortPriceOrder === "asc" ? "#777777" : "#00FF00"
+                            }
                           />
                         </svg>
                       </th>
