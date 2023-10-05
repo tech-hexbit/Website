@@ -28,6 +28,14 @@ export default function OverallSales() {
     furniture: false,
   });
 
+  // Add a state variable to track the sort order
+  const [sortOrder, setSortOrder] = useState("asc"); // Default is ascending
+  const [sortByNameOrder, setSortByNameOrder] = useState("asc"); // Default is ascending for Customer
+  const [sortPriceOrder, setSortPriceOrder] = useState("asc"); // Default is ascending for Price
+  const [sortDateOrder, setSortDateOrder] = useState("asc"); // Default is ascending for Ordered on
+  const [sortPaymentMethodOrder, setSortPaymentMethodOrder] = useState("asc");
+  const [sortDeliveryStatusOrder, setSortDeliveryStatusOrder] = useState("asc");
+
   useEffect(() => {
     loadData();
   }, []);
@@ -98,6 +106,82 @@ export default function OverallSales() {
 
       console.log(e);
     }
+  };
+
+  const sortById = () => {
+    const newSortOrder = sortOrder === "asc" ? "desc" : "asc";
+    setSortOrder(newSortOrder);
+
+    // Sort the orderDel array based on _id
+    const sortedOrderDel = [...orderDel].sort((a, b) => {
+      if (newSortOrder === "asc") {
+        return a._id.localeCompare(b._id);
+      } else {
+        return b._id.localeCompare(a._id);
+      }
+    });
+
+    setOrderDel(sortedOrderDel);
+  };
+
+  const sortByName = () => {
+    const newSortOrder = sortByNameOrder === "asc" ? "desc" : "asc";
+    setSortByNameOrder(newSortOrder);
+
+    const sortedOrderDel = [...orderDel].sort((a, b) => {
+      if (newSortOrder === "asc") {
+        return a.ONDCBilling.name.localeCompare(b.ONDCBilling.name);
+      } else {
+        return b.ONDCBilling.name.localeCompare(a.ONDCBilling.name);
+      }
+    });
+
+    setOrderDel(sortedOrderDel);
+  };
+
+  const sortByPrice = () => {
+    const newSortOrder = sortPriceOrder === "asc" ? "desc" : "asc";
+    setSortPriceOrder(newSortOrder);
+
+    const sortedOrderDel = [...orderDel].sort((a, b) => {
+      if (newSortOrder === "asc") {
+        return a.amount - b.amount;
+      } else {
+        return b.amount - a.amount;
+      }
+    });
+
+    setOrderDel(sortedOrderDel);
+  };
+
+  const sortByDate = () => {
+    const newSortOrder = sortDateOrder === "asc" ? "desc" : "asc";
+    setSortDateOrder(newSortOrder);
+
+    const sortedOrderDel = [...orderDel].sort((a, b) => {
+      if (newSortOrder === "asc") {
+        return new Date(a.when.date) - new Date(b.when.date);
+      } else {
+        return new Date(b.when.date) - new Date(a.when.date);
+      }
+    });
+
+    setOrderDel(sortedOrderDel);
+  };
+
+  const sortPaymentMethods = () => {
+    const newSortOrder = sortPaymentMethodOrder === "asc" ? "desc" : "asc";
+    setSortPaymentMethodOrder(newSortOrder);
+
+    const sortedOrderDel = [...orderDel].sort((a, b) => {
+      if (newSortOrder === "asc") {
+        return a.status.localeCompare(b.status);
+      } else {
+        return b.status.localeCompare(a.status);
+      }
+    });
+
+    setOrderDel(sortedOrderDel);
   };
 
   const filterData = async function (e) {
@@ -219,7 +303,10 @@ export default function OverallSales() {
                           />
                         </svg>
                       </th>
-                      <th className={osCss.payment}>
+                      <th
+                        className={osCss.payment}
+                        onClick={sortPaymentMethods}
+                      >
                         Payment method
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -230,11 +317,19 @@ export default function OverallSales() {
                         >
                           <path
                             d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                            fill="#777777"
+                            fill={
+                              sortPaymentMethodOrder === "desc"
+                                ? "#777777"
+                                : "#c782ff"
+                            }
                           />
                           <path
                             d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                            fill="#777777"
+                            fill={
+                              sortPaymentMethodOrder === "asc"
+                                ? "#777777"
+                                : "#c782ff"
+                            }
                           />
                         </svg>
                       </th>
