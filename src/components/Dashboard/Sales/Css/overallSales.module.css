@@ -59,7 +59,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  width: 100%;
+  
 }
 
 .tabs {
@@ -104,7 +104,10 @@
   padding: 27px 5px 27px;
   border-bottom: 1px solid #ddd;
 }
-
+.middlecontent{
+  display: flex;
+  flex-direction: row;
+}
 .payment {
   width: fit-content;
 }
