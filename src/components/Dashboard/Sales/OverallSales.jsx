@@ -284,7 +284,7 @@ export default function OverallSales() {
                           />
                         </svg>
                       </th>
-                      <th>
+                      <th onClick={sortByDate}>
                         Ordered on
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -295,11 +295,15 @@ export default function OverallSales() {
                         >
                           <path
                             d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                            fill="#777777"
+                            fill={
+                              sortDateOrder === "desc" ? "#777777" : "#c782ff"
+                            }
                           />
                           <path
                             d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                            fill="#777777"
+                            fill={
+                              sortDateOrder === "asc" ? "#777777" : "#c782ff"
+                            }
                           />
                         </svg>
                       </th>
