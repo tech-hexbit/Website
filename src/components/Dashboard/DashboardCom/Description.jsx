@@ -13,6 +13,7 @@ import AuthContext from "./../../../store/auth-context";
 import DCss from "./css/dashboard.module.css";
 
 export default function Description(props) {
+  const [perse, setPer] = useState({});
   const [orderDel, setOrderDel] = useState({
     totalOrders: 0,
     totalAmount: 0,
@@ -50,7 +51,30 @@ export default function Description(props) {
     }
   };
 
-  const prcentageData = async () => {};
+  const prcentageData = async () => {
+    try {
+      const response = await axios.get(
+        "/api/website/DashBoard/DataPercentage",
+        {
+          headers: { Authorization: `${authCtx.token}` },
+        }
+      );
+
+      if (response.data.success) {
+        let letObj = [];
+
+        letObj.push(response.data.changeInOrders);
+        letObj.push(response.data.ChangeInCustomer);
+        letObj.push(response.data.ChangeInEarnings);
+
+        setPer(letObj);
+      } else {
+        console.log(e);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   function formatNumberToIndianSystem(number) {
     const suffixes = [
@@ -78,6 +102,10 @@ export default function Description(props) {
     return number + suffixes[suffixIndex];
   }
 
+  useEffect(() => {
+    console.log(perse);
+  }, [perse]);
+
   return (
     <div className={DCss.mainDiv}>
       <div className={DCss.top}>
@@ -96,7 +124,7 @@ export default function Description(props) {
         <DesCard
           heading="Total orders"
           value={orderDel.totalOrders}
-          change="+5.21%"
+          change={perse[0].change}
           arrow="increase"
           boxof="RecentOrders"
           defaultSet={props.defaultSet}
@@ -109,7 +137,7 @@ export default function Description(props) {
             style: "currency",
             currency: "INR",
           })}
-          change="+5.21%"
+          change={perse[1].change}
           arrow="decrease"
           boxof="Revenue"
           defaultSet={props.defaultSet}
@@ -118,7 +146,7 @@ export default function Description(props) {
         <DesCard
           heading="New customers"
           value={orderDel.totalNewCustomers}
-          change="+5.21%"
+          change={perse[2].change}
           arrow="increase"
           boxof="BestSellers"
           defaultSet={props.defaultSet}
