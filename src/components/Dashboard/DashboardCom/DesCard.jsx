@@ -8,6 +8,8 @@ export default function DesCard(props) {
     props.setDefaultSet(`${props.boxof}`);
   };
 
+  console.log(props.change);
+
   return (
     <div
       className={DCCss.mainDiv}
@@ -64,7 +66,7 @@ export default function DesCard(props) {
       <div className={DCCss.bottom}>
         <div className={DCCss.value}>{props.value}</div>
         <div className={DCCss.incDec}>
-          {props.arrow == "increase" ? (
+          {props.arrow == "Increase" ? (
             <>
               <div className={DCCss.positive}>{props.change}</div>
               <svg
