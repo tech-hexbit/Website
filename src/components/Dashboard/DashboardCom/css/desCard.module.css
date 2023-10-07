@@ -50,12 +50,15 @@
   align-items: flex-end;
 }
 
+.positive,
+.decrease {
+  font-size: 12px;
+}
+
 .positive {
   color: #4bb543;
-  font-size: 14px;
 }
 
 .decrease {
   color: #d0342c;
-  font-size: 14px;
 }
