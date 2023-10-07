@@ -21,6 +21,7 @@ export default function Description(props) {
 
   useEffect(() => {
     loadData();
+    prcentageData();
   }, []);
 
   const authCtx = useContext(AuthContext);
@@ -48,6 +49,8 @@ export default function Description(props) {
       console.log(e);
     }
   };
+
+  const prcentageData = async () => {};
 
   function formatNumberToIndianSystem(number) {
     const suffixes = [
