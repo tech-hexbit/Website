@@ -13,7 +13,7 @@ import AuthContext from "./../../../store/auth-context";
 import DCss from "./css/dashboard.module.css";
 
 export default function Description(props) {
-  const [perse, setPer] = useState({});
+  const [perse, setPer] = useState([]);
   const [orderDel, setOrderDel] = useState({
     totalOrders: 0,
     totalAmount: 0,
@@ -103,7 +103,8 @@ export default function Description(props) {
   }
 
   useEffect(() => {
-    // console.log(perse[0]);
+    console.log(perse[0]);
+    console.log("perse.length" + perse.length);
   }, [perse]);
 
   return (
@@ -120,39 +121,43 @@ export default function Description(props) {
         </div>
       </div>
 
-      <div className={DCss.bottom}>
-        <DesCard
-          heading="Total orders"
-          value={orderDel.totalOrders}
-          change={perse[0].change}
-          arrow={perse[0].status}
-          boxof="RecentOrders"
-          defaultSet={props.defaultSet}
-          setDefaultSet={props.setDefaultSet}
-        />
-        <DesCard
-          heading="Total Earnings"
-          value={orderDel.totalAmount.toLocaleString("en-IN", {
-            maximumFractionDigits: 2,
-            style: "currency",
-            currency: "INR",
-          })}
-          change={perse[1].change}
-          arrow={perse[1].status}
-          boxof="Revenue"
-          defaultSet={props.defaultSet}
-          setDefaultSet={props.setDefaultSet}
-        />
-        <DesCard
-          heading="New customers"
-          value={orderDel.totalNewCustomers}
-          change={perse[2].change}
-          arrow={perse[2].status}
-          boxof="BestSellers"
-          defaultSet={props.defaultSet}
-          setDefaultSet={props.setDefaultSet}
-        />
-      </div>
+      {perse.length > 0 ? (
+        <div className={DCss.bottom}>
+          <DesCard
+            heading="Total orders"
+            value={orderDel.totalOrders}
+            change={perse[0].change}
+            arrow={perse[0].status}
+            boxof="RecentOrders"
+            defaultSet={props.defaultSet}
+            setDefaultSet={props.setDefaultSet}
+          />
+          <DesCard
+            heading="Total Earnings"
+            value={orderDel.totalAmount.toLocaleString("en-IN", {
+              maximumFractionDigits: 2,
+              style: "currency",
+              currency: "INR",
+            })}
+            change={perse[1].change}
+            arrow={perse[1].status}
+            boxof="Revenue"
+            defaultSet={props.defaultSet}
+            setDefaultSet={props.setDefaultSet}
+          />
+          <DesCard
+            heading="New customers"
+            value={orderDel.totalNewCustomers}
+            change={perse[2].change}
+            arrow={perse[2].status}
+            boxof="BestSellers"
+            defaultSet={props.defaultSet}
+            setDefaultSet={props.setDefaultSet}
+          />
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
