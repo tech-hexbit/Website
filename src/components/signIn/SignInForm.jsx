@@ -71,6 +71,8 @@ export default function SignInForm() {
 
           redirect("/me");
 
+          console.log(response.data);
+
           await authCtx.login(
             response.data.user[0].image,
             response.data.user[0].Email,
