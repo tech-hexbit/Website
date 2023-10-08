@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 
-import { useDropzone } from "react-dropzone";
-
 // axios
 import axios from "axios";
 
@@ -17,17 +15,14 @@ import FCss from "./Css/Form.module.css";
 export default function Form() {
   const [PublishOpen, setPublishOpen] = useState(true);
   const [ServiceOpen, setServiceOpen] = useState(false);
-  const [tags, settags] = useState([])
-  const [tagvalue, settagvalue] = useState("")
-
+  const [image, setImage] = useState()
   const [data, setData] = useState({
     name: "",
     symbol:
       "https://beebom.com/wp-content/uploads/2021/07/rog-phone-5-review-2.jpg?quality=75&strip=all",
     short_desc: "",
     long_desc: "",
-    images:
-      "https://beebom.com/wp-content/uploads/2021/07/rog-phone-5-review-2.jpg?quality=75&strip=all",
+    images:[],
     maximumCount: 0,
     value: 0,
     maximum_value: 0,
@@ -82,7 +77,9 @@ export default function Form() {
     const value = e.target.value;
 
     setData({ ...data, [name]: value });
+
   };
+  console.log(data)
 
   const handleSelectChange = (e) => {
     const name = e.target.name;
@@ -94,11 +91,25 @@ export default function Form() {
   };
 
   const onSubmit = async () => {
+
+    data.StoreID = authCtx.user.StoreID
+    const formData= new FormData();
+    formData.append('data',JSON.stringify(data));
+    formData.append('images',image);
+    // console.log(formData);
+    for (var key of formData.entries()) {
+      console.log(key[0] + ', ' + key[1]);
+    }
     try {
       const response = await axios.post(
         "/api/common/product/AddProduct",
-        data,
-        { headers: { Authorization: `${authCtx.token}` } }
+        formData,
+        { headers: 
+          { 
+            // "Content-Type": "multipart/form-data",
+            Authorization: `${authCtx.token}` 
+          } 
+        }
       );
 
       if (response.data.success) {
@@ -109,19 +120,17 @@ export default function Form() {
     }
     console.log(data);
   };
-  const addtags=(e)=>{
-    if(e.keyCode===13 && tagvalue||e.keyCode===188 && tagvalue){
-      settags([...tags,tagvalue])
-      settagvalue("")
-    }
-    
-  }
-  const deletetag=(val)=>{
-    let remaintags=tags.filter((t)=>t!=val)
-    settags(remaintags)
-  }
 
-  const { getRootProps, getInputProps } = useDropzone({});
+
+  
+  const handleImage = (e) => {
+    console.log(e.target.files);
+    setImage(e.target.files[0])
+    console.log(image);
+  }
+  // useEffect(() => {
+  //   console.log(data);
+  // }, [data]);
 
   return (
     <div>
@@ -309,7 +318,7 @@ export default function Form() {
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  class={FCss["lucide lucide-chevron-down"]}
+                  class="lucide lucide-chevron-down"
                 >
                   <path d="m6 9 6 6 6-6" />
                 </svg>
@@ -324,7 +333,7 @@ export default function Form() {
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  class={FCss["lucide lucide-chevron-up"]}
+                  class="lucide lucide-chevron-up"
                 >
                   <path d="m18 15-6-6-6 6" />
                 </svg>
@@ -411,21 +420,10 @@ export default function Form() {
                   </p>
 
                   <div className={FCss.inpTag}>
-                  {
-                    tags.map((tag,index)=>
-                    <div key={index} className={FCss.TagP}>
-                    <p>{tag}</p> <p onClick={()=>deletetag(tag)}  className={FCss.CloseX}>X</p>
-                    
-                  </div>)
-                  }
-                  <div className={FCss.inputt}>
-                    <input value={tagvalue} type="text" placeholder="Press Enter to input"  onChange={(e)=>settagvalue(e.target.value)}onKeyDown={addtags}/>
+                    <div className={FCss.TagP}>
+                      <p>Fashion</p> <p className={FCss.CloseX}>X</p>
+                    </div>
                   </div>
-                   
-                    
-                   
-                  </div>
-                  
                 </div>
 
                 <div className={FCss.inpDiv}>
@@ -439,7 +437,6 @@ export default function Form() {
                     placeholder="Enter additional text description of the product"
                     className={FCss.inpTA}
                     onChange={updateData}
-                   
                   ></textarea>
                 </div>
               </>
@@ -469,7 +466,7 @@ export default function Form() {
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  class={FCss["lucide lucide-chevron-down"]}
+                  class="lucide lucide-chevron-down"
                 >
                   <path d="m6 9 6 6 6-6" />
                 </svg>
@@ -484,7 +481,7 @@ export default function Form() {
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  class={FCss["lucide lucide-chevron-up"]}
+                  class="lucide lucide-chevron-up"
                 >
                   <path d="m18 15-6-6-6 6" />
                 </svg>
@@ -604,31 +601,20 @@ export default function Form() {
 
         <p className={FCss.labelDes}>Add the product main image</p>
         <div className={FCss.addimgDivMain}>
-          <div className={FCss.addImgDiv}>
-            {/* <div> */}
-            {/* <button>+</button>
-            <input type="file" name="file" onChange={handleImage} /> */}
-            <div {...getRootProps({ className: "dropzone" })}>
-              <input className={FCss["input-zone"]} {...getInputProps()} />
-              <div className={FCss["text-center"]}>
-                <p className={FCss["dropzone-content"]}>+</p>
-              </div>
-            </div>
+          {/* <div className={FCss.addImgDiv}> */}
+          <div>
+            <input type="file" name="images" onChange={handleImage} />
+            {/* <p>+</p> */}
           </div>
         </div>
 
         <p className={FCss.labelDes}>Add additional product images</p>
 
         <div className={FCss.addimgDivMain}>
-          <div {...getRootProps({ className: "dropzone" })}>
-            <input className={FCss["input-zone"]} {...getInputProps()} />
-            <p className={FCss["dropzone-content"]}>
-              <div className={FCss.upAddImg}>
-                <img src={upload} alt="" srcset="" />
-                <p className={FCss.upAddImgDragPTag}>
-                  Drag and drop files here OR click to upload
-                </p>
-              </div>
+          <div className={FCss.upAddImg}>
+            <img src={upload} alt="" srcset="" />
+            <p className={FCss.upAddImgDragPTag}>
+              Drag and drop files here OR click to upload
             </p>
           </div>
         </div>
