@@ -12,10 +12,6 @@
   transition: all 0.5s ease-in-out;
 }
 
-.mainDiv:hover {
-  width: 200px;
-}
-
 .heading {
   display: none;
   transition: all 0.3s;
@@ -25,21 +21,14 @@
   color: #56117c;
 }
 
-#headingLogout:hover {
-  color: #ff0000;
-}
-
-.mainDiv:hover .navElement .heading {
-  display: block;
-}
-
 .navElement {
   display: flex;
   cursor: pointer;
 }
 
 .icons {
-  padding-right: 10px;
+  /* padding-right: 10px; */
+  /* background-color: red; */
 }
 
 .logoutIcon {
@@ -52,10 +41,7 @@
   }
 }
 @media only screen and (max-width: 1050px) {
-  /* .icons {
-    padding-right: 20px;
-  } */
-  .navElement{
+  .navElement {
     display: flex;
     align-items: center;
     justify-content: center;

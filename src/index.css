@@ -73,16 +73,18 @@ body::-webkit-scrollbar-thumb:hover {
   color: #595959;
   font-weight: 400;
   font-family: 18px;
+  opacity: 0.8;
 }
 
 .LinkStyle.sideBarActive {
   color: #0132bf;
   font-weight: 600;
   font-family: 18px;
+  opacity: 1;
 }
 
 .LinkStyle.sideBarNonActive .temp {
-  fill: #231963;
+  fill: #575757;
 }
 
 .LinkStyle.sideBarActive .temp {
