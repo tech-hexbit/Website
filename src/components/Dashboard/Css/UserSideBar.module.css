@@ -12,10 +12,6 @@
   transition: all 0.5s ease-in-out;
 }
 
-.mainDiv:hover {
-  width: 200px;
-}
-
 .heading {
   display: none;
   transition: all 0.3s;
@@ -23,14 +19,6 @@
 
 .heading:hover {
   color: #56117c;
-}
-
-#headingLogout:hover {
-  color: #ff0000;
-}
-
-.mainDiv:hover .navElement .heading {
-  display: block;
 }
 
 .navElement {
