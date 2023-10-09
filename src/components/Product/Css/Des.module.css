@@ -60,3 +60,8 @@
   overflow-x: none;
   width: 100%;
 }
+
+.editBtn {
+  float: right;
+  cursor: pointer;
+}

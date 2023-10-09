@@ -3,7 +3,7 @@
   border-width: 1px;
   border-color: #ddd;
   padding: 5px 12px;
-  width: 100px;
+  width: 220px;
   transition: all 0.3s;
 }
 
@@ -27,4 +27,14 @@
   font-weight: 400;
   line-height: 22px;
   letter-spacing: 0.16px;
+}
+
+.editBtn {
+  float: right;
+  cursor: pointer;
+}
+
+.inpTag {
+  width: 80%;
+  margin-right: 5px;
 }

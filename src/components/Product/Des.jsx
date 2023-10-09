@@ -11,19 +11,19 @@ import AuthContext from "../../store/auth-context";
 import DCss from "./Css/Des.module.css";
 
 export default function Des(props) {
-  const [editDesState, setEditDes] = useState(false);
+  const [editDesState, setEditDes] = useState("");
   const [edit, setEdit] = useState(false);
 
   const { id } = useParams();
 
   const authCtx = useContext(AuthContext);
 
-  const editDes = async () => {
+  const changePost = async (value) => {
     setEdit(false);
 
     try {
       const input = {
-        fieldName: "descriptor.short_desc",
+        fieldName: value,
         changedValue: editDesState,
         itemID: id,
       };
@@ -38,7 +38,7 @@ export default function Des(props) {
         }
       );
 
-      console.log(response.data.success);
+      console.log(response.data);
 
       if (response.data.success) {
         setLoad(false);
@@ -65,11 +65,12 @@ export default function Des(props) {
             onClick={() => {
               setEdit(!edit);
             }}
+            className={DCss.editBtn}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -90,12 +91,21 @@ export default function Des(props) {
                 name=""
                 id=""
                 cols="30"
-                rows="10"
+                rows="7"
                 className={DCss.textareaPro}
                 placeholder="Edit the Des"
+                onChange={(e) => {
+                  setEditDes(e.target.value);
+                }}
               ></textarea>
 
-              <button onClick={editDes}>Submit</button>
+              <button
+                onClick={() => {
+                  changePost("descriptor.short_desc");
+                }}
+              >
+                Submit
+              </button>
             </>
           ) : (
             <>{props.res.descriptor.short_desc}</>
@@ -104,25 +114,25 @@ export default function Des(props) {
       </div>
 
       <div className={DCss.desDiv2}>
-        <div className={DCss.mDiv}>
+        {/* <div className={DCss.mDiv}>
           <p className={DCss.subTitlePTag}>Features :</p>
           <p className={DCss.desDPTag}>
             Midsole:- Core Instant Step In Comfort Long Lasting Reponsive
             Cushionig And Super Plush Feel. Outsole :- The Rubber Outsole With
             Perfect Grip And Durability.
           </p>
-        </div>
-        <div className={DCss.mDiv}>
+        </div> */}
+        {/* <div className={DCss.mDiv}>
           <p className={DCss.subTitlePTag}>Services :</p>
           <p className={DCss.desDPTag}>
             Midsole:- Core Instant Step In Comfort Long Lasting Reponsive
             Cushionig And Super Plush Feel. Outsole :- The Rubber Outsole With
             Perfect Grip And Durability.
           </p>
-        </div>
+        </div> */}
       </div>
 
-      <div className={DCss.mDiv}>
+      {/* <div className={DCss.mDiv}>
         <p className={DCss.subTitlePTag}>
           Special offers & product promotions :
         </p>
@@ -131,7 +141,7 @@ export default function Des(props) {
           Cushionig And Super Plush Feel. Outsole :- The Rubber Outsole With
           Perfect Grip And Durability.
         </p>
-      </div>
+      </div> */}
 
       <div className={DCss.mDiv}>
         <p className={DCss.subTitlePTag}>Product description :</p>
