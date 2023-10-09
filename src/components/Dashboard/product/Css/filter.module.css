@@ -1,9 +1,9 @@
 .mainDiv {
   border-radius: 15px;
-  padding: 10px 0px;
+  padding: 20px 0px;
   height: fit-content;
   transition: all 0.3s;
-  margin-top: 19px;
+  margin-top: 9px;
 }
 
 .div1 {
