@@ -64,8 +64,16 @@ export default function ProductsPage() {
               Seller:seller Published on: {res.when.date}
             </p>
             <div className={PPCss.boxmDiv}>
-              <Box title="Price" value={`₹ ${res.price.maximum_value}`} />
-              <Box title="Stock" value={res.quantity.maximum.count} />
+              <Box
+                title="Price"
+                value={`₹ ${res.price.maximum_value}`}
+                up="price.maximum_value"
+              />
+              <Box
+                title="Stock"
+                value={res.quantity.maximum.count}
+                up="quantity.maximum.count"
+              />
             </div>
 
             {/* <ColorBox res={res} /> */}
