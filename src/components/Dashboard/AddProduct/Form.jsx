@@ -596,7 +596,6 @@ export default function Form() {
         <p className={FCss.label}>Product image</p>
 
         <p className={FCss.labelDes}>Add the product main image</p>
-
         <div className={FCss.addimgDivMain}>
           <div>
             <input type="file" name="images" onChange={handleImage} />
