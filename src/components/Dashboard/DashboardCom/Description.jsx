@@ -154,8 +154,38 @@ export default function Description(props) {
           />
         </div>
       ) : (
-        <div className={DCss.loadCenterDiv}>
-          <Load />
+        <div className={DCss.bottom}>
+          <DesCard
+            heading="Total orders"
+            value={orderDel.totalOrders}
+            // change={perse[0].change}
+            // arrow={perse[0].status}
+            boxof="RecentOrders"
+            defaultSet={props.defaultSet}
+            setDefaultSet={props.setDefaultSet}
+          />
+          <DesCard
+            heading="Total Earnings"
+            value={orderDel.totalAmount.toLocaleString("en-IN", {
+              maximumFractionDigits: 2,
+              style: "currency",
+              currency: "INR",
+            })}
+            // change={perse[1].change}
+            // arrow={perse[1].status}
+            boxof="Revenue"
+            defaultSet={props.defaultSet}
+            setDefaultSet={props.setDefaultSet}
+          />
+          <DesCard
+            heading="New customers"
+            value={orderDel.totalNewCustomers}
+            // change={perse[2].change}
+            // arrow={perse[2].status}
+            boxof="BestSellers"
+            defaultSet={props.defaultSet}
+            setDefaultSet={props.setDefaultSet}
+          />
         </div>
       )}
     </div>
