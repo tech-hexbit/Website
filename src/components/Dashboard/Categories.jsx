@@ -123,7 +123,7 @@ export default function Categories() {
                 {orderlist.length > 0 ? (
                   <>
                     <tr>
-                      <th></th>
+                      {/* <th></th> */}
                       <th className={Ccss["sticky-col"]}>
                         Product{" "}
                         <svg
@@ -220,7 +220,7 @@ export default function Categories() {
                         </svg>
                       </th>
 
-                      <th>
+                      {/* <th>
                         Action{" "}
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -238,26 +238,26 @@ export default function Categories() {
                             fill="#777777"
                           />
                         </svg>
-                      </th>
+                      </th> */}
                     </tr>
                     {orderlist?.map((val, key) => {
                       return (
                         <>
                           <tr key={key}>
-                            <td>
+                            {/* <td>
                               <input type="checkbox" />
-                            </td>
+                            </td> */}
                             <td>#{"Asus Rog"}</td>
                             <td> {val.amount}</td>
                             <td>32</td>
                             <td>18</td>
                             <td>{val.when.date}</td>
 
-                            <td>
+                            {/* <td>
                               <div className={osCss.dots}>
                                 <div style={{ marginTop: "-5px" }}>...</div>
                               </div>
-                            </td>
+                            </td> */}
                           </tr>
                         </>
                       );
