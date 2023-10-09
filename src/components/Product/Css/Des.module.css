@@ -55,5 +55,8 @@
 
 .textareaPro {
   outline: none;
+  resize: none;
+  overflow-y: scroll;
+  overflow-x: none;
   width: 100%;
 }
