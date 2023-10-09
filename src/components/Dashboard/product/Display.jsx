@@ -56,8 +56,6 @@ export default function Display({ filteredlist, setfilteredlist }) {
 
       if (response.status === 200) {
         loadData();
-        // setupdatedproduct(filteredlist.filter((p) => p._id != _id));
-        // setfilteredlist(updatedproduct);
       } else {
         console.log("error");
       }
