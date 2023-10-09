@@ -52,6 +52,23 @@ export default function OverallSales() {
     setunique(u(buyer));
   }, [buyer]);
 
+  useEffect(() => {
+    console.log(filters);
+    if (filters.buyer !== "" && filters.status !== "") {
+      var filterValues = orderDel.filter((order) => {
+        console.log("buyer->", order.buyer);
+        console.log("buyer->", order.state);
+
+        if (order.buyer == filters.buyer && order.state == filters.status) {
+          return true;
+        }
+        return false;
+      });
+      console.log(filterValues);
+      setFilteredArray(filterValues);
+    }
+  }, [filters]);
+
   const authCtx = useContext(AuthContext);
 
   const handleSelectChange = (event) => {
@@ -205,7 +222,6 @@ export default function OverallSales() {
   };
 
   const handleChange1 = (e) => {
-    console.log(e.target.value);
     const name = e.target.name;
     const value = e.target.value;
     setfilters({ ...filters, [name]: value });
@@ -218,7 +234,7 @@ export default function OverallSales() {
         <div className={osCss.filters}>
           <div className={osCss.select}>
             <div className={osCss.selectInner}>
-              <select onChange={handleChange1}>
+              <select onChange={handleChange1} name="buyer">
                 <option value="Buyer" hidden selected>
                   Buyer
                 </option>
@@ -228,7 +244,7 @@ export default function OverallSales() {
               </select>
             </div>
             <div className={osCss.selectInner}>
-              <select onChange={handleChange1}>
+              <select onChange={handleChange1} name="status">
                 <option value="Status" hidden selected>
                   Status
                 </option>
