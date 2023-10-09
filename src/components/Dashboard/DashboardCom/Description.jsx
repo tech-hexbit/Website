@@ -105,10 +105,6 @@ export default function Description(props) {
     return number + suffixes[suffixIndex];
   }
 
-  useEffect(() => {
-    console.log(perse[0]?.status);
-  }, [perse]);
-
   return (
     <div className={DCss.mainDiv}>
       <div className={DCss.top}>
