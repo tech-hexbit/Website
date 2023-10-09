@@ -98,7 +98,7 @@ export default function Box(props) {
 
           <button
             onClick={() => {
-              changePost("price.maximum_value");
+              changePost(props.up);
             }}
           >
             <svg
