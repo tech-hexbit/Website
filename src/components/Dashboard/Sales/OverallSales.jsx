@@ -53,8 +53,8 @@ export default function OverallSales() {
   }, [buyer]);
 
   useEffect(() => {
-    console.log(filters);
-    if (filters.buyer !== "" && filters.status !== "") {
+    if (filters.buyer !== "" || filters.status !== "") {
+      console.log(filters);
       var filterValues = orderDel.filter((order) => {
         console.log("buyer->", order.buyer);
         console.log("buyer->", order.state);
@@ -64,8 +64,6 @@ export default function OverallSales() {
         }
         return false;
       });
-      console.log(filterValues);
-      setFilteredArray(filterValues);
     }
   }, [filters]);
 
