@@ -52,3 +52,8 @@
   letter-spacing: 0.14px;
   padding: 0px 0px 0px 20px;
 }
+
+.textareaPro {
+  outline: none;
+  width: 100%;
+}
