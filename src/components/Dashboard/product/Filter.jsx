@@ -118,7 +118,6 @@ export default function Filter({ filteredlist, setfilteredlist }) {
             offFil(!onFil);
           }}
         >
-          {/* Filters */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
