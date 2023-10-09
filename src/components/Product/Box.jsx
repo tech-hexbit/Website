@@ -18,6 +18,44 @@ export default function Box(props) {
 
   const authCtx = useContext(AuthContext);
 
+  const changePost = async (value) => {
+    setEdit(false);
+
+    try {
+      const input = {
+        fieldName: value,
+        changedValue: editDesState,
+        itemID: id,
+      };
+
+      const response = await axios.post(
+        "/api/common/product/EditProduct",
+        input,
+        {
+          headers: {
+            Authorization: `${authCtx.token}`,
+          },
+        }
+      );
+
+      console.log(response.data);
+
+      if (response.data.success) {
+        setLoad(false);
+
+        setInput({
+          name: "",
+          email: "",
+          CompanyName: "",
+          subject: "",
+          message: "",
+        });
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
     <div className={BCss.mDiv}>
       <p className={BCss.title}>
@@ -60,7 +98,7 @@ export default function Box(props) {
 
           <button
             onClick={() => {
-              changePost("descriptor.short_desc");
+              changePost("price.maximum_value");
             }}
           >
             <svg
