@@ -71,8 +71,8 @@ export default function ProductsPage() {
               <Box title="Stock" value={res.quantity.maximum.count} />
             </div>
 
-            <ColorBox res={res} />
-            <SizeBox res={res} />
+            {/* <ColorBox res={res} /> */}
+            {/* <SizeBox res={res} /> */}
             <Des res={res} />
           </div>
         </div>
