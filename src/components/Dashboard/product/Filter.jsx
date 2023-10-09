@@ -85,24 +85,6 @@ export default function Filter({ filteredlist, setfilteredlist }) {
       });
 
       setfilteredlist(newFIltered);
-
-      // const filteredOrders =
-      //   category.length > 0
-      //     ? filteredlist.filter((order) => {
-      //         return [order].some((item) => {
-      //           category.forEach((e) => {
-      //             console.log(
-      //               "more than 0 --> " +
-      //                 category.length +
-      //                 `item.category_id === e --> ${item.category_id} === ${e}` +
-      //                 item.category_id ===
-      //                 e
-      //             );
-      //             item.category_id === e;
-      //           });
-      //         });
-      //       })
-      //     : filteredlist;
     } else {
       setfilteredlist(orderDel);
     }
