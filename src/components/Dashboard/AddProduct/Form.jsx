@@ -15,14 +15,14 @@ import FCss from "./Css/Form.module.css";
 export default function Form() {
   const [PublishOpen, setPublishOpen] = useState(true);
   const [ServiceOpen, setServiceOpen] = useState(false);
-  const [image, setImage] = useState()
+  const [image, setImage] = useState();
   const [data, setData] = useState({
     name: "",
     symbol:
       "https://beebom.com/wp-content/uploads/2021/07/rog-phone-5-review-2.jpg?quality=75&strip=all",
     short_desc: "",
     long_desc: "",
-    images:[],
+    images: [],
     maximumCount: 0,
     value: 0,
     maximum_value: 0,
@@ -77,9 +77,8 @@ export default function Form() {
     const value = e.target.value;
 
     setData({ ...data, [name]: value });
-
   };
-  console.log(data)
+  console.log(data);
 
   const handleSelectChange = (e) => {
     const name = e.target.name;
@@ -91,24 +90,23 @@ export default function Form() {
   };
 
   const onSubmit = async () => {
-
-    data.StoreID = authCtx.user.StoreID
-    const formData= new FormData();
-    formData.append('data',JSON.stringify(data));
-    formData.append('images',image);
+    data.StoreID = authCtx.user.StoreID;
+    const formData = new FormData();
+    formData.append("data", JSON.stringify(data));
+    formData.append("images", image);
     // console.log(formData);
     for (var key of formData.entries()) {
-      console.log(key[0] + ', ' + key[1]);
+      console.log(key[0] + ", " + key[1]);
     }
     try {
       const response = await axios.post(
         "/api/common/product/AddProduct",
         formData,
-        { headers: 
-          { 
+        {
+          headers: {
             // "Content-Type": "multipart/form-data",
-            Authorization: `${authCtx.token}` 
-          } 
+            Authorization: `${authCtx.token}`,
+          },
         }
       );
 
@@ -121,13 +119,11 @@ export default function Form() {
     console.log(data);
   };
 
-
-  
   const handleImage = (e) => {
     console.log(e.target.files);
-    setImage(e.target.files[0])
+    setImage(e.target.files[0]);
     console.log(image);
-  }
+  };
   // useEffect(() => {
   //   console.log(data);
   // }, [data]);
@@ -605,17 +601,6 @@ export default function Form() {
           <div>
             <input type="file" name="images" onChange={handleImage} />
             {/* <p>+</p> */}
-          </div>
-        </div>
-
-        <p className={FCss.labelDes}>Add additional product images</p>
-
-        <div className={FCss.addimgDivMain}>
-          <div className={FCss.upAddImg}>
-            <img src={upload} alt="" srcset="" />
-            <p className={FCss.upAddImgDragPTag}>
-              Drag and drop files here OR click to upload
-            </p>
           </div>
         </div>
       </div>
