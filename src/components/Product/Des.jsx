@@ -5,6 +5,10 @@ import DCss from "./Css/Des.module.css";
 
 export default function Des() {
   const [edit, setEdit] = useState(false);
+
+  const editDes = () => {
+    console.log("first");
+  };
   return (
     <>
       <div className={DCss.mDiv}>
@@ -49,6 +53,8 @@ export default function Des() {
                 className={DCss.textareaPro}
                 placeholder="Edit the Des"
               ></textarea>
+
+              <button onClick={editDes}>Submit</button>
             </>
           )}
         </p>
