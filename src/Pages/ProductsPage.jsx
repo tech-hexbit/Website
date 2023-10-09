@@ -43,9 +43,6 @@ export default function ProductsPage() {
     }
   };
 
-  useEffect(() => {
-    console.log(res.price.maximum_value);
-  }, [res]);
   return (
     <div className={PPCss.mDiv}>
       <p className={PPCss.AddHPTag}>Product Details</p>
