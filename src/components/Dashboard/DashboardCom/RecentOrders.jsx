@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 
 // axios
 import axios from "axios";
@@ -122,7 +123,10 @@ export default function RecentOrders() {
                       {orderNumber <= 5 ? <b> {orderNumber} </b> : <b>5</b>}
                       of <b>{orderNumber}</b> results
                     </div>
-                    <div className={RCss.view}>View all</div>
+
+                    <Link to="/me/sales">
+                      <div className={RCss.view}>View all</div>
+                    </Link>
                   </div>
 
                   <div className={RCss.costHeading}>
