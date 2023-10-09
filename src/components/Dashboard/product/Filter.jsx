@@ -110,7 +110,7 @@ export default function Filter({ filteredlist, setfilteredlist }) {
 
   return (
     <div className={FCss.mainDiv} id={onFil ? "onCat" : "offCat"}>
-      <div className={FCss.div1}>
+      <div className={FCss.div1} id={onFil ? "Div1Cat" : ""}>
         <div className={FCss.heading}>
           {/* Filters */}
           <svg
@@ -140,7 +140,7 @@ export default function Filter({ filteredlist, setfilteredlist }) {
           )}
         </div>
       </div>
-      <div className={FCss.div1}>
+      <div className={FCss.div1} id={onFil ? "Div1Cat" : ""}>
         <div className={FCss.heading}>Category</div>
         <div>
           {unique?.map((val, key) => {
