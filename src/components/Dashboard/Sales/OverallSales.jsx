@@ -231,7 +231,7 @@ export default function OverallSales() {
           <div className={osCss.select}>
             <div className={osCss.selectInner}>
               <select onChange={handleChange1} name="buyer">
-                <option hidden>Ecommerce</option>
+                <option hidden>Buyer</option>
                 {unique.map((buyer) => (
                   <option value={buyer}>{buyer}</option>
                 ))}
