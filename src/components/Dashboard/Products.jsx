@@ -12,8 +12,8 @@ export default function Products() {
   const [filteredlist, setfilteredlist] = useState([]);
   return (
     <div className={pdtCSS.mdiv}>
-      <Filter filteredlist = {filteredlist} setfilteredlist = {setfilteredlist}/>
-      <Display filteredlist = {filteredlist} setfilteredlist = {setfilteredlist}/>
+      <Filter filteredlist={filteredlist} setfilteredlist={setfilteredlist} />
+      <Display filteredlist={filteredlist} setfilteredlist={setfilteredlist} />
     </div>
   );
 }
