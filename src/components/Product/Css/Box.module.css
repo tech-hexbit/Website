@@ -35,5 +35,6 @@
 }
 
 .inpTag {
-  width: 100%;
+  width: 80%;
+  margin-right: 5px;
 }
