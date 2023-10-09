@@ -188,6 +188,11 @@ body::-webkit-scrollbar-thumb:hover {
   visibility: hidden;
 }
 
+#onCat #div1CatFilter {
+  display: flex;
+  justify-content: center;
+}
+
 @media screen and (max-width: 850px) {
   .slider-wrapper {
     height: 45%;
