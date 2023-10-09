@@ -9,9 +9,6 @@ import DesCard from "./DesCard";
 // state
 import AuthContext from "./../../../store/auth-context";
 
-// MicroInteraction
-import Load from "./../../../MicroInteraction/LoadBlack";
-
 // css
 import DCss from "./css/dashboard.module.css";
 
