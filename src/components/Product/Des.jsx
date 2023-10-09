@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 
 // axios
 import axios from "axios";
+
+// state
+import AuthContext from "../../../store/auth-context";
 
 // css
 import DCss from "./Css/Des.module.css";
@@ -12,6 +15,8 @@ export default function Des() {
   const [edit, setEdit] = useState(false);
 
   const { id } = useParams();
+
+  const authCtx = useContext(AuthContext);
 
   const editDes = async () => {
     setEdit(false);
@@ -25,7 +30,13 @@ export default function Des() {
 
       const response = await axios.post(
         "/api/common/product/EditProduct",
-        input
+        input,
+        {
+          headers: {
+            // "Content-Type": "multipart/form-data",
+            Authorization: `${authCtx.token}`,
+          },
+        }
       );
 
       console.log(response.data.success);
