@@ -16,7 +16,6 @@ import DCss from "./Css/display.module.css";
 export default function Display({ filteredlist, setfilteredlist }) {
   const [load, setLoad] = useState(false);
   const [orderDel, setOrderDel] = useState([]);
-  const [updatedproduct, setupdatedproduct] = useState([]);
 
   useEffect(() => {
     loadData();
@@ -55,9 +54,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
       });
 
       if (response.status === 200) {
-        setupdatedproduct(filteredlist.filter((p) => p._id != _id));
-        setfilteredlist(updatedproduct);
-        console.log("deleted");
+        loadData();
       } else {
         console.log("error");
       }
