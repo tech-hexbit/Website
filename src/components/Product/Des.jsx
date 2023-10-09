@@ -7,7 +7,25 @@ export default function Des() {
   const [edit, setEdit] = useState(false);
 
   const editDes = () => {
-    console.log("first");
+    try {
+      const response = await axios.post("/api/website/ContactUs", input);
+        console.log(response.data.success);
+
+        if (response.data.success) {
+          setLoad(false);
+
+          setInput({
+            name: "",
+            email: "",
+            CompanyName: "",
+            subject: "",
+            message: "",
+          });
+
+        }
+    } catch (e) {
+      console.log(e);
+    }
   };
   return (
     <>
