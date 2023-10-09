@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 
 // css
 import DCss from "./Css/Des.module.css";
 
 export default function Des() {
+  const [edit, setEdit] = useState(false);
   return (
     <>
       <div className={DCss.mDiv}>
         <p className={DCss.subTitlePTag}>
           Description :{" "}
-          <span>
+          <span
+            onClick={() => {
+              setEdit(true);
+            }}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -28,9 +33,24 @@ export default function Des() {
           </span>
         </p>
         <p className={DCss.desDPTag}>
-          Midsole:- Core Instant Step In Comfort Long Lasting Reponsive
-          Cushionig And Super Plush Feel. Outsole :- The Rubber Outsole With
-          Perfect Grip And Durability.
+          {edit ? (
+            <>
+              Midsole:- Core Instant Step In Comfort Long Lasting Reponsive
+              Cushionig And Super Plush Feel. Outsole :- The Rubber Outsole With
+              Perfect Grip And Durability.
+            </>
+          ) : (
+            <>
+              <textarea
+                name=""
+                id=""
+                cols="30"
+                rows="10"
+                className={DCss.textareaPro}
+                placeholder="Edit the Des"
+              ></textarea>
+            </>
+          )}
         </p>
       </div>
 
