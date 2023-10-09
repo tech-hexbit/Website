@@ -54,5 +54,6 @@
 }
 
 .textareaPro {
+  outline: none;
   width: 100%;
 }
