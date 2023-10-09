@@ -35,9 +35,18 @@ export default function OverallSales() {
   const [sortDateOrder, setSortDateOrder] = useState("asc");
   const [sortPaymentMethodOrder, setSortPaymentMethodOrder] = useState("asc");
 
+  //  Select Filter
+  const [unique, setunique] = useState([]);
+  const [buyer, setbuyer] = useState([]);
+
   useEffect(() => {
     loadData();
   }, []);
+
+  useEffect(() => {
+    const u = (buyer) => [...new Set(buyer)];
+    setunique(u(buyer));
+  }, [buyer]);
 
   const authCtx = useContext(AuthContext);
 
@@ -55,6 +64,10 @@ export default function OverallSales() {
 
       if (response.data.success) {
         setOrderDel(response.data.orderList);
+
+        response?.data?.orderList?.forEach((order) => {
+          setbuyer((prevState) => [...prevState, order.buyer]);
+        });
 
         setLoad(false);
       } else {
@@ -195,12 +208,23 @@ export default function OverallSales() {
           <div className={osCss.select}>
             <div className={osCss.selectInner}>
               <select>
-                <option hidden>Ecommerce</option>
+                <option value="Buyer" hidden selected onChange={handleChange1}>
+                  Buyer
+                </option>
+                {unique.map((buyer) => (
+                  <option value={buyer}>{buyer}</option>
+                ))}
               </select>
             </div>
             <div className={osCss.selectInner}>
               <select>
-                <option hidden>Status</option>
+                <option value="Status" hidden selected onChange={handleChange1}>
+                  Status
+                </option>
+                <option value="Accepted">Accepted</option>
+                <option value="In-progress">In-progress</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancelled">Cancelled</option>
               </select>
             </div>
           </div>
