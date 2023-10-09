@@ -20,6 +20,13 @@ export default function OverallSales() {
   const [load, setLoad] = useState(false);
   const [orderDel, setOrderDel] = useState([]);
   const [Saveload, setSaveLoad] = useState(false);
+  const [buyer, setbuyer] = useState([]);
+  const [unique, setunique] = useState([]);
+  const [filters, setfilters] = useState({
+    buyer: "",
+    status: "",
+  });
+  const [filteredArray, setFilteredArray] = useState([]);
   const [selectedValue, setSelectedValue] = useState("");
   const [active, setActive] = useState({
     pdt: true,
@@ -35,6 +42,12 @@ export default function OverallSales() {
   const [sortDateOrder, setSortDateOrder] = useState("asc"); // Default is ascending for Ordered on
   const [sortPaymentMethodOrder, setSortPaymentMethodOrder] = useState("asc");
   const [sortDeliveryStatusOrder, setSortDeliveryStatusOrder] = useState("asc");
+
+  useEffect(() => {
+    const u = (buyer) => [...new Set(buyer)];
+    setunique(u(buyer));
+  }, [buyer]);
+  // console.log(unique)
 
   useEffect(() => {
     loadData();
@@ -56,6 +69,12 @@ export default function OverallSales() {
 
       if (response.data.success) {
         setOrderDel(response.data.orderList);
+        setFilteredArray(response.data.orderList);
+
+        response?.data?.orderList?.forEach((order) => {
+          setbuyer((prevState) => [...prevState, order.buyer]);
+        });
+        console.log(buyer);
 
         setLoad(false);
       } else {
@@ -187,24 +206,94 @@ export default function OverallSales() {
   const filterData = async function (e) {
     setSearch(e.target.value);
   };
+  // useEffect(() => {
+  //   let newFIltered = [];
+
+  //   if (buyer.length > 0) {
+  //     filteredlist.forEach((orderDel) => {
+  //       category.forEach((e) => {
+  //         if (orderDel.category_id === e) {
+  //           console.log("Match");
+  //           console.log(orderDel.category_id === e);
+  //           console.log(Match ${orderDel.category_id} === ${e});
+
+  //           newFIltered.push(orderDel);
+  //         }
+  //       });
+  //     });
+
+  //      setfilteredlist(newFIltered);
+
+  //     // const filteredOrders =
+  //     //   category.length > 0
+  //     //     ? filteredlist.filter((order) => {
+  //     //         return [order].some((item) => {
+  //     //           category.forEach((e) => {
+  //     //             console.log(
+  //     //               "more than 0 --> " +
+  //     //                 category.length +
+  //     //                 item.category_id === e --> ${item.category_id} === ${e} +
+  //     //                 item.category_id ===
+  //     //                 e
+  //     //             );
+  //     //             item.category_id === e;
+  //     //           });
+  //     //         });
+  //     //       })
+  //     //     : filteredlist;
+  //   } else {
+  //     setfilteredlist(orderDel);
+  //   }
+  // }, [category]);
+
+  const handleChange1 = (e) => {
+    console.log(e.target.value);
+    const name = e.target.name;
+    const value = e.target.value;
+    setfilters({ ...filters, [name]: value });
+  };
+  console.log("Filter->", filters);
+
+  useEffect(() => {
+    if (filters.buyer !== "" && filters.status !== "") {
+      var filterValues = orderDel.filter((order) => {
+        console.log("buyer->", order.buyer);
+        console.log("buyer->", order.state);
+
+        if (order.buyer == filters.buyer && order.state == filters.status) {
+          return true;
+        }
+        return false;
+      });
+      console.log(filterValues);
+      setFilteredArray(filterValues);
+    }
+  }, [filters]);
 
   return (
     <div className={osCss.mainDiv}>
       <div className={osCss.top}>
         <div>Overall Sales</div>
         <div className={osCss.filters}>
-          {/* <div className={osCss.select}>
+          <div className={osCss.select}>
             <div className={osCss.selectInner}>
-              <select>
+              <select onChange={handleChange1} name="buyer">
                 <option hidden>Ecommerce</option>
+                {unique.map((buyer) => (
+                  <option value={buyer}>{buyer}</option>
+                ))}
               </select>
             </div>
             <div className={osCss.selectInner}>
-              <select>
+              <select onChange={handleChange1} name="status">
                 <option hidden>Status</option>
+                <option value="Accepted">Accepted</option>
+                <option value="In-progress">In-progress</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancelled">Cancelled</option>
               </select>
             </div>
-          </div> */}
+          </div>
           <div className={osCss.search}>
             <input
               type="text"
@@ -215,19 +304,20 @@ export default function OverallSales() {
         </div>
       </div>
       <div className={osCss.middle}>
+        <div className={osCss.tabMain}></div>
         <div className={osCss.table}>
           <table style={{ borderCollapse: "collapse" }}>
             {load ? (
-              <div className="loadCenterDiv">
+              <div className={osCss.loadCenterDiv}>
                 <Load />
               </div>
             ) : (
               <>
-                {orderDel?.length > 0 ? (
+                {filteredArray?.length > 0 ? (
                   <>
                     <tr>
                       <th></th>
-                      <th className="sticky-col" onClick={sortById}>
+                      <th className={osCss["sticky-col"]} onClick={sortById}>
                         <p>Id</p>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -385,7 +475,7 @@ export default function OverallSales() {
                         </svg>
                       </th>
                     </tr>
-                    {orderDel
+                    {filteredArray
                       .filter((value) => {
                         if (search === "") {
                           return value;
@@ -407,7 +497,7 @@ export default function OverallSales() {
                             <td>
                               <Link
                                 to={`/me/orderdetails/${val._id}`}
-                                className="LinkStyle"
+                                className={osCss.LinkStyle}
                               >
                                 {val.ONDCBilling.name}
                               </Link>
@@ -466,7 +556,7 @@ export default function OverallSales() {
                                       stroke-width="2"
                                       stroke-linecap="round"
                                       stroke-linejoin="round"
-                                      class="lucide lucide-save"
+                                      class={osCss["lucide lucide-save"]}
                                       className={osCss.lucidePencil}
                                       onClick={() => {
                                         UpdateData(val._id);
@@ -489,7 +579,7 @@ export default function OverallSales() {
                                   stroke-width="2"
                                   stroke-linecap="round"
                                   stroke-linejoin="round"
-                                  class="lucide lucide-pencil"
+                                  class={osCss["lucide lucide-pencil"]}
                                   className={osCss.lucidePencil}
                                   onClick={() => {
                                     setEdit(!edit);
@@ -506,7 +596,7 @@ export default function OverallSales() {
                       })}
                   </>
                 ) : (
-                  <p className="NoOrders">No Orders</p>
+                  <p className={osCss.NoOrders}>No Orders</p>
                 )}
               </>
             )}
@@ -522,13 +612,13 @@ export default function OverallSales() {
       {/* <div className={osCss.bottom}>
         <div></div>
         <div className={osCss.pages}>
-          <div className={osCss.arrow}>{`<<`}</div>
+          <div className={osCss.arrow}>{<<}</div>
           <div className={osCss.numbers}>
             <div className={osCss.active}>1</div>
             <div className={osCss.inactive}>2</div>
             <div className={osCss.inactive}>3</div>
           </div>
-          <div className={osCss.arrow}>{`>>`}</div>
+          <div className={osCss.arrow}>{>>}</div>
         </div>
         <div></div>
       </div> */}
