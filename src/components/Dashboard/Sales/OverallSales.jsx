@@ -47,7 +47,6 @@ export default function OverallSales() {
     const u = (buyer) => [...new Set(buyer)];
     setunique(u(buyer));
   }, [buyer]);
-  // console.log(unique)
 
   useEffect(() => {
     loadData();
@@ -206,45 +205,6 @@ export default function OverallSales() {
   const filterData = async function (e) {
     setSearch(e.target.value);
   };
-  // useEffect(() => {
-  //   let newFIltered = [];
-
-  //   if (buyer.length > 0) {
-  //     filteredlist.forEach((orderDel) => {
-  //       category.forEach((e) => {
-  //         if (orderDel.category_id === e) {
-  //           console.log("Match");
-  //           console.log(orderDel.category_id === e);
-  //           console.log(Match ${orderDel.category_id} === ${e});
-
-  //           newFIltered.push(orderDel);
-  //         }
-  //       });
-  //     });
-
-  //      setfilteredlist(newFIltered);
-
-  //     // const filteredOrders =
-  //     //   category.length > 0
-  //     //     ? filteredlist.filter((order) => {
-  //     //         return [order].some((item) => {
-  //     //           category.forEach((e) => {
-  //     //             console.log(
-  //     //               "more than 0 --> " +
-  //     //                 category.length +
-  //     //                 item.category_id === e --> ${item.category_id} === ${e} +
-  //     //                 item.category_id ===
-  //     //                 e
-  //     //             );
-  //     //             item.category_id === e;
-  //     //           });
-  //     //         });
-  //     //       })
-  //     //     : filteredlist;
-  //   } else {
-  //     setfilteredlist(orderDel);
-  //   }
-  // }, [category]);
 
   const handleChange1 = (e) => {
     console.log(e.target.value);
@@ -252,7 +212,6 @@ export default function OverallSales() {
     const value = e.target.value;
     setfilters({ ...filters, [name]: value });
   };
-  console.log("Filter->", filters);
 
   useEffect(() => {
     if (filters.buyer !== "" && filters.status !== "") {
@@ -608,20 +567,6 @@ export default function OverallSales() {
           </p>
         </div>
       </div>
-
-      {/* <div className={osCss.bottom}>
-        <div></div>
-        <div className={osCss.pages}>
-          <div className={osCss.arrow}>{<<}</div>
-          <div className={osCss.numbers}>
-            <div className={osCss.active}>1</div>
-            <div className={osCss.inactive}>2</div>
-            <div className={osCss.inactive}>3</div>
-          </div>
-          <div className={osCss.arrow}>{>>}</div>
-        </div>
-        <div></div>
-      </div> */}
     </div>
   );
 }
