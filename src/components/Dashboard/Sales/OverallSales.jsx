@@ -38,6 +38,10 @@ export default function OverallSales() {
   //  Select Filter
   const [unique, setunique] = useState([]);
   const [buyer, setbuyer] = useState([]);
+  const [filters, setfilters] = useState({
+    buyer: "",
+    status: "",
+  });
 
   useEffect(() => {
     loadData();
@@ -200,6 +204,13 @@ export default function OverallSales() {
     setSearch(e.target.value);
   };
 
+  const handleChange1 = (e) => {
+    console.log(e.target.value);
+    const name = e.target.name;
+    const value = e.target.value;
+    setfilters({ ...filters, [name]: value });
+  };
+
   return (
     <div className={osCss.mainDiv}>
       <div className={osCss.top}>
@@ -207,8 +218,8 @@ export default function OverallSales() {
         <div className={osCss.filters}>
           <div className={osCss.select}>
             <div className={osCss.selectInner}>
-              <select>
-                <option value="Buyer" hidden selected onChange={handleChange1}>
+              <select onChange={handleChange1}>
+                <option value="Buyer" hidden selected>
                   Buyer
                 </option>
                 {unique.map((buyer) => (
@@ -217,8 +228,8 @@ export default function OverallSales() {
               </select>
             </div>
             <div className={osCss.selectInner}>
-              <select>
-                <option value="Status" hidden selected onChange={handleChange1}>
+              <select onChange={handleChange1}>
+                <option value="Status" hidden selected>
                   Status
                 </option>
                 <option value="Accepted">Accepted</option>
