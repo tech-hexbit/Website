@@ -42,6 +42,10 @@ export default function ProductsPage() {
       console.log(e);
     }
   };
+
+  useEffect(() => {
+    console.log(res.price.maximum_value);
+  }, [res]);
   return (
     <div className={PPCss.mDiv}>
       <p className={PPCss.AddHPTag}>Product Details</p>
@@ -63,10 +67,8 @@ export default function ProductsPage() {
               Seller:seller Published on: {res.when.date}
             </p>
             <div className={PPCss.boxmDiv}>
-              <Box res={res} />
-              <Box res={res} />
-              <Box res={res} />
-              <Box res={res} />
+              <Box title="Price" value={res.price.maximum_value} />
+              <Box title="Stock" value={res.quantity.maximum.count} />
             </div>
 
             <ColorBox res={res} />
