@@ -20,27 +20,20 @@ export default function OverallSales() {
   const [load, setLoad] = useState(false);
   const [orderDel, setOrderDel] = useState([]);
   const [Saveload, setSaveLoad] = useState(false);
-  const [buyer, setbuyer] = useState([]);
-  const [unique, setunique] = useState([]);
-  const [filters, setfilters] = useState({
-    buyer: "",
-    status: "",
-  });
-  const [filteredArray, setFilteredArray] = useState([]);
   const [selectedValue, setSelectedValue] = useState("");
+  const [active, setActive] = useState({
+    pdt: true,
+    fashion: false,
+    grocery: false,
+    furniture: false,
+  });
 
   // Add a state variable to track the sort order
-  const [sortOrder, setSortOrder] = useState("asc"); // Default is ascending
-  const [sortByNameOrder, setSortByNameOrder] = useState("asc"); // Default is ascending for Customer
-  const [sortPriceOrder, setSortPriceOrder] = useState("asc"); // Default is ascending for Price
-  const [sortDateOrder, setSortDateOrder] = useState("asc"); // Default is ascending for Ordered on
+  const [sortOrder, setSortOrder] = useState("asc");
+  const [sortByNameOrder, setSortByNameOrder] = useState("asc");
+  const [sortPriceOrder, setSortPriceOrder] = useState("asc");
+  const [sortDateOrder, setSortDateOrder] = useState("asc");
   const [sortPaymentMethodOrder, setSortPaymentMethodOrder] = useState("asc");
-  const [sortDeliveryStatusOrder, setSortDeliveryStatusOrder] = useState("asc");
-
-  useEffect(() => {
-    const u = (buyer) => [...new Set(buyer)];
-    setunique(u(buyer));
-  }, [buyer]);
 
   useEffect(() => {
     loadData();
@@ -62,12 +55,6 @@ export default function OverallSales() {
 
       if (response.data.success) {
         setOrderDel(response.data.orderList);
-        setFilteredArray(response.data.orderList);
-
-        response?.data?.orderList?.forEach((order) => {
-          setbuyer((prevState) => [...prevState, order.buyer]);
-        });
-        console.log(buyer);
 
         setLoad(false);
       } else {
@@ -200,29 +187,6 @@ export default function OverallSales() {
     setSearch(e.target.value);
   };
 
-  const handleChange1 = (e) => {
-    console.log(e.target.value);
-    const name = e.target.name;
-    const value = e.target.value;
-    setfilters({ ...filters, [name]: value });
-  };
-
-  useEffect(() => {
-    if (filters.buyer !== "" && filters.status !== "") {
-      var filterValues = orderDel.filter((order) => {
-        console.log("buyer->", order.buyer);
-        console.log("buyer->", order.state);
-
-        if (order.buyer == filters.buyer && order.state == filters.status) {
-          return true;
-        }
-        return false;
-      });
-      console.log(filterValues);
-      setFilteredArray(filterValues);
-    }
-  }, [filters]);
-
   return (
     <div className={osCss.mainDiv}>
       <div className={osCss.top}>
@@ -230,20 +194,13 @@ export default function OverallSales() {
         <div className={osCss.filters}>
           <div className={osCss.select}>
             <div className={osCss.selectInner}>
-              <select onChange={handleChange1} name="buyer">
-                <option hidden>Buyer</option>
-                {unique.map((buyer) => (
-                  <option value={buyer}>{buyer}</option>
-                ))}
+              <select>
+                <option hidden>Ecommerce</option>
               </select>
             </div>
             <div className={osCss.selectInner}>
-              <select onChange={handleChange1} name="status">
+              <select>
                 <option hidden>Status</option>
-                <option value="Accepted">Accepted</option>
-                <option value="In-progress">In-progress</option>
-                <option value="Completed">Completed</option>
-                <option value="Cancelled">Cancelled</option>
               </select>
             </div>
           </div>
@@ -257,7 +214,6 @@ export default function OverallSales() {
         </div>
       </div>
       <div className={osCss.middle}>
-        <div className={osCss.tabMain}></div>
         <div className={osCss.table}>
           <table style={{ borderCollapse: "collapse" }}>
             {load ? (
@@ -266,11 +222,11 @@ export default function OverallSales() {
               </div>
             ) : (
               <>
-                {filteredArray?.length > 0 ? (
+                {orderDel?.length > 0 ? (
                   <>
                     <tr>
                       <th></th>
-                      <th className={osCss["sticky-col"]} onClick={sortById}>
+                      <th className="sticky-col" onClick={sortById}>
                         <p>Id</p>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -428,7 +384,7 @@ export default function OverallSales() {
                         </svg>
                       </th>
                     </tr>
-                    {filteredArray
+                    {orderDel
                       .filter((value) => {
                         if (search === "") {
                           return value;
@@ -450,7 +406,7 @@ export default function OverallSales() {
                             <td>
                               <Link
                                 to={`/me/orderdetails/${val._id}`}
-                                className={osCss.LinkStyle}
+                                className="LinkStyle"
                               >
                                 {val.ONDCBilling.name}
                               </Link>
@@ -509,7 +465,7 @@ export default function OverallSales() {
                                       stroke-width="2"
                                       stroke-linecap="round"
                                       stroke-linejoin="round"
-                                      class={osCss["lucide lucide-save"]}
+                                      class="lucide lucide-save"
                                       className={osCss.lucidePencil}
                                       onClick={() => {
                                         UpdateData(val._id);
@@ -532,7 +488,7 @@ export default function OverallSales() {
                                   stroke-width="2"
                                   stroke-linecap="round"
                                   stroke-linejoin="round"
-                                  class={osCss["lucide lucide-pencil"]}
+                                  class="lucide lucide-pencil"
                                   className={osCss.lucidePencil}
                                   onClick={() => {
                                     setEdit(!edit);
@@ -561,6 +517,20 @@ export default function OverallSales() {
           </p>
         </div>
       </div>
+
+      {/* <div className={osCss.bottom}>
+        <div></div>
+        <div className={osCss.pages}>
+          <div className={osCss.arrow}>{`<<`}</div>
+          <div className={osCss.numbers}>
+            <div className={osCss.active}>1</div>
+            <div className={osCss.inactive}>2</div>
+            <div className={osCss.inactive}>3</div>
+          </div>
+          <div className={osCss.arrow}>{`>>`}</div>
+        </div>
+        <div></div>
+      </div> */}
     </div>
   );
 }
