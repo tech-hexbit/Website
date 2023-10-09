@@ -68,6 +68,10 @@ export default function Filter({ filteredlist, setfilteredlist }) {
     }
   };
 
+  const offOnFil = () => {
+    offFil(!onFil);
+  };
+
   useEffect(() => {
     let newFIltered = [];
 
@@ -182,7 +186,7 @@ export default function Filter({ filteredlist, setfilteredlist }) {
         </select> 
       </div>*/}
 
-      <div className={FCss.floatRightArrowDiv}>
+      <div className={FCss.floatRightArrowDiv} onClick={offOnFil}>
         {onFil ? (
           <>
             <svg
