@@ -1,8 +1,8 @@
 .mainDiv {
   border-radius: 15px;
   padding: 10px 0px;
-  width: 30%;
   height: fit-content;
+  transition: all 0.3s;
 }
 
 .div1 {
