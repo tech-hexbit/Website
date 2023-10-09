@@ -85,7 +85,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
         <div className={DCss.search}>
           <input
             type="text"
-            placeholder="Search your product here.."
+            placeholder="Search your product here..."
             onChange={filter}
           />
         </div>
@@ -107,7 +107,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
               {orderDel?.length > 0 ? (
                 <>
                   <tr>
-                    <th></th>
+                    {/* <th></th> */}
                     <th>Product</th>
                     <th>Price</th>
                     <th id={DCss.stock}>Stock</th>
@@ -119,9 +119,9 @@ export default function Display({ filteredlist, setfilteredlist }) {
                     return (
                       <>
                         <tr key={key}>
-                          <td id={DCss.checkBox}>
+                          {/* <td id={DCss.checkBox}>
                             <input type="checkbox" name="" id="" />
-                          </td>
+                          </td> */}
                           <td className={DCss.row} id={DCss.col1}>
                             <Link
                               to={`/products/${val._id}`}
@@ -167,7 +167,8 @@ export default function Display({ filteredlist, setfilteredlist }) {
                           <td className={DCss.row} id={DCss.col6}>
                             <div className={DCss.dots}>
                               <div
-                                style={{ marginTop: "-5px" }}
+                                className={DCss.deleteDiv}
+                                // style={{ marginTop: "-5px" }}
                                 onClick={() => deleteproduct(val._id)}
                               >
                                 <svg
@@ -203,10 +204,10 @@ export default function Display({ filteredlist, setfilteredlist }) {
             <p className={DCss.showingPTag}>
               Showing{" "}
               {filteredlist?.length <= 5 ? (
-                <b>{filteredlist?.length}</b>
+                <b>{filteredlist?.length} </b>
               ) : (
                 <b>5</b>
-              )}
+              )}{" "}
               of <b>{filteredlist?.length}</b> results
             </p>
           </div>

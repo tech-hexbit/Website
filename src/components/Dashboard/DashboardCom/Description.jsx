@@ -9,9 +9,6 @@ import DesCard from "./DesCard";
 // state
 import AuthContext from "./../../../store/auth-context";
 
-// MicroInteraction
-import Load from "./../../../MicroInteraction/LoadBlack";
-
 // css
 import DCss from "./css/dashboard.module.css";
 
@@ -105,10 +102,6 @@ export default function Description(props) {
     return number + suffixes[suffixIndex];
   }
 
-  useEffect(() => {
-    console.log(perse[0]?.status);
-  }, [perse]);
-
   return (
     <div className={DCss.mainDiv}>
       <div className={DCss.top}>
@@ -158,8 +151,32 @@ export default function Description(props) {
           />
         </div>
       ) : (
-        <div className={DCss.loadCenterDiv}>
-          <Load />
+        <div className={DCss.bottom}>
+          <DesCard
+            heading="Total orders"
+            value={orderDel.totalOrders}
+            boxof="RecentOrders"
+            defaultSet={props.defaultSet}
+            setDefaultSet={props.setDefaultSet}
+          />
+          <DesCard
+            heading="Total Earnings"
+            value={orderDel.totalAmount.toLocaleString("en-IN", {
+              maximumFractionDigits: 2,
+              style: "currency",
+              currency: "INR",
+            })}
+            boxof="Revenue"
+            defaultSet={props.defaultSet}
+            setDefaultSet={props.setDefaultSet}
+          />
+          <DesCard
+            heading="New customers"
+            value={orderDel.totalNewCustomers}
+            boxof="BestSellers"
+            defaultSet={props.defaultSet}
+            setDefaultSet={props.setDefaultSet}
+          />
         </div>
       )}
     </div>

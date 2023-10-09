@@ -1,6 +1,6 @@
 .mainDiv {
   background-color: #fff;
-  width: 67%;
+  width: 100%;
   height: fit-content;
   border-radius: 15px;
   margin-bottom: 40px;
@@ -175,4 +175,8 @@ th:nth-child(2) {
   font-size: 12px;
   margin: 12px 0px;
   color: #888;
+}
+
+.deleteDiv svg {
+  color: rgb(115, 0, 0);
 }

@@ -175,6 +175,24 @@ body::-webkit-scrollbar-thumb:hover {
   text-align: center;
 }
 
+#onCat {
+  width: 50px;
+}
+
+#offCat {
+  width: 30%;
+}
+
+#Div1Cat {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#onCat #div1CatFilter {
+  display: flex;
+  justify-content: center;
+}
+
 @media screen and (max-width: 850px) {
   .slider-wrapper {
     height: 45%;
