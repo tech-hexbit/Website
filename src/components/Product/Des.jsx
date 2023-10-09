@@ -91,7 +91,7 @@ export default function Des(props) {
                 name=""
                 id=""
                 cols="30"
-                rows="10"
+                rows="7"
                 className={DCss.textareaPro}
                 placeholder="Edit the Des"
               ></textarea>
