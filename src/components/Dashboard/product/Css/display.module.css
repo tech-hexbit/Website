@@ -176,3 +176,7 @@ th:nth-child(2) {
   margin: 12px 0px;
   color: #888;
 }
+
+.deleteDiv svg {
+  color: rgb(115, 0, 0);
+}
