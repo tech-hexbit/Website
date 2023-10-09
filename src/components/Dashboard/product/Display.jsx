@@ -16,7 +16,6 @@ import DCss from "./Css/display.module.css";
 export default function Display({ filteredlist, setfilteredlist }) {
   const [load, setLoad] = useState(false);
   const [orderDel, setOrderDel] = useState([]);
-  const [updatedproduct, setupdatedproduct] = useState([]);
 
   useEffect(() => {
     loadData();
