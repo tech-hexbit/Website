@@ -12,7 +12,7 @@ export default function Des() {
           Description :{" "}
           <span
             onClick={() => {
-              setEdit(true);
+              setEdit(!edit);
             }}
           >
             <svg
