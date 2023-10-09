@@ -17,6 +17,10 @@
   /* padding-bottom: 15px; */
 }
 
+#filterLabel {
+  cursor: pointer;
+}
+
 .select {
   background-color: transparent;
   border: none;
