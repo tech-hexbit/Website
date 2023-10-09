@@ -11,19 +11,19 @@ import AuthContext from "../../store/auth-context";
 import DCss from "./Css/Des.module.css";
 
 export default function Des(props) {
-  const [editDesState, setEditDes] = useState(false);
+  const [editDesState, setEditDes] = useState("");
   const [edit, setEdit] = useState(false);
 
   const { id } = useParams();
 
   const authCtx = useContext(AuthContext);
 
-  const editDes = async () => {
+  const changePost = async (value) => {
     setEdit(false);
 
     try {
       const input = {
-        fieldName: "descriptor.short_desc",
+        fieldName: value,
         changedValue: editDesState,
         itemID: id,
       };
@@ -38,7 +38,7 @@ export default function Des(props) {
         }
       );
 
-      console.log(response.data.success);
+      console.log(response.data);
 
       if (response.data.success) {
         setLoad(false);
@@ -94,9 +94,18 @@ export default function Des(props) {
                 rows="7"
                 className={DCss.textareaPro}
                 placeholder="Edit the Des"
+                onChange={(e) => {
+                  setEditDes(e.target.value);
+                }}
               ></textarea>
 
-              <button onClick={editDes}>Submit</button>
+              <button
+                onClick={() => {
+                  changePost("descriptor.short_desc");
+                }}
+              >
+                Submit
+              </button>
             </>
           ) : (
             <>{props.res.descriptor.short_desc}</>
