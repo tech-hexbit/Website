@@ -261,7 +261,7 @@ export default function OverallSales() {
         <div className={osCss.table}>
           <table style={{ borderCollapse: "collapse" }}>
             {load ? (
-              <div className={osCss.loadCenterDiv}>
+              <div className="loadCenterDiv">
                 <Load />
               </div>
             ) : (
@@ -549,7 +549,7 @@ export default function OverallSales() {
                       })}
                   </>
                 ) : (
-                  <p className={osCss.NoOrders}>No Orders</p>
+                  <p className="NoOrders">No Orders</p>
                 )}
               </>
             )}
