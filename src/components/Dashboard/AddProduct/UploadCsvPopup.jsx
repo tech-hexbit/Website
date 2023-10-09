@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 
 // axios
 import axios from "axios";
@@ -8,8 +8,10 @@ import Upcss from "./Css/uploadCsvPopup.module.css";
 
 // img
 import upload_image from "../../../assets/dashboard/upload.svg";
+import AuthContext from "../../../store/auth-context";
 
 const UploadCsvPopup = ({ setShowPopup, setError }) => {
+  const authCtx = useContext(AuthContext);
   const [file, setFile] = useState();
   const fileInp = useRef(null);
 
@@ -32,6 +34,7 @@ const UploadCsvPopup = ({ setShowPopup, setError }) => {
     const response = await axios.post("/api/common/product/AddBulk", formData, {
       headers: {
         "content-type": "multipart/form-data",
+        Authorization: `${authCtx.token}`
       },
     });
 
