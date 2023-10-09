@@ -55,9 +55,9 @@ export default function Display({ filteredlist, setfilteredlist }) {
       });
 
       if (response.status === 200) {
-        setupdatedproduct(filteredlist.filter((p) => p._id != _id));
-        setfilteredlist(updatedproduct);
-        console.log("deleted");
+        loadData();
+        // setupdatedproduct(filteredlist.filter((p) => p._id != _id));
+        // setfilteredlist(updatedproduct);
       } else {
         console.log("error");
       }
