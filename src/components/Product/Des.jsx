@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 // state
-import AuthContext from "../../../store/auth-context";
+import AuthContext from "../../store/auth-context";
 
 // css
 import DCss from "./Css/Des.module.css";
