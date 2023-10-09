@@ -203,10 +203,10 @@ export default function Display({ filteredlist, setfilteredlist }) {
             <p className={DCss.showingPTag}>
               Showing{" "}
               {filteredlist?.length <= 5 ? (
-                <b>{filteredlist?.length}</b>
+                <b>{filteredlist?.length} </b>
               ) : (
                 <b>5</b>
-              )}
+              )}{" "}
               of <b>{filteredlist?.length}</b> results
             </p>
           </div>
