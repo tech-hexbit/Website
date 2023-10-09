@@ -50,7 +50,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
 
   const deleteproduct = async (_id) => {
     try {
-      const response = await axios.delete(`/api/common/product/delete/${_id}`, {
+      const response = await axios.get(`/api/common/product/delete/${_id}`, {
         headers: { Authorization: `${authCtx.token}` },
       });
 
