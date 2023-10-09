@@ -19,6 +19,7 @@ export default function OverallSales() {
   const [edit, setEdit] = useState(false);
   const [load, setLoad] = useState(false);
   const [orderDel, setOrderDel] = useState([]);
+  const [orderDelCopy, setOrderDelCopy] = useState([]);
   const [Saveload, setSaveLoad] = useState(false);
   const [selectedValue, setSelectedValue] = useState("");
   const [active, setActive] = useState({
@@ -54,16 +55,15 @@ export default function OverallSales() {
 
   useEffect(() => {
     if (filters.buyer !== "" || filters.status !== "") {
-      console.log(filters);
-      var filterValues = orderDel.filter((order) => {
-        console.log("buyer->", order.buyer);
-        console.log("buyer->", order.state);
-
-        if (order.buyer == filters.buyer && order.state == filters.status) {
+      var filterValues = orderDelCopy.filter((order) => {
+        if (order.buyer == filters.buyer || order.state == filters.status) {
           return true;
         }
         return false;
       });
+
+      setOrderDel(filterValues);
+    } else {
     }
   }, [filters]);
 
@@ -83,6 +83,7 @@ export default function OverallSales() {
 
       if (response.data.success) {
         setOrderDel(response.data.orderList);
+        setOrderDelCopy(response.data.orderList);
 
         response?.data?.orderList?.forEach((order) => {
           setbuyer((prevState) => [...prevState, order.buyer]);
