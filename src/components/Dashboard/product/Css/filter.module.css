@@ -49,3 +49,9 @@
   accent-color: rgba(255, 115, 29, 1);
   cursor: pointer;
 }
+
+.floatRightArrowDiv {
+  float: right;
+  margin: 10px 5px 10px 0px;
+  cursor: pointer;
+}
