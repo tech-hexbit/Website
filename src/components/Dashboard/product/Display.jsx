@@ -85,7 +85,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
         <div className={DCss.search}>
           <input
             type="text"
-            placeholder="Search your product here.."
+            placeholder="Search your product here..."
             onChange={filter}
           />
         </div>
