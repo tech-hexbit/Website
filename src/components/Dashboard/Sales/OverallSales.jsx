@@ -28,12 +28,6 @@ export default function OverallSales() {
   });
   const [filteredArray, setFilteredArray] = useState([]);
   const [selectedValue, setSelectedValue] = useState("");
-  const [active, setActive] = useState({
-    pdt: true,
-    fashion: false,
-    grocery: false,
-    furniture: false,
-  });
 
   // Add a state variable to track the sort order
   const [sortOrder, setSortOrder] = useState("asc"); // Default is ascending
