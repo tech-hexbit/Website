@@ -1,28 +1,46 @@
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
+
+// axios
+import axios from "axios";
 
 // css
 import DCss from "./Css/Des.module.css";
 
 export default function Des() {
+  const [editDesState, setEditDes] = useState(false);
   const [edit, setEdit] = useState(false);
 
-  const editDes = () => {
+  const { id } = useParams();
+
+  const editDes = async () => {
+    setEdit(false);
+
     try {
-      const response = await axios.post("/api/website/ContactUs", input);
-        console.log(response.data.success);
+      const input = {
+        fieldName: "descriptor.short_desc",
+        changedValue: editDesState,
+        itemID: id,
+      };
 
-        if (response.data.success) {
-          setLoad(false);
+      const response = await axios.post(
+        "/api/common/product/EditProduct",
+        input
+      );
 
-          setInput({
-            name: "",
-            email: "",
-            CompanyName: "",
-            subject: "",
-            message: "",
-          });
+      console.log(response.data.success);
 
-        }
+      if (response.data.success) {
+        setLoad(false);
+
+        setInput({
+          name: "",
+          email: "",
+          CompanyName: "",
+          subject: "",
+          message: "",
+        });
+      }
     } catch (e) {
       console.log(e);
     }
