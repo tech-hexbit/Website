@@ -109,12 +109,14 @@ export default function Form() {
     }
     console.log(data);
   };
+
   const addtags = (e) => {
     if ((e.keyCode === 13 && tagvalue) || (e.keyCode === 188 && tagvalue)) {
       settags([...tags, tagvalue]);
       settagvalue("");
     }
   };
+
   const deletetag = (val) => {
     let remaintags = tags.filter((t) => t != val);
     settags(remaintags);
