@@ -1,7 +1,10 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useContext } from "react";
 
 // axios
 import axios from "axios";
+
+// state
+import AuthContext from "../../../store/auth-context";
 
 // css
 import Upcss from "./Css/uploadCsvPopup.module.css";
@@ -12,6 +15,8 @@ import upload_image from "../../../assets/dashboard/upload.svg";
 const UploadCsvPopup = ({ setShowPopup, setError }) => {
   const [file, setFile] = useState();
   const fileInp = useRef(null);
+
+  const authCtx = useContext(AuthContext);
 
   const handleSubmit = async () => {
     if (!file) {
@@ -31,7 +36,8 @@ const UploadCsvPopup = ({ setShowPopup, setError }) => {
     formData.append("ExcelName", file.name);
     const response = await axios.post("/api/common/product/AddBulk", formData, {
       headers: {
-        "content-type": "multipart/form-data",
+        Authorization: `${authCtx.token}`,
+        "Content-Type": "multipart/form-data",
       },
     });
 
