@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 
 // axios
@@ -10,7 +10,7 @@ import AuthContext from "../../store/auth-context";
 // css
 import DCss from "./Css/Des.module.css";
 
-export default function Des() {
+export default function Des(props) {
   const [editDesState, setEditDes] = useState(false);
   const [edit, setEdit] = useState(false);
 
@@ -55,6 +55,7 @@ export default function Des() {
       console.log(e);
     }
   };
+
   return (
     <>
       <div className={DCss.mDiv}>
@@ -85,12 +86,6 @@ export default function Des() {
         <p className={DCss.desDPTag}>
           {edit ? (
             <>
-              Midsole:- Core Instant Step In Comfort Long Lasting Reponsive
-              Cushionig And Super Plush Feel. Outsole :- The Rubber Outsole With
-              Perfect Grip And Durability.
-            </>
-          ) : (
-            <>
               <textarea
                 name=""
                 id=""
@@ -102,6 +97,8 @@ export default function Des() {
 
               <button onClick={editDes}>Submit</button>
             </>
+          ) : (
+            <>{props.res.descriptor.short_desc}</>
           )}
         </p>
       </div>
