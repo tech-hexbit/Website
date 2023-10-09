@@ -408,9 +408,9 @@ export default function Form() {
                   </select>
                 </div>
 
-                <p className={FCss.labelMain}>Product Tags</p>
+                {/* <p className={FCss.labelMain}>Product Tags</p> */}
 
-                <div className={FCss.inpDiv}>
+                {/* <div className={FCss.inpDiv}>
                   <p className={FCss.label}>
                     Enter tags related to your products
                   </p>
@@ -420,7 +420,7 @@ export default function Form() {
                       <p>Fashion</p> <p className={FCss.CloseX}>X</p>
                     </div>
                   </div>
-                </div>
+                </div> */}
 
                 <div className={FCss.inpDiv}>
                   <p className={FCss.label}>Additional text</p>
