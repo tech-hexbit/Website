@@ -125,22 +125,22 @@ export default function Header() {
                       </div>
                     </div>
                     <div className={HPCss.div}>
-                      <div className={HPCss.businessdiv}>
+                      {/* <div className={HPCss.businessdiv}>
                         <div className={HPCss.businesstext}>Email</div>
                         <div className={HPCss.businessinputdiv}>
                           <div className={HPCss.businesstext2}>
                             {userData.Email}
                           </div>
                         </div>
-                      </div>
-                      <div className={HPCss.businessdiv}>
+                      </div> */}
+                      {/* <div className={HPCss.businessdiv}>
                         <div className={HPCss.businesstext}>Contact no.</div>
                         <div className={HPCss.businessinputdiv}>
                           <div className={HPCss.businesstext2}>
                             +91 {userData.Phone}
                           </div>
                         </div>
-                      </div>
+                      </div> */}
                     </div>
                     <div className={HPCss.email}>
                       <div className={HPCss.businesstext}>Location</div>
