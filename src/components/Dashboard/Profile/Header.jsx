@@ -118,7 +118,9 @@ export default function Header() {
                           Business/shop name
                         </div>
                         <div className={HPCss.businessinputdiv}>
-                          <div className={HPCss.businesstext2}>abc</div>
+                          <div className={HPCss.businesstext2}>
+                            {userData.ShopName}
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -127,14 +129,16 @@ export default function Header() {
                         <div className={HPCss.businesstext}>Email</div>
                         <div className={HPCss.businessinputdiv}>
                           <div className={HPCss.businesstext2}>
-                            abc@gmail.com
+                            {userData.Email}
                           </div>
                         </div>
                       </div>
                       <div className={HPCss.businessdiv}>
                         <div className={HPCss.businesstext}>Contact no.</div>
                         <div className={HPCss.businessinputdiv}>
-                          <div className={HPCss.businesstext2}>138388380</div>
+                          <div className={HPCss.businesstext2}>
+                            +91 {userData.Phone}
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -142,22 +146,23 @@ export default function Header() {
                       <div className={HPCss.businesstext}>Location</div>
                       <div className={HPCss.businessinputdiv2}>
                         <p className={HPCss.businesstext2}>
-                          3435AS, dhdhfbgi, chowk, behind bank, Ahmedabad-0000,
-                          India
+                          {userData.Address}
                         </p>
                       </div>
                     </div>
                     <div className={HPCss.div}>
-                      <div className={HPCss.businessdiv}>
+                      {/* <div className={HPCss.businessdiv}>
                         <div className={HPCss.businesstext}>Account no.</div>
                         <div className={HPCss.businessinputdiv}>
                           <div className={HPCss.businesstext2}>7080003625</div>
                         </div>
-                      </div>
+                      </div> */}
                       <div className={HPCss.businessdiv}>
                         <div className={HPCss.businesstext}>GSTIN</div>
                         <div className={HPCss.businessinputdiv}>
-                          <div className={HPCss.businesstext2}>827729292</div>
+                          <div className={HPCss.businesstext2}>
+                            {userData.GSTIN}
+                          </div>
                         </div>
                       </div>
                     </div>
