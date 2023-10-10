@@ -2,6 +2,13 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  /* background: linear-gradient(
+    180deg,
+    rgb(62.96, 128.72, 224.19) 0%,
+    rgba(62.96, 128.72, 224.19, 0.57) 22.63%,
+    rgba(62.96, 128.72, 224.19, 0.32) 49.67%,
+    rgba(62.96, 128.72, 224.19, 0) 100%
+  ); */
 }
 
 .imgHeaderP {
@@ -42,7 +49,287 @@
   line-height: 22px;
   letter-spacing: 0.16px;
 }
+.personalinfotab {
+  padding-top: 60px;
+}
+.heading {
+  font-size: 26px;
+}
+.box {
+  border: 1px dashed;
+  border-color: rgba(170, 170, 170, 1);
+  border-radius: 15px;
+  height: 326px;
+  position: relative;
+  width: 1140px;
+  margin-top: 10px;
+}
 
+.textcontent {
+  align-items: flex-start;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 25px;
+  left: 29px;
+  position: relative;
+  top: 29px;
+}
+
+.box .div {
+  align-items: flex-start;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 150px;
+  position: relative;
+}
+
+.subdiv {
+  align-items: flex-start;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 5px;
+  position: relative;
+}
+
+.inputheading {
+  color: rgba(119, 119, 119, 1);
+  font-family: "OpenSans-Regular", Helvetica;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.16px;
+  line-height: 22px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.infodiv {
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid;
+  border-color: rgba(221, 221, 221, 1);
+  border-radius: 5px;
+  height: 45px;
+  position: relative;
+  width: 445px;
+  padding: 5px;
+}
+.info {
+  padding: 8px;
+}
+.inputheading-2 {
+  color: #000000;
+  font-family: "OpenSans-Regular", Helvetica;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  left: 9px;
+  letter-spacing: 0.16px;
+  line-height: 22px;
+  position: absolute;
+  top: 9px;
+  white-space: nowrap;
+}
+
+.email {
+  align-items: flex-start;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 5px;
+  position: relative;
+  width: 1040px;
+}
+
+.infodiv2 {
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid;
+  border-color: rgba(221, 221, 221, 1);
+  border-radius: 5px;
+  height: 45px;
+  position: relative;
+  width: 1040px;
+}
+.businessinfotab {
+  padding-top: 60px;
+}
+.box2 {
+  border: 1px dashed;
+  border-color: rgba(170, 170, 170, 1);
+  border-radius: 15px;
+  height: 662px;
+  position: relative;
+  width: 1140px;
+  margin-top: 10px;
+}
+
+.businesscontent {
+  height: 602px;
+  left: 30px;
+  position: relative;
+  top: 30px;
+  width: 1040px;
+}
+
+.businesstext {
+  align-items: flex-start;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 25px;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.box2 .div {
+  align-items: flex-start;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 150px;
+  position: relative;
+}
+
+.businessdiv {
+  align-items: flex-start;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 5px;
+  position: relative;
+}
+
+.businesstext {
+  color: rgba(119, 119, 119, 1);
+  font-family: "OpenSans-Regular", Helvetica;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.16px;
+  line-height: 22px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.businessinputdiv {
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid;
+  border-color: rgba(221, 221, 221, 1);
+  border-radius: 5px;
+  height: 45px;
+  position: relative;
+  width: 445px;
+}
+
+.businesstext2 {
+  color: #000000;
+  font-family: "OpenSans-Regular", Helvetica;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  left: 9px;
+  letter-spacing: 0.16px;
+  line-height: 19px;
+  position: absolute;
+  top: 9px;
+  white-space: nowrap;
+}
+
+.email {
+  align-items: flex-start;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 5px;
+  position: relative;
+  width: 1040px;
+}
+
+.businessinputdiv2 {
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid;
+  border-color: rgba(221, 221, 221, 1);
+  border-radius: 5px;
+  height: 45px;
+  position: relative;
+  width: 1040px;
+}
+
+.lastsection {
+  align-items: flex-start;
+  display: inline-flex;
+  gap: 150px;
+  height: 214px;
+  white-space: pre-line;
+}
+
+.logodiv {
+  align-items: flex-start;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 5px;
+  height: 214px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.labels {
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid;
+  border-color: rgba(221, 221, 221, 1);
+  border-radius: 5px;
+  height: 187px;
+  position: relative;
+  width: 445px;
+  padding: 20px;
+}
+
+.abouttext {
+  color: #000000;
+  font-family: "OpenSans-Regular", Helvetica;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  left: 9px;
+  letter-spacing: 0.16px;
+  line-height: 22px;
+  position: absolute;
+  top: 9px;
+}
+
+.logo {
+  align-items: flex-end;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 8px;
+  left: 172px;
+  position: absolute;
+  top: 454px;
+}
+
+.image {
+  height: 54.22px;
+  position: relative;
+  width: 68.55px;
+}
+
+.businesstext3 {
+  color: rgba(136, 136, 136, 1);
+  font-family: "OpenSans-Regular", Helvetica;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.16px;
+  line-height: 16px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
 @media only screen and (max-width: 650px) {
   .mDiv {
     margin-top: 30px;
