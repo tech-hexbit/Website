@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useRef, useState, useContext } from "react";
 
 // axios
 import axios from "axios";
@@ -36,8 +36,8 @@ const UploadCsvPopup = ({ setShowPopup, setError }) => {
     formData.append("ExcelName", file.name);
     const response = await axios.post("/api/common/product/AddBulk", formData, {
       headers: {
-        "content-type": "multipart/form-data",
-        Authorization: `${authCtx.token}`
+        Authorization: `${authCtx.token}`,
+        "Content-Type": "multipart/form-data",
       },
     });
 
