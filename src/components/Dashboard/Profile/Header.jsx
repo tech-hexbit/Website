@@ -187,7 +187,6 @@ export default function Header() {
                       alt="Image"
                       src={userData.image}
                     />
-                    <div className={HPCss.logotext}>Logo here</div>
                   </div>
                 </div>
               </div>
