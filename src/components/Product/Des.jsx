@@ -56,6 +56,12 @@ export default function Des(props) {
     }
   };
 
+  useEffect(() => {
+    console.log(
+      props.res["@ondc/org/mandatory_reqs_veggies_fruits"].net_quantity
+    );
+  }, []);
+
   return (
     <>
       <div className={DCss.mDiv}>
@@ -148,19 +154,26 @@ export default function Des(props) {
         <table>
           <tr>
             <td className={DCss.headingName}>Category :</td>
-            <td className={DCss.desName}>Shoes</td>
+            <td className={DCss.desName}>{props.res.category_id}</td>
           </tr>
           <tr>
             <td className={DCss.headingName}>Brand :</td>
-            <td className={DCss.desName}>Asus</td>
-          </tr>
-          <tr>
-            <td className={DCss.headingName}>Color :</td>
-            <td className={DCss.desName}>Nave Blue</td>
+            <td className={DCss.desName}>
+              {
+                props.res["@ondc/org/statutory_reqs_packaged_commodities"][
+                  "manufacturer_or_packer_name"
+                ]
+              }
+            </td>
           </tr>
           <tr>
             <td className={DCss.headingName}>Weight :</td>
-            <td className={DCss.desName}>121</td>
+            <td className={DCss.desName}>
+              {
+                props.res["@ondc/org/mandatory_reqs_veggies_fruits"]
+                  .net_quantity
+              }
+            </td>
           </tr>
         </table>
       </div>
