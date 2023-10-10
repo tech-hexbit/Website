@@ -315,25 +315,14 @@
 
 .logo {
   margin-left: 10px;
-
   border-style: solid;
   border-width: 1px;
   border-color: rgba(221, 221, 221, 1);
-
   width: 50%;
   height: 187px;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /* align-items: flex-end; */
-  /* display: inline-flex; */
-  /* flex-direction: column; */
-  /* gap: 8px; */
-  /* left: 172px; */
-  /* position: absolute; */
-  /* top: 454px; */
 }
 
 .image {
