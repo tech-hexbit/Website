@@ -1,4 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
+
+// axios
+import axios from "axios";
 
 // Css
 import HPCss from "./Css/Header.module.css";
@@ -7,8 +10,33 @@ import HPCss from "./Css/Header.module.css";
 import AuthContext from "./../../../store/auth-context";
 
 export default function Header() {
+  const [load, setLoad] = useState(false);
+  const [userData, setUserData] = useState({});
+
   const authCtx = useContext(AuthContext);
 
+  const loadData = async () => {
+    try {
+      const response = await axios.get(`/api/website/auth/me/`, {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+
+      if (response.data.success) {
+        console.log(response.data.user);
+        setLoad(false);
+      } else {
+        setLoad(false);
+
+        console.log(e);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    loadData();
+  }, []);
   return (
     <>
       <div className={HPCss.background}>
