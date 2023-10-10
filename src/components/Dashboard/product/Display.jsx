@@ -127,7 +127,6 @@ export default function Display({ filteredlist, setfilteredlist }) {
               {orderDel?.length > 0 ? (
                 <>
                   <tr>
-                    {/* <th></th> */}
                     <th>Product</th>
                     <th>Price</th>
                     <th id={DCss.stock}>Stock</th>
