@@ -9,6 +9,9 @@ import HPCss from "./Css/Header.module.css";
 // state
 import AuthContext from "./../../../store/auth-context";
 
+// MicroInteraction
+import Load from "./../../../MicroInteraction/LoadBlack";
+
 export default function Header() {
   const [load, setLoad] = useState(false);
   const [userData, setUserData] = useState({});
@@ -54,7 +57,9 @@ export default function Header() {
         </div>
 
         {load ? (
-          ""
+          <div className="loadCenterDiv">
+            <Load />
+          </div>
         ) : (
           <>
             <div className={HPCss.personalinfotab}>
