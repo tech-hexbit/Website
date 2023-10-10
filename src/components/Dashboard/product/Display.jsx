@@ -229,7 +229,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
         )}
       </div>
 
-      <div>
+      <div className={DCss.cenDiv}>
         <button
           onClick={() => setCurrentPage(currentPage - 1)}
           disabled={currentPage === 1}
