@@ -185,7 +185,6 @@ export default function Display({ filteredlist, setfilteredlist }) {
                             <div className={DCss.dots}>
                               <div
                                 className={DCss.deleteDiv}
-                                // style={{ marginTop: "-5px" }}
                                 onClick={() => deleteproduct(val._id)}
                               >
                                 <svg
