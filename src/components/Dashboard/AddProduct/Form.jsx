@@ -18,7 +18,7 @@ export default function Form() {
   const [PublishOpen, setPublishOpen] = useState(true);
   const [ServiceOpen, setServiceOpen] = useState(false);
   const [tags, settags] = useState([]);
-  const [imageUpload, setImageUpload] = useState()
+  const [imageUpload, setImageUpload] = useState();
   const [tagvalue, settagvalue] = useState("");
 
   const fileInp = useRef(null);
@@ -66,21 +66,19 @@ export default function Form() {
     non_veg: false,
     Status: "",
     Visibility: "",
-    schedule_Date_and_time: "",
-    StoreID: authCtx.user.StoreID
+    schedule_Date_and_time: "10/10/2023",
+    StoreID: authCtx.user.StoreID,
   });
 
- 
-
-  const handleClick = ()=>{
+  const handleClick = () => {
     fileInp.current.click();
-  }
+  };
 
   const handleImage = (e) => {
     console.log(e.target.files[0]);
-    setImageUpload(e.target.files[0])
+    setImageUpload(e.target.files[0]);
     console.log(imageUpload);
-  }
+  };
 
   const openModal = (msg) => {
     if (msg === "Service") {
@@ -109,11 +107,11 @@ export default function Form() {
   };
 
   const onSubmit = async () => {
-    const formData= new FormData();
-    formData.append('data',JSON.stringify(data));
-    formData.append('images',imageUpload);
+    const formData = new FormData();
+    formData.append("data", JSON.stringify(data));
+    formData.append("images", imageUpload);
     for (var key of formData.entries()) {
-      console.log(key[0] + ', ' + key[1]);
+      console.log(key[0] + ", " + key[1]);
     }
     try {
       const response = await axios.post(
@@ -121,7 +119,7 @@ export default function Form() {
         formData,
         { headers: { Authorization: `${authCtx.token}` } }
       );
-      console.log(response)
+      console.log(response);
 
       if (response.data.success) {
         console.log(response);
@@ -395,7 +393,15 @@ export default function Form() {
                 <div className={FCss.inpDiv}>
                   <p className={FCss.label}>Select date & time</p>
 
-                  <select
+                  <input
+                    type="date"
+                    name="schedule_Date_and_time"
+                    id=""
+                    className={FCss.inp}
+                    onChange={updateData}
+                  />
+
+                  {/* <select
                     name="schedule_Date_and_time"
                     id=""
                     className={FCss.inp}
@@ -404,8 +410,10 @@ export default function Form() {
                     <option value="" selected hidden>
                       Select date and time
                     </option>
-                    <option value="Public">Enter date</option>
-                  </select>
+                    <option value="Public">
+                      <input type="date" name="" id="" />
+                    </option>
+                  </select> */}
                 </div>
 
                 <p className={FCss.labelMain}>Product category</p>
@@ -632,17 +640,23 @@ export default function Form() {
 
         <p className={FCss.labelDes}>Add the product main image</p>
         <div className={FCss.addimgDivMain}>
-        <input type="file" name="file" onChange={handleImage} style={{ display: "none" }} ref={fileInp}/>
+          <input
+            type="file"
+            name="file"
+            onChange={handleImage}
+            style={{ display: "none" }}
+            ref={fileInp}
+          />
           <div className={FCss.addImgDiv} onClick={handleClick}>
             {/* <div> */}
             {/* <button>+</button>
             <input type="file" name="file" onChange={handleImage} /> */}
             {/* <div {...getRootProps({ className: "dropzone" })}> */}
-              {/* <input className={FCss["input-zone"]} {...getInputProps()} /> */}
-              
-              <div className={FCss["text-center"]} >
-                <p className={FCss["dropzone-content"]}>+</p>  
-              </div>
+            {/* <input className={FCss["input-zone"]} {...getInputProps()} /> */}
+
+            <div className={FCss["text-center"]}>
+              <p className={FCss["dropzone-content"]}>+</p>
+            </div>
             {/* </div> */}
           </div>
         </div>
