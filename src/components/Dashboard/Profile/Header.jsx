@@ -43,6 +43,10 @@ export default function Header() {
   useEffect(() => {
     loadData();
   }, []);
+
+  useEffect(() => {
+    console.log(userData.Email);
+  }, [userData]);
   return (
     <>
       <div className={HPCss.background}>
@@ -67,40 +71,37 @@ export default function Header() {
               <div className={HPCss.box}>
                 <div className={HPCss.textcontent}>
                   <div className={HPCss.div}>
-                    <div className={HPCss.subdiv}>
+                    {/* <div className={HPCss.subdiv}>
                       <div className={HPCss.inputheading}>First name</div>
                       <div className={HPCss.infodiv}>
                         <div className={HPCss.info}>Pranav</div>
                       </div>
-                    </div>
-                    <div className={HPCss.subdiv}>
+                    </div> */}
+                    {/* <div className={HPCss.subdiv}>
                       <div className={HPCss.inputheading}>Last name</div>
                       <div className={HPCss.infodiv}>
                         <div className={HPCss.info}>Sheth</div>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                   <div className={HPCss.div}>
                     <div className={HPCss.subdiv}>
                       <div className={HPCss.inputheading}>Email</div>
                       <div className={HPCss.infodiv}>
-                        <div className={HPCss.info}>ps@gmail.com</div>
+                        <div className={HPCss.info}>{userData.Email}</div>
                       </div>
                     </div>
                     <div className={HPCss.subdiv}>
                       <div className={HPCss.inputheading}>Mobile no.</div>
                       <div className={HPCss.infodiv}>
-                        <div className={HPCss.info}>1444840</div>
+                        <div className={HPCss.info}>+91 {userData.Phone}</div>
                       </div>
                     </div>
                   </div>
                   <div className={HPCss.email}>
                     <div className={HPCss.inputheading}>Address</div>
                     <div className={HPCss.infodiv2}>
-                      <p className={HPCss.info}>
-                        3435AS, dhdhfbgi, chowk, behind bank, Ahmedabad-0000,
-                        India
-                      </p>
+                      <p className={HPCss.info}>{userData.Address}</p>
                     </div>
                   </div>
                 </div>
