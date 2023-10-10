@@ -11,7 +11,6 @@ import Upcss from "./Css/uploadCsvPopup.module.css";
 
 // img
 import upload_image from "../../../assets/dashboard/upload.svg";
-import AuthContext from "../../../store/auth-context";
 
 const UploadCsvPopup = ({ setShowPopup, setError }) => {
   const [file, setFile] = useState();

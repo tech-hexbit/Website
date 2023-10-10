@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 
 import { useDropzone } from "react-dropzone";
 
@@ -18,7 +18,11 @@ export default function Form() {
   const [PublishOpen, setPublishOpen] = useState(true);
   const [ServiceOpen, setServiceOpen] = useState(false);
   const [tags, settags] = useState([]);
+  const [imageUpload, setImageUpload] = useState()
   const [tagvalue, settagvalue] = useState("");
+
+  const fileInp = useRef(null);
+  const authCtx = useContext(AuthContext);
 
   const [data, setData] = useState({
     name: "",
@@ -63,9 +67,20 @@ export default function Form() {
     Status: "",
     Visibility: "",
     schedule_Date_and_time: "",
+    StoreID: authCtx.user.StoreID
   });
 
-  const authCtx = useContext(AuthContext);
+ 
+
+  const handleClick = ()=>{
+    fileInp.current.click();
+  }
+
+  const handleImage = (e) => {
+    console.log(e.target.files[0]);
+    setImageUpload(e.target.files[0])
+    console.log(imageUpload);
+  }
 
   const openModal = (msg) => {
     if (msg === "Service") {
@@ -94,15 +109,22 @@ export default function Form() {
   };
 
   const onSubmit = async () => {
+    const formData= new FormData();
+    formData.append('data',JSON.stringify(data));
+    formData.append('images',imageUpload);
+    for (var key of formData.entries()) {
+      console.log(key[0] + ', ' + key[1]);
+    }
     try {
       const response = await axios.post(
         "/api/common/product/AddProduct",
-        data,
+        formData,
         { headers: { Authorization: `${authCtx.token}` } }
       );
+      console.log(response)
 
       if (response.data.success) {
-        console.log(response.data);
+        console.log(response);
       }
     } catch (error) {
       console.log(error);
@@ -610,16 +632,18 @@ export default function Form() {
 
         <p className={FCss.labelDes}>Add the product main image</p>
         <div className={FCss.addimgDivMain}>
-          <div className={FCss.addImgDiv}>
+        <input type="file" name="file" onChange={handleImage} style={{ display: "none" }} ref={fileInp}/>
+          <div className={FCss.addImgDiv} onClick={handleClick}>
             {/* <div> */}
             {/* <button>+</button>
             <input type="file" name="file" onChange={handleImage} /> */}
-            <div {...getRootProps({ className: "dropzone" })}>
-              <input className={FCss["input-zone"]} {...getInputProps()} />
-              <div className={FCss["text-center"]}>
-                <p className={FCss["dropzone-content"]}>+</p>
+            {/* <div {...getRootProps({ className: "dropzone" })}> */}
+              {/* <input className={FCss["input-zone"]} {...getInputProps()} /> */}
+              
+              <div className={FCss["text-center"]} >
+                <p className={FCss["dropzone-content"]}>+</p>  
               </div>
-            </div>
+            {/* </div> */}
           </div>
         </div>
       </div>

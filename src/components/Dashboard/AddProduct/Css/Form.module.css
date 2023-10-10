@@ -14,6 +14,10 @@
   margin-bottom: 30px;
 }
 
+.text-center{
+  cursor: pointer;
+}
+
 .labelMain,
 .labelMainArrowPTag {
   margin: 30px 0px;
@@ -88,6 +92,7 @@
   line-height: 40.811px;
   letter-spacing: 0.653px;
   margin-bottom: 30px;
+  cursor: pointer;
 }
 
 .labelDes {
