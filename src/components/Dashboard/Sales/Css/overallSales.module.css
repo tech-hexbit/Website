@@ -193,6 +193,20 @@ tr:nth-child(even) td {
   color: #888;
 }
 
+.cenDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0px 10px;
+}
+
+.btnnb {
+  background-color: transparent;
+  border-width: 0px;
+  margin: 5px 0px 0px 0px;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1260px) {
   .table table {
     width: 100vw;
