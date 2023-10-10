@@ -192,4 +192,5 @@ th:nth-child(2) {
   background-color: transparent;
   border-width: 0px;
   margin: 5px 0px 0px 0px;
+  cursor: pointer;
 }
