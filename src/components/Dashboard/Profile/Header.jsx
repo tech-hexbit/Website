@@ -16,13 +16,16 @@ export default function Header() {
   const authCtx = useContext(AuthContext);
 
   const loadData = async () => {
+    setLoad(true);
+
     try {
       const response = await axios.get(`/api/website/auth/me/`, {
         headers: { Authorization: `${authCtx.token}` },
       });
 
       if (response.data.success) {
-        console.log(response.data.user);
+        setUserData(response.data.user);
+
         setLoad(false);
       } else {
         setLoad(false);
