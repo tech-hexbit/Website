@@ -321,6 +321,11 @@
   border-color: rgba(221, 221, 221, 1);
 
   width: 50%;
+  height: 187px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   /* align-items: flex-end; */
   /* display: inline-flex; */
