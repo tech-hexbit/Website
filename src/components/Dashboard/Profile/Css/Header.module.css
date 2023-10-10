@@ -49,12 +49,15 @@
   line-height: 22px;
   letter-spacing: 0.16px;
 }
+
 .personalinfotab {
   padding-top: 60px;
 }
+
 .heading {
   font-size: 26px;
 }
+
 .box {
   border: 1px dashed;
   border-color: rgba(170, 170, 170, 1);
@@ -116,9 +119,11 @@
   width: 445px;
   padding: 5px;
 }
+
 .info {
   padding: 8px;
 }
+
 .inputheading-2 {
   color: #000000;
   font-family: "OpenSans-Regular", Helvetica;
@@ -152,9 +157,11 @@
   position: relative;
   width: 1040px;
 }
+
 .businessinfotab {
   padding-top: 60px;
 }
+
 .box2 {
   border: 1px dashed;
   border-color: rgba(170, 170, 170, 1);
@@ -330,17 +337,21 @@
   white-space: nowrap;
   width: fit-content;
 }
+
 @media only screen and (max-width: 650px) {
   .mDiv {
     margin-top: 30px;
   }
+
   .imgHeaderP {
     width: 70px;
     height: 70px;
   }
+
   .delPName {
     font-size: 20px;
   }
+
   .delDes {
     font-size: 12px;
   }
