@@ -245,11 +245,12 @@ export default function Display({ filteredlist, setfilteredlist }) {
             stroke-linecap="round"
             stroke-linejoin="round"
             class="lucide lucide-chevron-left"
+            className={DCss.btnnb}
           >
             <path d="m15 18-6-6 6-6" />
           </svg>
         </button>
-        <span>Page {currentPage}</span>
+        <span>{currentPage}</span>
         <button
           onClick={() => setCurrentPage(currentPage + 1)}
           disabled={max}
@@ -266,6 +267,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
             stroke-linecap="round"
             stroke-linejoin="round"
             class="lucide lucide-chevron-right"
+            className={DCss.btnnb}
           >
             <path d="m9 18 6-6-6-6" />
           </svg>
