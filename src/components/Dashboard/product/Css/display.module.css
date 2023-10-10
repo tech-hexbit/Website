@@ -1,6 +1,6 @@
 .mainDiv {
   background-color: #fff;
-  width: 67%;
+  width: 100%;
   height: fit-content;
   border-radius: 15px;
   margin-bottom: 40px;
@@ -31,9 +31,14 @@
 .button button {
   border: none;
   border-radius: 5px;
-  background: rgba(63, 129, 224, 0.5);
-  color: #1746a2;
+  background-color: transparent;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #56117c;
+  color: #56117c;
   font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.12px;
   padding: 6px 25px;
   cursor: pointer;
 }
@@ -175,4 +180,22 @@ th:nth-child(2) {
   font-size: 12px;
   margin: 12px 0px;
   color: #888;
+}
+
+.deleteDiv svg {
+  color: rgb(115, 0, 0);
+}
+
+.cenDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0px 10px;
+}
+
+.btnnb {
+  background-color: transparent;
+  border-width: 0px;
+  margin: 5px 0px 0px 0px;
+  cursor: pointer;
 }

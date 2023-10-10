@@ -42,6 +42,7 @@ export default function ProductsPage() {
       console.log(e);
     }
   };
+
   return (
     <div className={PPCss.mDiv}>
       <p className={PPCss.AddHPTag}>Product Details</p>
@@ -63,14 +64,20 @@ export default function ProductsPage() {
               Seller:seller Published on: {res.when.date}
             </p>
             <div className={PPCss.boxmDiv}>
-              <Box res={res} />
-              <Box res={res} />
-              <Box res={res} />
-              <Box res={res} />
+              <Box
+                title="Price"
+                value={`₹ ${res.price.maximum_value}`}
+                up="price.maximum_value"
+              />
+              <Box
+                title="Stock"
+                value={res.quantity.maximum.count}
+                up="quantity.maximum.count"
+              />
             </div>
 
-            <ColorBox res={res} />
-            <SizeBox res={res} />
+            {/* <ColorBox res={res} /> */}
+            {/* <SizeBox res={res} /> */}
             <Des res={res} />
           </div>
         </div>

@@ -55,6 +55,6 @@
 
 .boxmDiv {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin: 30px 0px;
 }

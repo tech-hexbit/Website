@@ -11,7 +11,6 @@
 .filters {
   padding-top: 50px;
   display: flex;
-  /* justify-content: space-between; */
   justify-content: flex-end;
 }
 
@@ -192,6 +191,20 @@ tr:nth-child(even) td {
   font-size: 12px;
   margin: 12px 0px;
   color: #888;
+}
+
+.cenDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0px 10px;
+}
+
+.btnnb {
+  background-color: transparent;
+  border-width: 0px;
+  margin: 5px 0px 0px 0px;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1260px) {

@@ -17,8 +17,8 @@ import FCss from "./Css/Form.module.css";
 export default function Form() {
   const [PublishOpen, setPublishOpen] = useState(true);
   const [ServiceOpen, setServiceOpen] = useState(false);
-  const [tags, settags] = useState([])
-  const [tagvalue, settagvalue] = useState("")
+  const [tags, settags] = useState([]);
+  const [tagvalue, settagvalue] = useState("");
 
   const [data, setData] = useState({
     name: "",
@@ -109,17 +109,18 @@ export default function Form() {
     }
     console.log(data);
   };
-  const addtags=(e)=>{
-    if(e.keyCode===13 && tagvalue||e.keyCode===188 && tagvalue){
-      settags([...tags,tagvalue])
-      settagvalue("")
+
+  const addtags = (e) => {
+    if ((e.keyCode === 13 && tagvalue) || (e.keyCode === 188 && tagvalue)) {
+      settags([...tags, tagvalue]);
+      settagvalue("");
     }
-    
-  }
-  const deletetag=(val)=>{
-    let remaintags=tags.filter((t)=>t!=val)
-    settags(remaintags)
-  }
+  };
+
+  const deletetag = (val) => {
+    let remaintags = tags.filter((t) => t != val);
+    settags(remaintags);
+  };
 
   const { getRootProps, getInputProps } = useDropzone({});
 
@@ -411,21 +412,27 @@ export default function Form() {
                   </p>
 
                   <div className={FCss.inpTag}>
-                  {
-                    tags.map((tag,index)=>
-                    <div key={index} className={FCss.TagP}>
-                    <p>{tag}</p> <p onClick={()=>deletetag(tag)}  className={FCss.CloseX}>X</p>
-                    
-                  </div>)
-                  }
-                  <div className={FCss.inputt}>
-                    <input value={tagvalue} type="text" placeholder="Press Enter to input"  onChange={(e)=>settagvalue(e.target.value)}onKeyDown={addtags}/>
+                    {tags.map((tag, index) => (
+                      <div key={index} className={FCss.TagP}>
+                        <p>{tag}</p>{" "}
+                        <p
+                          onClick={() => deletetag(tag)}
+                          className={FCss.CloseX}
+                        >
+                          X
+                        </p>
+                      </div>
+                    ))}
+                    <div className={FCss.inputt}>
+                      <input
+                        value={tagvalue}
+                        type="text"
+                        placeholder="Press Enter to input"
+                        onChange={(e) => settagvalue(e.target.value)}
+                        onKeyDown={addtags}
+                      />
+                    </div>
                   </div>
-                   
-                    
-                   
-                  </div>
-                  
                 </div>
 
                 <div className={FCss.inpDiv}>
@@ -439,7 +446,6 @@ export default function Form() {
                     placeholder="Enter additional text description of the product"
                     className={FCss.inpTA}
                     onChange={updateData}
-                   
                   ></textarea>
                 </div>
               </>
@@ -614,22 +620,6 @@ export default function Form() {
                 <p className={FCss["dropzone-content"]}>+</p>
               </div>
             </div>
-          </div>
-        </div>
-
-        <p className={FCss.labelDes}>Add additional product images</p>
-
-        <div className={FCss.addimgDivMain}>
-          <div {...getRootProps({ className: "dropzone" })}>
-            <input className={FCss["input-zone"]} {...getInputProps()} />
-            <p className={FCss["dropzone-content"]}>
-              <div className={FCss.upAddImg}>
-                <img src={upload} alt="" srcset="" />
-                <p className={FCss.upAddImgDragPTag}>
-                  Drag and drop files here OR click to upload
-                </p>
-              </div>
-            </p>
           </div>
         </div>
       </div>

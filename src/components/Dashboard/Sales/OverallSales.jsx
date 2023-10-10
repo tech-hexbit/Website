@@ -19,8 +19,12 @@ export default function OverallSales() {
   const [edit, setEdit] = useState(false);
   const [load, setLoad] = useState(false);
   const [orderDel, setOrderDel] = useState([]);
+  const [orderDelCopy, setOrderDelCopy] = useState([]);
   const [Saveload, setSaveLoad] = useState(false);
   const [selectedValue, setSelectedValue] = useState("");
+  const [prodcutsCount, setProdcutsCount] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [max, setmax] = useState(false);
   const [active, setActive] = useState({
     pdt: true,
     fashion: false,
@@ -29,16 +33,46 @@ export default function OverallSales() {
   });
 
   // Add a state variable to track the sort order
-  const [sortOrder, setSortOrder] = useState("asc"); // Default is ascending
-  const [sortByNameOrder, setSortByNameOrder] = useState("asc"); // Default is ascending for Customer
-  const [sortPriceOrder, setSortPriceOrder] = useState("asc"); // Default is ascending for Price
-  const [sortDateOrder, setSortDateOrder] = useState("asc"); // Default is ascending for Ordered on
+  const [sortOrder, setSortOrder] = useState("asc");
+  const [sortByNameOrder, setSortByNameOrder] = useState("asc");
+  const [sortPriceOrder, setSortPriceOrder] = useState("asc");
+  const [sortDateOrder, setSortDateOrder] = useState("asc");
   const [sortPaymentMethodOrder, setSortPaymentMethodOrder] = useState("asc");
-  const [sortDeliveryStatusOrder, setSortDeliveryStatusOrder] = useState("asc");
+
+  //  Select Filter
+  const [unique, setunique] = useState([]);
+  const [buyer, setbuyer] = useState([]);
+  const [filters, setfilters] = useState({
+    buyer: "",
+    status: "",
+  });
 
   useEffect(() => {
     loadData();
-  }, []);
+  }, [currentPage]);
+
+  useEffect(() => {
+    maxPage();
+  }, [prodcutsCount, currentPage]);
+
+  useEffect(() => {
+    const u = (buyer) => [...new Set(buyer)];
+    setunique(u(buyer));
+  }, [buyer]);
+
+  useEffect(() => {
+    if (filters.buyer !== "" || filters.status !== "") {
+      var filterValues = orderDelCopy.filter((order) => {
+        if (order.buyer == filters.buyer || order.state == filters.status) {
+          return true;
+        }
+        return false;
+      });
+
+      setOrderDel(filterValues);
+    } else {
+    }
+  }, [filters]);
 
   const authCtx = useContext(AuthContext);
 
@@ -50,12 +84,21 @@ export default function OverallSales() {
     setLoad(true);
 
     try {
-      const response = await axios.get("/api/common/Order/all", {
-        headers: { Authorization: `${authCtx.token}` },
-      });
+      const response = await axios.get(
+        `/api/common/Order/all?page=${currentPage}`,
+        {
+          headers: { Authorization: `${authCtx.token}` },
+        }
+      );
 
       if (response.data.success) {
+        setProdcutsCount(response?.data?.length);
         setOrderDel(response.data.orderList);
+        setOrderDelCopy(response.data.orderList);
+
+        response?.data?.orderList?.forEach((order) => {
+          setbuyer((prevState) => [...prevState, order.buyer]);
+        });
 
         setLoad(false);
       } else {
@@ -67,6 +110,18 @@ export default function OverallSales() {
       setLoad(false);
 
       console.log(e);
+    }
+  };
+
+  const maxPage = () => {
+    if (prodcutsCount > 0) {
+      if (currentPage === Math.ceil(prodcutsCount / 5)) {
+        setmax(true);
+      } else {
+        setmax(false);
+      }
+    } else {
+      setmax(true);
     }
   };
 
@@ -188,23 +243,40 @@ export default function OverallSales() {
     setSearch(e.target.value);
   };
 
+  const handleChange1 = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setfilters({ ...filters, [name]: value });
+  };
+
   return (
     <div className={osCss.mainDiv}>
       <div className={osCss.top}>
         <div>Overall Sales</div>
         <div className={osCss.filters}>
-          {/* <div className={osCss.select}>
+          <div className={osCss.select}>
             <div className={osCss.selectInner}>
-              <select>
-                <option hidden>Ecommerce</option>
+              <select onChange={handleChange1} name="buyer">
+                <option value="Buyer" hidden selected>
+                  Buyer
+                </option>
+                {unique.map((buyer) => (
+                  <option value={buyer}>{buyer}</option>
+                ))}
               </select>
             </div>
             <div className={osCss.selectInner}>
-              <select>
-                <option hidden>Status</option>
+              <select onChange={handleChange1} name="status">
+                <option value="Status" hidden selected>
+                  Status
+                </option>
+                <option value="Accepted">Accepted</option>
+                <option value="In-progress">In-progress</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancelled">Cancelled</option>
               </select>
             </div>
-          </div> */}
+          </div>
           <div className={osCss.search}>
             <input
               type="text"
@@ -513,25 +585,57 @@ export default function OverallSales() {
           </table>
 
           <p className={osCss.showingPTag}>
-            Showing <b>{orderDel?.length} </b>
-            of <b>{orderDel?.length}</b> results
+            Showing <b>{5 * (currentPage - 1) + orderDel?.length} </b>
+            of <b>{prodcutsCount}</b> results
           </p>
         </div>
       </div>
 
-      {/* <div className={osCss.bottom}>
-        <div></div>
-        <div className={osCss.pages}>
-          <div className={osCss.arrow}>{`<<`}</div>
-          <div className={osCss.numbers}>
-            <div className={osCss.active}>1</div>
-            <div className={osCss.inactive}>2</div>
-            <div className={osCss.inactive}>3</div>
-          </div>
-          <div className={osCss.arrow}>{`>>`}</div>
-        </div>
-        <div></div>
-      </div> */}
+      <div className={osCss.cenDiv}>
+        <button
+          onClick={() => setCurrentPage(currentPage - 1)}
+          disabled={currentPage === 1}
+          className={osCss.btnnb}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-chevrons-left"
+          >
+            <path d="m11 17-5-5 5-5" />
+            <path d="m18 17-5-5 5-5" />
+          </svg>
+        </button>
+        <span>{currentPage}</span>
+        <button
+          onClick={() => setCurrentPage(currentPage + 1)}
+          disabled={max}
+          className={osCss.btnnb}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-chevrons-right"
+          >
+            <path d="m6 17 5-5-5-5" />
+            <path d="m13 17 5-5-5-5" />
+          </svg>
+        </button>
+      </div>
     </div>
   );
 }

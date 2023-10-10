@@ -73,20 +73,22 @@ body::-webkit-scrollbar-thumb:hover {
   color: #595959;
   font-weight: 400;
   font-family: 18px;
+  opacity: 0.8;
 }
 
 .LinkStyle.sideBarActive {
   color: #0132bf;
   font-weight: 600;
   font-family: 18px;
+  opacity: 1;
 }
 
 .LinkStyle.sideBarNonActive .temp {
-  fill: #231963;
+  fill: #575757;
 }
 
 .LinkStyle.sideBarActive .temp {
-  fill: #0132bf;
+  fill: #56117c;
 }
 
 .error {
@@ -171,6 +173,24 @@ body::-webkit-scrollbar-thumb:hover {
   width: 100%;
   font-family: "Open Sans", sans-serif;
   text-align: center;
+}
+
+#onCat {
+  width: 50px;
+}
+
+#offCat {
+  width: 30%;
+}
+
+#Div1Cat {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#onCat #div1CatFilter {
+  display: flex;
+  justify-content: center;
 }
 
 @media screen and (max-width: 850px) {

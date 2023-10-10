@@ -3,6 +3,9 @@ import React, { useContext, useRef, useState } from "react";
 // axios
 import axios from "axios";
 
+// state
+import AuthContext from "../../../store/auth-context";
+
 // css
 import Upcss from "./Css/uploadCsvPopup.module.css";
 
@@ -11,9 +14,10 @@ import upload_image from "../../../assets/dashboard/upload.svg";
 import AuthContext from "../../../store/auth-context";
 
 const UploadCsvPopup = ({ setShowPopup, setError }) => {
-  const authCtx = useContext(AuthContext);
   const [file, setFile] = useState();
   const fileInp = useRef(null);
+
+  const authCtx = useContext(AuthContext);
 
   const handleSubmit = async () => {
     if (!file) {

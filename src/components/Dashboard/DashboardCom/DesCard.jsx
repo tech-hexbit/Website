@@ -64,13 +64,13 @@ export default function DesCard(props) {
       <div className={DCCss.bottom}>
         <div className={DCCss.value}>{props.value}</div>
         <div className={DCCss.incDec}>
-          {props.arrow == "increase" ? (
+          {props.arrow == "Increase" ? (
             <>
               <div className={DCCss.positive}>{props.change}</div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="22"
-                height="23"
+                width="18"
+                height="18"
                 viewBox="0 0 22 23"
                 fill="none"
               >
@@ -88,8 +88,8 @@ export default function DesCard(props) {
               <div className={DCCss.decrease}>{props.change}</div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="22"
-                height="23"
+                width="18"
+                height="18"
                 viewBox="0 0 22 22"
                 fill="none"
               >

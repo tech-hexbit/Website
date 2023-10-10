@@ -52,3 +52,16 @@
   letter-spacing: 0.14px;
   padding: 0px 0px 0px 20px;
 }
+
+.textareaPro {
+  outline: none;
+  resize: none;
+  overflow-y: scroll;
+  overflow-x: none;
+  width: 100%;
+}
+
+.editBtn {
+  float: right;
+  cursor: pointer;
+}
