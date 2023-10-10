@@ -139,9 +139,6 @@ export default function Display({ filteredlist, setfilteredlist }) {
                     return (
                       <>
                         <tr key={key}>
-                          {/* <td id={DCss.checkBox}>
-                            <input type="checkbox" name="" id="" />
-                          </td> */}
                           <td className={DCss.row} id={DCss.col1}>
                             <Link
                               to={`/products/${val._id}`}
@@ -233,20 +230,6 @@ export default function Display({ filteredlist, setfilteredlist }) {
           </div>
         )}
       </div>
-
-      {/* <div className={DCss.bottom}>
-        <div></div>
-        <div className={DCss.pages}>
-          <div className={DCss.arrow}>{`<<`}</div>
-          <div className={DCss.numbers}>
-            <div className={DCss.active}>1</div>
-            <div className={DCss.inactive}>2</div>
-            <div className={DCss.inactive}>3</div>
-          </div>
-          <div className={DCss.arrow}>{`>>`}</div>
-        </div>
-        <div></div>
-      </div> */}
 
       <div>
         <button
