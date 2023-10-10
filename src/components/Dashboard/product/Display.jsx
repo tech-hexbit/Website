@@ -234,7 +234,20 @@ export default function Display({ filteredlist, setfilteredlist }) {
           onClick={() => setCurrentPage(currentPage - 1)}
           disabled={currentPage === 1}
         >
-          Previous Page
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-chevron-left"
+          >
+            <path d="m15 18-6-6 6-6" />
+          </svg>
         </button>
         <span>Page {currentPage}</span>
         <button
@@ -242,7 +255,20 @@ export default function Display({ filteredlist, setfilteredlist }) {
           disabled={max}
           id="s"
         >
-          Next Page
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-chevron-right"
+          >
+            <path d="m9 18 6-6-6-6" />
+          </svg>
         </button>
       </div>
     </div>
