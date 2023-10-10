@@ -16,10 +16,17 @@ import DCss from "./Css/display.module.css";
 export default function Display({ filteredlist, setfilteredlist }) {
   const [load, setLoad] = useState(false);
   const [orderDel, setOrderDel] = useState([]);
+  const [prodcutsCount, setProdcutsCount] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [max, setmax] = useState(false);
 
   useEffect(() => {
     loadData();
-  }, []);
+  }, [currentPage]);
+
+  useEffect(() => {
+    maxPage();
+  }, [prodcutsCount, currentPage]);
 
   const authCtx = useContext(AuthContext);
 
@@ -27,11 +34,15 @@ export default function Display({ filteredlist, setfilteredlist }) {
     setLoad(true);
 
     try {
-      const response = await axios.get("/api/common/product/all", {
-        headers: { Authorization: `${authCtx.token}` },
-      });
+      const response = await axios.get(
+        `/api/common/product/all?page=${currentPage}`,
+        {
+          headers: { Authorization: `${authCtx.token}` },
+        }
+      );
 
       if (response.data.success) {
+        setProdcutsCount(response?.data?.length);
         setOrderDel(response?.data?.orderList);
         setfilteredlist(response?.data?.orderList);
         setLoad(false);
@@ -76,6 +87,18 @@ export default function Display({ filteredlist, setfilteredlist }) {
     }
   };
 
+  const maxPage = () => {
+    if (prodcutsCount > 0) {
+      if (currentPage === Math.ceil(prodcutsCount / 5)) {
+        setmax(true);
+      } else {
+        setmax(false);
+      }
+    } else {
+      setmax(true);
+    }
+  };
+
   return (
     <div className={DCss.mainDiv}>
       <div className={DCss.top}>
@@ -104,7 +127,6 @@ export default function Display({ filteredlist, setfilteredlist }) {
               {orderDel?.length > 0 ? (
                 <>
                   <tr>
-                    {/* <th></th> */}
                     <th>Product</th>
                     <th>Price</th>
                     <th id={DCss.stock}>Stock</th>
@@ -116,9 +138,6 @@ export default function Display({ filteredlist, setfilteredlist }) {
                     return (
                       <>
                         <tr key={key}>
-                          {/* <td id={DCss.checkBox}>
-                            <input type="checkbox" name="" id="" />
-                          </td> */}
                           <td className={DCss.row} id={DCss.col1}>
                             <Link
                               to={`/products/${val._id}`}
@@ -165,7 +184,6 @@ export default function Display({ filteredlist, setfilteredlist }) {
                             <div className={DCss.dots}>
                               <div
                                 className={DCss.deleteDiv}
-                                // style={{ marginTop: "-5px" }}
                                 onClick={() => deleteproduct(val._id)}
                               >
                                 <svg
@@ -201,28 +219,60 @@ export default function Display({ filteredlist, setfilteredlist }) {
             <p className={DCss.showingPTag}>
               Showing{" "}
               {filteredlist?.length <= 5 ? (
-                <b>{filteredlist?.length} </b>
+                <b>{5 * (currentPage - 1) + filteredlist?.length} </b>
               ) : (
                 <b>5</b>
               )}{" "}
-              of <b>{filteredlist?.length}</b> results
+              of <b>{prodcutsCount}</b> results
             </p>
           </div>
         )}
       </div>
 
-      <div className={DCss.bottom}>
-        <div></div>
-        <div className={DCss.pages}>
-          <div className={DCss.arrow}>{`<<`}</div>
-          <div className={DCss.numbers}>
-            <div className={DCss.active}>1</div>
-            {/* <div className={DCss.inactive}>2</div> */}
-            {/* <div className={DCss.inactive}>3</div> */}
-          </div>
-          <div className={DCss.arrow}>{`>>`}</div>
-        </div>
-        <div></div>
+      <div className={DCss.cenDiv}>
+        <button
+          onClick={() => setCurrentPage(currentPage - 1)}
+          disabled={currentPage === 1}
+          className={DCss.btnnb}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-chevrons-left"
+          >
+            <path d="m11 17-5-5 5-5" />
+            <path d="m18 17-5-5 5-5" />
+          </svg>
+        </button>
+        <span>{currentPage}</span>
+        <button
+          onClick={() => setCurrentPage(currentPage + 1)}
+          disabled={max}
+          className={DCss.btnnb}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-chevrons-right"
+          >
+            <path d="m6 17 5-5-5-5" />
+            <path d="m13 17 5-5-5-5" />
+          </svg>
+        </button>
       </div>
     </div>
   );

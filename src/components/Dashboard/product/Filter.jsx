@@ -14,10 +14,10 @@ import AuthContext from "./../../../store/auth-context";
 
 export default function Filter({ filteredlist, setfilteredlist }) {
   const [load, setLoad] = useState(false);
+  const [onFil, offFil] = useState(false);
   const [unique, setunique] = useState([]);
   const [orderDel, setOrderDel] = useState([]);
   const [category, setcategory] = useState([]);
-  const [onFil, offFil] = useState(false);
   const [allcategory, setallcategory] = useState([]);
 
   useEffect(() => {
