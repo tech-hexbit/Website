@@ -16,10 +16,11 @@ import DCss from "./Css/display.module.css";
 export default function Display({ filteredlist, setfilteredlist }) {
   const [load, setLoad] = useState(false);
   const [orderDel, setOrderDel] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     loadData();
-  }, []);
+  }, [currentPage]);
 
   const authCtx = useContext(AuthContext);
 
@@ -27,9 +28,12 @@ export default function Display({ filteredlist, setfilteredlist }) {
     setLoad(true);
 
     try {
-      const response = await axios.get("/api/common/product/all", {
-        headers: { Authorization: `${authCtx.token}` },
-      });
+      const response = await axios.get(
+        `/api/common/product/all?page=${currentPage}`,
+        {
+          headers: { Authorization: `${authCtx.token}` },
+        }
+      );
 
       if (response.data.success) {
         setOrderDel(response?.data?.orderList);
@@ -211,18 +215,31 @@ export default function Display({ filteredlist, setfilteredlist }) {
         )}
       </div>
 
-      <div className={DCss.bottom}>
+      {/* <div className={DCss.bottom}>
         <div></div>
         <div className={DCss.pages}>
           <div className={DCss.arrow}>{`<<`}</div>
           <div className={DCss.numbers}>
             <div className={DCss.active}>1</div>
-            {/* <div className={DCss.inactive}>2</div> */}
-            {/* <div className={DCss.inactive}>3</div> */}
+            <div className={DCss.inactive}>2</div>
+            <div className={DCss.inactive}>3</div>
           </div>
           <div className={DCss.arrow}>{`>>`}</div>
         </div>
         <div></div>
+      </div> */}
+
+      <div>
+        <button
+          onClick={() => setCurrentPage(currentPage - 1)}
+          disabled={currentPage === 1}
+        >
+          Previous Page
+        </button>
+        <span>Page {currentPage}</span>
+        <button onClick={() => setCurrentPage(currentPage + 1)}>
+          Next Page
+        </button>
       </div>
     </div>
   );
