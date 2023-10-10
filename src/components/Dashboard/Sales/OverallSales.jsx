@@ -22,6 +22,9 @@ export default function OverallSales() {
   const [orderDelCopy, setOrderDelCopy] = useState([]);
   const [Saveload, setSaveLoad] = useState(false);
   const [selectedValue, setSelectedValue] = useState("");
+  const [prodcutsCount, setProdcutsCount] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [max, setmax] = useState(false);
   const [active, setActive] = useState({
     pdt: true,
     fashion: false,
@@ -46,7 +49,11 @@ export default function OverallSales() {
 
   useEffect(() => {
     loadData();
-  }, []);
+  }, [currentPage]);
+
+  useEffect(() => {
+    maxPage();
+  }, [prodcutsCount, currentPage]);
 
   useEffect(() => {
     const u = (buyer) => [...new Set(buyer)];
@@ -77,11 +84,15 @@ export default function OverallSales() {
     setLoad(true);
 
     try {
-      const response = await axios.get("/api/common/Order/all", {
-        headers: { Authorization: `${authCtx.token}` },
-      });
+      const response = await axios.get(
+        `/api/common/Order/all?page=${currentPage}`,
+        {
+          headers: { Authorization: `${authCtx.token}` },
+        }
+      );
 
       if (response.data.success) {
+        setProdcutsCount(response?.data?.length);
         setOrderDel(response.data.orderList);
         setOrderDelCopy(response.data.orderList);
 
@@ -99,6 +110,18 @@ export default function OverallSales() {
       setLoad(false);
 
       console.log(e);
+    }
+  };
+
+  const maxPage = () => {
+    if (prodcutsCount > 0) {
+      if (currentPage === Math.ceil(prodcutsCount / 5)) {
+        setmax(true);
+      } else {
+        setmax(false);
+      }
+    } else {
+      setmax(true);
     }
   };
 
@@ -562,25 +585,57 @@ export default function OverallSales() {
           </table>
 
           <p className={osCss.showingPTag}>
-            Showing <b>{orderDel?.length} </b>
-            of <b>{orderDel?.length}</b> results
+            Showing <b>{5 * (currentPage - 1) + orderDel?.length} </b>
+            of <b>{prodcutsCount}</b> results
           </p>
         </div>
       </div>
 
-      {/* <div className={osCss.bottom}>
-        <div></div>
-        <div className={osCss.pages}>
-          <div className={osCss.arrow}>{`<<`}</div>
-          <div className={osCss.numbers}>
-            <div className={osCss.active}>1</div>
-            <div className={osCss.inactive}>2</div>
-            <div className={osCss.inactive}>3</div>
-          </div>
-          <div className={osCss.arrow}>{`>>`}</div>
-        </div>
-        <div></div>
-      </div> */}
+      <div className={osCss.cenDiv}>
+        <button
+          onClick={() => setCurrentPage(currentPage - 1)}
+          disabled={currentPage === 1}
+          className={osCss.btnnb}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-chevrons-left"
+          >
+            <path d="m11 17-5-5 5-5" />
+            <path d="m18 17-5-5 5-5" />
+          </svg>
+        </button>
+        <span>{currentPage}</span>
+        <button
+          onClick={() => setCurrentPage(currentPage + 1)}
+          disabled={max}
+          className={osCss.btnnb}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-chevrons-right"
+          >
+            <path d="m6 17 5-5-5-5" />
+            <path d="m13 17 5-5-5-5" />
+          </svg>
+        </button>
+      </div>
     </div>
   );
 }
