@@ -167,10 +167,10 @@ export default function Header() {
                       </div>
                     </div>
                     <div className={HPCss.lastsection}>
-                      <div className={HPCss.logodiv}>
+                      {/* <div className={HPCss.logodiv}>
                         <div className={HPCss.businesstext}>Logo</div>
                         <div className={HPCss.labels} />
-                      </div>
+                      </div> */}
                       <div className={HPCss.logodiv}>
                         <div className={HPCss.businesstext}>About</div>
                         <div className={HPCss.labels}>
@@ -179,14 +179,15 @@ export default function Header() {
                           </p>
                         </div>
                       </div>
+
+                      <div className={HPCss.logo}>
+                        <img
+                          className={HPCss.image}
+                          alt="Image"
+                          src={userData.image}
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <div className={HPCss.logo}>
-                    <img
-                      className={HPCss.image}
-                      alt="Image"
-                      src={userData.image}
-                    />
                   </div>
                 </div>
               </div>
