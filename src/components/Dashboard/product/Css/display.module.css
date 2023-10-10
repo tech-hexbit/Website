@@ -184,9 +184,12 @@ th:nth-child(2) {
 .cenDiv {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 0px 10px;
 }
 
 .btnnb {
-  background-color: red;
+  background-color: transparent;
+  border-width: 0px;
+  margin: 5px 0px 0px 0px;
 }
