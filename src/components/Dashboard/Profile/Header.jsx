@@ -175,18 +175,18 @@ export default function Header() {
                         <div className={HPCss.businesstext}>About</div>
                         <div className={HPCss.labels}>
                           <p className={HPCss.abouttext}>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing
-                            elit. Aut minima debitis possimus repellendus
-                            tempore et quidem, vitae autem eveniet similique
-                            saepe perspiciatis ipsum aliquid ducimus. Repellat
-                            autem ipsum esse accusantium?
+                            {userData.AdditionalInfo}
                           </p>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div className={HPCss.logo}>
-                    <img className={HPCss.image} alt="Image" src="" />
+                    <img
+                      className={HPCss.image}
+                      alt="Image"
+                      src={userData.image}
+                    />
                     <div className={HPCss.logotext}>Logo here</div>
                   </div>
                 </div>
