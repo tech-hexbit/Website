@@ -16,11 +16,17 @@ import DCss from "./Css/display.module.css";
 export default function Display({ filteredlist, setfilteredlist }) {
   const [load, setLoad] = useState(false);
   const [orderDel, setOrderDel] = useState([]);
+  const [prodcutsCount, setProdcutsCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
+  const [max, setmax] = useState(false);
 
   useEffect(() => {
     loadData();
   }, [currentPage]);
+
+  useEffect(() => {
+    maxPage();
+  }, [prodcutsCount, currentPage]);
 
   const authCtx = useContext(AuthContext);
 
@@ -36,6 +42,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
       );
 
       if (response.data.success) {
+        setProdcutsCount(response?.data?.length);
         setOrderDel(response?.data?.orderList);
         setfilteredlist(response?.data?.orderList);
         setLoad(false);
@@ -77,6 +84,18 @@ export default function Display({ filteredlist, setfilteredlist }) {
       setfilteredlist(orderDel);
     } else {
       setfilteredlist(updatedprod);
+    }
+  };
+
+  const maxPage = () => {
+    if (prodcutsCount > 0) {
+      if (currentPage === Math.ceil(prodcutsCount / 5)) {
+        setmax(true);
+      } else {
+        setmax(false);
+      }
+    } else {
+      setmax(true);
     }
   };
 
@@ -209,7 +228,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
               ) : (
                 <b>5</b>
               )}{" "}
-              of <b>{filteredlist?.length}</b> results
+              of <b>{prodcutsCount}</b> results
             </p>
           </div>
         )}
@@ -237,7 +256,11 @@ export default function Display({ filteredlist, setfilteredlist }) {
           Previous Page
         </button>
         <span>Page {currentPage}</span>
-        <button onClick={() => setCurrentPage(currentPage + 1)}>
+        <button
+          onClick={() => setCurrentPage(currentPage + 1)}
+          disabled={max}
+          id="s"
+        >
           Next Page
         </button>
       </div>
