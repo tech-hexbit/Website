@@ -219,7 +219,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
             <p className={DCss.showingPTag}>
               Showing{" "}
               {filteredlist?.length <= 5 ? (
-                <b>{filteredlist?.length} </b>
+                <b>{5 * (currentPage - 1) + filteredlist?.length} </b>
               ) : (
                 <b>5</b>
               )}{" "}
