@@ -14,7 +14,7 @@
   margin-bottom: 30px;
 }
 
-.text-center{
+.text-center {
   cursor: pointer;
 }
 
@@ -131,9 +131,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
- 
 }
-
 
 .TagP {
   border-radius: 5px;
@@ -154,7 +152,7 @@
   margin: 5px;
 }
 
-.inputt input{
+.inputt input {
   background-color: transparent;
   border: none;
   outline: none;
@@ -183,4 +181,9 @@
   letter-spacing: 0.2px;
   margin-bottom: 30px;
   cursor: pointer;
+}
+
+.prevImg {
+  width: 100px;
+  height: 100px;
 }

@@ -77,7 +77,6 @@ export default function Form() {
   const handleImage = (e) => {
     console.log(e.target.files[0]);
     setImageUpload(e.target.files[0]);
-    console.log(imageUpload);
   };
 
   const openModal = (msg) => {
@@ -647,6 +646,17 @@ export default function Form() {
             style={{ display: "none" }}
             ref={fileInp}
           />
+
+          {imageUpload ? (
+            <img
+              src={URL.createObjectURL(imageUpload)}
+              alt=""
+              className={FCss.prevImg}
+            />
+          ) : (
+            ""
+          )}
+
           <div className={FCss.addImgDiv} onClick={handleClick}>
             {/* <div> */}
             {/* <button>+</button>
