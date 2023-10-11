@@ -658,16 +658,9 @@ export default function Form() {
           )}
 
           <div className={FCss.addImgDiv} onClick={handleClick}>
-            {/* <div> */}
-            {/* <button>+</button>
-            <input type="file" name="file" onChange={handleImage} /> */}
-            {/* <div {...getRootProps({ className: "dropzone" })}> */}
-            {/* <input className={FCss["input-zone"]} {...getInputProps()} /> */}
-
             <div className={FCss["text-center"]}>
               <p className={FCss["dropzone-content"]}>+</p>
             </div>
-            {/* </div> */}
           </div>
         </div>
       </div>
