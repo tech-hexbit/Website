@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useRef, useEffect, useState } from "react";
 
 // axios
 import axios from "axios";
@@ -15,8 +15,11 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 export default function Header() {
   const [load, setLoad] = useState(false);
   const [userData, setUserData] = useState({});
+  const [imageUpload, setImageUpload] = useState();
 
   const authCtx = useContext(AuthContext);
+
+  const fileInp = useRef(null);
 
   const loadData = async () => {
     setLoad(true);
@@ -43,6 +46,15 @@ export default function Header() {
   useEffect(() => {
     loadData();
   }, []);
+
+  const handleImage = (e) => {
+    console.log(e.target.files[0]);
+    setImageUpload(e.target.files[0]);
+  };
+
+  const handleClick = () => {
+    fileInp.current.click();
+  };
 
   return (
     <>
@@ -178,11 +190,34 @@ export default function Header() {
                       </div>
 
                       <div className={HPCss.logo}>
-                        <img
-                          className={HPCss.image}
-                          alt="Image"
-                          src={userData.image}
-                        />
+                        <div className={HPCss.addimgDivMain}>
+                          <input
+                            type="file"
+                            name="file"
+                            onChange={handleImage}
+                            style={{ display: "none" }}
+                            ref={fileInp}
+                          />
+
+                          {imageUpload ? (
+                            <img
+                              src={URL.createObjectURL(imageUpload)}
+                              alt=""
+                              className={HPCss.prevImg}
+                            />
+                          ) : (
+                            ""
+                          )}
+
+                          <div
+                            className={HPCss.addImgDiv}
+                            onClick={handleClick}
+                          >
+                            <div className={HPCss["text-center"]}>
+                              <p className={HPCss["dropzone-content"]}>+</p>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
