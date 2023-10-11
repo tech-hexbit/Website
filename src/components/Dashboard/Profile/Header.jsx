@@ -56,6 +56,8 @@ export default function Header() {
     fileInp.current.click();
   };
 
+  const onSubmit = async () => {};
+
   return (
     <>
       <div className={HPCss.background}>
@@ -217,6 +219,9 @@ export default function Header() {
                               <p className={HPCss["dropzone-content"]}>+</p>
                             </div>
                           </div>
+                        </div>
+                        <div className={HPCss.SubmitBtn} onClick={onSubmit}>
+                          Submit
                         </div>
                       </div>
                     </div>
