@@ -344,6 +344,36 @@
   width: fit-content;
 }
 
+.addImgDiv {
+  width: 120px;
+  height: 130px;
+  background-color: #dbdbdb;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #777;
+  font-family: "Merriweather", serif;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 40.811px;
+  letter-spacing: 0.653px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.addimgDivMain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.prevImg {
+  width: 100px;
+  height: 100px;
+}
+
 @media only screen and (max-width: 650px) {
   .mDiv {
     margin-top: 30px;
