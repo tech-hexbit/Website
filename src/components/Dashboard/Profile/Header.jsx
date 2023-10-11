@@ -64,7 +64,20 @@ export default function Header() {
       console.log(key[0] + ", " + key[1]);
     }
 
-    console.log(formData);
+    try {
+      const response = await axios.post(
+        "/api/common/product/AddProduct",
+        formData,
+        { headers: { Authorization: `${authCtx.token}` } }
+      );
+      console.log(response);
+
+      if (response.data.success) {
+        console.log(response);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
