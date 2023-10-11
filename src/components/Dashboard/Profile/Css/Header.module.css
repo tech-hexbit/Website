@@ -49,12 +49,15 @@
   line-height: 22px;
   letter-spacing: 0.16px;
 }
+
 .personalinfotab {
   padding-top: 60px;
 }
+
 .heading {
   font-size: 26px;
 }
+
 .box {
   border: 1px dashed;
   border-color: rgba(170, 170, 170, 1);
@@ -116,9 +119,11 @@
   width: 445px;
   padding: 5px;
 }
+
 .info {
   padding: 8px;
 }
+
 .inputheading-2 {
   color: #000000;
   font-family: "OpenSans-Regular", Helvetica;
@@ -152,9 +157,11 @@
   position: relative;
   width: 1040px;
 }
+
 .businessinfotab {
   padding-top: 60px;
 }
+
 .box2 {
   border: 1px dashed;
   border-color: rgba(170, 170, 170, 1);
@@ -259,11 +266,15 @@
 }
 
 .lastsection {
-  align-items: flex-start;
-  display: inline-flex;
-  gap: 150px;
-  height: 214px;
-  white-space: pre-line;
+  /* align-items: flex-start; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  /* gap: 150px; */
+  /* height: 214px; */
+  /* white-space: pre-line; */
 }
 
 .logodiv {
@@ -303,13 +314,16 @@
 }
 
 .logo {
-  align-items: flex-end;
-  display: inline-flex;
+  margin-left: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(221, 221, 221, 1);
+  width: 50%;
+  height: 187px;
+  display: flex;
   flex-direction: column;
-  gap: 8px;
-  left: 172px;
-  position: absolute;
-  top: 454px;
+  justify-content: center;
+  align-items: center;
 }
 
 .image {
@@ -330,17 +344,57 @@
   white-space: nowrap;
   width: fit-content;
 }
+
+.addImgDiv {
+  width: 120px;
+  height: 130px;
+  background-color: #dbdbdb;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #777;
+  font-family: "Merriweather", serif;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 40.811px;
+  letter-spacing: 0.653px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.addimgDivMain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.prevImg {
+  width: 100px;
+  height: 100px;
+}
+
+.SubmitBtn {
+  font-size: 16px;
+  width: 90%;
+  text-align: right;
+}
+
 @media only screen and (max-width: 650px) {
   .mDiv {
     margin-top: 30px;
   }
+
   .imgHeaderP {
     width: 70px;
     height: 70px;
   }
+
   .delPName {
     font-size: 20px;
   }
+
   .delDes {
     font-size: 12px;
   }
