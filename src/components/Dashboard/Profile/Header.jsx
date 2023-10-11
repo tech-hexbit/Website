@@ -44,9 +44,6 @@ export default function Header() {
     loadData();
   }, []);
 
-  useEffect(() => {
-    console.log(userData.Email);
-  }, [userData]);
   return (
     <>
       <div className={HPCss.background}>
