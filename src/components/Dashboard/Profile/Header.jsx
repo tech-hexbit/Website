@@ -56,7 +56,16 @@ export default function Header() {
     fileInp.current.click();
   };
 
-  const onSubmit = async () => {};
+  const onSubmit = async () => {
+    const formData = new FormData();
+    formData.append("images", imageUpload);
+
+    for (var key of formData.entries()) {
+      console.log(key[0] + ", " + key[1]);
+    }
+
+    console.log(formData);
+  };
 
   return (
     <>
