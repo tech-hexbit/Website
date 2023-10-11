@@ -65,11 +65,9 @@ export default function Header() {
     }
 
     try {
-      const response = await axios.post(
-        "/api/common/product/AddProduct",
-        formData,
-        { headers: { Authorization: `${authCtx.token}` } }
-      );
+      const response = await axios.post("/api/website/auth/EditMe", formData, {
+        headers: { Authorization: `${authCtx.token}` },
+      });
       console.log(response);
 
       if (response.data.success) {
