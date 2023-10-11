@@ -321,6 +321,7 @@
   width: 50%;
   height: 187px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -372,6 +373,12 @@
 .prevImg {
   width: 100px;
   height: 100px;
+}
+
+.SubmitBtn {
+  font-size: 16px;
+  width: 90%;
+  text-align: right;
 }
 
 @media only screen and (max-width: 650px) {
