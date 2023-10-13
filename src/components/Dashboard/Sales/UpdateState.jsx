@@ -78,12 +78,7 @@ export default function UpdateState(props) {
       >
         {edit ? (
           <>
-            <select
-              name=""
-              //   id={key}
-              value={selectedValue}
-              onChange={handleSelectChange}
-            >
+            <select name="" value={selectedValue} onChange={handleSelectChange}>
               <option value="Select" selected hidden>
                 Select the Updated Status
               </option>
@@ -135,6 +130,9 @@ export default function UpdateState(props) {
                   stroke-linejoin="round"
                   class="lucide lucide-ban"
                   className={osCss.lucideCancel}
+                  onClick={() => {
+                    setEdit(!edit);
+                  }}
                 >
                   <circle cx="12" cy="12" r="10" />
                   <path d="m4.9 4.9 14.2 14.2" />
