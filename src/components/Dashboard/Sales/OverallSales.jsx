@@ -25,12 +25,6 @@ export default function OverallSales() {
   const [prodcutsCount, setProdcutsCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [max, setmax] = useState(false);
-  const [active, setActive] = useState({
-    pdt: true,
-    fashion: false,
-    grocery: false,
-    furniture: false,
-  });
 
   // Add a state variable to track the sort order
   const [sortOrder, setSortOrder] = useState("asc");
