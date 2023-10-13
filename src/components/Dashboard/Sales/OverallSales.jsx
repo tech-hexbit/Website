@@ -19,12 +19,9 @@ import osCss from "./Css/overallSales.module.css";
 
 export default function OverallSales() {
   const [search, setSearch] = useState("");
-  const [edit, setEdit] = useState(false);
   const [load, setLoad] = useState(false);
   const [orderDel, setOrderDel] = useState([]);
   const [orderDelCopy, setOrderDelCopy] = useState([]);
-  const [Saveload, setSaveLoad] = useState(false);
-  const [selectedValue, setSelectedValue] = useState("");
   const [prodcutsCount, setProdcutsCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [max, setmax] = useState(false);
@@ -78,10 +75,6 @@ export default function OverallSales() {
 
   const authCtx = useContext(AuthContext);
 
-  const handleSelectChange = (event) => {
-    setSelectedValue(event.target.value);
-  };
-
   const loadData = async () => {
     setLoad(true);
 
@@ -124,44 +117,6 @@ export default function OverallSales() {
       }
     } else {
       setmax(true);
-    }
-  };
-
-  const UpdateData = async (id) => {
-    setSaveLoad(true);
-    try {
-      if (selectedValue !== "" || selectedValue !== "Select") {
-        let data = {
-          value: selectedValue,
-          Id: id,
-        };
-
-        const response = await axios.post(
-          "/api/common/Order/UpdateState",
-          data,
-          {
-            headers: { Authorization: `${authCtx.token}` },
-          }
-        );
-
-        if (response.data.success) {
-          setSaveLoad(false);
-          setSelectedValue("Select");
-
-          loadData();
-
-          setEdit(!edit);
-        } else {
-          setSaveLoad(false);
-        }
-      } else {
-        setSaveLoad(false);
-      }
-    } catch (e) {
-      setLoad(false);
-      setSaveLoad(false);
-
-      console.log(e);
     }
   };
 
