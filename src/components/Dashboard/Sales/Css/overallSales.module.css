@@ -207,6 +207,12 @@ tr:nth-child(even) td {
   cursor: pointer;
 }
 
+.lucideCancel {
+  margin-left: 5px;
+  color: #ff0000;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1260px) {
   .table table {
     width: 100vw;
