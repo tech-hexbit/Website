@@ -158,33 +158,87 @@ export default function Form() {
       schedule_Date_and_time,
     } = data;
 
-    const formData = new FormData();
-    formData.append("data", JSON.stringify(data));
-    formData.append("images", imageUpload);
+    if (
+      (name !== "",
+      symbol !== "",
+      short_desc !== "" &&
+        long_desc !== "" &&
+        images !== "" &&
+        maximumCount !== "" &&
+        value !== "" &&
+        maximum_value !== "" &&
+        category_id !== "" &&
+        fulfillment_id !== "" &&
+        location_id !== "" &&
+        ondcOrgreturnable !== "" &&
+        ondcOrgcancellable !== "" &&
+        ondcOrgreturn_window !== "" &&
+        ondcOrgseller_pickup_return !== "" &&
+        ondcOrgtime_to_ship !== "" &&
+        ondcOrgavailable_on_cod !== "" &&
+        ondcOrgcontact_details_consumer_care !== "" &&
+        manufacturer_or_packer_name !== "" &&
+        brand_name !== "" &&
+        Discounts !== "" &&
+        Sizes !== "" &&
+        Colors !== "" &&
+        manufacturer_or_packer_address !== "" &&
+        common_or_generic_name_of_commodity !== "" &&
+        net_quantity_or_measure_of_commodity_in_pkg !== "" &&
+        month_year_of_manufacture_packing_import !== "" &&
+        nutritional_info !== "" &&
+        additives_info !== "" &&
+        brand_owner_FSSAI_license_no !== "" &&
+        other_FSSAI_license_no !== "" &&
+        importer_FSSAI_license_no !== "" &&
+        net_quantity !== "" &&
+        veg !== "" &&
+        non_veg !== "" &&
+        Status !== "" &&
+        Visibility !== "" &&
+        schedule_Date_and_time !== "")
+    ) {
+      const formData = new FormData();
+      formData.append("data", JSON.stringify(data));
+      formData.append("images", imageUpload);
 
-    for (var key of formData.entries()) {
-      console.log(key[0] + ", " + key[1]);
-    }
+      for (var key of formData.entries()) {
+        console.log(key[0] + ", " + key[1]);
+      }
 
-    try {
-      const response = await axios.post(
-        "/api/common/product/AddProduct",
-        formData,
-        { headers: { Authorization: `${authCtx.token}` } }
-      );
+      try {
+        const response = await axios.post(
+          "/api/common/product/AddProduct",
+          formData,
+          { headers: { Authorization: `${authCtx.token}` } }
+        );
 
-      if (response.data.success) {
-        setLoad(false);
+        if (response.data.success) {
+          setLoad(false);
 
-        setError({
-          mainColor: "#EDFEEE",
-          secondaryColor: "#5CB660",
-          symbol: "check_circle",
-          title: "Success",
-          text: "Successfully Added",
-          val: true,
-        });
-      } else {
+          setError({
+            mainColor: "#EDFEEE",
+            secondaryColor: "#5CB660",
+            symbol: "check_circle",
+            title: "Success",
+            text: "Successfully Added",
+            val: true,
+          });
+        } else {
+          setLoad(false);
+
+          setError({
+            mainColor: "#FDEDED",
+            secondaryColor: "#F16360",
+            symbol: "error",
+            title: "Error",
+            text: "Poduct Addition Failed",
+            val: true,
+          });
+        }
+      } catch (error) {
+        console.log(error);
+
         setLoad(false);
 
         setError({
@@ -196,17 +250,15 @@ export default function Form() {
           val: true,
         });
       }
-    } catch (error) {
-      console.log(error);
-
+    } else {
       setLoad(false);
 
       setError({
-        mainColor: "#FDEDED",
-        secondaryColor: "#F16360",
-        symbol: "error",
-        title: "Error",
-        text: "Poduct Addition Failed",
+        mainColor: "#FFC0CB",
+        secondaryColor: "#FF69B4",
+        symbol: "pets",
+        title: "Check it out",
+        text: "Please Fill All The Details",
         val: true,
       });
     }
