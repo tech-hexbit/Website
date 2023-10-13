@@ -8,9 +8,6 @@ import axios from "axios";
 // state
 import AuthContext from "../../../store/auth-context";
 
-// img
-import upload from "./../../../assets/dashboard/upload.svg";
-
 // css
 import FCss from "./Css/Form.module.css";
 
