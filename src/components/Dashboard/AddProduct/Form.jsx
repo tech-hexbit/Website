@@ -113,6 +113,18 @@ export default function Form() {
       : setData({ ...data, veg: false, non_veg: true });
   };
 
+  const addtags = (e) => {
+    if ((e.keyCode === 13 && tagvalue) || (e.keyCode === 188 && tagvalue)) {
+      settags([...tags, tagvalue]);
+      settagvalue("");
+    }
+  };
+
+  const deletetag = (val) => {
+    let remaintags = tags.filter((t) => t != val);
+    settags(remaintags);
+  };
+
   const onSubmit = async () => {
     setLoad(true);
 
@@ -275,18 +287,6 @@ export default function Form() {
         val: true,
       });
     }
-  };
-
-  const addtags = (e) => {
-    if ((e.keyCode === 13 && tagvalue) || (e.keyCode === 188 && tagvalue)) {
-      settags([...tags, tagvalue]);
-      settagvalue("");
-    }
-  };
-
-  const deletetag = (val) => {
-    let remaintags = tags.filter((t) => t != val);
-    settags(remaintags);
   };
 
   return (
