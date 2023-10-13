@@ -30,18 +30,19 @@ const UploadCsvPopup = ({ setShowPopup, setError }) => {
       });
       return;
     }
+
     console.log("file->", file);
+
     const formData = new FormData();
     formData.append("Excel", file);
     formData.append("ExcelName", file.name);
+
     const response = await axios.post("/api/common/product/AddBulk", formData, {
       headers: {
         Authorization: `${authCtx.token}`,
         "Content-Type": "multipart/form-data",
       },
     });
-
-    console.log(response);
 
     if (response.status === 200) {
       setError({
