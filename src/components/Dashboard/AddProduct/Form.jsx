@@ -42,7 +42,6 @@ export default function Form() {
     images:
       "https://beebom.com/wp-content/uploads/2021/07/rog-phone-5-review-2.jpg?quality=75&strip=all",
     maximumCount: 0,
-    value: 0,
     maximum_value: 0,
     category_id: "",
     fulfillment_id: 1,
@@ -84,7 +83,6 @@ export default function Form() {
   };
 
   const handleImage = (e) => {
-    console.log(e.target.files[0]);
     setImageUpload(e.target.files[0]);
   };
 
@@ -114,36 +112,155 @@ export default function Form() {
       : setData({ ...data, veg: false, non_veg: true });
   };
 
+  const addtags = (e) => {
+    if ((e.keyCode === 13 && tagvalue) || (e.keyCode === 188 && tagvalue)) {
+      settags([...tags, tagvalue]);
+      settagvalue("");
+    }
+  };
+
+  const deletetag = (val) => {
+    let remaintags = tags.filter((t) => t != val);
+    settags(remaintags);
+  };
+
   const onSubmit = async () => {
     setLoad(true);
 
-    const formData = new FormData();
-    formData.append("data", JSON.stringify(data));
-    formData.append("images", imageUpload);
+    if (!imageUpload) {
+      setLoad(false);
 
-    for (var key of formData.entries()) {
-      console.log(key[0] + ", " + key[1]);
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "Please select an Image",
+        val: true,
+      });
+      return;
     }
 
-    try {
-      const response = await axios.post(
-        "/api/common/product/AddProduct",
-        formData,
-        { headers: { Authorization: `${authCtx.token}` } }
-      );
+    const {
+      name,
+      symbol,
+      short_desc,
+      long_desc,
+      images,
+      maximumCount,
+      maximum_value,
+      category_id,
+      fulfillment_id,
+      location_id,
+      ondcOrgreturnable,
+      ondcOrgcancellable,
+      ondcOrgreturn_window,
+      ondcOrgseller_pickup_return,
+      ondcOrgtime_to_ship,
+      ondcOrgavailable_on_cod,
+      ondcOrgcontact_details_consumer_care,
+      manufacturer_or_packer_name,
+      brand_name,
+      Discounts,
+      Sizes,
+      Colors,
+      manufacturer_or_packer_address,
+      common_or_generic_name_of_commodity,
+      net_quantity_or_measure_of_commodity_in_pkg,
+      month_year_of_manufacture_packing_import,
+      nutritional_info,
+      additives_info,
+      brand_owner_FSSAI_license_no,
+      other_FSSAI_license_no,
+      importer_FSSAI_license_no,
+      net_quantity,
+      veg,
+      non_veg,
+      Status,
+      Visibility,
+      schedule_Date_and_time,
+    } = data;
 
-      if (response.data.success) {
-        setLoad(false);
+    if (
+      (name !== "",
+      symbol !== "",
+      short_desc !== "" &&
+        long_desc !== "" &&
+        images !== "" &&
+        maximumCount !== "" &&
+        maximum_value !== 0 &&
+        category_id !== "" &&
+        fulfillment_id !== 0 &&
+        location_id !== "" &&
+        ondcOrgreturnable !== "" &&
+        ondcOrgcancellable !== "" &&
+        ondcOrgreturn_window !== "" &&
+        ondcOrgseller_pickup_return !== "" &&
+        ondcOrgtime_to_ship !== "" &&
+        ondcOrgavailable_on_cod !== "" &&
+        ondcOrgcontact_details_consumer_care !== "" &&
+        manufacturer_or_packer_name !== "" &&
+        brand_name !== "" &&
+        Discounts !== "" &&
+        Sizes !== "" &&
+        Colors !== "" &&
+        manufacturer_or_packer_address !== "" &&
+        common_or_generic_name_of_commodity !== "" &&
+        net_quantity_or_measure_of_commodity_in_pkg !== "" &&
+        month_year_of_manufacture_packing_import !== "" &&
+        nutritional_info !== "" &&
+        additives_info !== "" &&
+        brand_owner_FSSAI_license_no !== "" &&
+        other_FSSAI_license_no !== "" &&
+        importer_FSSAI_license_no !== "" &&
+        net_quantity !== "" &&
+        veg !== "" &&
+        non_veg !== "" &&
+        Status !== "" &&
+        Visibility !== "" &&
+        schedule_Date_and_time !== "")
+    ) {
+      const formData = new FormData();
+      formData.append("data", JSON.stringify(data));
+      formData.append("images", imageUpload);
 
-        setError({
-          mainColor: "#EDFEEE",
-          secondaryColor: "#5CB660",
-          symbol: "check_circle",
-          title: "Success",
-          text: "Successfully Added",
-          val: true,
-        });
-      } else {
+      for (var key of formData.entries()) {
+        console.log(key[0] + ", " + key[1]);
+      }
+
+      try {
+        const response = await axios.post(
+          "/api/common/product/AddProduct",
+          formData,
+          { headers: { Authorization: `${authCtx.token}` } }
+        );
+
+        if (response.data.success) {
+          setLoad(false);
+
+          setError({
+            mainColor: "#EDFEEE",
+            secondaryColor: "#5CB660",
+            symbol: "check_circle",
+            title: "Success",
+            text: "Successfully Added",
+            val: true,
+          });
+        } else {
+          setLoad(false);
+
+          setError({
+            mainColor: "#FDEDED",
+            secondaryColor: "#F16360",
+            symbol: "error",
+            title: "Error",
+            text: "Poduct Addition Failed",
+            val: true,
+          });
+        }
+      } catch (error) {
+        console.log(error);
+
         setLoad(false);
 
         setError({
@@ -155,32 +272,18 @@ export default function Form() {
           val: true,
         });
       }
-    } catch (error) {
-      console.log(error);
-
+    } else {
       setLoad(false);
 
       setError({
-        mainColor: "#FDEDED",
-        secondaryColor: "#F16360",
-        symbol: "error",
-        title: "Error",
-        text: "Poduct Addition Failed",
+        mainColor: "#FFC0CB",
+        secondaryColor: "#FF69B4",
+        symbol: "pets",
+        title: "Check it out",
+        text: "Please Fill All The Details",
         val: true,
       });
     }
-  };
-
-  const addtags = (e) => {
-    if ((e.keyCode === 13 && tagvalue) || (e.keyCode === 188 && tagvalue)) {
-      settags([...tags, tagvalue]);
-      settagvalue("");
-    }
-  };
-
-  const deletetag = (val) => {
-    let remaintags = tags.filter((t) => t != val);
-    settags(remaintags);
   };
 
   return (
@@ -264,7 +367,7 @@ export default function Form() {
 
             {/* Price */}
             <div className={FCss.inpDiv}>
-              <p className={FCss.label}>Material Requirements Planning price</p>
+              <p className={FCss.label}>Maximum Retail Price</p>
               <input
                 type="number"
                 name="maximum_value"
