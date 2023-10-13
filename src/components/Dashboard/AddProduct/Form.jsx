@@ -117,6 +117,8 @@ export default function Form() {
   const onSubmit = async () => {
     setLoad(true);
 
+    console.log(handleImage);
+
     const {
       name,
       symbol,
