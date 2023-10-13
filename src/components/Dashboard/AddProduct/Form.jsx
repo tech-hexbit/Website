@@ -42,7 +42,6 @@ export default function Form() {
     images:
       "https://beebom.com/wp-content/uploads/2021/07/rog-phone-5-review-2.jpg?quality=75&strip=all",
     maximumCount: 0,
-    value: 0,
     maximum_value: 0,
     category_id: "",
     fulfillment_id: 1,
@@ -149,7 +148,6 @@ export default function Form() {
       long_desc,
       images,
       maximumCount,
-      value,
       maximum_value,
       category_id,
       fulfillment_id,
@@ -369,7 +367,7 @@ export default function Form() {
 
             {/* Price */}
             <div className={FCss.inpDiv}>
-              <p className={FCss.label}>Material Requirements Planning price</p>
+              <p className={FCss.label}>Maximum Retail Price</p>
               <input
                 type="number"
                 name="maximum_value"
