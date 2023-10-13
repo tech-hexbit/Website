@@ -165,10 +165,10 @@ export default function Form() {
         long_desc !== "" &&
         images !== "" &&
         maximumCount !== "" &&
-        value !== "" &&
-        maximum_value !== "" &&
+        value !== 0 &&
+        maximum_value !== 0 &&
         category_id !== "" &&
-        fulfillment_id !== "" &&
+        fulfillment_id !== 0 &&
         location_id !== "" &&
         ondcOrgreturnable !== "" &&
         ondcOrgcancellable !== "" &&
