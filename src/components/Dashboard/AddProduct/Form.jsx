@@ -15,13 +15,14 @@ import upload from "./../../../assets/dashboard/upload.svg";
 import FCss from "./Css/Form.module.css";
 
 export default function Form() {
+  const [tags, settags] = useState([]);
+  const [tagvalue, settagvalue] = useState("");
+  const [imageUpload, setImageUpload] = useState();
   const [PublishOpen, setPublishOpen] = useState(true);
   const [ServiceOpen, setServiceOpen] = useState(false);
-  const [tags, settags] = useState([]);
-  const [imageUpload, setImageUpload] = useState();
-  const [tagvalue, settagvalue] = useState("");
 
   const fileInp = useRef(null);
+
   const authCtx = useContext(AuthContext);
 
   const [data, setData] = useState({
@@ -109,16 +110,17 @@ export default function Form() {
     const formData = new FormData();
     formData.append("data", JSON.stringify(data));
     formData.append("images", imageUpload);
+
     for (var key of formData.entries()) {
       console.log(key[0] + ", " + key[1]);
     }
+
     try {
       const response = await axios.post(
         "/api/common/product/AddProduct",
         formData,
         { headers: { Authorization: `${authCtx.token}` } }
       );
-      console.log(response);
 
       if (response.data.success) {
         console.log(response);
@@ -140,8 +142,6 @@ export default function Form() {
     let remaintags = tags.filter((t) => t != val);
     settags(remaintags);
   };
-
-  const { getRootProps, getInputProps } = useDropzone({});
 
   return (
     <div>
