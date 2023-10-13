@@ -44,11 +44,7 @@ export default function OverallSales() {
 
   useEffect(() => {
     loadData();
-  }, [currentPage]);
-
-  useEffect(() => {
-    loadData();
-  }, [loadDataState]);
+  }, [currentPage, loadDataState]);
 
   useEffect(() => {
     maxPage();
