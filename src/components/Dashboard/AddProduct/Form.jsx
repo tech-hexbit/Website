@@ -117,6 +117,47 @@ export default function Form() {
   const onSubmit = async () => {
     setLoad(true);
 
+    const {
+      name,
+      symbol,
+      short_desc,
+      long_desc,
+      images,
+      maximumCount,
+      value,
+      maximum_value,
+      category_id,
+      fulfillment_id,
+      location_id,
+      ondcOrgreturnable,
+      ondcOrgcancellable,
+      ondcOrgreturn_window,
+      ondcOrgseller_pickup_return,
+      ondcOrgtime_to_ship,
+      ondcOrgavailable_on_cod,
+      ondcOrgcontact_details_consumer_care,
+      manufacturer_or_packer_name,
+      brand_name,
+      Discounts,
+      Sizes,
+      Colors,
+      manufacturer_or_packer_address,
+      common_or_generic_name_of_commodity,
+      net_quantity_or_measure_of_commodity_in_pkg,
+      month_year_of_manufacture_packing_import,
+      nutritional_info,
+      additives_info,
+      brand_owner_FSSAI_license_no,
+      other_FSSAI_license_no,
+      importer_FSSAI_license_no,
+      net_quantity,
+      veg,
+      non_veg,
+      Status,
+      Visibility,
+      schedule_Date_and_time,
+    } = data;
+
     const formData = new FormData();
     formData.append("data", JSON.stringify(data));
     formData.append("images", imageUpload);
