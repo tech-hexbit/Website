@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 
-import { useDropzone } from "react-dropzone";
-
 // axios
 import axios from "axios";
 
@@ -13,6 +11,7 @@ import FCss from "./Css/Form.module.css";
 
 export default function Form() {
   const [tags, settags] = useState([]);
+  const [load, setLoad] = useState(false);
   const [tagvalue, settagvalue] = useState("");
   const [imageUpload, setImageUpload] = useState();
   const [PublishOpen, setPublishOpen] = useState(true);
