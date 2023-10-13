@@ -84,7 +84,6 @@ export default function Form() {
   };
 
   const handleImage = (e) => {
-    console.log(e.target.files[0]);
     setImageUpload(e.target.files[0]);
   };
 
@@ -117,7 +116,19 @@ export default function Form() {
   const onSubmit = async () => {
     setLoad(true);
 
-    console.log(handleImage);
+    if (!imageUpload) {
+      setLoad(false);
+
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "Please select an Image",
+        val: true,
+      });
+      return;
+    }
 
     const {
       name,
