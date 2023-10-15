@@ -124,7 +124,7 @@ function App() {
                 }
               />
             )}
-            {authCtx.isLoggedIn && (
+            {/* {authCtx.isLoggedIn && (
               <Route
                 path="/products/:id"
                 element={
@@ -133,7 +133,7 @@ function App() {
                   </Suspense>
                 }
               />
-            )}
+            )} */}
             <Route
               path="*"
               element={
