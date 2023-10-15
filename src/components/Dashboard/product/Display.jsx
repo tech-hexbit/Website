@@ -22,7 +22,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
   const [prodcutsCount, setProdcutsCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [max, setmax] = useState(false);
-  const [showProductDel, setProductDel] = useState({ state: false, _id: "" });
+  const [showProductDel, setProductDel] = useState({ state: false, id: "" });
 
   useEffect(() => {
     loadData();
@@ -286,7 +286,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
         </div>
       </div>
 
-      {showProductDel.state ? <ProductsPage /> : ""}
+      {showProductDel.state ? <ProductsPage id={showProductDel.id} /> : ""}
     </>
   );
 }
