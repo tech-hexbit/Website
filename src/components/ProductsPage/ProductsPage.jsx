@@ -21,15 +21,13 @@ export default function ProductsPage(props) {
 
   // const { id } = useParams();
 
-  useEffect(() => {}, [props.id]);
-
   useEffect(() => {
-    loadProducts();
-  }, []);
+    loadProducts(props.id);
+  }, [props.id]);
 
   const authCtx = useContext(AuthContext);
 
-  const loadProducts = async () => {
+  const loadProducts = async (id) => {
     try {
       const response = await axios.get(`/api/common/product/details/${id}`, {
         headers: { Authorization: `${authCtx.token}` },
