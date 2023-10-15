@@ -108,7 +108,7 @@ const UploadCsvPopup = ({ setShowPopup, setError }) => {
             <button type="file" onClick={handleSubmit}>
               Upload file
             </button>
-            <a href="https://hexbitbucket2023.s3.ap-south-1.amazonaws.com/sample_csv/sample_csv.xlsx">
+            <a href="https://hexbitbucket2023.s3.ap-south-1.amazonaws.com/sample2_csv.xlsx">
               <button>Download Sample file</button>
             </a>
           </div>
