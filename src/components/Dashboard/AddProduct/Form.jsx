@@ -588,20 +588,6 @@ export default function Form() {
                       className={FCss.inp}
                       onChange={updateData}
                     />
-
-                    {/* <select
-                    name="schedule_Date_and_time"
-                    id=""
-                    className={FCss.inp}
-                    onChange={updateData}
-                  >
-                    <option value="" selected hidden>
-                      Select date and time
-                    </option>
-                    <option value="Public">
-                      <input type="date" name="" id="" />
-                    </option>
-                  </select> */}
                   </div>
 
                   <p className={FCss.labelMain}>Product category</p>
