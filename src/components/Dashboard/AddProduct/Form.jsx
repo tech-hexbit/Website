@@ -556,7 +556,7 @@ export default function Form() {
                         Selete the Status
                       </option>
                       <option value="Draft">Draft</option>
-                      <option value="Public">Public</option>
+                      <option value="Publish">Publish</option>
                     </select>
                   </div>
 
