@@ -556,6 +556,7 @@ export default function Form() {
                         Selete the Status
                       </option>
                       <option value="Draft">Draft</option>
+                      <option value="Publish">Publish</option>
                     </select>
                   </div>
 
@@ -573,6 +574,7 @@ export default function Form() {
                         Select the Visibility
                       </option>
                       <option value="Public">Public</option>
+                      <option value="Private">Private</option>
                     </select>
                   </div>
 
@@ -588,20 +590,6 @@ export default function Form() {
                       className={FCss.inp}
                       onChange={updateData}
                     />
-
-                    {/* <select
-                    name="schedule_Date_and_time"
-                    id=""
-                    className={FCss.inp}
-                    onChange={updateData}
-                  >
-                    <option value="" selected hidden>
-                      Select date and time
-                    </option>
-                    <option value="Public">
-                      <input type="date" name="" id="" />
-                    </option>
-                  </select> */}
                   </div>
 
                   <p className={FCss.labelMain}>Product category</p>
@@ -619,6 +607,7 @@ export default function Form() {
                         Select the Category
                       </option>
                       <option value="Fashion">Fashion</option>
+                      <option value="RET-12-14">RET-12-14</option>
                     </select>
                   </div>
 
@@ -735,6 +724,9 @@ export default function Form() {
                     <p className={FCss.label}>Cancellable</p>
 
                     <select name="" id="" className={FCss.inp}>
+                      <option value="Select" hidden selected>
+                        Select the Cancellable Method
+                      </option>
                       <option value="true">True</option>
                       <option value="false">False</option>
                     </select>
@@ -758,6 +750,9 @@ export default function Form() {
                     <p className={FCss.label}>Pickup Return</p>
 
                     <select name="" id="" className={FCss.inp}>
+                      <option value="Select" selected hidden>
+                        Select the Pickup Return Method
+                      </option>
                       <option value="true">True</option>
                       <option value="false">False</option>
                     </select>
@@ -781,6 +776,9 @@ export default function Form() {
                     <p className={FCss.label}>Cash On Delivery(COD)</p>
 
                     <select name="" id="" className={FCss.inp}>
+                      <option value="Select" selected hidden>
+                        Select the COD method
+                      </option>
                       <option value="true">True</option>
                       <option value="false">False</option>
                     </select>
