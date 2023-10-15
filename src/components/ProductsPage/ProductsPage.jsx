@@ -45,7 +45,30 @@ export default function ProductsPage(props) {
 
   return (
     <div className={PPCss.mDiv}>
-      <p className={PPCss.AddHPTag}>Product Details</p>
+      <p className={PPCss.AddHPTag}>
+        <span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-move-left"
+            className={PPCss.leftArrow}
+            onClick={() => {
+              console.log(`first`);
+            }}
+          >
+            <path d="M6 8L2 12L6 16" />
+            <path d="M2 12H22" />
+          </svg>
+        </span>
+        Product Details
+      </p>
 
       {res ? (
         <div className={PPCss.divDiv}>
