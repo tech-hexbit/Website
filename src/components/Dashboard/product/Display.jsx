@@ -22,6 +22,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
   const [prodcutsCount, setProdcutsCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [max, setmax] = useState(false);
+  const [showProductDel, setProductDel] = useState({ state: false, _id: "" });
 
   useEffect(() => {
     loadData();
@@ -143,27 +144,32 @@ export default function Display({ filteredlist, setfilteredlist }) {
                         <>
                           <tr key={key}>
                             <td className={DCss.row} id={DCss.col1}>
-                              <Link
+                              {/* <Link
                                 to={`/products/${val._id}`}
                                 className={DCss.LinkStyle}
+                              > */}
+                              <div
+                                className={DCss.col1}
+                                onClick={() => {
+                                  setProductDel({ state: true, id: val._id });
+                                }}
                               >
-                                <div className={DCss.col1}>
-                                  <div className={DCss.image}>
-                                    <img
-                                      src={val.descriptor.images[0]}
-                                      className={DCss.imgTag}
-                                    />
+                                <div className={DCss.image}>
+                                  <img
+                                    src={val.descriptor.images[0]}
+                                    className={DCss.imgTag}
+                                  />
+                                </div>
+                                <div className={DCss.col1Text}>
+                                  <div className={DCss.textTop}>
+                                    {val.descriptor.name}
                                   </div>
-                                  <div className={DCss.col1Text}>
-                                    <div className={DCss.textTop}>
-                                      {val.descriptor.name}
-                                    </div>
-                                    <div className={DCss.textBottom}>
-                                      Category : {val.category_id}
-                                    </div>
+                                  <div className={DCss.textBottom}>
+                                    Category : {val.category_id}
                                   </div>
                                 </div>
-                              </Link>
+                              </div>
+                              {/* </Link> */}
                             </td>
                             <td className={DCss.row} id={DCss.price}>
                               {val.price.value}
@@ -279,6 +285,8 @@ export default function Display({ filteredlist, setfilteredlist }) {
           </button>
         </div>
       </div>
+
+      {showProductDel.state ? <ProductsPage /> : ""}
     </>
   );
 }
