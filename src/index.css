@@ -197,6 +197,7 @@ body::-webkit-scrollbar-thumb:hover {
   opacity: 1;
   visibility: visible;
   position: absolute;
+  transform: translateX(0%);
   top: 0px;
   left: 0px;
   width: 100%;
@@ -207,6 +208,10 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .noProductsPage {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translateX(-100%);
   opacity: 0;
   visibility: hidden;
   width: 0px;
