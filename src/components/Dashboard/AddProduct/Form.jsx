@@ -776,6 +776,9 @@ export default function Form() {
                     <p className={FCss.label}>Cash On Delivery(COD)</p>
 
                     <select name="" id="" className={FCss.inp}>
+                      <option value="Select" selected hidden>
+                        Select the COD method
+                      </option>
                       <option value="true">True</option>
                       <option value="false">False</option>
                     </select>
