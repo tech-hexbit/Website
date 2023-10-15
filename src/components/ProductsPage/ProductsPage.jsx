@@ -60,7 +60,7 @@ export default function ProductsPage(props) {
             class="lucide lucide-move-left"
             className={PPCss.leftArrow}
             onClick={() => {
-              console.log(`first`);
+              props.setProductDel(false);
             }}
           >
             <path d="M6 8L2 12L6 16" />
