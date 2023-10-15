@@ -286,7 +286,11 @@ export default function Display({ filteredlist, setfilteredlist }) {
         </div>
       </div>
 
-      {showProductDel.state ? <ProductsPage id={showProductDel.id} /> : ""}
+      {showProductDel.state ? (
+        <ProductsPage id={showProductDel.id} setProductDel={setProductDel} />
+      ) : (
+        ""
+      )}
     </>
   );
 }
