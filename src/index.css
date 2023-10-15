@@ -219,6 +219,16 @@ body::-webkit-scrollbar-thumb:hover {
   z-index: -1;
 }
 
+#yesProductsPage {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#noProductsPage {
+  opacity: 1;
+  visibility: visible;
+}
+
 @media screen and (max-width: 850px) {
   .slider-wrapper {
     height: 45%;
