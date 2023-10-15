@@ -5,29 +5,29 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 // state
-import AuthContext from "../store/auth-context";
+import AuthContext from "../../store/auth-context";
 
 // components
-import Box from "./../components/Product/Box";
-import Des from "./../components/Product/Des";
-import SizeBox from "./../components/Product/SizeBox";
-import ColorBox from "./../components/Product/ColorBox";
+import Box from "../Product/Box";
+import Des from "../Product/Des";
+import SizeBox from "../Product/SizeBox";
+import ColorBox from "../Product/ColorBox";
 
 // css
 import PPCss from "./Css/ProductPage.module.css";
 
-export default function ProductsPage() {
+export default function ProductsPage(props) {
   const [res, setres] = useState();
 
-  const { id } = useParams();
+  // const { id } = useParams();
 
   useEffect(() => {
-    loadProducts();
-  }, []);
+    loadProducts(props.id);
+  }, [props.id]);
 
   const authCtx = useContext(AuthContext);
 
-  const loadProducts = async () => {
+  const loadProducts = async (id) => {
     try {
       const response = await axios.get(`/api/common/product/details/${id}`, {
         headers: { Authorization: `${authCtx.token}` },
@@ -45,7 +45,30 @@ export default function ProductsPage() {
 
   return (
     <div className={PPCss.mDiv}>
-      <p className={PPCss.AddHPTag}>Product Details</p>
+      <p className={PPCss.AddHPTag}>
+        <span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-move-left"
+            className={PPCss.leftArrow}
+            onClick={() => {
+              props.setProductDel(false);
+            }}
+          >
+            <path d="M6 8L2 12L6 16" />
+            <path d="M2 12H22" />
+          </svg>
+        </span>
+        Product Details
+      </p>
 
       {res ? (
         <div className={PPCss.divDiv}>

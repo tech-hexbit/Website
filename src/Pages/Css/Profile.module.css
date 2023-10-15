@@ -5,6 +5,7 @@
 }
 
 .CDiv {
+  position: relative;
   width: 90%;
   margin: 40px 23px 20px 0px;
 }

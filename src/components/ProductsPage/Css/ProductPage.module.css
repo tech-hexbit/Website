@@ -58,3 +58,8 @@
   justify-content: space-evenly;
   margin: 30px 0px;
 }
+
+.leftArrow {
+  margin-right: 7px;
+  cursor: pointer;
+}
