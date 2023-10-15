@@ -16,13 +16,10 @@ const Error = React.lazy(() => import("./Pages/Error"));
 const Contact = React.lazy(() => import("./Pages/Contact"));
 const Privacy = React.lazy(() => import("./Pages/Privacy"));
 //        || Auth
-const Register = React.lazy(() => import("./Pages/Register"));
 const SignIn = React.lazy(() => import("./Pages/SignIn"));
+const Register = React.lazy(() => import("./Pages/Register"));
 //        || Dashboard
 const Profile = React.lazy(() => import("./Pages/Profile"));
-const Products = React.lazy(() =>
-  import("./components/ProductsPage/ProductsPage")
-);
 const TrackingPage = React.lazy(() => import("./Pages/TrackingPage"));
 
 // MicroInteraction
@@ -124,16 +121,6 @@ function App() {
                 }
               />
             )}
-            {/* {authCtx.isLoggedIn && (
-              <Route
-                path="/products/:id"
-                element={
-                  <Suspense fallback={<LoadingPage />}>
-                    <Products />
-                  </Suspense>
-                }
-              />
-            )} */}
             <Route
               path="*"
               element={
