@@ -574,6 +574,7 @@ export default function Form() {
                         Select the Visibility
                       </option>
                       <option value="Public">Public</option>
+                      <option value="Private">Private</option>
                     </select>
                   </div>
 
@@ -606,6 +607,7 @@ export default function Form() {
                         Select the Category
                       </option>
                       <option value="Fashion">Fashion</option>
+                      <option value="RET-12-14">RET-12-14</option>
                     </select>
                   </div>
 
@@ -722,6 +724,9 @@ export default function Form() {
                     <p className={FCss.label}>Cancellable</p>
 
                     <select name="" id="" className={FCss.inp}>
+                      <option value="Select">
+                        Select the Cancellable Method
+                      </option>
                       <option value="true">True</option>
                       <option value="false">False</option>
                     </select>
