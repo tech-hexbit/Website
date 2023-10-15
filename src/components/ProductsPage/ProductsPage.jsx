@@ -16,10 +16,12 @@ import ColorBox from "../Product/ColorBox";
 // css
 import PPCss from "./Css/ProductPage.module.css";
 
-export default function ProductsPage() {
+export default function ProductsPage(props) {
   const [res, setres] = useState();
 
-  const { id } = useParams();
+  // const { id } = useParams();
+
+  useEffect(() => {}, [props.id]);
 
   useEffect(() => {
     loadProducts();
