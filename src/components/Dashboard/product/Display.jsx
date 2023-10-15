@@ -286,11 +286,11 @@ export default function Display({ filteredlist, setfilteredlist }) {
         </div>
       </div>
 
-      {showProductDel.state ? (
+      <div
+        className={showProductDel.state ? "yesProductsPage" : "noProductsPage"}
+      >
         <ProductsPage id={showProductDel.id} setProductDel={setProductDel} />
-      ) : (
-        ""
-      )}
+      </div>
     </>
   );
 }
