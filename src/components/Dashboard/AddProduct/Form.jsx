@@ -724,7 +724,7 @@ export default function Form() {
                     <p className={FCss.label}>Cancellable</p>
 
                     <select name="" id="" className={FCss.inp}>
-                      <option value="Select">
+                      <option value="Select" hidden selected>
                         Select the Cancellable Method
                       </option>
                       <option value="true">True</option>
@@ -750,6 +750,9 @@ export default function Form() {
                     <p className={FCss.label}>Pickup Return</p>
 
                     <select name="" id="" className={FCss.inp}>
+                      <option value="Select" selected hidden>
+                        Select the Pickup Return Method
+                      </option>
                       <option value="true">True</option>
                       <option value="false">False</option>
                     </select>
