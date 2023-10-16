@@ -43,13 +43,12 @@ export default function DoughnutChart() {
         // response.data.frequency.forEach((e) => {
 
         const labels = response.data.frequency.map((e) => e.buyer);
+        const data = response.data.frequency.map((e) => e.frequency);
 
-        console.log(labels);
-
-        console.log(e.frequency45);
-        // labels.push(item.buyer);
-        // data.push(item.frequency);
-        // });
+        setGraphData({
+          labels,
+          data,
+        });
 
         console.log(response.data.frequency);
       } else {
