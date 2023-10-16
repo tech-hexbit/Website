@@ -97,7 +97,14 @@ export default function RecentOrders() {
                               <td id={RCss.td} className={RCss.quantity}>
                                 {val.Items[0].quantity}
                               </td>
-                              <td id={RCss.td} style={{ color: "#4BB543" }}>
+                              <td
+                                id={RCss.td}
+                                style={
+                                  val.status === "PAID"
+                                    ? { color: "#4BB543" }
+                                    : { color: "#D0342C" }
+                                }
+                              >
                                 {val.status}
                               </td>
                             </tr>
