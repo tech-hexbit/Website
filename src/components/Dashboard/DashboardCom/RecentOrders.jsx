@@ -52,6 +52,10 @@ export default function RecentOrders() {
     }
   };
 
+  // useEffect(() => {
+  //   console.log(orderDel[0].status);
+  // }, [orderDel]);
+
   return (
     <div className={RCss.mainDiv}>
       <div className={RCss.heading}>Recent orders</div>
@@ -105,7 +109,7 @@ export default function RecentOrders() {
                               )}
                               {val.Status == "Cancelled" && (
                                 <td id={RCss.td} style={{ color: "#D0342C" }}>
-                                  {val.Status}
+                                  {val.status}
                                 </td>
                               )}
                             </tr>
