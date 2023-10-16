@@ -88,12 +88,12 @@ export default function RecentOrders() {
                           return (
                             <tr key={key}>
                               <td id={RCss.td} class={RCss.truncate}>
-                                {val._id.slice(-4)}
+                                #{val._id.slice(-4)}
                               </td>
                               <td id={RCss.td} className={RCss.product}>
                                 {val.Items[0].ItemID.descriptor.name}
                               </td>
-                              <td id={RCss.td}>₹ {val.amount}</td>
+                              <td id={RCss.td}>₹ {val.amount.toFixed(2)}</td>
                               <td id={RCss.td} className={RCss.quantity}>
                                 {val.Items[0].quantity}
                               </td>
