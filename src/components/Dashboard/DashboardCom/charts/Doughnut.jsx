@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import { Doughnut } from "react-chartjs-2";
 import "chart.js/auto";
 
+import Load from "./../../../../MicroInteraction/LoadBlack";
+
 // axios
 import axios from "axios";
 
@@ -12,6 +14,7 @@ import AuthContext from "./../../../../store/auth-context";
 import "../css/dchart.css";
 
 export default function DoughnutChart() {
+  const [load, setLoad] = useState(false);
   const [graphData, setGraphData] = useState({
     labels: [],
     datasets: [
@@ -25,6 +28,8 @@ export default function DoughnutChart() {
   const authCtx = useContext(AuthContext);
 
   const loadData = async () => {
+    setLoad(true);
+
     try {
       const response = await axios.get("/api/website/DashBoard/BuyerApps", {
         headers: { Authorization: `${authCtx.token}` },
@@ -43,12 +48,22 @@ export default function DoughnutChart() {
             },
           ],
         });
+
+        setLoad(false);
       } else {
         console.log(e);
+
+        setLoad(true);
       }
     } catch (e) {
       console.log(e);
+
+      setLoad(true);
     }
+  };
+
+  const chartOptions = {
+    cutout: "95%",
   };
 
   useEffect(() => {
@@ -57,7 +72,13 @@ export default function DoughnutChart() {
 
   return (
     <div className="d-chart">
-      <Doughnut data={graphData} options={chartOptions} />
+      {load ? (
+        <div className="loadCenterDivM">
+          <Load />
+        </div>
+      ) : (
+        <Doughnut data={graphData} options={chartOptions} />
+      )}
     </div>
   );
 }
