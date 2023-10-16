@@ -40,7 +40,18 @@ export default function DoughnutChart() {
       });
 
       if (response.data.success) {
-        console.table(response.data.frequency);
+        // response.data.frequency.forEach((e) => {
+
+        const labels = response.data.frequency.map((e) => e.buyer);
+
+        console.log(labels);
+
+        console.log(e.frequency45);
+        // labels.push(item.buyer);
+        // data.push(item.frequency);
+        // });
+
+        console.log(response.data.frequency);
       } else {
         console.log(e);
       }
