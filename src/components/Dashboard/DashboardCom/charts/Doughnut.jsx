@@ -12,7 +12,7 @@ import AuthContext from "./../../../../store/auth-context";
 import "../css/dchart.css";
 
 export default function DoughnutChart() {
-  const [] = useState({
+  const [graphData, setGraphData] = useState({
     labels: [],
     data: [],
   });
@@ -40,7 +40,7 @@ export default function DoughnutChart() {
       });
 
       if (response.data.success) {
-        console.log(response);
+        console.table(response.data.frequency);
       } else {
         console.log(e);
       }
