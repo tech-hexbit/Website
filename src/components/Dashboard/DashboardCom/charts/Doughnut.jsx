@@ -24,20 +24,6 @@ export default function DoughnutChart() {
 
   const authCtx = useContext(AuthContext);
 
-  let data = {
-    labels: [],
-    datasets: [
-      {
-        data: [],
-        backgroundColor: ["#7E22CE", "#D8B4FE", "#DBEAFE"],
-      },
-    ],
-  };
-
-  const chartOptions = {
-    cutout: "95%",
-  };
-
   const loadData = async () => {
     try {
       const response = await axios.get("/api/website/DashBoard/BuyerApps", {
@@ -69,13 +55,9 @@ export default function DoughnutChart() {
     loadData();
   }, []);
 
-  useEffect(() => {
-    console.log(graphData);
-  }, [graphData]);
-
   return (
     <div className="d-chart">
-      <Doughnut data={data} options={chartOptions} />
+      <Doughnut data={graphData} options={chartOptions} />
     </div>
   );
 }
