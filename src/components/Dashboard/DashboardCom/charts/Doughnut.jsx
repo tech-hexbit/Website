@@ -39,7 +39,11 @@ export default function DoughnutChart() {
         headers: { Authorization: `${authCtx.token}` },
       });
 
-      console.log(response);
+      if (response.data.success) {
+        console.log(response);
+      } else {
+        console.log(e);
+      }
     } catch (e) {
       console.log(e);
     }
