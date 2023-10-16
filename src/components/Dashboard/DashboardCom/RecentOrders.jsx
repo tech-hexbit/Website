@@ -52,6 +52,10 @@ export default function RecentOrders() {
     }
   };
 
+  // useEffect(() => {
+  //   console.log(orderDel[0].status);
+  // }, [orderDel]);
+
   return (
     <div className={RCss.mainDiv}>
       <div className={RCss.heading}>Recent orders</div>
@@ -84,30 +88,25 @@ export default function RecentOrders() {
                           return (
                             <tr key={key}>
                               <td id={RCss.td} class={RCss.truncate}>
-                                {val._id.slice(-4)}
+                                #{val._id.slice(-4)}
                               </td>
                               <td id={RCss.td} className={RCss.product}>
                                 {val.Items[0].ItemID.descriptor.name}
                               </td>
-                              <td id={RCss.td}>₹ {val.amount}</td>
+                              <td id={RCss.td}>₹ {val.amount.toFixed(2)}</td>
                               <td id={RCss.td} className={RCss.quantity}>
                                 {val.Items[0].quantity}
                               </td>
-                              {val.Status == "Delivered" && (
-                                <td id={RCss.td} style={{ color: "#4BB543" }}>
-                                  {val.Status}
-                                </td>
-                              )}
-                              {val.Status == "Pending" && (
-                                <td id={RCss.td} style={{ color: "#3F81E0" }}>
-                                  {val.Status}
-                                </td>
-                              )}
-                              {val.Status == "Cancelled" && (
-                                <td id={RCss.td} style={{ color: "#D0342C" }}>
-                                  {val.Status}
-                                </td>
-                              )}
+                              <td
+                                id={RCss.td}
+                                style={
+                                  val.status === "PAID"
+                                    ? { color: "#4BB543" }
+                                    : { color: "#D0342C" }
+                                }
+                              >
+                                {val.status}
+                              </td>
                             </tr>
                           );
                         })}
