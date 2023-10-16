@@ -97,21 +97,9 @@ export default function RecentOrders() {
                               <td id={RCss.td} className={RCss.quantity}>
                                 {val.Items[0].quantity}
                               </td>
-                              {val.Status == "Delivered" && (
-                                <td id={RCss.td} style={{ color: "#4BB543" }}>
-                                  {val.Status}
-                                </td>
-                              )}
-                              {val.Status == "Pending" && (
-                                <td id={RCss.td} style={{ color: "#3F81E0" }}>
-                                  {val.Status}
-                                </td>
-                              )}
-                              {val.Status == "Cancelled" && (
-                                <td id={RCss.td} style={{ color: "#D0342C" }}>
-                                  {val.status}
-                                </td>
-                              )}
+                              <td id={RCss.td} style={{ color: "#4BB543" }}>
+                                {val.status}
+                              </td>
                             </tr>
                           );
                         })}
