@@ -28,18 +28,20 @@ export default function ProductsPage(props) {
   const authCtx = useContext(AuthContext);
 
   const loadProducts = async (id) => {
-    try {
-      const response = await axios.get(`/api/common/product/details/${id}`, {
-        headers: { Authorization: `${authCtx.token}` },
-      });
+    if (id !== "") {
+      try {
+        const response = await axios.get(`/api/common/product/details/${id}`, {
+          headers: { Authorization: `${authCtx.token}` },
+        });
 
-      if (response.data.success) {
-        setres(response?.data?.ProductDetail);
-      } else {
-        console.log("error");
+        if (response.data.success) {
+          setres(response?.data?.ProductDetail);
+        } else {
+          console.log("error");
+        }
+      } catch (e) {
+        console.log(e);
       }
-    } catch (e) {
-      console.log(e);
     }
   };
 
