@@ -162,11 +162,16 @@ body::-webkit-scrollbar-thumb:hover {
   object-fit: contain;
 }
 
-.loadCenterDiv {
+.loadCenterDiv,
+.loadCenterDivM {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
+}
+
+.loadCenterDivM {
+  margin: 20px 0px;
 }
 
 .NoOrders {
