@@ -2,6 +2,9 @@ import React, { useState, useEffect, useContext } from "react";
 import { Doughnut } from "react-chartjs-2";
 import "chart.js/auto";
 
+// axios
+import axios from "axios";
+
 // state
 import AuthContext from "./../../../../store/auth-context";
 
@@ -32,6 +35,11 @@ export default function DoughnutChart() {
 
   const loadData = async () => {
     try {
+      const response = await axios.get("/api/website/DashBoard/BuyerApps", {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+
+      console.log(response);
     } catch (e) {
       console.log(e);
     }
