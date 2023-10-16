@@ -14,16 +14,21 @@ import "../css/dchart.css";
 export default function DoughnutChart() {
   const [graphData, setGraphData] = useState({
     labels: [],
-    data: [],
+    datasets: [
+      {
+        data: [],
+        backgroundColor: ["#7E22CE", "#D8B4FE", "#DBEAFE"],
+      },
+    ],
   });
 
   const authCtx = useContext(AuthContext);
 
-  const data = {
-    labels: ["Direct", "Google", "Apple"],
+  let data = {
+    labels: [],
     datasets: [
       {
-        data: [50, 25, 25],
+        data: [],
         backgroundColor: ["#7E22CE", "#D8B4FE", "#DBEAFE"],
       },
     ],
@@ -40,17 +45,18 @@ export default function DoughnutChart() {
       });
 
       if (response.data.success) {
-        // response.data.frequency.forEach((e) => {
-
         const labels = response.data.frequency.map((e) => e.buyer);
         const data = response.data.frequency.map((e) => e.frequency);
 
         setGraphData({
           labels,
-          data,
+          datasets: [
+            {
+              data,
+              backgroundColor: ["#7E22CE", "#D8B4FE", "#DBEAFE"],
+            },
+          ],
         });
-
-        console.log(response.data.frequency);
       } else {
         console.log(e);
       }
@@ -62,6 +68,10 @@ export default function DoughnutChart() {
   useEffect(() => {
     loadData();
   }, []);
+
+  useEffect(() => {
+    console.log(graphData);
+  }, [graphData]);
 
   return (
     <div className="d-chart">
