@@ -52,10 +52,6 @@ export default function RecentOrders() {
     }
   };
 
-  // useEffect(() => {
-  //   console.log(orderDel[0].status);
-  // }, [orderDel]);
-
   return (
     <div className={RCss.mainDiv}>
       <div className={RCss.heading}>Recent orders</div>
