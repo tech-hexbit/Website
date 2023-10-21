@@ -266,15 +266,10 @@
 }
 
 .lastsection {
-  /* align-items: flex-start; */
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   width: 100%;
-  /* gap: 150px; */
-  /* height: 214px; */
-  /* white-space: pre-line; */
 }
 
 .logodiv {
