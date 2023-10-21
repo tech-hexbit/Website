@@ -13,6 +13,13 @@
   padding: 12px 30px;
 }
 
+.row1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0px 20px;
+}
+
 .inputheading {
   font-size: 16px;
   font-weight: 400;
@@ -26,4 +33,5 @@
   border-color: rgba(221, 221, 221, 1);
   border-radius: 5px;
   padding: 5px;
+  margin-top: 7px;
 }
