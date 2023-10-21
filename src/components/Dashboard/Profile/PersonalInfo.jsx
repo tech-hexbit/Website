@@ -19,6 +19,10 @@ export default function PersonalInfo(props) {
             <div className={PICss.infodiv}>{props.phone}</div>
           </div>
         </div>
+        <div className={PICss.col0}>
+          <div className={PICss.inputheading}>Address</div>
+          <div className={PICss.infodiv}>{props.Address}</div>
+        </div>
       </div>
     </div>
   );
