@@ -138,7 +138,7 @@ export default function SignInForm() {
           <div className={style.emailPassword}>
             <div className={style.inputEP}>
               <label htmlFor="email">
-                Email<span style={{ color: "#350B5E" }}>*</span>
+                Email<span className={style.requiredSpan}>*</span>
               </label>
               <br />
               <input
@@ -154,7 +154,7 @@ export default function SignInForm() {
             </div>
             <div className={style.inputEPass}>
               <label htmlFor="password">
-                Password<span style={{ color: "#350B5E" }}>*</span>
+                Password<span className={style.requiredSpan}>*</span>
               </label>
               <br />
               <div className={style.passMDiv}>
