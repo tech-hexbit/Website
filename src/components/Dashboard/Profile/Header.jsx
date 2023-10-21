@@ -1,5 +1,8 @@
 import React, { useContext, useRef, useEffect, useState } from "react";
 
+// components
+import PersonalInfo from "./PersonalInfo";
+
 // axios
 import axios from "axios";
 
@@ -97,6 +100,7 @@ export default function Header() {
           </div>
         ) : (
           <>
+            <PersonalInfo />
             <div className={HPCss.personalinfotab}>
               <div className={HPCss.heading}>Personal info</div>
               <div className={HPCss.box}>
