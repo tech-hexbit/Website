@@ -102,20 +102,6 @@ export default function Header() {
               <div className={HPCss.box}>
                 <div className={HPCss.textcontent}>
                   <div className={HPCss.div}>
-                    {/* <div className={HPCss.subdiv}>
-                      <div className={HPCss.inputheading}>First name</div>
-                      <div className={HPCss.infodiv}>
-                        <div className={HPCss.info}>Pranav</div>
-                      </div>
-                    </div> */}
-                    {/* <div className={HPCss.subdiv}>
-                      <div className={HPCss.inputheading}>Last name</div>
-                      <div className={HPCss.infodiv}>
-                        <div className={HPCss.info}>Sheth</div>
-                      </div>
-                    </div> */}
-                  </div>
-                  <div className={HPCss.div}>
                     <div className={HPCss.subdiv}>
                       <div className={HPCss.inputheading}>Email</div>
                       <div className={HPCss.infodiv}>
@@ -155,24 +141,6 @@ export default function Header() {
                         </div>
                       </div>
                     </div>
-                    <div className={HPCss.div}>
-                      {/* <div className={HPCss.businessdiv}>
-                        <div className={HPCss.businesstext}>Email</div>
-                        <div className={HPCss.businessinputdiv}>
-                          <div className={HPCss.businesstext2}>
-                            {userData.Email}
-                          </div>
-                        </div>
-                      </div> */}
-                      {/* <div className={HPCss.businessdiv}>
-                        <div className={HPCss.businesstext}>Contact no.</div>
-                        <div className={HPCss.businessinputdiv}>
-                          <div className={HPCss.businesstext2}>
-                            +91 {userData.Phone}
-                          </div>
-                        </div>
-                      </div> */}
-                    </div>
                     <div className={HPCss.email}>
                       <div className={HPCss.businesstext}>Location</div>
                       <div className={HPCss.businessinputdiv2}>
@@ -182,12 +150,6 @@ export default function Header() {
                       </div>
                     </div>
                     <div className={HPCss.div}>
-                      {/* <div className={HPCss.businessdiv}>
-                        <div className={HPCss.businesstext}>Account no.</div>
-                        <div className={HPCss.businessinputdiv}>
-                          <div className={HPCss.businesstext2}>7080003625</div>
-                        </div>
-                      </div> */}
                       <div className={HPCss.businessdiv}>
                         <div className={HPCss.businesstext}>GSTIN</div>
                         <div className={HPCss.businessinputdiv}>
@@ -198,10 +160,6 @@ export default function Header() {
                       </div>
                     </div>
                     <div className={HPCss.lastsection}>
-                      {/* <div className={HPCss.logodiv}>
-                        <div className={HPCss.businesstext}>Logo</div>
-                        <div className={HPCss.labels} />
-                      </div> */}
                       <div className={HPCss.logodiv}>
                         <div className={HPCss.businesstext}>About</div>
                         <div className={HPCss.labels}>
