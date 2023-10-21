@@ -5,3 +5,10 @@
 .heading {
   font-size: 26px;
 }
+
+.box {
+  width: 100%;
+  border: 1px dashed rgba(170, 170, 170, 1);
+  border-radius: 15px;
+  margin-top: 10px;
+}
