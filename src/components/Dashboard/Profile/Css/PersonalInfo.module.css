@@ -7,13 +7,18 @@
 }
 
 .box {
-  border: 1px dashed rgba(170, 170, 170, 1);
-  border-radius: 15px;
   margin-top: 10px;
   padding: 12px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px dashed rgba(170, 170, 170, 1);
+  border-radius: 15px;
 }
 
 .row1 {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -38,4 +43,9 @@
 
 .col1 {
   width: 45%;
+}
+
+.col0 {
+  margin-top: 20px;
+  width: 100%;
 }
