@@ -179,6 +179,7 @@ export default function SignInForm() {
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   class="lucide lucide-eye"
+                  className={style.btnpass}
                   onClick={() => hide(!see)}
                 >
                   <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
@@ -196,6 +197,7 @@ export default function SignInForm() {
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   class="lucide lucide-eye-off"
+                  className={style.btnpass}
                   onClick={() => hide(!see)}
                 >
                   <path d="M9.88 9.88a3 3 0 1 0 4.24 4.24" />
