@@ -30,7 +30,7 @@
   font-size: 16px;
   font-weight: 600;
   line-height: 26px;
-  padding-left: 20px;
+  padding-left: 5px;
   text-decoration: underline;
 }
 
@@ -38,11 +38,13 @@
   padding-top: 36px;
 }
 
-.inputEP {
+.inputEP,
+.inputEPass {
   padding-top: 20px;
 }
 
-.inputEP label {
+.inputEP label,
+.inputEPass label {
   color: #444150;
   font-size: 16px;
   font-weight: 600;
@@ -164,15 +166,41 @@ input[type="text"]:disabled::placeholder {
   font-size: 12px;
   line-height: 22px;
 }
-/* 
-.tcColor {
-    color: #350B5E;
-} */
+
+.passMDiv {
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 6px;
+  border: 1px solid #d9d9d9;
+  padding-right: 7px;
+}
+
+.inpPass {
+  outline: none;
+  border-radius: 6px;
+  border: 0px solid #d9d9d9;
+  background: #fff;
+  color: #444150;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 10px 15px;
+  width: 100%;
+}
+
+.btnpass {
+  cursor: pointer;
+}
+
+.requiredSpan {
+  color: #ff0000;
+  margin-left: 3px;
+}
 
 .right {
   position: relative;
   width: 60%;
-  /* height: 100%; */
   background: linear-gradient(
     90deg,
     rgb(187, 20, 226, 0.15000000596046448) 0%,

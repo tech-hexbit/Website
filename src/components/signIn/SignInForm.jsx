@@ -20,6 +20,7 @@ import slider1 from "../../assets/slider/Group3.png";
 
 export default function SignInForm() {
   const [input, setInput] = useState({ email: "", password: "" });
+  const [see, hide] = useState(false);
   const [load, setLoad] = useState(false);
   const [variants, setError] = useState({
     mainColor: "",
@@ -137,7 +138,7 @@ export default function SignInForm() {
           <div className={style.emailPassword}>
             <div className={style.inputEP}>
               <label htmlFor="email">
-                Email<span style={{ color: "#350B5E" }}>*</span>
+                Email<span className={style.requiredSpan}>*</span>
               </label>
               <br />
               <input
@@ -151,21 +152,63 @@ export default function SignInForm() {
                 }}
               />
             </div>
-            <div className={style.inputEP}>
+            <div className={style.inputEPass}>
               <label htmlFor="password">
-                Password<span style={{ color: "#350B5E" }}>*</span>
+                Password<span className={style.requiredSpan}>*</span>
               </label>
               <br />
-              <input
-                type="password"
-                placeholder="Password"
-                id="password"
-                name="password"
-                value={input.password}
-                onChange={(e) => {
-                  setInput({ ...input, password: e.target.value });
-                }}
-              />
+              <div className={style.passMDiv}>
+                <input
+                  type={see ? "text" : "password"}
+                  placeholder="Password"
+                  id="password"
+                  name="password"
+                  value={input.password}
+                  className={style.inpPass}
+                  onChange={(e) => {
+                    setInput({ ...input, password: e.target.value });
+                  }}
+                />
+                {see ? (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-eye"
+                    className={style.btnpass}
+                    onClick={() => hide(!see)}
+                  >
+                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-eye-off"
+                    className={style.btnpass}
+                    onClick={() => hide(!see)}
+                  >
+                    <path d="M9.88 9.88a3 3 0 1 0 4.24 4.24" />
+                    <path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68" />
+                    <path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61" />
+                    <line x1="2" x2="22" y1="2" y2="22" />
+                  </svg>
+                )}
+              </div>
             </div>
           </div>
           <div className={style.or}>Or</div>
@@ -226,17 +269,6 @@ export default function SignInForm() {
           </div>
         </div>
         <div className={style.right}>
-          {/* <Slider
-          img1={slider1}
-          img2={slider1}
-          img3={slider1}
-          head={["Retail Revolution", "Retail Revolution", "Retail Revolution"]}
-          subHead={[
-            `"Elevate Your Retail Game: Hexbit - Where Digital Selling Meets Success!"`,
-            `"Elevate Your Retail Game: Hexbit - Where Digital Selling Meets Success!"`,
-            `"Elevate Your Retail Game: Hexbit - Where Digital Selling Meets Success!"`,
-          ]}
-        /> */}
           <img src={slider1} alt="" />
           <div>
             <p className={style.head}>Retail Revolution</p>
