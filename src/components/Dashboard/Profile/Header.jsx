@@ -100,7 +100,11 @@ export default function Header() {
           </div>
         ) : (
           <>
-            <PersonalInfo Email={userData.Email} phone={userData.Phone} />
+            <PersonalInfo
+              Email={userData.Email}
+              phone={userData.Phone}
+              Address={userData.Address}
+            />
             <div className={HPCss.personalinfotab}>
               <div className={HPCss.heading}>Personal info</div>
               <div className={HPCss.box}>
