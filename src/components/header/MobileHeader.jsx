@@ -36,7 +36,7 @@ const MobileHeader = () => {
           )}
         </div>
 
-        <Link to="/" className={style.LinkStyle} onClick={() => setCount(false)}>
+        <Link to="/" className="LinkStyle" onClick={() => setCount(false)}>
           <img src={imgLogo} alt="" className={style.imgLogo} />
         </Link>
 
@@ -49,35 +49,35 @@ const MobileHeader = () => {
       >
         {authCtx.isLoggedIn && (
           <div className={style.mobileList} onClick={() => setCount(false)}>
-            <NavLink to="/me" className={style.LinkStyle}>
+            <NavLink to="/me" className="LinkStyle">
               <img src={authCtx.user.image} alt="" className={style.imgAuth} />
             </NavLink>
           </div>
         )}
         <div className={style.mobileList} onClick={() => setCount(false)}>
-          <NavLink to="/" className={style.LinkStyle}>
+          <NavLink to="/" className="LinkStyle">
             <p>Home</p>
           </NavLink>
         </div>
         <div className={style.mobileList} onClick={() => setCount(false)}>
-          <NavLink to="/AboutUs" className={style.LinkStyle}>
+          <NavLink to="/AboutUs" className="LinkStyle">
             <p>About Us</p>
           </NavLink>
         </div>
         <div className={style.mobileList} onClick={() => setCount(false)}>
-          <NavLink to="/contact" className={style.LinkStyle}>
+          <NavLink to="/contact" className="LinkStyle">
             <p>Contact Us</p>
           </NavLink>
         </div>
         {!authCtx.isLoggedIn && (
           <>
             <div className={style.mobileList} onClick={() => setCount(false)}>
-              <NavLink to="/signIn" className={style.LinkStyle}>
+              <NavLink to="/signIn" className="LinkStyle">
                 <p>Login</p>
               </NavLink>
             </div>
             <div className={style.mobileList} onClick={() => setCount(false)}>
-              <NavLink to="/register" className={style.LinkStyle}>
+              <NavLink to="/register" className="LinkStyle">
                 <p id={style.Register}>Register for free</p>
               </NavLink>
             </div>
