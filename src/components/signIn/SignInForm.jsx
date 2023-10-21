@@ -164,6 +164,7 @@ export default function SignInForm() {
                   id="password"
                   name="password"
                   value={input.password}
+                  className={style.inpPass}
                   onChange={(e) => {
                     setInput({ ...input, password: e.target.value });
                   }}
