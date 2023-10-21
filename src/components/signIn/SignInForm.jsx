@@ -152,7 +152,7 @@ export default function SignInForm() {
                 }}
               />
             </div>
-            <div className={style.inputEP}>
+            <div className={style.inputEPass}>
               <label htmlFor="password">
                 Password<span style={{ color: "#350B5E" }}>*</span>
               </label>
