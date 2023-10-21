@@ -165,7 +165,14 @@ input[type="text"]:disabled::placeholder {
   line-height: 22px;
 }
 
+.passMDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .btnpass {
+  cursor: pointer;
 }
 
 .right {
