@@ -9,8 +9,16 @@ export default function PersonalInfo(props) {
       <div className={PICss.heading}>Personal info</div>
 
       <div className={PICss.box}>
-        <div className={PICss.inputheading}>Email</div>
-        <div className={PICss.infodiv}>{props.Email}</div>
+        <div className={PICss.row1}>
+          <div className={PICss.col1}>
+            <div className={PICss.inputheading}>Email</div>
+            <div className={PICss.infodiv}>{props.Email}</div>
+          </div>
+          <div className={PICss.col1}>
+            <div className={PICss.inputheading}>Email</div>
+            <div className={PICss.infodiv}>{props.Email}</div>
+          </div>
+        </div>
       </div>
     </div>
   );
