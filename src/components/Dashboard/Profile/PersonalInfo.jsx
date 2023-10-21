@@ -10,9 +10,7 @@ export default function PersonalInfo(props) {
 
       <div className={PICss.box}>
         <div className={PICss.inputheading}>Email</div>
-        <div className={PICss.infodiv}>
-          <div className={PICss.info}>{props.Email}</div>
-        </div>
+        <div className={PICss.infodiv}>{props.Email}</div>
       </div>
     </div>
   );
