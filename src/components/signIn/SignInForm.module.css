@@ -193,6 +193,11 @@ input[type="text"]:disabled::placeholder {
   cursor: pointer;
 }
 
+.requiredSpan {
+  color: #ff0000;
+  margin-left: 3px;
+}
+
 .right {
   position: relative;
   width: 60%;
