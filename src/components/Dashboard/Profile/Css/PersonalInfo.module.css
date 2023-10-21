@@ -17,6 +17,10 @@
   border-radius: 15px;
 }
 
+.infodivPerfix {
+  color: #717171;
+}
+
 .row1 {
   width: 100%;
   display: flex;
