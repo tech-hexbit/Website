@@ -62,12 +62,28 @@ export default function EditProfileImage(props) {
         if (response.data.success) {
           setLoad(false);
 
-          console.log(response);
+          setError({
+            mainColor: "#EDFEEE",
+            secondaryColor: "#5CB660",
+            symbol: "check_circle",
+            title: "Success",
+            text: "Logo Updated !!",
+            val: true,
+          });
         } else {
           setLoad(false);
         }
       } catch (error) {
         setLoad(false);
+
+        setError({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "An Unexpected Error Occured",
+          val: true,
+        });
 
         console.log(error);
       }
