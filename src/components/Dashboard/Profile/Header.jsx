@@ -2,6 +2,7 @@ import React, { useContext, useRef, useEffect, useState } from "react";
 
 // components
 import PersonalInfo from "./PersonalInfo";
+import BusinessInfo from "./BusinessInfo";
 
 // axios
 import axios from "axios";
@@ -105,6 +106,7 @@ export default function Header() {
               phone={userData.Phone}
               Address={userData.Address}
             />
+            <BusinessInfo />
             <div className={HPCss.businessinfotab}>
               <div className={HPCss.heading}>Business info</div>
               <div className={HPCss.box2}>
