@@ -69,40 +69,42 @@ export default function EditProfileImage(props) {
           <path d="M18 6 6 18" />
           <path d="m6 6 12 12" />
         </svg>
-        <div className={EtCss.upMDiv}>
-          <div className={EtCss.addimgDivMain}>
-            <input
-              type="file"
-              name="file"
-              onChange={handleImage}
-              style={{ display: "none" }}
-              ref={fileInp}
-            />
+        <div className={EtCss.upMDivPar}>
+          <div className={EtCss.upMDiv}>
+            <div className={EtCss.addimgDivMain}>
+              <input
+                type="file"
+                name="file"
+                onChange={handleImage}
+                style={{ display: "none" }}
+                ref={fileInp}
+              />
 
-            <div className={EtCss.addImgDiv} onClick={handleClick}>
-              <p className={EtCss.LogoHere}>Logo Here</p>
-              <div className={EtCss.textCenter}>
-                <p className={EtCss.dropzoneContent}>+</p>
+              <div className={EtCss.addImgDiv} onClick={handleClick}>
+                <p className={EtCss.LogoHere}>Logo Here</p>
+                <div className={EtCss.textCenter}>
+                  <p className={EtCss.dropzoneContent}>+</p>
+                </div>
               </div>
+            </div>
+            <div>
+              {imageUpload ? (
+                <div className={EtCss.prevImgDiv}>
+                  <p className={EtCss.PreviewPTag}>Preview</p>
+                  <img
+                    src={URL.createObjectURL(imageUpload)}
+                    alt=""
+                    className={EtCss.prevImg}
+                  />
+                </div>
+              ) : (
+                ""
+              )}
             </div>
           </div>
-          <div>
-            {imageUpload ? (
-              <div className={EtCss.prevImgDiv}>
-                <p className={EtCss.PreviewPTag}>Preview</p>
-                <img
-                  src={URL.createObjectURL(imageUpload)}
-                  alt=""
-                  className={EtCss.prevImg}
-                />
-              </div>
-            ) : (
-              ""
-            )}
 
-            <div className={EtCss.SubmitBtn} onClick={onSubmit}>
-              Submit
-            </div>
+          <div className={EtCss.SubmitBtn} onClick={onSubmit}>
+            Submit
           </div>
         </div>
       </div>
