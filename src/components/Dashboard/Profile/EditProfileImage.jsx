@@ -80,6 +80,7 @@ export default function EditProfileImage(props) {
             />
 
             <div className={EtCss.addImgDiv} onClick={handleClick}>
+              <p className={EtCss.LogoHere}>Logo Here</p>
               <div className={EtCss.textCenter}>
                 <p className={EtCss.dropzoneContent}>+</p>
               </div>
