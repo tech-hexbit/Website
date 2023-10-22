@@ -103,9 +103,9 @@ export default function EditProfileImage(props) {
             </div>
           </div>
 
-          <div className={EtCss.SubmitBtn} onClick={onSubmit}>
+          <button className={EtCss.SubmitBtn} onClick={onSubmit}>
             Submit
-          </div>
+          </button>
         </div>
       </div>
     </div>
