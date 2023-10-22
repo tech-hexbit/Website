@@ -7,7 +7,7 @@ import axios from "axios";
 import AuthContext from "./../../../store/auth-context";
 
 // MicroInteraction
-import Alert from "./../../../MicroInteraction/Alert";
+import { Alert } from "./../../../MicroInteraction/Alert";
 import Load from "./../../../MicroInteraction/LoadBlack";
 
 // css
@@ -41,30 +41,40 @@ export default function EditProfileImage(props) {
   const onSubmit = async () => {
     setLoad(true);
 
-    const formData = new FormData();
-    formData.append("images", imageUpload);
+    if (imageUpload) {
+      const formData = new FormData();
+      formData.append("images", imageUpload);
 
-    for (var key of formData.entries()) {
-      console.log(key[0] + ", " + key[1]);
-    }
-
-    try {
-      const response = await axios.post("/api/website/auth/EditMe", formData, {
-        headers: { Authorization: `${authCtx.token}` },
-      });
-      console.log(response);
-
-      if (response.data.success) {
-        setLoad(false);
-
-        console.log(response);
-      } else {
-        setLoad(false);
+      for (var key of formData.entries()) {
+        console.log(key[0] + ", -- " + key[1]);
       }
-    } catch (error) {
+
+      try {
+        const response = await axios.post(
+          "/api/website/auth/EditMe",
+          formData,
+          {
+            headers: { Authorization: `${authCtx.token}` },
+          }
+        );
+        console.log(response);
+
+        if (response.data.success) {
+          setLoad(false);
+
+          console.log(response);
+        } else {
+          setLoad(false);
+        }
+      } catch (error) {
+        setLoad(false);
+
+        console.log(error);
+      }
+    } else {
       setLoad(false);
 
-      console.log(error);
+      console.log("please select a file");
     }
   };
 
