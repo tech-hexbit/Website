@@ -74,7 +74,14 @@ export default function EditProfileImage(props) {
     } else {
       setLoad(false);
 
-      console.log("please select a file");
+      setError({
+        mainColor: "#FFC0CB",
+        secondaryColor: "#FF69B4",
+        symbol: "pets",
+        title: "Check it out",
+        text: "Please Select your Logo",
+        val: true,
+      });
     }
   };
 
