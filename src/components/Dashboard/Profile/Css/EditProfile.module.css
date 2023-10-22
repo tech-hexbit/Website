@@ -30,3 +30,14 @@
   display: flex;
   justify-content: space-evenly;
 }
+
+.LogoHere {
+  color: #888888;
+  margin-bottom: 7px;
+}
+
+.textCenter {
+  background-color: #aaaaaa;
+  color: #fff;
+  text-align: center;
+}
