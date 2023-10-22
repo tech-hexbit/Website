@@ -88,11 +88,14 @@ export default function EditProfileImage(props) {
           </div>
           <div>
             {imageUpload ? (
-              <img
-                src={URL.createObjectURL(imageUpload)}
-                alt=""
-                className={EtCss.prevImg}
-              />
+              <div className={EtCss.prevImgDiv}>
+                <p className={EtCss.PreviewPTag}>Preview</p>
+                <img
+                  src={URL.createObjectURL(imageUpload)}
+                  alt=""
+                  className={EtCss.prevImg}
+                />
+              </div>
             ) : (
               ""
             )}
