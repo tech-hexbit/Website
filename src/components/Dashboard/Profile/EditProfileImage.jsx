@@ -72,6 +72,15 @@ export default function EditProfileImage(props) {
           });
         } else {
           setLoad(false);
+
+          setError({
+            mainColor: "#FDEDED",
+            secondaryColor: "#F16360",
+            symbol: "error",
+            title: "Error",
+            text: "An Unexpected Error Occured",
+            val: true,
+          });
         }
       } catch (error) {
         setLoad(false);
