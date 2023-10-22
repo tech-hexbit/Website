@@ -64,7 +64,7 @@ export default function EditProfileImage(props) {
         if (response.data.success) {
           setLoad(false);
 
-          setError({
+          props.setError({
             mainColor: "#EDFEEE",
             secondaryColor: "#5CB660",
             symbol: "check_circle",
@@ -72,6 +72,8 @@ export default function EditProfileImage(props) {
             text: "Logo Updated !!",
             val: true,
           });
+
+          props.setEdit(false);
         } else {
           setLoad(false);
 
