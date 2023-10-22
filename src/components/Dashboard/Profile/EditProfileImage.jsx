@@ -8,7 +8,7 @@ import AuthContext from "./../../../store/auth-context";
 
 // MicroInteraction
 import { Alert } from "./../../../MicroInteraction/Alert";
-import Load from "./../../../MicroInteraction/LoadBlack";
+import Load from "./../../../MicroInteraction/Load";
 
 // css
 import EtCss from "./Css/EditProfile.module.css";
@@ -40,6 +40,8 @@ export default function EditProfileImage(props) {
 
   const onSubmit = async () => {
     setLoad(true);
+
+    console.log("first");
 
     if (imageUpload) {
       const formData = new FormData();
@@ -167,12 +169,8 @@ export default function EditProfileImage(props) {
               </div>
             </div>
 
-            <button
-              className={EtCss.SubmitBtn}
-              onClick={onSubmit}
-              disabled={imageUpload ? true : false}
-            >
-              Submit
+            <button className={EtCss.SubmitBtn} onClick={onSubmit}>
+              {load ? <Load /> : "Submit"}
             </button>
           </div>
         </div>
