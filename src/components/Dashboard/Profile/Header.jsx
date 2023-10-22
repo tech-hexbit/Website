@@ -84,9 +84,13 @@ export default function Header() {
           </div>
         </div>
 
-        <div className={showEdit ? "showEdit" : "hideEdit"}>
-          <EditProfileImage />
-        </div>
+        {load ? (
+          ""
+        ) : (
+          <div className={showEdit ? "showEdit" : "hideEdit"}>
+            <EditProfileImage setEdit={setEdit} />
+          </div>
+        )}
 
         {load ? (
           <div className="loadCenterDiv">
