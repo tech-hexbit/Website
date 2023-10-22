@@ -234,6 +234,18 @@ body::-webkit-scrollbar-thumb:hover {
   visibility: visible;
 }
 
+.showEdit {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.hideEdit {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 @media screen and (max-width: 850px) {
   .slider-wrapper {
     height: 45%;
