@@ -87,7 +87,7 @@ export default function EditProfileImage(props) {
                 </div>
               </div>
             </div>
-            <div>
+            <div className={imageUpload ? "showPrev" : "hidePrev"}>
               {imageUpload ? (
                 <div className={EtCss.prevImgDiv}>
                   <p className={EtCss.PreviewPTag}>Preview</p>
