@@ -1,0 +1,55 @@
+.personalinfotab {
+  padding-top: 30px;
+}
+
+.heading {
+  font-size: 26px;
+}
+
+.box {
+  margin-top: 10px;
+  padding: 22px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px dashed rgba(170, 170, 170, 1);
+  border-radius: 15px;
+}
+
+.infodivPerfix {
+  color: #717171;
+}
+
+.row1 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0px 20px;
+}
+
+.inputheading {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.16px;
+  line-height: 22px;
+  color: rgba(119, 119, 119, 1);
+}
+
+.infodiv {
+  border: 1px solid;
+  border-color: rgba(221, 221, 221, 1);
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 7px;
+}
+
+.col1 {
+  width: 45%;
+}
+
+.col0 {
+  margin-top: 20px;
+  width: 100%;
+}

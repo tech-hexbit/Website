@@ -1,0 +1,90 @@
+.mDiv {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+
+.centerDiv {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.closeMDiv {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.upMDivPar {
+  width: 100%;
+  padding: 50px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.upMDiv {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.addImgDiv {
+  cursor: pointer;
+}
+
+.LogoHere {
+  text-align: center;
+  color: #888888;
+  margin-bottom: 7px;
+}
+
+.textCenter {
+  background-color: #aaaaaa;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100px;
+  border-radius: 5px;
+}
+
+.dropzoneContent {
+  font-size: 60px;
+}
+
+.PreviewPTag {
+  text-align: center;
+  color: #888888;
+  margin-bottom: 7px;
+}
+
+.prevImg {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.SubmitBtn {
+  margin-top: 50px;
+  padding: 12px 50px;
+  border-radius: 5px;
+  background-color: #4bb543;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.12rem;
+  border-width: 0px;
+  cursor: pointer;
+}
