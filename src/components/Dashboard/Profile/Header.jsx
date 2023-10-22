@@ -105,33 +105,7 @@ export default function Header() {
               phone={userData.Phone}
               Address={userData.Address}
             />
-            <div className={HPCss.personalinfotab}>
-              <div className={HPCss.heading}>Personal info</div>
-              <div className={HPCss.box}>
-                <div className={HPCss.textcontent}>
-                  <div className={HPCss.div}>
-                    <div className={HPCss.subdiv}>
-                      <div className={HPCss.inputheading}>Email</div>
-                      <div className={HPCss.infodiv}>
-                        <div className={HPCss.info}>{userData.Email}</div>
-                      </div>
-                    </div>
-                    <div className={HPCss.subdiv}>
-                      <div className={HPCss.inputheading}>Mobile no.</div>
-                      <div className={HPCss.infodiv}>
-                        <div className={HPCss.info}>+91 {userData.Phone}</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className={HPCss.email}>
-                    <div className={HPCss.inputheading}>Address</div>
-                    <div className={HPCss.infodiv2}>
-                      <p className={HPCss.info}>{userData.Address}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+
             <div className={HPCss.businessinfotab}>
               <div className={HPCss.heading}>Business info</div>
               <div className={HPCss.box2}>
