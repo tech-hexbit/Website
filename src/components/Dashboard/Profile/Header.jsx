@@ -10,6 +10,7 @@ import axios from "axios";
 
 // Css
 import HPCss from "./Css/Header.module.css";
+import "./Css/Common.css";
 
 // state
 import AuthContext from "./../../../store/auth-context";
