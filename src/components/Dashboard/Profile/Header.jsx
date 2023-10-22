@@ -3,6 +3,7 @@ import React, { useContext, useRef, useEffect, useState } from "react";
 // components
 import PersonalInfo from "./PersonalInfo";
 import BusinessInfo from "./BusinessInfo";
+import EditProfileImage from "./EditProfileImage";
 
 // axios
 import axios from "axios";
@@ -19,6 +20,7 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 export default function Header() {
   const [load, setLoad] = useState(false);
   const [userData, setUserData] = useState({});
+  const [showEdit, setEdit] = useState(false);
 
   const authCtx = useContext(AuthContext);
 
@@ -77,6 +79,10 @@ export default function Header() {
             </p>
             <p className={HPCss.delDes}>{authCtx.user.GSTIN}</p>
           </div>
+        </div>
+
+        <div className={showEdit ? "showEdit" : "hideEdit"}>
+          <EditProfileImage />
         </div>
 
         {load ? (
