@@ -106,7 +106,11 @@ export default function Header() {
               phone={userData.Phone}
               Address={userData.Address}
             />
-            <BusinessInfo />
+            <BusinessInfo
+              ShopName={userData.ShopName}
+              GSTIN={userData.GSTIN}
+              AdditionalInfo={userData.AdditionalInfo}
+            />
             <div className={HPCss.businessinfotab}>
               <div className={HPCss.heading}>Business info</div>
               <div className={HPCss.box2}>
