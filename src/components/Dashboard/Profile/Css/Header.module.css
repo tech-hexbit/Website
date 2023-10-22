@@ -2,13 +2,6 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  /* background: linear-gradient(
-    180deg,
-    rgb(62.96, 128.72, 224.19) 0%,
-    rgba(62.96, 128.72, 224.19, 0.57) 22.63%,
-    rgba(62.96, 128.72, 224.19, 0.32) 49.67%,
-    rgba(62.96, 128.72, 224.19, 0) 100%
-  ); */
 }
 
 .imgHeaderP {
