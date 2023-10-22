@@ -19,11 +19,8 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 export default function Header() {
   const [load, setLoad] = useState(false);
   const [userData, setUserData] = useState({});
-  const [imageUpload, setImageUpload] = useState();
 
   const authCtx = useContext(AuthContext);
-
-  const fileInp = useRef(null);
 
   const loadData = async () => {
     setLoad(true);
@@ -50,37 +47,6 @@ export default function Header() {
   useEffect(() => {
     loadData();
   }, []);
-
-  const handleImage = (e) => {
-    console.log(e.target.files[0]);
-    setImageUpload(e.target.files[0]);
-  };
-
-  const handleClick = () => {
-    fileInp.current.click();
-  };
-
-  const onSubmit = async () => {
-    const formData = new FormData();
-    formData.append("images", imageUpload);
-
-    for (var key of formData.entries()) {
-      console.log(key[0] + ", " + key[1]);
-    }
-
-    try {
-      const response = await axios.post("/api/website/auth/EditMe", formData, {
-        headers: { Authorization: `${authCtx.token}` },
-      });
-      console.log(response);
-
-      if (response.data.success) {
-        console.log(response);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   return (
     <>
