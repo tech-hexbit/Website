@@ -1,0 +1,19 @@
+.showEdit {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.hideEdit {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.showPrev {
+  display: flex;
+}
+
+.hidePrev {
+  display: none;
+}
