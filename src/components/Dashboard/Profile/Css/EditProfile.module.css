@@ -39,5 +39,10 @@
 .textCenter {
   background-color: #aaaaaa;
   color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  height: 70px;
+  border-radius: 5px;
 }
