@@ -30,6 +30,9 @@
 }
 
 .trHrline {
+  border-style: solid;
+  border-color: #e3e3e3;
+  border-width: 0px 0px 1px 0px;
 }
 
 .tableTag::-webkit-scrollbar {
