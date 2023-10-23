@@ -67,7 +67,7 @@
 
 @media only screen and (max-width: 650px) {
   .mDiv {
-    margin-top: 30px;
+    margin-top: 0px;
   }
 
   .ImgmDiv {
@@ -81,6 +81,10 @@
 
   .delDes {
     font-size: 12px;
+  }
+
+  .delHeader {
+    margin-left: 15px;
   }
 
   .editIcon {
