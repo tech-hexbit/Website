@@ -58,3 +58,18 @@
   margin-top: 20px;
   width: 100%;
 }
+
+@media only screen and (max-width: 650px) {
+  .row1 {
+    flex-direction: column;
+    gap: 12px 20px;
+  }
+
+  .col1 {
+    width: 100%;
+  }
+
+  .box {
+    padding: 15px;
+  }
+}
