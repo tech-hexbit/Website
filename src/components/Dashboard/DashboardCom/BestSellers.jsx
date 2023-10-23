@@ -97,27 +97,9 @@ export default function BestSellers() {
                               <div>{val.BusinessName}</div>
                             </div>
                           </td>
-                          {/* <td data-cell="Amount" id={BSCss.td}>
-                            {val.revenue}
-                          </td> */}
                           <td data-cell="Amount" id={BSCss.td}>
                             {val.revenue}
                           </td>
-                          {/* <td data-cell="Stock" id={BSCss.td} className="stock">
-                            <div>
-                              <div>3</div>
-                              {"Instock" == "Instock" && (
-                                <div style={{ color: "#4BB543" }}>
-                                  {val.col4Bottom}
-                                </div>
-                              )} */}
-                          {/* {"Out of stock" == "Out of stock" && (
-                                <div style={{ color: "#D0342C" }}>
-                                  {val.col4Bottom}
-                                </div>
-                              )} */}
-                          {/* </div>
-                          </td> */}
                           <td data-cell="Ratings" id={BSCss.td}>
                             5.0
                           </td>
