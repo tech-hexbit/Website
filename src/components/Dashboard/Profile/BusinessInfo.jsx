@@ -14,7 +14,7 @@ export default function BusinessInfo(props) {
             <div className={PICss.infodiv}>{props.ShopName}</div>
           </div>
           <div className={PICss.col1}>
-            <div className={PICss.inputheading}>GSTIN</div>
+            <div className={PICss.inputheading}>Importer License</div>
             <p className={PICss.infodiv}>{props.GSTIN}</p>
           </div>
         </div>

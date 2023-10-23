@@ -120,7 +120,7 @@ export default function Header() {
             />
             <BusinessInfo
               ShopName={userData.ShopName}
-              GSTIN={userData.GSTIN}
+              GSTIN={userData.ImporterLicense}
               AdditionalInfo={userData.AdditionalInfo}
             />
           </>
