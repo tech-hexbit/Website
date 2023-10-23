@@ -48,10 +48,6 @@ export default function BestSellers() {
     }
   };
 
-  useEffect(() => {
-    console.log(orderDel);
-  }, [orderDel]);
-
   return (
     <div className={BSCss.mainDiv}>
       <div className={BSCss.heading}>Best sellers</div>
@@ -69,14 +65,8 @@ export default function BestSellers() {
                   <th id={BSCss.th} className={BSCss.product}>
                     Product
                   </th>
-                  <th id={BSCss.th} className={BSCss.amount}>
-                    Amount
-                  </th>
                   <th id={BSCss.th} className={BSCss.sales}>
                     Sales
-                  </th>
-                  <th id={BSCss.th} className={BSCss.stock}>
-                    Stock
                   </th>
                   <th id={BSCss.th}>Ratings</th>
                 </tr>
@@ -98,29 +88,13 @@ export default function BestSellers() {
                                   className={BSCss.imageCenter}
                                 />
                               </div>
-                              <div>{val.BusinessName}</div>
+                              <div className={BSCss.BusinessNameSel}>
+                                {val.BusinessName}
+                              </div>
                             </div>
                           </td>
                           <td data-cell="Amount" id={BSCss.td}>
-                            {val.revenue}
-                          </td>
-                          <td data-cell="Sales" id={BSCss.td}>
-                            59k
-                          </td>
-                          <td data-cell="Stock" id={BSCss.td} className="stock">
-                            <div>
-                              <div>3</div>
-                              {"Instock" == "Instock" && (
-                                <div style={{ color: "#4BB543" }}>
-                                  {val.col4Bottom}
-                                </div>
-                              )}
-                              {/* {"Out of stock" == "Out of stock" && (
-                                <div style={{ color: "#D0342C" }}>
-                                  {val.col4Bottom}
-                                </div>
-                              )} */}
-                            </div>
+                            ₹ {val.revenue.toFixed(2)}
                           </td>
                           <td data-cell="Ratings" id={BSCss.td}>
                             5.0
@@ -133,6 +107,12 @@ export default function BestSellers() {
                   "No Data"
                 )}
               </table>
+
+              <div className={BSCss.show}>
+                Showing
+                {orderNumber <= 5 ? <b> {orderNumber} </b> : <b>5</b>}
+                of <b>{orderNumber}</b> results
+              </div>
             </div>
           ) : (
             <p className={BSCss.NoOrders}>No Orders</p>

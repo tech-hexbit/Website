@@ -33,6 +33,11 @@
   height: 100%;
 }
 
+.show {
+  color: #888;
+  font-size: 12px;
+}
+
 #th {
   color: #000;
   font-size: 15px;
@@ -42,6 +47,10 @@
 #td {
   padding: 25px 15px 15px 0px;
   border-bottom: #ddd 1px solid;
+}
+
+#td:nth-child(2) {
+  width: 100%;
 }
 
 .amount {
@@ -90,7 +99,7 @@
   min-width: 70px;
   position: sticky;
   left: 0;
-  z-index: 11;
+  z-index: 20;
   background-color: #fff;
   text-align: center;
 }
@@ -99,6 +108,7 @@
 .tableTag tr td {
   text-align: center;
   width: 20%;
+  z-index: 1;
 }
 
 .tableTag tr th:nth-child(2),
@@ -148,5 +158,26 @@
 
   #th {
     font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .col1 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .image {
+    padding: 0px;
+  }
+
+  .BusinessNameSel {
+    display: none;
+  }
+
+  .tableTag tr th:nth-child(1),
+  .tableTag tr td:nth-child(1) {
+    width: 70px;
   }
 }

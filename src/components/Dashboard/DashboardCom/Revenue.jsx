@@ -25,11 +25,11 @@ export default function Revenue() {
       </div>
       <div className={RCss.charts}>
         <div className={RCss.chartHead}>
-          Sales Division By Buyer Apps
+          <p className={RCss.chartHeadLabel}>Sales Division By Buyer Apps</p>
           <DoughnutChart />
         </div>
         <div className={RCss.chartHead}>
-          Weekly Sales Review
+          <p className={RCss.chartHeadLabel}>Weekly Sales Review</p>
           <StackedBar />
         </div>
       </div>
