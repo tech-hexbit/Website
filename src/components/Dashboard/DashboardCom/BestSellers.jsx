@@ -48,10 +48,6 @@ export default function BestSellers() {
     }
   };
 
-  useEffect(() => {
-    console.log(orderDel);
-  }, [orderDel]);
-
   return (
     <div className={BSCss.mainDiv}>
       <div className={BSCss.heading}>Best sellers</div>
