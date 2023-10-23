@@ -70,7 +70,7 @@
     margin-top: 30px;
   }
 
-  .imgHeaderP {
+  .ImgmDiv {
     width: 70px;
     height: 70px;
   }
@@ -81,5 +81,10 @@
 
   .delDes {
     font-size: 12px;
+  }
+
+  .editIcon {
+    right: 0px;
+    top: 0px;
   }
 }
