@@ -27,6 +27,21 @@ export default function DoughnutChart() {
 
   const authCtx = useContext(AuthContext);
 
+  function generateRandomColors(length) {
+    const colors = [];
+    const hexChars = "0123456789ABCDEF";
+
+    for (let i = 0; i < length; i++) {
+      let color = "#";
+      for (let j = 0; j < 6; j++) {
+        color += hexChars[Math.floor(Math.random() * 16)];
+      }
+      colors.push(color);
+    }
+
+    return colors;
+  }
+
   const loadData = async () => {
     setLoad(true);
 
@@ -39,12 +54,14 @@ export default function DoughnutChart() {
         const labels = response.data.frequency.map((e) => e.buyer);
         const data = response.data.frequency.map((e) => e.frequency);
 
+        const randomColors = generateRandomColors(data.length);
+
         setGraphData({
           labels,
           datasets: [
             {
               data,
-              backgroundColor: ["#7E22CE", "#D8B4FE", "#DBEAFE"],
+              backgroundColor: randomColors,
             },
           ],
         });
