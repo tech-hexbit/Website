@@ -65,15 +65,9 @@ export default function BestSellers() {
                   <th id={BSCss.th} className={BSCss.product}>
                     Product
                   </th>
-                  {/* <th id={BSCss.th} className={BSCss.amount}>
-                    Amount
-                  </th> */}
                   <th id={BSCss.th} className={BSCss.sales}>
                     Sales
                   </th>
-                  {/* <th id={BSCss.th} className={BSCss.stock}>
-                    Stock
-                  </th> */}
                   <th id={BSCss.th}>Ratings</th>
                 </tr>
 
