@@ -98,7 +98,7 @@ export default function RecentOrders() {
                                 style={
                                   val.status === "PAID"
                                     ? { color: "#4BB543" }
-                                    : { color: "#D0342C" }
+                                    : { color: "#800000" }
                                 }
                               >
                                 {val.status}
