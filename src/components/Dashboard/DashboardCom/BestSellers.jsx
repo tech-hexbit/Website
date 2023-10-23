@@ -92,7 +92,7 @@ export default function BestSellers() {
                             </div>
                           </td>
                           <td data-cell="Amount" id={BSCss.td}>
-                            {val.revenue}
+                            ₹ {val.revenue.toFixed(2)}
                           </td>
                           <td data-cell="Ratings" id={BSCss.td}>
                             5.0
