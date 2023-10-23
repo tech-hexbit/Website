@@ -88,7 +88,9 @@ export default function BestSellers() {
                                   className={BSCss.imageCenter}
                                 />
                               </div>
-                              <div>{val.BusinessName}</div>
+                              <div className={BSCss.BusinessNameSel}>
+                                {val.BusinessName}
+                              </div>
                             </div>
                           </td>
                           <td data-cell="Amount" id={BSCss.td}>
