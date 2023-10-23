@@ -68,7 +68,7 @@ export default function RecentOrders() {
                 <div className={RCss.table}>
                   <table className={RCss.tableTag}>
                     <tr>
-                      <th id={RCss.th}>Order ID</th>
+                      <th id={RCss.th}>ID</th>
                       <th id={RCss.th} className={RCss.product}>
                         Product
                       </th>
