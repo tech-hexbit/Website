@@ -37,6 +37,7 @@
   height: 100%;
   display: flex;
   justify-content: space-evenly;
+  gap: 0px 20px;
 }
 
 .addImgDiv {

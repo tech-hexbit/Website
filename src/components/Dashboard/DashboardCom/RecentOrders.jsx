@@ -67,8 +67,8 @@ export default function RecentOrders() {
               <>
                 <div className={RCss.table}>
                   <table className={RCss.tableTag}>
-                    <tr>
-                      <th id={RCss.th}>Order ID</th>
+                    <tr className={RCss.trHrline}>
+                      <th id={RCss.th}>ID</th>
                       <th id={RCss.th} className={RCss.product}>
                         Product
                       </th>
@@ -98,7 +98,7 @@ export default function RecentOrders() {
                                 style={
                                   val.status === "PAID"
                                     ? { color: "#4BB543" }
-                                    : { color: "#D0342C" }
+                                    : { color: "#800000" }
                                 }
                               >
                                 {val.status}

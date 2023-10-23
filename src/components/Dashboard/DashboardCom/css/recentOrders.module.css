@@ -29,6 +29,12 @@
   position: relative;
 }
 
+.trHrline {
+  border-style: solid;
+  border-color: #e3e3e3;
+  border-width: 0px 0px 1px 0px;
+}
+
 .tableTag::-webkit-scrollbar {
   width: 0px;
   height: 0px;
@@ -101,7 +107,7 @@
 }
 
 .bottom {
-  padding: 30px 0px;
+  padding: 30px 0px 30px 0px;
   display: flex;
   justify-content: space-between;
 }
@@ -113,7 +119,7 @@
 
 .view {
   color: #1746a2;
-  font-size: 16px;
+  font-size: 12px;
   text-decoration: underline;
   cursor: pointer;
 }
@@ -129,5 +135,9 @@
   .tableTag tr th:nth-child(2),
   .tableTag tr td:nth-child(2) {
     width: auto;
+  }
+
+  .bottom {
+    padding: 12px 0px 30px 0px;
   }
 }
