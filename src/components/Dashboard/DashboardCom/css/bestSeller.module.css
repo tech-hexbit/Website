@@ -49,6 +49,10 @@
   border-bottom: #ddd 1px solid;
 }
 
+#td:nth-child(2) {
+  width: 100%;
+}
+
 .amount {
   width: 100px;
 }
@@ -95,7 +99,7 @@
   min-width: 70px;
   position: sticky;
   left: 0;
-  z-index: 11;
+  z-index: 20;
   background-color: #fff;
   text-align: center;
 }
@@ -104,6 +108,7 @@
 .tableTag tr td {
   text-align: center;
   width: 20%;
+  z-index: 1;
 }
 
 .tableTag tr th:nth-child(2),
