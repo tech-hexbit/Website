@@ -13,6 +13,7 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 import BSCss from "./css/bestSeller.module.css";
 
 export default function BestSellers() {
+  const [orderNumber, setOrderNumber] = useState(0);
   const [orderDel, setOrderDel] = useState([]);
   const [load, setLoad] = useState(false);
 
@@ -32,6 +33,7 @@ export default function BestSellers() {
 
       if (response.data.success) {
         setOrderDel(response.data.seller);
+        setOrderNumber(response.data.seller?.length);
 
         setLoad(false);
       } else {
@@ -45,6 +47,10 @@ export default function BestSellers() {
       console.log(e);
     }
   };
+
+  useEffect(() => {
+    console.log(orderDel);
+  }, [orderDel]);
 
   return (
     <div className={BSCss.mainDiv}>
