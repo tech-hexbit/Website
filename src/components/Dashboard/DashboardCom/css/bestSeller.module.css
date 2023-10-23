@@ -33,6 +33,11 @@
   height: 100%;
 }
 
+.show {
+  color: #888;
+  font-size: 12px;
+}
+
 #th {
   color: #000;
   font-size: 15px;
