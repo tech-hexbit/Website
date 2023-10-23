@@ -129,6 +129,12 @@ export default function BestSellers() {
                   "No Data"
                 )}
               </table>
+
+              <div className={BSCss.show}>
+                Showing
+                {orderNumber <= 5 ? <b> {orderNumber} </b> : <b>5</b>}
+                of <b>{orderNumber}</b> results
+              </div>
             </div>
           ) : (
             <p className={BSCss.NoOrders}>No Orders</p>
