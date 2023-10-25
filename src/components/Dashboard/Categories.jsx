@@ -66,8 +66,8 @@ export default function Categories() {
                     <tr>
                       <th className={Ccss["sticky-col"]}>ID </th>
                       <th>Price</th>
-                      <th>Stock</th>
-                      <th>Order</th>
+                      <th>Email</th>
+                      <th>Phone</th>
                       <th>Published on</th>
                     </tr>
                     {orderlist?.map((val, key) => {
