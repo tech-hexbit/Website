@@ -71,13 +71,14 @@ export default function Categories() {
                       <th>Published on</th>
                     </tr>
                     {orderlist?.map((val, key) => {
+                      console.log(val);
                       return (
                         <>
                           <tr key={key}>
                             <td>{val.OrderID}</td>
                             <td> ₹ {val.amount.toFixed(2)}</td>
-                            <td>32</td>
-                            <td>18</td>
+                            <td>{val.ONDCBilling.email}</td>
+                            <td>{val.ONDCBilling.phone}</td>
                             <td>{val.when.date}</td>
                           </tr>
                         </>
