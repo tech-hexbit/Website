@@ -17,14 +17,7 @@ import Load from "./../../MicroInteraction/LoadBlack";
 import axios from "axios";
 export default function Categories() {
   const [load, setLoad] = useState(false);
-  const [current, setCurrent] = useState("Ecommerce");
   const [orderlist, setorderlist] = useState([]);
-  const [active, setActive] = useState({
-    pdt: true,
-    fashion: false,
-    grocery: false,
-    furniture: false,
-  });
 
   useEffect(() => {
     loadData();
@@ -58,60 +51,8 @@ export default function Categories() {
 
   return (
     <div>
-      {/* <div className={Ccss.mDIvTabs}>
-        <CategoriesTabs
-          name="Ecommerce"
-          setCurrent={setCurrent}
-          current={current}
-        />
-        <CategoriesTabs
-          name="Service providers"
-          setCurrent={setCurrent}
-          current={current}
-        />
-        <CategoriesTabs
-          name="Education"
-          setCurrent={setCurrent}
-          current={current}
-        />
-        <CategoriesTabs name="Food" setCurrent={setCurrent} current={current} />
-        <CategoriesTabs
-          name="Automobile"
-          setCurrent={setCurrent}
-          current={current}
-        />
-      </div> */}
-
       <div className={osCss.middlecontent}>
-        <div className={Ccss.middle}>
-          {/* <div className={Ccss.mDIvSideTabs}>
-            <Sidecategoriestab
-              name="Fashion"
-              setCurrent={setCurrent}
-              current={current}
-            />
-            <Sidecategoriestab
-              name="Groccery"
-              setCurrent={setCurrent}
-              current={current}
-            />
-            <Sidecategoriestab
-              name="Furniture"
-              setCurrent={setCurrent}
-              current={current}
-            />
-            <Sidecategoriestab
-              name="Electronics"
-              setCurrent={setCurrent}
-              current={current}
-            />
-            <Sidecategoriestab
-              name="Shoes"
-              setCurrent={setCurrent}
-              current={current}
-            />
-          </div> */}
-        </div>
+        <div className={Ccss.middle}></div>
         <div id="wrap" className={osCss.table}>
           {load ? (
             <div className="loadCenterDiv">
@@ -123,141 +64,22 @@ export default function Categories() {
                 {orderlist.length > 0 ? (
                   <>
                     <tr>
-                      {/* <th></th> */}
-                      <th className={Ccss["sticky-col"]}>
-                        Product{" "}
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="9"
-                          height="14"
-                          viewBox="0 0 9 14"
-                          fill="none"
-                        >
-                          <path
-                            d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                            fill="#777777"
-                          />
-                          <path
-                            d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                            fill="#777777"
-                          />
-                        </svg>
-                      </th>
-                      <th>
-                        Price{" "}
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="9"
-                          height="14"
-                          viewBox="0 0 9 14"
-                          fill="none"
-                        >
-                          <path
-                            d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                            fill="#777777"
-                          />
-                          <path
-                            d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                            fill="#777777"
-                          />
-                        </svg>
-                      </th>
-                      <th>
-                        Stock{" "}
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="9"
-                          height="14"
-                          viewBox="0 0 9 14"
-                          fill="none"
-                        >
-                          <path
-                            d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                            fill="#777777"
-                          />
-                          <path
-                            d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                            fill="#777777"
-                          />
-                        </svg>
-                      </th>
-                      <th>
-                        Orders{" "}
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="9"
-                          height="14"
-                          viewBox="0 0 9 14"
-                          fill="none"
-                        >
-                          <path
-                            d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                            fill="#777777"
-                          />
-                          <path
-                            d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                            fill="#777777"
-                          />
-                        </svg>
-                      </th>
-                      <th>
-                        Published on{" "}
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="9"
-                          height="14"
-                          viewBox="0 0 9 14"
-                          fill="none"
-                        >
-                          <path
-                            d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                            fill="#777777"
-                          />
-                          <path
-                            d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                            fill="#777777"
-                          />
-                        </svg>
-                      </th>
-
-                      {/* <th>
-                        Action{" "}
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="9"
-                          height="14"
-                          viewBox="0 0 9 14"
-                          fill="none"
-                        >
-                          <path
-                            d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                            fill="#777777"
-                          />
-                          <path
-                            d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                            fill="#777777"
-                          />
-                        </svg>
-                      </th> */}
+                      <th className={Ccss["sticky-col"]}>ID </th>
+                      <th>Price</th>
+                      <th>Email</th>
+                      <th>Phone</th>
+                      <th>Published on</th>
                     </tr>
                     {orderlist?.map((val, key) => {
+                      console.log(val);
                       return (
                         <>
                           <tr key={key}>
-                            {/* <td>
-                              <input type="checkbox" />
-                            </td> */}
-                            <td>#{"Asus Rog"}</td>
-                            <td> {val.amount}</td>
-                            <td>32</td>
-                            <td>18</td>
+                            <td>{val.OrderID}</td>
+                            <td> ₹ {val.amount.toFixed(2)}</td>
+                            <td>{val.ONDCBilling.email}</td>
+                            <td>{val.ONDCBilling.phone}</td>
                             <td>{val.when.date}</td>
-
-                            {/* <td>
-                              <div className={osCss.dots}>
-                                <div style={{ marginTop: "-5px" }}>...</div>
-                              </div>
-                            </td> */}
                           </tr>
                         </>
                       );
