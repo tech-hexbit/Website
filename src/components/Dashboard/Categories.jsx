@@ -17,14 +17,7 @@ import Load from "./../../MicroInteraction/LoadBlack";
 import axios from "axios";
 export default function Categories() {
   const [load, setLoad] = useState(false);
-  const [current, setCurrent] = useState("Ecommerce");
   const [orderlist, setorderlist] = useState([]);
-  const [active, setActive] = useState({
-    pdt: true,
-    fashion: false,
-    grocery: false,
-    furniture: false,
-  });
 
   useEffect(() => {
     loadData();
@@ -58,60 +51,8 @@ export default function Categories() {
 
   return (
     <div>
-      {/* <div className={Ccss.mDIvTabs}>
-        <CategoriesTabs
-          name="Ecommerce"
-          setCurrent={setCurrent}
-          current={current}
-        />
-        <CategoriesTabs
-          name="Service providers"
-          setCurrent={setCurrent}
-          current={current}
-        />
-        <CategoriesTabs
-          name="Education"
-          setCurrent={setCurrent}
-          current={current}
-        />
-        <CategoriesTabs name="Food" setCurrent={setCurrent} current={current} />
-        <CategoriesTabs
-          name="Automobile"
-          setCurrent={setCurrent}
-          current={current}
-        />
-      </div> */}
-
       <div className={osCss.middlecontent}>
-        <div className={Ccss.middle}>
-          {/* <div className={Ccss.mDIvSideTabs}>
-            <Sidecategoriestab
-              name="Fashion"
-              setCurrent={setCurrent}
-              current={current}
-            />
-            <Sidecategoriestab
-              name="Groccery"
-              setCurrent={setCurrent}
-              current={current}
-            />
-            <Sidecategoriestab
-              name="Furniture"
-              setCurrent={setCurrent}
-              current={current}
-            />
-            <Sidecategoriestab
-              name="Electronics"
-              setCurrent={setCurrent}
-              current={current}
-            />
-            <Sidecategoriestab
-              name="Shoes"
-              setCurrent={setCurrent}
-              current={current}
-            />
-          </div> */}
-        </div>
+        <div className={Ccss.middle}></div>
         <div id="wrap" className={osCss.table}>
           {load ? (
             <div className="loadCenterDiv">
@@ -123,7 +64,6 @@ export default function Categories() {
                 {orderlist.length > 0 ? (
                   <>
                     <tr>
-                      {/* <th></th> */}
                       <th className={Ccss["sticky-col"]}>
                         Product{" "}
                         <svg
