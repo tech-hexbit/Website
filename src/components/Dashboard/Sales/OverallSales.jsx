@@ -251,7 +251,7 @@ export default function OverallSales() {
                   <>
                     <tr>
                       <th></th>
-                      <th className="sticky-col" onClick={sortById}>
+                      <th className={osCss.thTag} onClick={sortById}>
                         <p>Id</p>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -270,7 +270,7 @@ export default function OverallSales() {
                           />
                         </svg>
                       </th>
-                      <th onClick={sortByName}>
+                      <th className={osCss.thTag} onClick={sortByName}>
                         Customer
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -294,7 +294,7 @@ export default function OverallSales() {
                         </svg>
                       </th>
 
-                      <th onClick={sortByPrice}>
+                      <th className={osCss.thTag} onClick={sortByPrice}>
                         Price
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -317,7 +317,7 @@ export default function OverallSales() {
                           />
                         </svg>
                       </th>
-                      <th onClick={sortByDate}>
+                      <th className={osCss.thTag} onClick={sortByDate}>
                         Ordered on
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
