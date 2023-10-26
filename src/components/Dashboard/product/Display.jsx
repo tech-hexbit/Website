@@ -93,7 +93,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
 
   const maxPage = () => {
     if (prodcutsCount > 0) {
-      if (currentPage === Math.ceil(prodcutsCount / 5)) {
+      if (currentPage === Math.ceil(prodcutsCount / 10)) {
         setmax(true);
       } else {
         setmax(false);
@@ -147,10 +147,6 @@ export default function Display({ filteredlist, setfilteredlist }) {
                         <>
                           <tr key={key}>
                             <td className={DCss.row} id={DCss.col1}>
-                              {/* <Link
-                                to={`/products/${val._id}`}
-                                className={DCss.LinkStyle}
-                              > */}
                               <div
                                 className={DCss.col1}
                                 onClick={() => {
@@ -172,7 +168,6 @@ export default function Display({ filteredlist, setfilteredlist }) {
                                   </div>
                                 </div>
                               </div>
-                              {/* </Link> */}
                             </td>
                             <td className={DCss.row} id={DCss.price}>
                               {val.price.value}
@@ -231,8 +226,8 @@ export default function Display({ filteredlist, setfilteredlist }) {
               </table>
               <p className={DCss.showingPTag}>
                 Showing{" "}
-                {filteredlist?.length <= 5 ? (
-                  <b>{5 * (currentPage - 1) + filteredlist?.length} </b>
+                {filteredlist?.length <= 10 ? (
+                  <b>{10 * (currentPage - 1) + filteredlist?.length} </b>
                 ) : (
                   <b>5</b>
                 )}{" "}
