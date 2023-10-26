@@ -254,6 +254,7 @@ export default function OverallSales() {
                       <th className={osCss.thTag} onClick={sortById}>
                         <p>Id</p>
                         <svg
+                          className={osCss.svgTag}
                           xmlns="http://www.w3.org/2000/svg"
                           width="9"
                           height="14"
@@ -273,6 +274,7 @@ export default function OverallSales() {
                       <th className={osCss.thTag} onClick={sortByName}>
                         Customer
                         <svg
+                          className={osCss.svgTag}
                           xmlns="http://www.w3.org/2000/svg"
                           width="9"
                           height="14"
@@ -297,6 +299,7 @@ export default function OverallSales() {
                       <th className={osCss.thTag} onClick={sortByPrice}>
                         Price
                         <svg
+                          className={osCss.svgTag}
                           xmlns="http://www.w3.org/2000/svg"
                           width="9"
                           height="14"
@@ -320,6 +323,7 @@ export default function OverallSales() {
                       <th className={osCss.thTag} onClick={sortByDate}>
                         Ordered on
                         <svg
+                          className={osCss.svgTag}
                           xmlns="http://www.w3.org/2000/svg"
                           width="9"
                           height="14"
@@ -346,6 +350,7 @@ export default function OverallSales() {
                       >
                         Payment method
                         <svg
+                          className={osCss.svgTag}
                           xmlns="http://www.w3.org/2000/svg"
                           width="9"
                           height="14"
@@ -370,44 +375,8 @@ export default function OverallSales() {
                           />
                         </svg>
                       </th>
-                      <th className={osCss.payment}>
-                        Delivery status
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="9"
-                          height="14"
-                          viewBox="0 0 9 14"
-                          fill="none"
-                        >
-                          <path
-                            d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                            fill="#777777"
-                          />
-                          <path
-                            d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                            fill="#777777"
-                          />
-                        </svg>
-                      </th>
-                      <th>
-                        Buyer
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="9"
-                          height="14"
-                          viewBox="0 0 9 14"
-                          fill="none"
-                        >
-                          <path
-                            d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                            fill="#777777"
-                          />
-                          <path
-                            d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                            fill="#777777"
-                          />
-                        </svg>
-                      </th>
+                      <th className={osCss.payment}>Delivery status</th>
+                      <th>Buyer</th>
                     </tr>
                     {orderDel
                       .filter((value) => {
