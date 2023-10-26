@@ -12,7 +12,6 @@ import axios from "axios";
 
 // MicroInteraction
 import Load from "./../../../MicroInteraction/LoadBlack";
-import SmallLoad from "./../../../MicroInteraction/SmallLoad";
 
 // Css
 import osCss from "./Css/overallSales.module.css";
@@ -106,7 +105,7 @@ export default function OverallSales() {
 
   const maxPage = () => {
     if (prodcutsCount > 0) {
-      if (currentPage === Math.ceil(prodcutsCount / 5)) {
+      if (currentPage === Math.ceil(prodcutsCount / 10)) {
         setmax(true);
       } else {
         setmax(false);
@@ -437,7 +436,7 @@ export default function OverallSales() {
                                 {val.ONDCBilling.name}
                               </Link>
                             </td>
-                            <td>{val.amount}</td>
+                            <td>₹ {val.amount.toFixed(2)}</td>
                             <td>{val.when.date}</td>
                             <td>{val.status}</td>
                             <UpdateState
@@ -459,7 +458,7 @@ export default function OverallSales() {
           </table>
 
           <p className={osCss.showingPTag}>
-            Showing <b>{5 * (currentPage - 1) + orderDel?.length} </b>
+            Showing <b>{10 * (currentPage - 1) + orderDel?.length} </b>
             of <b>{prodcutsCount}</b> results
           </p>
         </div>
