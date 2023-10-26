@@ -131,7 +131,10 @@ export default function Display({ filteredlist, setfilteredlist }) {
             </div>
           ) : (
             <div className={DCss.table}>
-              <table style={{ borderCollapse: "collapse" }}>
+              <table
+                className={DCss.tableTag}
+                style={{ borderCollapse: "collapse" }}
+              >
                 {orderDel?.length > 0 ? (
                   <>
                     <tr>
