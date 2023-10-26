@@ -7,7 +7,7 @@
 }
 
 .div1 {
-  padding-bottom: 20px;
+  padding: 7px 0px 20px 0px;
   border-bottom: #ddd 1px solid;
   transition: all 0.3s;
 }
