@@ -184,7 +184,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
                                   {val.when.date}
                                 </div>
                                 <div className={DCss.textBottom}>
-                                  {val.when.time}
+                                  {val.when.time} IST
                                 </div>
                               </div>
                             </td>
