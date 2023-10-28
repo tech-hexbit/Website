@@ -11,8 +11,8 @@ export default function DataMain(props) {
     <div>
       <DataTab bgColor="#FCEBFF" />
       <DataTab bgColor="#FDFFE0" />
-      <DataTab bgColor="#" />
-      <DataTab bgColor="#" />
+      <DataTab bgColor="#E4EAFF" />
+      <DataTab bgColor="#DCFEF0" />
     </div>
   );
 }
