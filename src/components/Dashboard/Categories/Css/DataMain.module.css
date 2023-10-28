@@ -19,3 +19,15 @@
 .mDivTab:hover {
   box-shadow: 2px 2px 5px #717171;
 }
+
+.valPTagTab {
+  color: #592161;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.labelPTagTab {
+  color: #1f1f1f;
+  font-size: 20px;
+  font-weight: 700;
+}
