@@ -83,7 +83,7 @@ export default function Categories() {
                             <td>{val.ONDCBilling.email}</td>
                             <td>{val.ONDCBilling.phone}</td>
                             <td
-                              className={Ccss.stateTrTag}
+                              // className={Ccss.stateTrTag}
                               style={{
                                 color:
                                   val.state == "Created"
