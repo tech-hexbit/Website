@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 
 // components
-import CategoriesTabs from "./Categories/CategoriesTabs";
-import Sidecategoriestab from "./Categories/Sidecategoriestab";
+import DataMain from "./Categories/DataMain";
 
 // state
 import AuthContext from "../../store/auth-context";
@@ -52,6 +51,9 @@ export default function Categories() {
   return (
     <div>
       <p className={Ccss.InventoryPTag}>Inventory</p>
+
+      <DataMain />
+
       <div className={osCss.middlecontent}>
         <div className={Ccss.middle}></div>
         <div id="wrap" className={osCss.table}>
