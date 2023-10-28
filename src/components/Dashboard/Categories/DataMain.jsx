@@ -9,10 +9,10 @@ import DM from "./Css/DataMain.module.css";
 export default function DataMain(props) {
   return (
     <div>
-      <DataTab />
-      <DataTab />
-      <DataTab />
-      <DataTab />
+      <DataTab bgColor="#FCEBFF" />
+      <DataTab bgColor="" />
+      <DataTab bgColor="red" />
+      <DataTab bgColor="red" />
     </div>
   );
 }
