@@ -73,7 +73,6 @@ export default function Categories() {
                       <th>Published on</th>
                     </tr>
                     {orderlist?.map((val, key) => {
-                      console.log(val);
                       return (
                         <>
                           <tr key={key}>
@@ -82,6 +81,7 @@ export default function Categories() {
                             <td>{val.ONDCBilling.email}</td>
                             <td>{val.ONDCBilling.phone}</td>
                             <td
+                            className={}
                               style={{
                                 color:
                                   val.state == "Created"
