@@ -51,6 +51,7 @@ export default function Categories() {
 
   return (
     <div>
+      <p className={Ccss.InventoryPTag}>Inventory</p>
       <div className={osCss.middlecontent}>
         <div className={Ccss.middle}></div>
         <div id="wrap" className={osCss.table}>
