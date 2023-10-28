@@ -281,7 +281,12 @@ tr:nth-child(even) td {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 20px 0px;
     padding-top: 35px;
+  }
+
+  .select {
+    width: 100%;
   }
 
   .search {
