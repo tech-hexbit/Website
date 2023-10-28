@@ -299,3 +299,15 @@ tr:nth-child(even) td {
     height: 100%;
   }
 }
+
+@media screen and (max-width: 650px) {
+  .select {
+    width: 100%;
+    flex-direction: column;
+    gap: 15px 0px;
+  }
+
+  .selectInner {
+    width: 100%;
+  }
+}
