@@ -8,7 +8,7 @@ import DM from "./Css/DataMain.module.css";
 
 export default function DataMain(props) {
   return (
-    <div>
+    <div className={DM.mDiv}>
       <DataTab bgColor="#FCEBFF" />
       <DataTab bgColor="#FDFFE0" />
       <DataTab bgColor="#E4EAFF" />
