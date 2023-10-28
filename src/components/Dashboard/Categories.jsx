@@ -4,15 +4,15 @@ import React, { useState, useEffect, useContext } from "react";
 import CategoriesTabs from "./Categories/CategoriesTabs";
 import Sidecategoriestab from "./Categories/Sidecategoriestab";
 
-// css
-import Ccss from "./Css/Categories.module.css";
-import osCss from "./Sales/Css/overallSales.module.css";
-
 // state
 import AuthContext from "../../store/auth-context";
 
 // MicroInteraction
 import Load from "./../../MicroInteraction/LoadBlack";
+
+// css
+import Ccss from "./Css/Categories.module.css";
+import osCss from "./Sales/Css/overallSales.module.css";
 
 import axios from "axios";
 export default function Categories() {
