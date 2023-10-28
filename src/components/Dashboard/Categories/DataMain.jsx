@@ -10,9 +10,9 @@ export default function DataMain(props) {
   return (
     <div>
       <DataTab bgColor="#FCEBFF" />
-      <DataTab bgColor="" />
-      <DataTab bgColor="red" />
-      <DataTab bgColor="red" />
+      <DataTab bgColor="#FDFFE0" />
+      <DataTab bgColor="#" />
+      <DataTab bgColor="#" />
     </div>
   );
 }
