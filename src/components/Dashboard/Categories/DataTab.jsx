@@ -9,8 +9,8 @@ export default function DataTab(props) {
       className={DmTCss.mDivTab}
       style={{ backgroundColor: `${props.bgColor}` }}
     >
-      <p>{props.val}</p>
-      <p>{props.label}</p>
+      <p className={DmTCss.valPTagTab}>{props.val}</p>
+      <p className={DmTCss.labelPTagTab}>{props.label}</p>
     </div>
   );
 }
