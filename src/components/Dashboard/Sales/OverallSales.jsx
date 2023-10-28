@@ -12,7 +12,6 @@ import axios from "axios";
 
 // MicroInteraction
 import Load from "./../../../MicroInteraction/LoadBlack";
-import SmallLoad from "./../../../MicroInteraction/SmallLoad";
 
 // Css
 import osCss from "./Css/overallSales.module.css";
@@ -106,7 +105,7 @@ export default function OverallSales() {
 
   const maxPage = () => {
     if (prodcutsCount > 0) {
-      if (currentPage === Math.ceil(prodcutsCount / 5)) {
+      if (currentPage === Math.ceil(prodcutsCount / 10)) {
         setmax(true);
       } else {
         setmax(false);
@@ -252,9 +251,10 @@ export default function OverallSales() {
                   <>
                     <tr>
                       <th></th>
-                      <th className="sticky-col" onClick={sortById}>
+                      <th className={osCss.thTag} onClick={sortById}>
                         <p>Id</p>
                         <svg
+                          className={osCss.svgTag}
                           xmlns="http://www.w3.org/2000/svg"
                           width="9"
                           height="14"
@@ -271,9 +271,10 @@ export default function OverallSales() {
                           />
                         </svg>
                       </th>
-                      <th onClick={sortByName}>
+                      <th className={osCss.thTag} onClick={sortByName}>
                         Customer
                         <svg
+                          className={osCss.svgTag}
                           xmlns="http://www.w3.org/2000/svg"
                           width="9"
                           height="14"
@@ -295,9 +296,10 @@ export default function OverallSales() {
                         </svg>
                       </th>
 
-                      <th onClick={sortByPrice}>
+                      <th className={osCss.thTag} onClick={sortByPrice}>
                         Price
                         <svg
+                          className={osCss.svgTag}
                           xmlns="http://www.w3.org/2000/svg"
                           width="9"
                           height="14"
@@ -318,9 +320,10 @@ export default function OverallSales() {
                           />
                         </svg>
                       </th>
-                      <th onClick={sortByDate}>
+                      <th className={osCss.thTag} onClick={sortByDate}>
                         Ordered on
                         <svg
+                          className={osCss.svgTag}
                           xmlns="http://www.w3.org/2000/svg"
                           width="9"
                           height="14"
@@ -347,6 +350,7 @@ export default function OverallSales() {
                       >
                         Payment method
                         <svg
+                          className={osCss.svgTag}
                           xmlns="http://www.w3.org/2000/svg"
                           width="9"
                           height="14"
@@ -371,44 +375,8 @@ export default function OverallSales() {
                           />
                         </svg>
                       </th>
-                      <th className={osCss.payment}>
-                        Delivery status
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="9"
-                          height="14"
-                          viewBox="0 0 9 14"
-                          fill="none"
-                        >
-                          <path
-                            d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                            fill="#777777"
-                          />
-                          <path
-                            d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                            fill="#777777"
-                          />
-                        </svg>
-                      </th>
-                      <th>
-                        Buyer
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="9"
-                          height="14"
-                          viewBox="0 0 9 14"
-                          fill="none"
-                        >
-                          <path
-                            d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                            fill="#777777"
-                          />
-                          <path
-                            d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                            fill="#777777"
-                          />
-                        </svg>
-                      </th>
+                      <th className={osCss.payment}>Delivery status</th>
+                      <th>Buyer</th>
                     </tr>
                     {orderDel
                       .filter((value) => {
@@ -437,7 +405,7 @@ export default function OverallSales() {
                                 {val.ONDCBilling.name}
                               </Link>
                             </td>
-                            <td>{val.amount}</td>
+                            <td>₹ {val.amount.toFixed(2)}</td>
                             <td>{val.when.date}</td>
                             <td>{val.status}</td>
                             <UpdateState
@@ -459,7 +427,7 @@ export default function OverallSales() {
           </table>
 
           <p className={osCss.showingPTag}>
-            Showing <b>{5 * (currentPage - 1) + orderDel?.length} </b>
+            Showing <b>{10 * (currentPage - 1) + orderDel?.length} </b>
             of <b>{prodcutsCount}</b> results
           </p>
         </div>

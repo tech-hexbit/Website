@@ -85,6 +85,10 @@
   width: 100%;
 }
 
+.svgTag {
+  margin-left: 5px;
+}
+
 ::-webkit-scrollbar {
   display: none;
 }

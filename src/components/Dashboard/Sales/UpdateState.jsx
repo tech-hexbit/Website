@@ -68,11 +68,13 @@ export default function UpdateState(props) {
         style={{
           color:
             props.state == "Created"
-              ? "#9e6a03"
-              : "Accepted"
-              ? "#4BB543"
-              : val.state == "In-progress"
+              ? "#7925c7"
+              : props.state == "Accepted"
+              ? "#FEC107"
+              : props.state == "In-progress"
               ? "#3F81E0"
+              : props.state == "Completed"
+              ? "#4bb543"
               : "#D0342C",
         }}
       >

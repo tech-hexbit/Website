@@ -10,29 +10,39 @@
   margin-bottom: 30px;
 }
 
+.InventoryPTag {
+  font-weight: 500;
+}
+
 .mDIvTabs::-webkit-scrollbar {
   display: none;
 }
+
 .mDIvSideTabs {
   display: flex;
+}
+
+.stateTrTag {
+  text-align: center;
 }
 
 .middle {
   border-top: 1px solid #f6f6f6;
 }
-.filters{
+
+.filters {
   display: flex;
   margin-left: 68px;
   margin-top: 90px;
- 
-  
 }
-.filtername{
+
+.filtername {
   font-size: 16px;
   color: gray;
   margin: 0 18px;
 }
-.filteroptions{
+
+.filteroptions {
   width: 90px;
   border: 0.5px solid;
   border-color: rgba(221, 221, 221, 1);

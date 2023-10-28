@@ -1,18 +1,17 @@
 import React, { useState, useEffect, useContext } from "react";
 
 // components
-import CategoriesTabs from "./Categories/CategoriesTabs";
-import Sidecategoriestab from "./Categories/Sidecategoriestab";
-
-// css
-import Ccss from "./Css/Categories.module.css";
-import osCss from "./Sales/Css/overallSales.module.css";
+import DataMain from "./Categories/DataMain";
 
 // state
 import AuthContext from "../../store/auth-context";
 
 // MicroInteraction
 import Load from "./../../MicroInteraction/LoadBlack";
+
+// css
+import Ccss from "./Css/Categories.module.css";
+import osCss from "./Sales/Css/overallSales.module.css";
 
 import axios from "axios";
 export default function Categories() {
@@ -51,6 +50,10 @@ export default function Categories() {
 
   return (
     <div>
+      <p className={Ccss.InventoryPTag}>Inventory</p>
+
+      <DataMain />
+
       <div className={osCss.middlecontent}>
         <div className={Ccss.middle}></div>
         <div id="wrap" className={osCss.table}>
@@ -68,10 +71,10 @@ export default function Categories() {
                       <th>Price</th>
                       <th>Email</th>
                       <th>Phone</th>
+                      <th>Status</th>
                       <th>Published on</th>
                     </tr>
                     {orderlist?.map((val, key) => {
-                      console.log(val);
                       return (
                         <>
                           <tr key={key}>
@@ -79,6 +82,23 @@ export default function Categories() {
                             <td> ₹ {val.amount.toFixed(2)}</td>
                             <td>{val.ONDCBilling.email}</td>
                             <td>{val.ONDCBilling.phone}</td>
+                            <td
+                              // className={Ccss.stateTrTag}
+                              style={{
+                                color:
+                                  val.state == "Created"
+                                    ? "#7925c7"
+                                    : val.state == "Accepted"
+                                    ? "#FEC107"
+                                    : val.state == "In-progress"
+                                    ? "#3F81E0"
+                                    : val.state == "Completed"
+                                    ? "#4bb543"
+                                    : "#D0342C",
+                              }}
+                            >
+                              {val.state}
+                            </td>
                             <td>{val.when.date}</td>
                           </tr>
                         </>
