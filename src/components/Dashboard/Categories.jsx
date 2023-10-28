@@ -81,7 +81,22 @@ export default function Categories() {
                             <td> ₹ {val.amount.toFixed(2)}</td>
                             <td>{val.ONDCBilling.email}</td>
                             <td>{val.ONDCBilling.phone}</td>
-                            <td>{val.state}</td>
+                            <td
+                              style={{
+                                color:
+                                  val.state == "Created"
+                                    ? "#7925c7"
+                                    : val.state == "Accepted"
+                                    ? "#FEC107"
+                                    : val.state == "In-progress"
+                                    ? "#3F81E0"
+                                    : val.state == "Completed"
+                                    ? "#4bb543"
+                                    : "#D0342C",
+                              }}
+                            >
+                              {val.state}
+                            </td>
                             <td>{val.when.date}</td>
                           </tr>
                         </>
