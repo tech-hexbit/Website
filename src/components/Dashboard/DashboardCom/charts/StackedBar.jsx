@@ -34,6 +34,7 @@ export default function StackedBar() {
       },
     ],
   };
+
   const options = {
     scales: {
       x: {
@@ -46,6 +47,7 @@ export default function StackedBar() {
       responsive: true,
     },
   };
+
   return (
     <div className="stacked-bar">
       <Chart data={data} type="bar" stacked="true" options={options} />
