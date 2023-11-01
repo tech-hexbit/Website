@@ -56,7 +56,9 @@ export default function DoughnutChart() {
 
         let randomColors = [];
         if (data.length > 2) {
-          randomColors = generateRandomColors(data.length);
+          randomColors = generateRandomColors(data.length - 2);
+          randomColors.push("#d8b4fe");
+          randomColors.push("#f3e8ff");
         } else {
           randomColors = ["#d8b4fe", "#f3e8ff"];
         }
