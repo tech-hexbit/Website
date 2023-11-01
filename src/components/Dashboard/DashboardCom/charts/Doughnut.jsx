@@ -54,7 +54,16 @@ export default function DoughnutChart() {
         const labels = response.data.frequency.map((e) => e.buyer);
         const data = response.data.frequency.map((e) => e.frequency);
 
-        const randomColors = generateRandomColors(data.length);
+        let randomColors = [];
+        if (data.length > 2) {
+          randomColors = generateRandomColors(data.length - 2);
+          randomColors.push("#d8b4fe");
+          randomColors.push("#f3e8ff");
+        } else {
+          randomColors = ["#d8b4fe", "#f3e8ff"];
+        }
+
+        console.log(randomColors);
 
         setGraphData({
           labels,
