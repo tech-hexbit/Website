@@ -13,12 +13,12 @@ export default function Revenue() {
       <div className={RCss.heading}>Revenue</div>
       <div className={RCss.list}>
         <div className={RCss.elements}>
-          <div className={RCss.text}>892</div>
-          <div className={RCss.text}>Refunds</div>
+          <div className={RCss.text}>0</div>
+          <div className={RCss.text}>Return</div>
         </div>
         <div className={RCss.elements}>
           <div className={RCss.text} style={{ color: "#4BB543" }}>
-            49,000
+            0
           </div>
           <div className={RCss.text}>Delivered</div>
         </div>
