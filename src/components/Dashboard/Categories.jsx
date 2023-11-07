@@ -51,6 +51,7 @@ export default function Categories() {
 
       if (response.data.success) {
         setorderlist(response?.data?.orderList);
+        setProdcutsCount(response?.data?.length);
 
         setLoad(false);
       } else {
@@ -97,24 +98,22 @@ export default function Categories() {
                   <>
                     <tr>
                       <th className={Ccss["sticky-col"]}>Name </th>
+                      <th>Price</th>
                       <th>Stock</th>
-                      <th>Email</th>
-                      <th>Phone</th>
-                      <th>Status</th>
+                      <th>Shipping Time</th>
+                      <th>Return Window</th>
                       <th>Published on</th>
                     </tr>
                     {orderlist?.map((val, key) => {
+                      console.log(val["@ondc/org/returnable"]);
                       return (
                         <>
                           <tr key={key}>
                             <td>{val.descriptor.name}</td>
+                            <td>₹ {val.price.value.toFixed(2)}</td>
                             <td>{val.quantity.maximum.count}</td>
-                            {/* <td>{val.ONDCBilling.phone}</td> */}
-                            <td
-                            // className={Ccss.stateTrTag}
-                            >
-                              {val.state}
-                            </td>
+                            <td>{val["@ondc/org/time_to_ship"]}</td>
+                            <td>{val["@ondc/org/return_window"]}</td>
                             <td>{val.when.date}</td>
                           </tr>
                         </>
@@ -125,6 +124,16 @@ export default function Categories() {
                   <p className="NoOrders">No Orders</p>
                 )}
               </table>
+
+              <p className={DCss.showingPTag}>
+                Showing{" "}
+                {orderlist?.length <= 10 ? (
+                  <b>{10 * (currentPage - 1) + orderlist?.length} </b>
+                ) : (
+                  <b>5</b>
+                )}{" "}
+                of <b>{prodcutsCount}</b> results
+              </p>
             </>
           )}
         </div>
