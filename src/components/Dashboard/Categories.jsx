@@ -26,11 +26,7 @@ export default function Categories() {
 
   useEffect(() => {
     loadData();
-  }, []);
-
-  useEffect(() => {
-    loadData();
-  }, [currentPage]);
+  }, [, currentPage]);
 
   useEffect(() => {
     maxPage();
