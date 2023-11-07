@@ -1,24 +1,61 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 
-// css
-import RCss from "./css/revenue.module.css";
+// axios
+import axios from "axios";
+
+// state
+import AuthContext from "./../../../store/auth-context";
 
 // components
 import DoughnutChart from "./charts/Doughnut";
 import StackedBar from "./charts/StackedBar";
 
+// css
+import RCss from "./css/revenue.module.css";
+
 export default function Revenue() {
+  const [current, setCurrent] = useState({
+    Return: 0,
+    Delivered: 0,
+  });
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const authCtx = useContext(AuthContext);
+
+  const loadData = async (e) => {
+    try {
+      const response = await axios.get("/api/website/DashBoard/Revenue/data", {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+
+      if (response.data.success) {
+        console.log(response.data.Return);
+
+        setCurrent({
+          Return: response.data.Return,
+          Delivered: response.data.Delivered,
+        });
+      } else {
+        console.log(e);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
   return (
     <div className={RCss.mainDiv}>
       <div className={RCss.heading}>Revenue</div>
       <div className={RCss.list}>
         <div className={RCss.elements}>
-          <div className={RCss.text}>0</div>
+          <div className={RCss.text}>{current.Return}</div>
           <div className={RCss.text}>Return</div>
         </div>
         <div className={RCss.elements}>
           <div className={RCss.text} style={{ color: "#4BB543" }}>
-            0
+            {current.Delivered}
           </div>
           <div className={RCss.text}>Delivered</div>
         </div>
