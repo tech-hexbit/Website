@@ -10,7 +10,10 @@ export default function DataTab(props) {
       className={DmTCss.mDivTab}
       style={{ backgroundColor: `${props.bgColor}` }}
     >
-      <Link to="/me/sales" className="LinkStyle">
+      <Link
+        to={props.label === "TOTAL ORDERS" ? "/me/sales" : ""}
+        className="LinkStyle"
+      >
         <p className={DmTCss.valPTagTab}>{props.val}</p>
         <p className={DmTCss.labelPTagTab}>{props.label}</p>
       </Link>
