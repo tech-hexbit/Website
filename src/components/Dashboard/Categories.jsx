@@ -97,7 +97,7 @@ export default function Categories() {
                   <>
                     <tr>
                       <th className={Ccss["sticky-col"]}>Name </th>
-                      <th>Price</th>
+                      <th>Stock</th>
                       <th>Email</th>
                       <th>Phone</th>
                       <th>Status</th>
@@ -108,7 +108,7 @@ export default function Categories() {
                         <>
                           <tr key={key}>
                             <td>{val.descriptor.name}</td>
-                            {/* <td>{val.ONDCBilling.email}</td> */}
+                            <td>{val.quantity.maximum.count}</td>
                             {/* <td>{val.ONDCBilling.phone}</td> */}
                             <td
                             // className={Ccss.stateTrTag}
