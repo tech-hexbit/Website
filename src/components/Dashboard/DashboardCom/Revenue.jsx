@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 
 // axios
 import axios from "axios";
@@ -70,6 +71,9 @@ export default function Revenue() {
           <StackedBar />
         </div>
       </div>
+      <Link className="LinkStyle" id={RCss.moreInfo}>
+        More Info
+      </Link>
     </div>
   );
 }
