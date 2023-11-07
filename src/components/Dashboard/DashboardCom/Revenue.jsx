@@ -71,7 +71,8 @@ export default function Revenue() {
           <StackedBar />
         </div>
       </div>
-      <Link className="LinkStyle" id={RCss.moreInfo}>
+
+      <Link to="/me/categories" className="LinkStyle" id={RCss.moreInfo}>
         More Info
       </Link>
     </div>
