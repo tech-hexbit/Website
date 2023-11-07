@@ -96,7 +96,7 @@ export default function Categories() {
                 {orderlist.length > 0 ? (
                   <>
                     <tr>
-                      <th className={Ccss["sticky-col"]}>ID </th>
+                      <th className={Ccss["sticky-col"]}>Name </th>
                       <th>Price</th>
                       <th>Email</th>
                       <th>Phone</th>
@@ -107,24 +107,11 @@ export default function Categories() {
                       return (
                         <>
                           <tr key={key}>
-                            <td>{val.OrderID}</td>
-                            <td> ₹ {val.descriptor.name}</td>
+                            <td>{val.descriptor.name}</td>
                             {/* <td>{val.ONDCBilling.email}</td> */}
                             {/* <td>{val.ONDCBilling.phone}</td> */}
                             <td
-                              // className={Ccss.stateTrTag}
-                              style={{
-                                color:
-                                  val.state == "Created"
-                                    ? "#7925c7"
-                                    : val.state == "Accepted"
-                                    ? "#FEC107"
-                                    : val.state == "In-progress"
-                                    ? "#3F81E0"
-                                    : val.state == "Completed"
-                                    ? "#4bb543"
-                                    : "#D0342C",
-                              }}
+                            // className={Ccss.stateTrTag}
                             >
                               {val.state}
                             </td>
