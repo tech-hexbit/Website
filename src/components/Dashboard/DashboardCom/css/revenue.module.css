@@ -67,6 +67,16 @@
   color: #535353;
 }
 
+#moreInfo {
+  width: 100%;
+  display: block;
+  padding: 20px 20px;
+  font-size: 12px;
+  text-align: right;
+  color: #1746a2;
+  text-decoration: underline;
+}
+
 @media screen and (max-width: 1120px) {
   .charts {
     flex-direction: column;
