@@ -1,4 +1,5 @@
 .mainDiv {
+  position: relative;
   font-family: "Rubik", sans-serif;
   padding: 50px 20px;
   width: 60px;
@@ -8,22 +9,22 @@
   border-style: solid;
   border-width: 0px 1px 0px 0px;
   border-color: #d3d3d3;
-  /* overflow-x: hidden; */
+  z-index: 10;
   transition: all 0.5s ease-in-out;
 }
 
 .heading {
-  /* opacity: 0;
-  visibility: hidden; */
+  opacity: 0;
+  visibility: hidden;
   position: absolute;
   background-color: rgb(113, 113, 113, 0.3);
   left: 40px;
-  width: 120px;
+  width: 130px;
   padding: 2px 10px;
   border-radius: 5px;
   transition: all 0.3s;
   z-index: 999;
-  /* pointer-events: none; */
+  pointer-events: none;
 }
 
 .heading:hover {
@@ -32,7 +33,7 @@
 
 .arrow {
   position: absolute;
-  top: 4.8px;
+  top: 5.7px;
   left: -7px;
   width: 0px;
   height: 0px;
