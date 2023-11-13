@@ -50,7 +50,8 @@ export default function UserSideBar() {
                 </svg>
               </div>
               <div className={sidebarCSS.heading}>
-                <div className={sidebarCSS.arrow}></div>Support
+                <div className={sidebarCSS.arrow}></div>
+                Support
               </div>
             </div>
           </NavLink>
@@ -79,7 +80,10 @@ export default function UserSideBar() {
                   <path d="M9.25043 2.74886V9.93023C9.25127 10.527 9.0145 11.0994 8.59264 11.5213C8.17077 11.9432 7.59832 12.18 7.00157 12.1791H2.24886C1.65233 12.1799 1.07988 11.9432 0.657793 11.5213C0.235923 11.0994 -0.000641227 10.527 1.30547e-06 9.93023V2.74886C-0.000626181 2.15233 0.235928 1.57988 0.657793 1.15779C1.07987 0.735923 1.65233 0.499359 2.24886 0.500001H7.00157C7.59832 0.499374 8.17076 0.735929 8.59264 1.15779C9.01451 1.57987 9.25129 2.15233 9.25043 2.74886ZM7.00157 13.6783H2.24886C1.65233 13.6775 1.07988 13.9143 0.657793 14.3361C0.235923 14.758 -0.000641227 15.3305 1.30547e-06 15.9272V18.2511C-0.000626181 18.8477 0.235928 19.4201 0.657793 19.8422C1.07987 20.2641 1.65233 20.5006 2.24886 20.5H7.00157C7.59832 20.5006 8.17076 20.2641 8.59264 19.8422C9.01451 19.4201 9.25129 18.8477 9.25043 18.2511V15.9272C9.25127 15.3305 9.0145 14.758 8.59264 14.3361C8.17077 13.9143 7.59832 13.6775 7.00157 13.6783ZM17.7511 0.500001H12.9984C12.4017 0.499374 11.8292 0.735929 11.4074 1.15779C10.9855 1.57987 10.7487 2.15233 10.7496 2.74886V18.251C10.7487 18.8476 10.9855 19.42 11.4074 19.8421C11.8292 20.264 12.4017 20.5005 12.9984 20.4999H17.7511C18.3477 20.5005 18.9201 20.264 19.3422 19.8421C19.7641 19.42 20.0006 18.8476 20 18.251V2.74886C20.0006 2.15233 19.7641 1.57988 19.3422 1.15779C18.9201 0.735923 18.3477 0.499359 17.7511 0.500001Z" />
                 </svg>
               </div>
-              <div className={sidebarCSS.heading}>Dashboard</div>
+              <div className={sidebarCSS.heading}>
+                <div className={sidebarCSS.arrow}></div>
+                Dashboard
+              </div>
             </div>
           </NavLink>
 
@@ -108,7 +112,10 @@ export default function UserSideBar() {
                   />
                 </svg>
               </div>
-              <div className={sidebarCSS.heading}>Categories</div>
+              <div className={sidebarCSS.heading}>
+                <div className={sidebarCSS.arrow}></div>
+                Categories
+              </div>
             </div>
           </NavLink>
 
@@ -137,7 +144,10 @@ export default function UserSideBar() {
                   />
                 </svg>
               </div>
-              <div className={sidebarCSS.heading}>Products</div>
+              <div className={sidebarCSS.heading}>
+                <div className={sidebarCSS.arrow}></div>
+                Products
+              </div>
             </div>
           </NavLink>
 
@@ -167,7 +177,10 @@ export default function UserSideBar() {
                   <path d="M17.3251 3.47932L17.0079 3.48398C16.7552 3.48771 16.5018 3.49237 16.255 3.4728C16.0611 3.46069 15.9135 3.5006 15.8144 3.60358C15.7044 3.71773 15.6448 3.91528 15.6465 4.16021C15.6566 5.99803 15.6549 12.0386 15.6541 16.2158V19.7559H17.879C17.8807 15.7406 17.8815 5.58476 17.8781 4.09218C17.8757 3.65729 17.7163 3.47917 17.3251 3.47917L17.3251 3.47932Z" />
                 </svg>
               </div>
-              <div className={sidebarCSS.heading}>Sales</div>
+              <div className={sidebarCSS.heading}>
+                <div className={sidebarCSS.arrow}></div>
+                Sales
+              </div>
             </div>
           </NavLink>
 
@@ -192,7 +205,10 @@ export default function UserSideBar() {
                   <path d="M20 10.4998L17.3531 8.74989V9.76162H14.7691C14.6492 8.98016 14.3409 8.26096 13.8934 7.65029L15.7213 5.82234L16.437 6.53786L17.0712 3.42878L13.9621 4.06313L14.6776 4.77832L12.8494 6.60643C12.2389 6.15893 11.5197 5.85071 10.7382 5.73082L10.738 3.14687H11.75L9.99992 0.5L8.24996 3.14687H9.26169V5.73082C8.48023 5.8509 7.76102 6.15893 7.15051 6.60659L5.32239 4.77865L6.03807 4.06297L2.92864 3.42894L3.563 6.53802L4.27852 5.82251L6.10664 7.65074C5.65898 8.26124 5.35091 8.98057 5.23103 9.7619H2.64689V8.74989L0 10.5L2.64689 12.2499V11.2382H5.23119C5.35111 12.0198 5.65931 12.739 6.10697 13.3495L4.27885 15.1775L3.56333 14.4618L2.92913 17.5709L6.03823 16.9365L5.32288 16.2215L7.151 14.3934C7.76151 14.8411 8.48068 15.1491 9.26235 15.2692L9.26203 17.8531H8.25001L10.0001 20.5L11.7501 17.8531H10.7385V15.2689C11.52 15.1489 12.2392 14.8407 12.8497 14.3931L14.6777 16.221L13.962 16.9365L17.0713 17.5707L16.4369 14.4618L15.7215 15.1771L13.8934 13.3492C14.3411 12.7387 14.6491 12.0194 14.7692 11.2379H17.3532V12.2499L20 10.4998ZM4.99121 10.9419V10.0576H7.87537V9.45212L9.45995 10.4997L7.87537 11.5476V10.9418L4.99121 10.9419ZM9.99988 14.7987L8.95199 13.2141H9.55783V10.6701H10.4416V10.33H9.55783V7.78592H8.95199L9.99988 6.20119L11.0475 7.78592H10.4416V10.33H10.442V13.2143H11.0475L9.99988 14.7987ZM15.009 10.9419H12.1248V11.5477L10.54 10.4998L12.1248 9.45225V10.0581H15.009V10.9419Z" />
                 </svg>
               </div>
-              <div className={sidebarCSS.heading}>Gateway</div>
+              <div className={sidebarCSS.heading}>
+                <div className={sidebarCSS.arrow}></div>
+                Gateway
+              </div>
             </div>
           </NavLink>
 
@@ -223,7 +239,10 @@ export default function UserSideBar() {
                   <path d="M1.81152 14.402V20.4992H5.98802V11.6484L4.52807 14.4019L1.81152 14.402Z" />
                 </svg>
               </div>
-              <div className={sidebarCSS.heading}>Add product</div>
+              <div className={sidebarCSS.heading}>
+                <div className={sidebarCSS.arrow}></div>
+                Add product
+              </div>
             </div>
           </NavLink>
         </>
@@ -252,6 +271,7 @@ export default function UserSideBar() {
             </svg>
           </div>
           <div className={sidebarCSS.heading} id={sidebarCSS.headingLogout}>
+            <div className={sidebarCSS.arrow}></div>
             Logout
           </div>
         </div>
