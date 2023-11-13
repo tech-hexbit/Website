@@ -60,6 +60,8 @@ export default function Header() {
     loadData();
   }, []);
 
+  // console.log(authCtx.user.access);
+
   return (
     <>
       <div className={HPCss.background}>
