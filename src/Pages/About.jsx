@@ -1,5 +1,7 @@
-import { useState, useEffect } from "react";
-// import { Blurhash } from "react-blurhash";
+import { useEffect } from "react";
+
+// helmet
+import { Helmet } from "react-helmet";
 
 // Components
 import Team from "../components/About/Team";
@@ -19,6 +21,10 @@ export default function About() {
 
   return (
     <>
+      <Helmet>
+        <title>HexBit.io - About</title>
+      </Helmet>
+
       <Blur src={image} blur="LHL;gVRl9FtQIBt8WBWB_KobWBRj" />
       <AboutUs />
       <Team />
