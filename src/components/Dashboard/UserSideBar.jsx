@@ -22,6 +22,7 @@ export default function UserSideBar() {
       {authCtx.user.access === 0 ? (
         // Admin
         <>
+          {/* Support */}
           <NavLink
             to="/me/Support"
             className={({ isActive }) =>
