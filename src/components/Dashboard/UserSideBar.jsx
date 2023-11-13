@@ -24,7 +24,7 @@ export default function UserSideBar() {
         <>
           {/* Support */}
           <NavLink
-            to="/me/Support"
+            to="/me/admin/support"
             className={({ isActive }) =>
               isActive
                 ? "LinkStyle sideBarActive"
