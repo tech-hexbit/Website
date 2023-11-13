@@ -2,6 +2,9 @@ import React, { useEffect, useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 
 // components
+//          || SideBar
+import UserSideBar from "./../components/Dashboard/UserSideBar";
+//          || User
 import Sales from "./../components/Dashboard/Sales";
 import Gateway from "../components/Dashboard/Gateway";
 import Products from "./../components/Dashboard/Products";
@@ -10,8 +13,8 @@ import Categories from "./../components/Dashboard/Categories";
 import AddProduct from "./../components/Dashboard/AddProduct";
 import Dashboard from "./../components/Dashboard/DashboardMain";
 import Orderdetails from "./../components/Dashboard/Orderdetails";
-//          || SideBar
-import UserSideBar from "./../components/Dashboard/UserSideBar";
+//          || Admin
+import Support from "./../components/Admin/Support";
 
 // state
 import AuthContext from "./../store/auth-context";
@@ -34,13 +37,23 @@ export default function Profile() {
         <Routes>
           <Route path="/" element={<ProfileMain />} />
 
-          <Route path="/sales" element={<Sales />} />
-          <Route path="/gateway" element={<Gateway />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/categories" element={<Categories />} />
-          <Route path="/addProduct" element={<AddProduct />} />
-          <Route path="/orderdetails/:id" element={<Orderdetails />} />
+          {authCtx.user.access === 0 ? (
+            // Admin
+            <>
+              <Route path="/admin/support" element={<Support />} />
+            </>
+          ) : (
+            // Users
+            <>
+              <Route path="/sales" element={<Sales />} />
+              <Route path="/gateway" element={<Gateway />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/categories" element={<Categories />} />
+              <Route path="/addProduct" element={<AddProduct />} />
+              <Route path="/orderdetails/:id" element={<Orderdetails />} />
+            </>
+          )}
         </Routes>
       </div>
     </div>
