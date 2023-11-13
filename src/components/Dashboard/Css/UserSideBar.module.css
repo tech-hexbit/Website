@@ -13,8 +13,8 @@
 }
 
 .heading {
-  opacity: 0;
-  visibility: hidden;
+  /* opacity: 0;
+  visibility: hidden; */
   position: absolute;
   background-color: rgb(113, 113, 113, 0.3);
   left: 40px;
@@ -54,12 +54,6 @@
 
 .logoutIcon {
   color: #231963;
-}
-
-@media only screen and (max-width: 700px) {
-  .heading {
-    display: none;
-  }
 }
 
 @media only screen and (max-width: 1050px) {
