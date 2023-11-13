@@ -72,14 +72,14 @@ body::-webkit-scrollbar-thumb:hover {
 .LinkStyle.sideBarNonActive {
   color: #595959;
   font-weight: 400;
-  font-family: 18px;
+  font-size: 18px;
   opacity: 0.8;
 }
 
 .LinkStyle.sideBarActive {
   color: #0132bf;
   font-weight: 600;
-  font-family: 18px;
+  font-size: 18px;
   opacity: 1;
 }
 
