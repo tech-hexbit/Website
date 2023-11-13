@@ -96,14 +96,6 @@ export default function Header() {
           <div className={HPCss.delHeader}>
             <p className={HPCss.delPName}>
               <b>{authCtx.user.BusinessName}</b>
-              {authCtx.user.access === 0 ? (
-                <>
-                  <span>.</span>
-                  <span>Admin</span>
-                </>
-              ) : (
-                ""
-              )}
             </p>
             <p className={HPCss.delDes}>{authCtx.user.GSTIN}</p>
           </div>
