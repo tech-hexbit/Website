@@ -98,6 +98,7 @@ export default function UserSideBar() {
         </div>
       </NavLink>
 
+      {/* Sales */}
       <NavLink
         to="/me/sales"
         className={({ isActive }) =>
@@ -125,6 +126,7 @@ export default function UserSideBar() {
         </div>
       </NavLink>
 
+      {/* Gateway */}
       <NavLink
         to="/me/gateway"
         className={({ isActive }) =>
@@ -147,6 +149,7 @@ export default function UserSideBar() {
         </div>
       </NavLink>
 
+      {/* Add product */}
       <NavLink
         to="/me/addProduct"
         className={({ isActive }) =>
@@ -174,6 +177,8 @@ export default function UserSideBar() {
           <div className={sidebarCSS.heading}>Add product</div>
         </div>
       </NavLink>
+
+      {/* Logout */}
       <div onClick={logout}>
         <div className={sidebarCSS.navElement}>
           <div className={sidebarCSS.icons}>
