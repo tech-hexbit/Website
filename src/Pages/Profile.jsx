@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import React, { useEffect, useContext } from "react";
+import { Routes, Route } from "react-router-dom";
 
 // components
 import Sales from "./../components/Dashboard/Sales";
@@ -13,6 +13,9 @@ import Orderdetails from "./../components/Dashboard/Orderdetails";
 //          || SideBar
 import UserSideBar from "./../components/Dashboard/UserSideBar";
 
+// state
+import AuthContext from "./../store/auth-context";
+
 // Css
 import PCss from "./Css/Profile.module.css";
 
@@ -21,6 +24,8 @@ export default function Profile() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const authCtx = useContext(AuthContext);
 
   return (
     <div className={PCss.mDiv}>
