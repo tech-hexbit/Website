@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+
+// helmet
 import { Helmet } from "react-helmet";
 
 // components
@@ -19,6 +21,7 @@ export default function Home() {
       <Helmet>
         <title>HexBit.io - Home</title>
       </Helmet>
+
       <div>
         <Header />
         <WhoAreWe />

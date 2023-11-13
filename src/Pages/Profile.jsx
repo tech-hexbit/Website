@@ -1,6 +1,9 @@
 import React, { useEffect, useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 
+// helmet
+import { Helmet } from "react-helmet";
+
 // components
 //          || SideBar
 import UserSideBar from "./../components/Dashboard/UserSideBar";
@@ -31,31 +34,37 @@ export default function Profile() {
   const authCtx = useContext(AuthContext);
 
   return (
-    <div className={PCss.mDiv}>
-      <UserSideBar />
-      <div className={PCss.CDiv}>
-        <Routes>
-          <Route path="/" element={<ProfileMain />} />
+    <>
+      <Helmet>
+        <title>HexBit.io - Profile</title>
+      </Helmet>
 
-          {authCtx.user.access === 0 ? (
-            // Admin
-            <>
-              <Route path="/admin/support" element={<Support />} />
-            </>
-          ) : (
-            // Users
-            <>
-              <Route path="/sales" element={<Sales />} />
-              <Route path="/gateway" element={<Gateway />} />
-              <Route path="/products" element={<Products />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/categories" element={<Categories />} />
-              <Route path="/addProduct" element={<AddProduct />} />
-              <Route path="/orderdetails/:id" element={<Orderdetails />} />
-            </>
-          )}
-        </Routes>
+      <div className={PCss.mDiv}>
+        <UserSideBar />
+        <div className={PCss.CDiv}>
+          <Routes>
+            <Route path="/" element={<ProfileMain />} />
+
+            {authCtx.user.access === 0 ? (
+              // Admin
+              <>
+                <Route path="/admin/support" element={<Support />} />
+              </>
+            ) : (
+              // Users
+              <>
+                <Route path="/sales" element={<Sales />} />
+                <Route path="/gateway" element={<Gateway />} />
+                <Route path="/products" element={<Products />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/categories" element={<Categories />} />
+                <Route path="/addProduct" element={<AddProduct />} />
+                <Route path="/orderdetails/:id" element={<Orderdetails />} />
+              </>
+            )}
+          </Routes>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
