@@ -8,7 +8,6 @@ import Team from "../components/About/Team";
 import AboutUs from "./../components/About/AboutUs";
 import Business from "../components/About/Business";
 import Blur from "./../components/About/Blur/ImageComponent";
-import LoadingPage from "./../MicroInteraction/Loading";
 
 // img
 import image from "./../assets/AboutUS/abUsHeader.png";
