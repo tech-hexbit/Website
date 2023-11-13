@@ -26,11 +26,6 @@
   cursor: pointer;
 }
 
-.icons {
-  /* padding-right: 10px; */
-  /* background-color: red; */
-}
-
 .logoutIcon {
   color: #231963;
 }
@@ -40,6 +35,7 @@
     display: none;
   }
 }
+
 @media only screen and (max-width: 1050px) {
   .navElement {
     display: flex;
