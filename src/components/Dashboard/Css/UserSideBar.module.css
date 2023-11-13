@@ -13,8 +13,8 @@
 }
 
 .heading {
-  opacity: 0;
-  visibility: hidden;
+  /* opacity: 0;
+  visibility: hidden; */
   position: absolute;
   background-color: rgb(113, 113, 113, 0.3);
   left: 30px;
@@ -25,6 +25,17 @@
 
 .heading:hover {
   color: #56117c;
+}
+
+.arrow {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 0px;
+  height: 0px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 16px solid red;
 }
 
 .navElement {
