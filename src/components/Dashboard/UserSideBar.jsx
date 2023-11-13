@@ -19,6 +19,9 @@ export default function UserSideBar() {
 
   return (
     <div className={sidebarCSS.mainDiv}>
+      {authCtx.user.access === 0 ? "Hello" : ""}
+
+      {/* Dashboard */}
       <NavLink
         to="/me/dashboard"
         className={({ isActive }) =>
@@ -40,6 +43,8 @@ export default function UserSideBar() {
           <div className={sidebarCSS.heading}>Dashboard</div>
         </div>
       </NavLink>
+
+      {/* Categories */}
       <NavLink
         to="/me/categories"
         className={({ isActive }) =>
@@ -65,6 +70,7 @@ export default function UserSideBar() {
           <div className={sidebarCSS.heading}>Categories</div>
         </div>
       </NavLink>
+
       <NavLink
         to="/me/products"
         className={({ isActive }) =>
