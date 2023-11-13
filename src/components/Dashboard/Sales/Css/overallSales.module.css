@@ -171,6 +171,11 @@ th:first-child {
   box-shadow: #777;
 }
 
+.table tr {
+  position: relative;
+  z-index: 1;
+}
+
 .table tr td:nth-child(2),
 .table tr th:nth-child(2) {
   position: sticky;
