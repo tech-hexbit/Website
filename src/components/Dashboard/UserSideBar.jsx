@@ -49,7 +49,9 @@ export default function UserSideBar() {
                   <path d="m2 14 6 6" />
                 </svg>
               </div>
-              <div className={sidebarCSS.heading}>Support</div>
+              <div className={sidebarCSS.heading}>
+                <div className={sidebarCSS.arrow}></div>Support
+              </div>
             </div>
           </NavLink>
         </>
