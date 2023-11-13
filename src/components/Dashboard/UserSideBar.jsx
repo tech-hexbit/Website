@@ -241,7 +241,7 @@ export default function UserSideBar() {
               </div>
               <div className={sidebarCSS.heading}>
                 <div className={sidebarCSS.arrow}></div>
-                Add product
+                Add Product
               </div>
             </div>
           </NavLink>
