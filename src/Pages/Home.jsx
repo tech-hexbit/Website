@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>HexBit.io - Home</title>
+        <title>HEXBit.io - Empowering Global Commerce</title>
       </Helmet>
 
       <div>
