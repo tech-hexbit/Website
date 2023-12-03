@@ -21,6 +21,7 @@ export default function Support() {
   const [load, setLoad] = useState(false);
   const [showAdd, setAdd] = useState(false);
   const [showRef, setRef] = useState(false);
+  const [showCurr, setCurr] = useState("Support");
 
   const authCtx = useContext(AuthContext);
 
@@ -56,7 +57,22 @@ export default function Support() {
     <>
       <div>
         <div className={SupCss.titleDiv}>
-          <p>Support</p>
+          <p
+            id={showCurr === "Support" ? "Support" : "nonAc"}
+            onClick={() => {
+              setCurr("Support");
+            }}
+          >
+            Support
+          </p>
+          <p
+            id={showCurr === "Contacted" ? "Contacted" : "nonAc"}
+            onClick={() => {
+              setCurr("Contacted");
+            }}
+          >
+            Contacted
+          </p>
 
           <svg
             xmlns="http://www.w3.org/2000/svg"
