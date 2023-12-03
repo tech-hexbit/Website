@@ -7,6 +7,9 @@ import Load from "./../../MicroInteraction/Load";
 // state
 import AuthContext from "../../store/auth-context";
 
+// axios
+import axios from "axios";
+
 // css
 import AQCss from "./Css/AddQuestion.module.css";
 
@@ -37,11 +40,45 @@ export default function AddQuestiom(props) {
   const onSubmit = async () => {
     setLoad(true);
 
+    const { question, answer } = showData;
+
     if (question !== "" && answer !== "") {
       try {
         const response = await axios.post("/api/website/qna/post", showData, {
           headers: { Authorization: `${authCtx.token}` },
         });
+
+        if (response.data.success) {
+          setLoad(false);
+
+          setError({
+            mainColor: "#EDFEEE",
+            secondaryColor: "#5CB660",
+            symbol: "check_circle",
+            title: "Success",
+            text: "Successfully Added",
+            val: true,
+          });
+
+          setData({
+            question: "",
+            answer: "",
+          });
+
+          props.setRef(true);
+          props.setAdd(false);
+        } else {
+          setLoad(false);
+
+          setError({
+            mainColor: "#FDEDED",
+            secondaryColor: "#F16360",
+            symbol: "error",
+            title: "Error",
+            text: "Poduct Addition Failed",
+            val: true,
+          });
+        }
       } catch (error) {
         console.log(error);
 
