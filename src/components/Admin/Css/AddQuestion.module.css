@@ -1,0 +1,44 @@
+.titleDiv {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 30px;
+  margin-bottom: 30px;
+}
+
+.closeBtn {
+  cursor: pointer;
+}
+
+.inpmDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: center;
+  gap: 30px 0px;
+  padding: 0px 30px;
+}
+
+.inpTag {
+  outline: none;
+  padding: 7px 12px;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #717171;
+}
+
+.submitDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SubmitTag {
+  margin: 20px 00px;
+  padding: 7px 12px;
+  width: 60%;
+  background-color: #4bb543;
+  border-width: 0px;
+  border-radius: 5px;
+  color: #fff;
+}
