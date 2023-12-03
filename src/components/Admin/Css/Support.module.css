@@ -35,3 +35,7 @@
 .qptag {
   cursor: pointer;
 }
+
+.NoData {
+  text-align: center;
+}
