@@ -21,7 +21,7 @@ export default function Support() {
       </div>
 
       <div>
-        <p>
+        <p className={SupCss.queriesPTag}>
           For additonal Queries you can{" "}
           <Link to="/contact">
             <u>contract us</u>
