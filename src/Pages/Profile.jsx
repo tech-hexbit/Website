@@ -16,6 +16,7 @@ import Categories from "./../components/Dashboard/Categories";
 import AddProduct from "./../components/Dashboard/AddProduct";
 import Dashboard from "./../components/Dashboard/DashboardMain";
 import Orderdetails from "./../components/Dashboard/Orderdetails";
+import Support from "./../components/Dashboard/Support";
 //          || Admin
 import SupportAdmin from "./../components/Admin/Support";
 import SellersAdmin from "./../components/Admin/Sellers";
@@ -57,6 +58,7 @@ export default function Profile() {
               <>
                 <Route path="/sales" element={<Sales />} />
                 <Route path="/gateway" element={<Gateway />} />
+                <Route path="/support" element={<Support />} />
                 <Route path="/products" element={<Products />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/categories" element={<Categories />} />
