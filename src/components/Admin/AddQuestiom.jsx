@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 
 // components
 import { Alert } from "./../../MicroInteraction/Alert";
 import Load from "./../../MicroInteraction/Load";
+
+// state
+import AuthContext from "../../store/auth-context";
 
 // css
 import AQCss from "./Css/AddQuestion.module.css";
@@ -22,6 +25,8 @@ export default function AddQuestiom(props) {
     val: false,
   });
 
+  const authCtx = useContext(AuthContext);
+
   const updateData = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -32,9 +37,25 @@ export default function AddQuestiom(props) {
   const onSubmit = async () => {
     setLoad(true);
 
-    const { question, answer } = showData;
-
     if (question !== "" && answer !== "") {
+      try {
+        const response = await axios.post("/api/website/qna/post", showData, {
+          headers: { Authorization: `${authCtx.token}` },
+        });
+      } catch (error) {
+        console.log(error);
+
+        setLoad(false);
+
+        setError({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "Poduct Addition Failed",
+          val: true,
+        });
+      }
     } else {
       setLoad(false);
 
