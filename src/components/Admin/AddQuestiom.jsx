@@ -3,7 +3,8 @@ import React from "react";
 export default function AddQuestiom(props) {
   return (
     <div>
-      AddQuestiom
+      <p>Add Question(s)</p>
+
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
