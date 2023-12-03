@@ -19,7 +19,7 @@ import SupCss from "./Css/Support.module.css";
 export default function Support() {
   const [data, setData] = useState([]);
   const [load, setLoad] = useState(false);
-  const [showProductDel, setProductDel] = useState({ state: false, id: "" });
+  const [showAdd, setAdd] = useState(false);
 
   const authCtx = useContext(AuthContext);
 
@@ -68,6 +68,9 @@ export default function Support() {
             stroke-linejoin="round"
             class="lucide lucide-plus"
             className={SupCss.plusIcon}
+            onClick={() => {
+              setAdd(true);
+            }}
           >
             <path d="M5 12h14" />
             <path d="M12 5v14" />
@@ -84,7 +87,6 @@ export default function Support() {
               {data.length > 0 ? (
                 <>
                   {data.map((val, key) => {
-                    console.log(val);
                     return (
                       <QA
                         key={key}
@@ -102,10 +104,8 @@ export default function Support() {
         </div>
       </div>
 
-      <div
-        className={showProductDel.state ? "yesProductsPage" : "noProductsPage"}
-      >
-        <AddQuestiom id={showProductDel.id} setProductDel={setProductDel} />
+      <div className={showAdd ? "yesAdd" : "noAdd"}>
+        <AddQuestiom setAdd={setAdd} />
       </div>
     </>
   );
