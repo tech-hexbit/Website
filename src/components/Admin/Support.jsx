@@ -99,7 +99,9 @@ export default function Support() {
                   })}
                 </>
               ) : (
-                ""
+                <>
+                  <p id={SupCss.NoData}>No Data</p>
+                </>
               )}
             </>
           )}
