@@ -71,8 +71,10 @@ export default function Contacted() {
                       <div>{val.CompanyName}</div>
                     </div>
 
-                    <div className={CCss.mapMDiv}>
-                      <div>Subject - {val.subject}</div>
+                    <div className={CCss.submainDiv}>
+                      <div>
+                        Subject - <b>{val.subject}</b>
+                      </div>
                       <div>{val.message}</div>
                     </div>
 
