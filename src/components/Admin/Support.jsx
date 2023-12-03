@@ -1,33 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
-
-// components
-import QA from "./QA";
-
-// css
-import SupCss from "./Css/Support.module.css";
 
 export default function Support() {
   return (
     <div>
-      <p>FAQs</p>
-
-      <div className={SupCss.qamDiv}>
-        <QA />
-        <QA />
-        <QA />
-        <QA />
-        <QA />
-      </div>
+      <p>Support</p>
 
       <div>
-        <p className={SupCss.queriesPTag}>
-          For additonal Queries you can{" "}
-          <Link to="/contact">
-            <u>contract us</u>
-          </Link>
-          .
-        </p>
+        <p style={{ textAlign: "center" }}>Comming Soon...</p>
       </div>
     </div>
   );
