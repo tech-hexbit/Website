@@ -248,6 +248,17 @@ body::-webkit-scrollbar-thumb:hover {
   display: none;
 }
 
+#Support,
+#Contacted {
+  color: #c075ff;
+}
+
+#Support,
+#Contacted,
+#nonAc {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 850px) {
   .slider-wrapper {
     height: 45%;
