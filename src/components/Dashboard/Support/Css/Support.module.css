@@ -21,3 +21,7 @@
   font-size: 12px;
   text-align: center;
 }
+
+.qptag {
+  cursor: pointer;
+}
