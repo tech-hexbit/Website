@@ -1,0 +1,17 @@
+.qamDiv {
+  margin: 20px 0px;
+}
+
+.qaComDiv {
+  margin: 20px 0px;
+  padding: 7px 0px 7px 15px;
+  border-style: solid;
+  border-width: 0px 0px 0px 2px;
+  border-color: #c075ff;
+  border-radius: 3px 0px 0px 3px;
+}
+
+.ansPTag {
+  margin: 10px 7px;
+  transition: all 0.3s;
+}
