@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 
 // components
 import QA from "./QA";
+import Contacted from "./Contacted";
 import AddQuestiom from "./AddQuestiom";
 
 // state
@@ -95,33 +96,47 @@ export default function Support() {
           </svg>
         </div>
 
-        <div className={SupCss.qamDiv}>
-          {load ? (
-            <div className="loadCenterDiv">
-              <Load />
-            </div>
-          ) : (
-            <>
-              {data.length > 0 ? (
-                <>
-                  {data.map((val, key) => {
-                    return (
-                      <QA
-                        key={key}
-                        answer={val.answer}
-                        question={val.question}
-                      />
-                    );
-                  })}
-                </>
+        {showCurr === "Support" ? (
+          <>
+            <div className={SupCss.qamDiv}>
+              {load ? (
+                <div className="loadCenterDiv">
+                  <Load />
+                </div>
               ) : (
                 <>
-                  <p id={SupCss.NoData}>No Data</p>
+                  {data.length > 0 ? (
+                    <>
+                      {data.map((val, key) => {
+                        return (
+                          <QA
+                            key={key}
+                            answer={val.answer}
+                            question={val.question}
+                          />
+                        );
+                      })}
+                    </>
+                  ) : (
+                    <>
+                      <p id={SupCss.NoData}>No Data</p>
+                    </>
+                  )}
                 </>
               )}
-            </>
-          )}
-        </div>
+            </div>
+          </>
+        ) : (
+          ""
+        )}
+
+        {showCurr === "Contacted" ? (
+          <>
+            <Contacted />
+          </>
+        ) : (
+          ""
+        )}
       </div>
 
       <div className={showAdd ? "yesAdd" : "noAdd"}>
