@@ -6,9 +6,14 @@
 .mapMDiv {
   border-radius: 5px;
   padding: 12px 20px;
-  border-style: solid;
+  border-style: dashed;
   border-width: 1px;
   border-color: #d3d3d3;
+  transition: all 0.3s;
+}
+
+.mapMDiv:hover {
+  border-color: #c075ff;
 }
 
 .titleDiv,
@@ -22,4 +27,8 @@
 .datetimeDiv {
   margin: 7px 0px;
   color: #717171;
+}
+
+.submainDiv {
+  margin: 30px 0px;
 }
