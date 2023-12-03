@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
 // components
@@ -11,7 +11,7 @@ import AuthContext from "./.././../store/auth-context";
 import axios from "axios";
 
 // MicroInteraction
-import Load from "./../../../MicroInteraction/LoadBlack";
+import Load from "./../../MicroInteraction/LoadBlack";
 
 // css
 import SupCss from "./Support/Css/Support.module.css";
@@ -33,6 +33,16 @@ export default function Support() {
       const response = await axios.get(`/api/website/qna/get`, {
         headers: { Authorization: `${authCtx.token}` },
       });
+
+      if (response.data.success) {
+        setData(response.data.qnaEntries);
+
+        setLoad(false);
+      } else {
+        setLoad(false);
+
+        console.log(e);
+      }
     } catch (e) {
       setLoad(false);
 
@@ -44,10 +54,7 @@ export default function Support() {
       <p>FAQs</p>
 
       <div className={SupCss.qamDiv}>
-        <QA />
-        <QA />
-        <QA />
-        <QA />
+        {data.length > 0 ? "" : ""}
         <QA />
       </div>
 
