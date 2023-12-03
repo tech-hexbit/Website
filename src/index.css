@@ -198,7 +198,8 @@ body::-webkit-scrollbar-thumb:hover {
   justify-content: center;
 }
 
-.yesProductsPage {
+.yesProductsPage,
+.yesAdd {
   opacity: 1;
   visibility: visible;
   position: absolute;
@@ -212,7 +213,8 @@ body::-webkit-scrollbar-thumb:hover {
   z-index: 2;
 }
 
-.noProductsPage {
+.noProductsPage,
+.noAdd {
   position: absolute;
   top: 0px;
   left: 0px;
