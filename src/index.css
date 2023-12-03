@@ -234,6 +234,18 @@ body::-webkit-scrollbar-thumb:hover {
   visibility: visible;
 }
 
+#showqa {
+  opacity: 1;
+  visibility: visible;
+  display: block;
+}
+
+#hideqa {
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+}
+
 @media screen and (max-width: 850px) {
   .slider-wrapper {
     height: 45%;
