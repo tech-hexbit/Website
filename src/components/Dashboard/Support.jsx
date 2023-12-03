@@ -54,8 +54,26 @@ export default function Support() {
       <p>FAQs</p>
 
       <div className={SupCss.qamDiv}>
-        {data.length > 0 ? "" : ""}
-        <QA />
+        {load ? (
+          <div className="loadCenterDiv">
+            <Load />
+          </div>
+        ) : (
+          <>
+            {data.length > 0 ? (
+              <>
+                {data.map((val, key) => {
+                  console.log(val);
+                  return (
+                    <QA key={key} answer={val.answer} question={val.question} />
+                  );
+                })}
+              </>
+            ) : (
+              ""
+            )}
+          </>
+        )}
       </div>
 
       <div>
