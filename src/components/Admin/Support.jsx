@@ -20,12 +20,14 @@ export default function Support() {
   const [data, setData] = useState([]);
   const [load, setLoad] = useState(false);
   const [showAdd, setAdd] = useState(false);
+  const [showRef, setRef] = useState(false);
 
   const authCtx = useContext(AuthContext);
 
   useEffect(() => {
     loadData();
-  }, []);
+    setRef(false);
+  }, [, showRef]);
 
   const loadData = async () => {
     setLoad(true);
@@ -105,7 +107,7 @@ export default function Support() {
       </div>
 
       <div className={showAdd ? "yesAdd" : "noAdd"}>
-        <AddQuestiom setAdd={setAdd} />
+        <AddQuestiom setAdd={setAdd} setRef={setRef} />
       </div>
     </>
   );
