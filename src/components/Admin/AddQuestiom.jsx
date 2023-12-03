@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
 // css
 import AQCss from "./Css/AddQuestion.module.css";
 
 export default function AddQuestiom(props) {
+  const [showData, setData] = useState({
+    question: "",
+    answer: "",
+  });
   return (
     <div className={AQCss.mDiv}>
       <div className={AQCss.titleDiv}>
@@ -32,18 +36,22 @@ export default function AddQuestiom(props) {
       <div className={AQCss.inpmDiv}>
         <input
           type="text"
-          name=""
+          name="question"
           id=""
+          value={showData.question}
           placeholder="Question"
           className={AQCss.inpTag}
+          onChange={updateData}
         />
 
         <input
           type="text"
-          name=""
+          name="answer"
           id=""
+          value={showData.answer}
           placeholder="Answer"
           className={AQCss.inpTag}
+          onChange={updateData}
         />
       </div>
 
