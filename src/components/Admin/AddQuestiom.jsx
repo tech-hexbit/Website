@@ -1,5 +1,8 @@
 import React from "react";
 
+// css
+import AQCss from "./Css/AddQuestion.module.css";
+
 export default function AddQuestiom(props) {
   return (
     <div>
