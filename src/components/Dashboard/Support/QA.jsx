@@ -12,7 +12,7 @@ export default function QA() {
         hide(!show);
       }}
     >
-      <p>
+      <p className={SupCss.qptag}>
         <>Lorem ipsum dolor sit amet consectetur ?</>
       </p>
       <p className={SupCss.ansPTag} id={show ? "showqa" : "hideqa"}>
