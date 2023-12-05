@@ -1,0 +1,10 @@
+.typesOfUsers {
+  margin: 30px 0px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.typesOfUsers p {
+  cursor: pointer;
+}
