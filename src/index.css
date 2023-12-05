@@ -255,7 +255,9 @@ body::-webkit-scrollbar-thumb:hover {
 
 #Support,
 #Contacted,
-#nonAc {
+#nonAc,
+#Selcolor,
+#notSelColor {
   cursor: pointer;
 }
 
