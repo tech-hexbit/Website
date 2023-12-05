@@ -49,10 +49,6 @@ export default function Sellers() {
     }
   };
 
-  useEffect(() => {
-    console.log(data);
-  }, []);
-
   return (
     <div>
       <p>Sellers</p>
