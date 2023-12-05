@@ -20,17 +20,17 @@ export default function ContionalSellers(props) {
     loadData();
   }, []);
 
+  const authCtx = useContext(AuthContext);
+
   const loadData = async () => {
     setLoad(true);
 
     try {
-      const response = await axios.post(
-        `/api/website/admin/usersList`,
-        (state = props.state),
-        {
-          headers: { Authorization: `${authCtx.token}` },
-        }
-      );
+      let body = { state: props.state };
+
+      const response = await axios.post(`/api/website/admin/usersList`, body, {
+        headers: { Authorization: `${authCtx.token}` },
+      });
 
       if (response.data.success) {
         setData(response.data.sellerList);
@@ -47,10 +47,6 @@ export default function ContionalSellers(props) {
       console.log(e);
     }
   };
-
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
 
   return <div>ContionalSellers</div>;
 }
