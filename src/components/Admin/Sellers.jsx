@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 
+// components
+import AllSellers from "./Sellers/AllSellers";
+
 // state
 import AuthContext from "./.././../store/auth-context";
 
@@ -16,14 +19,12 @@ export default function Sellers() {
   const [data, setData] = useState([]);
   const [SellerType, setSellerType] = useState("all");
   const [load, setLoad] = useState(false);
-  const [showRef, setRef] = useState(false);
 
   const authCtx = useContext(AuthContext);
 
   useEffect(() => {
     loadData();
-    setRef(false);
-  }, [, showRef]);
+  }, []);
 
   const loadData = async () => {
     setLoad(true);
@@ -113,6 +114,10 @@ export default function Sellers() {
           <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
           <path d="m9 12 2 2 4-4" />
         </svg>
+      </div>
+
+      <div>
+        {SellerType === "all" ? <AllSellers load={load} data={data} /> : ""}
       </div>
     </div>
   );
