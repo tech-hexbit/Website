@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 
 // components
 import AllSellers from "./Sellers/AllSellers";
+import ContionalSellers from "./Sellers/ContionalSellers";
 
 // state
 import AuthContext from "./.././../store/auth-context";
@@ -118,6 +119,8 @@ export default function Sellers() {
 
       <div>
         {SellerType === "all" ? <AllSellers load={load} data={data} /> : ""}
+        {SellerType === "Verified" ? <ContionalSellers state={true} /> : ""}
+        {SellerType === "notVerified" ? <ContionalSellers state={false} /> : ""}
       </div>
     </div>
   );
