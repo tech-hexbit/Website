@@ -17,11 +17,11 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 import DCss from "./Css/display.module.css";
 
 export default function Display({ filteredlist, setfilteredlist }) {
+  const [max, setmax] = useState(false);
   const [load, setLoad] = useState(false);
   const [orderDel, setOrderDel] = useState([]);
-  const [prodcutsCount, setProdcutsCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
-  const [max, setmax] = useState(false);
+  const [prodcutsCount, setProdcutsCount] = useState(0);
   const [showProductDel, setProductDel] = useState({ state: false, id: "" });
 
   useEffect(() => {

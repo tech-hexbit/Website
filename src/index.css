@@ -198,7 +198,8 @@ body::-webkit-scrollbar-thumb:hover {
   justify-content: center;
 }
 
-.yesProductsPage {
+.yesProductsPage,
+.yesAdd {
   opacity: 1;
   visibility: visible;
   position: absolute;
@@ -212,7 +213,8 @@ body::-webkit-scrollbar-thumb:hover {
   z-index: 2;
 }
 
-.noProductsPage {
+.noProductsPage,
+.noAdd {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -232,6 +234,39 @@ body::-webkit-scrollbar-thumb:hover {
 #noProductsPage {
   opacity: 1;
   visibility: visible;
+}
+
+#showqa {
+  opacity: 1;
+  visibility: visible;
+  display: block;
+}
+
+#hideqa {
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+}
+
+#Support,
+#Contacted {
+  color: #c075ff;
+}
+
+#Support,
+#Contacted,
+#nonAc,
+#Selcolor,
+#notSelColor {
+  cursor: pointer;
+}
+
+#Selcolor {
+  color: #c077ff;
+}
+
+#notSelColor {
+  color: #d3d3d3;
 }
 
 @media screen and (max-width: 850px) {

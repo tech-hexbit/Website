@@ -16,8 +16,10 @@ import Categories from "./../components/Dashboard/Categories";
 import AddProduct from "./../components/Dashboard/AddProduct";
 import Dashboard from "./../components/Dashboard/DashboardMain";
 import Orderdetails from "./../components/Dashboard/Orderdetails";
+import Support from "./../components/Dashboard/Support";
 //          || Admin
-import Support from "./../components/Admin/Support";
+import SupportAdmin from "./../components/Admin/Support";
+import SellersAdmin from "./../components/Admin/Sellers";
 
 // state
 import AuthContext from "./../store/auth-context";
@@ -48,13 +50,15 @@ export default function Profile() {
             {authCtx.user.access === 0 ? (
               // Admin
               <>
-                <Route path="/admin/support" element={<Support />} />
+                <Route path="/admin/support" element={<SupportAdmin />} />
+                <Route path="/admin/sellers" element={<SellersAdmin />} />
               </>
             ) : (
               // Users
               <>
                 <Route path="/sales" element={<Sales />} />
                 <Route path="/gateway" element={<Gateway />} />
+                <Route path="/support" element={<Support />} />
                 <Route path="/products" element={<Products />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/categories" element={<Categories />} />

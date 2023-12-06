@@ -22,6 +22,41 @@ export default function UserSideBar() {
       {authCtx.user.access === 0 ? (
         // Admin
         <>
+          {/* Seller Verification */}
+          <NavLink
+            to="/me/admin/sellers"
+            className={({ isActive }) =>
+              isActive
+                ? "LinkStyle sideBarActive"
+                : "LinkStyle sideBarNonActive"
+            }
+          >
+            <div className={sidebarCSS.navElement}>
+              <div className={sidebarCSS.icons}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="21"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-badge-help"
+                >
+                  <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
+                  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                  <line x1="12" x2="12.01" y1="17" y2="17" />
+                </svg>
+              </div>
+              <div className={sidebarCSS.heading}>
+                <div className={sidebarCSS.arrow}></div>
+                Sellers
+              </div>
+            </div>
+          </NavLink>
+
           {/* Support */}
           <NavLink
             to="/me/admin/support"
@@ -242,6 +277,40 @@ export default function UserSideBar() {
               <div className={sidebarCSS.heading}>
                 <div className={sidebarCSS.arrow}></div>
                 Add Product
+              </div>
+            </div>
+          </NavLink>
+
+          {/* Seller Support */}
+          <NavLink
+            to="/me/support"
+            className={({ isActive }) =>
+              isActive
+                ? "LinkStyle sideBarActive"
+                : "LinkStyle sideBarNonActive"
+            }
+          >
+            <div className={sidebarCSS.navElement}>
+              <div className={sidebarCSS.icons}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="21"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-helping-hand"
+                >
+                  <path d="m3 15 5.12-5.12A3 3 0 0 1 10.24 9H13a2 2 0 1 1 0 4h-2.5m4-.68 4.17-4.89a1.88 1.88 0 0 1 2.92 2.36l-4.2 5.94A3 3 0 0 1 14.96 17H9.83a2 2 0 0 0-1.42.59L7 19" />
+                  <path d="m2 14 6 6" />
+                </svg>
+              </div>
+              <div className={sidebarCSS.heading}>
+                <div className={sidebarCSS.arrow}></div>
+                Support
               </div>
             </div>
           </NavLink>

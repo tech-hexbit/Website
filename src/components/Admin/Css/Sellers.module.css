@@ -1,0 +1,28 @@
+.typesOfUsers {
+  margin: 30px 0px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.mapMDiv {
+  padding: 15px 20px;
+  border-style: dashed;
+  border-color: #c27aff;
+  border-width: 1px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  /* display: flex; */
+}
+
+.conDel,
+.conDelT {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.conDel {
+  font-size: 12px;
+  color: #717171;
+}
