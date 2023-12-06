@@ -55,10 +55,6 @@ export default function Support() {
     }
   };
 
-  useEffect(() => {
-    console.log(data);
-  }, []);
-
   return (
     <>
       <div>
