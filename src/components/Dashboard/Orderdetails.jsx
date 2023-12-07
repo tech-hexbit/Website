@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 
 // axios
 import axios from "axios";
@@ -13,18 +13,18 @@ import AuthContext from "../../store/auth-context";
 // img
 import LogisticsGif from "./../../assets/Logistic/Logistics.gif";
 
-const Orderdetails = () => {
+const Orderdetails = (props) => {
   const [res, setres] = useState(null);
 
-  const { id } = useParams();
+  // const { id } = useParams();
 
   useEffect(() => {
-    loadOrderdel();
-  }, []);
+    loadOrderdel(props.id);
+  }, [props.id]);
 
   const authCtx = useContext(AuthContext);
 
-  const loadOrderdel = async () => {
+  const loadOrderdel = async (id) => {
     try {
       const response = await axios.get(`/api/common/order/details/${id}`, {
         headers: { Authorization: `${authCtx.token}` },
@@ -45,12 +45,31 @@ const Orderdetails = () => {
       {res ? (
         <div className={odcss.orderdetails}>
           <div className={odcss.header}>
-            <div className={odcss["header-child"]} />
-            <div className={odcss.sales1}>
-              <div className={odcss["sales-child"]} />
-              <b className={odcss["order-detail"]}>Order detail</b>
-              <hr />
-            </div>
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-move-left"
+                className={odcss.leftArrow}
+                onClick={() => {
+                  props.setProductDel(false);
+                }}
+              >
+                <path d="M6 8L2 12L6 16" />
+                <path d="M2 12H22" />
+              </svg>
+            </span>
+            {/* <div className={odcss.sales1}> */}
+            {/* <div className={odcss["sales-child"]} /> */}
+            <b className={odcss["order-detail"]}>Order detail</b>
+            {/* </div> */}
           </div>
 
           {res ? (
