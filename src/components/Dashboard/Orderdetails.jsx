@@ -66,10 +66,7 @@ const Orderdetails = (props) => {
                 <path d="M2 12H22" />
               </svg>
             </span>
-            {/* <div className={odcss.sales1}> */}
-            {/* <div className={odcss["sales-child"]} /> */}
-            <b className={odcss["order-detail"]}>Order detail</b>
-            {/* </div> */}
+            <b>Order detail</b>
           </div>
 
           {res ? (
