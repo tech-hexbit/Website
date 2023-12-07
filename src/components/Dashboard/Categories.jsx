@@ -95,7 +95,7 @@ export default function Categories() {
                     <tr>
                       <th className={Ccss["sticky-col"]}>Name </th>
                       <th>Price</th>
-                      <th>Stock</th>
+                      <th>Available Inventory</th>
                       <th>Shipping Time</th>
                       <th>Return Window</th>
                       <th>Published on</th>
