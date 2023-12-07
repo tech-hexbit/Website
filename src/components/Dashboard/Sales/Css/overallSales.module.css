@@ -222,6 +222,11 @@ tr:nth-child(even) td {
   cursor: pointer;
 }
 
+.tdStateBlock {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 @media screen and (max-width: 1260px) {
   .table table {
     width: 100vw;
