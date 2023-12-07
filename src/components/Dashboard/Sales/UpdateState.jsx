@@ -77,6 +77,7 @@ export default function UpdateState(props) {
               ? "#4bb543"
               : "#D0342C",
         }}
+        className={osCss.tdStateBlock}
       >
         {edit ? (
           <>
