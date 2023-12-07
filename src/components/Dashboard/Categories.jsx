@@ -105,18 +105,66 @@ export default function Categories() {
                       return (
                         <>
                           <tr key={key}>
-                            <td>{val.descriptor.name}</td>
-                            <td>₹ {val.price.value.toFixed(2)}</td>
                             <td
                               style={{
-                                backgroundColor: "red",
+                                backgroundColor:
+                                  val.quantity.maximum.count <= 5
+                                    ? "#f46524"
+                                    : "",
+                              }}
+                            >
+                              {val.descriptor.name}
+                            </td>
+                            <td
+                              style={{
+                                backgroundColor:
+                                  val.quantity.maximum.count <= 5
+                                    ? "#f46524"
+                                    : "",
+                              }}
+                            >
+                              ₹ {val.price.value.toFixed(2)}
+                            </td>
+                            <td
+                              style={{
+                                backgroundColor:
+                                  val.quantity.maximum.count <= 5
+                                    ? "#f46524"
+                                    : "",
                               }}
                             >
                               {val.quantity.maximum.count}
                             </td>
-                            <td>{val["@ondc/org/time_to_ship"]}</td>
-                            <td>{val["@ondc/org/return_window"]}</td>
-                            <td>{val.when.date}</td>
+                            <td
+                              style={{
+                                backgroundColor:
+                                  val.quantity.maximum.count <= 5
+                                    ? "#f46524"
+                                    : "",
+                              }}
+                            >
+                              {val["@ondc/org/time_to_ship"]}
+                            </td>
+                            <td
+                              style={{
+                                backgroundColor:
+                                  val.quantity.maximum.count <= 5
+                                    ? "#f46524"
+                                    : "",
+                              }}
+                            >
+                              {val["@ondc/org/return_window"]}
+                            </td>
+                            <td
+                              style={{
+                                backgroundColor:
+                                  val.quantity.maximum.count <= 5
+                                    ? "#f46524"
+                                    : "",
+                              }}
+                            >
+                              {val.when.date}
+                            </td>
                           </tr>
                         </>
                       );
