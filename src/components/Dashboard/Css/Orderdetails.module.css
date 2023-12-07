@@ -199,9 +199,6 @@ td {
 .dt1 {
   margin: 12px 0px;
   font-size: 16px;
-  /* display: flex; */
-  /* padding-top: 20px; */
-  /* align-items: center; */
 }
 
 .LogisticsGif {
@@ -211,22 +208,6 @@ td {
   object-fit: cover;
   aspect-ratio: 1/1;
 }
-
-/* .amt1 {
-  margin-left: 550px;
-}
-
-.amt2 {
-  margin-left: 540px;
-}
-
-.amt3 {
-  margin-left: 550px;
-}
-
-.amt4 {
-  margin-left: 587px;
-} */
 
 .total-amt {
   display: flex;
@@ -243,4 +224,9 @@ td {
 .leftArrow {
   margin: 5px 7px 0px 0px;
   cursor: pointer;
+}
+
+.header {
+  display: flex;
+  align-items: center;
 }
