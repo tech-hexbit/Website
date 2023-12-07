@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-// import { useParams } from "react-router-dom";
 
 // axios
 import axios from "axios";
@@ -15,8 +14,6 @@ import LogisticsGif from "./../../assets/Logistic/Logistics.gif";
 
 const Orderdetails = (props) => {
   const [res, setres] = useState(null);
-
-  // const { id } = useParams();
 
   useEffect(() => {
     loadOrderdel(props.id);
