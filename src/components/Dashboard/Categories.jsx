@@ -107,7 +107,13 @@ export default function Categories() {
                           <tr key={key}>
                             <td>{val.descriptor.name}</td>
                             <td>₹ {val.price.value.toFixed(2)}</td>
-                            <td>{val.quantity.maximum.count}</td>
+                            <td
+                              style={{
+                                backgroundColor: "red",
+                              }}
+                            >
+                              {val.quantity.maximum.count}
+                            </td>
                             <td>{val["@ondc/org/time_to_ship"]}</td>
                             <td>{val["@ondc/org/return_window"]}</td>
                             <td>{val.when.date}</td>
