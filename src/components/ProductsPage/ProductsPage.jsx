@@ -1,5 +1,4 @@
 import React, { useEffect, useContext, useState } from "react";
-import { useParams } from "react-router-dom";
 
 // axios
 import axios from "axios";
@@ -18,8 +17,6 @@ import PPCss from "./Css/ProductPage.module.css";
 
 export default function ProductsPage(props) {
   const [res, setres] = useState();
-
-  // const { id } = useParams();
 
   useEffect(() => {
     loadProducts(props.id);
@@ -101,8 +98,6 @@ export default function ProductsPage(props) {
               />
             </div>
 
-            {/* <ColorBox res={res} /> */}
-            {/* <SizeBox res={res} /> */}
             <Des res={res} />
           </div>
         </div>
