@@ -117,21 +117,21 @@ export default function OverallSales() {
     }
   };
 
-  const sortById = () => {
-    const newSortOrder = sortOrder === "asc" ? "desc" : "asc";
-    setSortOrder(newSortOrder);
+  // const sortById = () => {
+  //   const newSortOrder = sortOrder === "asc" ? "desc" : "asc";
+  //   setSortOrder(newSortOrder);
 
-    // Sort the orderDel array based on _id
-    const sortedOrderDel = [...orderDel].sort((a, b) => {
-      if (newSortOrder === "asc") {
-        return a._id.localeCompare(b._id);
-      } else {
-        return b._id.localeCompare(a._id);
-      }
-    });
+  //   // Sort the orderDel array based on _id
+  //   const sortedOrderDel = [...orderDel].sort((a, b) => {
+  //     if (newSortOrder === "asc") {
+  //       return a._id.localeCompare(b._id);
+  //     } else {
+  //       return b._id.localeCompare(a._id);
+  //     }
+  //   });
 
-    setOrderDel(sortedOrderDel);
-  };
+  //   setOrderDel(sortedOrderDel);
+  // };
 
   const sortByName = () => {
     const newSortOrder = sortByNameOrder === "asc" ? "desc" : "asc";
@@ -256,10 +256,12 @@ export default function OverallSales() {
                   {orderDel?.length > 0 ? (
                     <>
                       <tr>
-                        <th></th>
-                        <th className={osCss.thTag} onClick={sortById}>
+                        <th
+                          className={osCss.thTag}
+                          // onClick={sortById}
+                        >
                           <p>Id</p>
-                          <svg
+                          {/* <svg
                             className={osCss.svgTag}
                             xmlns="http://www.w3.org/2000/svg"
                             width="9"
@@ -277,7 +279,7 @@ export default function OverallSales() {
                               d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
                               fill={sortOrder === "asc" ? "#777777" : "#c782ff"}
                             />
-                          </svg>
+                          </svg> */}
                         </th>
                         <th className={osCss.thTag} onClick={sortByName}>
                           Customer
@@ -407,9 +409,6 @@ export default function OverallSales() {
                         .map((val, key) => {
                           return (
                             <tr key={key}>
-                              <td>
-                                <input type="checkbox" />
-                              </td>
                               <td>#{val._id.slice(-4)}</td>
                               <td
                                 onClick={() => {
