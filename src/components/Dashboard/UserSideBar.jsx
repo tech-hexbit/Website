@@ -122,9 +122,9 @@ export default function UserSideBar() {
             </div>
           </NavLink>
 
-          {/* Categories */}
+          {/* Inventory */}
           <NavLink
-            to="/me/categories"
+            to="/me/Inventory"
             className={({ isActive }) =>
               isActive
                 ? "LinkStyle sideBarActive"
@@ -149,7 +149,7 @@ export default function UserSideBar() {
               </div>
               <div className={sidebarCSS.heading}>
                 <div className={sidebarCSS.arrow}></div>
-                Categories
+                Inventory
               </div>
             </div>
           </NavLink>
