@@ -83,12 +83,6 @@ export default function Des(props) {
     }
   };
 
-  useEffect(() => {
-    console.log(
-      props.res["@ondc/org/mandatory_reqs_veggies_fruits"].net_quantity
-    );
-  }, []);
-
   return (
     <>
       <div className={DCss.mDiv}>
