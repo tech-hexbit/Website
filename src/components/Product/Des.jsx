@@ -135,7 +135,7 @@ export default function Des(props) {
               </button>
             </>
           ) : (
-            <>{props.res.descriptor.short_desc}</>
+            <>{props.res.descriptor.short_desc} ++++++++++++++</>
           )}
         </p>
       </div>
