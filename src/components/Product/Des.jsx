@@ -135,7 +135,11 @@ export default function Des(props) {
               </button>
             </>
           ) : (
-            <>{props.res.descriptor.short_desc} ++++++++++++++</>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: props.res.descriptor.short_desc,
+              }}
+            />
           )}
         </p>
       </div>
