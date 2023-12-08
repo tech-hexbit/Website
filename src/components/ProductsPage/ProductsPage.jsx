@@ -90,11 +90,13 @@ export default function ProductsPage(props) {
                 title="Price"
                 value={`₹ ${res.price.maximum_value}`}
                 up="price.maximum_value"
+                id={res._id}
               />
               <Box
                 title="Stock"
                 value={res.quantity.maximum.count}
                 up="quantity.maximum.count"
+                id={res._id}
               />
             </div>
 
