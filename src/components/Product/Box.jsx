@@ -12,6 +12,14 @@ import BCss from "./Css/Box.module.css";
 export default function Box(props) {
   const [editDesState, setEditDes] = useState("");
   const [edit, setEdit] = useState(false);
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
 
   const authCtx = useContext(AuthContext);
 
