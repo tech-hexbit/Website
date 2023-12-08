@@ -87,7 +87,7 @@ export default function Des(props) {
     <>
       <div className={DCss.mDiv}>
         <p className={DCss.subTitlePTag}>
-          Description :{" "}
+          Description :
           <span
             onClick={() => {
               setEdit(!edit);
