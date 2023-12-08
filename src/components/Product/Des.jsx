@@ -25,7 +25,7 @@ export default function Des(props) {
       const input = {
         fieldName: value,
         changedValue: editDesState,
-        itemID: id,
+        itemID: props.id,
       };
 
       const response = await axios.post(
