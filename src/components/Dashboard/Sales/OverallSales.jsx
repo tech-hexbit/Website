@@ -47,6 +47,11 @@ export default function OverallSales() {
     loadData();
   }, [currentPage, loadDataState]);
 
+  // scroll to top
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [, currentPage]);
+
   useEffect(() => {
     maxPage();
   }, [prodcutsCount, currentPage]);
