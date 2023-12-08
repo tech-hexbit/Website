@@ -49,15 +49,34 @@ export default function Box(props) {
       console.log(response.data);
 
       if (response.data.success) {
-        setInput({
-          name: "",
-          email: "",
-          CompanyName: "",
-          subject: "",
-          message: "",
+        setError({
+          mainColor: "#EDFEEE",
+          secondaryColor: "#5CB660",
+          symbol: "check_circle",
+          title: "Success",
+          text: "Successfully Added",
+          val: true,
+        });
+      } else {
+        setError({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "Poduct Addition Failed",
+          val: true,
         });
       }
     } catch (e) {
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "Poduct Addition Failed",
+        val: true,
+      });
+
       console.log(e);
     }
   };
