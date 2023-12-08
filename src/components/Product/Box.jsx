@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
 
 // axios
 import axios from "axios";
@@ -14,8 +13,6 @@ export default function Box(props) {
   const [editDesState, setEditDes] = useState("");
   const [edit, setEdit] = useState(false);
 
-  const { id } = useParams();
-
   const authCtx = useContext(AuthContext);
 
   const changePost = async (value) => {
@@ -25,7 +22,7 @@ export default function Box(props) {
       const input = {
         fieldName: value,
         changedValue: editDesState,
-        itemID: id,
+        itemID: props.id,
       };
 
       const response = await axios.post(
@@ -41,8 +38,6 @@ export default function Box(props) {
       console.log(response.data);
 
       if (response.data.success) {
-        setLoad(false);
-
         setInput({
           name: "",
           email: "",
