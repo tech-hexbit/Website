@@ -49,6 +49,8 @@ export default function Box(props) {
       console.log(response.data);
 
       if (response.data.success) {
+        props.setChange(true);
+
         setError({
           mainColor: "#EDFEEE",
           secondaryColor: "#5CB660",
