@@ -66,3 +66,9 @@
   float: right;
   cursor: pointer;
 }
+
+.submitBtn {
+  background-color: transparent;
+  border-width: 0px;
+  cursor: pointer;
+}
