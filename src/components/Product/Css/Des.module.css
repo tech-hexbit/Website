@@ -5,6 +5,7 @@
   padding: 5px 12px;
   margin: 15px 0px;
   transition: all 0.3s;
+  border-radius: 5px;
 }
 
 .mDiv:hover {

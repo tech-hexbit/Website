@@ -21,6 +21,8 @@ export default function Revenue() {
   });
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     loadData();
   }, []);
 
@@ -46,6 +48,11 @@ export default function Revenue() {
       console.log(e);
     }
   };
+
+  useEffect(() => {
+    console.log(current);
+  }, [current]);
+
   return (
     <div className={RCss.mainDiv}>
       <div className={RCss.heading}>Revenue</div>

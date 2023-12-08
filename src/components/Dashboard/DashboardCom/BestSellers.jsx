@@ -27,13 +27,16 @@ export default function BestSellers() {
     setLoad(true);
 
     try {
-      const response = await axios.get("/api/website/DashBoard/sellersList", {
-        headers: { Authorization: `${authCtx.token}` },
-      });
+      const response = await axios.get(
+        "/api/website/DashBoard/Revenue/topSellingproducts",
+        {
+          headers: { Authorization: `${authCtx.token}` },
+        }
+      );
 
       if (response.data.success) {
-        setOrderDel(response.data.seller);
-        setOrderNumber(response.data.seller?.length);
+        setOrderDel(response.data.topItems);
+        setOrderNumber(response.data.topItems?.length);
 
         setLoad(false);
       } else {
@@ -84,20 +87,20 @@ export default function BestSellers() {
                             <div className={BSCss.col1}>
                               <div className={BSCss.image}>
                                 <img
-                                  src={val.image}
+                                  src={val.descriptor.images[0]}
                                   className={BSCss.imageCenter}
                                 />
                               </div>
                               <div className={BSCss.BusinessNameSel}>
-                                {val.BusinessName}
+                                {val.descriptor.name}
                               </div>
                             </div>
                           </td>
                           <td data-cell="Amount" id={BSCss.td}>
-                            ₹ {val.revenue.toFixed(2)}
+                            {val.totalSold}
                           </td>
                           <td data-cell="Ratings" id={BSCss.td}>
-                            5.0
+                            {val.rating.toFixed(1)}
                           </td>
                         </tr>
                       );
