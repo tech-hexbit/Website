@@ -108,7 +108,7 @@ export default function ProductsPage(props) {
                 />
               </div>
 
-              <Des res={res} id={res._id} />
+              <Des res={res} id={res._id} setChange={setChange} />
             </div>
           </div>
         ) : (
