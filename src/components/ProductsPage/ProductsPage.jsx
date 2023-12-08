@@ -17,12 +17,15 @@ import PPCss from "./Css/ProductPage.module.css";
 
 export default function ProductsPage(props) {
   const [res, setres] = useState();
+  const [change, setChange] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
 
     loadProducts(props.id);
-  }, [, props.id]);
+
+    setChange(false);
+  }, [, props.id, change]);
 
   const authCtx = useContext(AuthContext);
 
@@ -94,12 +97,14 @@ export default function ProductsPage(props) {
                   value={`₹ ${res.price.maximum_value}`}
                   up="price.maximum_value"
                   id={res._id}
+                  setChange={setChange}
                 />
                 <Box
                   title="Stock"
                   value={res.quantity.maximum.count}
                   up="quantity.maximum.count"
                   id={res._id}
+                  setChange={setChange}
                 />
               </div>
 
