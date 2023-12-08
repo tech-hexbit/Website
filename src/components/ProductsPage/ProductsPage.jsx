@@ -20,23 +20,12 @@ import PPCss from "./Css/ProductPage.module.css";
 
 export default function ProductsPage(props) {
   const [res, setres] = useState();
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
-  useEffect(() => {
-    loadProducts(props.id);
-  }, [props.id]);
-
-  // scroll to top
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+
+    loadProducts(props.id);
+  }, [, props.id]);
 
   const authCtx = useContext(AuthContext);
 
