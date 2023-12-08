@@ -32,6 +32,11 @@ export default function Display({ filteredlist, setfilteredlist }) {
     maxPage();
   }, [prodcutsCount, currentPage]);
 
+  // scroll to top
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [, currentPage]);
+
   const authCtx = useContext(AuthContext);
 
   const loadData = async () => {
