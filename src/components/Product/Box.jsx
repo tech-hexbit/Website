@@ -27,6 +27,21 @@ export default function Box(props) {
   const authCtx = useContext(AuthContext);
 
   const changePost = async (value) => {
+    if (editDesState === "") {
+      setEdit(false);
+
+      setError({
+        mainColor: "#FFC0CB",
+        secondaryColor: "#FF69B4",
+        symbol: "pets",
+        title: "Check it out",
+        text: "Please Fill All The Details",
+        val: true,
+      });
+
+      return;
+    }
+
     setEdit(false);
 
     try {
@@ -140,6 +155,7 @@ export default function Box(props) {
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 class="lucide lucide-save"
+                className={BCss.submitBtn}
               >
                 <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
                 <polyline points="17 21 17 13 7 13 7 21" />
