@@ -12,15 +12,31 @@ import Des from "../Product/Des";
 import SizeBox from "../Product/SizeBox";
 import ColorBox from "../Product/ColorBox";
 
+// MicroInteraction
+import { Alert } from "./../../MicroInteraction/Alert";
+
 // css
 import PPCss from "./Css/ProductPage.module.css";
 
 export default function ProductsPage(props) {
   const [res, setres] = useState();
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
 
   useEffect(() => {
     loadProducts(props.id);
   }, [props.id]);
+
+  // scroll to top
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const authCtx = useContext(AuthContext);
 
@@ -43,69 +59,73 @@ export default function ProductsPage(props) {
   };
 
   return (
-    <div className={PPCss.mDiv}>
-      <p className={PPCss.AddHPTag}>
-        <span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-move-left"
-            className={PPCss.leftArrow}
-            onClick={() => {
-              props.setProductDel(false);
-            }}
-          >
-            <path d="M6 8L2 12L6 16" />
-            <path d="M2 12H22" />
-          </svg>
-        </span>
-        Product Details
-      </p>
+    <>
+      <div className={PPCss.mDiv}>
+        <p className={PPCss.AddHPTag}>
+          <span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-move-left"
+              className={PPCss.leftArrow}
+              onClick={() => {
+                props.setProductDel(false);
+              }}
+            >
+              <path d="M6 8L2 12L6 16" />
+              <path d="M2 12H22" />
+            </svg>
+          </span>
+          Product Details
+        </p>
 
-      {res ? (
-        <div className={PPCss.divDiv}>
-          <div className={PPCss.leftDiv}>
-            <img
-              src={res.descriptor.images[0]}
-              alt=""
-              className={PPCss.productImg}
-            />
-          </div>
-          <div className={PPCss.rightDiv}>
-            <p className={PPCss.titleName}>{res.descriptor.name}</p>
-            <p className={PPCss.pID}>{res._id}</p>
-            <p className={PPCss.pSeller}>seller</p>
-            <p className={PPCss.pPublished}>
-              Seller:seller Published on: {res.when.date}
-            </p>
-            <div className={PPCss.boxmDiv}>
-              <Box
-                title="Price"
-                value={`₹ ${res.price.maximum_value}`}
-                up="price.maximum_value"
-                id={res._id}
-              />
-              <Box
-                title="Stock"
-                value={res.quantity.maximum.count}
-                up="quantity.maximum.count"
-                id={res._id}
+        {res ? (
+          <div className={PPCss.divDiv}>
+            <div className={PPCss.leftDiv}>
+              <img
+                src={res.descriptor.images[0]}
+                alt=""
+                className={PPCss.productImg}
               />
             </div>
+            <div className={PPCss.rightDiv}>
+              <p className={PPCss.titleName}>{res.descriptor.name}</p>
+              <p className={PPCss.pID}>{res._id}</p>
+              <p className={PPCss.pSeller}>seller</p>
+              <p className={PPCss.pPublished}>
+                Seller:seller Published on: {res.when.date}
+              </p>
+              <div className={PPCss.boxmDiv}>
+                <Box
+                  title="Price"
+                  value={`₹ ${res.price.maximum_value}`}
+                  up="price.maximum_value"
+                  id={res._id}
+                />
+                <Box
+                  title="Stock"
+                  value={res.quantity.maximum.count}
+                  up="quantity.maximum.count"
+                  id={res._id}
+                />
+              </div>
 
-            <Des res={res} />
+              <Des res={res} id={res._id} />
+            </div>
           </div>
-        </div>
-      ) : (
-        <p>No Orders</p>
-      )}
-    </div>
+        ) : (
+          <p>No Orders</p>
+        )}
+      </div>
+
+      <Alert variant={variants} val={setError} />
+    </>
   );
 }
