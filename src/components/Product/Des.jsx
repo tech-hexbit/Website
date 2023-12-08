@@ -83,17 +83,11 @@ export default function Des(props) {
     }
   };
 
-  useEffect(() => {
-    console.log(
-      props.res["@ondc/org/mandatory_reqs_veggies_fruits"].net_quantity
-    );
-  }, []);
-
   return (
     <>
       <div className={DCss.mDiv}>
         <p className={DCss.subTitlePTag}>
-          Description :{" "}
+          Description :
           <span
             onClick={() => {
               setEdit(!edit);
@@ -133,6 +127,7 @@ export default function Des(props) {
               ></textarea>
 
               <button
+                className={DCss.submitBtn}
                 onClick={() => {
                   changePost("descriptor.short_desc");
                 }}
@@ -141,7 +136,11 @@ export default function Des(props) {
               </button>
             </>
           ) : (
-            <>{props.res.descriptor.short_desc}</>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: props.res.descriptor.short_desc,
+              }}
+            />
           )}
         </p>
       </div>

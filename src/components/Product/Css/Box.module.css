@@ -36,10 +36,25 @@
 }
 
 .inpTag {
+  outline: none;
   width: 80%;
   margin-right: 5px;
 }
 
+/* Chrome, Safari, Edge, Opera */
+.inpTag::-webkit-outer-spin-button,
+.inpTag::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.inpTag[type="number"] {
+  -moz-appearance: textfield;
+}
+
 .submitBtn {
+  background-color: transparent;
+  border-width: 0px;
   cursor: pointer;
 }
