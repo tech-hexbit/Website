@@ -87,7 +87,6 @@ export default function ProductsPage(props) {
         </div>
       ) : (
         <>
-          {" "}
           {res ? (
             <div className={PPCss.divDiv}>
               <div className={PPCss.leftDiv}>
