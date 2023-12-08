@@ -127,6 +127,7 @@ export default function Des(props) {
               ></textarea>
 
               <button
+                className={DCss.submitBtn}
                 onClick={() => {
                   changePost("descriptor.short_desc");
                 }}
