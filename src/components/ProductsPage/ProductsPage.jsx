@@ -12,9 +12,6 @@ import Des from "../Product/Des";
 import SizeBox from "../Product/SizeBox";
 import ColorBox from "../Product/ColorBox";
 
-// MicroInteraction
-import { Alert } from "./../../MicroInteraction/Alert";
-
 // css
 import PPCss from "./Css/ProductPage.module.css";
 
@@ -113,8 +110,6 @@ export default function ProductsPage(props) {
           <p>No Orders</p>
         )}
       </div>
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }
