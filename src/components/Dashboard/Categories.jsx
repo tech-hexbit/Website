@@ -96,6 +96,7 @@ export default function Categories() {
                       <th className={Ccss["sticky-col"]}>Name </th>
                       <th>Price</th>
                       <th>Available Inventory</th>
+                      <th>Total Orders</th>
                       <th>Shipping Time</th>
                       <th>Return Window</th>
                       <th>Published on</th>
@@ -134,6 +135,16 @@ export default function Categories() {
                               }}
                             >
                               {val.quantity.maximum.count}
+                            </td>
+                            <td
+                              style={{
+                                backgroundColor:
+                                  val.quantity.maximum.count <= 5
+                                    ? "#f46524"
+                                    : "",
+                              }}
+                            >
+                              {val.totalSold}
                             </td>
                             <td
                               style={{
