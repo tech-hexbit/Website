@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
 
 // axios
 import axios from "axios";
@@ -7,14 +6,23 @@ import axios from "axios";
 // state
 import AuthContext from "../../store/auth-context";
 
+// MicroInteraction
+import { Alert } from "./../../MicroInteraction/Alert";
+
 // css
 import DCss from "./Css/Des.module.css";
 
 export default function Des(props) {
   const [editDesState, setEditDes] = useState("");
   const [edit, setEdit] = useState(false);
-
-  const { id } = useParams();
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
 
   const authCtx = useContext(AuthContext);
 
@@ -25,7 +33,7 @@ export default function Des(props) {
       const input = {
         fieldName: value,
         changedValue: editDesState,
-        itemID: id,
+        itemID: props.id,
       };
 
       const response = await axios.post(
@@ -41,17 +49,36 @@ export default function Des(props) {
       console.log(response.data);
 
       if (response.data.success) {
-        setLoad(false);
+        props.setChange(true);
 
-        setInput({
-          name: "",
-          email: "",
-          CompanyName: "",
-          subject: "",
-          message: "",
+        setError({
+          mainColor: "#EDFEEE",
+          secondaryColor: "#5CB660",
+          symbol: "check_circle",
+          title: "Success",
+          text: "Successfully Updated",
+          val: true,
+        });
+      } else {
+        setError({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "Update Failed",
+          val: true,
         });
       }
     } catch (e) {
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "Poduct Addition Failed",
+        val: true,
+      });
+
       console.log(e);
     }
   };
@@ -177,6 +204,8 @@ export default function Des(props) {
           </tr>
         </table>
       </div>
+
+      <Alert variant={variants} val={setError} />
     </>
   );
 }
