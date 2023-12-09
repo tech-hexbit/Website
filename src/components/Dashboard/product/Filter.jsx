@@ -20,6 +20,8 @@ export default function Filter({ filteredlist, setfilteredlist }) {
   const [category, setcategory] = useState([]);
   const [allcategory, setallcategory] = useState([]);
 
+  const authCtx = useContext(AuthContext);
+
   useEffect(() => {
     loadData();
   }, []);
@@ -28,8 +30,6 @@ export default function Filter({ filteredlist, setfilteredlist }) {
     const u = (allcategory) => [...new Set(allcategory)];
     setunique(u(allcategory));
   }, [allcategory]);
-
-  const authCtx = useContext(AuthContext);
 
   const loadData = async () => {
     setLoad(true);
