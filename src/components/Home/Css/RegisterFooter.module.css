@@ -40,7 +40,7 @@
 }
 
 .btnDiv:hover {
-  box-shadow: 5px 5px 30px lightgray;
+  box-shadow: 5px 5px 10px #1c1b30;
 }
 
 .regImage {
