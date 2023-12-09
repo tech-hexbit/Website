@@ -36,11 +36,12 @@
   font-size: 20px;
   font-weight: 600;
   text-transform: uppercase;
+  cursor: pointer;
   transition: all 0.3s;
 }
 
 .btnDiv:hover {
-  box-shadow: 5px 5px 10px #1c1b30;
+  box-shadow: 0 2px 5px #4f4e6c;
 }
 
 .regImage {
