@@ -29,16 +29,16 @@
 
 .socialMedia {
   margin-left: 45px;
-  width: 25%;
-  height: 27px;
+  width: 50%;
+  height: 30px;
   display: flex;
   justify-content: space-between;
   margin-top: 16px;
 }
 
-.socialMedia svg {
-  /* height: 100%; */
-  color: #0132bf;
+.socialMedia img {
+  height: 100%;
+  /* color: #0132bf; */
 }
 
 .button button {
