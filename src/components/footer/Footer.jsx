@@ -59,6 +59,7 @@ const Footer = () => {
               <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
             </svg>
 
+            {/* twitter */}
             <svg
               version="1.1"
               id="svg5"
