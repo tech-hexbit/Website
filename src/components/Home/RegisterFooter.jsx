@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 // css
 import FCss from "./Css/RegisterFooter.module.css";
 
+// img
 import image from "../../assets/RegisterFooter.png";
 
 export default function RegisterFooter() {
