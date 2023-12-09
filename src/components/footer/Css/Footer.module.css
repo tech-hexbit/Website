@@ -36,8 +36,9 @@
   margin-top: 16px;
 }
 
-.socialMedia img {
-  height: 100%;
+.socialMedia svg {
+  /* height: 100%; */
+  color: #0132bf;
 }
 
 .button button {
