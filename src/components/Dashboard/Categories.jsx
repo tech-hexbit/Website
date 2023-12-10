@@ -109,7 +109,7 @@ export default function Categories() {
                               style={{
                                 backgroundColor:
                                   val.quantity.maximum.count <= 5
-                                    ? "#FF8046"
+                                    ? "#ff9564"
                                     : "",
                               }}
                             >
@@ -120,7 +120,7 @@ export default function Categories() {
                               style={{
                                 backgroundColor:
                                   val.quantity.maximum.count <= 5
-                                    ? "#FF8046"
+                                    ? "#ff9564"
                                     : "",
                               }}
                             >
@@ -131,7 +131,7 @@ export default function Categories() {
                               style={{
                                 backgroundColor:
                                   val.quantity.maximum.count <= 5
-                                    ? "#FF8046"
+                                    ? "#ff9564"
                                     : "",
                               }}
                             >
@@ -142,7 +142,7 @@ export default function Categories() {
                               style={{
                                 backgroundColor:
                                   val.quantity.maximum.count <= 5
-                                    ? "#FF8046"
+                                    ? "#ff9564"
                                     : "",
                               }}
                             >
@@ -153,7 +153,7 @@ export default function Categories() {
                               style={{
                                 backgroundColor:
                                   val.quantity.maximum.count <= 5
-                                    ? "#FF8046"
+                                    ? "#ff9564"
                                     : "",
                               }}
                             >
@@ -164,7 +164,7 @@ export default function Categories() {
                               style={{
                                 backgroundColor:
                                   val.quantity.maximum.count <= 5
-                                    ? "#FF8046"
+                                    ? "#ff9564"
                                     : "",
                               }}
                             >
@@ -175,7 +175,7 @@ export default function Categories() {
                               style={{
                                 backgroundColor:
                                   val.quantity.maximum.count <= 5
-                                    ? "#FF8046"
+                                    ? "#ff9564"
                                     : "",
                               }}
                             >
