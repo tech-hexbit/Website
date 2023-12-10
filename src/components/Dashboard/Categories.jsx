@@ -249,6 +249,11 @@ export default function Categories() {
             </svg>
           </button>
         </div>
+
+        <div className={DCss.keys}>
+          *<div className={DCss.colorBox}></div>{" "}
+          <span>: Low Products in Stock</span>
+        </div>
       </div>
     </div>
   );
