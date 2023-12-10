@@ -80,9 +80,9 @@ export default function Categories() {
 
       <DataMain />
 
-      <div className={osCss.middlecontent}>
+      <div className={Ccss.middlecontent}>
         <div className={Ccss.middle}></div>
-        <div id="wrap" className={osCss.table}>
+        <div id="wrap" className={Ccss.table}>
           {load ? (
             <div className="loadCenterDiv">
               <Load />
