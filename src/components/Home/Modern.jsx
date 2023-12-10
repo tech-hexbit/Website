@@ -21,8 +21,18 @@ export default function Modern() {
             Available For Free On Google Appstore & Play Store.
           </p>
           <div className={MCss.downloadImages}>
-            <img src={Android} alt="Android" className={MCss.storeImg} />
-            <img src={Appstore} alt="Appstore" className={MCss.storeImg} />
+            <img
+              src={Android}
+              alt="Android"
+              className={MCss.storeImg}
+              draggable="false"
+            />
+            <img
+              src={Appstore}
+              alt="Appstore"
+              className={MCss.storeImg}
+              draggable="false"
+            />
           </div>
         </div>
       </div>

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 // css
 import FCss from "./Css/RegisterFooter.module.css";
 
+// img
 import image from "../../assets/RegisterFooter.png";
 
 export default function RegisterFooter() {
@@ -17,11 +18,9 @@ export default function RegisterFooter() {
             one-stop-shop platform
           </p>
           <div className={FCss.buttonDiv}>
-            <button className={FCss.btnDiv}>
-              <Link to="/register" className="LinkStyle">
-                Register Now
-              </Link>
-            </button>
+            <Link to="/register" className="LinkStyle">
+              <button className={FCss.btnDiv}>Register Now</button>
+            </Link>
           </div>
         </div>
         <div className={FCss.regImage}>

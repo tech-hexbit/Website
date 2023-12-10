@@ -14,14 +14,13 @@ import Load from "./../../MicroInteraction/LoadBlack";
 
 // css
 import Ccss from "./Css/Categories.module.css";
-import osCss from "./Sales/Css/overallSales.module.css";
 import DCss from "./product/Css/display.module.css";
 
 export default function Categories() {
+  const [max, setmax] = useState(false);
   const [load, setLoad] = useState(false);
   const [orderlist, setorderlist] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [max, setmax] = useState(false);
   const [prodcutsCount, setProdcutsCount] = useState(0);
 
   useEffect(() => {
@@ -80,9 +79,9 @@ export default function Categories() {
 
       <DataMain />
 
-      <div className={osCss.middlecontent}>
+      <div className={Ccss.middlecontent}>
         <div className={Ccss.middle}></div>
-        <div id="wrap" className={osCss.table}>
+        <div id="wrap" className={Ccss.tableCat}>
           {load ? (
             <div className="loadCenterDiv">
               <Load />
@@ -93,7 +92,7 @@ export default function Categories() {
                 {orderlist.length > 0 ? (
                   <>
                     <tr>
-                      <th className={Ccss["sticky-col"]}>Name </th>
+                      <th>Name</th>
                       <th>Price</th>
                       <th>Available Inventory</th>
                       <th>Total Orders</th>
@@ -102,75 +101,81 @@ export default function Categories() {
                       <th>Published on</th>
                     </tr>
                     {orderlist?.map((val, key) => {
-                      console.log(val["@ondc/org/returnable"]);
                       return (
                         <>
                           <tr key={key}>
                             <td
+                              data-cell="Name"
                               style={{
                                 backgroundColor:
                                   val.quantity.maximum.count <= 5
-                                    ? "#f46524"
+                                    ? "#FF8046"
                                     : "",
                               }}
                             >
                               {val.descriptor.name}
                             </td>
                             <td
+                              data-cell="Price"
                               style={{
                                 backgroundColor:
                                   val.quantity.maximum.count <= 5
-                                    ? "#f46524"
+                                    ? "#FF8046"
                                     : "",
                               }}
                             >
                               ₹ {val.price.value.toFixed(2)}
                             </td>
                             <td
+                              data-cell="Available Inventory"
                               style={{
                                 backgroundColor:
                                   val.quantity.maximum.count <= 5
-                                    ? "#f46524"
+                                    ? "#FF8046"
                                     : "",
                               }}
                             >
                               {val.quantity.maximum.count}
                             </td>
                             <td
+                              data-cell="Total Orders"
                               style={{
                                 backgroundColor:
                                   val.quantity.maximum.count <= 5
-                                    ? "#f46524"
+                                    ? "#FF8046"
                                     : "",
                               }}
                             >
                               {val.totalSold}
                             </td>
                             <td
+                              data-cell="Shipping Time"
                               style={{
                                 backgroundColor:
                                   val.quantity.maximum.count <= 5
-                                    ? "#f46524"
+                                    ? "#FF8046"
                                     : "",
                               }}
                             >
                               {val["@ondc/org/time_to_ship"]}
                             </td>
                             <td
+                              data-cell="Return Window"
                               style={{
                                 backgroundColor:
                                   val.quantity.maximum.count <= 5
-                                    ? "#f46524"
+                                    ? "#FF8046"
                                     : "",
                               }}
                             >
                               {val["@ondc/org/return_window"]}
                             </td>
                             <td
+                              data-cell="Published on"
                               style={{
                                 backgroundColor:
                                   val.quantity.maximum.count <= 5
-                                    ? "#f46524"
+                                    ? "#FF8046"
                                     : "",
                               }}
                             >

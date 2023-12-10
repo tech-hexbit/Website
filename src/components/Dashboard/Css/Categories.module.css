@@ -48,3 +48,141 @@
   border-color: rgba(221, 221, 221, 1);
   border-radius: 5px;
 }
+
+.tableCat {
+  padding: 40px 30px;
+  overflow-x: scroll;
+  width: 100%;
+}
+
+.svgTag {
+  margin-left: 5px;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.tableCat th {
+  color: #777;
+  font-weight: 400;
+  text-align: left;
+}
+
+.tableCat table {
+  width: 100%;
+}
+
+.tableCat td {
+  padding: 27px 5px 27px;
+  border-bottom: 1px solid #ddd;
+}
+
+.tableCat td:first-child,
+.tableCat th:first-child {
+  position: sticky;
+  left: 0px;
+  z-index: 2;
+  box-shadow: #777;
+}
+
+.tableCat tr {
+  position: relative;
+  z-index: 1;
+}
+
+.tableCat tr td:nth-child(2),
+.tableCat tr th:nth-child(2) {
+  position: sticky;
+  left: 20px;
+  z-index: 2;
+}
+
+@media screen and (max-width: 960px) {
+  table {
+    margin: auto;
+    border-collapse: collapse;
+    overflow-x: auto;
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+  }
+
+  td,
+  th {
+    padding: 0.5rem;
+  }
+
+  th {
+    text-align: left;
+
+    text-transform: uppercase;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    border-top: none;
+  }
+
+  td {
+    white-space: nowrap;
+    border-bottom: none;
+    color: rgb(20, 20, 20);
+  }
+}
+
+@media screen and (max-width: 790px) {
+  .tableCat {
+    padding: 0px;
+  }
+}
+
+@media screen and (min-width: 751px) {
+  .tableCat td:nth-child(2),
+  .tableCat th:nth-child(2) {
+    background-color: #fff;
+    z-index: 10;
+  }
+
+  .tableCat td:first-child,
+  .tableCat th:first-child {
+    background-color: #fff;
+    z-index: 10;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .tableCat th {
+    display: none;
+  }
+
+  .tableCat tr {
+    display: block;
+  }
+
+  .tableCat td {
+    border-bottom: 0px solid #ddd;
+  }
+
+  .tableCat tr:nth-of-type(2n + 1) {
+    background-color: #e3e3e3 !important;
+  }
+
+  .tableCat td:first-child {
+    padding-top: 1rem;
+  }
+
+  .tableCat td:last-child {
+    padding-bottom: 1rem;
+  }
+
+  .tableCat td {
+    display: block;
+    padding: 0.5rem 1rem;
+  }
+
+  .tableCat td::before {
+    content: attr(data-cell) ": ";
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+}
