@@ -48,3 +48,6 @@
   border-color: rgba(221, 221, 221, 1);
   border-radius: 5px;
 }
+
+@media only screen and (max-width: 650px) {
+}
