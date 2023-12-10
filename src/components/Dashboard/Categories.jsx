@@ -204,8 +204,6 @@ export default function Categories() {
           )}
         </div>
 
-        <div className={DCss.hello}>helo</div>
-
         <div className="keys">
           <span>*</span>
           <div className={DCss.colorBox}></div>{" "}
