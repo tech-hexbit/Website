@@ -78,8 +78,8 @@
   border-bottom: 1px solid #ddd;
 }
 
-.table td:first-child,
-.table th:first-child {
+td:first-child,
+th:first-child {
   position: sticky;
   left: 0px;
   z-index: 2;
@@ -103,14 +103,14 @@
     width: 100vw;
   }
 
-  .table td:nth-child(2),
-  .table th:nth-child(2) {
+  td:nth-child(2),
+  th:nth-child(2) {
     background-color: #fff;
     z-index: 10;
   }
 
-  .table td:first-child,
-  .table th:first-child {
+  td:first-child,
+  th:first-child {
     background-color: #fff;
     z-index: 10;
   }
