@@ -106,6 +106,7 @@ export default function Categories() {
                         <>
                           <tr key={key}>
                             <td
+                              data-cell="Name"
                               style={{
                                 backgroundColor:
                                   val.quantity.maximum.count <= 5
@@ -116,6 +117,7 @@ export default function Categories() {
                               {val.descriptor.name}
                             </td>
                             <td
+                              data-cell="Price"
                               style={{
                                 backgroundColor:
                                   val.quantity.maximum.count <= 5
@@ -126,6 +128,7 @@ export default function Categories() {
                               ₹ {val.price.value.toFixed(2)}
                             </td>
                             <td
+                              data-cell="Available Inventory"
                               style={{
                                 backgroundColor:
                                   val.quantity.maximum.count <= 5
@@ -136,6 +139,7 @@ export default function Categories() {
                               {val.quantity.maximum.count}
                             </td>
                             <td
+                              data-cell="Total Orders"
                               style={{
                                 backgroundColor:
                                   val.quantity.maximum.count <= 5
@@ -146,6 +150,7 @@ export default function Categories() {
                               {val.totalSold}
                             </td>
                             <td
+                              data-cell="Shipping Time"
                               style={{
                                 backgroundColor:
                                   val.quantity.maximum.count <= 5
@@ -156,6 +161,7 @@ export default function Categories() {
                               {val["@ondc/org/time_to_ship"]}
                             </td>
                             <td
+                              data-cell="Return Window"
                               style={{
                                 backgroundColor:
                                   val.quantity.maximum.count <= 5
@@ -166,6 +172,7 @@ export default function Categories() {
                               {val["@ondc/org/return_window"]}
                             </td>
                             <td
+                              data-cell="Published on"
                               style={{
                                 backgroundColor:
                                   val.quantity.maximum.count <= 5
