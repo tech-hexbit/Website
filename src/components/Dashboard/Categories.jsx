@@ -14,7 +14,6 @@ import Load from "./../../MicroInteraction/LoadBlack";
 
 // css
 import Ccss from "./Css/Categories.module.css";
-import osCss from "./Sales/Css/overallSales.module.css";
 import DCss from "./product/Css/display.module.css";
 
 export default function Categories() {
