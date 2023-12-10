@@ -163,8 +163,8 @@
   color: #777;
 }
 
-td:first-child,
-th:first-child {
+.table td:first-child,
+.table th:first-child {
   position: sticky;
   left: 0px;
   z-index: 2;
@@ -181,14 +181,6 @@ th:first-child {
   position: sticky;
   left: 20px;
   z-index: 2;
-}
-
-tr:nth-child(odd) td {
-  background: #fff;
-}
-
-tr:nth-child(even) td {
-  background: #fff;
 }
 
 .lucidePencil {
@@ -232,14 +224,14 @@ tr:nth-child(even) td {
     width: 100vw;
   }
 
-  td:nth-child(2),
-  th:nth-child(2) {
+  .table td:nth-child(2),
+  .table th:nth-child(2) {
     background-color: #fff;
     z-index: 10;
   }
 
-  td:first-child,
-  th:first-child {
+  .table td:first-child,
+  .table th:first-child {
     background-color: #fff;
     z-index: 10;
   }
