@@ -17,10 +17,10 @@ import Ccss from "./Css/Categories.module.css";
 import DCss from "./product/Css/display.module.css";
 
 export default function Categories() {
+  const [max, setmax] = useState(false);
   const [load, setLoad] = useState(false);
   const [orderlist, setorderlist] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [max, setmax] = useState(false);
   const [prodcutsCount, setProdcutsCount] = useState(0);
 
   useEffect(() => {
