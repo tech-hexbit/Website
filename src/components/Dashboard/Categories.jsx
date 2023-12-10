@@ -93,7 +93,7 @@ export default function Categories() {
                 {orderlist.length > 0 ? (
                   <>
                     <tr>
-                      <th className={Ccss["sticky-col"]}>Name </th>
+                      <th>Name</th>
                       <th>Price</th>
                       <th>Available Inventory</th>
                       <th>Total Orders</th>
