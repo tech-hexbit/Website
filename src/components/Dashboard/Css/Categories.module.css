@@ -49,7 +49,7 @@
   border-radius: 5px;
 }
 
-.table {
+.tableCat {
   padding: 40px 30px;
   overflow-x: scroll;
   width: 100%;
@@ -63,56 +63,44 @@
   display: none;
 }
 
-.table th {
+.tableCat th {
   color: #777;
   font-weight: 400;
   text-align: left;
 }
 
-.table table {
+.tableCat table {
   width: 100%;
 }
 
-.table td {
+.tableCat td {
   padding: 27px 5px 27px;
   border-bottom: 1px solid #ddd;
 }
 
-.table td:first-child,
-.table th:first-child {
+.tableCat td:first-child,
+.tableCat th:first-child {
   position: sticky;
   left: 0px;
   z-index: 2;
   box-shadow: #777;
 }
 
-.table tr {
+.tableCat tr {
   position: relative;
   z-index: 1;
 }
 
-.table tr td:nth-child(2),
-.table tr th:nth-child(2) {
+.tableCat tr td:nth-child(2),
+.tableCat tr th:nth-child(2) {
   position: sticky;
   left: 20px;
   z-index: 2;
 }
 
 @media screen and (max-width: 1260px) {
-  .table table {
+  .tableCat table {
     width: 100vw;
-  }
-
-  .table td:nth-child(2),
-  .table th:nth-child(2) {
-    background-color: #fff;
-    z-index: 10;
-  }
-
-  .table td:first-child,
-  .table th:first-child {
-    background-color: #fff;
-    z-index: 10;
   }
 }
 
@@ -149,30 +137,56 @@
 }
 
 @media screen and (max-width: 790px) {
-  .table {
+  .tableCat {
     padding: 0px;
   }
 }
 
+@media screen and (min-width: 751px) {
+  .tableCat td:nth-child(2),
+  .tableCat th:nth-child(2) {
+    background-color: #fff;
+    z-index: 10;
+  }
+
+  .tableCat td:first-child,
+  .tableCat th:first-child {
+    background-color: #fff;
+    z-index: 10;
+  }
+}
+
 @media only screen and (max-width: 750px) {
-  .table th {
+  .tableCat th {
     display: none;
   }
 
-  .table td {
+  .tableCat tr {
+    display: block;
+  }
+
+  .tableCat td {
     border-bottom: 0px solid #ddd;
   }
 
-  .table tr:nth-of-type(2n + 1) {
-    background-color: #d3d3d3;
+  .tableCat tr:nth-of-type(2n + 1) {
+    background-color: #e3e3e3 !important;
   }
 
-  .table td {
+  .tableCat td:first-child {
+    padding-top: 1rem;
+  }
+
+  .tableCat td:last-child {
+    padding-bottom: 1rem;
+  }
+
+  .tableCat td {
     display: block;
     padding: 0.5rem 1rem;
   }
 
-  .table td::before {
+  .tableCat td::before {
     content: attr(data-cell) ": ";
     font-weight: 700;
     text-transform: capitalize;
