@@ -81,7 +81,7 @@ export default function Categories() {
 
       <div className={Ccss.middlecontent}>
         <div className={Ccss.middle}></div>
-        <div id="wrap" className={Ccss.table}>
+        <div id="wrap" className={Ccss.tableCat}>
           {load ? (
             <div className="loadCenterDiv">
               <Load />
@@ -109,7 +109,7 @@ export default function Categories() {
                               style={{
                                 backgroundColor:
                                   val.quantity.maximum.count <= 5
-                                    ? "#f46524"
+                                    ? "#FF8046"
                                     : "",
                               }}
                             >
@@ -120,7 +120,7 @@ export default function Categories() {
                               style={{
                                 backgroundColor:
                                   val.quantity.maximum.count <= 5
-                                    ? "#f46524"
+                                    ? "#FF8046"
                                     : "",
                               }}
                             >
@@ -131,7 +131,7 @@ export default function Categories() {
                               style={{
                                 backgroundColor:
                                   val.quantity.maximum.count <= 5
-                                    ? "#f46524"
+                                    ? "#FF8046"
                                     : "",
                               }}
                             >
@@ -142,7 +142,7 @@ export default function Categories() {
                               style={{
                                 backgroundColor:
                                   val.quantity.maximum.count <= 5
-                                    ? "#f46524"
+                                    ? "#FF8046"
                                     : "",
                               }}
                             >
@@ -153,7 +153,7 @@ export default function Categories() {
                               style={{
                                 backgroundColor:
                                   val.quantity.maximum.count <= 5
-                                    ? "#f46524"
+                                    ? "#FF8046"
                                     : "",
                               }}
                             >
@@ -164,7 +164,7 @@ export default function Categories() {
                               style={{
                                 backgroundColor:
                                   val.quantity.maximum.count <= 5
-                                    ? "#f46524"
+                                    ? "#FF8046"
                                     : "",
                               }}
                             >
@@ -175,7 +175,7 @@ export default function Categories() {
                               style={{
                                 backgroundColor:
                                   val.quantity.maximum.count <= 5
-                                    ? "#f46524"
+                                    ? "#FF8046"
                                     : "",
                               }}
                             >
