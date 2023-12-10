@@ -101,7 +101,6 @@ export default function Categories() {
                       <th>Published on</th>
                     </tr>
                     {orderlist?.map((val, key) => {
-                      console.log(val["@ondc/org/returnable"]);
                       return (
                         <>
                           <tr key={key}>
