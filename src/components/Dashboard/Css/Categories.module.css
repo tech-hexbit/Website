@@ -73,6 +73,11 @@
   width: 100%;
 }
 
+.tableCat tr {
+  position: relative;
+  z-index: 1;
+}
+
 .tableCat td {
   padding: 27px 5px 27px;
   border-bottom: 1px solid #ddd;
@@ -84,11 +89,6 @@
   left: 0px;
   z-index: 2;
   box-shadow: #777;
-}
-
-.tableCat tr {
-  position: relative;
-  z-index: 1;
 }
 
 .tableCat tr td:nth-child(2),
