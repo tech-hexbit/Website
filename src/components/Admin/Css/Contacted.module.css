@@ -1,6 +1,9 @@
 .qamDiv {
+  display: flex;
+  flex-direction: column;
   margin: 30px 0px;
   padding: 0px 30px;
+  gap: 30px 0px;
 }
 
 .mapMDiv {
