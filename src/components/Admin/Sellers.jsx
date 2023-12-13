@@ -20,12 +20,15 @@ export default function Sellers() {
   const [data, setData] = useState([]);
   const [SellerType, setSellerType] = useState("all");
   const [load, setLoad] = useState(false);
+  const [loadNow, setloadNow] = useState(false);
 
   const authCtx = useContext(AuthContext);
 
   useEffect(() => {
     loadData();
-  }, []);
+
+    setloadNow(false);
+  }, [, loadNow]);
 
   const loadData = async () => {
     setLoad(true);
@@ -118,7 +121,11 @@ export default function Sellers() {
       </div>
 
       <div>
-        {SellerType === "all" ? <AllSellers load={load} data={data} /> : ""}
+        {SellerType === "all" ? (
+          <AllSellers load={load} setLoad={setloadNow} data={data} />
+        ) : (
+          ""
+        )}
         {SellerType === "Verified" ? <ContionalSellers state={true} /> : ""}
         {SellerType === "notVerified" ? <ContionalSellers state={false} /> : ""}
       </div>
