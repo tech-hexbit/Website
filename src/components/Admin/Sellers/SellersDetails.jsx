@@ -4,7 +4,6 @@ import React from "react";
 import SDCss from "./Css/SellersDetails.module.css";
 
 export default function SellersDetails(props) {
-  console.log(props.show.val);
   return (
     <div className={SDCss.mDiv}>
       <div className={SDCss.titleDiv}>
@@ -34,6 +33,12 @@ export default function SellersDetails(props) {
         <p>
           <b>Info</b>
         </p>
+
+        <div>
+          <p>
+            Name: <span>{props.show.val}</span>
+          </p>
+        </div>
       </div>
     </div>
   );
