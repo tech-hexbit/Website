@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 // components
 import SellersDetails from "./SellersDetails";
@@ -10,6 +10,11 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 import SelCss from "./../Css/Sellers.module.css";
 
 export default function AllSellers(props) {
+  const [show, hide] = useState(false);
+
+  useEffect(() => {
+    console.log(show);
+  }, [show]);
   return (
     <div className={SelCss.mDiv}>
       {props.load ? (
@@ -22,7 +27,13 @@ export default function AllSellers(props) {
             <>
               {props.data.map((val, key) => {
                 return (
-                  <div key={key} className={SelCss.mapMDiv}>
+                  <div
+                    key={key}
+                    className={SelCss.mapMDiv}
+                    onClick={() => {
+                      hide(true);
+                    }}
+                  >
                     <div className={SelCss.conDelT}>
                       <p>{val.BusinessName}</p>
                       <p>
