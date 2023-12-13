@@ -28,6 +28,11 @@
   padding-right: 20px;
 }
 
-.ver,
+.ver {
+  color: rgb(1, 50, 191);
+}
+
 .notVer {
+  color: #922424;
+  cursor: pointer;
 }
