@@ -89,7 +89,11 @@ export default function AllSellers(props) {
       </div>
 
       <div className={show.state ? "yesProductsPage" : "noProductsPage"}>
-        {show ? <SellersDetails hide={hide} show={show} /> : ""}
+        {show ? (
+          <SellersDetails hide={hide} show={show} setLoad={props.setLoad} />
+        ) : (
+          ""
+        )}
       </div>
     </>
   );
