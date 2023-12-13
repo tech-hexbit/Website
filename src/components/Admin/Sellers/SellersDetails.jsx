@@ -97,7 +97,7 @@ export default function SellersDetails(props) {
                 {showVer ? (
                   <>
                     <div className={SDCss.checkboxWrapper}>
-                      <input type="checkbox" id="cbx-3" />
+                      <input type="checkbox" id={SDCss.cbx3} />
                       <label for="cbx-3" className={SDCss.toggle}>
                         <span></span>
                       </label>
