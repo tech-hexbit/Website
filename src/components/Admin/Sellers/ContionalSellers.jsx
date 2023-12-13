@@ -51,7 +51,9 @@ export default function ContionalSellers(props) {
   return (
     <div className={SelCss.mDiv}>
       {load ? (
-        <Load />
+        <div className="loadCenterDiv">
+          <Load />
+        </div>
       ) : (
         <>
           {data ? (
