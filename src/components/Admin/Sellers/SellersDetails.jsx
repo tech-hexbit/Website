@@ -85,6 +85,7 @@ export default function SellersDetails(props) {
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 class="lucide lucide-shield-check"
+                className={SDCss.ver}
               >
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
                 <path d="m9 12 2 2 4-4" />
@@ -101,6 +102,7 @@ export default function SellersDetails(props) {
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 class="lucide lucide-badge-help"
+                className={SDCss.notVer}
               >
                 <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
                 <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
