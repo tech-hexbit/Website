@@ -1,9 +1,13 @@
 .qamDiv {
+  display: flex;
+  flex-direction: column;
   margin: 30px 0px;
   padding: 0px 30px;
+  gap: 30px 0px;
 }
 
 .mapMDiv {
+  width: 100%;
   border-radius: 5px;
   padding: 12px 20px;
   border-style: dashed;
@@ -31,4 +35,30 @@
 
 .submainDiv {
   margin: 30px 0px;
+}
+
+.submainDivMain {
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 850px) {
+  .qamDiv {
+    padding: 0px;
+  }
+
+  .titleDiv,
+  .datetimeDiv {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px 20px;
+  }
+
+  .titleNameDiv,
+  .titleCompanyNameDiv {
+    width: 100%;
+  }
+
+  .titleCompanyNameDiv {
+    text-align: center;
+  }
 }

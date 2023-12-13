@@ -8,11 +8,15 @@
 .mapMDiv {
   padding: 15px 20px;
   border-style: dashed;
-  border-color: #c27aff;
+  border-color: #d3d3d3;
   border-width: 1px;
   margin-bottom: 30px;
   border-radius: 5px;
-  /* display: flex; */
+  transition: all 0.3s;
+}
+
+.mapMDiv:hover {
+  border-color: #c27aff;
 }
 
 .conDel,
