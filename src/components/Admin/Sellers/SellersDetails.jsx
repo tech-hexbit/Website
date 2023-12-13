@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 // css
+import "./Css/common.css";
 import SDCss from "./Css/SellersDetails.module.css";
 
 export default function SellersDetails(props) {
@@ -96,9 +97,9 @@ export default function SellersDetails(props) {
               <>
                 {showVer ? (
                   <>
-                    <div className={SDCss.checkboxWrapper}>
-                      <input type="checkbox" id={SDCss.cbx3} />
-                      <label for="cbx-3" className={SDCss.toggle}>
+                    <div class="checkbox-wrapper-3">
+                      <input type="checkbox" id="cbx-3" />
+                      <label for="cbx-3" class="toggle">
                         <span></span>
                       </label>
                     </div>
@@ -114,7 +115,7 @@ export default function SellersDetails(props) {
                     stroke-width="2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    className="lucide lucide-badge-help"
+                    class="lucide lucide-badge-help"
                     className={SDCss.notVer}
                     onClick={() => {
                       setVer(true);
