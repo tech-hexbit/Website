@@ -7,8 +7,8 @@ export default function SellersDetails(props) {
   const [showVer, setVer] = useState(false);
 
   return (
-    <div className={SDCss.mDiv}>
-      <div className={SDCss.titleDiv}>
+    <div classNameName={SDCss.mDiv}>
+      <div classNameName={SDCss.titleDiv}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -19,8 +19,8 @@ export default function SellersDetails(props) {
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
-          class="lucide lucide-move-left"
-          className={SDCss.leftArrow}
+          className="lucide lucide-move-left"
+          classNameName={SDCss.leftArrow}
           onClick={() => {
             props.hide(false);
           }}
@@ -31,13 +31,13 @@ export default function SellersDetails(props) {
         SellersDetails
       </div>
 
-      <div className={SDCss.infoDiv}>
+      <div classNameName={SDCss.infoDiv}>
         <p>
           <b>Info</b>
         </p>
 
-        <div className={SDCss.rowDiv}>
-          <div className={SDCss.sellerdelDiv}>
+        <div classNameName={SDCss.rowDiv}>
+          <div classNameName={SDCss.sellerdelDiv}>
             <p>
               Business Name: <span>{props.show.val.BusinessName}</span>
             </p>
@@ -74,7 +74,7 @@ export default function SellersDetails(props) {
             </p>
           </div>
 
-          <div className={SDCss.verDiv}>
+          <div classNameName={SDCss.verDiv}>
             {props.show.val.accountVerified ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -86,8 +86,8 @@ export default function SellersDetails(props) {
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                class="lucide lucide-shield-check"
-                className={SDCss.ver}
+                className="lucide lucide-shield-check"
+                classNameName={SDCss.ver}
               >
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
                 <path d="m9 12 2 2 4-4" />
@@ -96,7 +96,12 @@ export default function SellersDetails(props) {
               <>
                 {showVer ? (
                   <>
-                  
+                    <div className="checkbox-wrapper-3">
+                      <input type="checkbox" id="cbx-3" />
+                      <label for="cbx-3" className="toggle">
+                        <span></span>
+                      </label>
+                    </div>
                   </>
                 ) : (
                   <svg
@@ -109,8 +114,8 @@ export default function SellersDetails(props) {
                     stroke-width="2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    class="lucide lucide-badge-help"
-                    className={SDCss.notVer}
+                    className="lucide lucide-badge-help"
+                    classNameName={SDCss.notVer}
                     onClick={() => {
                       setVer(true);
                     }}
