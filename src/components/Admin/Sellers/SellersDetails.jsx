@@ -19,6 +19,7 @@ export default function SellersDetails(props) {
         stroke-linecap="round"
         stroke-linejoin="round"
         class="lucide lucide-x"
+        className={SDCss.leftArrow}
         onClick={() => {
           props.hide(false);
         }}
