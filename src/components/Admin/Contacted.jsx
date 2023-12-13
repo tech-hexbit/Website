@@ -63,12 +63,14 @@ export default function Contacted() {
                 return (
                   <div className={CCss.mapMDiv} key={key}>
                     <div className={CCss.titleDiv}>
-                      <div>
+                      <div className={CCss.titleNameDiv}>
                         <div>{val.name}</div>
                         <div>{val.email}</div>
                       </div>
 
-                      <div>{val.CompanyName}</div>
+                      <div className={CCss.titleCompanyNameDiv}>
+                        {val.CompanyName}
+                      </div>
                     </div>
 
                     <div className={CCss.submainDiv}>
