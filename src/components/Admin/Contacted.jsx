@@ -72,7 +72,7 @@ export default function Contacted() {
                     </div>
 
                     <div className={CCss.submainDiv}>
-                      <div>
+                      <div className={CCss.submainDivMain}>
                         Subject - <b>{val.subject}</b>
                       </div>
                       <div>{val.message}</div>
