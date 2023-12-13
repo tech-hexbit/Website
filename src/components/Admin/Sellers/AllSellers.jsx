@@ -10,7 +10,9 @@ export default function AllSellers(props) {
   return (
     <div className={SelCss.mDiv}>
       {props.load ? (
-        <Load />
+        <div className="loadCenterDiv">
+          <Load />
+        </div>
       ) : (
         <>
           {props.data ? (
