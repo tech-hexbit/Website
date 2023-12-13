@@ -34,7 +34,7 @@ export default function SellersDetails(props) {
           <b>Info</b>
         </p>
 
-        <div>
+        <div className={SDCss.sellerdelDiv}>
           <p>
             Business Name: <span>{props.show.val.BusinessName}</span>
           </p>
