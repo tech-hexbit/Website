@@ -36,7 +36,38 @@ export default function SellersDetails(props) {
 
         <div>
           <p>
-            Name: <span>{props.show.val}</span>
+            Business Name: <span>{props.show.val.BusinessName}</span>
+          </p>
+          <p>
+            Email: <span>{props.show.val.Email}</span>
+          </p>
+          <p>
+            Phone Number: <span>+91 {props.show.val.Phone}</span>
+          </p>
+          <p>
+            Importer License: <span>{props.show.val.ImporterLicense}</span>
+          </p>
+          <p>
+            GSTIN: <span>{props.show.val.GSTIN}</span>
+          </p>
+          <p>
+            ShopName: <span>{props.show.val.ShopName}</span>
+          </p>
+          <p>
+            Address: <span>{props.show.val.Address}</span>
+          </p>
+          <p>
+            State: <span>{props.show.val.State}</span>
+          </p>
+          <p>
+            City: <span>{props.show.val.City}</span>
+          </p>
+          <p>
+            Pincode: <span>{props.show.val.Pincode}</span>
+          </p>
+
+          <p>
+            Additional Info: <span>{props.show.val.AdditionalInfo}</span>
           </p>
         </div>
       </div>
