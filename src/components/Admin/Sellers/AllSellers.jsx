@@ -88,7 +88,9 @@ export default function AllSellers(props) {
         )}
       </div>
 
-      {show ? <SellersDetails hide={hide} show={show} /> : ""}
+      <div className={show ? "yesProductsPage" : "noProductsPage"}>
+        {show ? <SellersDetails hide={hide} show={show} /> : ""}
+      </div>
     </>
   );
 }
