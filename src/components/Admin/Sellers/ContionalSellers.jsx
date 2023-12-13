@@ -18,10 +18,14 @@ import SelCss from "./../Css/Sellers.module.css";
 export default function ContionalSellers(props) {
   const [data, setData] = useState([]);
   const [load, setLoad] = useState(false);
+  const [show, hide] = useState({ state: false, val: "" });
+  const [loadNow, setloadNow] = useState(false);
 
   useEffect(() => {
     loadData();
-  }, []);
+
+    setloadNow(false);
+  }, [, loadNow]);
 
   const authCtx = useContext(AuthContext);
 
@@ -64,7 +68,13 @@ export default function ContionalSellers(props) {
               <>
                 {data.map((val, key) => {
                   return (
-                    <div key={key} className={SelCss.mapMDiv}>
+                    <div
+                      key={key}
+                      className={SelCss.mapMDiv}
+                      onClick={() => {
+                        hide({ state: true, val: val });
+                      }}
+                    >
                       <div className={SelCss.conDelT}>
                         <p>{val.BusinessName}</p>
                         <p>
@@ -118,6 +128,14 @@ export default function ContionalSellers(props) {
               ""
             )}
           </>
+        )}
+      </div>
+
+      <div className={show.state ? "yesProductsPage" : "noProductsPage"}>
+        {show ? (
+          <SellersDetails hide={hide} show={show} setLoad={setloadNow} />
+        ) : (
+          ""
         )}
       </div>
     </>
