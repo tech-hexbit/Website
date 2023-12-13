@@ -7,7 +7,6 @@ export default function SellersDetails(props) {
   console.log(props.show.val);
   return (
     <div className={SDCss.mDiv}>
-      SellersDetails
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -18,15 +17,16 @@ export default function SellersDetails(props) {
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
-        class="lucide lucide-x"
+        class="lucide lucide-move-left"
         className={SDCss.leftArrow}
         onClick={() => {
           props.hide(false);
         }}
       >
-        <path d="M18 6 6 18" />
-        <path d="m6 6 12 12" />
+        <path d="M6 8L2 12L6 16" />
+        <path d="M2 12H22" />
       </svg>
+      SellersDetails
     </div>
   );
 }
