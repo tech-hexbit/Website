@@ -1,8 +1,11 @@
 import React from "react";
 
+// css
+import SDCss from "./Css/SellersDetails.module.css";
+
 export default function SellersDetails(props) {
   return (
-    <div>
+    <div className={SDCss.mDiv}>
       SellersDetails
       <svg
         xmlns="http://www.w3.org/2000/svg"
