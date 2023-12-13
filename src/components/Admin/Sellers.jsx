@@ -126,8 +126,16 @@ export default function Sellers() {
         ) : (
           ""
         )}
-        {SellerType === "Verified" ? <ContionalSellers state={true} /> : ""}
-        {SellerType === "notVerified" ? <ContionalSellers state={false} /> : ""}
+        {SellerType === "Verified" ? (
+          <ContionalSellers state={true} load={load} setLoad={setloadNow} />
+        ) : (
+          ""
+        )}
+        {SellerType === "notVerified" ? (
+          <ContionalSellers state={false} load={load} setLoad={setloadNow} />
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
