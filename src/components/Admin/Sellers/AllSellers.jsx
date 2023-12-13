@@ -1,5 +1,8 @@
 import React from "react";
 
+// components
+import SellersDetails from "./SellersDetails";
+
 // MicroInteraction
 import Load from "./../../../MicroInteraction/LoadBlack";
 
