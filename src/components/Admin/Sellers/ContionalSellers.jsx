@@ -64,7 +64,7 @@ export default function ContionalSellers(props) {
           </div>
         ) : (
           <>
-            {data ? (
+            {data.length > 0 ? (
               <>
                 {data.map((val, key) => {
                   return (
@@ -125,7 +125,7 @@ export default function ContionalSellers(props) {
                 })}
               </>
             ) : (
-              ""
+              <div className="loadCenterDiv">No Users</div>
             )}
           </>
         )}
