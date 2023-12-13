@@ -54,9 +54,12 @@ export default function SellersDetails(props) {
           secondaryColor: "#5CB660",
           symbol: "check_circle",
           title: "Success",
-          text: "Successfully Added",
+          text: "Successfully Verified",
           val: true,
         });
+
+        props.hide(false);
+        props.setLoad(true);
       } else {
         setLoad(false);
 
