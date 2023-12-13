@@ -18,3 +18,12 @@
   gap: 12px 0px;
   margin: 20px 0px;
 }
+
+.rowDiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.verDiv {
+  padding-right: 20px;
+}
