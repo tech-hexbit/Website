@@ -61,7 +61,6 @@ export default function ContionalSellers(props) {
               {data.map((val, key) => {
                 return (
                   <div key={key} className={SelCss.mapMDiv}>
-                    {" "}
                     <div className={SelCss.conDelT}>
                       <p>{val.BusinessName}</p>
                       <p>
