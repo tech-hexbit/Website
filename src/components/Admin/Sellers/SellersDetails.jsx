@@ -95,7 +95,9 @@ export default function SellersDetails(props) {
             ) : (
               <>
                 {showVer ? (
-                  <></>
+                  <>
+                  
+                  </>
                 ) : (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
