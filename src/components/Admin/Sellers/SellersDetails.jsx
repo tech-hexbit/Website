@@ -1,20 +1,55 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 // components
 import Load from "./../../../MicroInteraction/Load";
 import { Alert } from "./../../../MicroInteraction/Alert";
+
+// state
+import AuthContext from "../../store/auth-context";
+
+// axios
+import axios from "axios";
 
 // css
 import "./Css/common.css";
 import SDCss from "./Css/SellersDetails.module.css";
 
 export default function SellersDetails(props) {
+  const [load, setLoad] = useState(false);
   const [showVer, setVer] = useState(false);
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
+
+  const authCtx = useContext(AuthContext);
 
   const saveVer = async () => {
-    // setVer(false);
+    try {
+      const response = await axios.post("/api/website/qna/post", showData, {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+      // setVer(false);
 
-    console.log("first");
+      console.log("first");
+    } catch (error) {
+      console.log(error);
+
+      setLoad(false);
+
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "An unexpected error occurred",
+        val: true,
+      });
+    }
   };
 
   return (
