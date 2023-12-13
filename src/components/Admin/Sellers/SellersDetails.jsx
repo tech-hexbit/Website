@@ -7,6 +7,10 @@ import SDCss from "./Css/SellersDetails.module.css";
 export default function SellersDetails(props) {
   const [showVer, setVer] = useState(false);
 
+  const saveVer = async () => {
+    console.log("first");
+  };
+
   return (
     <div className={SDCss.mDiv}>
       <div className={SDCss.titleDiv}>
@@ -98,7 +102,7 @@ export default function SellersDetails(props) {
                 {showVer ? (
                   <>
                     <div class="checkbox-wrapper-3">
-                      <input type="checkbox" id="cbx-3" />
+                      <input type="checkbox" id="cbx-3" onClick={saveVer} />
                       <label for="cbx-3" class="toggle">
                         <span></span>
                       </label>
