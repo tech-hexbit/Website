@@ -10,7 +10,7 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 import SelCss from "./../Css/Sellers.module.css";
 
 export default function AllSellers(props) {
-  const [show, hide] = useState(false);
+  const [show, hide] = useState({ state: false, val: "" });
 
   return (
     <>
@@ -29,7 +29,7 @@ export default function AllSellers(props) {
                       key={key}
                       className={SelCss.mapMDiv}
                       onClick={() => {
-                        hide(true);
+                        hide({ state: true, val: val });
                       }}
                     >
                       <div className={SelCss.conDelT}>
@@ -88,7 +88,7 @@ export default function AllSellers(props) {
         )}
       </div>
 
-      <div className={show ? "yesProductsPage" : "noProductsPage"}>
+      <div className={show.state ? "yesProductsPage" : "noProductsPage"}>
         {show ? <SellersDetails hide={hide} show={show} /> : ""}
       </div>
     </>
