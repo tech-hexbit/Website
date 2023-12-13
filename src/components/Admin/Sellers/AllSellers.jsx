@@ -12,9 +12,6 @@ import SelCss from "./../Css/Sellers.module.css";
 export default function AllSellers(props) {
   const [show, hide] = useState(false);
 
-  useEffect(() => {
-    console.log(show);
-  }, [show]);
   return (
     <>
       <div className={SelCss.mDiv}>
