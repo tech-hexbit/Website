@@ -4,6 +4,7 @@ import React from "react";
 import SDCss from "./Css/SellersDetails.module.css";
 
 export default function SellersDetails(props) {
+  console.log(props.show.val);
   return (
     <div className={SDCss.mDiv}>
       SellersDetails
