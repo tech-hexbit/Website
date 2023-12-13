@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 
+// components
+import Load from "./../../../MicroInteraction/Load";
+import { Alert } from "./../../../MicroInteraction/Alert";
+
 // css
 import "./Css/common.css";
 import SDCss from "./Css/SellersDetails.module.css";
@@ -8,6 +12,8 @@ export default function SellersDetails(props) {
   const [showVer, setVer] = useState(false);
 
   const saveVer = async () => {
+    // setVer(false);
+
     console.log("first");
   };
 
