@@ -1,0 +1,28 @@
+.main {
+  display: grid;
+  padding-block: 1rem;
+}
+
+.trans_table {
+  text-align: left;
+  border-collapse: collapse;
+}
+
+.trans_table tbody tr {
+  border-bottom: 1px solid #d5dce8;
+  transition: background-color 150ms ease;
+}
+
+.trans_table td {
+  padding-block: 1rem;
+}
+
+.trans_table tbody td:last-child {
+  color: #595959;
+  text-decoration: underline;
+  font-weight: 700;
+  cursor: pointer;
+}
+.trans_table tbody tr:hover {
+  background-color: #ebefff;
+}
