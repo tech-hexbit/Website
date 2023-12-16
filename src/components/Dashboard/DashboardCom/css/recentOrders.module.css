@@ -70,6 +70,9 @@
   text-align: center;
   width: 20%;
   z-index: 1;
+  
+  
+  background-color: #fff;
 }
 
 .tableTag tr th:nth-child(2),
@@ -131,10 +134,37 @@
   width: 50px;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 750px) {
+  .tableTag tr th,
+  .tableTag tr td {
+    width: auto;
+    display: block;
+    text-align: left;
+  }
+
+  .tableTag tr th:first-child,
+  .tableTag tr td:first-child {
+    position: relative;
+  }
+
+  .tableTag tr th,
+  .tableTag tr td {
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e3e3e3;
+    padding: 10px;
+    text-align: left;
+  }
+
   .tableTag tr th:nth-child(2),
   .tableTag tr td:nth-child(2) {
-    width: auto;
+    background-color: transparent;
+  }
+
+  .tableTag tr th,
+  .tableTag tr td {
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .bottom {

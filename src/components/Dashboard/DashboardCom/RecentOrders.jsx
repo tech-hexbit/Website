@@ -20,7 +20,40 @@ export default function RecentOrders() {
   const [orderNumber, setOrderNumber] = useState(0);
   const [orderDel, setOrderDel] = useState([]);
   const [load, setLoad] = useState(false);
+  const [showHeaders, setShowHeaders] = useState(window.matchMedia("(min-width: 751px)").matches);
+  const [showLabels, setShowLabels] = useState(window.matchMedia("(max-width: 751px)").matches);
 
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 751px)");
+    
+
+    const handleResize = () => {
+      setShowHeaders(mediaQuery.matches);
+      
+    }; 
+    mediaQuery.addListener(handleResize);
+    
+    return () => {
+      mediaQuery.removeListener(handleResize);
+     
+    };
+  }, []);
+ 
+  useEffect(() => {
+    
+    const mediaQueryMaxWidth = window.matchMedia("(max-width: 750px)");
+
+    const handleResize = () => {
+      
+      setShowLabels(mediaQueryMaxWidth.matches);
+    }; 
+    
+    mediaQueryMaxWidth.addListener(handleResize);
+    return () => {
+      
+      mediaQueryMaxWidth.removeListener(handleResize);
+    };
+  }, []);
   useEffect(() => {
     loadData();
   }, []);
@@ -67,6 +100,7 @@ export default function RecentOrders() {
               <>
                 <div className={RCss.table}>
                   <table className={RCss.tableTag}>
+                  {!window.matchMedia("(max-width: 751px)").matches && (
                     <tr className={RCss.trHrline}>
                       <th id={RCss.th}>ID</th>
                       <th id={RCss.th} className={RCss.product}>
@@ -78,20 +112,21 @@ export default function RecentOrders() {
                       </th>
                       <th id={RCss.th}>Status</th>
                     </tr>
+                  )}
                     {orderDel ? (
                       <>
                         {orderDel.map((val, key) => {
                           return (
                             <tr key={key}>
                               <td id={RCss.td} class={RCss.truncate}>
-                                #{val._id.slice(-4)}
+                              <b>ID:</b>  #{val._id.slice(-4)}
                               </td>
                               <td id={RCss.td} className={RCss.product}>
-                                {val.Items[0].ItemID.descriptor.name}
+                              <b>Product:</b>   {val.Items[0].ItemID.descriptor.name}
                               </td>
-                              <td id={RCss.td}>₹ {val.amount.toFixed(2)}</td>
+                              <td id={RCss.td}> <b>Amount:</b>₹ {val.amount.toFixed(2)}</td>
                               <td id={RCss.td} className={RCss.quantity}>
-                                {val.Items[0].quantity}
+                                <b>Quantity:</b>{val.Items[0].quantity}
                               </td>
                               <td
                                 id={RCss.td}
@@ -101,7 +136,7 @@ export default function RecentOrders() {
                                     : { color: "#800000" }
                                 }
                               >
-                                {val.status}
+                               <b>Status:</b> {val.status}
                               </td>
                             </tr>
                           );
