@@ -5,10 +5,9 @@
 
 .trans_table {
   text-align: left;
-  border-collapse: collapse;
 }
 
-.trans_table tbody tr {
+.trans_table tr {
   border-bottom: 1px solid #d5dce8;
   transition: background-color 150ms ease;
 }
@@ -17,12 +16,67 @@
   padding-block: 1rem;
 }
 
-.trans_table tbody td:last-child {
+.trans_table td:last-child {
   color: #595959;
   text-decoration: underline;
   font-weight: 700;
   cursor: pointer;
 }
-.trans_table tbody tr:hover {
+.trans_table tr:hover {
   background-color: #ebefff;
+}
+
+.processed {
+  background-color: #ebf9f1;
+  color: #1f9254;
+  text-align: center;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.pending {
+  background-color: #fef2e5;
+  color: #cd6200;
+  text-align: center;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.rejected {
+  background-color: #ffbaba;
+  color: #cd0000;
+  text-align: center;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+@media (max-width: 1050px) {
+  .main {
+    width: 100%;
+  }
+  th {
+    display: none;
+  }
+  td {
+    display: grid;
+    grid-template-columns: 15ch auto;
+  }
+  td:before {
+    content: attr(data-cell) " : ";
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+  td:first-child {
+    padding-block-start: 2rem;
+  }
+  td:last-child {
+    padding-block-end: 2rem;
+  }
+
+  .trans_table td[data-cell="status"] {
+    text-align: left;
+  }
 }

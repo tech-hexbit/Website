@@ -104,75 +104,44 @@ const GatewayPaymentTable = () => {
     }
   ];
 
-  const getStatusColor = (status) => {
-    let style = {};
-    switch (status) {
-      case "Payment Processed":
-        style = {
-          backgroundColor: "#EBF9F1",
-          color: "#1F9254",
-          fontWeight: "bold",
-          textAlign: "center",
-          borderRadius: "0.5rem",
-          fontSize: "12px"
-        };
-        break;
-      case "Payment Pending":
-        style = {
-          backgroundColor: "#FEF2E5",
-          color: "#CD6200",
-          fontWeight: "bold",
-          textAlign: "center",
-          borderRadius: "0.5rem",
-          fontSize: "12px"
-        };
-        break;
-      case "Payment Rejected":
-        style = {
-          backgroundColor: "#FFBABA",
-          color: "#CD0000",
-          fontWeight: "bold",
-          textAlign: "center",
-          borderRadius: "0.5rem",
-          fontSize: "12px"
-        };
-        break;
-      default:
-        break;
-    }
-    return style;
-  };
-
   return (
     <div className={Gptable.main}>
       <h4>Transactions</h4>
       <table className={Gptable.trans_table}>
-        <thead>
-          <tr>
-            <th>Ref. No.</th>
-            <th>Order Id</th>
-            <th>A/c Holder Name</th>
-            <th>Date</th>
-            <th>Amount</th>
-            <th>Payment Mode</th>
-            <th>Status</th>
-            <th>Action</th>
+        <tr>
+          <th>Ref. No.</th>
+          <th>Order Id</th>
+          <th>A/c Holder Name</th>
+          <th>Date</th>
+          <th>Amount</th>
+          <th>Payment Mode</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+
+        {data.map((item, index) => (
+          <tr key={index}>
+            <td data-cell="ref no">{item.refNo}</td>
+            <td data-cell="order id">{item.orderId}</td>
+            <td data-cell="holder name">{item.accountHolderName}</td>
+            <td data-cell="date">{item.date}</td>
+            <td data-cell="amount">{item.amount}</td>
+            <td data-cell="payment mode">{item.paymentMode}</td>
+            <td
+              className={
+                item.status === "Payment Processed"
+                  ? Gptable.processed
+                  : item.status === "Payment Pending"
+                  ? Gptable.pending
+                  : Gptable.rejected
+              }
+              data-cell="status"
+            >
+              {item.status}
+            </td>
+            <td data-cell="action">{item.action}</td>
           </tr>
-        </thead>
-        <tbody>
-          {data.map((item, index) => (
-            <tr key={index}>
-              <td>{item.refNo}</td>
-              <td>{item.orderId}</td>
-              <td>{item.accountHolderName}</td>
-              <td>{item.date}</td>
-              <td>{item.amount}</td>
-              <td>{item.paymentMode}</td>
-              <td style={getStatusColor(item.status)}>{item.status}</td>
-              <td>{item.action}</td>
-            </tr>
-          ))}
-        </tbody>
+        ))}
       </table>
     </div>
   );
