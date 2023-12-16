@@ -1,8 +1,8 @@
 .main {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  justify-content: space-between;
+  gap: 1rem;
+  justify-content: center;
   align-items: center;
 }
 
@@ -84,9 +84,8 @@
   letter-spacing: 0px;
   text-align: left;
 }
-
-@media (width<=40em) {
-  .main {
-    justify-content: center;
+@media (width<= 28.125em) {
+  .main .box {
+    min-width: 220px;
   }
 }
