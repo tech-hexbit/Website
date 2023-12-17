@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    height: 130vh;
+    width: 100%;
+  
+  
+    background: linear-gradient(136deg,
+        rgba(255, 255, 255, 0.79) 0%,
+        rgba(207, 184, 255, 0.79) 100%);
+        background-size: auto 60%;
+        background-repeat: no-repeat;
+  }
+  
+  
+  .container .maindiv {
+    position: relative;
+    width: 50%;
+    height: 100vh;
+    padding: 300px;
+    margin: 0 auto;
+    background-color: #fff;
+  
+    border-radius: 20px;
+    box-shadow: 0px 38px 67px #adadad;
+    display: flex;
+    flex-direction: column;
+    gap: 30px 0;
+    padding: 50px;
+  
+  
+  }
+  
+  .maindiv .astersk {
+    color: red;
+  }
+  
+  .maindiv label {
+    color: #606060;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    text-transform: capitalize;
+    padding: 2px;
+    
+  
+  
+  }
+  
+  .maindiv input {
+    outline: none;
+    padding: 10px 12px;
+    border-radius: 20px;
+    border: 1px solid #d3d3d3;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    text-transform: lowercase;
+  
+  }
+  
+  .maindiv textarea {
+    outline: none;
+    padding: 10px 12px;
+    border-radius: 20px;
+    border: 1px solid #d3d3d3;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    text-transform: lowercase;
+    resize: none;
+    font-family: "Rubik", sans-serif;
+  }
+  
+  .maindiv button {
+    width: 200px;
+    height: 60px;
+    font-size: larger;
+    margin: 10px auto;
+    border-radius: 9px;
+    color: white;
+    background-color: rgb(12, 12, 77);
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    bottom: 20px;
+  
+  }

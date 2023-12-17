@@ -6,6 +6,8 @@ import { Helmet } from "react-helmet";
 // components
 import ContactMain from "./../components/contact/ContactMain";
 
+
+
 const Contact = () => {
   // scroll to top
   useEffect(() => {
@@ -19,6 +21,8 @@ const Contact = () => {
       </Helmet>
 
       <ContactMain />
+     
+      
     </>
   );
 };

@@ -10,6 +10,9 @@ import styles from "./Css/ContactForm.module.css";
 // icon
 import mail from "./../../assets/AboutUS/Icon.svg";
 import Icon_Call from "./../../assets/AboutUS/Icon_call.svg";
+// import Contactform2 from "./Contactform2";
+
+
 
 export default function ContactMain() {
   return (
@@ -54,7 +57,11 @@ export default function ContactMain() {
           </div>
         </div>
         <ContactForm />
+        
       </div>
+      {/* <Contactform2></Contactform2> */}
+     
+      
     </>
   );
 }

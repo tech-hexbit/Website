@@ -15,6 +15,7 @@ const Terms = React.lazy(() => import("./Pages/Terms"));
 const Error = React.lazy(() => import("./Pages/Error"));
 const Contact = React.lazy(() => import("./Pages/Contact"));
 const Privacy = React.lazy(() => import("./Pages/Privacy"));
+const Contactform2 = React.lazy(() => import("./Pages/ContactForm2"));
 //        || Auth
 const SignIn = React.lazy(() => import("./Pages/SignIn"));
 const Register = React.lazy(() => import("./Pages/Register"));
@@ -64,6 +65,14 @@ function App() {
               element={
                 <Suspense fallback={<LoadingPage />}>
                   <Contact />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/ContactForm2"
+              element={
+                <Suspense fallback={<LoadingPage />}>
+                  <Contactform2 />
                 </Suspense>
               }
             />

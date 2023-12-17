@@ -44,6 +44,12 @@ const Header = () => {
                 <div className={styles.tabLineDiv}></div>
               </div>
             </NavLink>
+            <NavLink to="/ContactForm2" className="LinkStyle">
+              <div className={styles.tabsDiv}>
+                <p>Contact_Us</p>
+                <div className={styles.tabLineDiv}></div>
+              </div>
+            </NavLink>
             {authCtx.isLoggedIn ? (
               <>
                 <NavLink to="/me" className="LinkStyle">
