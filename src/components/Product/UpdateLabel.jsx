@@ -97,7 +97,19 @@ export default function UpdateLabel(props) {
       <div className={DCss.upLablemDiv}>
         {edit ? (
           <>
-            {props.type === "select" ? "" : ""}
+            {props.type === "select" ? (
+              <>
+                <select name="" id="">
+                  <option value="placeholder" selected disabled hidden>
+                    {props.placeholder}
+                  </option>
+                  <option value="true">True</option>
+                  <option value="false">False</option>
+                </select>
+              </>
+            ) : (
+              ""
+            )}
             {props.type === "text" ? (
               <>
                 <input
