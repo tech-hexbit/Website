@@ -85,30 +85,69 @@ export default function UpdateLabel(props) {
   return (
     <div className={DCss.upLablemDiv}>
       {editDesState.state ? (
-        <input type="text" name="" id="" placeholder={props.placeholder} />
+        <>
+          <input type="text" name="" id="" placeholder={props.placeholder} />
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-save"
+          >
+            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
+            <polyline points="17 21 17 13 7 13 7 21" />
+            <polyline points="7 3 7 8 15 8" />
+          </svg>
+        </>
       ) : (
         <span className={DCss.desName}>{props.crrValue}</span>
       )}
 
-      <span className={DCss.editBtn}>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="lucide lucide-pencil"
-          onClick={() => {
-            setEditDes({ state: !editDesState.state });
-          }}
-        >
-          <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
-          <path d="m15 5 4 4" />
-        </svg>
+      <span
+        className={DCss.editBtn}
+        onClick={() => {
+          setEditDes({ state: !editDesState.state });
+        }}
+      >
+        {editDesState.state ? (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-ban"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <path d="m4.9 4.9 14.2 14.2" />
+          </svg>
+        ) : (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-pencil"
+          >
+            <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+            <path d="m15 5 4 4" />
+          </svg>
+        )}
       </span>
     </div>
   );
