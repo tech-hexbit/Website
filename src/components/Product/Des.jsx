@@ -187,6 +187,7 @@ export default function Des(props) {
               fieldName="category_id"
               placeholder="Updated Category"
               type="select"
+              setChange={props.setChange}
             />
           </tr>
           <tr>
