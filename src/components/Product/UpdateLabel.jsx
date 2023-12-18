@@ -25,15 +25,13 @@ export default function UpdateLabel(props) {
 
   const authCtx = useContext(AuthContext);
 
-  console.log(props.id);
-
   const changePost = async (value) => {
     setEdit(false);
 
     try {
       const input = {
         fieldName: value,
-        changedValue: editDesState,
+        changedValue: editDesState.val,
         itemID: props.id,
       };
 
