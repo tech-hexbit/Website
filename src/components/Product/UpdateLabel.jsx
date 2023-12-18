@@ -147,7 +147,14 @@ export default function UpdateLabel(props) {
             </svg>
           </>
         ) : (
-          <span className={DCss.desName}>{props.crrValue}</span>
+          <span className={DCss.desName}>
+            {props.type === "select" ? (
+              <>{props.crrValue ? "True" : "False"}</>
+            ) : (
+              ""
+            )}
+            {props.type === "text" ? <>{props.crrValue}</> : ""}
+          </span>
         )}
 
         <span
