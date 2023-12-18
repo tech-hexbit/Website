@@ -84,11 +84,11 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .LinkStyle.sideBarNonActive .temp {
-  fill: #575757;
+  color: #575757;
 }
 
 .LinkStyle.sideBarActive .temp {
-  fill: #56117c;
+  color: #56117c;
 }
 
 .error {
