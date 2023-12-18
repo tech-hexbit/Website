@@ -174,30 +174,30 @@ export default function Des(props) {
       </div> */}
 
       <div className={DCss.mDiv}>
-        <p className={DCss.subTitlePTag}>
-          Product description :
-          <span className={DCss.editBtn}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-pencil"
-            >
-              <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
-              <path d="m15 5 4 4" />
-            </svg>
-          </span>
-        </p>
+        <p className={DCss.subTitlePTag}>Product description :</p>
         <table>
           <tr>
             <td className={DCss.headingName}>Category :</td>
             <td className={DCss.desName}>{props.res.category_id}</td>
+            <td className={DCss.desName}>
+              <span className={DCss.editBtn}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-pencil"
+                >
+                  <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+                  <path d="m15 5 4 4" />
+                </svg>
+              </span>
+            </td>
           </tr>
           <tr>
             <td className={DCss.headingName}>Brand :</td>
@@ -208,6 +208,25 @@ export default function Des(props) {
                 ]
               }
             </td>
+            <td className={DCss.desName}>
+              <span className={DCss.editBtn}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-pencil"
+                >
+                  <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+                  <path d="m15 5 4 4" />
+                </svg>
+              </span>
+            </td>
           </tr>
           <tr>
             <td className={DCss.headingName}>Weight :</td>
@@ -217,11 +236,49 @@ export default function Des(props) {
                   .net_quantity
               }
             </td>
+            <td className={DCss.desName}>
+              <span className={DCss.editBtn}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-pencil"
+                >
+                  <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+                  <path d="m15 5 4 4" />
+                </svg>
+              </span>
+            </td>
           </tr>
           <tr>
             <td className={DCss.headingName}>Returnable :</td>
             <td className={DCss.desName}>
               {props.res["@ondc/org/returnable"] ? "True" : "False"}
+            </td>
+            <td className={DCss.desName}>
+              <span className={DCss.editBtn}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-pencil"
+                >
+                  <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+                  <path d="m15 5 4 4" />
+                </svg>
+              </span>
             </td>
           </tr>
           <tr>
@@ -229,11 +286,49 @@ export default function Des(props) {
             <td className={DCss.desName}>
               {props.res["@ondc/org/cancellable"] ? "True" : "False"}
             </td>
+            <td className={DCss.desName}>
+              <span className={DCss.editBtn}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-pencil"
+                >
+                  <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+                  <path d="m15 5 4 4" />
+                </svg>
+              </span>
+            </td>
           </tr>
           <tr>
             <td className={DCss.headingName}>Return Window :</td>
             <td className={DCss.desName}>
               {props.res["@ondc/org/return_window"]}
+            </td>
+            <td className={DCss.desName}>
+              <span className={DCss.editBtn}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-pencil"
+                >
+                  <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+                  <path d="m15 5 4 4" />
+                </svg>
+              </span>
             </td>
           </tr>
           <tr>
@@ -241,17 +336,74 @@ export default function Des(props) {
             <td className={DCss.desName}>
               {props.res["@ondc/org/seller_pickup_return"] ? "True" : "False"}
             </td>
+            <td className={DCss.desName}>
+              <span className={DCss.editBtn}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-pencil"
+                >
+                  <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+                  <path d="m15 5 4 4" />
+                </svg>
+              </span>
+            </td>
           </tr>
           <tr>
             <td className={DCss.headingName}>Time To Ship :</td>
             <td className={DCss.desName}>
               {props.res["@ondc/org/time_to_ship"]}
             </td>
+            <td className={DCss.desName}>
+              <span className={DCss.editBtn}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-pencil"
+                >
+                  <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+                  <path d="m15 5 4 4" />
+                </svg>
+              </span>
+            </td>
           </tr>
           <tr>
             <td className={DCss.headingName}>Available on COD :</td>
             <td className={DCss.desName}>
               {props.res["@ondc/org/available_on_cod"] ? "True" : "False"}
+            </td>
+            <td className={DCss.desName}>
+              <span className={DCss.editBtn}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-pencil"
+                >
+                  <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+                  <path d="m15 5 4 4" />
+                </svg>
+              </span>
             </td>
           </tr>
         </table>
