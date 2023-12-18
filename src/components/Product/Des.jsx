@@ -213,7 +213,7 @@ export default function Des(props) {
                   .net_quantity
               }
               id={props.id}
-              fieldName="@ondc/org/statutory_reqs_packaged_commodities.manufacturer_or_packer_name"
+              fieldName="@ondc/org/mandatory_reqs_veggies_fruits.net_quantity"
               placeholder="Updated Quantity"
               type="text"
               setChange={props.setChange}
