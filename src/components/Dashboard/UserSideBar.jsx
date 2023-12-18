@@ -219,9 +219,9 @@ export default function UserSideBar() {
             </div>
           </NavLink>
 
-          {/* Gateway */}
+          {/* Payment Details */}
           <NavLink
-            to="/me/gateway"
+            to="/me/Payment/Details"
             className={({ isActive }) =>
               isActive
                 ? "LinkStyle sideBarActive"
@@ -242,7 +242,7 @@ export default function UserSideBar() {
               </div>
               <div className={sidebarCSS.heading}>
                 <div className={sidebarCSS.arrow}></div>
-                Gateway
+                Payment Details
               </div>
             </div>
           </NavLink>
