@@ -46,8 +46,6 @@ export default function Des(props) {
         }
       );
 
-      console.log(response.data);
-
       if (response.data.success) {
         props.setChange(true);
 
@@ -82,6 +80,9 @@ export default function Des(props) {
       console.log(e);
     }
   };
+
+  console.log("cancellable = " + props.res["@ondc/org/cancellable"]);
+  console.log("returnable = " + props.res["@ondc/org/returnable"]);
 
   return (
     <>
@@ -199,6 +200,48 @@ export default function Des(props) {
                 props.res["@ondc/org/mandatory_reqs_veggies_fruits"]
                   .net_quantity
               }
+            </td>
+          </tr>
+
+          <tr>
+            <td className={DCss.headingName}>Returnable :</td>
+            <td className={DCss.desName}>
+              {props.res["@ondc/org/returnable"] ? "True" : "False"}
+            </td>
+          </tr>
+
+          <tr>
+            <td className={DCss.headingName}>Cancellable :</td>
+            <td className={DCss.desName}>
+              {props.res["@ondc/org/cancellable"] ? "True" : "False"}
+            </td>
+          </tr>
+
+          <tr>
+            <td className={DCss.headingName}>Return Window :</td>
+            <td className={DCss.desName}>
+              {props.res["@ondc/org/return_window"]}
+            </td>
+          </tr>
+
+          <tr>
+            <td className={DCss.headingName}>Seller Pickup Return :</td>
+            <td className={DCss.desName}>
+              {props.res["@ondc/org/seller_pickup_return"] ? "True" : "False"}
+            </td>
+          </tr>
+
+          <tr>
+            <td className={DCss.headingName}>Time To Ship :</td>
+            <td className={DCss.desName}>
+              {props.res["@ondc/org/time_to_ship"]}
+            </td>
+          </tr>
+
+          <tr>
+            <td className={DCss.headingName}>Available on COD :</td>
+            <td className={DCss.desName}>
+              {props.res["@ondc/org/available_on_cod"] ? "True" : "False"}
             </td>
           </tr>
         </table>
