@@ -186,6 +186,7 @@ export default function Des(props) {
               id={props.id}
               fieldName="category_id"
               placeholder="Updated Category"
+              type="select"
             />
           </tr>
           <tr>
