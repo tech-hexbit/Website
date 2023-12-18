@@ -81,9 +81,6 @@ export default function Des(props) {
     }
   };
 
-  console.log("cancellable = " + props.res["@ondc/org/cancellable"]);
-  console.log("returnable = " + props.res["@ondc/org/returnable"]);
-
   return (
     <>
       <div className={DCss.mDiv}>
