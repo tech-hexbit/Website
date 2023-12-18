@@ -97,15 +97,22 @@ export default function UpdateLabel(props) {
       <div className={DCss.upLablemDiv}>
         {edit ? (
           <>
-            <input
-              type="text"
-              name=""
-              id=""
-              placeholder={props.placeholder}
-              onChange={(e) => {
-                setEditDes(e.target.value);
-              }}
-            />
+            {props.type === "select" ? "" : ""}
+            {props.type === "text" ? (
+              <>
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder={props.placeholder}
+                  onChange={(e) => {
+                    setEditDes(e.target.value);
+                  }}
+                />
+              </>
+            ) : (
+              ""
+            )}
 
             <svg
               xmlns="http://www.w3.org/2000/svg"
