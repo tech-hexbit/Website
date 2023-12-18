@@ -13,6 +13,9 @@ import { Alert } from "./../../MicroInteraction/Alert";
 import DCss from "./Css/Des.module.css";
 
 export default function UpdateLabel(props) {
+  const [edit, setEdit] = useState(false);
+  const [editDesState, setEditDes] = useState("");
+
   return (
     <div className={DCss.upLablemDiv}>
       <span className={DCss.desName}>{props.crrValue}</span>
