@@ -16,8 +16,8 @@ import { Alert } from "./../../MicroInteraction/Alert";
 import DCss from "./Css/Des.module.css";
 
 export default function Des(props) {
-  const [editDesState, setEditDes] = useState("");
   const [edit, setEdit] = useState(false);
+  const [editDesState, setEditDes] = useState("");
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
