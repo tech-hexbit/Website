@@ -115,6 +115,7 @@ export default function ProductsPage(props) {
                     up="price.maximum_value"
                     id={res._id}
                     setChange={setChange}
+                    placeholderLabel="Updated Price"
                   />
                   <Box
                     title="Stock"
@@ -122,6 +123,7 @@ export default function ProductsPage(props) {
                     up="quantity.maximum.count"
                     id={res._id}
                     setChange={setChange}
+                    placeholderLabel="Updated Stock"
                   />
                 </div>
 
