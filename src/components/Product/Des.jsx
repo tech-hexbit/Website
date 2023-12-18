@@ -199,42 +199,36 @@ export default function Des(props) {
               }
             </td>
           </tr>
-
           <tr>
             <td className={DCss.headingName}>Returnable :</td>
             <td className={DCss.desName}>
               {props.res["@ondc/org/returnable"] ? "True" : "False"}
             </td>
           </tr>
-
           <tr>
             <td className={DCss.headingName}>Cancellable :</td>
             <td className={DCss.desName}>
               {props.res["@ondc/org/cancellable"] ? "True" : "False"}
             </td>
           </tr>
-
           <tr>
             <td className={DCss.headingName}>Return Window :</td>
             <td className={DCss.desName}>
               {props.res["@ondc/org/return_window"]}
             </td>
           </tr>
-
           <tr>
             <td className={DCss.headingName}>Seller Pickup Return :</td>
             <td className={DCss.desName}>
               {props.res["@ondc/org/seller_pickup_return"] ? "True" : "False"}
             </td>
           </tr>
-
           <tr>
             <td className={DCss.headingName}>Time To Ship :</td>
             <td className={DCss.desName}>
               {props.res["@ondc/org/time_to_ship"]}
             </td>
           </tr>
-
           <tr>
             <td className={DCss.headingName}>Available on COD :</td>
             <td className={DCss.desName}>
