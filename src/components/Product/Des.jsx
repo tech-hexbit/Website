@@ -181,7 +181,7 @@ export default function Des(props) {
         <table>
           <tr>
             <td className={DCss.headingName}>Category :</td>
-            <UpdateLabel crrValue={props.res.category_id} />
+            <UpdateLabel crrValue={props.res.category_id} id={props.id} />
           </tr>
           <tr>
             <td className={DCss.headingName}>Brand :</td>
