@@ -1,5 +1,8 @@
 import React, { useState, useContext } from "react";
 
+// components
+import UpdateLabel from "./UpdateLabel";
+
 // axios
 import axios from "axios";
 
@@ -179,25 +182,7 @@ export default function Des(props) {
           <tr>
             <td className={DCss.headingName}>Category :</td>
             <td className={DCss.desName}>{props.res.category_id}</td>
-            <td className={DCss.desName}>
-              <span className={DCss.editBtn}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-pencil"
-                >
-                  <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
-                  <path d="m15 5 4 4" />
-                </svg>
-              </span>
-            </td>
+            <td className={DCss.desName}></td>
           </tr>
           <tr>
             <td className={DCss.headingName}>Brand :</td>
