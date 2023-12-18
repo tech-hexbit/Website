@@ -186,7 +186,7 @@ export default function Des(props) {
               id={props.id}
               fieldName="category_id"
               placeholder="Updated Category"
-              type="select"
+              type="text"
               setChange={props.setChange}
             />
           </tr>
@@ -199,9 +199,9 @@ export default function Des(props) {
                 ]
               }
               id={props.id}
-              fieldName="category_id"
-              placeholder="Updated Category"
-              type="select"
+              fieldName="@ondc/org/statutory_reqs_packaged_commodities.manufacturer_or_packer_name"
+              placeholder="Updated Name"
+              type="text"
               setChange={props.setChange}
             />
           </tr>
