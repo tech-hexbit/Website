@@ -12,9 +12,10 @@ import { Alert } from "./../../MicroInteraction/Alert";
 // css
 import DCss from "./Css/Des.module.css";
 
-export default function UpdateLabel() {
+export default function UpdateLabel(props) {
   return (
     <div>
+      <span className={DCss.desName}>{props.crrValue}</span>
       <span className={DCss.editBtn}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
