@@ -58,13 +58,13 @@ export default function Profile() {
               // Users
               <>
                 <Route path="/sales" element={<Sales />} />
-                <Route path="/Payment/Details" element={<PayDetails />} />
-                <Route path="/Payment/Request" element={<PayRequest />} />
                 <Route path="/support" element={<Support />} />
                 <Route path="/products" element={<Products />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/Inventory" element={<Categories />} />
                 <Route path="/addProduct" element={<AddProduct />} />
+                <Route path="/Payment/Details" element={<PayDetails />} />
+                <Route path="/Payment/Request" element={<PayRequest />} />
                 <Route path="/orderdetails/:id" element={<Orderdetails />} />
               </>
             )}
