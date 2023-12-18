@@ -92,6 +92,10 @@ export default function UpdateLabel(props) {
     }
   };
 
+  const handleSelectChange = (e) => {
+    setEditDes(e.target.value);
+  };
+
   return (
     <>
       <div className={DCss.upLablemDiv}>
@@ -99,7 +103,7 @@ export default function UpdateLabel(props) {
           <>
             {props.type === "select" ? (
               <>
-                <select name="" id="">
+                <select name="" id="" onChange={handleSelectChange}>
                   <option value="placeholder" selected disabled hidden>
                     {props.placeholder}
                   </option>
