@@ -13,7 +13,8 @@ import { Alert } from "./../../MicroInteraction/Alert";
 import DCss from "./Css/Des.module.css";
 
 export default function UpdateLabel(props) {
-  const [editDesState, setEditDes] = useState({ state: false, val: "" });
+  const [edit, setEdit] = useState(false);
+  const [editDesState, setEditDes] = useState("");
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -28,65 +29,85 @@ export default function UpdateLabel(props) {
   const changePost = async (value) => {
     setEdit(false);
 
-    try {
-      const input = {
-        fieldName: value,
-        changedValue: editDesState.val,
-        itemID: props.id,
-      };
+    const input = {
+      fieldName: value,
+      changedValue: editDesState.val,
+      itemID: props.id,
+    };
 
-      const response = await axios.post(
-        "/api/common/product/EditProduct",
-        input,
-        {
-          headers: {
-            Authorization: `${authCtx.token}`,
-          },
-        }
-      );
+    console.log(input);
 
-      if (response.data.success) {
-        props.setChange(true);
+    // try {
+    //   const input = {
+    //     fieldName: value,
+    //     changedValue: editDesState.val,
+    //     itemID: props.id,
+    //   };
 
-        setError({
-          mainColor: "#EDFEEE",
-          secondaryColor: "#5CB660",
-          symbol: "check_circle",
-          title: "Success",
-          text: "Successfully Updated",
-          val: true,
-        });
-      } else {
-        setError({
-          mainColor: "#FDEDED",
-          secondaryColor: "#F16360",
-          symbol: "error",
-          title: "Error",
-          text: "Update Failed",
-          val: true,
-        });
-      }
-    } catch (e) {
-      setError({
-        mainColor: "#FDEDED",
-        secondaryColor: "#F16360",
-        symbol: "error",
-        title: "Error",
-        text: "Poduct Addition Failed",
-        val: true,
-      });
+    //   const response = await axios.post(
+    //     "/api/common/product/EditProduct",
+    //     input,
+    //     {
+    //       headers: {
+    //         Authorization: `${authCtx.token}`,
+    //       },
+    //     }
+    //   );
 
-      console.log(e);
-    }
+    //   if (response.data.success) {
+    //     props.setChange(true);
+
+    //     setError({
+    //       mainColor: "#EDFEEE",
+    //       secondaryColor: "#5CB660",
+    //       symbol: "check_circle",
+    //       title: "Success",
+    //       text: "Successfully Updated",
+    //       val: true,
+    //     });
+    //   } else {
+    //     setError({
+    //       mainColor: "#FDEDED",
+    //       secondaryColor: "#F16360",
+    //       symbol: "error",
+    //       title: "Error",
+    //       text: "Update Failed",
+    //       val: true,
+    //     });
+    //   }
+    // } catch (e) {
+    //   setError({
+    //     mainColor: "#FDEDED",
+    //     secondaryColor: "#F16360",
+    //     symbol: "error",
+    //     title: "Error",
+    //     text: "Poduct Addition Failed",
+    //     val: true,
+    //   });
+
+    //   console.log(e);
+    // }
   };
+
+  useEffect(() => {
+    console.log(editDesState);
+  }, [editDesState]);
 
   console.log(props.fieldName);
 
   return (
     <div className={DCss.upLablemDiv}>
-      {editDesState.state ? (
+      {edit ? (
         <>
-          <input type="text" name="" id="" placeholder={props.placeholder} />
+          <input
+            type="text"
+            name=""
+            id=""
+            placeholder={props.placeholder}
+            onChange={(e) => {
+              setEditDes({ val: e.target.value });
+            }}
+          />
 
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -99,6 +120,9 @@ export default function UpdateLabel(props) {
             stroke-linecap="round"
             stroke-linejoin="round"
             class="lucide lucide-save"
+            onClick={() => {
+              console.log("firstas");
+            }}
           >
             <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
             <polyline points="17 21 17 13 7 13 7 21" />
@@ -112,10 +136,10 @@ export default function UpdateLabel(props) {
       <span
         className={DCss.editBtn}
         onClick={() => {
-          setEditDes({ state: !editDesState.state });
+          setEdit(!edit);
         }}
       >
-        {editDesState.state ? (
+        {edit ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
