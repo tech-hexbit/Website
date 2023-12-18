@@ -80,13 +80,16 @@ export default function UpdateLabel(props) {
     }
   };
 
-  useEffect(() => {
-    console.log(editDesState);
-  }, [editDesState]);
+  console.log(props.fieldName);
 
   return (
     <div className={DCss.upLablemDiv}>
-      <span className={DCss.desName}>{props.crrValue}</span>
+      {editDesState.state ? (
+        <input type="text" name="" id="" placeholder={props.placeholder} />
+      ) : (
+        <span className={DCss.desName}>{props.crrValue}</span>
+      )}
+
       <span className={DCss.editBtn}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
