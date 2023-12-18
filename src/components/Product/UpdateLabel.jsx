@@ -14,7 +14,7 @@ import DCss from "./Css/Des.module.css";
 
 export default function UpdateLabel(props) {
   return (
-    <div>
+    <div className={DCss.upLablemDiv}>
       <span className={DCss.desName}>{props.crrValue}</span>
       <span className={DCss.editBtn}>
         <svg
