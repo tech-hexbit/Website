@@ -9,7 +9,7 @@ import { Helmet } from "react-helmet";
 import UserSideBar from "./../components/Dashboard/UserSideBar";
 //          || User
 import Sales from "./../components/Dashboard/Sales";
-import Gateway from "../components/Dashboard/Gateway/Gateway";
+import Gateway from "../components/Dashboard/Gateway";
 import Products from "./../components/Dashboard/Products";
 import ProfileMain from "./../components/Dashboard/Profile";
 import Categories from "./../components/Dashboard/Categories";

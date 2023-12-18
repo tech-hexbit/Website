@@ -1,6 +1,8 @@
+// css
 import Gptable from "./Css/GatewayPaymentTable.module.css";
 
 const GatewayPaymentTable = () => {
+  // datas
   const data = [
     {
       refNo: "#20462",
@@ -123,7 +125,7 @@ const GatewayPaymentTable = () => {
           <tr key={index}>
             <td data-cell="ref no">{item.refNo}</td>
             <td data-cell="order id">{item.orderId}</td>
-            <td data-cell="holder name">{item.accountHolderName}</td>
+            <td data-cell="name">{item.accountHolderName}</td>
             <td data-cell="date">{item.date}</td>
             <td data-cell="amount">{item.amount}</td>
             <td data-cell="payment mode">{item.paymentMode}</td>
