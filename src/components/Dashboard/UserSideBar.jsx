@@ -232,12 +232,19 @@ export default function UserSideBar() {
               <div className={sidebarCSS.icons}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="21"
-                  viewBox="0 0 20 21"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-credit-card"
                   className="temp"
                 >
-                  <path d="M20 10.4998L17.3531 8.74989V9.76162H14.7691C14.6492 8.98016 14.3409 8.26096 13.8934 7.65029L15.7213 5.82234L16.437 6.53786L17.0712 3.42878L13.9621 4.06313L14.6776 4.77832L12.8494 6.60643C12.2389 6.15893 11.5197 5.85071 10.7382 5.73082L10.738 3.14687H11.75L9.99992 0.5L8.24996 3.14687H9.26169V5.73082C8.48023 5.8509 7.76102 6.15893 7.15051 6.60659L5.32239 4.77865L6.03807 4.06297L2.92864 3.42894L3.563 6.53802L4.27852 5.82251L6.10664 7.65074C5.65898 8.26124 5.35091 8.98057 5.23103 9.7619H2.64689V8.74989L0 10.5L2.64689 12.2499V11.2382H5.23119C5.35111 12.0198 5.65931 12.739 6.10697 13.3495L4.27885 15.1775L3.56333 14.4618L2.92913 17.5709L6.03823 16.9365L5.32288 16.2215L7.151 14.3934C7.76151 14.8411 8.48068 15.1491 9.26235 15.2692L9.26203 17.8531H8.25001L10.0001 20.5L11.7501 17.8531H10.7385V15.2689C11.52 15.1489 12.2392 14.8407 12.8497 14.3931L14.6777 16.221L13.962 16.9365L17.0713 17.5707L16.4369 14.4618L15.7215 15.1771L13.8934 13.3492C14.3411 12.7387 14.6491 12.0194 14.7692 11.2379H17.3532V12.2499L20 10.4998ZM4.99121 10.9419V10.0576H7.87537V9.45212L9.45995 10.4997L7.87537 11.5476V10.9418L4.99121 10.9419ZM9.99988 14.7987L8.95199 13.2141H9.55783V10.6701H10.4416V10.33H9.55783V7.78592H8.95199L9.99988 6.20119L11.0475 7.78592H10.4416V10.33H10.442V13.2143H11.0475L9.99988 14.7987ZM15.009 10.9419H12.1248V11.5477L10.54 10.4998L12.1248 9.45225V10.0581H15.009V10.9419Z" />
+                  <rect width="20" height="14" x="2" y="5" rx="2" />
+                  <line x1="2" x2="22" y1="10" y2="10" />
                 </svg>
               </div>
               <div className={sidebarCSS.heading}>
@@ -247,9 +254,9 @@ export default function UserSideBar() {
             </div>
           </NavLink>
 
-          {/* Payment Request */}
+          {/* Add product */}
           <NavLink
-            to="/me/Payment/Details"
+            to="/me/addProduct"
             className={({ isActive }) =>
               isActive
                 ? "LinkStyle sideBarActive"
@@ -268,46 +275,15 @@ export default function UserSideBar() {
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  class="lucide lucide-badge-indian-rupee"
-                >
-                  <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
-                  <path d="M8 8h8" />
-                  <path d="M8 12h8" />
-                  <path d="m13 17-5-1h1a4 4 0 0 0 0-8" />
-                </svg>
-              </div>
-              <div className={sidebarCSS.heading}>
-                <div className={sidebarCSS.arrow}></div>
-                Payment Request
-              </div>
-            </div>
-          </NavLink>
-
-          {/* Add product */}
-          <NavLink
-            to="/me/addProduct"
-            className={({ isActive }) =>
-              isActive
-                ? "LinkStyle sideBarActive"
-                : "LinkStyle sideBarNonActive"
-            }
-          >
-            <div className={sidebarCSS.navElement}>
-              <div className={sidebarCSS.icons}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="21"
-                  viewBox="0 0 20 21"
+                  class="lucide lucide-package-plus"
                   className="temp"
                 >
-                  <path d="M13.9475 10.1992H6.63184L8.44312 13.6104H15.7588L13.9475 10.1992Z" />
-                  <path d="M0 13.6104H4.17991L5.98793 10.1992H1.81143L0 13.6104Z" />
-                  <path d="M19.9843 17.8219L19.9585 17.5762H14.5928V20.5H18.0668C19.2334 20.5 20.1325 19.2402 19.9843 17.8219Z" />
-                  <path d="M9.43965 7.52851C11.0187 7.52851 12.2982 5.95568 12.2982 4.01426C12.2982 2.07302 11.0189 0.5 9.43965 0.5C7.86059 0.5 6.58105 2.07283 6.58105 4.01426C6.58105 5.95568 7.86044 7.52851 9.43965 7.52851ZM7.8315 3.61811H9.12053V2.03342C9.12053 1.81545 9.26548 1.63725 9.44278 1.63725C9.62008 1.63725 9.76503 1.81545 9.76503 2.03342V3.61811H11.0541C11.2314 3.61811 11.3763 3.79631 11.3763 4.01427C11.3763 4.23224 11.2314 4.41044 11.0541 4.41044H9.76503V5.99513C9.76503 6.2131 9.62008 6.3913 9.44278 6.3913C9.26548 6.3913 9.12053 6.2131 9.12053 5.99513V4.41044H7.8315C7.6542 4.41044 7.50924 4.23224 7.50924 4.01427C7.50924 3.79649 7.65093 3.61811 7.8315 3.61811Z" />
-                  <path d="M11.4856 8.44297L11.3857 9.40565H13.5836V7.29804C13.5836 6.17282 14.3282 5.25375 15.2465 5.25375C16.1618 5.25375 16.9094 6.16904 16.9094 7.29804V8.44297H14.2281V9.40565H14.299L16.9481 14.4014H14.5924V16.7824H19.8776L19.0074 8.44246H18.1985V10.1975C18.1985 10.2331 18.1888 10.2648 18.1823 10.2965C18.3822 10.4313 18.5207 10.6887 18.5207 10.9898C18.5207 11.4296 18.2307 11.7822 17.8762 11.7822C17.5185 11.7822 17.2317 11.4296 17.2317 10.9898C17.2317 10.6887 17.367 10.4311 17.5701 10.2965C17.5638 10.2648 17.554 10.233 17.554 10.1975V7.29757C17.554 5.73259 16.5194 4.46094 15.2466 4.46094C13.9736 4.46094 12.9392 5.73278 12.9392 7.29757V8.4425L11.4856 8.44297Z" />
-                  <path d="M6.63184 11.6484V20.4992H13.9475V14.402H8.09528L6.63184 11.6484Z" />
-                  <path d="M1.81152 14.402V20.4992H5.98802V11.6484L4.52807 14.4019L1.81152 14.402Z" />
+                  <path d="M16 16h6" />
+                  <path d="M19 13v6" />
+                  <path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14" />
+                  <path d="m7.5 4.27 9 5.15" />
+                  <polyline points="3.29 7 12 12 20.71 7" />
+                  <line x1="12" x2="12" y1="22" y2="12" />
                 </svg>
               </div>
               <div className={sidebarCSS.heading}>
@@ -339,6 +315,7 @@ export default function UserSideBar() {
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   class="lucide lucide-helping-hand"
+                  className="temp"
                 >
                   <path d="m3 15 5.12-5.12A3 3 0 0 1 10.24 9H13a2 2 0 1 1 0 4h-2.5m4-.68 4.17-4.89a1.88 1.88 0 0 1 2.92 2.36l-4.2 5.94A3 3 0 0 1 14.96 17H9.83a2 2 0 0 0-1.42.59L7 19" />
                   <path d="m2 14 6 6" />
@@ -347,6 +324,43 @@ export default function UserSideBar() {
               <div className={sidebarCSS.heading}>
                 <div className={sidebarCSS.arrow}></div>
                 Support
+              </div>
+            </div>
+          </NavLink>
+
+          {/* Payment Request */}
+          <NavLink
+            to="/me/Payment/Request"
+            className={({ isActive }) =>
+              isActive
+                ? "LinkStyle sideBarActive"
+                : "LinkStyle sideBarNonActive"
+            }
+          >
+            <div className={sidebarCSS.navElement}>
+              <div className={sidebarCSS.icons}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-badge-indian-rupee"
+                  className="temp"
+                >
+                  <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
+                  <path d="M8 8h8" />
+                  <path d="M8 12h8" />
+                  <path d="m13 17-5-1h1a4 4 0 0 0 0-8" />
+                </svg>
+              </div>
+              <div className={sidebarCSS.heading}>
+                <div className={sidebarCSS.arrow}></div>
+                Payment Request
               </div>
             </div>
           </NavLink>
