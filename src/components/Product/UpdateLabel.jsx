@@ -13,8 +13,74 @@ import { Alert } from "./../../MicroInteraction/Alert";
 import DCss from "./Css/Des.module.css";
 
 export default function UpdateLabel(props) {
-  const [edit, setEdit] = useState(false);
-  const [editDesState, setEditDes] = useState("");
+  const [editDesState, setEditDes] = useState({ state: false, val: "" });
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
+
+  const authCtx = useContext(AuthContext);
+
+  console.log(props.id);
+
+  const changePost = async (value) => {
+    setEdit(false);
+
+    try {
+      const input = {
+        fieldName: value,
+        changedValue: editDesState,
+        itemID: props.id,
+      };
+
+      const response = await axios.post(
+        "/api/common/product/EditProduct",
+        input,
+        {
+          headers: {
+            Authorization: `${authCtx.token}`,
+          },
+        }
+      );
+
+      if (response.data.success) {
+        props.setChange(true);
+
+        setError({
+          mainColor: "#EDFEEE",
+          secondaryColor: "#5CB660",
+          symbol: "check_circle",
+          title: "Success",
+          text: "Successfully Updated",
+          val: true,
+        });
+      } else {
+        setError({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "Update Failed",
+          val: true,
+        });
+      }
+    } catch (e) {
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "Poduct Addition Failed",
+        val: true,
+      });
+
+      console.log(e);
+    }
+  };
 
   return (
     <div className={DCss.upLablemDiv}>
