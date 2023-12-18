@@ -29,55 +29,66 @@ export default function UpdateLabel(props) {
   const changePost = async (value) => {
     setEdit(false);
 
-    try {
-      const input = {
-        fieldName: value,
-        changedValue: editDesState,
-        itemID: props.id,
-      };
+    if (editDesState === "") {
+      setError({
+        mainColor: "#FFC0CB",
+        secondaryColor: "#FF69B4",
+        symbol: "pets",
+        title: "Check it out",
+        text: "Please Fill All The Details",
+        val: true,
+      });
+    } else {
+      try {
+        const input = {
+          fieldName: value,
+          changedValue: editDesState,
+          itemID: props.id,
+        };
 
-      const response = await axios.post(
-        "/api/common/product/EditProduct",
-        input,
-        {
-          headers: {
-            Authorization: `${authCtx.token}`,
-          },
+        const response = await axios.post(
+          "/api/common/product/EditProduct",
+          input,
+          {
+            headers: {
+              Authorization: `${authCtx.token}`,
+            },
+          }
+        );
+
+        if (response.data.success) {
+          props.setChange(true);
+
+          setError({
+            mainColor: "#EDFEEE",
+            secondaryColor: "#5CB660",
+            symbol: "check_circle",
+            title: "Success",
+            text: "Successfully Updated",
+            val: true,
+          });
+        } else {
+          setError({
+            mainColor: "#FDEDED",
+            secondaryColor: "#F16360",
+            symbol: "error",
+            title: "Error",
+            text: "Update Failed",
+            val: true,
+          });
         }
-      );
-
-      if (response.data.success) {
-        props.setChange(true);
-
-        setError({
-          mainColor: "#EDFEEE",
-          secondaryColor: "#5CB660",
-          symbol: "check_circle",
-          title: "Success",
-          text: "Successfully Updated",
-          val: true,
-        });
-      } else {
+      } catch (e) {
         setError({
           mainColor: "#FDEDED",
           secondaryColor: "#F16360",
           symbol: "error",
           title: "Error",
-          text: "Update Failed",
+          text: "Poduct Addition Failed",
           val: true,
         });
-      }
-    } catch (e) {
-      setError({
-        mainColor: "#FDEDED",
-        secondaryColor: "#F16360",
-        symbol: "error",
-        title: "Error",
-        text: "Poduct Addition Failed",
-        val: true,
-      });
 
-      console.log(e);
+        console.log(e);
+      }
     }
   };
 
