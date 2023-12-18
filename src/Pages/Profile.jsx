@@ -57,7 +57,8 @@ export default function Profile() {
               // Users
               <>
                 <Route path="/sales" element={<Sales />} />
-                <Route path="/gateway" element={<Gateway />} />
+                <Route path="/Payment/Details" element={<Gateway />} />
+                <Route path="/Payment/Request" element={<Gateway />} />
                 <Route path="/support" element={<Support />} />
                 <Route path="/products" element={<Products />} />
                 <Route path="/dashboard" element={<Dashboard />} />
