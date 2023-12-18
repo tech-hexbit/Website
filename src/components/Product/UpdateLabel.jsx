@@ -29,71 +29,57 @@ export default function UpdateLabel(props) {
   const changePost = async (value) => {
     setEdit(false);
 
-    const input = {
-      fieldName: value,
-      changedValue: editDesState.val,
-      itemID: props.id,
-    };
+    try {
+      const input = {
+        fieldName: value,
+        changedValue: editDesState,
+        itemID: props.id,
+      };
 
-    console.log(input);
+      const response = await axios.post(
+        "/api/common/product/EditProduct",
+        input,
+        {
+          headers: {
+            Authorization: `${authCtx.token}`,
+          },
+        }
+      );
 
-    // try {
-    //   const input = {
-    //     fieldName: value,
-    //     changedValue: editDesState.val,
-    //     itemID: props.id,
-    //   };
+      if (response.data.success) {
+        props.setChange(true);
 
-    //   const response = await axios.post(
-    //     "/api/common/product/EditProduct",
-    //     input,
-    //     {
-    //       headers: {
-    //         Authorization: `${authCtx.token}`,
-    //       },
-    //     }
-    //   );
+        setError({
+          mainColor: "#EDFEEE",
+          secondaryColor: "#5CB660",
+          symbol: "check_circle",
+          title: "Success",
+          text: "Successfully Updated",
+          val: true,
+        });
+      } else {
+        setError({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "Update Failed",
+          val: true,
+        });
+      }
+    } catch (e) {
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "Poduct Addition Failed",
+        val: true,
+      });
 
-    //   if (response.data.success) {
-    //     props.setChange(true);
-
-    //     setError({
-    //       mainColor: "#EDFEEE",
-    //       secondaryColor: "#5CB660",
-    //       symbol: "check_circle",
-    //       title: "Success",
-    //       text: "Successfully Updated",
-    //       val: true,
-    //     });
-    //   } else {
-    //     setError({
-    //       mainColor: "#FDEDED",
-    //       secondaryColor: "#F16360",
-    //       symbol: "error",
-    //       title: "Error",
-    //       text: "Update Failed",
-    //       val: true,
-    //     });
-    //   }
-    // } catch (e) {
-    //   setError({
-    //     mainColor: "#FDEDED",
-    //     secondaryColor: "#F16360",
-    //     symbol: "error",
-    //     title: "Error",
-    //     text: "Poduct Addition Failed",
-    //     val: true,
-    //   });
-
-    //   console.log(e);
-    // }
+      console.log(e);
+    }
   };
-
-  useEffect(() => {
-    console.log(editDesState);
-  }, [editDesState]);
-
-  console.log(props.fieldName);
 
   return (
     <div className={DCss.upLablemDiv}>
@@ -105,7 +91,7 @@ export default function UpdateLabel(props) {
             id=""
             placeholder={props.placeholder}
             onChange={(e) => {
-              setEditDes({ val: e.target.value });
+              setEditDes(e.target.value);
             }}
           />
 
@@ -121,7 +107,7 @@ export default function UpdateLabel(props) {
             stroke-linejoin="round"
             class="lucide lucide-save"
             onClick={() => {
-              console.log("firstas");
+              changePost(props.fieldName);
             }}
           >
             <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
