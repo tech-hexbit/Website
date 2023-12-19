@@ -21,7 +21,7 @@ export default function RecentOrders() {
   const [orderDel, setOrderDel] = useState([]);
   const [load, setLoad] = useState(false);
   const [showHeaders, setShowHeaders] = useState(window.matchMedia("(min-width: 751px)").matches);
-  const [showLabels, setShowLabels] = useState(window.matchMedia("(max-width: 751px)").matches);
+  
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(min-width: 751px)");
@@ -119,14 +119,22 @@ export default function RecentOrders() {
                           return (
                             <tr key={key}>
                               <td id={RCss.td} class={RCss.truncate}>
-                              <b>ID:</b>  #{val._id.slice(-4)}
+                              {!window.matchMedia("(min-width: 750px)").matches && (
+                                  <b>ID:</b>
+                                )}   {val._id.slice(-4)}
                               </td>
                               <td id={RCss.td} className={RCss.product}>
-                              <b>Product:</b>   {val.Items[0].ItemID.descriptor.name}
+                              {!window.matchMedia("(min-width: 750px)").matches && (
+                                  <b>PRODUCT:</b>
+                                )}   {val.Items[0].ItemID.descriptor.name}
                               </td>
-                              <td id={RCss.td}> <b>Amount:</b>₹ {val.amount.toFixed(2)}</td>
+                              <td id={RCss.td}>  {!window.matchMedia("(min-width: 750px)").matches && (
+                                  <b>AMOUNT:</b>
+                                )} ₹ {val.amount.toFixed(2)}</td>
                               <td id={RCss.td} className={RCss.quantity}>
-                                <b>Quantity:</b>{val.Items[0].quantity}
+                              {!window.matchMedia("(min-width: 750px)").matches && (
+                                  <b>QUANTITY:</b>
+                                )} {val.Items[0].quantity}
                               </td>
                               <td
                                 id={RCss.td}
@@ -136,7 +144,9 @@ export default function RecentOrders() {
                                     : { color: "#800000" }
                                 }
                               >
-                               <b>Status:</b> {val.status}
+                               {!window.matchMedia("(min-width: 750px)").matches && (
+                                  <b>SALES:</b>
+                                )}  {val.status}
                               </td>
                             </tr>
                           );
