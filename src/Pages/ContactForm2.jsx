@@ -43,7 +43,10 @@ function ContactForm() {
             onChange={handletextchange}
 
           ></textarea>
-         <button className='button'>Send messege</button>
+          <div className="SendMessage">
+          <button className='button'>Send messege</button>
+          </div>
+         
         </div>
       </div>
 

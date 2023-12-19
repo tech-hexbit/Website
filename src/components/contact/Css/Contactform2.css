@@ -1,13 +1,11 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
-}
+} */
 
 .container {
   height: 130vh;
   width: 100%;
-
-
   background: linear-gradient(136deg,
       rgba(255, 255, 255, 0.79) 0%,
       rgba(207, 184, 255, 0.79) 100%);
@@ -18,18 +16,19 @@
 
 .container .maindiv {
   position: relative;
-  width: 50%;
+  width: 70%;
   height: 100vh;
   padding: 300px;
-  margin: 100px auto;
+  margin:  auto;
   background-color: #fff;
-top: 40px;
+  top: 50px;
   border-radius: 20px;
   box-shadow: 0px 38px 67px #adadad;
   display: flex;
   flex-direction: column;
   gap: 30px 0;
   padding: 50px;
+ 
 
 
 }
@@ -75,14 +74,15 @@ top: 40px;
   font-family: "Rubik", sans-serif;
 }
 
-.maindiv button {
+.maindiv .button {
   width: 200px;
   height: 60px;
   font-size: larger;
   margin: 10px auto;
   border-radius: 9px;
   color: white;
-  background-color: rgb(12, 12, 77);
+  background-color: rgb(47, 244, 17);
+ 
   border: none;
   cursor: pointer;
   font-weight: bold;
