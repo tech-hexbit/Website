@@ -1,205 +1,262 @@
 import React, { useState, useEffect } from "react";
 
 // components
-import { Alert } from "./../../MicroInteraction/Alert";
-import Load from "./../../MicroInteraction/Load";
+// import { Alert } from "./../../MicroInteraction/Alert";
+// import Load from "./../../MicroInteraction/Load";
 
 // axios
-import axios from "axios";
+// import axios from "axios";
 
 // css
-import styles from "./Css/ContactForm.module.css";
+import styles from "./Css/ContactForm2.module.css";
+// import React, { useState } from 'react'
+// import "./Css/Contactform2.css";
 
-const ContactForm = () => {
-  const [load, setLoad] = useState(false);
-  const [input, setInput] = useState({
-    name: "",
-    email: "",
-    CompanyName: "",
-    subject: "",
-    message: "",
-  });
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
+function ContactForm() {
+  const [subjectvalue, setsubjctvalue] = useState("")
+  const [textareavalue, settextareavalue] = useState("")
 
-  const sendData = async () => {
-    setLoad(true);
-
-    if (
-      input.name == "" ||
-      input.email == "" ||
-      input.CompanyName == "" ||
-      input.subject == "" ||
-      input.message == ""
-    ) {
-      setLoad(false);
-
-      setError({
-        mainColor: "#FFC0CB",
-        secondaryColor: "#FF69B4",
-        symbol: "pets",
-        title: "Check it out",
-        text: "Please Fill All The Details",
-        val: true,
-      });
-    } else {
-      try {
-        const response = await axios.post("/api/website/ContactUs", input);
-        console.log(response.data.success);
-
-        if (response.data.success) {
-          setLoad(false);
-
-          setInput({
-            name: "",
-            email: "",
-            CompanyName: "",
-            subject: "",
-            message: "",
-          });
-
-          setError({
-            mainColor: "#EDFEEE",
-            secondaryColor: "#5CB660",
-            symbol: "check_circle",
-            title: "Success",
-            text: "We'll revert back to you soon!",
-            val: true,
-          });
-        }
-      } catch (err) {
-        console.log(err);
-
-        setLoad(false);
-
-        setError({
-          mainColor: "#FDEDED",
-          secondaryColor: "#F16360",
-          symbol: "error",
-          title: "Error",
-          text: "An Unexpected Error Occured",
-          val: true,
-        });
-      }
-    }
-  };
-
-  useEffect(() => {
-    setTimeout(() => {
-      setError({
-        mainColor: "",
-        secondaryColor: "",
-        symbol: "",
-        title: "",
-        text: "",
-        val: false,
-      });
-    }, 10000);
-  }, [variants]);
-
+  const handlechange = (event) => {
+    setsubjctvalue(event.target.value)
+  }
+  const handletextchange = (event) => {
+    settextareavalue(event.target.value)
+  }
   return (
-    <>
-      <div className={styles.FormMDiv}>
-        {/* FirstName */}
-        <div className={styles.labelDiv}>
-          <label htmlFor="FirstName">
-            First Name
-            <span className="required"> *</span>
-          </label>
-          <input
-            type="text"
-            name="FirstName"
-            id="FirstName"
-            placeholder="John David"
-            value={input.name}
-            onChange={(e) => {
-              setInput({ ...input, name: e.target.value });
-            }}
-          />
-        </div>
-        {/* Email */}
-        <div className={styles.labelDiv}>
-          <label htmlFor="Email">
-            Your email
-            <span className="required"> *</span>
-          </label>
-          <input
-            type="text"
-            name="Email"
-            id="Email"
-            placeholder="example@yourmail.com"
-            value={input.email}
-            onChange={(e) => {
-              setInput({ ...input, email: e.target.value });
-            }}
-          />
-        </div>
-        {/* Company */}
-        <div className={styles.labelDiv}>
-          <label htmlFor="Company">
-            Company
-            <span className="required"> *</span>
-          </label>
-          <input
-            type="text"
-            name="Company"
-            id="Company"
-            placeholder="your company name here"
-            value={input.CompanyName}
-            onChange={(e) => {
-              setInput({ ...input, CompanyName: e.target.value });
-            }}
-          />
-        </div>
-        {/* Subject */}
-        <div className={styles.labelDiv}>
+    <div >
+      <div className={styles.container}>
+        <div className={styles.maindiv}>
+
           <label htmlFor="Subject">
             Subject
-            <span className="required"> *</span>
+            <span className={styles.astersk}> *</span>
           </label>
           <input
             type="text"
             name="Subject"
             id="Subject"
             placeholder="How can we Help"
-            value={input.subject}
-            onChange={(e) => {
-              setInput({ ...input, subject: e.target.value });
-            }}
+            value={subjectvalue}
+            onChange={handlechange}
+
           />
-        </div>
-        {/* Message */}
-        <div className={styles.labelDiv}>
-          <label htmlFor="FirstName">
+          <label htmlFor="textarea">
             Message
-            <span className="required"> *</span>
+            <span className={styles.astersk}> *</span>
           </label>
           <textarea
             name="FirstName"
-            id="FirstName"
+            id="textarea"
             cols="30"
             rows="10"
             placeholder="Hello there, I would like to talk about how to..."
-            value={input.message}
-            onChange={(e) => {
-              setInput({ ...input, message: e.target.value });
-            }}
+            value={textareavalue}
+            onChange={handletextchange}
+
           ></textarea>
-        </div>
-        <div className={styles.SendMessage}>
-          <button onClick={sendData}>{load ? <Load /> : "Send Message"}</button>
+          <div className={styles.SendMessage}>
+          <button className={styles.button}>Send messege</button>
+          </div>
+         
         </div>
       </div>
 
-      <Alert variant={variants} val={setError} />
-    </>
-  );
-};
+    </div>
+  )
+}
 
-export default ContactForm;
+export default ContactForm
+
+// const ContactForm = () => {
+//   const [load, setLoad] = useState(false);
+//   const [input, setInput] = useState({
+//     name: "",
+//     email: "",
+//     CompanyName: "",
+//     subject: "",
+//     message: "",
+//   });
+//   const [variants, setError] = useState({
+//     mainColor: "",
+//     secondaryColor: "",
+//     symbol: "",
+//     title: "",
+//     text: "",
+//     val: false,
+//   });
+
+//   const sendData = async () => {
+//     setLoad(true);
+
+//     if (
+//       input.name == "" ||
+//       input.email == "" ||
+//       input.CompanyName == "" ||
+//       input.subject == "" ||
+//       input.message == ""
+//     ) {
+//       setLoad(false);
+
+//       setError({
+//         mainColor: "#FFC0CB",
+//         secondaryColor: "#FF69B4",
+//         symbol: "pets",
+//         title: "Check it out",
+//         text: "Please Fill All The Details",
+//         val: true,
+//       });
+//     } else {
+//       try {
+//         const response = await axios.post("/api/website/ContactUs", input);
+//         console.log(response.data.success);
+
+//         if (response.data.success) {
+//           setLoad(false);
+
+//           setInput({
+//             name: "",
+//             email: "",
+//             CompanyName: "",
+//             subject: "",
+//             message: "",
+//           });
+
+//           setError({
+//             mainColor: "#EDFEEE",
+//             secondaryColor: "#5CB660",
+//             symbol: "check_circle",
+//             title: "Success",
+//             text: "We'll revert back to you soon!",
+//             val: true,
+//           });
+//         }
+//       } catch (err) {
+//         console.log(err);
+
+//         setLoad(false);
+
+//         setError({
+//           mainColor: "#FDEDED",
+//           secondaryColor: "#F16360",
+//           symbol: "error",
+//           title: "Error",
+//           text: "An Unexpected Error Occured",
+//           val: true,
+//         });
+//       }
+//     }
+//   };
+
+//   useEffect(() => {
+//     setTimeout(() => {
+//       setError({
+//         mainColor: "",
+//         secondaryColor: "",
+//         symbol: "",
+//         title: "",
+//         text: "",
+//         val: false,
+//       });
+//     }, 10000);
+//   }, [variants]);
+
+//   return (
+//     <>
+//       <div className={styles.FormMDiv}>
+//         {/* FirstName */}
+//         <div className={styles.labelDiv}>
+//           <label htmlFor="FirstName">
+//             First Name
+//             <span className="required"> *</span>
+//           </label>
+//           <input
+//             type="text"
+//             name="FirstName"
+//             id="FirstName"
+//             placeholder="John David"
+//             value={input.name}
+//             onChange={(e) => {
+//               setInput({ ...input, name: e.target.value });
+//             }}
+//           />
+//         </div>
+//         {/* Email */}
+//         <div className={styles.labelDiv}>
+//           <label htmlFor="Email">
+//             Your email
+//             <span className="required"> *</span>
+//           </label>
+//           <input
+//             type="text"
+//             name="Email"
+//             id="Email"
+//             placeholder="example@yourmail.com"
+//             value={input.email}
+//             onChange={(e) => {
+//               setInput({ ...input, email: e.target.value });
+//             }}
+//           />
+//         </div>
+//         {/* Company */}
+//         <div className={styles.labelDiv}>
+//           <label htmlFor="Company">
+//             Company
+//             <span className="required"> *</span>
+//           </label>
+//           <input
+//             type="text"
+//             name="Company"
+//             id="Company"
+//             placeholder="your company name here"
+//             value={input.CompanyName}
+//             onChange={(e) => {
+//               setInput({ ...input, CompanyName: e.target.value });
+//             }}
+//           />
+//         </div>
+//         {/* Subject */}
+//         <div className={styles.labelDiv}>
+//           <label htmlFor="Subject">
+//             Subject
+//             <span className="required"> *</span>
+//           </label>
+//           <input
+//             type="text"
+//             name="Subject"
+//             id="Subject"
+//             placeholder="How can we Help"
+//             value={input.subject}
+//             onChange={(e) => {
+//               setInput({ ...input, subject: e.target.value });
+//             }}
+//           />
+//         </div>
+//         {/* Message */}
+//         <div className={styles.labelDiv}>
+//           <label htmlFor="FirstName">
+//             Message
+//             <span className="required"> *</span>
+//           </label>
+//           <textarea
+//             name="FirstName"
+//             id="FirstName"
+//             cols="30"
+//             rows="10"
+//             placeholder="Hello there, I would like to talk about how to..."
+//             value={input.message}
+//             onChange={(e) => {
+//               setInput({ ...input, message: e.target.value });
+//             }}
+//           ></textarea>
+//         </div>
+//         <div className={styles.SendMessage}>
+//           <button onClick={sendData}>{load ? <Load /> : "Send Message"}</button>
+//         </div>
+//       </div>
+
+//       <Alert variant={variants} val={setError} />
+//     </>
+//   );
+// };
+
+// export default ContactForm;

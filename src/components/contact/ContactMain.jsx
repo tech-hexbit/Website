@@ -17,7 +17,7 @@ import Icon_Call from "./../../assets/AboutUS/Icon_call.svg";
 export default function ContactMain() {
   return (
     <>
-      <div className={styles.mDiv}>
+      {/* <div className={styles.mDiv}>
         <div className={styles.leftDiv}>
           <p className={styles.HexbitPMainTag}>
             Is Hexbit the right platform for your Business?
@@ -55,11 +55,11 @@ export default function ContactMain() {
             <Pointers label="Share few success stories with you" />
             <Pointers label="Many desktop publishing packages and web page editors now use" />
           </div>
-        </div>
+        </div> */}
         <ContactForm />
         
-      </div>
-      {/* <Contactform2></Contactform2> */}
+      {/* </div> */}
+      
      
       
     </>
