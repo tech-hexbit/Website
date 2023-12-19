@@ -117,7 +117,8 @@ export default function RecentOrders() {
                       <>
                         {orderDel.map((val, key) => {
                           return (
-                            <tr key={key}>
+                           
+                            <tr key={key} >
                               <td id={RCss.td} class={RCss.truncate}>
                               {!window.matchMedia("(min-width: 750px)").matches && (
                                   <b>ID:</b>
@@ -149,6 +150,7 @@ export default function RecentOrders() {
                                 )}  {val.status}
                               </td>
                             </tr>
+                           
                           );
                         })}
                       </>

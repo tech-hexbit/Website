@@ -27,6 +27,7 @@
   border-collapse: collapse;
   display: block;
   position: relative;
+ 
 }
 
 .trHrline {
@@ -34,6 +35,7 @@
   border-color: #e3e3e3;
   border-width: 0px 0px 1px 0px;
 }
+
 
 .tableTag::-webkit-scrollbar {
   width: 0px;
@@ -61,7 +63,7 @@
   position: sticky;
   left: 0;
   z-index: 20;
-  background-color: #fff;
+ 
   text-align: center;
 }
 
@@ -90,6 +92,7 @@
 
 #td {
   padding: 6px;
+  
 }
 
 .product {
@@ -135,8 +138,13 @@
 }
 
 @media screen and (max-width: 750px) {
+
+
+
+ 
   .tableTag tr th,
   .tableTag tr td {
+   
     width: auto;
     display: block;
     text-align: left;
@@ -151,21 +159,17 @@
   .tableTag tr td {
     width: 100%;
     box-sizing: border-box;
-    border-bottom: 1px solid #e3e3e3;
+    border-bottom: none;
     padding: 10px;
     text-align: left;
   }
 
-  .tableTag tr th:nth-child(2),
-  .tableTag tr td:nth-child(2) {
+  .tableTag tr th:nth-child,
+  .tableTag tr td:nth-child {
     background-color: transparent;
   }
 
-  .tableTag tr th,
-  .tableTag tr td {
-    width: 100%;
-    box-sizing: border-box;
-  }
+  
 
   .bottom {
     padding: 12px 0px 30px 0px;
@@ -174,6 +178,8 @@
 
 @media screen and (min-width: 750px) {
   
+ 
+
   .tableTag tr td label {
     
     display: none;
