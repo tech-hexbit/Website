@@ -55,13 +55,22 @@
   gap: 40px;
 }
 
-.bx1 {
+.bx1,
+.bx2,
+.bx3,
+.bx4,
+.bx5,
+.bx6 {
   border-radius: 10px;
   padding: 20px;
 }
 
 .bx1 {
   background-color: #dff1ff;
+}
+
+.bx2 {
+  background-color: #e8ffeb;
 }
 
 .quesboxes {
