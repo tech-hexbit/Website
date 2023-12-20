@@ -71,7 +71,7 @@ export default function Support() {
 
       {/* boxespart */}
       <div className={SupCss.boxes}>
-        <Box />
+        <Box title="Questions about" />
 
         <div className={SupCss.bx2}>
           <svg
