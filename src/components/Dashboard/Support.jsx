@@ -54,7 +54,7 @@ export default function Support() {
     <div>
       <h3>Support</h3>
       <div className={SupCss.ask}>
-        <p style={{ color: "#53686A", fontWeight: "bold" }}>FAQs</p>
+        <p className={SupCss.FAQsPTag}>FAQs</p>
         <h1 style={{ color: "#4A246F" }}>Ask us anything</h1>
         <p style={{ color: "#53686A" }}>
           Have any questions? We're here to assist you.
