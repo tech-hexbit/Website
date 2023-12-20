@@ -78,6 +78,7 @@ export default function Support() {
         <Box title="Packaging" color="#e9e9e9" />
         <Box title="GST & Billing" color="#fbffdc" />
       </div>
+
       {/* questions part */}
       <div className={SupCss.quesboxes}>
         {data.map((d) => {
