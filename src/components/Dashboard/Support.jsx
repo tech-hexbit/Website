@@ -71,12 +71,7 @@ export default function Support() {
 
       {/* boxespart */}
       <div className={SupCss.boxes}>
-        <Box
-          title="Questions about"
-          label="Getting Started"
-          bcolor="#dff1ff"
-          color="#616161"
-        />
+        <Box title="Questions about" label="Getting Started" color="#dff1ff" />
 
         <div className={SupCss.bx2}>
           <svg
