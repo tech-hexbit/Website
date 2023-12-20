@@ -91,8 +91,8 @@ export default function Support() {
           </p>
         </div>
         <button
+          className={SupCss.getintouchBTN}
           style={{
-            marginLeft: "auto",
             backgroundColor: "#4A246F",
             color: "white",
             borderRadius: "5px",
