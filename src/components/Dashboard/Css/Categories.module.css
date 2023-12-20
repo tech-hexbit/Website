@@ -181,7 +181,7 @@
   .tableCat tr {
     display: flex;
     flex-direction: column;
-    min-width: 300px;
+    min-width: 250px;
     border-radius: 5px;
   }
 
@@ -206,5 +206,11 @@
     content: attr(data-cell) ": ";
     font-weight: 700;
     text-transform: capitalize;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .mDiv {
+    margin-right: 25px;
   }
 }
