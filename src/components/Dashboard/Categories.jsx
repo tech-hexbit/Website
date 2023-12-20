@@ -203,12 +203,6 @@ export default function Categories() {
             </>
           )}
         </div>
-
-        {/* <div>
-          <span>*</span>
-          <div className={DCss.colorBox}></div>{" "}
-          <span>: Low Products in Stock</span>
-        </div> */}
       </div>
     </div>
   );
