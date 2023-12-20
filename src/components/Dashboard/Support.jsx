@@ -127,13 +127,7 @@ export default function Support() {
           <p style={{ color: "#616161" }}>Questions about</p>
           <p style={{ fontWeight: "bold" }}>Payment Method</p>
         </div>
-        <div
-          style={{
-            backgroundColor: "#FFE5FC",
-            borderRadius: "10px",
-            padding: "20px",
-          }}
-        >
+        <div className={SupCss.bx4}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
