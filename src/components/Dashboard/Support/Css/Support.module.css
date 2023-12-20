@@ -5,12 +5,14 @@
 }
 
 .ask {
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   height: auto;
-  background-color: #f7f8fa;
+  /* background-color: #f7f8fa; */
+  background-color: red;
   padding: 5%;
   gap: 16px;
 }
@@ -166,7 +168,8 @@
 }
 
 @media screen and (max-width: 540px) {
-  .getintouch {
+  .getintouch,
+  .ask {
     margin-right: 30px;
   }
 
@@ -177,8 +180,13 @@
     margin-right: 25px;
   }
 
-  .bx {
+  .bx,
+  .ask {
     width: 90%;
+  }
+
+  .HaveanyquestionsPTag {
+    text-align: center;
   }
 
   .quesboxes {
