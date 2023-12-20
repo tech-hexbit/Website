@@ -168,4 +168,26 @@
   .getintouch {
     margin-right: 30px;
   }
+
+  .boxes {
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 0px;
+    margin-right: 25px;
+  }
+
+  .bx {
+    width: 90%;
+  }
+
+  .quesboxes {
+    flex-direction: column;
+    gap: 30px 0px;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .quepart {
+    width: 100% !important;
+  }
 }
