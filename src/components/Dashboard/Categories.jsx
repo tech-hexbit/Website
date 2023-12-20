@@ -108,12 +108,9 @@ export default function Categories() {
                         <>
                           <tr
                             key={key}
-                            style={{
-                              backgroundColor:
-                                val.quantity.maximum.count <= 5
-                                  ? "#ff9564"
-                                  : "",
-                            }}
+                            className={
+                              val.quantity.maximum.count <= 5 ? "alertTrue" : ""
+                            }
                           >
                             <td data-cell="Name">{val.descriptor.name}</td>
                             <td data-cell="Price">
