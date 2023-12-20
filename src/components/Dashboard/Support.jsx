@@ -26,6 +26,8 @@ export default function Support() {
 
   useEffect(() => {
     loadData();
+
+    window.scrollTo(0, 0);
   }, []);
 
   const loadData = async () => {
