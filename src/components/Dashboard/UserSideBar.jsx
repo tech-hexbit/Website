@@ -314,6 +314,41 @@ export default function UserSideBar() {
             </div>
           </NavLink>
 
+          {/* Payment Details */}
+          <NavLink
+            to="/me/Payment/Details"
+            className={({ isActive }) =>
+              isActive
+                ? "LinkStyle sideBarActive"
+                : "LinkStyle sideBarNonActive"
+            }
+          >
+            <div className={sidebarCSS.navElement}>
+              <div className={sidebarCSS.icons}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-credit-card"
+                  className="temp"
+                >
+                  <rect width="20" height="14" x="2" y="5" rx="2" />
+                  <line x1="2" x2="22" y1="10" y2="10" />
+                </svg>
+              </div>
+              <div className={sidebarCSS.heading}>
+                <div className={sidebarCSS.arrow}></div>
+                Payment Details
+              </div>
+            </div>
+          </NavLink>
+
           {/* Payment Request */}
           <NavLink
             to="/me/Payment/Request"
@@ -347,41 +382,6 @@ export default function UserSideBar() {
               <div className={sidebarCSS.heading}>
                 <div className={sidebarCSS.arrow}></div>
                 Payment Request
-              </div>
-            </div>
-          </NavLink>
-
-          {/* Payment Details */}
-          <NavLink
-            to="/me/Payment/Details"
-            className={({ isActive }) =>
-              isActive
-                ? "LinkStyle sideBarActive"
-                : "LinkStyle sideBarNonActive"
-            }
-          >
-            <div className={sidebarCSS.navElement}>
-              <div className={sidebarCSS.icons}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-credit-card"
-                  className="temp"
-                >
-                  <rect width="20" height="14" x="2" y="5" rx="2" />
-                  <line x1="2" x2="22" y1="10" y2="10" />
-                </svg>
-              </div>
-              <div className={sidebarCSS.heading}>
-                <div className={sidebarCSS.arrow}></div>
-                Payment Details
               </div>
             </div>
           </NavLink>
