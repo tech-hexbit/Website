@@ -6,7 +6,7 @@ import SupCss from "./Css/Support.module.css";
 export default function QA(props) {
   return (
     <div className={SupCss.quesboxes}>
-      {data.map((d) => {
+      {props.data.map((d) => {
         return (
           <div className={SupCss.quepart}>
             <svg
