@@ -51,7 +51,7 @@ export default function Support() {
     }
   };
   return (
-    <div style={{ margin: 0, padding: 0 }}>
+    <div>
       <h3>Support</h3>
       <div className={SupCss.ask}>
         <p style={{ color: "#53686A", fontWeight: "bold" }}>FAQs</p>
