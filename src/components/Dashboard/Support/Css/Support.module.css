@@ -104,12 +104,13 @@
 
 .getintouchBTN {
   margin-left: auto;
-  backgroundColor: "#4A246F",
-  color: "white",
-  borderRadius: "5px",
-  padding: "6px",
-  cursor: "pointer",
-  border: "none",}
+  background-color: #4a246f;
+  color: #fff;
+  border-radius: 5px;
+  padding: 6px;
+  cursor: pointer;
+  border: none;
+}
 
 @media screen and (max-width: 600px) {
   .ask {
