@@ -79,6 +79,11 @@
   justify-content: center;
 }
 
+.questionTag {
+  color: #53686a;
+  margin-bottom: 12px;
+}
+
 .quesboxes > div {
   flex: 0 0 calc(33.333% - 24px);
   width: calc(33.333% - 24px);
