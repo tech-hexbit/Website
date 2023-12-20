@@ -5,7 +5,7 @@ import SupCss from "./Css/Support.module.css";
 
 export default function Box(props) {
   return (
-    <div className={SupCss.bx1}>
+    <div className={SupCss.bx} style={{ backgroundColor: `${props.bcolor}` }}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
