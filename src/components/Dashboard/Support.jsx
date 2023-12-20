@@ -90,19 +90,7 @@ export default function Support() {
             friendly team.
           </p>
         </div>
-        <button
-          className={SupCss.getintouchBTN}
-          style={{
-            backgroundColor: "#4A246F",
-            color: "white",
-            borderRadius: "5px",
-            padding: "6px",
-            cursor: "pointer",
-            border: "none",
-          }}
-        >
-          Get in touch
-        </button>
+        <button className={SupCss.getintouchBTN}>Get in touch</button>
       </div>
     </div>
   );
