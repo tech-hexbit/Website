@@ -1,6 +1,9 @@
+import React from "react";
+
+// css
 import pq from "./Css/PaymentQuote.module.css";
 
-const PaymentQuote = () => {
+export default function PaymentQuote() {
   return (
     <>
       <p className={pq.endpara}>
@@ -9,6 +12,4 @@ const PaymentQuote = () => {
       </p>
     </>
   );
-};
-
-export default PaymentQuote;
+}
