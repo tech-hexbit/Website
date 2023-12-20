@@ -20,7 +20,7 @@
 .container .maindiv {
   position: relative;
   width: 50%;
-  height: 85vh;
+  /* height: 85vh; */
   /* padding: 300px; */
   margin: 0 auto;
   background-color: #fff;
@@ -54,6 +54,7 @@
 
 .maindiv input {
   outline: none;
+  /* height: 88px; */
   padding: 10px 12px;
   border-radius: 20px;
   border: 1px solid #d3d3d3;
@@ -73,7 +74,7 @@
   font-style: normal;
   font-weight: 400;
   text-transform: lowercase;
-  resize: none;
+  resize:none ;
   font-family: "Rubik", sans-serif;
 }
 
