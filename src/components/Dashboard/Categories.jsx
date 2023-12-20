@@ -88,7 +88,10 @@ export default function Categories() {
             </div>
           ) : (
             <>
-              <table style={{ borderCollapse: "collapse" }}>
+              <table
+                className={Ccss.tableCatTTag}
+                style={{ borderCollapse: "collapse" }}
+              >
                 {orderlist.length > 0 ? (
                   <>
                     <tr>
