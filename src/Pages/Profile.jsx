@@ -9,6 +9,7 @@ import { Helmet } from "react-helmet";
 import UserSideBar from "./../components/Dashboard/UserSideBar";
 //          || User
 import Sales from "./../components/Dashboard/Sales";
+import Contact from "./../components/Dashboard/Contact";
 import Products from "./../components/Dashboard/Products";
 import PayDetails from "../components/Dashboard/PayDetails";
 import PayRequest from "../components/Dashboard/PayRequest";
