@@ -108,6 +108,10 @@
   background-color: #ff8046;
 }
 
+.tableCat tr:hover {
+  background-color: #ebefff;
+}
+
 /* @media screen and (max-width: 960px) {
   .tableCatTTag {
     margin: auto;
