@@ -55,6 +55,15 @@
   gap: 40px;
 }
 
+.bx1 {
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.bx1 {
+  background-color: #dff1ff;
+}
+
 .quesboxes {
   padding-top: 6%;
   padding-bottom: 6%;
