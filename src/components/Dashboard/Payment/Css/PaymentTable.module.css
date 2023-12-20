@@ -17,6 +17,10 @@
   transition: background-color 150ms ease;
 }
 
+.trans_table tr th:nth-child(7) {
+  text-align: center;
+}
+
 .trans_table td {
   padding-block: 1rem;
 }
