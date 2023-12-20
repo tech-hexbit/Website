@@ -55,12 +55,7 @@
   gap: 40px;
 }
 
-.bx1,
-.bx2,
-.bx3,
-.bx4,
-.bx5,
-.bx6 {
+.bx {
   border-radius: 10px;
   padding: 20px;
 }
