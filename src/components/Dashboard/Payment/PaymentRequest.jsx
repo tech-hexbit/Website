@@ -1,7 +1,9 @@
+import React from "react";
+
 // css
 import pr from "./Css/PaymentRequest.module.css";
 
-const PaymentRequest = () => {
+export default function PaymentRequest() {
   return (
     <div className={pr.main}>
       <h3>Confirm Account Details For Payment Request </h3>
@@ -165,6 +167,4 @@ const PaymentRequest = () => {
       </div>
     </div>
   );
-};
-
-export default PaymentRequest;
+}
