@@ -22,7 +22,7 @@ export default function Box(props) {
         <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" className={SupCss.icon} />
       </svg>
       <p style={{ color: "#616161" }}>{props.title}</p>
-      <p style={{ fontWeight: "bold" }}>Getting Started</p>
+      <p className={SupCss.lablePTag}>Getting Started</p>
     </div>
   );
 }
