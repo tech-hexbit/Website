@@ -90,6 +90,7 @@ export default function Support() {
           <p style={{ fontWeight: "bold" }}>Getting Started</p>
         </div>
         <div
+          className={SupCss.bx2}
           style={{
             backgroundColor: "#E8FFEB",
             borderRadius: "10px",
