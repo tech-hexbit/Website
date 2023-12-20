@@ -1,9 +1,3 @@
-// const PaymentList = () => {
-
-// };
-
-// export default PaymentList;
-
 import React from "react";
 
 // css
