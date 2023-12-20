@@ -9,7 +9,7 @@ const PaymentTable = () => {
       date: "13/05/2022",
       amount: "₹366.16",
       paymentMode: "Not Paid",
-      status: "Delivered & Eligible"
+      status: "Delivered & Eligible",
     },
     {
       trackingId: "#18933",
@@ -18,7 +18,7 @@ const PaymentTable = () => {
       date: "22/05/2022",
       amount: "₹366.16",
       paymentMode: "Paid",
-      status: "Delivered & Eligible"
+      status: "Delivered & Eligible",
     },
     {
       trackingId: "#45169",
@@ -27,7 +27,7 @@ const PaymentTable = () => {
       date: "15/06/2022",
       amount: "₹366.16",
       paymentMode: "Not Paid",
-      status: "Delivered"
+      status: "Delivered",
     },
     {
       trackingId: "#34304",
@@ -36,8 +36,8 @@ const PaymentTable = () => {
       date: "06/09/2022",
       amount: "₹366.16",
       paymentMode: "Paid",
-      status: "Delivered"
-    }
+      status: "Delivered",
+    },
   ];
 
   return (
