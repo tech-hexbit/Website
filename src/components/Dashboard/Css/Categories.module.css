@@ -162,11 +162,22 @@
     display: none;
   }
 
-  .tableCat tr {
+  .tableCatTTag {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
-    background-color: red;
+    gap: 30px;
+  }
+
+  .tableCat tr:nth-child(1) {
+    display: none;
+  }
+
+  .tableCat tr {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
   }
 
   .tableCat td {
