@@ -1,6 +1,10 @@
+import React from "react";
+
+// css
 import pt from "./Css/PaymentTable.module.css";
 
-const PaymentTable = () => {
+export default function PaymentTable() {
+  // dema data t be deleted
   const data = [
     {
       trackingId: "#20462",
@@ -101,6 +105,4 @@ const PaymentTable = () => {
       </table>
     </div>
   );
-};
-
-export default PaymentTable;
+}
