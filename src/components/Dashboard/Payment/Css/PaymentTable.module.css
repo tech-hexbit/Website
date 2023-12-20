@@ -80,7 +80,6 @@ input {
 }
 
 /* media queries */
-
 @media (max-width: 1050px) {
   .main {
     justify-content: start;
@@ -102,7 +101,7 @@ input {
     padding-right: 0.5em;
   }
 
-  td:first-child {
+  .trans_table td:first-child {
     padding-block-start: 1rem;
   }
 
