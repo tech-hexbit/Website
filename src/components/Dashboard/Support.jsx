@@ -80,7 +80,13 @@ export default function Support() {
       </div>
 
       {/* questions part */}
-      <QA data={data} />
+      {load ? (
+        <div className="loadCenterDiv">
+          <Load />
+        </div>
+      ) : (
+        <QA data={data} />
+      )}
 
       <div className={SupCss.getintouch}>
         <div>
