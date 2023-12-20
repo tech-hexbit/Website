@@ -5,6 +5,7 @@
 }
 
 .ask {
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -166,7 +167,8 @@
 }
 
 @media screen and (max-width: 540px) {
-  .getintouch {
+  .getintouch,
+  .ask {
     margin-right: 30px;
   }
 
@@ -177,8 +179,13 @@
     margin-right: 25px;
   }
 
-  .bx {
+  .bx,
+  .ask {
     width: 90%;
+  }
+
+  .HaveanyquestionsPTag {
+    text-align: center;
   }
 
   .quesboxes {
