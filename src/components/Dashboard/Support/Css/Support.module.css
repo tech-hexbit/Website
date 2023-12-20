@@ -11,8 +11,7 @@
   align-items: center;
   width: 100%;
   height: auto;
-  /* background-color: #f7f8fa; */
-  background-color: red;
+  background-color: #f7f8fa;
   padding: 5%;
   gap: 16px;
 }
