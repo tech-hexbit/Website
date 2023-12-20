@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 // components
 import QA from "./Support/QA";
+import Box from "./Support/Box";
 
 // state
 import AuthContext from "./.././../store/auth-context";
@@ -17,6 +18,7 @@ import Load from "./../../MicroInteraction/LoadBlack";
 import SupCss from "./Support/Css/Support.module.css";
 
 export default function Support() {
+  const [searchValue, setSearchValue] = useState();
   const [data, setData] = useState([]);
   const [load, setLoad] = useState(false);
 
@@ -24,6 +26,8 @@ export default function Support() {
 
   useEffect(() => {
     loadData();
+
+    window.scrollTo(0, 0);
   }, []);
 
   const loadData = async () => {
@@ -51,39 +55,50 @@ export default function Support() {
   };
   return (
     <div>
-      <p>FAQs</p>
+      <h3>Support</h3>
+      <div className={SupCss.ask}>
+        <p className={SupCss.FAQsPTag}>FAQs</p>
+        <h1 className={SupCss.AskPTag}>Ask us anything</h1>
+        <p className={SupCss.HaveanyquestionsPTag}>
+          Have any questions? We're here to assist you.
+        </p>
 
-      <div className={SupCss.qamDiv}>
-        {load ? (
-          <div className="loadCenterDiv">
-            <Load />
-          </div>
-        ) : (
-          <>
-            {data.length > 0 ? (
-              <>
-                {data.map((val, key) => {
-                  console.log(val);
-                  return (
-                    <QA key={key} answer={val.answer} question={val.question} />
-                  );
-                })}
-              </>
-            ) : (
-              ""
-            )}
-          </>
-        )}
+        <input
+          type="text"
+          placeholder="Search here"
+          value={searchValue}
+          className={SupCss.search}
+        />
       </div>
 
-      <div>
-        <p className={SupCss.queriesPTag}>
-          For additonal Queries you can{" "}
-          <Link to="/me/contact">
-            <u>contract us</u>
-          </Link>
-          .
-        </p>
+      {/* boxespart */}
+      <div className={SupCss.boxes}>
+        <Box title="Getting Started" color="#dff1ff" />
+        <Box title="How to Register" color="#e8ffeb" />
+        <Box title="Payment Method" color="#ffecef" />
+        <Box title="ONDC" color="#ffe5fc" />
+        <Box title="Packaging" color="#e9e9e9" />
+        <Box title="GST & Billing" color="#fbffdc" />
+      </div>
+
+      {/* questions part */}
+      {load ? (
+        <div className="loadCenterDiv">
+          <Load />
+        </div>
+      ) : (
+        <QA data={data} />
+      )}
+
+      <div className={SupCss.getintouch}>
+        <div>
+          <h4>Still have questions?</h4>
+          <p>
+            Can’t find the answer you’re looking for? Please chat to our
+            friendly team.
+          </p>
+        </div>
+        <button className={SupCss.getintouchBTN}>Get in touch</button>
       </div>
     </div>
   );

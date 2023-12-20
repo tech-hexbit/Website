@@ -74,7 +74,7 @@ export default function Categories() {
   };
 
   return (
-    <div>
+    <div className={Ccss.mDiv}>
       <p className={Ccss.InventoryPTag}>Inventory</p>
 
       <DataMain />
@@ -106,84 +106,27 @@ export default function Categories() {
                     {orderlist?.map((val, key) => {
                       return (
                         <>
-                          <tr key={key}>
-                            <td
-                              data-cell="Name"
-                              style={{
-                                backgroundColor:
-                                  val.quantity.maximum.count <= 5
-                                    ? "#ff9564"
-                                    : "",
-                              }}
-                            >
-                              {val.descriptor.name}
-                            </td>
-                            <td
-                              data-cell="Price"
-                              style={{
-                                backgroundColor:
-                                  val.quantity.maximum.count <= 5
-                                    ? "#ff9564"
-                                    : "",
-                              }}
-                            >
+                          <tr
+                            key={key}
+                            className={
+                              val.quantity.maximum.count <= 5 ? "alertTrue" : ""
+                            }
+                          >
+                            <td data-cell="Name">{val.descriptor.name}</td>
+                            <td data-cell="Price">
                               ₹ {val.price.value.toFixed(2)}
                             </td>
-                            <td
-                              data-cell="Available Inventory"
-                              style={{
-                                backgroundColor:
-                                  val.quantity.maximum.count <= 5
-                                    ? "#ff9564"
-                                    : "",
-                              }}
-                            >
+                            <td data-cell="Available Inventory">
                               {val.quantity.maximum.count}
                             </td>
-                            <td
-                              data-cell="Total Orders"
-                              style={{
-                                backgroundColor:
-                                  val.quantity.maximum.count <= 5
-                                    ? "#ff9564"
-                                    : "",
-                              }}
-                            >
-                              {val.totalSold}
-                            </td>
-                            <td
-                              data-cell="Shipping Time"
-                              style={{
-                                backgroundColor:
-                                  val.quantity.maximum.count <= 5
-                                    ? "#ff9564"
-                                    : "",
-                              }}
-                            >
+                            <td data-cell="Total Orders">{val.totalSold}</td>
+                            <td data-cell="Shipping Time">
                               {val["@ondc/org/time_to_ship"]}
                             </td>
-                            <td
-                              data-cell="Return Window"
-                              style={{
-                                backgroundColor:
-                                  val.quantity.maximum.count <= 5
-                                    ? "#ff9564"
-                                    : "",
-                              }}
-                            >
+                            <td data-cell="Return Window">
                               {val["@ondc/org/return_window"]}
                             </td>
-                            <td
-                              data-cell="Published on"
-                              style={{
-                                backgroundColor:
-                                  val.quantity.maximum.count <= 5
-                                    ? "#ff9564"
-                                    : "",
-                              }}
-                            >
-                              {val.when.date}
-                            </td>
+                            <td data-cell="Published on">{val.when.date}</td>
                           </tr>
                         </>
                       );
