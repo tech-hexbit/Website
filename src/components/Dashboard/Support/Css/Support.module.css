@@ -65,6 +65,10 @@
   padding: 20px;
 }
 
+.lablePTag {
+  font-weight: bold;
+}
+
 .bx1 {
   background-color: #dff1ff;
 }
