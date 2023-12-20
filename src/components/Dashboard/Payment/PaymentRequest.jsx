@@ -103,7 +103,6 @@ export default function PaymentRequest() {
           </div>
         </div>
 
-        {/* right */}
         <div className={pr.wrapper}>
           <div className={pr.details_right}>
             <p>
