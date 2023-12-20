@@ -109,7 +109,7 @@
 }
 
 @media screen and (max-width: 960px) {
-  table {
+  .tableCatTTag {
     margin: auto;
     border-collapse: collapse;
     overflow-x: auto;
@@ -118,22 +118,20 @@
     max-width: 100%;
   }
 
-  td,
-  th {
+  .tableCatTTag td,
+  .tableCatTTag th {
     padding: 0.5rem;
   }
 
-  th {
+  .tableCatTTag th {
     text-align: left;
-
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     padding-top: 1rem;
     padding-bottom: 1rem;
-
     border-top: none;
   }
 
-  td {
+  .tableCatTTag td {
     white-space: nowrap;
     border-bottom: none;
     color: rgb(20, 20, 20);
