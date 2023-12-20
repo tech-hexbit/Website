@@ -1,0 +1,104 @@
+.main {
+  display: grid;
+  width: 100%;
+  padding-block: 1rem;
+}
+
+.main h3 {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+.trans_table {
+  text-align: left;
+}
+
+.trans_table tr {
+  border-bottom: 1px solid #d5dce8;
+  transition: background-color 150ms ease;
+}
+
+.trans_table td {
+  padding-block: 1rem;
+}
+
+.trans_table td:last-child {
+  color: #595959;
+  text-decoration: underline;
+  font-weight: 700;
+  cursor: pointer;
+}
+.trans_table tr:hover {
+  background-color: #ebefff;
+}
+
+.processed {
+  background-color: #ebf9f1;
+  color: #1f9254;
+  text-align: center;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.pending {
+  background-color: #fef2e5;
+  color: #cd6200;
+  text-align: center;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.rejected {
+  background-color: #ffbaba;
+  color: #cd0000;
+  text-align: center;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+input {
+  width: 20px;
+  height: 20px;
+}
+.lucide {
+  color: #3f81e0;
+}
+
+/* media queries */
+
+@media (max-width: 1050px) {
+  .main {
+    justify-content: start;
+  }
+  th {
+    display: none;
+  }
+  td {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  td:before {
+    content: attr(data-cell) " :";
+    font-weight: 600;
+    text-transform: capitalize;
+    padding-right: 0.5em;
+  }
+  td:first-child {
+    padding-block-start: 1rem;
+  }
+
+  .trans_table td[data-cell="action"] {
+    display: none;
+  }
+  .trans_table td[data-cell="status"] {
+    text-align: left;
+    margin-block-end: 1rem;
+  }
+}
