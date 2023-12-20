@@ -55,8 +55,8 @@ export default function Support() {
       <h3>Support</h3>
       <div className={SupCss.ask}>
         <p className={SupCss.FAQsPTag}>FAQs</p>
-        <h1 style={{ color: "#4A246F" }}>Ask us anything</h1>
-        <p style={{ color: "#53686A" }}>
+        <h1 className={SupCss.AskPTag}>Ask us anything</h1>
+        <p className={SupCss.HaveanyquestionsPTag}>
           Have any questions? We're here to assist you.
         </p>
 
@@ -65,8 +65,9 @@ export default function Support() {
           placeholder="Search here"
           value={searchValue}
           className={SupCss.search}
-        ></input>
+        />
       </div>
+
       {/* boxespart */}
       <div className={SupCss.boxes}>
         <div
