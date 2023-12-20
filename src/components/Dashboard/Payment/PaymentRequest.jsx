@@ -103,7 +103,6 @@ export default function PaymentRequest() {
           </div>
         </div>
 
-        {/* <div className={pr.wrapper}> */}
         <div className={pr.details_right}>
           <p>
             <span>
@@ -162,7 +161,6 @@ export default function PaymentRequest() {
             <button>Raise Payment Request</button>
           </div>
         </div>
-        {/* </div> */}
       </div>
     </div>
   );
