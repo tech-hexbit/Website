@@ -70,13 +70,7 @@ export default function Support() {
 
       {/* boxespart */}
       <div className={SupCss.boxes}>
-        <div
-          style={{
-            backgroundColor: "#DFF1FF",
-            borderRadius: "10px",
-            padding: "20px",
-          }}
-        >
+        <div className={SupCss.bx1}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
