@@ -102,6 +102,15 @@
   border-radius: 10px;
 }
 
+.getintouchBTN {
+  margin-left: auto;
+  backgroundColor: "#4A246F",
+  color: "white",
+  borderRadius: "5px",
+  padding: "6px",
+  cursor: "pointer",
+  border: "none",}
+
 @media screen and (max-width: 600px) {
   .ask {
     padding: 3%;
