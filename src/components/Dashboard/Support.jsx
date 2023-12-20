@@ -75,6 +75,8 @@ export default function Support() {
         <Box title="How to Register" color="#e8ffeb" />
         <Box title="Payment Method" color="#ffecef" />
         <Box title="ONDC" color="#ffe5fc" />
+        <Box title="ONDC" color="#e9e9e9" />
+        <Box title="ONDC" color="#fbffdc" />
 
         <div className={SupCss.bx5}>
           <svg
