@@ -9,6 +9,7 @@ import { Helmet } from "react-helmet";
 import UserSideBar from "./../components/Dashboard/UserSideBar";
 //          || User
 import Sales from "./../components/Dashboard/Sales";
+import Contact from "./../components/Dashboard/Contact";
 import Products from "./../components/Dashboard/Products";
 import PayDetails from "../components/Dashboard/PayDetails";
 import PayRequest from "../components/Dashboard/PayRequest";
@@ -59,6 +60,7 @@ export default function Profile() {
               <>
                 <Route path="/sales" element={<Sales />} />
                 <Route path="/support" element={<Support />} />
+                <Route path="/contact" element={<Contact />} />
                 <Route path="/products" element={<Products />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/Inventory" element={<Categories />} />
