@@ -110,6 +110,7 @@
   padding: 6px;
   cursor: pointer;
   border: none;
+  min-width: 120px;
 }
 
 @media screen and (max-width: 600px) {
