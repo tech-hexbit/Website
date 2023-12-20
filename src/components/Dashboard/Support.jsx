@@ -52,30 +52,6 @@ export default function Support() {
   };
   return (
     <div style={{ margin: 0, padding: 0 }}>
-      {/* <p>FAQs</p>
-
-      <div className={SupCss.qamDiv}>
-        {load ? (
-          <div className="loadCenterDiv">
-            <Load />
-          </div>
-        ) : (
-          <>
-            {data.length > 0 ? (
-              <>
-                {data.map((val, key) => {
-                  console.log(val);
-                  return (
-                    <QA key={key} answer={val.answer} question={val.question} />
-                  );
-                })}
-              </>
-            ) : (
-              ""
-            )}
-          </>
-        )}
-      </div> */}
       <h3>Support</h3>
       <div className={SupCss.ask}>
         <p style={{ color: "#53686A", fontWeight: "bold" }}>FAQs</p>
@@ -83,15 +59,13 @@ export default function Support() {
         <p style={{ color: "#53686A" }}>
           Have any questions? We're here to assist you.
         </p>
-        {/* <div style={{display:'flex',flexDirection:'row'}}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg> */}
+
         <input
           type="text"
           placeholder="Search here"
           value={searchValue}
           className={SupCss.search}
         ></input>
-        {/* </div> */}
       </div>
       {/* boxespart */}
       <div className={SupCss.boxes}>
@@ -271,12 +245,6 @@ export default function Support() {
             </div>
           );
         })}
-        {/* <div className={SupCss.quepart}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            <h4 style={{color:'#53686A'}}>How do I change my account details?</h4>
-            <p>You can log in to your account and change it from your Profile {'>'} Edit Profile. </p>
-          </div>
-           */}
       </div>
       <div className={SupCss.getintouch}>
         <div>
@@ -300,13 +268,6 @@ export default function Support() {
           Get in touch
         </button>
       </div>
-      {/* <p className={SupCss.queriesPTag}>
-          For additonal Queries you can{" "}
-          <Link to="/contact">
-            <u>contact us</u>
-          </Link>
-          .
-        </p> */}
     </div>
   );
 }
