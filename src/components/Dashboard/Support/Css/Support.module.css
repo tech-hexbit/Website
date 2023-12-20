@@ -16,6 +16,7 @@
 }
 
 .search {
+  outline: none;
   background-color: white;
   display: flex;
   flex-direction: row;
