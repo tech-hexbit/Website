@@ -74,7 +74,7 @@ export default function Categories() {
   };
 
   return (
-    <div>
+    <div className={Ccss.mDiv}>
       <p className={Ccss.InventoryPTag}>Inventory</p>
 
       <DataMain />
