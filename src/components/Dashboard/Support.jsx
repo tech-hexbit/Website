@@ -75,47 +75,8 @@ export default function Support() {
         <Box title="How to Register" color="#e8ffeb" />
         <Box title="Payment Method" color="#ffecef" />
         <Box title="ONDC" color="#ffe5fc" />
-        <Box title="ONDC" color="#e9e9e9" />
-        <Box title="ONDC" color="#fbffdc" />
-
-        <div className={SupCss.bx5}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-bell"
-          >
-            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
-            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" className={SupCss.icon} />
-          </svg>
-          <p style={{ color: "#616161" }}>Questions about</p>
-          <p style={{ fontWeight: "bold" }}>Packaging</p>
-        </div>
-        <div className={SupCss.bx6}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-bell"
-          >
-            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
-            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" className={SupCss.icon} />
-          </svg>
-          <p style={{ color: "#616161" }}>Questions about</p>
-          <p style={{ fontWeight: "bold" }}>GST & Billing</p>
-        </div>
+        <Box title="Packaging" color="#e9e9e9" />
+        <Box title="GST & Billing" color="#fbffdc" />
       </div>
       {/* questions part */}
       <div className={SupCss.quesboxes}>
