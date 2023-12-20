@@ -96,7 +96,7 @@
 
 .getintouch {
   display: flex;
-  flex-direction: row;
+  gap: 0px 20px;
   background-color: #d9c6ff;
   padding: 2%;
   border-radius: 10px;
