@@ -69,8 +69,7 @@
 }
 
 .quesboxes {
-  padding-top: 6%;
-  padding-bottom: 6%;
+  padding: 6% 30px 6% 0px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -160,5 +159,11 @@
     display: flex;
     flex-direction: column;
     padding: 5%;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .getintouch {
+    margin-right: 30px;
   }
 }
