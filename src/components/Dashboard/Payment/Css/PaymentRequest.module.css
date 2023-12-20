@@ -8,6 +8,7 @@ h3 {
   font-size: 20px;
   padding-inline-start: 0.5rem;
 }
+
 .detail_wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -24,9 +25,11 @@ h3 {
   min-height: 258px;
   border: 1px solid #ccd;
 }
+
 svg {
   margin-block-start: 0.2em;
 }
+
 .details_left p {
   display: flex;
   gap: 1rem;
@@ -34,6 +37,7 @@ svg {
   padding: 0.9rem 1rem;
   font-weight: 600;
 }
+
 .details_right p {
   display: flex;
   gap: 1rem;
@@ -42,10 +46,12 @@ svg {
   padding: 0.9rem 1rem;
   font-weight: 600;
 }
+
 .details_left h4 {
   font-size: 14 px;
   font-weight: normal;
 }
+
 .grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -61,15 +67,18 @@ svg {
   align-items: center;
   gap: 1rem;
 }
+
 .grid_item h3 {
   font-size: 16px;
   font-weight: 700;
 }
+
 /* right section */
 
 .wrapper {
   height: 100%;
 }
+
 .details_right {
   border-radius: 1rem;
   min-height: 150px;
@@ -99,6 +108,7 @@ svg {
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
 .flex_item button:hover {
   background-color: #1f965f;
 }
@@ -120,9 +130,11 @@ svg {
   .details_left {
     min-width: 220px;
   }
+
   .grid {
     grid-template-columns: repeat(1, 1fr);
   }
+
   .grid_item {
     flex-direction: row;
     align-items: center;
@@ -138,6 +150,7 @@ svg {
     gap: 1rem;
     align-items: start;
   }
+
   .flex_item button {
     font-size: 16px;
   }
