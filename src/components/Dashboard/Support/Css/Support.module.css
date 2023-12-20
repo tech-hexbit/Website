@@ -60,6 +60,10 @@
   padding: 20px;
 }
 
+.titlePTag {
+  color: #616161;
+}
+
 .lablePTag {
   font-weight: bold;
 }
