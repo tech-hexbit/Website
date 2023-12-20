@@ -80,7 +80,7 @@ export default function Support() {
       </div>
 
       {/* questions part */}
-      <QA />
+      <QA data={data} />
 
       <div className={SupCss.getintouch}>
         <div>
