@@ -80,8 +80,9 @@ svg {
 
 .details_right {
   border-radius: 1rem;
-  min-height: 150px;
+  /* min-height: 150px; */
   min-width: 400px;
+  width: 45%;
   border: 1px solid #ccd;
 }
 
@@ -90,7 +91,7 @@ svg {
   align-items: center;
   justify-content: space-between;
   border-bottom: 0.1px solid #ccd;
-  padding: 1rem;
+  padding: 2rem 1rem;
   gap: 1rem;
 }
 
@@ -121,6 +122,10 @@ svg {
   .detail_wrapper {
     flex-direction: column;
     gap: 2rem;
+  }
+
+  .details_right {
+    width: 100%;
   }
 }
 
