@@ -117,7 +117,7 @@ svg {
 }
 
 /* media queries */
-@media (width<=100em) {
+@media (width<=94em) {
   .detail_wrapper {
     flex-direction: column;
     gap: 2rem;
@@ -128,7 +128,7 @@ svg {
   }
 }
 
-@media (width<=50em) {
+@media (width<=53em) {
   .details_left {
     min-width: 220px;
   }
