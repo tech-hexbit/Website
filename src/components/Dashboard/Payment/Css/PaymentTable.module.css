@@ -8,6 +8,7 @@
   font-size: 20px;
   margin-bottom: 30px;
 }
+
 .trans_table {
   text-align: left;
 }
@@ -31,6 +32,7 @@
   font-weight: 700;
   cursor: pointer;
 }
+
 .trans_table tr:hover {
   background-color: #ebefff;
 }
@@ -67,40 +69,46 @@ label {
   align-items: center;
   justify-content: space-evenly;
 }
+
 input {
   width: 20px;
   height: 20px;
 }
+
 .lucide {
   color: #3f81e0;
 }
 
 /* media queries */
-
 @media (max-width: 1050px) {
   .main {
     justify-content: start;
   }
-  th {
+
+  .trans_table th {
     display: none;
   }
-  td {
+
+  .trans_table td {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-  td:before {
+
+  .trans_table td:before {
     content: attr(data-cell) " :";
     font-weight: 600;
     text-transform: capitalize;
     padding-right: 0.5em;
   }
-  td:first-child {
+
+  .trans_table td:first-child {
     padding-block-start: 1rem;
   }
 
   .trans_table td[data-cell="action"] {
     display: none;
   }
+
   .trans_table td[data-cell="status"] {
     text-align: left;
     margin-block-end: 1rem;
