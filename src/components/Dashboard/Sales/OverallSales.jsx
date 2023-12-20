@@ -251,7 +251,10 @@ export default function OverallSales() {
         </div>
         <div className={osCss.middle}>
           <div className={osCss.table}>
-            <table style={{ borderCollapse: "collapse" }}>
+            <table
+              className={osCss.tableOSTTag}
+              style={{ borderCollapse: "collapse" }}
+            >
               {load ? (
                 <div className="loadCenterDiv">
                   <Load />
