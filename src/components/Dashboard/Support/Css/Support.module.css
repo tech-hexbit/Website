@@ -36,6 +36,14 @@
   font-weight: bold;
 }
 
+.AskPTag {
+  color: #4a246f;
+}
+
+.HaveanyquestionsPTag {
+  color: #53686a;
+}
+
 .boxes {
   display: flex;
   flex-direction: row;
