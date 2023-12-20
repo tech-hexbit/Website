@@ -269,6 +269,19 @@ body::-webkit-scrollbar-thumb:hover {
   color: #d3d3d3;
 }
 
+.alertTrue {
+  background-color: #ff9564;
+}
+
+@media only screen and (max-width: 950px) {
+  .alertTrue {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ff9564;
+    background-color: transparent;
+  }
+}
+
 @media screen and (max-width: 850px) {
   .slider-wrapper {
     height: 45%;
