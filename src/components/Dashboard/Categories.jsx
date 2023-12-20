@@ -88,7 +88,10 @@ export default function Categories() {
             </div>
           ) : (
             <>
-              <table style={{ borderCollapse: "collapse" }}>
+              <table
+                className={Ccss.tableCatTTag}
+                style={{ borderCollapse: "collapse" }}
+              >
                 {orderlist.length > 0 ? (
                   <>
                     <tr>
@@ -203,12 +206,6 @@ export default function Categories() {
             </>
           )}
         </div>
-
-        {/* <div>
-          <span>*</span>
-          <div className={DCss.colorBox}></div>{" "}
-          <span>: Low Products in Stock</span>
-        </div> */}
       </div>
     </div>
   );
