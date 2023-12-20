@@ -31,6 +31,11 @@
   border: none;
 }
 
+.FAQsPTag {
+  color: #53686a;
+  font-weight: bold;
+}
+
 .boxes {
   display: flex;
   flex-direction: row;
