@@ -251,7 +251,10 @@ export default function OverallSales() {
         </div>
         <div className={osCss.middle}>
           <div className={osCss.table}>
-            <table style={{ borderCollapse: "collapse" }}>
+            <table
+              className={osCss.tableOSTTag}
+              style={{ borderCollapse: "collapse" }}
+            >
               {load ? (
                 <div className="loadCenterDiv">
                   <Load />
@@ -261,30 +264,8 @@ export default function OverallSales() {
                   {orderDel?.length > 0 ? (
                     <>
                       <tr>
-                        <th
-                          className={osCss.thTag}
-                          // onClick={sortById}
-                        >
+                        <th className={osCss.thTag}>
                           <p>Id</p>
-                          {/* <svg
-                            className={osCss.svgTag}
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="9"
-                            height="14"
-                            viewBox="0 0 9 14"
-                            fill="none"
-                          >
-                            <path
-                              d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                              fill={
-                                sortOrder === "desc" ? "#777777" : "#c782ff"
-                              }
-                            />
-                            <path
-                              d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                              fill={sortOrder === "asc" ? "#777777" : "#c782ff"}
-                            />
-                          </svg> */}
                         </th>
                         <th className={osCss.thTag} onClick={sortByName}>
                           Customer

@@ -1,0 +1,159 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+h3 {
+  font-size: 20px;
+  padding-inline-start: 0.5rem;
+}
+
+.detail_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  padding-inline: 1rem;
+  padding-block: 1rem;
+}
+
+/* left section */
+.details_left {
+  border-radius: 1rem;
+  min-width: 700px;
+  min-height: 258px;
+  border: 1px solid #ccd;
+}
+
+svg {
+  margin-block-start: 0.2em;
+}
+
+.details_left p {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.9rem 1rem;
+  font-weight: 600;
+}
+
+.details_right p {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  border-bottom: 0.1px solid #ccd;
+  padding: 0.9rem 1rem;
+  font-weight: 600;
+}
+
+.details_left h4 {
+  font-size: 14 px;
+  font-weight: normal;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  border-top: 1px solid #ccd;
+}
+
+.grid_item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.grid_item h3 {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* right section */
+.wrapper {
+  height: 100%;
+}
+
+.details_right {
+  border-radius: 1rem;
+  min-width: 400px;
+  width: 45%;
+  border: 1px solid #ccd;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.1px solid #ccd;
+  padding: 2rem 1rem;
+  gap: 1rem;
+}
+
+.flex_item button {
+  border: none;
+  border-radius: 5px;
+  height: 56px;
+  font-size: 20px;
+  font-weight: 600;
+  width: 100%;
+  padding: 0.3em 0.5em;
+  color: #fff;
+  background: #1bb66e;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.flex_item button:hover {
+  background-color: #1f965f;
+}
+
+.ruppee {
+  font-size: 40px;
+}
+
+/* media queries */
+@media (width<=94em) {
+  .detail_wrapper {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .details_right {
+    width: 100%;
+  }
+}
+
+@media (width<=53em) {
+  .details_left {
+    min-width: 220px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .grid_item {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .details_right {
+    min-width: 220px;
+  }
+
+  .flex {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .flex_item button {
+    font-size: 16px;
+  }
+}

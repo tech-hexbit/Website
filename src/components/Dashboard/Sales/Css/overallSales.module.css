@@ -238,7 +238,7 @@
 }
 
 @media screen and (max-width: 960px) {
-  table {
+  .tableOSTTag {
     margin: auto;
     border-collapse: collapse;
     overflow-x: auto;
@@ -247,12 +247,12 @@
     max-width: 100%;
   }
 
-  td,
-  th {
+  .tableOSTTag td,
+  .tableOSTTag th {
     padding: 0.5rem;
   }
 
-  th {
+  .tableOSTTag th {
     text-align: left;
 
     text-transform: uppercase;
@@ -262,7 +262,7 @@
     border-top: none;
   }
 
-  td {
+  .tableOSTTag td {
     white-space: nowrap;
     border-bottom: none;
     color: rgb(20, 20, 20);

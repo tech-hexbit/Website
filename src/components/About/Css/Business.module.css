@@ -10,27 +10,32 @@
   justify-content: space-between;
   font-family: "Rubik", sans-serif;
 }
+
 .businessText {
   width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+
 .head {
   color: #2d2d2d;
   font-size: 72px;
   font-weight: 600;
 }
+
 .subHead {
   color: rgba(45, 45, 45, 0.5);
   font-size: 22px;
   padding: -2px;
 }
+
 .buttons {
   width: 90%;
   display: flex;
   justify-content: space-between;
 }
+
 .buttons button {
   border: none;
   border-radius: 10px;
@@ -42,85 +47,105 @@
   width: 160px;
   margin-top: 15px;
 }
+
 .image {
   width: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .image img {
   width: 100%;
 }
+
 @media screen and (min-width: 1160px) {
   .mainDiv {
     padding: 150px 350px;
   }
 }
+
 @media screen and (max-width: 960px) {
   .businessText {
     width: 50%;
   }
+
   .head {
     font-size: 66px;
     width: 100%;
   }
+
   .buttons {
     width: 100%;
     margin-top: 10px;
   }
 }
+
 @media screen and (max-width: 830px) {
   .mainDiv {
     padding: 100px;
   }
+
   .businessText {
     width: 55%;
   }
 }
+
 @media screen and (max-width: 780px) {
   .head {
     font-size: 50px;
     width: 100%;
   }
+
   .subHead {
     font-size: 20px;
   }
 }
+
 @media screen and (max-width: 800px) {
   .mainDiv {
     padding: 50px;
   }
+
   .buttons {
     flex-direction: column;
   }
+
   .buttons button {
     width: 100%;
     margin-bottom: 10px;
   }
+
   .image {
     display: flex;
     justify-content: center;
     align-items: center;
   }
 }
+
 @media screen and (max-width: 650px) {
   .mainDiv {
     flex-direction: column-reverse;
     padding: 45px;
   }
+
   .businessText {
     width: 100%;
   }
+
   .head {
     width: 100%;
     font-size: 40px;
   }
+
   .buttons {
     flex-direction: row;
   }
+
   .buttons button {
     padding: 10px 50px;
   }
+
   .image {
     width: 100%;
     display: flex;
@@ -128,10 +153,12 @@
     align-items: center;
     margin-bottom: 10px;
   }
+
   .image img {
     width: 50%;
   }
 }
+
 @media screen and (max-width: 500px) {
   .buttons button {
     width: 150px;
@@ -139,15 +166,18 @@
     /* padding: 10px 20px; */
   }
 }
+
 @media screen and (max-width: 400px) {
   .buttons {
     flex-direction: column;
   }
+
   .buttons button {
     width: 100%;
     /* padding: 10px 20px; */
   }
 }
+
 @media screen and (min-width: 1160px) and (max-width: 1600px) {
   .mainDiv {
     padding: 150px;

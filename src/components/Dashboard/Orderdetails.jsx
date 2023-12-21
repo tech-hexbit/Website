@@ -3,11 +3,11 @@ import React, { useState, useEffect, useContext } from "react";
 // axios
 import axios from "axios";
 
-// css
-import odcss from "./Css/Orderdetails.module.css";
-
 // state
 import AuthContext from "../../store/auth-context";
+
+// css
+import odcss from "./Css/Orderdetails.module.css";
 
 // img
 import LogisticsGif from "./../../assets/Logistic/Logistics.gif";

@@ -134,6 +134,7 @@ export default function Box(props) {
               name=""
               id=""
               className={BCss.inpTag}
+              placeholder={props.placeholderLabel}
               onChange={(e) => {
                 setEditDes(e.target.value);
               }}

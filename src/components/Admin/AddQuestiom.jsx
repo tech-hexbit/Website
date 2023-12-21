@@ -145,15 +145,16 @@ export default function AddQuestiom(props) {
             onChange={updateData}
           />
 
-          <input
-            type="text"
+          <textarea
             name="answer"
             id=""
+            cols="30"
+            rows="10"
             value={showData.answer}
             placeholder="Answer"
             className={AQCss.inpTag}
             onChange={updateData}
-          />
+          ></textarea>
         </div>
 
         <div className={AQCss.submitDiv}>

@@ -1,0 +1,57 @@
+.main label {
+  color: #606060;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 150%;
+  padding-top: 1rem;
+}
+
+.main input {
+  border-radius: 20px;
+  border: 1px solid #d3d3d3;
+  background: #fff;
+  /* width: 545px; */
+  height: 60px;
+  padding-inline-start: 1.2rem;
+}
+.main textarea {
+  border-radius: 20px;
+  border: 1px solid #d3d3d3;
+  background: #fff;
+  padding-inline-start: 1.2rem;
+  padding-top: 1rem;
+  resize: none;
+}
+
+.main input::placeholder,
+textarea::placeholder {
+  color: #606060;
+  font-weight: 400;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.main button {
+  width: 100%;
+  padding: 1rem;
+  gap: 10px;
+  background: #008f17;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  margin-block-start: 1rem;
+}
+
+/* media queries */
+
+@media (width<=40em) {
+  .main input,
+  .main textarea {
+    padding-inline-start: 0.5rem;
+  }
+}
