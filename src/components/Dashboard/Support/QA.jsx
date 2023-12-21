@@ -6,6 +6,7 @@ import SupCss from "./Css/Support.module.css";
 export default function QA(props) {
   return (
     <>
+      {props.data.length > 0 ? "" : ""}
       <div className={SupCss.quesboxes}>
         {props.data.map((val) => {
           return (
