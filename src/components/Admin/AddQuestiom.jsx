@@ -108,6 +108,12 @@ export default function AddQuestiom(props) {
     }
   };
 
+  const [tagValue,setTagValue] = useState('');
+
+  const handleSelectChange = (event) => {
+    setTagValue(event.target.value);
+  };
+
   return (
     <>
       <div className={AQCss.mDiv}>
@@ -135,6 +141,15 @@ export default function AddQuestiom(props) {
           </svg>
         </div>
         <div className={AQCss.inpmDiv}>
+            <select id="dropdown" value={tagValue} onChange={handleSelectChange} className={AQCss.inpTag}>
+              <option value="">Select tag</option>
+              <option value="mail">Mail</option>
+              <option value="query">Query</option>
+              <option value="cancel">Cancellation</option>
+              <option value="refund">Refund</option>
+              <option value="order">Order</option>
+              <option value="approved">Important Bulletin</option>
+            </select>
           <input
             type="text"
             name="question"
