@@ -70,7 +70,7 @@ label {
   justify-content: space-evenly;
 }
 
-input {
+.CheckBoxInp {
   width: 20px;
   height: 20px;
 }
