@@ -25,7 +25,13 @@ export default function QA(props) {
               <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
             </svg>
             <h4 className={SupCss.questionTag}>{val.question}</h4>
-            <p>{val.answer}</p>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: val.answer,
+              }}
+            />
+            {/* {val.answer} */}
+            {/* </p> */}
           </div>
         );
       })}
