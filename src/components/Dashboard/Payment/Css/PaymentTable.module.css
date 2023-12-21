@@ -64,7 +64,7 @@
   font-size: 12px;
 }
 
-label {
+.main label {
   display: flex;
   align-items: center;
   justify-content: space-evenly;

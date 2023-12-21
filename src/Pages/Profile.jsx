@@ -66,12 +66,7 @@ export default function Profile() {
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/Inventory" element={<Categories />} />
                 <Route path="/addProduct" element={<AddProduct />} />
-<<<<<<< HEAD
                 <Route path="/helpdesk" element={<HelpDesk />} />
-=======
-                <Route path="/Payment/Details" element={<PayDetails />} />
-                <Route path="/Payment/Request" element={<PayRequest />} />
->>>>>>> 2e1f860d86416acdf0ee12c648dbdee86f28e659
                 <Route path="/orderdetails/:id" element={<Orderdetails />} />
               </>
             )}
