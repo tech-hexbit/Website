@@ -30,8 +30,6 @@ export default function QA(props) {
                 __html: val.answer,
               }}
             />
-            {/* {val.answer} */}
-            {/* </p> */}
           </div>
         );
       })}
