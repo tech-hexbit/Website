@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 
 // components
-import { Alert } from "./../../MicroInteraction/Alert";
 import Load from "./../../MicroInteraction/Load";
+import { Alert } from "./../../MicroInteraction/Alert";
 
 // state
 import AuthContext from "../../store/auth-context";
