@@ -1,6 +1,9 @@
-import ggit from "./Css/GatewayGetinTouch.module.css";
+import React from "react";
 
-const GatewayGetinTouch = () => {
+// css
+import ggit from "./Css/GetinTouch.module.css";
+
+export default function GetinTouch() {
   return (
     <div className={ggit.main}>
       <div className={ggit.content}>
@@ -15,6 +18,4 @@ const GatewayGetinTouch = () => {
       </div>
     </div>
   );
-};
-
-export default GatewayGetinTouch;
+}
