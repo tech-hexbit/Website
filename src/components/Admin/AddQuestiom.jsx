@@ -114,10 +114,6 @@ export default function AddQuestiom(props) {
     setData({ tag: event.target.value });
   };
 
-  useEffect(() => {
-    console.log(showData);
-  }, [showData]);
-
   return (
     <>
       <div className={AQCss.mDiv}>
