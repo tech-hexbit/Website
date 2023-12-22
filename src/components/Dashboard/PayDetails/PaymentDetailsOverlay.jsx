@@ -1,10 +1,12 @@
+import React from "react";
+
 // components
 import GatewayGetinTouch from "./GetinTouch";
 
 // css
-import gpdo from "./Css/GatewayPaymentDetailsOverlay.module.css";
+import gpdo from "./Css/PaymentDetailsOverlay.module.css";
 
-const GatewayPaymentDetailsOverlay = ({ selectedItem }) => {
+export default function PaymentDetailsOverlay({ selectedItem }) {
   if (!selectedItem) return null;
 
   const { refNo, accountHolderName, status, paymentMode } = selectedItem[0];
@@ -77,6 +79,4 @@ const GatewayPaymentDetailsOverlay = ({ selectedItem }) => {
       <GatewayGetinTouch />
     </div>
   );
-};
-
-export default GatewayPaymentDetailsOverlay;
+}
