@@ -22,6 +22,7 @@
   font-weight: 700;
   cursor: pointer;
 }
+
 .trans_table tr:hover {
   background-color: #ebefff;
 }
@@ -59,19 +60,23 @@
   .main {
     justify-content: start;
   }
+
   th {
     display: none;
   }
+
   td {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
+
   td:before {
     content: attr(data-cell) " :";
     font-weight: 600;
     text-transform: capitalize;
     padding-right: 0.5em;
   }
+
   td:first-child {
     padding-block-start: 1rem;
   }
@@ -79,6 +84,7 @@
   .trans_table td[data-cell="action"] {
     display: none;
   }
+
   .trans_table td[data-cell="status"] {
     text-align: left;
     margin-block-end: 1rem;
