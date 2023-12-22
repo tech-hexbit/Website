@@ -1,4 +1,4 @@
-import Gplist from "./Css/GatewayPaymentList.module.css";
+import Gplist from "./Css/PaymentList.module.css";
 
 const GatewayPaymentList = () => {
   return (
