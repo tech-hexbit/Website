@@ -37,12 +37,15 @@
   background: #e0ecfe;
   color: #4c98ff;
 }
+
 .box:nth-child(3) {
   color: #b23636;
 }
+
 .box:nth-child(3) h4 {
   color: #1f2937;
 }
+
 .box:nth-child(4) h4 {
   color: #1f2937;
 }
@@ -55,9 +58,11 @@
 .inside:nth-child(1) {
   color: #36b293;
 }
+
 .inside:nth-child(2) {
   color: #4c98ff;
 }
+
 .inside:nth-child(3) {
   color: #f6bb22;
 }
@@ -72,6 +77,7 @@
 .inside p {
   color: #6d788c;
 }
+
 .inside p {
   font-size: 12px;
   font-weight: 400;
@@ -84,7 +90,8 @@
   letter-spacing: 0px;
   text-align: left;
 }
-@media (width<= 28.125em) {
+
+@media (width<=28.125em) {
   .main .box {
     min-width: 220px;
   }
