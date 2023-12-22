@@ -4,6 +4,8 @@
   flex-shrink: 0;
   display: flex;
   padding-top: 50px;
+  font-size: 1.4rem;
+  font-weight: 700;
 }
 
 .details {
@@ -27,6 +29,8 @@
 .customer-details1 {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   text-align: center;
+  font-size: 1.4rem;
+  font-weight: bold;
 }
 
 .shipping-address {
@@ -50,12 +54,15 @@
 .name-text {
   padding: 15px;
   margin-top: 5px;
-  font-size: 18px;
+  
   color: gray;
+  font-size: 1.1rem;
+  font-weight: bold;
 }
 
 .c-name {
   color: gray;
+  
 }
 
 .mail {
@@ -76,12 +83,15 @@
 
 .adress {
   margin-top: 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
 }
 
 .transactions {
   display: flex;
   align-items: center;
-  font-size: 18px;
+  font-size: 1.1rem;
+  font-weight: bold;
   color: gray;
 }
 
@@ -109,7 +119,8 @@
 
 .product-details1 {
   text-decoration: solid;
-  font-size: 20px;
+  font-size: 1.4rem;
+  font-weight: bold;
 }
 
 .products-table th {
@@ -166,6 +177,8 @@ td {
   justify-content: space-evenly;
   margin: 20px 30px;
   gap: 0px 20px;
+  font-size: 1.4rem;
+  font-weight: bold;
 }
 
 .total-bill {
@@ -196,11 +209,14 @@ td {
 .gt {
   text-align: center;
   margin: 7px 0px;
+  font-size: 1.4rem;
+  font-weight: bold;
 }
 
 .dt1 {
   margin: 12px 0px;
-  font-size: 16px;
+  font-size: 1.1rem;
+  font-weight: bold;
 }
 
 .LogisticsGif {
