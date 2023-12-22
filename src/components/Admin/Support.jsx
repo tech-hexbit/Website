@@ -21,6 +21,7 @@ export default function Support() {
   const [data, setData] = useState([]);
   const [load, setLoad] = useState(false);
   const [showAdd, setAdd] = useState(false);
+  const [showDel, setHideDel] = useState(false);
   const [showRef, setRef] = useState(false);
   const [showCurr, setCurr] = useState("Support");
 
@@ -141,7 +142,12 @@ export default function Support() {
       </div>
 
       <div className={showAdd ? "yesAdd" : "noAdd"}>
-        <AddQuestiom setAdd={setAdd} setRef={setRef} />
+        <AddQuestiom
+          setAdd={setAdd}
+          setRef={setRef}
+          showDel={showDel}
+          setHideDel={setHideDel}
+        />
       </div>
     </>
   );
