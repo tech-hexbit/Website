@@ -141,14 +141,12 @@ export default function Support() {
         )}
       </div>
 
-      <div className={showAdd ? "yesAdd" : "noAdd"}>
-        <AddQuestiom
-          setAdd={setAdd}
-          setRef={setRef}
-          showDel={showDel}
-          setHideDel={setHideDel}
-        />
-      </div>
+      <AddQuestiom
+        setAdd={setAdd}
+        setRef={setRef}
+        showDel={showDel}
+        setHideDel={setHideDel}
+      />
     </>
   );
 }
