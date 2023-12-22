@@ -112,8 +112,12 @@ export default function AddQuestiom(props) {
   };
 
   const handleSelectChange = (event) => {
-    setTagValue(event.target.value);
+    setData({ tag: event.target.value });
   };
+
+  useEffect(() => {
+    console.log(showData);
+  }, [showData]);
 
   return (
     <>
