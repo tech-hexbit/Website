@@ -42,9 +42,9 @@ export default function AddQuestiom(props) {
   const onSubmit = async () => {
     setLoad(true);
 
-    const { question, answer } = showData;
+    const { question, answer, tag } = showData;
 
-    if (question !== "" && answer !== "") {
+    if (question !== "" && answer !== "" && tag !== "") {
       try {
         const response = await axios.post("/api/website/qna/post", showData, {
           headers: { Authorization: `${authCtx.token}` },
