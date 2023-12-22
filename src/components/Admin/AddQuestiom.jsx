@@ -19,6 +19,7 @@ export default function AddQuestiom(props) {
     question: "",
     answer: "",
   });
+
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
