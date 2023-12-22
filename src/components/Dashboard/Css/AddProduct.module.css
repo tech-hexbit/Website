@@ -12,6 +12,7 @@
   border-color: #d3d3d3;
   padding-bottom: 7px; */
 }
+
 .headDiv {
   display: flex;
   justify-content: space-between;
@@ -20,6 +21,7 @@
   border-color: #d3d3d3;
   padding-bottom: 7px;
 }
+
 .addCsv button {
   border: none;
   border-radius: 5px;
