@@ -20,6 +20,7 @@ export default function AddProduct() {
     text: "",
     val: false,
   });
+
   useEffect(() => {
     setTimeout(() => {
       setError({
@@ -32,6 +33,7 @@ export default function AddProduct() {
       });
     }, 10000);
   }, [variants]);
+
   return (
     <>
       <div className={ApCss.mDiv}>
@@ -41,11 +43,14 @@ export default function AddProduct() {
             <button onClick={() => setShowPopup(true)}>+ Add bulk</button>
           </div>
         </div>
+
         <Form />
+
         {showPopup && (
           <UploadCsvPopup setShowPopup={setShowPopup} setError={setError} />
         )}
       </div>
+
       <Alert variant={variants} val={setError} />
     </>
   );
