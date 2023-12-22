@@ -15,9 +15,11 @@ import AQCss from "./Css/AddQuestion.module.css";
 
 export default function AddQuestiom(props) {
   const [load, setLoad] = useState(false);
+  const [tagValue, setTagValue] = useState("");
   const [showData, setData] = useState({
     question: "",
     answer: "",
+    tag: "",
   });
 
   const [variants, setError] = useState({
@@ -108,8 +110,6 @@ export default function AddQuestiom(props) {
       return;
     }
   };
-
-  const [tagValue, setTagValue] = useState("");
 
   const handleSelectChange = (event) => {
     setTagValue(event.target.value);
