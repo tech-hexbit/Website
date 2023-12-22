@@ -17,6 +17,7 @@ import ProfileMain from "./../components/Dashboard/Profile";
 import Categories from "./../components/Dashboard/Categories";
 import AddProduct from "./../components/Dashboard/AddProduct";
 import HelpDesk from "../components/Dashboard/HelpDesk";
+import HelpDeskFormTable from "../components/Dashboard/HelpDesk/HelpDeskFormTable";
 import Dashboard from "./../components/Dashboard/DashboardMain";
 import Orderdetails from "./../components/Dashboard/Orderdetails";
 import Support from "./../components/Dashboard/Support";
@@ -67,6 +68,7 @@ export default function Profile() {
                 <Route path="/Inventory" element={<Categories />} />
                 <Route path="/addProduct" element={<AddProduct />} />
                 <Route path="/helpdesk" element={<HelpDesk />} />
+                <Route path="/table" element={<HelpDeskFormTable />} />
                 <Route path="/orderdetails/:id" element={<Orderdetails />} />
               </>
             )}
