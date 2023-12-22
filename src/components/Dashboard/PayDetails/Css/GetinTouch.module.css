@@ -33,6 +33,7 @@
   font-weight: 600;
   line-height: 17.651px;
   cursor: pointer;
+  border-width: 0px;
 }
 
 @media (width<=40em) {
