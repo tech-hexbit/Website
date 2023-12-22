@@ -1,6 +1,9 @@
+import React from "react";
+
+// css
 import Gplist from "./Css/PaymentList.module.css";
 
-const GatewayPaymentList = () => {
+export default function PaymentList() {
   return (
     <div className={Gplist.main}>
       <div className={Gplist.box}>
@@ -34,6 +37,4 @@ const GatewayPaymentList = () => {
       </div>
     </div>
   );
-};
-
-export default GatewayPaymentList;
+}
