@@ -53,6 +53,7 @@ export default function Support() {
       console.log(e);
     }
   };
+  console.log(data);
   return (
     <div>
       <h3>Support</h3>
