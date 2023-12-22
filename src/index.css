@@ -84,11 +84,11 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .LinkStyle.sideBarNonActive .temp {
-  fill: #575757;
+  color: #575757;
 }
 
 .LinkStyle.sideBarActive .temp {
-  fill: #56117c;
+  color: #56117c;
 }
 
 .error {
@@ -267,6 +267,19 @@ body::-webkit-scrollbar-thumb:hover {
 
 #notSelColor {
   color: #d3d3d3;
+}
+
+.alertTrue {
+  background-color: #ff9564;
+}
+
+@media only screen and (max-width: 950px) {
+  .alertTrue {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ff9564;
+    background-color: transparent;
+  }
 }
 
 @media screen and (max-width: 850px) {

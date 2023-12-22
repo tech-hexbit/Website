@@ -1,4 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
+
+// components
+import UpdateLabel from "./UpdateLabel";
 
 // axios
 import axios from "axios";
@@ -13,8 +16,8 @@ import { Alert } from "./../../MicroInteraction/Alert";
 import DCss from "./Css/Des.module.css";
 
 export default function Des(props) {
-  const [editDesState, setEditDes] = useState("");
   const [edit, setEdit] = useState(false);
+  const [editDesState, setEditDes] = useState("");
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -45,8 +48,6 @@ export default function Des(props) {
           },
         }
       );
-
-      console.log(response.data);
 
       if (response.data.success) {
         props.setChange(true);
@@ -145,26 +146,26 @@ export default function Des(props) {
         </p>
       </div>
 
-      <div className={DCss.desDiv2}>
-        {/* <div className={DCss.mDiv}>
+      {/* <div className={DCss.desDiv2}>
+        <div className={DCss.mDiv}>
           <p className={DCss.subTitlePTag}>Features :</p>
           <p className={DCss.desDPTag}>
             Midsole:- Core Instant Step In Comfort Long Lasting Reponsive
             Cushionig And Super Plush Feel. Outsole :- The Rubber Outsole With
             Perfect Grip And Durability.
           </p>
-        </div> */}
-        {/* <div className={DCss.mDiv}>
+        </div>
+        <div className={DCss.mDiv}>
           <p className={DCss.subTitlePTag}>Services :</p>
           <p className={DCss.desDPTag}>
             Midsole:- Core Instant Step In Comfort Long Lasting Reponsive
             Cushionig And Super Plush Feel. Outsole :- The Rubber Outsole With
             Perfect Grip And Durability.
           </p>
-        </div> */}
-      </div>
+        </div>
+      </div> 
 
-      {/* <div className={DCss.mDiv}>
+      <div className={DCss.mDiv}>
         <p className={DCss.subTitlePTag}>
           Special offers & product promotions :
         </p>
@@ -180,26 +181,109 @@ export default function Des(props) {
         <table>
           <tr>
             <td className={DCss.headingName}>Category :</td>
-            <td className={DCss.desName}>{props.res.category_id}</td>
+            <UpdateLabel
+              crrValue={props.res.category_id}
+              id={props.id}
+              fieldName="category_id"
+              placeholder="Updated Category"
+              type="text"
+              setChange={props.setChange}
+            />
           </tr>
           <tr>
             <td className={DCss.headingName}>Brand :</td>
-            <td className={DCss.desName}>
-              {
+            <UpdateLabel
+              crrValue={
                 props.res["@ondc/org/statutory_reqs_packaged_commodities"][
                   "manufacturer_or_packer_name"
                 ]
               }
-            </td>
+              id={props.id}
+              fieldName="@ondc/org/statutory_reqs_packaged_commodities.manufacturer_or_packer_name"
+              placeholder="Updated Name"
+              type="text"
+              setChange={props.setChange}
+            />
           </tr>
           <tr>
             <td className={DCss.headingName}>Weight :</td>
-            <td className={DCss.desName}>
-              {
+            <UpdateLabel
+              crrValue={
                 props.res["@ondc/org/mandatory_reqs_veggies_fruits"]
                   .net_quantity
               }
-            </td>
+              id={props.id}
+              fieldName="@ondc/org/mandatory_reqs_veggies_fruits.net_quantity"
+              placeholder="Updated Quantity"
+              type="text"
+              setChange={props.setChange}
+            />
+          </tr>
+          <tr>
+            <td className={DCss.headingName}>Returnable :</td>
+            <UpdateLabel
+              crrValue={props.res["@ondc/org/returnable"]}
+              id={props.id}
+              fieldName="@ondc/org/returnable"
+              placeholder="Select the Return Type"
+              type="select"
+              setChange={props.setChange}
+            />
+          </tr>
+          <tr>
+            <td className={DCss.headingName}>Cancellable :</td>
+            <UpdateLabel
+              crrValue={props.res["@ondc/org/cancellable"]}
+              id={props.id}
+              fieldName="@ondc/org/cancellable"
+              placeholder="Select the Cancellable Type"
+              type="select"
+              setChange={props.setChange}
+            />
+          </tr>
+          <tr>
+            <td className={DCss.headingName}>Return Window :</td>
+            <UpdateLabel
+              crrValue={props.res["@ondc/org/return_window"]}
+              id={props.id}
+              fieldName="@ondc/org/return_window"
+              placeholder="Updated Return Window"
+              type="text"
+              setChange={props.setChange}
+            />
+          </tr>
+          <tr>
+            <td className={DCss.headingName}>Seller Pickup Return :</td>
+            <UpdateLabel
+              crrValue={props.res["@ondc/org/seller_pickup_return"]}
+              id={props.id}
+              fieldName="@ondc/org/seller_pickup_return"
+              placeholder="Select the PickUp Type"
+              type="select"
+              setChange={props.setChange}
+            />
+          </tr>
+          <tr>
+            <td className={DCss.headingName}>Time To Ship :</td>
+            <UpdateLabel
+              crrValue={props.res["@ondc/org/time_to_ship"]}
+              id={props.id}
+              fieldName="@ondc/org/time_to_ship"
+              placeholder="Updated Shipping Time"
+              type="text"
+              setChange={props.setChange}
+            />
+          </tr>
+          <tr>
+            <td className={DCss.headingName}>Available on COD :</td>
+            <UpdateLabel
+              crrValue={props.res["@ondc/org/available_on_cod"]}
+              id={props.id}
+              fieldName="@ondc/org/available_on_cod"
+              placeholder="Select the COD"
+              type="select"
+              setChange={props.setChange}
+            />
           </tr>
         </table>
       </div>

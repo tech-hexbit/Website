@@ -9,8 +9,10 @@ import { Helmet } from "react-helmet";
 import UserSideBar from "./../components/Dashboard/UserSideBar";
 //          || User
 import Sales from "./../components/Dashboard/Sales";
-import Gateway from "../components/Dashboard/Gateway";
+import Contact from "./../components/Dashboard/Contact";
 import Products from "./../components/Dashboard/Products";
+import PayDetails from "../components/Dashboard/PayDetails";
+import PayRequest from "../components/Dashboard/PayRequest";
 import ProfileMain from "./../components/Dashboard/Profile";
 import Categories from "./../components/Dashboard/Categories";
 import AddProduct from "./../components/Dashboard/AddProduct";
@@ -57,12 +59,14 @@ export default function Profile() {
               // Users
               <>
                 <Route path="/sales" element={<Sales />} />
-                <Route path="/gateway" element={<Gateway />} />
                 <Route path="/support" element={<Support />} />
+                <Route path="/contact" element={<Contact />} />
                 <Route path="/products" element={<Products />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/Inventory" element={<Categories />} />
                 <Route path="/addProduct" element={<AddProduct />} />
+                <Route path="/Payment/Details" element={<PayDetails />} />
+                <Route path="/Payment/Request" element={<PayRequest />} />
                 <Route path="/orderdetails/:id" element={<Orderdetails />} />
               </>
             )}

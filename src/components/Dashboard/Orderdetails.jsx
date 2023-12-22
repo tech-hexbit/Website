@@ -57,6 +57,7 @@ const Orderdetails = (props) => {
                 className={odcss.leftArrow}
                 onClick={() => {
                   props.setProductDel(false);
+                  props.setHideDel(!props.showDel);
                 }}
               >
                 <path d="M6 8L2 12L6 16" />
