@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 
 // components
-import Load from "./../../MicroInteraction/Load";
 import { Alert } from "./../../MicroInteraction/Alert";
+import Load from "./../../MicroInteraction/Load";
 
 // state
 import AuthContext from "../../store/auth-context";
@@ -15,12 +15,10 @@ import AQCss from "./Css/AddQuestion.module.css";
 
 export default function AddQuestiom(props) {
   const [load, setLoad] = useState(false);
-  const [showDel, setHideDel] = useState(false);
   const [showData, setData] = useState({
     question: "",
     answer: "",
   });
-
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
