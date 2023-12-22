@@ -15,7 +15,6 @@ import AQCss from "./Css/AddQuestion.module.css";
 
 export default function AddQuestiom(props) {
   const [load, setLoad] = useState(false);
-  const [tagValue, setTagValue] = useState("");
   const [showData, setData] = useState({
     question: "",
     answer: "",
@@ -148,7 +147,7 @@ export default function AddQuestiom(props) {
         <div className={AQCss.inpmDiv}>
           <select
             id="dropdown"
-            value={tagValue}
+            value={showData.tag}
             onChange={handleSelectChange}
             className={AQCss.inpTag}
           >
