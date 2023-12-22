@@ -1,9 +1,9 @@
 import { useState } from "react";
 // components
-import GatewayPaymentDetailsOverlay from "./GatewayPaymentDetailsOverlay";
+import GatewayPaymentDetailsOverlay from "./PaymentDetailsOverlay";
 
 // css
-import Gptable from "./Css/GatewayPaymentTable.module.css";
+import Gptable from "./Css/PaymentTable.module.css";
 
 const GatewayPaymentTable = () => {
   const [showOverlay, setShowOverlay] = useState(false);
@@ -28,7 +28,7 @@ const GatewayPaymentTable = () => {
       amount: "₹ 366.16",
       paymentMode: "Not Paid",
       status: "Payment Processed",
-      action: "View Details"
+      action: "View Details",
     },
     {
       refNo: "#18933",
@@ -38,7 +38,7 @@ const GatewayPaymentTable = () => {
       amount: "₹ 366.16",
       paymentMode: "Paid",
       status: "Payment Processed",
-      action: "View Details"
+      action: "View Details",
     },
     {
       refNo: "#45169",
@@ -48,7 +48,7 @@ const GatewayPaymentTable = () => {
       amount: "₹ 366.16",
       paymentMode: "Not Paid",
       status: "Payment Pending",
-      action: "View Details"
+      action: "View Details",
     },
     {
       refNo: "#34304",
@@ -58,7 +58,7 @@ const GatewayPaymentTable = () => {
       amount: "₹ 366.16",
       paymentMode: "Paid",
       status: "Payment Pending",
-      action: "View Details"
+      action: "View Details",
     },
     {
       refNo: "#73003",
@@ -68,7 +68,7 @@ const GatewayPaymentTable = () => {
       amount: "₹ 366.16",
       paymentMode: "Not Paid",
       status: "Payment Rejected",
-      action: "View Details"
+      action: "View Details",
     },
     {
       refNo: "#58825",
@@ -78,7 +78,7 @@ const GatewayPaymentTable = () => {
       amount: "₹ 366.16",
       paymentMode: "Paid",
       status: "Payment Processed",
-      action: "View Details"
+      action: "View Details",
     },
     {
       refNo: "#44122",
@@ -88,7 +88,7 @@ const GatewayPaymentTable = () => {
       amount: "₹ 366.16",
       paymentMode: "Not Paid",
       status: "Payment Rejected",
-      action: "View Details"
+      action: "View Details",
     },
     {
       refNo: "#85252",
@@ -98,8 +98,8 @@ const GatewayPaymentTable = () => {
       amount: "₹ 366.16",
       paymentMode: "Paid",
       status: "Payment Pending",
-      action: "View Details"
-    }
+      action: "View Details",
+    },
   ];
 
   const filteredRowItem = data.filter((item) => item.refNo === selectedItem);
