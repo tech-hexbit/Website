@@ -26,6 +26,7 @@
 
 .customer-details1 {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 .shipping-address {
@@ -37,11 +38,13 @@
   padding-top: 35px;
   padding-right: 110px;
   font-size: 20px;
+  text-align: center;
 }
 
 .payment-method {
   padding: 10px;
   margin-top: 10px;
+  text-align: center;
 }
 
 .name-text {
@@ -119,8 +122,7 @@
   font-size: 20px;
 }
 
-td {
-}
+
 
 table,
 th,
@@ -229,4 +231,103 @@ td {
 .header {
   display: flex;
   align-items: center;
+}
+
+@media only screen and (max-width: 750px) {
+
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .order-id1 {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+  }
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .adress {
+    text-align: center;
+  }
+
+  .customer-details,
+  .shipping-address,
+  .payment-details {
+    padding: 10px 0; /* Adjusted padding */
+    font-size: 1.2rem; /* Adjusted font size */
+    
+  }
+
+  .transactions .cno {
+    margin-top: 5px; /* Adjusted margin */
+  }
+
+  .details-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+    padding-top: 2px; /* Adjusted padding */
+  }
+
+  .name,
+  .dettails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-details1 {
+    font-size: 1.2rem; /* Adjusted font size */
+  }
+
+  .text-content {
+    flex-direction: column;
+    align-items: center;
+    margin: 5px 0; /* Adjusted margin */
+  }
+
+  .text-wrapper {
+    margin-left: 0;
+  }
+
+  .mapDivBU {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .products-table th,
+  .products-table tbody td {
+    padding: 5px;
+  }
+
+  .logistic-img {
+    height: auto;
+    max-width: 100%;
+  }
+
+  .total-bill {
+    padding: 10px 0; 
+    font-size: 0.8rem; 
+  }
+
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }

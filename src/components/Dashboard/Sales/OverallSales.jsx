@@ -418,6 +418,7 @@ export default function OverallSales() {
                               <td
                                 onClick={() => {
                                   setProductDel({ state: true, id: val._id });
+                                  props.set(!props.state);
                                 }}
                               >
                                 {val.ONDCBilling.name}
@@ -499,8 +500,11 @@ export default function OverallSales() {
 
       <div
         className={showProductDel.state ? "yesProductsPage" : "noProductsPage"}
+       
       >
+        
         <Orderdetails id={showProductDel.id} setProductDel={setProductDel} />
+        
       </div>
     </>
   );
