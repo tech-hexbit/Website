@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 
 // components
 import Form from "./AddProduct/Form";
+import UploadCsvPopup from "./AddProduct/UploadCsvPopup";
 
 // MicroInteraction
 import { Alert } from "../../MicroInteraction/Alert";
 
 // css
 import ApCss from "./Css/AddProduct.module.css";
-import UploadCsvPopup from "./AddProduct/UploadCsvPopup";
 
 export default function AddProduct() {
   const [showPopup, setShowPopup] = useState(false);
