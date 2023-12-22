@@ -18,27 +18,27 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 import osCss from "./Css/overallSales.module.css";
 
 export default function OverallSales() {
-  const [search, setSearch] = useState("");
+  const [max, setmax] = useState(false);
   const [load, setLoad] = useState(false);
+  const [search, setSearch] = useState("");
   const [orderDel, setOrderDel] = useState([]);
+  const [showDel, setHideDel] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
   const [orderDelCopy, setOrderDelCopy] = useState([]);
   const [prodcutsCount, setProdcutsCount] = useState(0);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [showDel, setHideDel] = useState(false);
-  const [max, setmax] = useState(false);
   const [loadDataState, setLoadDataState] = useState(false);
   const [showProductDel, setProductDel] = useState({ state: false, id: "" });
 
   // Add a state variable to track the sort order
   const [sortOrder, setSortOrder] = useState("asc");
-  const [sortByNameOrder, setSortByNameOrder] = useState("asc");
-  const [sortPriceOrder, setSortPriceOrder] = useState("asc");
   const [sortDateOrder, setSortDateOrder] = useState("asc");
+  const [sortPriceOrder, setSortPriceOrder] = useState("asc");
+  const [sortByNameOrder, setSortByNameOrder] = useState("asc");
   const [sortPaymentMethodOrder, setSortPaymentMethodOrder] = useState("asc");
 
   //  Select Filter
-  const [unique, setunique] = useState([]);
   const [buyer, setbuyer] = useState([]);
+  const [unique, setunique] = useState([]);
   const [filters, setfilters] = useState({
     buyer: "",
     status: "",
