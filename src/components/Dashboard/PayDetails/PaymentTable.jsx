@@ -122,6 +122,7 @@ export default function PaymentTable() {
             <th>Status</th>
             <th>Action</th>
           </tr>
+
           {/* display selected row */}
           {filteredRowItem.map((item, index) => (
             <tr key={index}>
