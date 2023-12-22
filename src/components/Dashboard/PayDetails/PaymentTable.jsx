@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // components
-import GatewayPaymentDetailsOverlay from "./PaymentDetailsOverlay";
+import PaymentDetailsOverlay from "./PaymentDetailsOverlay";
 
 // css
 import Gptable from "./Css/PaymentTable.module.css";
@@ -192,9 +192,9 @@ export default function PaymentTable() {
         </table>
       )}
 
-      {/* Gateway payment overlay */}
+      {/* Payment overlay */}
       {showOverlay && (
-        <GatewayPaymentDetailsOverlay
+        <PaymentDetailsOverlay
           selectedItem={filteredRowItem}
           closeOverlay={closeOverlay}
         />
