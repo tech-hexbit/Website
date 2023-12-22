@@ -1,11 +1,12 @@
-import { useState } from "react";
+import React, { useState } from "react";
+
 // components
 import GatewayPaymentDetailsOverlay from "./PaymentDetailsOverlay";
 
 // css
 import Gptable from "./Css/PaymentTable.module.css";
 
-const GatewayPaymentTable = () => {
+export default function PaymentTable() {
   const [showOverlay, setShowOverlay] = useState(false);
 
   const [selectedItem, setSelectedItem] = useState([]);
@@ -14,11 +15,13 @@ const GatewayPaymentTable = () => {
     setShowOverlay(!showOverlay);
     setSelectedItem(refNo);
   };
+
   const closeOverlay = () => {
     setSelectedItem(null);
     setShowOverlay(showOverlay);
   };
-  // datas
+
+  // data
   const data = [
     {
       refNo: "#20462",
@@ -197,6 +200,4 @@ const GatewayPaymentTable = () => {
       )}
     </div>
   );
-};
-
-export default GatewayPaymentTable;
+}
