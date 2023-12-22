@@ -216,183 +216,6 @@ export default function OverallSales() {
                     ))}
                   </select>
                 </div>
-<<<<<<< HEAD
-              ) : (
-                <>
-                  {orderDel?.length > 0 ? (
-                    <>
-                      <tr>
-                        <th
-                          className={osCss.thTag}
-                          // onClick={sortById}
-                        >
-                          <p>Id</p>
-                          {/* <svg
-                            className={osCss.svgTag}
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="9"
-                            height="14"
-                            viewBox="0 0 9 14"
-                            fill="none"
-                          >
-                            <path
-                              d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                              fill={
-                                sortOrder === "desc" ? "#777777" : "#c782ff"
-                              }
-                            />
-                            <path
-                              d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                              fill={sortOrder === "asc" ? "#777777" : "#c782ff"}
-                            />
-                          </svg> */}
-                        </th>
-                        <th className={osCss.thTag} onClick={sortByName}>
-                          Customer
-                          <svg
-                            className={osCss.svgTag}
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="9"
-                            height="14"
-                            viewBox="0 0 9 14"
-                            fill="none"
-                          >
-                            <path
-                              d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                              fill={
-                                sortByNameOrder === "desc"
-                                  ? "#777777"
-                                  : "#c782ff"
-                              }
-                            />
-                            <path
-                              d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                              fill={
-                                sortByNameOrder === "asc"
-                                  ? "#777777"
-                                  : "#c782ff"
-                              }
-                            />
-                          </svg>
-                        </th>
-
-                        <th className={osCss.thTag} onClick={sortByPrice}>
-                          Price
-                          <svg
-                            className={osCss.svgTag}
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="9"
-                            height="14"
-                            viewBox="0 0 9 14"
-                            fill="none"
-                          >
-                            <path
-                              d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                              fill={
-                                sortPriceOrder === "desc"
-                                  ? "#777777"
-                                  : "#c782ff"
-                              }
-                            />
-                            <path
-                              d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                              fill={
-                                sortPriceOrder === "asc" ? "#777777" : "#c782ff"
-                              }
-                            />
-                          </svg>
-                        </th>
-                        <th className={osCss.thTag} onClick={sortByDate}>
-                          Ordered on
-                          <svg
-                            className={osCss.svgTag}
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="9"
-                            height="14"
-                            viewBox="0 0 9 14"
-                            fill="none"
-                          >
-                            <path
-                              d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                              fill={
-                                sortDateOrder === "desc" ? "#777777" : "#c782ff"
-                              }
-                            />
-                            <path
-                              d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                              fill={
-                                sortDateOrder === "asc" ? "#777777" : "#c782ff"
-                              }
-                            />
-                          </svg>
-                        </th>
-                        <th
-                          className={osCss.payment}
-                          onClick={sortPaymentMethods}
-                        >
-                          Payment method
-                          <svg
-                            className={osCss.svgTag}
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="9"
-                            height="14"
-                            viewBox="0 0 9 14"
-                            fill="none"
-                          >
-                            <path
-                              d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                              fill={
-                                sortPaymentMethodOrder === "desc"
-                                  ? "#777777"
-                                  : "#c782ff"
-                              }
-                            />
-                            <path
-                              d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                              fill={
-                                sortPaymentMethodOrder === "asc"
-                                  ? "#777777"
-                                  : "#c782ff"
-                              }
-                            />
-                          </svg>
-                        </th>
-                        <th className={osCss.payment}>Delivery status</th>
-                        <th>Buyer</th>
-                      </tr>
-                      {orderDel
-                        .filter((value) => {
-                          if (search === "") {
-                            return value;
-                          } else if (
-                            value.ONDCBilling.name
-                              .toLowerCase()
-                              .includes(search.toLowerCase())
-                          ) {
-                            return value;
-                          }
-                        })
-                        .map((val, key) => {
-                          return (
-                            <tr key={key}>
-                              <td>#{val._id.slice(-4)}</td>
-                              <td
-                                onClick={() => {
-                                  setProductDel({ state: true, id: val._id });
-                                  props.set(!props.state);
-                                }}
-                              >
-                                {val.ONDCBilling.name}
-                              </td>
-                              <td>₹ {val.amount.toFixed(2)}</td>
-                              <td>{val.when.date}</td>
-                              <td>{val.status}</td>
-                              <UpdateState
-                                state={val.state}
-                                id={val._id}
-                                setLoadDataState={setLoadDataState}
-                                loadDataState={loadDataState}
-=======
                 <div className={osCss.selectInner}>
                   <select onChange={handleChange1} name="status">
                     <option value="Status" hidden selected>
@@ -449,7 +272,6 @@ export default function OverallSales() {
                                     ? "#777777"
                                     : "#c782ff"
                                 }
->>>>>>> beta
                               />
                               <path
                                 d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
@@ -652,70 +474,12 @@ export default function OverallSales() {
         </div>
       )}
 
-<<<<<<< HEAD
-        <div className={osCss.cenDiv}>
-          <button
-            onClick={() => setCurrentPage(currentPage - 1)}
-            disabled={currentPage === 1}
-            className={osCss.btnnb}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-chevrons-left"
-            >
-              <path d="m11 17-5-5 5-5" />
-              <path d="m18 17-5-5 5-5" />
-            </svg>
-          </button>
-          <span>{currentPage}</span>
-          <button
-            onClick={() => setCurrentPage(currentPage + 1)}
-            disabled={max}
-            className={osCss.btnnb}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-chevrons-right"
-            >
-              <path d="m6 17 5-5-5-5" />
-              <path d="m13 17 5-5-5-5" />
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      <div
-        className={showProductDel.state ? "yesProductsPage" : "noProductsPage"}
-       
-      >
-        
-        <Orderdetails id={showProductDel.id} setProductDel={setProductDel} />
-        
-      </div>
-=======
       <Orderdetails
         id={showProductDel.id}
         setProductDel={setProductDel}
         showDel={showDel}
         setHideDel={setHideDel}
       />
->>>>>>> beta
     </>
   );
 }
