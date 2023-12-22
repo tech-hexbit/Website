@@ -4,6 +4,7 @@
   align-items: center;
   padding-block: 2rem;
 }
+
 .content p:first-child {
   color: #000;
   font-size: 14.709px;
@@ -17,6 +18,7 @@
   font-weight: 400;
   line-height: 20.592px;
 }
+
 .content button {
   display: inline-flex;
   padding: 7.354px 13.238px;
