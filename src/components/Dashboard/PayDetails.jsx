@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 
 // components
-import PaymentList from "./PayDetails/GatewayPaymentList";
-import PaymentTable from "./PayDetails/GatewayPaymentTable";
+import PaymentList from "./PayDetails/PaymentList";
+import PaymentTable from "./PayDetails/PaymentTable";
 
 // css
-import Gate from "./../Dashboard/PayDetails/Css/Gateway.module.css";
+import Gate from "./../Dashboard/PayDetails/Css/PayDetails.module.css";
 
 export default function PayDetails() {
   // scroll to top
