@@ -12,6 +12,7 @@ import Sales from "./../components/Dashboard/Sales";
 import Contact from "./../components/Dashboard/Contact";
 import Support from "./../components/Dashboard/Support";
 import Products from "./../components/Dashboard/Products";
+import HelpDesk from "./../components/Dashboard/HelpDesk";
 import PayDetails from "../components/Dashboard/PayDetails";
 import PayRequest from "../components/Dashboard/PayRequest";
 import ProfileMain from "./../components/Dashboard/Profile";
