@@ -10,6 +10,7 @@ import UserSideBar from "./../components/Dashboard/UserSideBar";
 //          || User
 import Sales from "./../components/Dashboard/Sales";
 import Contact from "./../components/Dashboard/Contact";
+import Support from "./../components/Dashboard/Support";
 import Products from "./../components/Dashboard/Products";
 import PayDetails from "../components/Dashboard/PayDetails";
 import PayRequest from "../components/Dashboard/PayRequest";
@@ -18,7 +19,6 @@ import Categories from "./../components/Dashboard/Categories";
 import AddProduct from "./../components/Dashboard/AddProduct";
 import Dashboard from "./../components/Dashboard/DashboardMain";
 import Orderdetails from "./../components/Dashboard/Orderdetails";
-import Support from "./../components/Dashboard/Support";
 //          || Admin
 import SupportAdmin from "./../components/Admin/Support";
 import SellersAdmin from "./../components/Admin/Sellers";
