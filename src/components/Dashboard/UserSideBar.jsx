@@ -386,7 +386,7 @@ export default function UserSideBar() {
             </div>
           </NavLink>
 
-          {/* Payment Request */}
+          {/* Help Desk */}
           <NavLink
             to="/me/help/desk"
             className={({ isActive }) =>
