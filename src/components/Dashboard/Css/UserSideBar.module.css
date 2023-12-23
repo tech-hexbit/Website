@@ -25,6 +25,7 @@
   transition: all 0.3s;
   z-index: 999;
   pointer-events: none;
+  text-align: center;
 }
 
 .heading:hover {
