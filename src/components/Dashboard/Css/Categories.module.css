@@ -112,32 +112,7 @@
   background-color: #ebefff;
 }
 
-<<<<<<< HEAD
-@media screen and (max-width: 790px) {
-  .tableCat {
-    padding: 0px;
-  }
-}
-
-@media screen and (min-width: 751px) {
-
-  .tableCat td:nth-child(2),
-  .tableCat th:nth-child(2) {
-    background-color: #fff;
-    z-index: 10;
-  }
-
-  .tableCat td:first-child,
-  .tableCat th:first-child {
-    background-color: #fff;
-    z-index: 10;
-  }
-}
-
-@media only screen and (max-width: 750px) {
-=======
 @media only screen and (max-width: 950px) {
->>>>>>> beta
   .tableCat th {
     display: none;
   }
@@ -183,9 +158,6 @@
     font-weight: 700;
     text-transform: capitalize;
   }
-<<<<<<< HEAD
-}
-=======
 }
 
 @media screen and (max-width: 450px) {
@@ -193,4 +165,3 @@
     margin-right: 25px;
   }
 }
->>>>>>> beta
