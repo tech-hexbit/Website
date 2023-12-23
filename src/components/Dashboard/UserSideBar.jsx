@@ -309,7 +309,7 @@ export default function UserSideBar() {
               </div>
               <div className={sidebarCSS.heading}>
                 <div className={sidebarCSS.arrow}></div>
-                Support
+                FAQ
               </div>
             </div>
           </NavLink>
