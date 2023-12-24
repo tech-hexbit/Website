@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
+// axios
+import axios from "axios";
+
 // css
 import "./Css/Alert.css";
-import axios from "axios";
 
 export const Alert = ({ variant, val, email }) => {
   const [sent, setSent] = useState(false);
