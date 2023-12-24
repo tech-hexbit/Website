@@ -93,6 +93,13 @@ export default function SignInForm() {
             response.data.token,
             10800000
           );
+        } else {
+          setLoad(false);
+
+          if (response.data.code === 1) {
+          }
+
+          console.log(response.data.code);
         }
       } catch (e) {
         setLoad(false);
