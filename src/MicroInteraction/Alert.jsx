@@ -12,7 +12,9 @@ export const Alert = ({ variant, val, email }) => {
 
   const resendMail = async () => {
     try {
-      const response = await axios.post(`/auth/resendMail/${email}`);
+      const response = await axios.get(
+        `/api/website/auth/verification/resend/${email}`
+      );
 
       console.log(response);
 
