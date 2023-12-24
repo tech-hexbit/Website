@@ -96,10 +96,16 @@ export default function SignInForm() {
         } else {
           setLoad(false);
 
-          if (response.data.code === 1) {
+          if (response.data?.code === 1) {
+            setError({
+              mainColor: "#FDEDED",
+              secondaryColor: "#F16360",
+              symbol: "error",
+              title: "Error",
+              text: "Invalid Credentials",
+              val: true,
+            });
           }
-
-          console.log(response.data.code);
         }
       } catch (e) {
         setLoad(false);
