@@ -293,7 +293,7 @@ export default function SignInForm() {
         </div>
       </div>
 
-      <Alert variant={variants} val={setError} />
+      <Alert variant={variants} val={setError} email={input.email} />
     </>
   );
 }
