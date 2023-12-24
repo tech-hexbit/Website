@@ -13,7 +13,9 @@ export const Alert = ({ variant, val, email }) => {
   const resendMail = async () => {
     try {
       const response = await axios.get(`/auth/resendMail/${email}`);
+
       console.log(response);
+
       if (response.status == 200) {
         setSent(true);
       }
