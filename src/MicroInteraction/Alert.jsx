@@ -1,18 +1,22 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
+// axios
+import axios from "axios";
+
 // css
 import "./Css/Alert.css";
-import axios from "axios";
 
 export const Alert = ({ variant, val, email }) => {
   const [sent, setSent] = useState(false);
 
   const resendMail = async () => {
     try {
-      const response = await axios.get(`/auth/resendMail/${email}`);
-      console.log(response);
-      if (response.status == 200) {
+      const response = await axios.get(
+        `/api/website/auth/verification/resend/${email}`
+      );
+
+      if (response.data.status) {
         setSent(true);
       }
     } catch (e) {
@@ -44,7 +48,6 @@ export const Alert = ({ variant, val, email }) => {
           {variant.text == "email" ? (
             <>
               <span className="description-text">
-                {" "}
                 {sent ? (
                   <>Mail sent! Please check your mail</>
                 ) : (
