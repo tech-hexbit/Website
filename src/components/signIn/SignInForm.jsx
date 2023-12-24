@@ -98,11 +98,11 @@ export default function SignInForm() {
 
           if (response.data?.code === 1) {
             setError({
-              mainColor: "#FDEDED",
-              secondaryColor: "#F16360",
-              symbol: "error",
-              title: "Error",
-              text: "Invalid Credentials",
+              mainColor: "#E5F6FD",
+              secondaryColor: "#1AB1F5",
+              symbol: "info",
+              title: "Information",
+              text: "email",
               val: true,
             });
           }
