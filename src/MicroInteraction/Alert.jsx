@@ -46,7 +46,6 @@ export const Alert = ({ variant, val, email }) => {
           {variant.text == "email" ? (
             <>
               <span className="description-text">
-                {" "}
                 {sent ? (
                   <>Mail sent! Please check your mail</>
                 ) : (
