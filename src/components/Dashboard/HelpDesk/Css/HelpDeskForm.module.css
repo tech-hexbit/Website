@@ -1,129 +1,57 @@
-.main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+.main label {
+  color: #606060;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 150%;
+  padding-top: 1rem;
 }
 
-.main h1 {
-  align-self: flex-start;
-  text-align: left;
-  color: #383c3e;
-  font-size: 44px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 160%;
-  letter-spacing: 0.2px;
-  display: flex;
-  justify-content: center;
+.main input {
+  border-radius: 20px;
+  border: 1px solid #d3d3d3;
+  background: #fff;
+  /* width: 545px; */
+  height: 60px;
+  padding-inline-start: 1.2rem;
 }
 
-.main h1 svg {
-  margin-inline-end: 2rem;
-  cursor: pointer;
+.main textarea {
+  border-radius: 20px;
+  border: 1px solid #d3d3d3;
+  background: #fff;
+  padding-inline-start: 1.2rem;
+  padding-top: 1rem;
+  resize: none;
 }
 
-.icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1.5rem;
-  padding: clamp(1.5rem, 0.79rem + 3.5vw, 5rem);
-  border-radius: 370.059px;
-  background: rgba(35, 162, 109, 0.12);
-}
-
-.icon svg {
-  display: block;
-  max-width: 100%;
-}
-
-.content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-}
-
-.content p:first-child {
-  color: #474747;
-  text-align: center;
-  font-size: 1.7rem;
-  font-size: clamp(1.7rem, 1.428rem + 1.36vw, 3.06rem);
+.main input::placeholder,
+textarea::placeholder {
+  color: #606060;
   font-weight: 400;
-  line-height: 39.969px;
 }
 
-.content p:nth-child(2) {
-  color: #121212;
-  text-align: center;
-  font-size: 1.6875rem;
-  font-size: clamp(1.68rem, 1.5rem + 0.75vw, 2.438rem);
-  font-weight: 600;
-  line-height: 53.293px;
-}
-
-.content p:last-child {
-  color: #595959;
-  text-align: center;
-  font-size: 1rem;
-  font-size: clamp(1rem, 0.96rem + 0.19vw, 1.2rem);
-  font-weight: 600;
-}
-
-.buttons {
+.flex {
   display: flex;
-  gap: 1rem;
-  align-content: center;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.buttons button {
-  min-width: 144px;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 800;
-  cursor: pointer;
-  border: none;
-  padding: 0.5rem 1rem;
-}
-
-.buttons button:first-child {
-  border-radius: 4px;
-  background: #d0deeb;
-}
-
-.buttons button:last-child {
-  border-radius: 4px;
-  background: #13c39c;
-}
-
-.ticket {
+.main button {
   width: 100%;
-  padding: 0.3rem;
+  padding: 1rem;
+  gap: 10px;
+  background: #008f17;
   color: #fff;
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: 700;
-  text-transform: capitalize;
-  background: #23a26d;
   border: none;
+  margin-block-start: 1rem;
 }
 
 /* media queries */
 @media (width<=40em) {
-  .buttons {
-    flex-direction: column;
-    gap: 1;
-  }
-
-  .ticket {
-    font-size: 1rem;
-  }
-}
-
-@media (width<=380px) {
-  .icon {
-    padding: 0;
+  .main input,
+  .main textarea {
+    padding-inline-start: 0.5rem;
   }
 }
