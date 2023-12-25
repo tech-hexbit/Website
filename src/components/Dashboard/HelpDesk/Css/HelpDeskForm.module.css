@@ -59,6 +59,13 @@ textarea::placeholder {
   position: relative;
 }
 
+.MainDropDown {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+
 .DropDownmDiv {
   display: flex;
   justify-content: space-between;
