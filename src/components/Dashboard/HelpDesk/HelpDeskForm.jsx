@@ -46,8 +46,6 @@ export default function HelpDeskForm({ onFormSubmit }) {
     event.preventDefault();
 
     try {
-      console.log("Submit Data");
-
       const response = await axios.post(
         "/api/website/ContactUs/user/post",
         data,
