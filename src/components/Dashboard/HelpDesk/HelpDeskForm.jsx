@@ -14,8 +14,8 @@ import hdf from "./Css/HelpDeskForm.module.css";
 
 export default function HelpDeskForm({ onFormSubmit }) {
   const [load, setLoad] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
   const [DropShow, hideDrop] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   const [showloadStore, setloadStore] = useState([]);
   const [data, setData] = useState({
     name: "",
@@ -199,6 +199,9 @@ export default function HelpDeskForm({ onFormSubmit }) {
                   className={hdf.storeInp}
                   required
                 />
+
+                {showloadStore.length > 0 ? "" : ""}
+
                 <div
                   className={hdf.DropDownmDiv}
                   id={DropShow ? "showDropMenuClg" : "hideDropMenuClg"}
