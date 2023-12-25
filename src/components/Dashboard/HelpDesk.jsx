@@ -17,10 +17,6 @@ export default function HelpDesk() {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleFormSubmit = () => {
-    setSubmitted(true);
-  };
-
   return (
     <>
       {!submitted ? (
@@ -34,7 +30,7 @@ export default function HelpDesk() {
       ) : null}
       <div className={hd.main}>
         {!submitted ? (
-          <HelpDeskForm onFormSubmit={handleFormSubmit} />
+          <HelpDeskForm submitted={submitted} setSubmitted={setSubmitted} />
         ) : (
           <HelpDeskFormTicket />
         )}
