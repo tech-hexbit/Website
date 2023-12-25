@@ -45,6 +45,8 @@ export default function HelpDeskForm({ onFormSubmit }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    setLoad(true);
+
     try {
       const response = await axios.post(
         "/api/website/ContactUs/user/post",
@@ -54,9 +56,13 @@ export default function HelpDeskForm({ onFormSubmit }) {
         }
       );
 
-      console.log(response);
+      if (response.data.success) {
+        setLoad(false);
 
-      // setSubmitted(true); // Update local submitted state
+        // setSubmitted(true); // Update local submitted state
+      } else {
+        setLoad(false);
+      }
     } catch (e) {
       setLoad(false);
 
@@ -283,7 +289,7 @@ export default function HelpDeskForm({ onFormSubmit }) {
               ></textarea>
             </div>
 
-            <button type="submit">Submit</button>
+            <button type="submit">{load ? <Load /> : "Submit"}</button>
           </form>
         </div>
       )}
