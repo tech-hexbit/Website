@@ -75,7 +75,7 @@ export default function HelpDeskForm({ onFormSubmit }) {
   const loadStore = async () => {
     try {
       const response = await axios.post(
-        "/api/website/ContactUs/user/post",
+        "/api/website/ContactUs/storeList/get",
         data,
         {
           headers: { Authorization: `${authCtx.token}` },
