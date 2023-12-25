@@ -56,7 +56,7 @@ export default function HelpDeskFormTable() {
   return (
     <div className={hdftable.main}>
       <h1>
-        <svg
+        {/* <svg
           xmlns="http://www.w3.org/2000/svg"
           width="28"
           height="48"
@@ -67,7 +67,7 @@ export default function HelpDeskFormTable() {
             d="M26.5504 1.47734C25.3254 0.252344 23.3504 0.252344 22.1254 1.47734L1.35039 22.2523C0.375391 23.2273 0.375391 24.8023 1.35039 25.7773L22.1254 46.5523C23.3504 47.7774 25.3254 47.7774 26.5504 46.5523C27.7754 45.3274 27.7754 43.3523 26.5504 42.1273L8.45039 24.0023L26.5754 5.87734C27.7754 4.67734 27.7754 2.67734 26.5504 1.47734Z"
             fill="black"
           />
-        </svg>
+        </svg> */}
         Contact us
       </h1>
 
