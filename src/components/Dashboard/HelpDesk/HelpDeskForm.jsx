@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 
+// components
+import HelpDeskFormTicket from "./HelpDeskFormTicket";
+
 // css
 import hdf from "./Css/HelpDeskForm.module.css";
-import HelpDeskFormTicket from "./HelpDeskFormTicket";
 
 export default function HelpDeskForm({ onFormSubmit }) {
   const [submitted, setSubmitted] = useState(false);
