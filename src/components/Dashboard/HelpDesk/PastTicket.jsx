@@ -14,7 +14,9 @@ const PastTicket = () => {
         <div className={`${pt.child} ${pt.green}`}>Solved</div>
         <div className={pt.child}>#HX00004</div>
         <div className={`${pt.child} ${pt.green}`}>Solved</div>
-        <Link to="/me/table" className={pt.btn}>View More</Link>
+        <Link to="/me/table" className={pt.btn}>
+          View More
+        </Link>
       </div>
     </div>
   );
