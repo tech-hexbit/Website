@@ -10,8 +10,6 @@ export default function HelpDeskFormTicket(props) {
     window.scrollTo(0, 0);
   }, []);
 
-  console.log(props.setSubmitted);
-
   return (
     <>
       <div className={hdft.main}>
@@ -23,7 +21,7 @@ export default function HelpDeskFormTicket(props) {
             viewBox="0 0 28 48"
             fill="none"
             onClick={() => {
-              props.setSubmitted(!props.submitted);
+              props.changeState(false);
             }}
           >
             <path
