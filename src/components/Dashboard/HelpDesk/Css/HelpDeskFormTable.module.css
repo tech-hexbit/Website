@@ -25,7 +25,8 @@
 }
 
 .submain {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   padding-block: 1rem;
 }
@@ -113,6 +114,7 @@
   text-transform: capitalize;
   border: none;
   padding: 0.5rem 1rem;
+  border-radius: 8px;
 }
 
 /* media queries */
