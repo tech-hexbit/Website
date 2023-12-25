@@ -70,6 +70,7 @@ export default function Profile() {
                 <Route path="/Payment/Details" element={<PayDetails />} />
                 <Route path="/Payment/Request" element={<PayRequest />} />
                 <Route path="/orderdetails/:id" element={<Orderdetails />} />
+                <Route path="/help/desk/ViewMore" element={<Orderdetails />} />
               </>
             )}
           </Routes>
