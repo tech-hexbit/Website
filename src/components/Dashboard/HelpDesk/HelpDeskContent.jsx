@@ -1,6 +1,9 @@
+import React from "react";
+
+// css
 import hdc from "./Css/HelpDeskContent.module.css";
 
-const HelpDeskContent = () => {
+export default function HelpDeskContent() {
   return (
     <div className={hdc.main}>
       <p className={hdc.para}>
@@ -12,6 +15,4 @@ const HelpDeskContent = () => {
       <p className={hdc.para}>within 48 hrs. </p>
     </div>
   );
-};
-
-export default HelpDeskContent;
+}
