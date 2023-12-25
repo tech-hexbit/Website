@@ -19,9 +19,9 @@ export default function HelpDesk() {
 
   return (
     <>
+      <h1 className={hd.heading}>Contact Us</h1>
       {!submitted ? (
         <>
-          <h1 className={hd.heading}>Contact Us</h1>
           <p className={hd.para}>
             Just answer a few questions, Helping us answer your queries better.
             We will surely revert within 48 hrs.
@@ -32,7 +32,7 @@ export default function HelpDesk() {
         {!submitted ? (
           <HelpDeskForm setSubmitted={setSubmitted} />
         ) : (
-          <HelpDeskFormTicket />
+          <HelpDeskFormTicket setSubmitted={setSubmitted} />
         )}
         <div className={hd.submain}>
           <QuickInquiries />
