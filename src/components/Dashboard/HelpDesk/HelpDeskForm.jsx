@@ -111,6 +111,7 @@ export default function HelpDeskForm({ onFormSubmit }) {
       ) : (
         <div>
           <form onSubmit={handleSubmit}>
+            {/* Name */}
             <div className={hdf.flex}>
               <label htmlFor="fullName">Full Name *</label>
               <input
@@ -123,6 +124,8 @@ export default function HelpDeskForm({ onFormSubmit }) {
                 required
               />
             </div>
+
+            {/* Email */}
             <div className={hdf.flex}>
               <label htmlFor="email">Your Email *</label>
               <input
@@ -135,6 +138,8 @@ export default function HelpDeskForm({ onFormSubmit }) {
                 required
               />
             </div>
+
+            {/* Store Name */}
             <div className={hdf.flex}>
               <label htmlFor="storeName">Store Name *</label>
               <input
@@ -147,6 +152,8 @@ export default function HelpDeskForm({ onFormSubmit }) {
                 required
               />
             </div>
+
+            {/* Store ID */}
             <div className={hdf.flex}>
               <label htmlFor="storeId">Store ID *</label>
               <input
@@ -159,6 +166,8 @@ export default function HelpDeskForm({ onFormSubmit }) {
                 required
               />
             </div>
+
+            {/* Subject */}
             <div className={hdf.flex}>
               <label htmlFor="subject">Subject *</label>
               <input
@@ -171,6 +180,8 @@ export default function HelpDeskForm({ onFormSubmit }) {
                 required
               />
             </div>
+
+            {/* Message */}
             <div className={hdf.flex}>
               <label htmlFor="message">Message *</label>
               <textarea
