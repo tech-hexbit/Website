@@ -114,7 +114,6 @@ export default function HelpDeskForm({ onFormSubmit }) {
   };
 
   const DropCheck = () => {
-    // console.log(data.StoreID);
     if (
       "Kalinga Institute of Industrial Technology"
         .toLowerCase()
