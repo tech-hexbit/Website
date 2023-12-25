@@ -64,16 +64,16 @@ textarea::placeholder {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
   background-color: #fff;
   color: #000;
   border-radius: 0px 0px 5px 5px;
   padding: 10px 5px;
   text-align: center;
   font-family: "Mulish", sans-serif;
-  box-shadow: 0px 1px 1px 1px grey;
+  box-shadow: 0px 1px 1px 1px rgb(183, 183, 183);
   cursor: pointer;
   transition: all 0.2s;
-  width: 100%;
 }
 
 /* media queries */
