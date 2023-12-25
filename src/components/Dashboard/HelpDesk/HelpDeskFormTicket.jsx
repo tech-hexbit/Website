@@ -9,7 +9,7 @@ export default function HelpDeskFormTicket() {
   const redirect = useNavigate();
 
   const redirectToHelpDesk = () => {
-    redirect("/me/helpdesk");
+    redirect("/me/help/desk/ViewMore");
   };
 
   return (
