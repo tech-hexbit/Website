@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 // state
 import AuthContext from "./../../../store/auth-context";
@@ -71,6 +71,33 @@ export default function HelpDeskForm({ onFormSubmit }) {
 
     setData({ ...data, [name]: value });
   };
+
+  const loadStore = async () => {
+    try {
+      const response = await axios.post(
+        "/api/website/ContactUs/user/post",
+        data,
+        {
+          headers: { Authorization: `${authCtx.token}` },
+        }
+      );
+    } catch (e) {
+      setLoad(false);
+
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "Invalid Credentials",
+        val: true,
+      });
+    }
+  };
+
+  useEffect(() => {
+    loadStore();
+  }, []);
 
   return (
     <div className={hdf.main}>
