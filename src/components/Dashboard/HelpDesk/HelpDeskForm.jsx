@@ -81,7 +81,8 @@ export default function HelpDeskForm({ onFormSubmit }) {
 
       if (response.data.success) {
         setLoad(false);
-        console.log(response.data.stoeList);
+
+        setloadStore(response.data.stoeList);
       } else {
         setLoad(false);
       }
