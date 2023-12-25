@@ -15,6 +15,7 @@ import hdf from "./Css/HelpDeskForm.module.css";
 export default function HelpDeskForm({ onFormSubmit }) {
   const [load, setLoad] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [DropShow, hideDrop] = useState(false);
   const [showloadStore, setloadStore] = useState([]);
   const [data, setData] = useState({
     name: "",
@@ -112,6 +113,16 @@ export default function HelpDeskForm({ onFormSubmit }) {
     }
   };
 
+  const DropCheck = () => {
+    if (
+      "Kalinga Institute of Industrial Technology"
+        .toLowerCase()
+        .includes(data.StoreID)
+    ) {
+      hideDrop(true);
+    }
+  };
+
   useEffect(() => {
     if (DropShow) {
       document.addEventListener("mousedown", handler);
@@ -182,15 +193,18 @@ export default function HelpDeskForm({ onFormSubmit }) {
                   placeholder="your store id (located in my profile)"
                   value={data.StoreID}
                   onChange={handleChange}
+                  onFocus={() => {
+                    DropCheck();
+                  }}
                   required
                 />
                 <div
                   className={hdf.DropDownmDiv}
                   id={DropShow ? "showDropMenuClg" : "hideDropMenuClg"}
                   onClick={() => {
-                    setUser({
-                      ...showUser,
-                      College: "Kalinga Institute of Industrial Technology",
+                    setData({
+                      ...data,
+                      StoreID: "Kalinga Institute of Industrial Technology",
                     });
                     hideDrop(false);
                   }}
