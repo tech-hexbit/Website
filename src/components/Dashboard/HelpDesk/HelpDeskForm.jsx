@@ -11,6 +11,9 @@ import hdf from "./Css/HelpDeskForm.module.css";
 
 export default function HelpDeskForm({ onFormSubmit }) {
   const [submitted, setSubmitted] = useState(false);
+  const [data, setData] = useState({
+    email: "",
+  });
 
   const authCtx = useContext(AuthContext);
 
