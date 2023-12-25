@@ -49,6 +49,8 @@ export default function HelpDeskForm({ onFormSubmit }) {
       );
 
       console.log(response);
+
+      // setSubmitted(true); // Update local submitted state
     } catch (e) {
       setLoad(false);
 
@@ -61,8 +63,6 @@ export default function HelpDeskForm({ onFormSubmit }) {
         val: true,
       });
     }
-
-    // setSubmitted(true); // Update local submitted state
   };
 
   const handleChange = (e) => {
