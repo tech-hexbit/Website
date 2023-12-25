@@ -25,7 +25,8 @@
 }
 
 .submain {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   padding-block: 1rem;
 }
