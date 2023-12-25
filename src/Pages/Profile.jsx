@@ -20,6 +20,7 @@ import Categories from "./../components/Dashboard/Categories";
 import AddProduct from "./../components/Dashboard/AddProduct";
 import Dashboard from "./../components/Dashboard/DashboardMain";
 import Orderdetails from "./../components/Dashboard/Orderdetails";
+import HelpDeskTable from "./../components/Dashboard/HelpDesk/HelpDeskFormTable";
 //          || Admin
 import SupportAdmin from "./../components/Admin/Support";
 import SellersAdmin from "./../components/Admin/Sellers";
@@ -70,6 +71,7 @@ export default function Profile() {
                 <Route path="/Payment/Details" element={<PayDetails />} />
                 <Route path="/Payment/Request" element={<PayRequest />} />
                 <Route path="/orderdetails/:id" element={<Orderdetails />} />
+                <Route path="/help/desk/ViewMore" element={<HelpDeskTable />} />
               </>
             )}
           </Routes>

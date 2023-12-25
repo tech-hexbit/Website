@@ -5,9 +5,9 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 // MicroInteraction
-import LoadingPage from "../../MicroInteraction/Loading";
-import { Alert } from "./../../MicroInteraction/Alert";
 import Load from "../../MicroInteraction/Load";
+import { Alert } from "./../../MicroInteraction/Alert";
+import LoadingPage from "../../MicroInteraction/Loading";
 
 // state
 import AuthContext from "../../store/auth-context";
