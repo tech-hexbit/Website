@@ -1,6 +1,9 @@
+import React from "react";
+
+// css
 import mi from "./Css/MoreInquiries.module.css";
 
-const MoreInquiries = () => {
+export default function MoreInquiries() {
   return (
     <div className={mi.inquiry}>
       <h1>For more Inquiries</h1>
@@ -31,6 +34,4 @@ const MoreInquiries = () => {
       </div>
     </div>
   );
-};
-
-export default MoreInquiries;
+}
