@@ -107,5 +107,18 @@ textarea::placeholder {
 
 @media screen and (max-width: 450px) {
   .DropDownmDiv {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .DropDownmDiv .span1,
+  .DropDownmDiv .span2 {
+    margin: 0px 0px 0px 10px;
+  }
+
+  .DropDownmDiv .span1::before,
+  .DropDownmDiv .span2::before {
+    content: attr(data-span) ": ";
+    color: #636363;
   }
 }
