@@ -10,9 +10,6 @@ import { Alert } from "./../../../MicroInteraction/Alert";
 // axios
 import axios from "axios";
 
-// components
-import HelpDeskFormTicket from "./HelpDeskFormTicket";
-
 // css
 import hdf from "./Css/HelpDeskForm.module.css";
 
