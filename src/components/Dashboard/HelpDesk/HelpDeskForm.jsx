@@ -62,7 +62,6 @@ export default function HelpDeskForm({ onFormSubmit }) {
       });
     }
 
-    // Process form submission logic if needed
     // setSubmitted(true); // Update local submitted state
   };
 
