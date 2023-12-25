@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 // components
 import MoreInquiries from "./MoreInquiries";
@@ -105,7 +106,10 @@ export default function HelpDeskFormTable() {
         <MoreInquiries />
         <HelpDeskContent />
       </div>
-      <button className={hdftable.newrequest}>New Request</button>
+
+      <Link to="/me/help/desk" className={hdftable.newrequest}>
+        <>New Request</>
+      </Link>
     </div>
   );
 }
