@@ -7,6 +7,7 @@
 }
 
 .main input {
+  outline: none;
   border-radius: 20px;
   border: 1px solid #d3d3d3;
   background: #fff;
@@ -15,6 +16,7 @@
 }
 
 .main textarea {
+  outline: none;
   border-radius: 20px;
   border: 1px solid #d3d3d3;
   background: #fff;
@@ -45,6 +47,7 @@ textarea::placeholder {
   font-weight: 700;
   border: none;
   margin-block-start: 1rem;
+  cursor: pointer;
 }
 
 /* media queries */
