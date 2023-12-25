@@ -197,6 +197,8 @@ export default function HelpDeskForm({ onFormSubmit }) {
                     DropCheck();
                   }}
                   className={hdf.storeInp}
+                  spellcheck="true"
+                  autocomplete="off"
                   required
                 />
 
