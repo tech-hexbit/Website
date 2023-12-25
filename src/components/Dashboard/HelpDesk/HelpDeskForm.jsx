@@ -11,16 +11,16 @@ export default function HelpDeskForm({ onFormSubmit }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
     // Process form submission logic if needed
     setSubmitted(true); // Update local submitted state
     onFormSubmit(); // Call the onFormSubmit function received from props
-    console.log("Help Desk Form -----submitted------- ");
   };
 
   return (
     <div className={hdf.main}>
       {submitted ? (
-        <HelpDeskFormTicket />
+        <HelpDeskFormTicket submitted={submitted} setSubmitted={setSubmitted} />
       ) : (
         <div>
           <form onSubmit={handleSubmit}>
