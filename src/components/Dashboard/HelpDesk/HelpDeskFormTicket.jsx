@@ -1,21 +1,16 @@
 import React, { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // css
 import hdft from "./Css/HelpDeskFormTicket.module.css";
 
 export default function HelpDeskFormTicket(props) {
-  // not working
-  const redirect = useNavigate();
-
-  const redirectToHelpDesk = () => {
-    redirect("/me/help/desk/ViewMore");
-  };
-
   // scroll to top
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  console.log(props.setSubmitted);
 
   return (
     <>
@@ -62,9 +57,9 @@ export default function HelpDeskFormTicket(props) {
           <button>Details</button>
           <button>New Request</button>
         </div>
-        <button className={hdft.ticket} onClick={redirectToHelpDesk}>
-          Ticket Status
-        </button>
+        <Link to="/me/help/desk/ViewMore">
+          <button className={hdft.ticket}>Ticket Status</button>
+        </Link>
       </div>
     </>
   );
