@@ -85,7 +85,14 @@ export default function HelpDeskForm({ onFormSubmit }) {
       if (response.data.success) {
         setLoad(false);
 
-        setloadStore(response.data.stoeList);
+        let a = [];
+
+        a.push(response.data.stoeList[0]);
+        a.push(response.data.stoeList[0]);
+        a.push(response.data.stoeList[0]);
+
+        // setloadStore(response.data.stoeList);
+        setloadStore(a);
       } else {
         setLoad(false);
       }
