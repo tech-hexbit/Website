@@ -3,6 +3,9 @@ import React, { useState, useEffect, useContext, useRef } from "react";
 // state
 import AuthContext from "./../../../store/auth-context";
 
+// MicroInteraction
+import Load from "./../../../MicroInteraction/Load";
+
 // axios
 import axios from "axios";
 
@@ -99,7 +102,7 @@ export default function HelpDeskForm({ onFormSubmit }) {
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
-        text: "Invalid Credentials",
+        text: "An unexpected error occurred",
         val: true,
       });
     }
@@ -197,48 +200,58 @@ export default function HelpDeskForm({ onFormSubmit }) {
                 />
 
                 <div className={hdf.MainDropDown}>
-                  {showloadStore.length > 0 ? (
-                    <>
-                      {showloadStore
-                        .filter((val) => {
-                          if (data.StoreID === "") {
-                            return val;
-                          } else if (
-                            val.StoreID._id
-                              .toLowerCase()
-                              .includes(data.StoreID.toLowerCase())
-                          ) {
-                            return val;
-                          }
-                        })
-                        .map((val, key) => {
-                          return (
-                            <div
-                              key={key}
-                              className={hdf.DropDownmDiv}
-                              id={
-                                DropShow ? "showDropMenuClg" : "hideDropMenuClg"
-                              }
-                              onClick={() => {
-                                setData({
-                                  ...data,
-                                  StoreID: val.StoreID._id,
-                                });
-                                hideDrop(false);
-                              }}
-                            >
-                              <span className={hdf.span1}>
-                                {val.StoreID._id}
-                              </span>
-                              <span className={hdf.span2}>
-                                {val.StoreID.StoreName}
-                              </span>
-                            </div>
-                          );
-                        })}
-                    </>
+                  {loadMIStore ? (
+                    <div className="loadCenterDiv">
+                      <Load />
+                    </div>
                   ) : (
-                    ""
+                    <>
+                      {showloadStore.length > 0 ? (
+                        <>
+                          {showloadStore
+                            .filter((val) => {
+                              if (data.StoreID === "") {
+                                return val;
+                              } else if (
+                                val.StoreID._id
+                                  .toLowerCase()
+                                  .includes(data.StoreID.toLowerCase())
+                              ) {
+                                return val;
+                              }
+                            })
+                            .map((val, key) => {
+                              return (
+                                <div
+                                  key={key}
+                                  className={hdf.DropDownmDiv}
+                                  id={
+                                    DropShow
+                                      ? "showDropMenuClg"
+                                      : "hideDropMenuClg"
+                                  }
+                                  onClick={() => {
+                                    setData({
+                                      ...data,
+                                      StoreID: val.StoreID._id,
+                                    });
+                                    hideDrop(false);
+                                  }}
+                                >
+                                  <span className={hdf.span1}>
+                                    {val.StoreID._id}
+                                  </span>
+                                  <span className={hdf.span2}>
+                                    {val.StoreID.StoreName}
+                                  </span>
+                                </div>
+                              );
+                            })}
+                        </>
+                      ) : (
+                        <div className="loadCenterDiv">No Available Stores</div>
+                      )}
+                    </>
                   )}
                 </div>
               </div>
