@@ -188,6 +188,9 @@ export default function HelpDeskForm({ onFormSubmit }) {
                   className={hdf.storeInp}
                   spellcheck="true"
                   autocomplete="off"
+                  onFocus={() => {
+                    hideDrop(true);
+                  }}
                   required
                 />
 
