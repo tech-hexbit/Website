@@ -19,7 +19,6 @@ import hdf from "./Css/HelpDeskForm.module.css";
 export default function HelpDeskForm(props) {
   const [load, setLoad] = useState(false);
   const [DropShow, hideDrop] = useState(false);
-  // const [submitted, setSubmitted] = useState(false);
   const [showloadStore, setloadStore] = useState([]);
   const [loadMIStore, setLoadMIStore] = useState(false);
   const [data, setData] = useState({
