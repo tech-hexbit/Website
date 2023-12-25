@@ -15,7 +15,7 @@ const HelpDeskFormTable = () => {
       date: "13/05/2022",
       amount: "₹366.16",
       paymentMode: "Not Paid",
-      status: "Solved"
+      status: "Solved",
     },
     {
       trackingId: "#18933",
@@ -24,7 +24,7 @@ const HelpDeskFormTable = () => {
       date: "22/05/2022",
       amount: "₹366.16",
       paymentMode: "Paid",
-      status: "Delivered & Eligible"
+      status: "Delivered & Eligible",
     },
     {
       trackingId: "#45169",
@@ -33,7 +33,7 @@ const HelpDeskFormTable = () => {
       date: "15/06/2022",
       amount: "₹366.16",
       paymentMode: "Not Paid",
-      status: "Pending"
+      status: "Pending",
     },
     {
       trackingId: "#34304",
@@ -42,8 +42,8 @@ const HelpDeskFormTable = () => {
       date: "06/09/2022",
       amount: "₹366.16",
       paymentMode: "Paid",
-      status: "Pending"
-    }
+      status: "Pending",
+    },
   ];
   return (
     <div className={hdftable.main}>
