@@ -69,7 +69,7 @@ export default function HelpDeskForm(props) {
           message: "",
         });
 
-        // setSubmitted(true); // Update local submitted state
+        props.setSubmitted(true);
       } else {
         setLoad(false);
       }
