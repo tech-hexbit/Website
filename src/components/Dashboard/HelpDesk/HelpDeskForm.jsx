@@ -249,10 +249,13 @@ export default function HelpDeskForm(props) {
                                     hideDrop(false);
                                   }}
                                 >
-                                  <span className={hdf.span1}>
+                                  <span data-span="ID" className={hdf.span1}>
                                     {val.StoreID._id}
                                   </span>
-                                  <span className={hdf.span2}>
+                                  <span
+                                    data-span="Store Name"
+                                    className={hdf.span2}
+                                  >
                                     {val.StoreID.StoreName}
                                   </span>
                                 </div>
