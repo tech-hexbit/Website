@@ -82,6 +82,8 @@ export default function HelpDeskForm({ onFormSubmit }) {
         headers: { Authorization: `${authCtx.token}` },
       });
 
+      console.log(response.data);
+
       if (response.data.success) {
         setLoad(false);
 
