@@ -74,13 +74,11 @@ export default function HelpDeskForm({ onFormSubmit }) {
 
   const loadStore = async () => {
     try {
-      const response = await axios.post(
-        "/api/website/ContactUs/storeList/get",
-        data,
-        {
-          headers: { Authorization: `${authCtx.token}` },
-        }
-      );
+      const response = await axios.get("/api/website/ContactUs/storeList/get", {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+
+      console.log(response.data);
     } catch (e) {
       setLoad(false);
 
