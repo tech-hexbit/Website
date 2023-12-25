@@ -29,11 +29,13 @@ export default function HelpDesk() {
         </>
       ) : null}
       <div className={hd.main}>
-        {!submitted ? (
-          <HelpDeskForm setSubmitted={setSubmitted} />
-        ) : (
-          <HelpDeskFormTicket setSubmitted={setSubmitted} />
-        )}
+        <>
+          {!submitted ? (
+            <HelpDeskForm setSubmitted={setSubmitted} />
+          ) : (
+            <HelpDeskFormTicket setSubmitted={setSubmitted} />
+          )}
+        </>
         <div className={hd.submain}>
           <QuickInquiries />
           <PastTicket />
