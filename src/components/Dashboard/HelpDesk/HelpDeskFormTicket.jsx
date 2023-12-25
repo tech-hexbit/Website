@@ -13,7 +13,7 @@ export default function HelpDeskFormTicket(props) {
   return (
     <>
       <div className={hdft.main}>
-        <h1>
+        {/* <h1>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="28"
@@ -21,7 +21,7 @@ export default function HelpDeskFormTicket(props) {
             viewBox="0 0 28 48"
             fill="none"
             onClick={() => {
-              props.changeState(false);
+              props.setSubmitted(false);
             }}
           >
             <path
@@ -30,7 +30,7 @@ export default function HelpDeskFormTicket(props) {
             />
           </svg>
           Contact us
-        </h1>
+        </h1> */}
 
         <div className={hdft.icon}>
           <svg
