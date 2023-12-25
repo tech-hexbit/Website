@@ -73,12 +73,18 @@ export default function HelpDeskForm({ onFormSubmit }) {
   };
 
   const loadStore = async () => {
+    console.log("loadStore");
     try {
       const response = await axios.get("/api/website/ContactUs/storeList/get", {
         headers: { Authorization: `${authCtx.token}` },
       });
 
-      console.log(response.data);
+      if (response.data.success) {
+        setLoad(false);
+        console.log(response.data.stoeList);
+      } else {
+        setLoad(false);
+      }
     } catch (e) {
       setLoad(false);
 
