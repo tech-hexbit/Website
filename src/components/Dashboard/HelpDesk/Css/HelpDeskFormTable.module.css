@@ -116,7 +116,7 @@
 }
 
 /* media queries */
-@media (width<= 1070px) {
+@media (width<=1070px) {
   .submain {
     justify-content: start;
   }
