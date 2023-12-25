@@ -196,6 +196,7 @@ export default function HelpDeskForm({ onFormSubmit }) {
                   onFocus={() => {
                     DropCheck();
                   }}
+                  className={hdf.storeInp}
                   required
                 />
                 <div
