@@ -211,7 +211,6 @@ export default function HelpDeskForm({ onFormSubmit }) {
                 {showloadStore.length > 0 ? (
                   <>
                     {showloadStore.map((val, key) => {
-                      console.log(val);
                       return (
                         <div
                           key={key}
@@ -226,7 +225,8 @@ export default function HelpDeskForm({ onFormSubmit }) {
                             hideDrop(false);
                           }}
                         >
-                          Kalinga Institute of Industrial Technology
+                          <span>{val.StoreID._id}</span>
+                          <span>{val.StoreID.StoreName}</span>
                         </div>
                       );
                     })}
