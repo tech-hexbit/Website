@@ -194,6 +194,7 @@ export default function HelpDeskForm({ onFormSubmit }) {
                 required
               ></textarea>
             </div>
+
             <button type="submit">Submit</button>
           </form>
         </div>
