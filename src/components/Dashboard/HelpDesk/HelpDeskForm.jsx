@@ -14,6 +14,7 @@ import hdf from "./Css/HelpDeskForm.module.css";
 
 export default function HelpDeskForm({ onFormSubmit }) {
   const [load, setLoad] = useState(false);
+  const [loadMIStore, setLoadMIStore] = useState(false);
   const [DropShow, hideDrop] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [showloadStore, setloadStore] = useState([]);
@@ -77,20 +78,21 @@ export default function HelpDeskForm({ onFormSubmit }) {
   };
 
   const loadStore = async () => {
+    setLoadMIStore(true);
     try {
       const response = await axios.get("/api/website/ContactUs/storeList/get", {
         headers: { Authorization: `${authCtx.token}` },
       });
 
       if (response.data.success) {
-        setLoad(false);
+        setLoadMIStore(false);
 
         setloadStore(response.data.stoeList);
       } else {
-        setLoad(false);
+        setLoadMIStore(false);
       }
     } catch (e) {
-      setLoad(false);
+      setLoadMIStore(false);
 
       setError({
         mainColor: "#FDEDED",
