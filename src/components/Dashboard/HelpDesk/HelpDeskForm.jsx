@@ -17,10 +17,12 @@ export default function HelpDeskForm({ onFormSubmit }) {
     onFormSubmit(); // Call the onFormSubmit function received from props
   };
 
+  console.log(setSubmitted);
+
   return (
     <div className={hdf.main}>
       {submitted ? (
-        <HelpDeskFormTicket submitted={submitted} setSubmitted={setSubmitted} />
+        <HelpDeskFormTicket changeState={setSubmitted} />
       ) : (
         <div>
           <form onSubmit={handleSubmit}>
