@@ -1,3 +1,5 @@
+import React from "react";
+
 // components
 import MoreInquiries from "./MoreInquiries";
 import HelpDeskContent from "./HelpDeskContent";
@@ -5,7 +7,7 @@ import HelpDeskContent from "./HelpDeskContent";
 // css
 import hdftable from "./Css/HelpDeskFormTable.module.css";
 
-const HelpDeskFormTable = () => {
+export default function HelpDeskFormTable() {
   // dummy data
   const data = [
     {
@@ -100,6 +102,4 @@ const HelpDeskFormTable = () => {
       <button className={hdftable.newrequest}>New Request</button>
     </div>
   );
-};
-
-export default HelpDeskFormTable;
+}
