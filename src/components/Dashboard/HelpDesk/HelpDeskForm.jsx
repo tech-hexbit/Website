@@ -82,8 +82,6 @@ export default function HelpDeskForm({ onFormSubmit }) {
         headers: { Authorization: `${authCtx.token}` },
       });
 
-      console.log(response.data);
-
       if (response.data.success) {
         setLoad(false);
 
@@ -210,21 +208,32 @@ export default function HelpDeskForm({ onFormSubmit }) {
                   required
                 />
 
-                {showloadStore.length > 0 ? "" : ""}
-
-                <div
-                  className={hdf.DropDownmDiv}
-                  id={DropShow ? "showDropMenuClg" : "hideDropMenuClg"}
-                  onClick={() => {
-                    setData({
-                      ...data,
-                      StoreID: "Kalinga Institute of Industrial Technology",
-                    });
-                    hideDrop(false);
-                  }}
-                >
-                  Kalinga Institute of Industrial Technology
-                </div>
+                {showloadStore.length > 0 ? (
+                  <>
+                    {showloadStore.map((val, key) => {
+                      console.log(val);
+                      return (
+                        <div
+                          key={key}
+                          className={hdf.DropDownmDiv}
+                          id={DropShow ? "showDropMenuClg" : "hideDropMenuClg"}
+                          onClick={() => {
+                            setData({
+                              ...data,
+                              StoreID:
+                                "Kalinga Institute of Industrial Technology",
+                            });
+                            hideDrop(false);
+                          }}
+                        >
+                          Kalinga Institute of Industrial Technology
+                        </div>
+                      );
+                    })}
+                  </>
+                ) : (
+                  ""
+                )}
               </div>
             </div>
 
