@@ -3,6 +3,9 @@ import React, { useState, useContext } from "react";
 // state
 import AuthContext from "./../../../store/auth-context";
 
+// axios
+import axios from "axios";
+
 // components
 import HelpDeskFormTicket from "./HelpDeskFormTicket";
 
@@ -10,6 +13,7 @@ import HelpDeskFormTicket from "./HelpDeskFormTicket";
 import hdf from "./Css/HelpDeskForm.module.css";
 
 export default function HelpDeskForm({ onFormSubmit }) {
+  const [load, setLoad] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [data, setData] = useState({
     name: "",
@@ -19,15 +23,47 @@ export default function HelpDeskForm({ onFormSubmit }) {
     subject: "",
     message: "",
   });
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
 
   const authCtx = useContext(AuthContext);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
+    try {
+      console.log("Submit Data");
+
+      const response = await axios.post(
+        "/api/website/ContactUs/user/post",
+        data,
+        {
+          headers: { Authorization: `${authCtx.token}` },
+        }
+      );
+
+      console.log(response);
+    } catch (e) {
+      setLoad(false);
+
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "Invalid Credentials",
+        val: true,
+      });
+    }
+
     // Process form submission logic if needed
-    setSubmitted(true); // Update local submitted state
-    onFormSubmit(); // Call the onFormSubmit function received from props
+    // setSubmitted(true); // Update local submitted state
   };
 
   const handleChange = (e) => {
