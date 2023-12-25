@@ -104,3 +104,8 @@ textarea::placeholder {
     padding-inline-start: 0.5rem;
   }
 }
+
+@media screen and (max-width: 450px) {
+  .DropDownmDiv {
+  }
+}
