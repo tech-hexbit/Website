@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 
 // state
 import AuthContext from "./../../../store/auth-context";
@@ -34,6 +34,8 @@ export default function HelpDeskForm({ onFormSubmit }) {
   });
 
   const authCtx = useContext(AuthContext);
+
+  let menu = useRef();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -100,6 +102,22 @@ export default function HelpDeskForm({ onFormSubmit }) {
     }
   };
 
+  const handler = (e) => {
+    try {
+      if (!menu.current.contains(e.target)) {
+        hideDrop(false);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    if (DropShow) {
+      document.addEventListener("mousedown", handler);
+    }
+  });
+
   useEffect(() => {
     loadStore();
   }, []);
@@ -156,15 +174,30 @@ export default function HelpDeskForm({ onFormSubmit }) {
             {/* Store ID */}
             <div className={hdf.flex}>
               <label htmlFor="storeId">Store ID *</label>
-              <input
-                type="text"
-                id="storeId"
-                name="StoreID"
-                placeholder="your store id (located in my profile)"
-                value={data.StoreID}
-                onChange={handleChange}
-                required
-              />
+              <div ref={menu} className={hdf.CollegeInpmDIv}>
+                <input
+                  type="text"
+                  id="storeId"
+                  name="StoreID"
+                  placeholder="your store id (located in my profile)"
+                  value={data.StoreID}
+                  onChange={handleChange}
+                  required
+                />
+                <div
+                  className={hdf.DropDownmDiv}
+                  id={DropShow ? "showDropMenuClg" : "hideDropMenuClg"}
+                  onClick={() => {
+                    setUser({
+                      ...showUser,
+                      College: "Kalinga Institute of Industrial Technology",
+                    });
+                    hideDrop(false);
+                  }}
+                >
+                  Kalinga Institute of Industrial Technology
+                </div>
+              </div>
             </div>
 
             {/* Subject */}
