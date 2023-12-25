@@ -115,30 +115,11 @@ export default function HelpDeskForm({ onFormSubmit }) {
     }
   };
 
-  // const DropCheck = () => {
-  //   console.log(data.StoreID);
-
-  //   console.log(...showloadStore);
-  //   if (
-  //     "Kalinga Institute of Industrial Technology"
-  //       .toLowerCase()
-  //       .includes(data.StoreID)
-  //   ) {
-  //     hideDrop(true);
-  //   } else {
-  //     hideDrop(false);
-  //   }
-  // };
-
   useEffect(() => {
     if (DropShow) {
       document.addEventListener("mousedown", handler);
     }
   });
-
-  // useEffect(() => {
-  //   DropCheck();
-  // }, [data.StoreID]);
 
   useEffect(() => {
     loadStore();
@@ -221,12 +202,10 @@ export default function HelpDeskForm({ onFormSubmit }) {
                             .toLowerCase()
                             .includes(data.StoreID.toLowerCase())
                         ) {
-                          console.log(val.StoreID._id);
                           return val;
                         }
                       })
                       .map((val, key) => {
-                        console.log(val);
                         return (
                           <div
                             key={key}
