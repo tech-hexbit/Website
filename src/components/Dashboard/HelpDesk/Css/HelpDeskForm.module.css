@@ -71,7 +71,6 @@ textarea::placeholder {
   border-radius: 5px;
   padding: 10px 5px;
   text-align: center;
-  font-family: "Mulish", sans-serif;
   box-shadow: 0px 1px 1px 1px rgb(183, 183, 183);
   cursor: pointer;
   transition: all 0.2s;
