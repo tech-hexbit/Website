@@ -147,9 +147,6 @@ export default function HelpDeskForm(props) {
   return (
     <>
       <div className={hdf.main}>
-        {/* {submitted ? (
-          <HelpDeskFormTicket changeState={setSubmitted} />
-        ) : ( */}
         <div>
           <form onSubmit={handleSubmit}>
             {/* Name */}
@@ -303,7 +300,6 @@ export default function HelpDeskForm(props) {
             <button type="submit">{load ? <Load /> : "Submit"}</button>
           </form>
         </div>
-        {/* )} */}
       </div>
 
       <Alert variant={variants} val={setError} />
