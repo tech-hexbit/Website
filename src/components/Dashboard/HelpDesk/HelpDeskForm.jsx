@@ -30,7 +30,12 @@ export default function HelpDeskForm({ onFormSubmit }) {
     onFormSubmit(); // Call the onFormSubmit function received from props
   };
 
-  console.log(authCtx.user.Email);
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    setData({ ...data, [name]: value });
+  };
 
   return (
     <div className={hdf.main}>
