@@ -201,47 +201,51 @@ export default function HelpDeskForm({ onFormSubmit }) {
                   required
                 />
 
-                {showloadStore.length > 0 ? (
-                  <>
-                    {showloadStore
-                      .filter((val) => {
-                        if (data.StoreID === "") {
-                          return val;
-                        } else if (
-                          val.StoreID._id
-                            .toLowerCase()
-                            .includes(data.StoreID.toLowerCase())
-                        ) {
-                          return val;
-                        }
-                      })
-                      .map((val, key) => {
-                        return (
-                          <div
-                            key={key}
-                            className={hdf.DropDownmDiv}
-                            id={
-                              DropShow ? "showDropMenuClg" : "hideDropMenuClg"
-                            }
-                            onClick={() => {
-                              setData({
-                                ...data,
-                                StoreID: val.StoreID._id,
-                              });
-                              hideDrop(false);
-                            }}
-                          >
-                            <span className={hdf.span1}>{val.StoreID._id}</span>
-                            <span className={hdf.span2}>
-                              {val.StoreID.StoreName}
-                            </span>
-                          </div>
-                        );
-                      })}
-                  </>
-                ) : (
-                  ""
-                )}
+                <div className={hdf.MainDropDown}>
+                  {showloadStore.length > 0 ? (
+                    <>
+                      {showloadStore
+                        .filter((val) => {
+                          if (data.StoreID === "") {
+                            return val;
+                          } else if (
+                            val.StoreID._id
+                              .toLowerCase()
+                              .includes(data.StoreID.toLowerCase())
+                          ) {
+                            return val;
+                          }
+                        })
+                        .map((val, key) => {
+                          return (
+                            <div
+                              key={key}
+                              className={hdf.DropDownmDiv}
+                              id={
+                                DropShow ? "showDropMenuClg" : "hideDropMenuClg"
+                              }
+                              onClick={() => {
+                                setData({
+                                  ...data,
+                                  StoreID: val.StoreID._id,
+                                });
+                                hideDrop(false);
+                              }}
+                            >
+                              <span className={hdf.span1}>
+                                {val.StoreID._id}
+                              </span>
+                              <span className={hdf.span2}>
+                                {val.StoreID.StoreName}
+                              </span>
+                            </div>
+                          );
+                        })}
+                    </>
+                  ) : (
+                    ""
+                  )}
+                </div>
               </div>
             </div>
 
