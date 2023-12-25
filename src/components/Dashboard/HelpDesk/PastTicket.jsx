@@ -17,7 +17,7 @@ export default function PastTicket() {
         <div className={`${pt.child} ${pt.green}`}>Solved</div>
         <div className={pt.child}>#HX00004</div>
         <div className={`${pt.child} ${pt.green}`}>Solved</div>
-        <Link to="/me/table" className={pt.btn}>
+        <Link to="/me/help/desk/ViewMore" className={pt.btn}>
           View More
         </Link>
       </div>
