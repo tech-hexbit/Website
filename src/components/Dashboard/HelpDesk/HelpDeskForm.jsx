@@ -59,6 +59,15 @@ export default function HelpDeskForm({ onFormSubmit }) {
       if (response.data.success) {
         setLoad(false);
 
+        setData({
+          name: "",
+          emailID: "",
+          StoreName: "",
+          StoreID: "",
+          subject: "",
+          message: "",
+        });
+
         // setSubmitted(true); // Update local submitted state
       } else {
         setLoad(false);
