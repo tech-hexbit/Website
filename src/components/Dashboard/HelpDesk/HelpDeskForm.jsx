@@ -225,8 +225,10 @@ export default function HelpDeskForm({ onFormSubmit }) {
                             hideDrop(false);
                           }}
                         >
-                          <span>{val.StoreID._id}</span>
-                          <span>{val.StoreID.StoreName}</span>
+                          <span className={hdf.span1}>{val.StoreID._id}</span>
+                          <span className={hdf.span2}>
+                            {val.StoreID.StoreName}
+                          </span>
                         </div>
                       );
                     })}
