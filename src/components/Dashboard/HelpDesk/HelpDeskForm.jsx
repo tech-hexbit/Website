@@ -12,7 +12,12 @@ import hdf from "./Css/HelpDeskForm.module.css";
 export default function HelpDeskForm({ onFormSubmit }) {
   const [submitted, setSubmitted] = useState(false);
   const [data, setData] = useState({
-    email: "",
+    name: "",
+    emailID: "",
+    StoreName: "",
+    StoreID: "",
+    subject: "",
+    message: "",
   });
 
   const authCtx = useContext(AuthContext);
@@ -39,10 +44,10 @@ export default function HelpDeskForm({ onFormSubmit }) {
               <input
                 type="text"
                 id="fullName"
-                name="fullName"
+                name="name"
                 placeholder="john david"
-                // value={formData.fullName}
-                // onChange={handleChange}
+                value={data.name}
+                onChange={handleChange}
                 required
               />
             </div>
@@ -51,10 +56,10 @@ export default function HelpDeskForm({ onFormSubmit }) {
               <input
                 type="email"
                 id="email"
-                name="email"
+                name="emailID"
                 placeholder="example@yourmail.com"
-                // value={formData.email}
-                // onChange={handleChange}
+                value={data.emailID}
+                onChange={handleChange}
                 required
               />
             </div>
@@ -63,10 +68,10 @@ export default function HelpDeskForm({ onFormSubmit }) {
               <input
                 type="text"
                 id="storeName"
-                name="storeName"
+                name="StoreName"
                 placeholder="your company name here"
-                // value={formData.storeName}
-                // onChange={handleChange}
+                value={data.StoreName}
+                onChange={handleChange}
                 required
               />
             </div>
@@ -75,10 +80,10 @@ export default function HelpDeskForm({ onFormSubmit }) {
               <input
                 type="text"
                 id="storeId"
-                name="storeId"
+                name="StoreID"
                 placeholder="your store id (located in my profile)"
-                // value={formData.storeId}
-                // onChange={handleChange}
+                value={data.StoreID}
+                onChange={handleChange}
                 required
               />
             </div>
@@ -89,8 +94,8 @@ export default function HelpDeskForm({ onFormSubmit }) {
                 id="subject"
                 name="subject"
                 placeholder="brief title of your query"
-                // value={formData.subject}
-                // onChange={handleChange}
+                value={data.subject}
+                onChange={handleChange}
                 required
               />
             </div>
@@ -100,9 +105,9 @@ export default function HelpDeskForm({ onFormSubmit }) {
                 id="message"
                 name="message"
                 rows={10}
-                placeholder="brief description of the query min 120 characters"
-                // value={formData.message}
-                // onChange={handleChange}
+                placeholder="Brief description of the query min 120 characters"
+                value={data.message}
+                onChange={handleChange}
                 required
               ></textarea>
             </div>
