@@ -107,23 +107,28 @@ export default function HelpDeskForm({ onFormSubmit }) {
     try {
       if (!menu.current.contains(e.target)) {
         hideDrop(false);
+      } else {
+        hideDrop(true);
       }
     } catch (error) {
       console.log(error);
     }
   };
 
-  const DropCheck = () => {
-    if (
-      "Kalinga Institute of Industrial Technology"
-        .toLowerCase()
-        .includes(data.StoreID)
-    ) {
-      hideDrop(true);
-    } else {
-      hideDrop(false);
-    }
-  };
+  // const DropCheck = () => {
+  //   console.log(data.StoreID);
+
+  //   console.log(...showloadStore);
+  //   if (
+  //     "Kalinga Institute of Industrial Technology"
+  //       .toLowerCase()
+  //       .includes(data.StoreID)
+  //   ) {
+  //     hideDrop(true);
+  //   } else {
+  //     hideDrop(false);
+  //   }
+  // };
 
   useEffect(() => {
     if (DropShow) {
@@ -131,9 +136,9 @@ export default function HelpDeskForm({ onFormSubmit }) {
     }
   });
 
-  useEffect(() => {
-    DropCheck();
-  }, [data.StoreID]);
+  // useEffect(() => {
+  //   DropCheck();
+  // }, [data.StoreID]);
 
   useEffect(() => {
     loadStore();
@@ -199,9 +204,6 @@ export default function HelpDeskForm({ onFormSubmit }) {
                   placeholder="your store id (located in my profile)"
                   value={data.StoreID}
                   onChange={handleChange}
-                  onFocus={() => {
-                    DropCheck();
-                  }}
                   className={hdf.storeInp}
                   spellcheck="true"
                   autocomplete="off"
@@ -210,28 +212,43 @@ export default function HelpDeskForm({ onFormSubmit }) {
 
                 {showloadStore.length > 0 ? (
                   <>
-                    {showloadStore.map((val, key) => {
-                      return (
-                        <div
-                          key={key}
-                          className={hdf.DropDownmDiv}
-                          id={DropShow ? "showDropMenuClg" : "hideDropMenuClg"}
-                          onClick={() => {
-                            setData({
-                              ...data,
-                              StoreID:
-                                "Kalinga Institute of Industrial Technology",
-                            });
-                            hideDrop(false);
-                          }}
-                        >
-                          <span className={hdf.span1}>{val.StoreID._id}</span>
-                          <span className={hdf.span2}>
-                            {val.StoreID.StoreName}
-                          </span>
-                        </div>
-                      );
-                    })}
+                    {showloadStore
+                      .filter((val) => {
+                        if (data.StoreID === "") {
+                          return val;
+                        } else if (
+                          val.StoreID._id
+                            .toLowerCase()
+                            .includes(data.StoreID.toLowerCase())
+                        ) {
+                          console.log(val.StoreID._id);
+                          return val;
+                        }
+                      })
+                      .map((val, key) => {
+                        console.log(val);
+                        return (
+                          <div
+                            key={key}
+                            className={hdf.DropDownmDiv}
+                            id={
+                              DropShow ? "showDropMenuClg" : "hideDropMenuClg"
+                            }
+                            onClick={() => {
+                              setData({
+                                ...data,
+                                StoreID: val.StoreID._id,
+                              });
+                              hideDrop(false);
+                            }}
+                          >
+                            <span className={hdf.span1}>{val.StoreID._id}</span>
+                            <span className={hdf.span2}>
+                              {val.StoreID.StoreName}
+                            </span>
+                          </div>
+                        );
+                      })}
                   </>
                 ) : (
                   ""
