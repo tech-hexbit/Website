@@ -7,6 +7,7 @@ import hdft from "./Css/HelpDeskFormTicket.module.css";
 export default function HelpDeskFormTicket() {
   // not working
   const redirect = useNavigate();
+
   const redirectToHelpDesk = () => {
     redirect("/me/helpdesk");
   };
