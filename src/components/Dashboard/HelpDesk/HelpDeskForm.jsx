@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+
+// state
+import AuthContext from "./../../../store/auth-context";
 
 // components
 import HelpDeskFormTicket from "./HelpDeskFormTicket";
@@ -9,6 +12,8 @@ import hdf from "./Css/HelpDeskForm.module.css";
 export default function HelpDeskForm({ onFormSubmit }) {
   const [submitted, setSubmitted] = useState(false);
 
+  const authCtx = useContext(AuthContext);
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -17,7 +22,7 @@ export default function HelpDeskForm({ onFormSubmit }) {
     onFormSubmit(); // Call the onFormSubmit function received from props
   };
 
-  console.log(setSubmitted);
+  console.log(authCtx.user.Email);
 
   return (
     <div className={hdf.main}>
