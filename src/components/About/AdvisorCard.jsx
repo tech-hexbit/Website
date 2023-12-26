@@ -6,7 +6,7 @@ export default function AdvisorCard(props) {
   return (
     <div className={AdCss.mainDiv}>
       <div className={AdCss.image}>
-        <MissionBlurAdvisory src={props.image} blur={props.blur}/>
+        <MissionBlurAdvisory src={props.image} blur={props.blur} />
       </div>
       <div className={AdCss.details}>
         <div className={AdCss.name}>{props.name}</div>

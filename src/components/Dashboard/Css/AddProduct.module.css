@@ -3,31 +3,23 @@
   font-style: normal;
   font-weight: 700;
   line-height: 27px;
-  /* position: relative; */
 }
 
-.AddHPTag {
-  /* border-style: solid;
-  border-width: 0px 0px 1px 0px;
-  border-color: #d3d3d3;
-  padding-bottom: 7px; */
-}
-.headDiv{
+.headDiv {
   display: flex;
   justify-content: space-between;
   border-style: solid;
   border-width: 0px 0px 1px 0px;
   border-color: #d3d3d3;
   padding-bottom: 7px;
-
 }
-.addCsv button{
-  border: none;
-    border-radius: 5px;
-    background: rgba(63, 129, 224, 0.50);
-    color: #1746A2;
-    font-size: 18px;
-    padding: 6px 25px;
-    cursor: pointer;
 
+.addCsv button {
+  border: none;
+  border-radius: 5px;
+  background: rgba(63, 129, 224, 0.5);
+  color: #1746a2;
+  font-size: 18px;
+  padding: 6px 25px;
+  cursor: pointer;
 }

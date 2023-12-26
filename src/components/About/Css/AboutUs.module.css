@@ -15,7 +15,6 @@
   background-color: red;
   border-radius: 15px;
   overflow: hidden;
-  
 }
 
 .left img {
@@ -186,13 +185,6 @@ span {
     width: 100%;
   }
 }
-/* @media screen and (max-width: 1230px) {
-  .topHead{
-    margin-left: 30px;
-  }
-} */
-
-
 
 @media screen and (max-width: 1120px) {
   .head {
@@ -208,10 +200,10 @@ span {
   }
 }
 @media screen and (max-width: 1190px) {
-.topSubHead{
-  margin: -1px;
-  margin-top: 10px;
-}
+  .topSubHead {
+    margin: -1px;
+    margin-top: 10px;
+  }
 }
 
 @media screen and (max-width: 950px) {
@@ -302,7 +294,6 @@ span {
     column-gap: 80px;
     row-gap: 20px;
   }
-  
 }
 
 @media screen and (max-width: 620px) {

@@ -5,9 +5,9 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 // MicroInteraction
-import LoadingPage from "../../MicroInteraction/Loading";
-import { Alert } from "./../../MicroInteraction/Alert";
 import Load from "../../MicroInteraction/Load";
+import { Alert } from "./../../MicroInteraction/Alert";
+import LoadingPage from "../../MicroInteraction/Loading";
 
 // state
 import AuthContext from "../../store/auth-context";
@@ -93,6 +93,19 @@ export default function SignInForm() {
             response.data.token,
             10800000
           );
+        } else {
+          setLoad(false);
+
+          if (response.data?.code === 1) {
+            setError({
+              mainColor: "#E5F6FD",
+              secondaryColor: "#1AB1F5",
+              symbol: "info",
+              title: "Information",
+              text: "email",
+              val: true,
+            });
+          }
         }
       } catch (e) {
         setLoad(false);
@@ -280,7 +293,7 @@ export default function SignInForm() {
         </div>
       </div>
 
-      <Alert variant={variants} val={setError} />
+      <Alert variant={variants} val={setError} email={input.email} />
     </>
   );
 }

@@ -14,13 +14,14 @@ import axios from "axios";
 import AQCss from "./Css/AddQuestion.module.css";
 
 export default function EditQuestion(props) {
-    // console.log(props.data.ques);
+    // console.log(props.data._id);
   const [load, setLoad] = useState(false);
   const [showData, setData] = useState({
+    _id:props.data._id,
     question: "",
     answer: "",
   });
-//   console.log(showData)
+    // console.log(showData)
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -46,7 +47,7 @@ export default function EditQuestion(props) {
 
     if (question !== "" && answer !== "") {
       try {
-        const response = await axios.post("/api/website/qna/post", showData, {
+        const response = await axios.post("/api/website/qna/edit", showData, {
           headers: { Authorization: `${authCtx.token}` },
         });
 

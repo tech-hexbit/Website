@@ -86,45 +86,48 @@ export default function Support() {
 
   return (
     <>
-      <div>
-        <div className={SupCss.titleDiv}>
-          <p
-            id={showCurr === "Support" ? "Support" : "nonAc"}
-            onClick={() => {
-              setCurr("Support");
-            }}
-          >
-            Support
-          </p>
-          <p
-            id={showCurr === "Contacted" ? "Contacted" : "nonAc"}
-            onClick={() => {
-              setCurr("Contacted");
-            }}
-          >
-            Contacted
-          </p>
+      {showAdd ? (
+        <AddQuestiom setAdd={setAdd} setRef={setRef} />
+      ) : (
+        <div>
+          <div className={SupCss.titleDiv}>
+            <p
+              id={showCurr === "Support" ? "Support" : "nonAc"}
+              onClick={() => {
+                setCurr("Support");
+              }}
+            >
+              Support
+            </p>
+            <p
+              id={showCurr === "Contacted" ? "Contacted" : "nonAc"}
+              onClick={() => {
+                setCurr("Contacted");
+              }}
+            >
+              Contacted
+            </p>
 
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-plus"
-            className={SupCss.plusIcon}
-            onClick={() => {
-              setAdd(true);
-            }}
-          >
-            <path d="M5 12h14" />
-            <path d="M12 5v14" />
-          </svg>
-        </div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-plus"
+              className={SupCss.plusIcon}
+              onClick={() => {
+                setAdd(true);
+              }}
+            >
+              <path d="M5 12h14" />
+              <path d="M12 5v14" />
+            </svg>
+          </div>
 
         {showCurr === "Support" ? (
           <>
@@ -140,7 +143,7 @@ export default function Support() {
                       {data.map((val, key) => {
                         return (
                           <div>
-                            <div className={SupCss.icons}>
+                          <div className={SupCss.icons}>
                               {/* edit func */}
                                 <svg 
                                 xmlns="http://www.w3.org/2000/svg" 
@@ -166,7 +169,7 @@ export default function Support() {
                                 {
                                     showEdit && (
                                       <div className={showEdit ? "yesAdd" : "noAdd"}>
-                                        <EditQuestion data={editdata} setShowEdit={setShowEdit} />
+                                        <EditQuestion data={editdata} setShowEdit={setShowEdit} setRef={setRef} />
                                       </div>
                                     )
                                 }
@@ -211,18 +214,15 @@ export default function Support() {
           ""
         )}
 
-        {showCurr === "Contacted" ? (
-          <>
-            <Contacted />
-          </>
-        ) : (
-          ""
-        )}
-      </div>
-
-      <div className={showAdd ? "yesAdd" : "noAdd"}>
-        <AddQuestiom setAdd={setAdd} setRef={setRef} />
-      </div>
+          {showCurr === "Contacted" ? (
+            <>
+              <Contacted />
+            </>
+          ) : (
+            ""
+          )}
+        </div>
+      )}
     </>
   );
 }
