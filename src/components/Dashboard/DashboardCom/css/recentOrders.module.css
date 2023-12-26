@@ -131,6 +131,7 @@
   font-size: 12px;
   text-decoration: underline;
   cursor: pointer;
+ 
 }
 
 .truncate {
@@ -141,10 +142,7 @@
 }
 
 @media screen and (max-width: 750px) {
-  .tableTag tr:nth-child(2n+1) {
-    background-color: #945858 !important;
-   
-  }
+
    
 
 

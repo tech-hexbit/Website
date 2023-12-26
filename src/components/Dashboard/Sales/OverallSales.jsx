@@ -36,6 +36,7 @@ export default function OverallSales() {
   const [sortDateOrder, setSortDateOrder] = useState("asc");
   const [sortPaymentMethodOrder, setSortPaymentMethodOrder] = useState("asc");
 
+
   //  Select Filter
   const [unique, setunique] = useState([]);
   const [buyer, setbuyer] = useState([]);
@@ -251,6 +252,7 @@ export default function OverallSales() {
                   <>
                     {orderDel?.length > 0 ? (
                       <>
+
                         <tr>
                           <th className={osCss.thTag}>
                             <p>Id</p>
@@ -371,9 +373,10 @@ export default function OverallSales() {
                               />
                             </svg>
                           </th>
-                          <th className={osCss.payment}>Delivery status</th>
+                          <th className={osCss.payment} >Delivery status</th>
                           <th>Buyer</th>
                         </tr>
+
                         {orderDel
                           .filter((value) => {
                             if (search === "") {
@@ -388,26 +391,34 @@ export default function OverallSales() {
                           })
                           .map((val, key) => {
                             return (
+
                               <tr key={key}>
-                                <td>#{val._id.slice(-4)}</td>
+
+                                <td data-cell="ID"> #{val._id.slice(-4)}</td>
                                 <td
                                   onClick={() => {
                                     setProductDel({ state: true, id: val._id });
                                     setHideDel(!showDel);
                                   }}
+                                  data-cell="CUSTOMER "
                                 >
                                   {val.ONDCBilling.name}
                                 </td>
-                                <td>₹ {val.amount.toFixed(2)}</td>
-                                <td>{val.when.date}</td>
-                                <td>{val.status}</td>
-                                <UpdateState
+                                <td data-cell="PRICE" >  ₹ {val.amount.toFixed(2)}</td>
+                                <td data-cell="ORDERED ON" >  {val.when.date}</td>
+                                <td data-cell="PAYMENT METHOD" > {val.status}</td>
+
+
+
+                                < UpdateState
                                   state={val.state}
                                   id={val._id}
                                   setLoadDataState={setLoadDataState}
                                   loadDataState={loadDataState}
+                                  dataCell="DELIVERY STATUS"
                                 />
-                                <td>{val.buyer}</td>
+
+                                <td data-cell="BUYER " >{val.buyer}</td>
                               </tr>
                             );
                           })}
