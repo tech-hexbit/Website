@@ -55,6 +55,24 @@ export default function Support() {
     }
   };
 
+  const deleteHandle=async(_id)=>{
+    // console.log(_id);
+    try{
+      const res=await axios.delete(`/api/website/qna/delete/${_id}`,{
+        headers: { Authorization: `${authCtx.token}` },
+      });
+      console.log(res.data.message);
+    }catch(e){
+      console.log('delete handle not working')
+    }
+  }
+
+  const editHandle=async(_id)=>{
+    console.log(_id);
+  }
+
+  // console.log(data);
+
   return (
     <>
       <div>
@@ -110,11 +128,48 @@ export default function Support() {
                     <>
                       {data.map((val, key) => {
                         return (
+                          <div>
+                            <div className={SupCss.icons}>
+                              {/* edit func */}
+                                <svg 
+                                xmlns="http://www.w3.org/2000/svg" 
+                                width="32" 
+                                height="24" 
+                                viewBox="0 0 24 24" 
+                                fill="none" 
+                                stroke="currentColor" 
+                                stroke-width="2" 
+                                stroke-linecap="round" 
+                                stroke-linejoin="round" 
+                                class="lucide lucide-pencil"
+                                onClick={()=>editHandle(val._id)}>
+                                  <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+                                  <path d="m15 5 4 4"/>
+                                </svg>
+                                {/* delete func */}
+                                <svg 
+                                xmlns="http://www.w3.org/2000/svg" 
+                                width="32" 
+                                height="24" 
+                                viewBox="0 0 24 24" 
+                                fill="none" 
+                                stroke="currentColor" 
+                                stroke-width="2" 
+                                stroke-linecap="round" 
+                                stroke-linejoin="round" 
+                                class="lucide lucide-trash"
+                                onClick={()=>deleteHandle(val._id)}>
+                                  <path d="M3 6h18"/>
+                                  <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+                                  <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
+                                </svg>
+                            </div>
                           <QA
                             key={key}
                             answer={val.answer}
                             question={val.question}
                           />
+                          </div>
                         );
                       })}
                     </>

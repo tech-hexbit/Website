@@ -11,6 +11,7 @@ import Load from "./../../MicroInteraction/LoadBlack";
 
 // css
 import CCss from "./Css/Contacted.module.css";
+import UpdateContacted from "./UpdateContacted";
 
 export default function Contacted() {
   const [data, setData] = useState([]);
@@ -29,7 +30,7 @@ export default function Contacted() {
       const response = await axios.get(`/api/website/ContactUs/get`, {
         headers: { Authorization: `${authCtx.token}` },
       });
-
+      
       if (response.data.success) {
         setData(response.data.qnaEntries);
 
@@ -46,9 +47,11 @@ export default function Contacted() {
     }
   };
 
+
   useEffect(() => {
     console.log(data);
   }, [data]);
+  
   return (
     <div className={CCss.qamDiv}>
       {load ? (
@@ -71,7 +74,15 @@ export default function Contacted() {
                       <div className={CCss.titleCompanyNameDiv}>
                         {val.CompanyName}
                       </div>
+                      
                     </div>
+                    
+                    <UpdateContacted 
+                      state={val.state}
+                      id={val._id}
+                      setLoad={load}
+                      tag={val.tag}
+                    />
 
                     <div className={CCss.submainDiv}>
                       <div className={CCss.submainDivMain}>

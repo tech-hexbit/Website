@@ -39,3 +39,13 @@
 .NoData {
   text-align: center;
 }
+
+.icons{
+  display: flex;
+  flex-direction: row;
+  margin-left: 90%;
+}
+
+.icons svg{
+  cursor: pointer;
+}
