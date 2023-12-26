@@ -16,6 +16,7 @@ import Load from "./../../MicroInteraction/LoadBlack";
 
 // css
 import SupCss from "./Css/Support.module.css";
+import { Link } from "react-router-dom";
 
 export default function Support() {
   const [data, setData] = useState([]);
@@ -23,6 +24,7 @@ export default function Support() {
   const [showAdd, setAdd] = useState(false);
   const [showRef, setRef] = useState(false);
   const [showCurr, setCurr] = useState("Support");
+  const[showEdit,setShowEdit]=useState(false);
 
   const authCtx = useContext(AuthContext);
 
@@ -62,6 +64,12 @@ export default function Support() {
         headers: { Authorization: `${authCtx.token}` },
       });
       console.log(res.data.message);
+      if(res.data.message==="Q&A entry deleted successfully"){
+        loadData();
+      }
+      else{
+        console.log('problem in loading data');
+      }
     }catch(e){
       console.log('delete handle not working')
     }
@@ -142,10 +150,19 @@ export default function Support() {
                                 stroke-linecap="round" 
                                 stroke-linejoin="round" 
                                 class="lucide lucide-pencil"
-                                onClick={()=>editHandle(val._id)}>
+                                onClick={() => {
+                                  setShowEdit(true);
+                                }}>
                                   <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
                                   <path d="m15 5 4 4"/>
                                 </svg>
+                                {
+                                  showEdit && (
+                                    <div className={showAdd ? "yesAdd" : "noAdd"}>
+                                      <AddQuestiom setAdd={setAdd} setRef={setRef} />
+                                    </div>
+                                  )
+                                }
                                 {/* delete func */}
                                 <svg 
                                 xmlns="http://www.w3.org/2000/svg" 
