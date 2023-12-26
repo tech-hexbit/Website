@@ -4,6 +4,7 @@ import React, { useState, useEffect, useContext } from "react";
 import QA from "./QA";
 import Contacted from "./Contacted";
 import AddQuestiom from "./AddQuestiom";
+import EditQuestion from "./EditQuestion";
 
 // state
 import AuthContext from "./.././../store/auth-context";
@@ -24,14 +25,16 @@ export default function Support() {
   const [showAdd, setAdd] = useState(false);
   const [showRef, setRef] = useState(false);
   const [showCurr, setCurr] = useState("Support");
+  
   const[showEdit,setShowEdit]=useState(false);
+  const[editdata,setEditdata]=useState(null);
 
   const authCtx = useContext(AuthContext);
 
   useEffect(() => {
     loadData();
     setRef(false);
-  }, [, showRef]);
+  }, [showRef]);
 
   const loadData = async () => {
     setLoad(true);
@@ -79,7 +82,7 @@ export default function Support() {
     console.log(_id);
   }
 
-  // console.log(data);
+  useEffect(()=>{ console.log(showEdit)},[showEdit])
 
   return (
     <>
@@ -151,18 +154,23 @@ export default function Support() {
                                 stroke-linejoin="round" 
                                 class="lucide lucide-pencil"
                                 onClick={() => {
+                                  const selectedItem = data.find(item => item._id === val._id)
                                   setShowEdit(true);
+                                  setEditdata({ _id: selectedItem._id, ques: selectedItem.question, ans: selectedItem.answer })
+                                  // console.log(val._id)
                                 }}>
                                   <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
                                   <path d="m15 5 4 4"/>
                                 </svg>
+
                                 {
-                                  showEdit && (
-                                    <div className={showAdd ? "yesAdd" : "noAdd"}>
-                                      <AddQuestiom setAdd={setAdd} setRef={setRef} />
-                                    </div>
-                                  )
+                                    showEdit && (
+                                      <div className={showEdit ? "yesAdd" : "noAdd"}>
+                                        <EditQuestion data={editdata} setShowEdit={setShowEdit} />
+                                      </div>
+                                    )
                                 }
+
                                 {/* delete func */}
                                 <svg 
                                 xmlns="http://www.w3.org/2000/svg" 

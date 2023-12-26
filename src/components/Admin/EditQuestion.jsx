@@ -13,13 +13,14 @@ import axios from "axios";
 // css
 import AQCss from "./Css/AddQuestion.module.css";
 
-export default function AddQuestiom(props) {
-  // console.log(props);
+export default function EditQuestion(props) {
+    // console.log(props.data.ques);
   const [load, setLoad] = useState(false);
   const [showData, setData] = useState({
     question: "",
     answer: "",
   });
+//   console.log(showData)
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -67,7 +68,7 @@ export default function AddQuestiom(props) {
           });
 
           props.setRef(true);
-          props.setAdd(false);
+          props.setShowEdit(false);
         } else {
           setLoad(false);
 
@@ -113,7 +114,7 @@ export default function AddQuestiom(props) {
     <>
       <div className={AQCss.mDiv}>
         <div className={AQCss.titleDiv}>
-          <p>Add Question(s)</p>
+          <p>Edit Question(s)</p>
 
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -128,7 +129,7 @@ export default function AddQuestiom(props) {
             class="lucide lucide-x"
             className={AQCss.closeBtn}
             onClick={() => {
-              props.setAdd(false);
+              props.setShowEdit(false);
             }}
           >
             <path d="M18 6 6 18" />
@@ -141,7 +142,7 @@ export default function AddQuestiom(props) {
             name="question"
             id=""
             value={showData.question}
-            placeholder="Question"
+            placeholder={props.data.ques}
             className={AQCss.inpTag}
             onChange={updateData}
           />
@@ -152,7 +153,7 @@ export default function AddQuestiom(props) {
             cols="30"
             rows="10"
             value={showData.answer}
-            placeholder="Answer"
+            placeholder={props.data.ans}
             className={AQCss.inpTag}
             onChange={updateData}
           ></textarea>
