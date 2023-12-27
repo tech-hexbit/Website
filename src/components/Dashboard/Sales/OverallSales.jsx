@@ -232,6 +232,8 @@ export default function OverallSales() {
                   </select>
                 </div>
               </div>
+
+              {/* Search */}
               <div className={osCss.search}>
                 <input
                   type="text"
