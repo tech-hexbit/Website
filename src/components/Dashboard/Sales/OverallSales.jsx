@@ -193,6 +193,10 @@ export default function OverallSales() {
     setfilters({ ...filters, [name]: value });
   };
 
+  useEffect(() => {
+    console.log(showDel);
+  }, [showDel]);
+
   return (
     <>
       {showDel ? (
@@ -485,12 +489,16 @@ export default function OverallSales() {
         </div>
       )}
 
-      <Orderdetails
-        id={showProductDel.id}
-        setProductDel={setProductDel}
-        showDel={showDel}
-        setHideDel={setHideDel}
-      />
+      {showDel ? (
+        <Orderdetails
+          id={showProductDel.id}
+          setProductDel={setProductDel}
+          showDel={showDel}
+          setHideDel={setHideDel}
+        />
+      ) : (
+        ""
+      )}
     </>
   );
 }
