@@ -315,4 +315,14 @@
   .top {
     width: 90%;
   }
+
+  .middle {
+    padding: 0px;
+  }
+
+  .table {
+    padding: 10px 0px;
+    overflow-x: scroll;
+    width: 100%;
+  }
 }
