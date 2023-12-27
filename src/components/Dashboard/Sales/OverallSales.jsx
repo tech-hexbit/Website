@@ -193,10 +193,6 @@ export default function OverallSales() {
     setfilters({ ...filters, [name]: value });
   };
 
-  useEffect(() => {
-    console.log(showDel);
-  }, [showDel]);
-
   return (
     <>
       {showDel ? (
