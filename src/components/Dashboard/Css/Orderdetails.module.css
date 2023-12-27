@@ -54,7 +54,7 @@
 .name-text {
   padding: 15px;
   margin-top: 5px;
-  
+
   color: gray;
   font-size: 1.1rem;
   font-weight: bold;
@@ -62,7 +62,6 @@
 
 .c-name {
   color: gray;
-  
 }
 
 .mail {
@@ -132,8 +131,6 @@
   margin-bottom: 50px;
   font-size: 20px;
 }
-
-
 
 table,
 th,
@@ -250,9 +247,8 @@ td {
 }
 
 @media only screen and (max-width: 750px) {
-
   body {
-    font-family: 'Arial', sans-serif;
+    font-family: "Arial", sans-serif;
     margin: 0;
     padding: 0;
   }
@@ -283,7 +279,6 @@ td {
   .payment-details {
     padding: 10px 0; /* Adjusted padding */
     font-size: 1.2rem; /* Adjusted font size */
-    
   }
 
   .transactions .cno {
@@ -337,11 +332,10 @@ td {
   }
 
   .total-bill {
-    padding: 10px 0; 
-    font-size: 0.8rem; 
+    padding: 10px 0;
+    font-size: 0.8rem;
   }
 
-  
   img {
     max-width: 100%;
     height: auto;
