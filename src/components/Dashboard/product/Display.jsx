@@ -154,7 +154,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
                       return (
                         <>
                           <tr key={key}>
-                            <td className={DCss.row} id={DCss.col1}>
+                            <td data-cell = "Product" className={DCss.row} id={DCss.col1}>
                               <div
                                 className={DCss.col1}
                                 onClick={() => {
@@ -171,22 +171,22 @@ export default function Display({ filteredlist, setfilteredlist }) {
                                   <div className={DCss.textTop}>
                                     {val.descriptor.name}
                                   </div>
-                                  <div className={DCss.textBottom}>
+                                  <div data-cell="Product" className={DCss.textBottom}>
                                     Category : {val.category_id}
                                   </div>
                                 </div>
                               </div>
                             </td>
-                            <td className={DCss.row} id={DCss.price}>
+                            <td data-cell="Price" className={DCss.row} id={DCss.price}>
                               ₹ {val.price.value.toFixed(2)}
                             </td>
-                            <td className={DCss.row} id={DCss.stock}>
+                            <td data-cell="Stock" className={DCss.row} id={DCss.stock}>
                               {val.quantity.maximum.count}
                             </td>
-                            <td className={DCss.row} id={DCss.orders}>
+                            <td data-cell="Orders"className={DCss.row} id={DCss.orders}>
                               {val.fulfillment_id}
                             </td>
-                            <td className={DCss.row}>
+                            <td data-cell="Published on" className={DCss.row}>
                               <div className={DCss.col5}>
                                 <div className={DCss.textTop}>
                                   {val.when.date}
@@ -196,7 +196,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
                                 </div>
                               </div>
                             </td>
-                            <td className={DCss.row} id={DCss.col6}>
+                            <td data-cell="Action" className={DCss.row} id={DCss.col6}>
                               <div className={DCss.dots}>
                                 <div
                                   className={DCss.deleteDiv}
