@@ -1,17 +1,36 @@
-.mainDiv {
-  background-color: #fff;
-  border-radius: 15px;
-  margin-bottom: 50px;
-}
-
-.top {
-  padding: 15px;
-}
-
-.filters {
-  padding-top: 50px;
+.mDIvTabs {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0px 10px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  padding: 0px 3px;
+  transition: all 0.3;
+  margin-bottom: 30px;
+}
+.thTag{
+  font-weight: bold;
+}
+.top {
+  
+  font-weight: 500;
+}
+.mDIvTabs::-webkit-scrollbar {
+  display: none;
+}
+
+.mDIvSideTabs {
+  display: flex;
+}
+
+.stateTrTag {
+  text-align: center;
+}
+.filters {
+  display: flex;
+  margin-left: 68px;
+  margin-top: 90px;
 }
 
 .select {
@@ -60,7 +79,7 @@
   gap: 10px;
   width: 100%;
 }
-
+/* 
 .tabs {
   display: flex;
   flex-direction: column;
@@ -71,7 +90,7 @@
   gap: 10px;
   margin-top: -376px;
   border-radius: 5px;
-}
+} */
 
 .tabs div {
   padding-bottom: 10px;
@@ -103,28 +122,28 @@
   width: 100%;
 }
 
+.table tr {
+  position: relative;
+  z-index: 1;
+}
+
 .table td {
   padding: 27px 5px 27px;
   border-bottom: 1px solid #ddd;
 }
-
-.payment {
-  width: fit-content;
+.table td:first-child,
+.table th:first-child {
+  position: sticky;
+  left: 0px;
+  z-index: 2;
+  box-shadow: #c32e2e;
 }
 
-.dots {
-  border-radius: 5px;
-  background: rgba(255, 115, 29, 0.3);
-  color: #df5e0f;
-  font-size: 20px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  line-height: 27px;
-  letter-spacing: 0.2px;
-  padding: 0px 5px 3px 5px;
-  cursor: pointer;
-  width: min-content;
+.table tr td:nth-child(2),
+.table tr th:nth-child(2) {
+  position: sticky;
+  left: 20px;
+  z-index: 2;
 }
 
 .bottom {
@@ -163,25 +182,7 @@
   color: #777;
 }
 
-.table td:first-child,
-.table th:first-child {
-  position: sticky;
-  left: 0px;
-  z-index: 2;
-  box-shadow: #777;
-}
 
-.table tr {
-  position: relative;
-  z-index: 1;
-}
-
-.table tr td:nth-child(2),
-.table tr th:nth-child(2) {
-  position: sticky;
-  left: 20px;
-  z-index: 2;
-}
 
 .lucidePencil {
   margin-left: 5px;
@@ -217,78 +218,33 @@
 .tdStateBlock {
   display: flex;
   justify-content: space-evenly;
+  color: black;
 }
 
-@media screen and (max-width: 1260px) {
-  .table table {
-    width: 100vw;
-  }
-
-  .table td:nth-child(2),
-  .table th:nth-child(2) {
-    background-color: #fff;
-    z-index: 10;
-  }
-
-  .table td:first-child,
-  .table th:first-child {
-    background-color: #fff;
-    z-index: 10;
-  }
+.table tr:hover {
+  background-color: #ebefff;
 }
-
-@media screen and (max-width: 960px) {
-  .tableOSTTag {
-    margin: auto;
-    border-collapse: collapse;
-    overflow-x: auto;
-    display: block;
-    width: fit-content;
-    max-width: 100%;
+@media only screen and (max-width: 950px) {
+  .top {
+    padding: 15px 0;
   }
 
-  .tableOSTTag td,
-  .tableOSTTag th {
-    padding: 0.5rem;
-  }
-
-  .tableOSTTag th {
-    text-align: left;
-
-    text-transform: uppercase;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-
-    border-top: none;
-  }
-
-  .tableOSTTag td {
-    white-space: nowrap;
-    border-bottom: none;
-    color: rgb(20, 20, 20);
-  }
-}
-
-@media screen and (max-width: 790px) {
-  .tabs {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .table {
-    padding: 0px;
-  }
 
   .filters {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 20px 0px;
+    gap: 20px 0;
     padding-top: 35px;
   }
 
   .select {
     width: 100%;
+  }
+
+  .selectInner {
+    width: 100%;
+    margin-bottom: 15px;
   }
 
   .search {
@@ -300,16 +256,64 @@
     width: 100%;
     height: 100%;
   }
+  .table th {
+    display: none;
+    
+  }
+    
+  .thTag{
+    display: inline;
+  }
+.tableOSTTag{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 30px;
 }
 
-@media screen and (max-width: 650px) {
-  .select {
-    width: 100%;
-    flex-direction: column;
-    gap: 15px 0px;
-  }
 
-  .selectInner {
-    width: 100%;
+.table tr:nth-child(1) {
+  display: none;
+ 
+}
+
+.table tr{
+  display: flex;
+  flex-direction: column;
+  min-width: 250px;
+  border-radius: 5px;
+}
+.table td {
+  border-bottom: 0px solid #ddd;
+  color: black;
+}
+
+.table td:first-child {
+  padding-top: 1rem;
+}
+
+.table td:last-child {
+  padding-bottom: 1rem;
+}
+.table td {
+  display: block;
+  padding: 0.5rem 1rem;
+}
+.table td::before {
+  content: attr(data-cell) ": ";
+  font-weight: 700;
+  text-transform: capitalize;
+  color: black;
+}
+
+
+}
+
+
+@media screen and (max-width: 450px) {
+  .mDiv {
+    margin-right: 25px;
   }
 }
+

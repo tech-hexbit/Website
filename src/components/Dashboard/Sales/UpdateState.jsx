@@ -15,12 +15,12 @@ import osCss from "./Css/overallSales.module.css";
 export default function UpdateState(props) {
   const [edit, setEdit] = useState(false);
   const [Saveload, setSaveLoad] = useState(false);
-  const [load, setLoad] = useState(false);
   const [selectedValue, setSelectedValue] = useState("");
 
   const authCtx = useContext(AuthContext);
 
   const UpdateData = async (id) => {
+    
     setSaveLoad(true);
     try {
       if (selectedValue !== "" || selectedValue !== "Select") {
@@ -65,8 +65,9 @@ export default function UpdateState(props) {
   return (
     <>
       <td
+        data-cell="DELIVERY STATUS"
         style={{
-          color:
+          color: 
             props.state == "Created"
               ? "#7925c7"
               : props.state == "Accepted"
@@ -76,11 +77,14 @@ export default function UpdateState(props) {
               : props.state == "Completed"
               ? "#4bb543"
               : "#D0342C",
+
+            
         }}
         className={osCss.tdStateBlock}
       >
         {edit ? (
           <>
+           
             <select name="" value={selectedValue} onChange={handleSelectChange}>
               <option value="Select" selected hidden>
                 Select the Updated Status
