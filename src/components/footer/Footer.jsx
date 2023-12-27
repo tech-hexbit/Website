@@ -15,6 +15,7 @@ import instagram from "../../assets/socialMedia/instagram.png";
 const Footer = () => {
   return (
     <div>
+      {/* Footer Top  */}
       <div className={FCss.mDiv}>
         <div className={FCss.leftDiv}>
           <div className={FCss.image}>
@@ -103,6 +104,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
+      {/* Footer Bottom */}
       <div className={FCss.bottomDiv}>
         <div className={FCss.footerImage}>
           <img src={madeInIndia} alt="" />
