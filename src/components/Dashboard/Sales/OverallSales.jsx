@@ -36,7 +36,6 @@ export default function OverallSales() {
   const [sortByNameOrder, setSortByNameOrder] = useState("asc");
   const [sortPaymentMethodOrder, setSortPaymentMethodOrder] = useState("asc");
 
-
   //  Select Filter
   const [buyer, setbuyer] = useState([]);
   const [unique, setunique] = useState([]);
@@ -252,7 +251,6 @@ export default function OverallSales() {
                   <>
                     {orderDel?.length > 0 ? (
                       <>
-
                         <tr>
                           <th className={osCss.thTag}>
                             <p>Id</p>
@@ -373,7 +371,7 @@ export default function OverallSales() {
                               />
                             </svg>
                           </th>
-                          <th className={osCss.payment} >Delivery status</th>
+                          <th className={osCss.payment}>Delivery status</th>
                           <th>Buyer</th>
                         </tr>
 
@@ -391,9 +389,7 @@ export default function OverallSales() {
                           })
                           .map((val, key) => {
                             return (
-
                               <tr key={key}>
-
                                 <td data-cell="ID"> #{val._id.slice(-4)}</td>
                                 <td
                                   onClick={() => {
@@ -404,13 +400,17 @@ export default function OverallSales() {
                                 >
                                   {val.ONDCBilling.name}
                                 </td>
-                                <td data-cell="PRICE" >  ₹ {val.amount.toFixed(2)}</td>
-                                <td data-cell="ORDERED ON" >  {val.when.date}</td>
-                                <td data-cell="PAYMENT METHOD" > {val.status}</td>
+                                <td data-cell="PRICE">
+                                  {" "}
+                                  ₹ {val.amount.toFixed(2)}
+                                </td>
+                                <td data-cell="ORDERED ON"> {val.when.date}</td>
+                                <td data-cell="PAYMENT METHOD">
+                                  {" "}
+                                  {val.status}
+                                </td>
 
-
-
-                                < UpdateState
+                                <UpdateState
                                   state={val.state}
                                   id={val._id}
                                   setLoadDataState={setLoadDataState}
@@ -418,7 +418,7 @@ export default function OverallSales() {
                                   dataCell="DELIVERY STATUS"
                                 />
 
-                                <td data-cell="BUYER " >{val.buyer}</td>
+                                <td data-cell="BUYER ">{val.buyer}</td>
                               </tr>
                             );
                           })}
