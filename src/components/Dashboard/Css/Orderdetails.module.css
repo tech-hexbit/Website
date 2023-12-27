@@ -132,12 +132,12 @@
   font-size: 20px;
 }
 
-table,
+/* table,
 th,
 td {
   border-collapse: collapse;
   padding: 10px;
-}
+} */
 
 .products-table table {
   width: 100%;
@@ -247,12 +247,6 @@ td {
 }
 
 @media only screen and (max-width: 750px) {
-  body {
-    font-family: "Arial", sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-
   .container {
     max-width: 100%;
     margin: 0 auto;
@@ -277,12 +271,12 @@ td {
   .customer-details,
   .shipping-address,
   .payment-details {
-    padding: 10px 0; /* Adjusted padding */
-    font-size: 1.2rem; /* Adjusted font size */
+    padding: 10px 0;
+    font-size: 1.2rem;
   }
 
   .transactions .cno {
-    margin-top: 5px; /* Adjusted margin */
+    margin-top: 5px;
   }
 
   .details-list {
@@ -290,7 +284,7 @@ td {
     flex-direction: column;
     align-items: center;
     margin-left: 0;
-    padding-top: 2px; /* Adjusted padding */
+    padding-top: 2px;
   }
 
   .name,
@@ -301,13 +295,13 @@ td {
   }
 
   .product-details1 {
-    font-size: 1.2rem; /* Adjusted font size */
+    font-size: 1.2rem;
   }
 
   .text-content {
     flex-direction: column;
     align-items: center;
-    margin: 5px 0; /* Adjusted margin */
+    margin: 5px 0;
   }
 
   .text-wrapper {
