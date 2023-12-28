@@ -14,14 +14,12 @@ import axios from "axios";
 import AQCss from "./Css/AddQuestion.module.css";
 
 export default function EditQuestion(props) {
-    // console.log(props.data._id);
   const [load, setLoad] = useState(false);
   const [showData, setData] = useState({
-    _id:props.data._id,
+    _id: props.data._id,
     question: "",
     answer: "",
   });
-    // console.log(showData)
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
