@@ -3,6 +3,17 @@ import React, { useContext, useState, useEffect } from "react";
 // axios
 import axios from "axios";
 
+// MicroInteraction
+import Load from "../../MicroInteraction/Load";
+import { Alert } from "./../../MicroInteraction/Alert";
+import LoadingPage from "../../MicroInteraction/Loading";
+
+// state
+import AuthContext from "../../store/auth-context";
+
+// css
+import style from "./SignInForm.module.css";
+
 export default function OTP() {
   return (
     <>
