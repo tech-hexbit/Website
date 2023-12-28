@@ -9,6 +9,9 @@ import Load from "../../MicroInteraction/Load";
 import { Alert } from "./../../MicroInteraction/Alert";
 import LoadingPage from "../../MicroInteraction/Loading";
 
+// components
+import OTP from "./OTP";
+
 // state
 import AuthContext from "../../store/auth-context";
 
@@ -229,6 +232,8 @@ export default function SignInForm() {
           </div>
 
           <div className={style.or}>Or</div>
+
+          <OTP />
 
           <div className={style.loginDiv}>
             <button onClick={login}>{load ? <Load /> : "Log In"}</button>
