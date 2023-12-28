@@ -25,6 +25,7 @@ export default function SignInForm() {
   const [input, setInput] = useState({ email: "", password: "" });
   const [see, hide] = useState(false);
   const [load, setLoad] = useState(false);
+  const [seeOTP, hideOTP] = useState(false);
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
