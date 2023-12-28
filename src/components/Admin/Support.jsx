@@ -68,7 +68,7 @@ export default function Support() {
 
       console.log(res.data.message);
 
-      if (res.data.message === "Q&A entry deleted successfully") {
+      if (res.data.success) {
         loadData();
       } else {
         console.log("problem in loading data");
