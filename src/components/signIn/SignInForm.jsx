@@ -173,6 +173,9 @@ export default function SignInForm() {
                 onChange={(e) => {
                   setInput({ ...input, email: e.target.value });
                 }}
+                onClick={() => {
+                  hideOTP(false);
+                }}
               />
             </div>
 
@@ -192,6 +195,9 @@ export default function SignInForm() {
                   className={style.inpPass}
                   onChange={(e) => {
                     setInput({ ...input, password: e.target.value });
+                  }}
+                  onClick={() => {
+                    hideOTP(false);
                   }}
                 />
                 {see ? (
