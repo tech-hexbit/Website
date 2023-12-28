@@ -200,6 +200,8 @@ export default function SignInForm() {
                     hideOTP(false);
                   }}
                 />
+
+                {/* Show Password  */}
                 {see ? (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
