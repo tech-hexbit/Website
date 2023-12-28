@@ -28,6 +28,8 @@ export default function OverallSales() {
   const [prodcutsCount, setProdcutsCount] = useState(0);
   const [loadDataState, setLoadDataState] = useState(false);
   const [showProductDel, setProductDel] = useState({ state: false, id: "" });
+  const [allCustomers, setAllCustomers] = useState([]);
+  const [filteredCustomers, setFilteredCustomers] = useState([]);
 
   // Add a state variable to track the sort order
   const [sortOrder, setSortOrder] = useState("asc");
@@ -41,7 +43,7 @@ export default function OverallSales() {
   const [unique, setunique] = useState([]);
   const [filters, setfilters] = useState({
     buyer: "",
-    status: "",
+    status: ""
   });
 
   useEffect(() => {
@@ -56,6 +58,10 @@ export default function OverallSales() {
   useEffect(() => {
     maxPage();
   }, [prodcutsCount, currentPage]);
+
+  useEffect(() => {
+    fetchAllCustomers();
+  }, []);
 
   useEffect(() => {
     const u = (buyer) => [...new Set(buyer)];
@@ -85,7 +91,7 @@ export default function OverallSales() {
       const response = await axios.get(
         `/api/common/Order/all?page=${currentPage}`,
         {
-          headers: { Authorization: `${authCtx.token}` },
+          headers: { Authorization: `${authCtx.token}` }
         }
       );
 
@@ -108,6 +114,38 @@ export default function OverallSales() {
       setLoad(false);
 
       console.log(e);
+    }
+  };
+  // filtering customers
+  const fetchAllCustomers = async () => {
+    try {
+      const response = await axios.get(`/api/common/Order/allcustomers`, {
+        headers: { Authorization: `${authCtx.token}` }
+      });
+
+      if (response.data.success) {
+        const fetchedCustomer = response.data.customers;
+        setAllCustomers(fetchedCustomer);
+        // setFilteredCustomers(fetchedCustomer);
+      } else {
+        console.log("Failed to fetch all customers");
+      }
+    } catch (error) {
+      console.log("Error fetching all customers", error);
+    }
+  };
+
+  const filterData = (event) => {
+    const searchTerm = event.target.value.toLowerCase();
+
+    const updatedCustomers = allCustomers.filter((customer) =>
+      customer?.ONDCBilling?.name?.toLowerCase().includes(searchTerm)
+    );
+
+    if (searchTerm === "") {
+      setOrderDelCopy(orderDel);
+    } else {
+      setOrderDelCopy(updatedCustomers);
     }
   };
 
@@ -183,9 +221,9 @@ export default function OverallSales() {
     setOrderDel(sortedOrderDel);
   };
 
-  const filterData = async function (e) {
-    setSearch(e.target.value);
-  };
+  // const filterData = async function (e) {
+  //   setSearch(e.target.value);
+  // };
 
   const handleChange1 = (e) => {
     const name = e.target.name;
@@ -256,7 +294,7 @@ export default function OverallSales() {
                   </div>
                 ) : (
                   <>
-                    {orderDel?.length > 0 ? (
+                    {orderDelCopy?.length > 0 ? (
                       <>
                         <tr>
                           <th className={osCss.thTag}>
