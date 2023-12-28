@@ -142,7 +142,12 @@ export default function Support() {
                     <>
                       {data.map((val, key) => {
                         return (
-                          <div>
+                          <div className={SupCss.iconsContainer}>
+                          <QA
+                            key={key}
+                            answer={val.answer}
+                            question={val.question}
+                          />
                           <div className={SupCss.icons}>
                               {/* edit func */}
                                 <svg 
@@ -192,11 +197,6 @@ export default function Support() {
                                   <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
                                 </svg>
                             </div>
-                          <QA
-                            key={key}
-                            answer={val.answer}
-                            question={val.question}
-                          />
                           </div>
                         );
                       })}
