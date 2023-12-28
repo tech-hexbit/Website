@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
+
+// axios
+import axios from "axios";
 
 export default function OTP() {
   return (
