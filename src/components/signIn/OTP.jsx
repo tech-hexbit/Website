@@ -14,7 +14,7 @@ import AuthContext from "../../store/auth-context";
 // css
 import style from "./SignInForm.module.css";
 
-export default function OTP() {
+export default function OTP(props) {
   return (
     <>
       {/* OTP and Phone Number */}
@@ -30,6 +30,9 @@ export default function OTP() {
               placeholder="+91"
               disabled
               id={style.countryCode}
+              onClick={() => {
+                props.hideOTP(true);
+              }}
             />
             <input
               type="number"
