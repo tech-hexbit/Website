@@ -205,7 +205,9 @@ export default function OverallSales() {
           <div className={osCss.top}>
             <div>Overall Sales</div>
             <div className={osCss.filters}>
+              {/* Filters */}
               <div className={osCss.select}>
+                {/* Buyers */}
                 <div className={osCss.selectInner}>
                   <select onChange={handleChange1} name="buyer">
                     <option value="Buyer" hidden selected>
@@ -216,6 +218,8 @@ export default function OverallSales() {
                     ))}
                   </select>
                 </div>
+
+                {/* Status */}
                 <div className={osCss.selectInner}>
                   <select onChange={handleChange1} name="status">
                     <option value="Status" hidden selected>
@@ -228,6 +232,8 @@ export default function OverallSales() {
                   </select>
                 </div>
               </div>
+
+              {/* Search */}
               <div className={osCss.search}>
                 <input
                   type="text"
@@ -237,6 +243,7 @@ export default function OverallSales() {
               </div>
             </div>
           </div>
+
           <div className={osCss.middle}>
             <div className={osCss.table}>
               <table
@@ -374,6 +381,7 @@ export default function OverallSales() {
                           <th className={osCss.payment}>Delivery status</th>
                           <th>Buyer</th>
                         </tr>
+
                         {orderDel
                           .filter((value) => {
                             if (search === "") {
@@ -389,25 +397,35 @@ export default function OverallSales() {
                           .map((val, key) => {
                             return (
                               <tr key={key}>
-                                <td>#{val._id.slice(-4)}</td>
+                                <td data-cell="ID"> #{val._id.slice(-4)}</td>
                                 <td
                                   onClick={() => {
                                     setProductDel({ state: true, id: val._id });
                                     setHideDel(!showDel);
                                   }}
+                                  data-cell="CUSTOMER "
                                 >
                                   {val.ONDCBilling.name}
                                 </td>
-                                <td>₹ {val.amount.toFixed(2)}</td>
-                                <td>{val.when.date}</td>
-                                <td>{val.status}</td>
+                                <td data-cell="PRICE">
+                                  {" "}
+                                  ₹ {val.amount.toFixed(2)}
+                                </td>
+                                <td data-cell="ORDERED ON"> {val.when.date}</td>
+                                <td data-cell="PAYMENT METHOD">
+                                  {" "}
+                                  {val.status}
+                                </td>
+
                                 <UpdateState
                                   state={val.state}
                                   id={val._id}
                                   setLoadDataState={setLoadDataState}
                                   loadDataState={loadDataState}
+                                  dataCell="DELIVERY STATUS"
                                 />
-                                <td>{val.buyer}</td>
+
+                                <td data-cell="BUYER ">{val.buyer}</td>
                               </tr>
                             );
                           })}
@@ -474,12 +492,16 @@ export default function OverallSales() {
         </div>
       )}
 
-      <Orderdetails
-        id={showProductDel.id}
-        setProductDel={setProductDel}
-        showDel={showDel}
-        setHideDel={setHideDel}
-      />
+      {showDel ? (
+        <Orderdetails
+          id={showProductDel.id}
+          setProductDel={setProductDel}
+          showDel={showDel}
+          setHideDel={setHideDel}
+        />
+      ) : (
+        ""
+      )}
     </>
   );
 }
