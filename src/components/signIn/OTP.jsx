@@ -18,10 +18,6 @@ export default function OTP(props) {
   const [input, setInput] = useState({ phone: "", otp: "" });
 
   useEffect(() => {
-    console.table(input);
-  }, [input]);
-
-  useEffect(() => {
     if (!props.seeOTP) {
       setInput({
         phone: "",
@@ -33,6 +29,7 @@ export default function OTP(props) {
     <>
       {/* OTP and Phone Number */}
       <div className={style.phoneOTP}>
+        {/* Phone Number */}
         <div className={style.inputPO}>
           <label htmlFor="phone">
             Phone<span className="requiredSpan">*</span>
@@ -61,6 +58,8 @@ export default function OTP(props) {
             />
           </div>
         </div>
+
+        {/* OTP */}
         <div className={style.inputPO}>
           <label htmlFor="otp">
             Enter OTP<span className="requiredSpan">*</span>
