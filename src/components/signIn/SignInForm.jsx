@@ -286,7 +286,7 @@ export default function SignInForm() {
 
         <div className={style.right}>
           <img src={slider1} alt="" />
-          <div>
+          <div className={style.pDiv}>
             <p className={style.head}>Retail Revolution</p>
             <p className={style.subHead}>
               Elevate Your Retail Game: Hexbit - Where Digital Selling Meets
