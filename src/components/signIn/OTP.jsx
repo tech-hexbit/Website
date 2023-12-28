@@ -30,15 +30,15 @@ export default function OTP(props) {
               placeholder="+91"
               disabled
               id={style.countryCode}
-              onClick={() => {
-                props.hideOTP(true);
-              }}
             />
             <input
               type="number"
               placeholder="XXXXX-XXXXX"
               id="phone"
               className={style.phone}
+              onClick={() => {
+                props.hideOTP(true);
+              }}
             />
           </div>
         </div>
