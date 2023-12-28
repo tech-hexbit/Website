@@ -122,7 +122,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
               onChange={filter}
             />
           </div>
-          <div className={DCss.button}>
+          <div className={DCss.search}>
             <Link to="/me/addProduct" className={DCss.LinkStyle}>
               <button>+ Add product</button>
             </Link>
@@ -154,7 +154,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
                       return (
                         <>
                           <tr key={key}>
-                            <td data-cell = "Product" className={DCss.row} id={DCss.col1}>
+                            <td className={DCss.row} id={DCss.col1}>
                               <div
                                 className={DCss.col1}
                                 onClick={() => {
@@ -171,7 +171,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
                                   <div className={DCss.textTop}>
                                     {val.descriptor.name}
                                   </div>
-                                  <div data-cell="Product" className={DCss.textBottom}>
+                                  <div className={DCss.textBottom}>
                                     Category : {val.category_id}
                                   </div>
                                 </div>
@@ -186,7 +186,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
                             <td data-cell="Orders"className={DCss.row} id={DCss.orders}>
                               {val.fulfillment_id}
                             </td>
-                            <td data-cell="Published on" className={DCss.row}>
+                            <td className={DCss.row}>
                               <div className={DCss.col5}>
                                 <div className={DCss.textTop}>
                                   {val.when.date}
@@ -196,7 +196,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
                                 </div>
                               </div>
                             </td>
-                            <td data-cell="Action" className={DCss.row} id={DCss.col6}>
+                            <td  className={DCss.row} id={DCss.col6}>
                               <div className={DCss.dots}>
                                 <div
                                   className={DCss.deleteDiv}

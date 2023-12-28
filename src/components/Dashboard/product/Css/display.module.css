@@ -2,15 +2,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 0px 10px;
+  gap: 15px 15px;
   overflow-x: scroll;
   overflow-y: hidden;
-  padding: 0px 3px;
+  
+  
   transition: all 0.3;
   margin-bottom: 30px;
 }
+
 .table {
-  padding: 40px 30px;
+  padding: 30px 100px 50px 50px;
   overflow-x: scroll;
   width: 100%;
 }
@@ -19,17 +21,28 @@
   display: none;
 }
 
-.mainDivTabs {
-  display: flex;
+.mainDiv {
+padding-top: 0px;
+padding-right: 200px;
+padding-bottom: 0px;
+padding-left: 0px;
 }
-
 .top {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 20px;
   border-bottom: 1px solid #ddd;
+  width: 45%;
+  flex-direction: row;
 }
 
+.search {
+  
+  padding: 0px 20px;
+ 
+  border-radius: 5px;
+}
 .search input {
   background-color: transparent;
   border: none;
@@ -45,7 +58,7 @@
   color: #ddd;
 }
 
-.button button {
+.search button {
   border: none;
   border-radius: 5px;
   background-color: transparent;
@@ -53,11 +66,12 @@
   border-width: 1px;
   border-color: #56117c;
   color: #56117c;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.12px;
-  padding: 6px 25px;
+  padding: 6px 0px ;
   cursor: pointer;
+  width: 300px;
 }
 
 .table table {
@@ -99,11 +113,11 @@
   object-fit: cover;
 }
 
-/* .row {
+.row {
   padding: 17px 0px 17px 15px;
   border-bottom: 1px solid #ddd;
   position: relative;
-} */
+}
 
 .middle {
   margin: 20px 0px;
@@ -258,12 +272,43 @@
   margin: 5px 0px 0px 0px;
   cursor: pointer;
 }
+.table tr:hover {
+  background-color: #ebefff;
+}
 
-@media only screen and (max-width: 950px){
+@media only screen and (max-width: 990px){
   .table th{
     display: none;
 
   }
+  .mainDiv{
+    padding-left: 10px;
+    margin-left: 0px;
+    align-items: center;
+  }
+
+  .search {
+    width: auto;
+    margin-bottom: 1px;
+  }
+  
+  .top{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-wrap: wrap;
+      width: auto;
+  }
+
+  .search button{
+     width: 400px;
+    }
+    
+#noProductsPage{
+   padding: 0px;
+   margin: 0px;
+}     
+
   .row{
     display: flex;
     flex-direction: row;
@@ -271,6 +316,12 @@
   .col1{
     display: flex;
     width: 200px;
+  }
+  .col1Text{
+    text-align: left;
+  }
+  .col5{
+    text-align: left;
   }
   .textBottom{
     display: flex;
@@ -306,7 +357,7 @@
   .table td:last-child {
     padding-bottom: 2rem;
   }
-  .table td::before {
+  .table td[data-cell]::before {
     content: attr(data-cell) ": ";
     font-weight: 700;
     text-transform: capitalize;

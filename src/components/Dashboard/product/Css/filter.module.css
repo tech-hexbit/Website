@@ -3,38 +3,57 @@
   padding: 20px 0px;
   height: fit-content;
   transition: all 0.3s;
-  margin-top: 9px;
+
+  margin-top: 10px;
+  padding-left: 10px;
+  margin-left: 0px;
 }
+  
+/* #onCat .mainDiv {
+  padding-left: 20px;
+  margin-left: -20px;
+  width: 0px;
+}
+#Div1Cat .div1 {
+  margin-left: 20px;
+  width: 0px;
+} */
+
 
 .div1 {
-  padding: 0px 0px 13px 0px;
+  padding: 0px 0px 13px 10px;
   border-bottom: #ddd 1px solid;
-  min-width: 120px;
+  min-width: 30px;
   transition: all 0.3s;
+  
 }
 
 .heading {
   padding-bottom: 7px;
   font-size: 16px;
   font-weight: 700;
+  
 }
 
 #filterLabel {
   cursor: pointer;
+  
 }
 
 .select {
-  background-color: transparent;
+
   border: none;
   color: #000;
   font-size: 16px;
   font-weight: 700;
   font-family: "Rubik", sans-serif;
   width: 100%;
+  
 }
 
 #rate {
   border-bottom: none;
+  
 }
 
 .tags {
@@ -42,22 +61,26 @@
   flex-wrap: wrap;
   gap: 10px;
   cursor: pointer;
+  
 }
 
 .categoryOption {
   padding: 5px 0px;
   display: flex;
   justify-content: space-between;
+  
 }
 
 .categoryOption input[type="checkbox" i] {
   width: 19px;
-  accent-color: rgba(255, 115, 29, 1);
+  accent-color: rgb(241, 237, 234);
   cursor: pointer;
+
 }
 
 .floatRightArrowDiv {
   float: right;
   margin: 10px 5px 10px 0px;
   cursor: pointer;
+  
 }
