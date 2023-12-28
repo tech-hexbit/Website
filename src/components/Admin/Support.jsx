@@ -61,19 +61,23 @@ export default function Support() {
   };
 
   const deleteHandle=async(_id)=>{
+    setLoad(true);
     // console.log(_id);
     try{
       const res=await axios.delete(`/api/website/qna/delete/${_id}`,{
         headers: { Authorization: `${authCtx.token}` },
       });
       console.log(res.data.message);
-      if(res.data.message==="Q&A entry deleted successfully"){
+      if(res.data.success){
         loadData();
+        setLoad(false);
       }
       else{
+        setLoad(false);
         console.log('problem in loading data');
       }
     }catch(e){
+      setLoad(false);
       console.log('delete handle not working')
     }
   }

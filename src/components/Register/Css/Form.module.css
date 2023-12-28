@@ -28,12 +28,13 @@
   display: flex;
   flex-direction: row;
   /* padding-bottom: 30px; */
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .formInput input{
-  width:70%;
+  width:80%;
   margin-right:0;
+  margin-left:2px;
 }
 
 .formInputs {
@@ -65,6 +66,12 @@ input {
   padding: 10px;
 }
 
+#countryCode {
+  width: 15%;
+  padding: 10px 6px;
+  border-radius: 5px;
+}
+
 label {
   padding-bottom: 10px;
 }
@@ -85,9 +92,10 @@ label {
   border-radius: 5px;
   background: #350b5e;
   color: #fff;
-  font-size: 16px;
+  font-size: 14px;
+  width:100%;
   height: 100%;
-  padding: 0px 15px;
+  padding: 2px 15px;
   cursor: pointer;
 }
 
@@ -115,10 +123,21 @@ span {
   color: #350b5e;
 }
 
+@media screen and (max-width:1300px){
+  .form {
+    padding-left: 0px;
+  }
+}
+
 @media screen and (max-width: 1200px) {
   .otpText {
-    width: 55%;
+    width: 100%;
   }
+
+  #countryCode {
+    width: 20%;
+  }
+
 }
 
 @media screen and (max-width: 1000px) {
@@ -133,8 +152,12 @@ span {
   .otpButton button {
     width: 100%;
     padding: 10px 0px;
-    margin-top: 10px;
   }
+
+  #countryCode {
+    width: 20%;
+  }
+  
 }
 
 @media screen and (max-width: 840px) {
@@ -144,5 +167,9 @@ span {
 
   .form {
     padding-left: 0px;
+  }
+
+  #countryCode {
+    width: 20%;
   }
 }

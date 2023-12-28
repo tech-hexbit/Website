@@ -71,19 +71,21 @@ export default function Contacted() {
                         <div>{val.email}</div>
                       </div>
 
+                    <div className={CCss.companyContactedContainer}>
                       <div className={CCss.titleCompanyNameDiv}>
                         {val.CompanyName}
                       </div>
+                      <UpdateContacted 
+                        state={val.state}
+                        id={val._id}
+                        setLoad={load}
+                        tag={val.tag}
+                      />
+                    </div>
+
                       
                     </div>
                     
-                    <UpdateContacted 
-                      state={val.state}
-                      id={val._id}
-                      setLoad={load}
-                      tag={val.tag}
-                    />
-
                     <div className={CCss.submainDiv}>
                       <div className={CCss.submainDivMain}>
                         Subject - <b>{val.subject}</b>
