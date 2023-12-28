@@ -140,7 +140,12 @@ export default function SignInForm() {
   }, [variants]);
 
   useEffect(() => {
-    console.log(seeOTP);
+    if (seeOTP) {
+      setInput({
+        email: "",
+        password: "",
+      });
+    }
   }, [seeOTP]);
 
   return (
