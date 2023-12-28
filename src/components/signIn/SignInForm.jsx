@@ -138,7 +138,9 @@ export default function SignInForm() {
   return (
     <>
       <div className={style.mainDiv}>
+        {/* Login */}
         <div className={style.left}>
+          {/* Email */}
           <div>
             <div className={style.welcomeText}>Welcome to Hexbit!</div>
             <div className={style.text}>
@@ -148,6 +150,7 @@ export default function SignInForm() {
               </Link>
             </div>
           </div>
+          {/* Password */}
           <div className={style.emailPassword}>
             <div className={style.inputEP}>
               <label htmlFor="email">
@@ -167,7 +170,7 @@ export default function SignInForm() {
             </div>
             <div className={style.inputEPass}>
               <label htmlFor="password">
-                Password<span className={style.requiredSpan}>*</span>
+                Password<span className="requiredSpan">*</span>
               </label>
               <br />
               <div className={style.passMDiv}>
@@ -224,8 +227,10 @@ export default function SignInForm() {
               </div>
             </div>
           </div>
+
           <div className={style.or}>Or</div>
 
+          {/* OTP and Phone Number */}
           <div className={style.phoneOTP}>
             <div className={style.inputPO}>
               <label htmlFor="phone">
