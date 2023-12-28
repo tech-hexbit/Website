@@ -139,6 +139,10 @@ export default function SignInForm() {
     }, 10000);
   }, [variants]);
 
+  useEffect(() => {
+    console.log(seeOTP);
+  }, [seeOTP]);
+
   return (
     <>
       <div className={style.mainDiv}>
@@ -234,7 +238,7 @@ export default function SignInForm() {
 
           <div className={style.or}>Or</div>
 
-          <OTP />
+          <OTP seeOTP={seeOTP} hideOTP={hideOTP} />
 
           <div className={style.loginDiv}>
             <button onClick={login}>{load ? <Load /> : "Log In"}</button>
