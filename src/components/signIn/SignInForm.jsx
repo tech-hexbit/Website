@@ -234,7 +234,7 @@ export default function SignInForm() {
           <div className={style.phoneOTP}>
             <div className={style.inputPO}>
               <label htmlFor="phone">
-                Phone<span style={{ color: "#350B5E" }}>*</span>
+                Phone<span className="requiredSpan">*</span>
               </label>
               <br />
               <div className={style.phoneInputs}>
@@ -254,7 +254,7 @@ export default function SignInForm() {
             </div>
             <div className={style.inputPO}>
               <label htmlFor="otp">
-                Enter OTP<span style={{ color: "#350B5E" }}>*</span>
+                Enter OTP<span className="requiredSpan">*</span>
               </label>
               <br />
               <div className={style.otpInputs}>
