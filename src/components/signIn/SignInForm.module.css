@@ -211,7 +211,7 @@ input[type="text"]:disabled::placeholder {
 }
 
 .right {
-  position: relative;
+  /* position: relative; */
   width: 60%;
   background: linear-gradient(
     90deg,
@@ -224,6 +224,11 @@ input[type="text"]:disabled::placeholder {
   width: 100%;
   min-height: 650px;
   object-fit: contain;
+}
+
+.pDiv {
+  margin: -50px 0px 0px 0px;
+  /* background-color: red; */
 }
 
 .head {
