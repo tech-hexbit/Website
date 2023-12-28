@@ -15,6 +15,17 @@ import AuthContext from "../../store/auth-context";
 import style from "./SignInForm.module.css";
 
 export default function OTP(props) {
+  const [input, setInput] = useState({ phone: "", otp: "" });
+
+  useEffect(() => {
+    console.table(input);
+  }, [input]);
+
+  useEffect(() => {
+    if (!props.seeOTP) {
+      console.log("empty");
+    }
+  }, [props.seeOTP]);
   return (
     <>
       {/* OTP and Phone Number */}
@@ -35,7 +46,12 @@ export default function OTP(props) {
               type="number"
               placeholder="XXXXX-XXXXX"
               id="phone"
+              name="phone"
+              value={input.phone}
               className={style.phone}
+              onChange={(e) => {
+                setInput({ ...input, phone: e.target.value });
+              }}
               onClick={() => {
                 props.hideOTP(true);
               }}
@@ -48,7 +64,18 @@ export default function OTP(props) {
           </label>
           <br />
           <div className={style.otpInputs}>
-            <input type="text" placeholder="Enter the otp" id="otp" />
+            <input
+              type="text"
+              placeholder="Enter the otp"
+              id="otp"
+              name="otp"
+              onChange={(e) => {
+                setInput({ ...input, otp: e.target.value });
+              }}
+              onClick={() => {
+                props.hideOTP(true);
+              }}
+            />
             <button>Resend OTP</button>
           </div>
         </div>
