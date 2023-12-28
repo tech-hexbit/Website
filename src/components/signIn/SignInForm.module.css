@@ -87,6 +87,7 @@
 }
 
 .inputPO input {
+  outline: none;
   border-radius: 6px;
   border: 1px solid #d9d9d9;
   background: #fff;
@@ -96,6 +97,17 @@
   padding: 10px 15px;
   width: 100%;
   margin-top: 5px;
+}
+
+.phone::-webkit-outer-spin-button,
+.phone::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.phone[type="number"] {
+  -moz-appearance: textfield;
 }
 
 .phoneInputs {
