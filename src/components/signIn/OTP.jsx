@@ -23,7 +23,10 @@ export default function OTP(props) {
 
   useEffect(() => {
     if (!props.seeOTP) {
-      console.log("empty");
+      setInput({
+        phone: "",
+        otp: "",
+      });
     }
   }, [props.seeOTP]);
   return (
@@ -69,6 +72,7 @@ export default function OTP(props) {
               placeholder="Enter the otp"
               id="otp"
               name="otp"
+              value={input.otp}
               onChange={(e) => {
                 setInput({ ...input, otp: e.target.value });
               }}
