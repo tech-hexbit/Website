@@ -225,6 +225,7 @@ export default function SignInForm() {
             </div>
           </div>
           <div className={style.or}>Or</div>
+
           <div className={style.phoneOTP}>
             <div className={style.inputPO}>
               <label htmlFor="phone">
@@ -257,6 +258,7 @@ export default function SignInForm() {
               </div>
             </div>
           </div>
+
           <div className={style.loginDiv}>
             <button onClick={login}>{load ? <Load /> : "Log In"}</button>
 
@@ -281,6 +283,7 @@ export default function SignInForm() {
             </div>
           </div>
         </div>
+
         <div className={style.right}>
           <img src={slider1} alt="" />
           <div>
