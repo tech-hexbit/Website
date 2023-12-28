@@ -205,13 +205,7 @@ input[type="text"]:disabled::placeholder {
   cursor: pointer;
 }
 
-.requiredSpan {
-  color: #ff0000;
-  margin-left: 3px;
-}
-
 .right {
-  /* position: relative; */
   width: 60%;
   background: linear-gradient(
     90deg,
@@ -228,7 +222,6 @@ input[type="text"]:disabled::placeholder {
 
 .pDiv {
   margin: -50px 0px 0px 0px;
-  /* background-color: red; */
 }
 
 .head {
