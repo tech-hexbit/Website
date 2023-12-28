@@ -148,7 +148,6 @@ export default function SignInForm() {
       <div className={style.mainDiv}>
         {/* Login */}
         <div className={style.left}>
-          {/* Email */}
           <div>
             <div className={style.welcomeText}>Welcome to Hexbit!</div>
             <div className={style.text}>
@@ -158,8 +157,8 @@ export default function SignInForm() {
               </Link>
             </div>
           </div>
-          {/* Password */}
           <div className={style.emailPassword}>
+            {/* Email */}
             <div className={style.inputEP}>
               <label htmlFor="email">
                 Email<span className="requiredSpan">*</span>
@@ -176,6 +175,8 @@ export default function SignInForm() {
                 }}
               />
             </div>
+
+            {/* Password */}
             <div className={style.inputEPass}>
               <label htmlFor="password">
                 Password<span className="requiredSpan">*</span>
