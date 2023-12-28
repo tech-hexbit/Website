@@ -151,7 +151,7 @@ export default function SignInForm() {
           <div className={style.emailPassword}>
             <div className={style.inputEP}>
               <label htmlFor="email">
-                Email<span className={style.requiredSpan}>*</span>
+                Email<span className="requiredSpan">*</span>
               </label>
               <br />
               <input
