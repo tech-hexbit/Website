@@ -65,6 +65,11 @@ body::-webkit-scrollbar-thumb:hover {
   display: none;
 }
 
+.requiredSpan {
+  color: #ff0000;
+  margin-left: 3px;
+}
+
 .active {
   color: #c0a0fd;
 }
