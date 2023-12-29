@@ -7,7 +7,7 @@ export default function Form1(props) {
   // const [disable, setDisable] = useState(true);
   const [error, setError] = useState("");
   const [input, setInput] = useState({ WhatsAppNumber: 0, Otp: 0 });
-  const[sendotp,setSendotp]=useState(false);
+  const [sendotp, setSendotp] = useState(false);
   const isPhoneNumberValid = input.WhatsAppNumber.length === 10;
 
   // const sendOTP = async () => {
@@ -24,7 +24,9 @@ export default function Form1(props) {
   //     }
   //   }
   // };
-  console.log(sendotp)
+
+  console.log(sendotp);
+
   const nextFN = async () => {
     if (
       props.input.Phone == 0 ||
@@ -60,14 +62,14 @@ export default function Form1(props) {
       </div>
       <div className={FCss.form}>
         <div className={FCss.phoneInput}>
-        <label htmlFor="phone">Phone</label>
-          <div className={FCss.formInput}>
-                <input
-                  type="text"
-                  placeholder="+91"
-                  disabled
-                  id={FCss.countryCode}
-                />
+          <label htmlFor="phone">Phone</label>
+          <div className={FCss.formInputs}>
+            <input
+              type="text"
+              placeholder="+91"
+              disabled
+              id={FCss.countryCode}
+            />
             <input
               type="number"
               id="phone"
@@ -79,42 +81,45 @@ export default function Form1(props) {
               }}
               disabled={sendotp}
             />
-             <div className={FCss.otpButton}>
-             {/* {
+            {/* {
               sendotp ===true ? (
                 <button>Verify OTP</button>
               ):(<button onClick={()=>setSendotp(true)}>Send OTP</button>)
              } */}
-             {
-              isPhoneNumberValid && (
-                <button onClick={()=>setSendotp(true)} disabled={sendotp} >Send OTP</button>
-              )
-             }
-            </div>
+            {isPhoneNumberValid && (
+              <>
+                <div className={FCss.otpButton}>
+                  <button onClick={() => setSendotp(true)} disabled={sendotp}>
+                    Send OTP
+                  </button>
+                </div>
+              </>
+            )}
           </div>
-          <div className={FCss.otp}>
-            <div className={FCss.otpText}>
-              {
-                sendotp===true && (
-                <div style={{display:"flex" , flexDirection:'row'}}>
-                  <input
-                    type="text"
-                    id="otp"
-                    placeholder="Enter the OTP sent"
-                    // disabled={disable}
-                    name="Password"
-                    onChange={(e) => {
-                      setInput({ ...input, Otp: e.target.value });
-                    }} 
-                  />
-                  <div className={FCss.otpButton}>
-                    <button>Verify OTP</button>
+
+          {sendotp === true && (
+            <>
+              <div className={FCss.otp}>
+                <div className={FCss.otpText}>
+                  <div style={{ display: "flex", flexDirection: "row" }}>
+                    <input
+                      type="text"
+                      id="otp"
+                      placeholder="Enter the OTP sent"
+                      // disabled={disable}
+                      name="Password"
+                      onChange={(e) => {
+                        setInput({ ...input, Otp: e.target.value });
+                      }}
+                    />
+                    <div className={FCss.otpButton}>
+                      <button>Verify OTP</button>
+                    </div>
                   </div>
                 </div>
-              )
-              }
-            </div>
-          </div>
+              </div>
+            </>
+          )}
         </div>
         <div className={FCss.formInputs}>
           <label htmlFor="email">Email</label>
