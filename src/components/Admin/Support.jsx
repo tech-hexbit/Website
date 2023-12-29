@@ -167,8 +167,9 @@ export default function Support() {
                                 class="lucide lucide-pencil"
                                 onClick={() => {
                                   const selectedItem = data.find(item => item._id === val._id)
+                                  // console.log('item',selectedItem);
                                   setShowEdit(true);
-                                  setEditdata({ _id: selectedItem._id, ques: selectedItem.question, ans: selectedItem.answer })
+                                  setEditdata({ _id: selectedItem._id, ques: selectedItem.question, ans: selectedItem.answer , tag:selectedItem.tag })
                                   // console.log(val._id)
                                 }}>
                                   <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>

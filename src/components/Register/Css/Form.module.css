@@ -34,6 +34,7 @@
 .formInput{
   display: flex;
   flex-direction: row;
+  gap:0px;
 }
 
 .phone {
@@ -43,6 +44,8 @@
 
 #phone{
   width: 80%;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 
 .phoneInputs {
@@ -82,7 +85,8 @@ input {
 #countryCode {
   width: 8%;
   padding: 10px 6px;
-  border-radius: 5px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
 label {
@@ -110,7 +114,8 @@ label {
   height: 100%;
   padding: 2px 15px;
   cursor: pointer;
-  margin-left:20px
+  margin-left:20px;
+  min-width: 56px;
 }
 
 .otp input {

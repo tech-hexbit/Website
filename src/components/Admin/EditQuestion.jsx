@@ -14,12 +14,13 @@ import axios from "axios";
 import AQCss from "./Css/AddQuestion.module.css";
 
 export default function EditQuestion(props) {
-    // console.log(props.data._id);
+    // console.log(props.data);
   const [load, setLoad] = useState(false);
   const [showData, setData] = useState({
     _id:props.data._id,
     question: "",
     answer: "",
+    tag:`${props.data.tag}`
   });
     // console.log(showData)
   const [variants, setError] = useState({
@@ -43,9 +44,11 @@ export default function EditQuestion(props) {
   const onSubmit = async () => {
     setLoad(true);
 
-    const { question, answer } = showData;
+    const { question, answer ,tag } = showData;
 
-    if (question !== "" && answer !== "") {
+    console.log(tag);
+
+    if (question !== "" && answer !== "" && tag !== "") {
       try {
         const response = await axios.post("/api/website/qna/edit", showData, {
           headers: { Authorization: `${authCtx.token}` },
@@ -111,6 +114,10 @@ export default function EditQuestion(props) {
     }
   };
 
+  const handleSelectChange = (event) => {
+    setData({ tag: event.target.value });
+  };
+
   return (
     <>
       <div className={AQCss.mDiv}>
@@ -137,7 +144,24 @@ export default function EditQuestion(props) {
             <path d="m6 6 12 12" />
           </svg>
         </div>
+
         <div className={AQCss.inpmDiv}>
+          <select
+              id="dropdown"
+              value={showData.tag}
+              placeholder={props.data.tag}
+              onChange={handleSelectChange}
+              className={AQCss.inpTag}
+            >
+              <option value="">Select tag</option>
+              <option value="mail">Mail</option>
+              <option value="query">Query</option>
+              <option value="cancel">Cancellation</option>
+              <option value="refund">Refund</option>
+              <option value="order">Order</option>
+              <option value="approved">Important Bulletin</option>
+          </select>
+
           <input
             type="text"
             name="question"
