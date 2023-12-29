@@ -92,7 +92,11 @@ export default function Support() {
     <>
       {showAdd ? (
         <AddQuestiom setAdd={setAdd} setRef={setRef} />
-      ) : (
+      ) : showEdit ? (
+        <div className={showEdit ? "yesAdd" : "noAdd"}>
+          <EditQuestion data={editdata} setShowEdit={setShowEdit} setRef={setRef} />
+        </div>
+      ): (
         <div>
           <div className={SupCss.titleDiv}>
             <p
@@ -176,13 +180,13 @@ export default function Support() {
                                   <path d="m15 5 4 4"/>
                                 </svg>
 
-                                {
+                                {/* {
                                     showEdit && (
                                       <div className={showEdit ? "yesAdd" : "noAdd"}>
                                         <EditQuestion data={editdata} setShowEdit={setShowEdit} setRef={setRef} />
                                       </div>
                                     )
-                                }
+                                } */}
 
                                 {/* delete func */}
                                 <svg 
