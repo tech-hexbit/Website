@@ -20,6 +20,12 @@
   border-color: #c075ff;
 }
 
+.icon{
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+}
+
 .titleDiv,
 .datetimeDiv {
   display: flex;

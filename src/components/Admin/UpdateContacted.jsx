@@ -2,12 +2,15 @@ import React , { useState, useContext } from "react";
 
 import AuthContext from "../../store/auth-context";
 
+//css
+import Ucss from './Css/Contacted.module.css'
+
 // axios
 import axios from "axios";
 
 export default function UpdateContacted(props){
     const authCtx = useContext(AuthContext);
-    const tagValue=props.tag;
+    const [tagValue,setTagValue]=useState(props.tag);
 
     const updateTag = async () => {
         // console.log(props.id)
@@ -40,12 +43,27 @@ export default function UpdateContacted(props){
         }
       }
 
-      console.log(props.tag)
+      console.log('tag',props.tag)
     return(
         <div>
         {
             tagValue ? (
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="green" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-round-check"><path d="M2 21a8 8 0 0 1 13.292-6"/><circle cx="10" cy="8" r="5"/><path d="m16 19 2 2 4-4"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" 
+                width="18" 
+                height="18" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="green" 
+                stroke-width="2" 
+                stroke-linecap="round" 
+                stroke-linejoin="round" 
+                class="lucide lucide-user-round-check"
+                className={Ucss.icon}
+                >
+                  <path d="M2 21a8 8 0 0 1 13.292-6"/>
+                  <circle cx="10" cy="8" r="5"/>
+                  <path d="m16 19 2 2 4-4"/>
+              </svg>
             ) : (
               // <input type="checkbox" value={tagValue} onClick={contactedhandle}/>
               <div class="checkbox-wrapper-3">
