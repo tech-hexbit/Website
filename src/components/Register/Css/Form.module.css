@@ -24,17 +24,30 @@
   padding-left: 84px;
 }
 
-.formInput{
+/* .formInput{
   display: flex;
   flex-direction: row;
   /* padding-bottom: 30px; */
   /* justify-content: space-between; */
+
+
+.formInput{
+  display: flex;
+  flex-direction: row;
 }
 
-.formInput input{
-  width:80%;
-  margin-right:0;
-  margin-left:2px;
+.phone {
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+
+#phone{
+  width: 80%;
+}
+
+.phoneInputs {
+  display: flex;
+  justify-content: space-between;
 }
 
 .formInputs {
@@ -55,7 +68,7 @@
 }
 
 .phoneInput {
-  /* padding-bottom: 30px; */
+  /* padding-bottom: 50px; */
 }
 
 input {
@@ -97,6 +110,7 @@ label {
   height: 100%;
   padding: 2px 15px;
   cursor: pointer;
+  margin-left:20px
 }
 
 .otp input {
