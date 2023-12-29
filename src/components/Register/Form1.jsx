@@ -65,7 +65,6 @@ export default function Form1(props) {
               id="phone"
               placeholder="Enter phone no."
               name="Phone"
-              // disabled={!disable}
               onChange={(e) => {
                 props.setInput({ ...props.input, Phone: e.target.value });
                 setInput({ ...input, WhatsAppNumber: e.target.value });

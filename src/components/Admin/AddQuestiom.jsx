@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 
 // components
-import { Alert } from "./../../MicroInteraction/Alert";
 import Load from "./../../MicroInteraction/Load";
+import { Alert } from "./../../MicroInteraction/Alert";
 
 // state
 import AuthContext from "../../store/auth-context";
@@ -18,7 +18,9 @@ export default function AddQuestiom(props) {
   const [showData, setData] = useState({
     question: "",
     answer: "",
+    tag: "",
   });
+
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -40,9 +42,9 @@ export default function AddQuestiom(props) {
   const onSubmit = async () => {
     setLoad(true);
 
-    const { question, answer } = showData;
+    const { question, answer, tag } = showData;
 
-    if (question !== "" && answer !== "") {
+    if (question !== "" && answer !== "" && tag !== "") {
       try {
         const response = await axios.post("/api/website/qna/post", showData, {
           headers: { Authorization: `${authCtx.token}` },
@@ -108,6 +110,10 @@ export default function AddQuestiom(props) {
     }
   };
 
+  const handleSelectChange = (event) => {
+    setData({ tag: event.target.value });
+  };
+
   return (
     <>
       <div className={AQCss.mDiv}>
@@ -135,6 +141,20 @@ export default function AddQuestiom(props) {
           </svg>
         </div>
         <div className={AQCss.inpmDiv}>
+          <select
+            id="dropdown"
+            value={showData.tag}
+            onChange={handleSelectChange}
+            className={AQCss.inpTag}
+          >
+            <option value="">Select tag</option>
+            <option value="mail">Mail</option>
+            <option value="query">Query</option>
+            <option value="cancel">Cancellation</option>
+            <option value="refund">Refund</option>
+            <option value="order">Order</option>
+            <option value="approved">Important Bulletin</option>
+          </select>
           <input
             type="text"
             name="question"

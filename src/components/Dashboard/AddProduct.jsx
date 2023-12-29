@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 
 // components
 import Form from "./AddProduct/Form";
+import UploadCsvPopup from "./AddProduct/UploadCsvPopup";
+
+// MicroInteraction
+import { Alert } from "../../MicroInteraction/Alert";
 
 // css
 import ApCss from "./Css/AddProduct.module.css";
-import UploadCsvPopup from "./AddProduct/UploadCsvPopup";
-import { Alert } from "../../MicroInteraction/Alert";
 
 export default function AddProduct() {
   const [showPopup, setShowPopup] = useState(false);
@@ -18,6 +20,7 @@ export default function AddProduct() {
     text: "",
     val: false,
   });
+
   useEffect(() => {
     setTimeout(() => {
       setError({
@@ -30,6 +33,7 @@ export default function AddProduct() {
       });
     }, 10000);
   }, [variants]);
+
   return (
     <>
       <div className={ApCss.mDiv}>
@@ -39,11 +43,14 @@ export default function AddProduct() {
             <button onClick={() => setShowPopup(true)}>+ Add bulk</button>
           </div>
         </div>
+
         <Form />
+
         {showPopup && (
           <UploadCsvPopup setShowPopup={setShowPopup} setError={setError} />
         )}
       </div>
+
       <Alert variant={variants} val={setError} />
     </>
   );

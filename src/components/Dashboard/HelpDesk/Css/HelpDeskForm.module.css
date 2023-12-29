@@ -1,0 +1,124 @@
+.main label {
+  color: #606060;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 150%;
+  padding-top: 1rem;
+}
+
+.storeInp {
+  width: 100%;
+}
+
+.main input {
+  outline: none;
+  border-radius: 20px;
+  border: 1px solid #d3d3d3;
+  background: #fff;
+  height: 60px;
+  padding-inline-start: 1.2rem;
+}
+
+.main textarea {
+  outline: none;
+  border-radius: 20px;
+  border: 1px solid #d3d3d3;
+  background: #fff;
+  padding-inline-start: 1.2rem;
+  padding-top: 1rem;
+  resize: none;
+}
+
+.main input::placeholder,
+textarea::placeholder {
+  color: #606060;
+  font-weight: 400;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.main button {
+  width: 100%;
+  padding: 1rem;
+  gap: 10px;
+  background: #008f17;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  margin-block-start: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.CollegeInpmDIv {
+  position: relative;
+}
+
+.MainDropDown {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+
+.DropDownmDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0px 30px;
+  width: 100%;
+  background-color: #fff;
+  color: #000;
+  padding: 10px 5px;
+  text-align: center;
+  box-shadow: 0px 1px 1px 1px rgb(183, 183, 183);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.DropDownmDiv .span1 {
+  margin-left: 20px;
+}
+
+.DropDownmDiv .span2 {
+  margin-right: 20px;
+}
+
+.DropDownmDiv:first-child {
+  border-radius: 5px 5px 0px 0px;
+}
+
+.DropDownmDiv:last-child {
+  border-radius: 0px 0px 5px 5px;
+}
+
+/* media queries */
+@media (width<=40em) {
+  .main input,
+  .main textarea {
+    padding-inline-start: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .DropDownmDiv {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .DropDownmDiv .span1,
+  .DropDownmDiv .span2 {
+    margin: 0px 0px 0px 10px;
+  }
+
+  .DropDownmDiv .span1::before,
+  .DropDownmDiv .span2::before {
+    content: attr(data-span) ": ";
+    color: #636363;
+  }
+}

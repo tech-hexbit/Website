@@ -18,28 +18,27 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 import osCss from "./Css/overallSales.module.css";
 
 export default function OverallSales() {
-  const [search, setSearch] = useState("");
+  const [max, setmax] = useState(false);
   const [load, setLoad] = useState(false);
+  const [search, setSearch] = useState("");
   const [orderDel, setOrderDel] = useState([]);
+  const [showDel, setHideDel] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
   const [orderDelCopy, setOrderDelCopy] = useState([]);
   const [prodcutsCount, setProdcutsCount] = useState(0);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [showDel, setHideDel] = useState(false);
-  const [max, setmax] = useState(false);
   const [loadDataState, setLoadDataState] = useState(false);
   const [showProductDel, setProductDel] = useState({ state: false, id: "" });
 
   // Add a state variable to track the sort order
   const [sortOrder, setSortOrder] = useState("asc");
-  const [sortByNameOrder, setSortByNameOrder] = useState("asc");
-  const [sortPriceOrder, setSortPriceOrder] = useState("asc");
   const [sortDateOrder, setSortDateOrder] = useState("asc");
+  const [sortPriceOrder, setSortPriceOrder] = useState("asc");
+  const [sortByNameOrder, setSortByNameOrder] = useState("asc");
   const [sortPaymentMethodOrder, setSortPaymentMethodOrder] = useState("asc");
 
-
   //  Select Filter
-  const [unique, setunique] = useState([]);
   const [buyer, setbuyer] = useState([]);
+  const [unique, setunique] = useState([]);
   const [filters, setfilters] = useState({
     buyer: "",
     status: "",
@@ -206,7 +205,9 @@ export default function OverallSales() {
           <div className={osCss.top}>
             <div>Overall Sales</div>
             <div className={osCss.filters}>
+              {/* Filters */}
               <div className={osCss.select}>
+                {/* Buyers */}
                 <div className={osCss.selectInner}>
                   <select onChange={handleChange1} name="buyer">
                     <option value="Buyer" hidden selected>
@@ -217,6 +218,8 @@ export default function OverallSales() {
                     ))}
                   </select>
                 </div>
+
+                {/* Status */}
                 <div className={osCss.selectInner}>
                   <select onChange={handleChange1} name="status">
                     <option value="Status" hidden selected>
@@ -229,6 +232,8 @@ export default function OverallSales() {
                   </select>
                 </div>
               </div>
+
+              {/* Search */}
               <div className={osCss.search}>
                 <input
                   type="text"
@@ -238,6 +243,7 @@ export default function OverallSales() {
               </div>
             </div>
           </div>
+
           <div className={osCss.middle}>
             <div className={osCss.table}>
               <table
@@ -252,7 +258,6 @@ export default function OverallSales() {
                   <>
                     {orderDel?.length > 0 ? (
                       <>
-
                         <tr>
                           <th className={osCss.thTag}>
                             <p>Id</p>
@@ -373,7 +378,7 @@ export default function OverallSales() {
                               />
                             </svg>
                           </th>
-                          <th className={osCss.payment} >Delivery status</th>
+                          <th className={osCss.payment}>Delivery status</th>
                           <th>Buyer</th>
                         </tr>
 
@@ -391,9 +396,7 @@ export default function OverallSales() {
                           })
                           .map((val, key) => {
                             return (
-
                               <tr key={key}>
-
                                 <td data-cell="ID"> #{val._id.slice(-4)}</td>
                                 <td
                                   onClick={() => {
@@ -404,13 +407,17 @@ export default function OverallSales() {
                                 >
                                   {val.ONDCBilling.name}
                                 </td>
-                                <td data-cell="PRICE" >  ₹ {val.amount.toFixed(2)}</td>
-                                <td data-cell="ORDERED ON" >  {val.when.date}</td>
-                                <td data-cell="PAYMENT METHOD" > {val.status}</td>
+                                <td data-cell="PRICE">
+                                  {" "}
+                                  ₹ {val.amount.toFixed(2)}
+                                </td>
+                                <td data-cell="ORDERED ON"> {val.when.date}</td>
+                                <td data-cell="PAYMENT METHOD">
+                                  {" "}
+                                  {val.status}
+                                </td>
 
-
-
-                                < UpdateState
+                                <UpdateState
                                   state={val.state}
                                   id={val._id}
                                   setLoadDataState={setLoadDataState}
@@ -418,7 +425,7 @@ export default function OverallSales() {
                                   dataCell="DELIVERY STATUS"
                                 />
 
-                                <td data-cell="BUYER " >{val.buyer}</td>
+                                <td data-cell="BUYER ">{val.buyer}</td>
                               </tr>
                             );
                           })}
@@ -485,12 +492,16 @@ export default function OverallSales() {
         </div>
       )}
 
-      <Orderdetails
-        id={showProductDel.id}
-        setProductDel={setProductDel}
-        showDel={showDel}
-        setHideDel={setHideDel}
-      />
+      {showDel ? (
+        <Orderdetails
+          id={showProductDel.id}
+          setProductDel={setProductDel}
+          showDel={showDel}
+          setHideDel={setHideDel}
+        />
+      ) : (
+        ""
+      )}
     </>
   );
 }

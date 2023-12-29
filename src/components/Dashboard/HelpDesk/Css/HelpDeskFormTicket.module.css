@@ -1,0 +1,129 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.main h1 {
+  align-self: flex-start;
+  text-align: left;
+  color: #383c3e;
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 160%;
+  letter-spacing: 0.2px;
+  display: flex;
+  justify-content: center;
+}
+
+.main h1 svg {
+  margin-inline-end: 2rem;
+  cursor: pointer;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  padding: clamp(1.5rem, 0.79rem + 3.5vw, 5rem);
+  border-radius: 370.059px;
+  background: rgba(35, 162, 109, 0.12);
+}
+
+.icon svg {
+  display: block;
+  max-width: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.content p:first-child {
+  color: #474747;
+  text-align: center;
+  font-size: 1.7rem;
+  font-size: clamp(1.7rem, 1.428rem + 1.36vw, 3.06rem);
+  font-weight: 400;
+  line-height: 39.969px;
+}
+
+.content p:nth-child(2) {
+  color: #121212;
+  text-align: center;
+  font-size: 1.6875rem;
+  font-size: clamp(1.68rem, 1.5rem + 0.75vw, 2.438rem);
+  font-weight: 600;
+  line-height: 53.293px;
+}
+
+.content p:last-child {
+  color: #595959;
+  text-align: center;
+  font-size: 1rem;
+  font-size: clamp(1rem, 0.96rem + 0.19vw, 1.2rem);
+  font-weight: 600;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  align-content: center;
+}
+
+.buttons button {
+  min-width: 144px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  border: none;
+  padding: 0.5rem 1rem;
+}
+
+.buttons button:first-child {
+  border-radius: 4px;
+  background: #d0deeb;
+}
+
+.buttons button:last-child {
+  border-radius: 4px;
+  background: #13c39c;
+}
+
+.ticket {
+  width: 100%;
+  padding: 0.3rem;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  background: #23a26d;
+  border: none;
+}
+
+/* media queries */
+@media (width<=40em) {
+  .buttons {
+    flex-direction: column;
+    gap: 1;
+  }
+
+  .ticket {
+    font-size: 1rem;
+  }
+}
+
+@media (width<=380px) {
+  .icon {
+    padding: 0;
+  }
+}

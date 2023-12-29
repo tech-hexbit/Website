@@ -113,8 +113,6 @@ const Orderdetails = (props) => {
                       Shipping address
                     </div>
                     <div className={odcss.addressdetails}>
-                      
-                      
                       <div className={odcss.adress}>
                         <p className={odcss.adl1}>{res.ShippingAddress}</p>
                         <p className={odcss.adl2}></p>

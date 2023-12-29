@@ -65,6 +65,11 @@ body::-webkit-scrollbar-thumb:hover {
   display: none;
 }
 
+.requiredSpan {
+  color: #ff0000;
+  margin-left: 3px;
+}
+
 .active {
   color: #c0a0fd;
 }
@@ -271,6 +276,18 @@ body::-webkit-scrollbar-thumb:hover {
 
 .alertTrue {
   background-color: #ff9564;
+}
+
+#showDropMenuClg {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+#hideDropMenuClg {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 @media only screen and (max-width: 950px) {

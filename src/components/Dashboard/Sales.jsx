@@ -5,14 +5,9 @@ import OverallSales from "./Sales/OverallSales";
 
 export default function Sales() {
   const [state, set] = useState(false);
-
-  useEffect(() =>{
-    console.log(state);
-
-  }, [state]);
-  return <>{state ? "Hello" : <OverallSales set={set}state={state} />} </>;
-  
+  return (
+    <>
+      <OverallSales set={set} state={state} />
+    </>
+  );
 }
-
-
-
