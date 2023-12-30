@@ -96,6 +96,8 @@ export default function DoughnutChart() {
     loadData();
   }, []);
 
+  console.log('graphdata',graphData);
+
   return (
     <div className="d-chart">
       {load ? (

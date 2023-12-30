@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 
 // components
-import Load from "./../../MicroInteraction/Load";
 import { Alert } from "./../../MicroInteraction/Alert";
+import Load from "./../../MicroInteraction/Load";
 
 // state
 import AuthContext from "../../store/auth-context";
@@ -13,15 +13,13 @@ import axios from "axios";
 // css
 import AQCss from "./Css/AddQuestion.module.css";
 
-export default function AddQuestiom(props) {
-  // console.log(props);
+export default function EditQuestion(props) {
   const [load, setLoad] = useState(false);
   const [showData, setData] = useState({
+    _id: props.data._id,
     question: "",
     answer: "",
-    tag: "",
   });
-
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -43,11 +41,11 @@ export default function AddQuestiom(props) {
   const onSubmit = async () => {
     setLoad(true);
 
-    const { question, answer, tag } = showData;
+    const { question, answer } = showData;
 
-    if (question !== "" && answer !== "" && tag !== "") {
+    if (question !== "" && answer !== "") {
       try {
-        const response = await axios.post("/api/website/qna/post", showData, {
+        const response = await axios.post("/api/website/qna/edit", showData, {
           headers: { Authorization: `${authCtx.token}` },
         });
 
@@ -69,7 +67,7 @@ export default function AddQuestiom(props) {
           });
 
           props.setRef(true);
-          props.setAdd(false);
+          props.setShowEdit(false);
         } else {
           setLoad(false);
 
@@ -111,15 +109,11 @@ export default function AddQuestiom(props) {
     }
   };
 
-  const handleSelectChange = (event) => {
-    setData({ tag: event.target.value });
-  };
-
   return (
     <>
       <div className={AQCss.mDiv}>
         <div className={AQCss.titleDiv}>
-          <p>Add Question(s)</p>
+          <p>Edit Question(s)</p>
 
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -134,7 +128,7 @@ export default function AddQuestiom(props) {
             class="lucide lucide-x"
             className={AQCss.closeBtn}
             onClick={() => {
-              props.setAdd(false);
+              props.setShowEdit(false);
             }}
           >
             <path d="M18 6 6 18" />
@@ -142,26 +136,12 @@ export default function AddQuestiom(props) {
           </svg>
         </div>
         <div className={AQCss.inpmDiv}>
-          <select
-            id="dropdown"
-            value={showData.tag}
-            onChange={handleSelectChange}
-            className={AQCss.inpTag}
-          >
-            <option value="">Select tag</option>
-            <option value="mail">Mail</option>
-            <option value="query">Query</option>
-            <option value="cancel">Cancellation</option>
-            <option value="refund">Refund</option>
-            <option value="order">Order</option>
-            <option value="approved">Important Bulletin</option>
-          </select>
           <input
             type="text"
             name="question"
             id=""
             value={showData.question}
-            placeholder="Question"
+            placeholder={props.data.ques}
             className={AQCss.inpTag}
             onChange={updateData}
           />
@@ -172,7 +152,7 @@ export default function AddQuestiom(props) {
             cols="30"
             rows="10"
             value={showData.answer}
-            placeholder="Answer"
+            placeholder={props.data.ans}
             className={AQCss.inpTag}
             onChange={updateData}
           ></textarea>

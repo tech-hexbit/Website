@@ -118,36 +118,40 @@ const Footer = () => {
               </div>
             </div>
           </div>
+
+          {/* Footer Bottom */}
+          <div className={FCss.bottomDiv}>
+            <div className={FCss.footerImage}>
+              <img src={madeInIndia} alt="" />
+              <img src={dss} alt="" />
+            </div>
+            <div className={FCss.rights}>
+              <span>
+                <Link
+                  to="/terms"
+                  className="LinkStyle"
+                  style={{ color: "white" }}
+                >
+                  Terms & condition
+                </Link>
+              </span>{" "}
+              ||{" "}
+              <span>
+                <Link
+                  to="/privacy"
+                  className="LinkStyle"
+                  style={{ color: "white" }}
+                >
+                  Privacy Policy
+                </Link>
+              </span>
+            </div>
+            <div className={FCss.rights}>© Hexbit. All Rights Reserved.</div>
+          </div>
         </>
       ) : (
         ""
       )}
-
-      {/* Footer Bottom */}
-      <div className={FCss.bottomDiv}>
-        <div className={FCss.footerImage}>
-          <img src={madeInIndia} alt="" />
-          <img src={dss} alt="" />
-        </div>
-        <div className={FCss.rights}>
-          <span>
-            <Link to="/terms" className="LinkStyle" style={{ color: "white" }}>
-              Terms & condition
-            </Link>
-          </span>{" "}
-          ||{" "}
-          <span>
-            <Link
-              to="/privacy"
-              className="LinkStyle"
-              style={{ color: "white" }}
-            >
-              Privacy Policy
-            </Link>
-          </span>
-        </div>
-        <div className={FCss.rights}>© Hexbit. All Rights Reserved.</div>
-      </div>
     </div>
   );
 };

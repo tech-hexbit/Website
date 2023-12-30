@@ -24,6 +24,18 @@
   padding-left: 84px;
 }
 
+.formInput{
+  display: flex;
+  flex-direction: row;
+  /* padding-bottom: 30px; */
+  justify-content: space-between;
+}
+
+.formInput input{
+  width:70%;
+  margin-right:0;
+}
+
 .formInputs {
   display: flex;
   flex-direction: column;
@@ -42,7 +54,7 @@
 }
 
 .phoneInput {
-  padding-bottom: 30px;
+  /* padding-bottom: 30px; */
 }
 
 input {
@@ -63,7 +75,9 @@ label {
 }
 
 .otpText {
-  width: 70%;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  width: 100%;
 }
 
 .otpButton button {
