@@ -46,7 +46,7 @@ export default function QA(props) {
                     <path d="M15 18H9" />
                     <circle cx="17" cy="18" r="2" />
                   </svg>
-                ) : val.tag === "Refund" ? (
+                ) : val.tag === "refund" ? (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
