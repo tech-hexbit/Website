@@ -62,17 +62,23 @@ export default function OverallSales() {
     setunique(u(buyer));
   }, [buyer]);
 
+  // filter based on drop-down list
   useEffect(() => {
     if (filters.buyer !== "" || filters.status !== "") {
-      var filterValues = orderDelCopy.filter((order) => {
-        if (order.buyer == filters.buyer || order.state == filters.status) {
+      var filterValues = allCustomers.filter((order) => {
+        if (
+          (filters.buyer === "" || order.buyer === filters.buyer) &&
+          (filters.status === "" || order.state === filters.status)
+        ) {
           return true;
         }
         return false;
       });
 
-      setOrderDel(filterValues);
+      setOrderDelCopy(filterValues);
     } else {
+      // Reset to original list if no filters are applied
+      setOrderDelCopy(orderDelCopy);
     }
   }, [filters]);
 
@@ -438,7 +444,7 @@ export default function OverallSales() {
               </table>
 
               <p className={osCss.showingPTag}>
-                Showing <b>{10 * (currentPage - 1) + orderDel?.length} </b>
+                Showing <b>{10 * (currentPage - 1) + orderDelCopy?.length} </b>
                 of <b>{prodcutsCount}</b> results
               </p>
             </div>
