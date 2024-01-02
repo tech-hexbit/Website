@@ -10,6 +10,8 @@ export default function HelpDeskFormTicket(props) {
     window.scrollTo(0, 0);
   }, []);
 
+  console.log(props);
+
   return (
     <>
       <div className={hdft.main}>
