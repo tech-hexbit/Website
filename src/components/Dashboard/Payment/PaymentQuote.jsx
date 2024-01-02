@@ -8,7 +8,7 @@ export default function PaymentQuote() {
     <>
       <p className={pq.endpara}>
         *Upload Company Authorized GST Sales Invoice In the actions tab upload
-        button,post uploading raise the request.
+        button, post uploading raise the request.
       </p>
     </>
   );
