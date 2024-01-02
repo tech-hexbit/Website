@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import AuthContext from "./../../../store/auth-context";
 
 // MicroInteraction
-import Load from "./../../../MicroInteraction/Load";
+import Load from "./../../../MicroInteraction/LoadBlack";
 import { Alert } from "./../../../MicroInteraction/Alert";
 
 // axios
@@ -67,7 +67,7 @@ export default function PastTicket() {
     <>
       <div className={pt.main}>
         <h1>Past Ticket</h1>
-        {load ? (
+        {!load ? (
           <div className="loadCenterDiv">
             <Load />
           </div>
@@ -76,16 +76,21 @@ export default function PastTicket() {
             {showloadStore ? (
               <>
                 {showloadStore.map((val, key) => {
-                  console.log(val._id);
+                  console.log(val.Status);
                   return (
                     <>
                       <div className={pt.grid} key={key}>
                         <div className={pt.child}>#HX{val._id.slice(-5)}</div>
-                        <div className={`${pt.child} ${pt.orange}`}>
-                          Pending
+                        <div
+                          className={`${pt.child}`}
+                          id={
+                            val.Status === "Pending"
+                              ? `${pt.orange}`
+                              : `${pt.green}`
+                          }
+                        >
+                          {val.Status}
                         </div>
-                        <div className={pt.child}>#HX00002</div>
-                        <div className={`${pt.child} ${pt.green}`}>Solved</div>
                       </div>
                     </>
                   );
