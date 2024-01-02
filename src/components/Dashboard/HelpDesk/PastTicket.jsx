@@ -76,10 +76,11 @@ export default function PastTicket() {
             {showloadStore ? (
               <>
                 {showloadStore.map((val, key) => {
+                  console.log(val._id);
                   return (
                     <>
-                      <div className={pt.grid}>
-                        <div className={pt.child}>#HX00001</div>
+                      <div className={pt.grid} key={key}>
+                        <div className={pt.child}>#HX{val._id.slice(-5)}</div>
                         <div className={`${pt.child} ${pt.orange}`}>
                           Pending
                         </div>
