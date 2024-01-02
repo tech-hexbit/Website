@@ -111,13 +111,13 @@
 }
 
 .newrequest {
+  margin: 30px 0px;
   background: #23a26d;
   width: 100%;
   color: #fff;
   text-align: center;
   font-size: 35px;
   font-weight: 700;
-  text-transform: capitalize;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 8px;
