@@ -36,6 +36,7 @@ export default function HelpDeskFormTicket(props) {
           <button>Details</button>
           <button>New Request</button>
         </div>
+
         <Link to="/me/help/desk/ViewMore">
           <button className={hdft.ticket}>Ticket Status</button>
         </Link>
