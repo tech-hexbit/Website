@@ -53,6 +53,12 @@
   background-color: #ebefff;
 }
 
+.trans_table td:nth-child(3),
+.trans_table th:nth-child(3) {
+  text-align: center;
+  width: 120px;
+}
+
 .processed {
   background-color: #ebf9f1;
   color: #1f9254;
