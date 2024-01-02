@@ -27,11 +27,13 @@ export default function HelpDeskFormTicket(props) {
             />
           </svg>
         </div>
+
         <div className={hdft.content}>
           <p>Request Raised !!</p>
           <p>Ticket ID : HX001</p>
           <p>For More Details Visit Support Details Page</p>
         </div>
+
         <div className={hdft.buttons}>
           <button>Details</button>
           <button>New Request</button>
