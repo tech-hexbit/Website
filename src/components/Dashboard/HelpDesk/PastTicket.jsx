@@ -67,7 +67,7 @@ export default function PastTicket() {
     <>
       <div className={pt.main}>
         <h1>Past Ticket</h1>
-        {!load ? (
+        {load ? (
           <div className="loadCenterDiv">
             <Load />
           </div>
