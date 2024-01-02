@@ -72,47 +72,51 @@ export default function HelpDeskFormTable() {
   }, []);
 
   return (
-    <div className={hdftable.main}>
-      <h1>Contact us</h1>
+    <>
+      <div className={hdftable.main}>
+        <h1>Contact us</h1>
 
-      <div className={hdftable.submain}>
-        <h3>Tickets</h3>
-        <table className={hdftable.trans_table}>
-          <tr>
-            <th>Ticket ID</th>
-            <th>Subject</th>
-            <th>Date</th>
-            <th>Status</th>
-          </tr>
-
-          {data.map((item, key) => (
-            <tr key={key}>
-              <td data-cell="ticket Id">{item.trackingId}</td>
-              <td data-cell="subject">{item.product}</td>
-              <td data-cell="date">{item.date}</td>
-              <td
-                className={
-                  item.status === "Delivered & Eligible" ||
-                  item.status === "Solved"
-                    ? hdftable.processed
-                    : hdftable.pending
-                }
-                data-cell="status"
-              >
-                {item.status}
-              </td>
+        <div className={hdftable.submain}>
+          <h3>Tickets</h3>
+          <table className={hdftable.trans_table}>
+            <tr>
+              <th>Ticket ID</th>
+              <th>Subject</th>
+              <th>Date</th>
+              <th>Status</th>
             </tr>
-          ))}
-        </table>
-      </div>
-      <div className={hdftable.wrapper}>
-        <MoreInquiries />
-        <HelpDeskContent />
+
+            {data.map((item, key) => (
+              <tr key={key}>
+                <td data-cell="ticket Id">{item.trackingId}</td>
+                <td data-cell="subject">{item.product}</td>
+                <td data-cell="date">{item.date}</td>
+                <td
+                  className={
+                    item.status === "Delivered & Eligible" ||
+                    item.status === "Solved"
+                      ? hdftable.processed
+                      : hdftable.pending
+                  }
+                  data-cell="status"
+                >
+                  {item.status}
+                </td>
+              </tr>
+            ))}
+          </table>
+        </div>
+        <div className={hdftable.wrapper}>
+          <MoreInquiries />
+          <HelpDeskContent />
+        </div>
+
+        <Link to="/me/help/desk" className={hdftable.newrequest}>
+          <>New Request</>
+        </Link>
       </div>
 
-      <Link to="/me/help/desk" className={hdftable.newrequest}>
-        <>New Request</>
-      </Link>
-    </div>
+      <Alert variant={variants} val={setError} />
+    </>
   );
 }
