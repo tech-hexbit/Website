@@ -27,15 +27,24 @@ export default function HelpDeskFormTicket(props) {
             />
           </svg>
         </div>
+
         <div className={hdft.content}>
           <p>Request Raised !!</p>
           <p>Ticket ID : HX001</p>
           <p>For More Details Visit Support Details Page</p>
         </div>
+
         <div className={hdft.buttons}>
           <button>Details</button>
-          <button>New Request</button>
+          <button
+            onClick={() => {
+              props.setSubmitted(false);
+            }}
+          >
+            New Request
+          </button>
         </div>
+
         <Link to="/me/help/desk/ViewMore">
           <button className={hdft.ticket}>Ticket Status</button>
         </Link>

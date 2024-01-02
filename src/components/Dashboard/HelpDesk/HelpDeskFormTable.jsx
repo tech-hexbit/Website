@@ -79,23 +79,22 @@ export default function HelpDeskFormTable() {
         <div className={hdftable.submain}>
           <h3>Tickets</h3>
 
-          {/* Table */}
-          <table className={hdftable.trans_table}>
-            <tr>
-              <th>Ticket ID</th>
-              <th>Subject</th>
-              <th>Date</th>
-              <th>Status</th>
-            </tr>
-
-            {load ? (
-              <div className="loadCenterDiv">
-                <Load />
-              </div>
-            ) : (
-              <>
-                {data ? (
-                  <>
+          {load ? (
+            <div className="loadCenterDiv">
+              <Load />
+            </div>
+          ) : (
+            <>
+              {data ? (
+                <>
+                  {/* Table */}
+                  <table className={hdftable.trans_table}>
+                    <tr>
+                      <th>Ticket ID</th>
+                      <th>Subject</th>
+                      <th>Date</th>
+                      <th>Status</th>
+                    </tr>
                     {data.map((val, key) => (
                       <>
                         <tr key={key}>
@@ -116,13 +115,13 @@ export default function HelpDeskFormTable() {
                         </tr>
                       </>
                     ))}
-                  </>
-                ) : (
-                  <div className="loadCenterDiv">No Ticket Raised</div>
-                )}
-              </>
-            )}
-          </table>
+                  </table>
+                </>
+              ) : (
+                <div className="loadCenterDiv">No Ticket Raised</div>
+              )}
+            </>
+          )}
         </div>
         <div className={hdftable.wrapper}>
           <MoreInquiries />

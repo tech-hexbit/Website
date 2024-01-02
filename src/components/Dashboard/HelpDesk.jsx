@@ -15,7 +15,7 @@ export default function HelpDesk() {
   // scroll to top
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [, submitted]);
 
   return (
     <>
@@ -30,10 +30,10 @@ export default function HelpDesk() {
       ) : null}
       <div className={hd.main}>
         <>
-          {!submitted ? (
-            <HelpDeskForm setSubmitted={setSubmitted} />
-          ) : (
+          {submitted ? (
             <HelpDeskFormTicket setSubmitted={setSubmitted} />
+          ) : (
+            <HelpDeskForm setSubmitted={setSubmitted} />
           )}
         </>
         <div className={hd.submain}>
