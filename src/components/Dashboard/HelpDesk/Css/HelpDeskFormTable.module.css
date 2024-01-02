@@ -37,6 +37,7 @@
 }
 
 .trans_table {
+  border-collapse: collapse;
   text-align: left;
 }
 
