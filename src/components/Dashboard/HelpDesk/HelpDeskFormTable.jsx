@@ -99,19 +99,19 @@ export default function HelpDeskFormTable() {
                     {data.map((val, key) => (
                       <>
                         <tr key={key}>
-                          <td data-cell="ticket Id">{val.trackingId}</td>
-                          <td data-cell="subject">{val.product}</td>
-                          <td data-cell="date">{val.date}</td>
+                          <td data-cell="ticket Id">#HX{val._id.slice(-5)}</td>
+                          <td data-cell="subject">{val.subject}</td>
+                          <td data-cell="date">{val.when.date}</td>
                           <td
                             className={
-                              val.status === "Delivered & Eligible" ||
-                              val.status === "Solved"
+                              val.Status === "Delivered & Eligible" ||
+                              val.Status === "Solved"
                                 ? hdftable.processed
                                 : hdftable.pending
                             }
                             data-cell="status"
                           >
-                            {val.status}
+                            {val.Status}
                           </td>
                         </tr>
                       </>
