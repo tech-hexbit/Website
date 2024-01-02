@@ -30,10 +30,10 @@ export default function HelpDesk() {
       ) : null}
       <div className={hd.main}>
         <>
-          {!submitted ? (
-            <HelpDeskForm setSubmitted={setSubmitted} />
-          ) : (
+          {submitted ? (
             <HelpDeskFormTicket setSubmitted={setSubmitted} />
+          ) : (
+            <HelpDeskForm setSubmitted={setSubmitted} />
           )}
         </>
         <div className={hd.submain}>
