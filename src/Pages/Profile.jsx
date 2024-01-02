@@ -22,6 +22,7 @@ import Dashboard from "./../components/Dashboard/DashboardMain";
 import Orderdetails from "./../components/Dashboard/Orderdetails";
 import HelpDeskTable from "./../components/Dashboard/HelpDesk/HelpDeskFormTable";
 //          || Admin
+import TicketAdmin from "./../components/Admin/Ticket";
 import SupportAdmin from "./../components/Admin/Support";
 import SellersAdmin from "./../components/Admin/Sellers";
 
@@ -56,6 +57,7 @@ export default function Profile() {
               <>
                 <Route path="/admin/support" element={<SupportAdmin />} />
                 <Route path="/admin/sellers" element={<SellersAdmin />} />
+                <Route path="/admin/tickets" element={<TicketAdmin />} />
               </>
             ) : (
               // Users
