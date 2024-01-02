@@ -38,7 +38,13 @@ export default function HelpDeskFormTicket(props) {
 
         <div className={hdft.buttons}>
           <button>Details</button>
-          <button>New Request</button>
+          <button
+            onClick={() => {
+              props.setSubmitted(false);
+            }}
+          >
+            New Request
+          </button>
         </div>
 
         <Link to="/me/help/desk/ViewMore">
