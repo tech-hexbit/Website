@@ -78,6 +78,8 @@ export default function HelpDeskFormTable() {
 
         <div className={hdftable.submain}>
           <h3>Tickets</h3>
+
+          {/* Table */}
           <table className={hdftable.trans_table}>
             <tr>
               <th>Ticket ID</th>
