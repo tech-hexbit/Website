@@ -88,21 +88,21 @@ export default function HelpDeskFormTable() {
               <th>Status</th>
             </tr>
 
-            {data.map((item, key) => (
+            {data.map((val, key) => (
               <tr key={key}>
-                <td data-cell="ticket Id">{item.trackingId}</td>
-                <td data-cell="subject">{item.product}</td>
-                <td data-cell="date">{item.date}</td>
+                <td data-cell="ticket Id">{val.trackingId}</td>
+                <td data-cell="subject">{val.product}</td>
+                <td data-cell="date">{val.date}</td>
                 <td
                   className={
-                    item.status === "Delivered & Eligible" ||
-                    item.status === "Solved"
+                    val.status === "Delivered & Eligible" ||
+                    val.status === "Solved"
                       ? hdftable.processed
                       : hdftable.pending
                   }
                   data-cell="status"
                 >
-                  {item.status}
+                  {val.status}
                 </td>
               </tr>
             ))}
