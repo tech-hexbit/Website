@@ -88,26 +88,28 @@ export default function HelpDeskFormTable() {
               <th>Status</th>
             </tr>
 
-            {data.map((val, key) => (
-              <>
-                <tr key={key}>
-                  <td data-cell="ticket Id">{val.trackingId}</td>
-                  <td data-cell="subject">{val.product}</td>
-                  <td data-cell="date">{val.date}</td>
-                  <td
-                    className={
-                      val.status === "Delivered & Eligible" ||
-                      val.status === "Solved"
-                        ? hdftable.processed
-                        : hdftable.pending
-                    }
-                    data-cell="status"
-                  >
-                    {val.status}
-                  </td>
-                </tr>
-              </>
-            ))}
+            <>
+              {data.map((val, key) => (
+                <>
+                  <tr key={key}>
+                    <td data-cell="ticket Id">{val.trackingId}</td>
+                    <td data-cell="subject">{val.product}</td>
+                    <td data-cell="date">{val.date}</td>
+                    <td
+                      className={
+                        val.status === "Delivered & Eligible" ||
+                        val.status === "Solved"
+                          ? hdftable.processed
+                          : hdftable.pending
+                      }
+                      data-cell="status"
+                    >
+                      {val.status}
+                    </td>
+                  </tr>
+                </>
+              ))}
+            </>
           </table>
         </div>
         <div className={hdftable.wrapper}>
