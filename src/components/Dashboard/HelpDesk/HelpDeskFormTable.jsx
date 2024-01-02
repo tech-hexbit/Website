@@ -1,57 +1,74 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
 // components
 import MoreInquiries from "./MoreInquiries";
 import HelpDeskContent from "./HelpDeskContent";
 
+// state
+import AuthContext from "./../../../store/auth-context";
+
+// MicroInteraction
+import Load from "./../../../MicroInteraction/LoadBlack";
+import { Alert } from "./../../../MicroInteraction/Alert";
+
+// axios
+import axios from "axios";
+
 // css
 import hdftable from "./Css/HelpDeskFormTable.module.css";
 
 export default function HelpDeskFormTable() {
-  // dummy data
-  const data = [
-    {
-      trackingId: "#20462",
-      product: "Hat",
-      customer: "Matt Dickerson",
-      date: "13/05/2022",
-      amount: "₹366.16",
-      paymentMode: "Not Paid",
-      status: "Solved",
-    },
-    {
-      trackingId: "#18933",
-      product: "Laptop",
-      customer: "Wiktoria",
-      date: "22/05/2022",
-      amount: "₹366.16",
-      paymentMode: "Paid",
-      status: "Delivered & Eligible",
-    },
-    {
-      trackingId: "#45169",
-      product: "Phone",
-      customer: "Trixie Byrd",
-      date: "15/06/2022",
-      amount: "₹366.16",
-      paymentMode: "Not Paid",
-      status: "Pending",
-    },
-    {
-      trackingId: "#34304",
-      product: "Bag",
-      customer: "Brad Mason",
-      date: "06/09/2022",
-      amount: "₹366.16",
-      paymentMode: "Paid",
-      status: "Pending",
-    },
-  ];
+  const [load, setLoad] = useState(false);
+  const [data, setloadStore] = useState([]);
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
+
+  const authCtx = useContext(AuthContext);
+
+  const loadStore = async () => {
+    setLoad(true);
+
+    try {
+      const response = await axios.get(
+        "/api/website/ContactUs/user/tickts/get/0",
+        {
+          headers: { Authorization: `${authCtx.token}` },
+        }
+      );
+
+      if (response.data.success) {
+        setLoad(false);
+
+        setloadStore(response.data.qnaEntries);
+      } else {
+        setLoad(false);
+      }
+    } catch (e) {
+      setLoad(false);
+
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "An unexpected error occurred",
+        val: true,
+      });
+    }
+  };
 
   // scroll to top
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    loadStore();
   }, []);
 
   return (
