@@ -15,7 +15,7 @@ export default function HelpDesk() {
   // scroll to top
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [, submitted]);
 
   return (
     <>
