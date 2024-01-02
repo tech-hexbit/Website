@@ -92,9 +92,9 @@ export default function UserSideBar() {
             </div>
           </NavLink>
 
-          {/* Contact */}
+          {/* Ticket */}
           <NavLink
-            to="/me/admin/contact"
+            to="/me/admin/tickets"
             className={({ isActive }) =>
               isActive
                 ? "LinkStyle sideBarActive"
@@ -121,7 +121,7 @@ export default function UserSideBar() {
               </div>
               <div className={sidebarCSS.heading}>
                 <div className={sidebarCSS.arrow}></div>
-                Contact
+                Ticket
               </div>
             </div>
           </NavLink>
