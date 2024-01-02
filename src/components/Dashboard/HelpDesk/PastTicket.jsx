@@ -1,10 +1,54 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+
+// state
+import AuthContext from "./../../../store/auth-context";
+
+// MicroInteraction
+import Load from "./../../../MicroInteraction/Load";
+import { Alert } from "./../../../MicroInteraction/Alert";
+
+// axios
+import axios from "axios";
 
 // css
 import pt from "./Css/PastTicket.module.css";
 
 export default function PastTicket() {
+  const [load, setLoad] = useState(false);
+  const [showloadStore, setloadStore] = useState([]);
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
+
+  const authCtx = useContext(AuthContext);
+
+  const loadStore = async () => {
+    setLoad(true);
+
+    try {
+    } catch (e) {
+      setLoad(false);
+
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "An unexpected error occurred",
+        val: true,
+      });
+    }
+  };
+
+  useEffect(() => {
+    loadStore();
+  }, []);
   return (
     <div className={pt.main}>
       <h1>Past Ticket</h1>
