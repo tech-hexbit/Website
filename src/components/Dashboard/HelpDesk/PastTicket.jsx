@@ -73,6 +73,11 @@ export default function PastTicket() {
           </div>
         ) : (
           <>
+            {showloadStore ? (
+              ""
+            ) : (
+              <div className="loadCenterDiv">No Ticket Raised</div>
+            )}
             <div className={pt.grid}>
               <div className={pt.child}>#HX00001</div>
               <div className={`${pt.child} ${pt.orange}`}>Pending</div>
@@ -82,6 +87,7 @@ export default function PastTicket() {
               <div className={`${pt.child} ${pt.green}`}>Solved</div>
               <div className={pt.child}>#HX00004</div>
               <div className={`${pt.child} ${pt.green}`}>Solved</div>
+
               <Link to="/me/help/desk/ViewMore" className={pt.btn}>
                 View More
               </Link>
