@@ -7,7 +7,7 @@ import Header from "./Ticket/Header";
 export default function Contact() {
   return (
     <div>
-      <Header />
+      <Header title="Tickets: All" />
       <Table />
     </div>
   );
