@@ -1,9 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import { Routes, Route } from "react-router-dom";
-
 // helmet
 import { Helmet } from "react-helmet";
-
 // components
 //          || SideBar
 import UserSideBar from "./../components/Dashboard/UserSideBar";
@@ -22,40 +20,35 @@ import Dashboard from "./../components/Dashboard/DashboardMain";
 import Orderdetails from "./../components/Dashboard/Orderdetails";
 import HelpDeskTable from "./../components/Dashboard/HelpDesk/HelpDeskFormTable";
 //          || Admin
+import TicketAdmin from "../components/Admin/Ticket.jsx";
 import SupportAdmin from "./../components/Admin/Support";
 import SellersAdmin from "./../components/Admin/Sellers";
-
 // state
 import AuthContext from "./../store/auth-context";
-
 // Css
 import PCss from "./Css/Profile.module.css";
-
 export default function Profile() {
   // scroll to top
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
   const authCtx = useContext(AuthContext);
-
   return (
     <>
       <Helmet>
         <title>HexBit.io - Profile</title>
       </Helmet>
-
       <div className={PCss.mDiv}>
         <UserSideBar />
         <div className={PCss.CDiv}>
           <Routes>
             <Route path="/" element={<ProfileMain />} />
-
             {authCtx.user.access === 0 ? (
               // Admin
               <>
                 <Route path="/admin/support" element={<SupportAdmin />} />
                 <Route path="/admin/sellers" element={<SellersAdmin />} />
+                <Route path="/admin/tickets" element={<TicketAdmin />} />
               </>
             ) : (
               // Users
@@ -80,3 +73,8 @@ export default function Profile() {
     </>
   );
 }
+
+
+
+
+

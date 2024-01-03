@@ -3,10 +3,7 @@
   padding: 20px 0px;
   height: fit-content;
   transition: all 0.3s;
-  align-items: left;
-  margin-top: 10px;
-  padding-left: 0px;
-  margin-left: 0px;
+  margin-top: 9px;
 }
   
  #onCat{
@@ -14,8 +11,8 @@
 }
 
 .div1 {
-  padding: 10px 0px 13px 0px;
-  border-bottom: 1px solid #433737;
+  padding: 10px 0px 1px 0px;
+  border-bottom: 1px solid #ddd;
   min-width: 0px;
   transition: all 0.3s;
   align-items: left;
@@ -24,8 +21,8 @@
 
 .heading {
   padding-bottom: 7px;
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: bold;
   text-align: center;
 }
 
@@ -77,16 +74,4 @@
   margin: 10px 5px 10px 0px;
   cursor: pointer;
   
-}
-@media only screen and (max-width: 1135px) {
-
-.div1{
-  display: flex;
-  flex-direction: column;
-  border-bottom: none;
-}
-  
-
-
-
 }

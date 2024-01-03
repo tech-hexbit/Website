@@ -21,6 +21,16 @@
   margin: 15px 0px;
 }
 
+.boxContainer{
+  display: flex;
+}
+
+.box {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px; /* Add margin for spacing between the boxes */
+  background-color: #000;
+}
 .desDPTag {
   color: #000;
   font-size: 14px;

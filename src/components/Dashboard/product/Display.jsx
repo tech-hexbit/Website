@@ -151,7 +151,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
           </div>
           <div className={DCss.search}>
             <Link to="/me/addProduct" className={DCss.LinkStyle}>
-              <button>+ Add product</button>
+              <button>+ <span className="DCss.hideText">Add Product</span>  </button>
             </Link>
           </div>
         </div>

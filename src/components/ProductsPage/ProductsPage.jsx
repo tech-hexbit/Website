@@ -17,6 +17,7 @@ import Load from "../../MicroInteraction/LoadBlack";
 
 // css
 import PPCss from "./Css/ProductPage.module.css";
+import UpdateLabel from "../Product/UpdateLabel";
 
 export default function ProductsPage(props) {
   const [res, setres] = useState();
@@ -77,6 +78,7 @@ export default function ProductsPage(props) {
             className={PPCss.leftArrow}
             onClick={() => {
               props.setProductDel(false);
+              props.setHideDel(!props.showDel);
             }}
           >
             <path d="M6 8L2 12L6 16" />
@@ -94,28 +96,70 @@ export default function ProductsPage(props) {
         <>
           {res ? (
             <div className={PPCss.divDiv}>
+
+
+              
               <div className={PPCss.leftDiv}>
                 <img
                   src={res.descriptor.images[0]}
                   alt=""
                   className={PPCss.productImg}
                 />
+                <div className={PPCss.imageContainer}>
+
+                  <img
+                  src={res.descriptor.images[0]}
+                  alt=""
+                  className={PPCss.productImg1}
+                />
+                  <img
+                  src={res.descriptor.images[0]}
+                  alt=""
+                  className={PPCss.productImg1}
+                />
+                <img
+                  src={res.descriptor.images[0]}
+                  alt=""
+                  className={PPCss.productImg1}
+                />
+                <img
+                  src={res.descriptor.images[0]}
+                  alt=""
+                  className={PPCss.productImg1}
+                />
+                </div>
+                <div className={PPCss.hLabels}>
+                <button className={PPCss.hLabels1}>Go To Inventory</button>
+                <button className={PPCss.hLabels2}>HIDE PRODUCT</button>
+                <button className={PPCss.hLabels3}>DELETE</button>
+                </div>
+              
+                
               </div>
               <div className={PPCss.rightDiv}>
                 <p className={PPCss.titleName}>{res.descriptor.name}</p>
-                <p className={PPCss.pID}>{res._id}</p>
-                <p className={PPCss.pSeller}>seller</p>
+                <p className={PPCss.pID}>Product id :{res._id}</p>
+                <p className={PPCss.pSeller}>seller: </p>
+                <p className={PPCss.pSeller}>Price :{res.price.value.toFixed(2)}</p>
                 <p className={PPCss.pPublished}>
-                  Seller:seller Published on: {res.when.date}
+                 Published on: {res.when.date}
                 </p>
                 <div className={PPCss.boxmDiv}>
                   <Box
-                    title="Price"
+                    title="Selling Price"
                     value={`₹ ${res.price.maximum_value}`}
                     up="price.maximum_value"
                     id={res._id}
                     setChange={setChange}
                     placeholderLabel="Updated Price"
+                  />
+                  <Box
+                    title="Orders"
+                    value={`₹ ${res.fulfillment_id}`}
+                    up="price.maximum_value"
+                    id={res._id}
+                    setChange={setChange}
+                    placeholderLabel="Updated Orders"
                   />
                   <Box
                     title="Stock"
@@ -125,9 +169,28 @@ export default function ProductsPage(props) {
                     setChange={setChange}
                     placeholderLabel="Updated Stock"
                   />
+                  <Box
+                    title="Tax %"
+                    value={`₹ ${res.price.maximum_value}`}
+                    up="price.maximum_value"
+                    id={res._id}
+                    setChange={setChange}
+                    placeholderLabel="Updated Tax"
+                  />
+                  <Box
+                    title="Discount %"
+                    value={`₹ ${res.price.maximum_value}`}
+                    up="price.maximum_value"
+                    id={res._id}
+                    setChange={setChange}
+                    placeholderLabel="Updated Discount"
+                  />
                 </div>
-
+                  <ColorBox/>
+                  <SizeBox/>
+                  
                 <Des res={res} id={res._id} setChange={setChange} />
+                
               </div>
             </div>
           ) : (

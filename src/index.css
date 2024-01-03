@@ -204,36 +204,30 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .yesProductsPage,
-.yesAdd {
+.noProductsPage {
   opacity: 1;
   visibility: visible;
   position: absolute;
   transform: translateX(0%);
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background-color: #fff;
-  transition: all 0.3s;
+  transition: opacity 0.3s, transform 0.3s;
   z-index: 2;
+  overflow: auto; /* Allow scrolling if content exceeds the viewport */
 }
 
-.noProductsPage,
-.noAdd {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  transform: translateX(-100%);
+.noProductsPage {
   opacity: 0;
-  visibility: hidden;
-  width: 0px;
-  transition: all 0.3s;
-  z-index: -1;
+  transform: translateX(-100%);
 }
 
 #yesProductsPage {
   opacity: 0;
-  visibility: hidden;
+  /* visibility: hidden; */
+  display: none;
 }
 
 #noProductsPage {
