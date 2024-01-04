@@ -14,7 +14,14 @@ import { Alert } from "./../MicroInteraction/Alert";
 import SvCss from "./Css/StoreVerify.module.css";
 
 export default function StoreVerify() {
-  const [showData, setData] = useState();
+  const [showData, setData] = useState({
+    AccountHolderName: "",
+    AccountNumber: "",
+    BankName: "",
+    City: "",
+    Branch: "",
+    IfscCode: "",
+  });
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -33,9 +40,13 @@ export default function StoreVerify() {
             <p>Account Holder Name</p>
             <input
               type="text"
-              name=""
+              name="AccountHolderName"
+              value={showData.AccountHolderName}
               id=""
               placeholder="Chandler Muriel Bing"
+              onChange={(e) => {
+                setData({ ...showData, AccountHolderName: e.target.value });
+              }}
             />
           </div>
 
