@@ -30,6 +30,10 @@ export default function StoreVerify() {
     text: "",
     val: false,
   });
+
+  useEffect(() => {
+    console.log(showData);
+  }, [showData]);
   return (
     <>
       <div className={SvCss.mDiv}>
@@ -52,7 +56,13 @@ export default function StoreVerify() {
 
           <div className={SvCss.InpDiv}>
             <p>Account Number</p>
-            <input type="text" name="" id="" placeholder="2134XXXXXX1416" />
+            <input
+              type="text"
+              name="AccountNumber"
+              value={showData.AccountNumber}
+              id=""
+              placeholder="2134XXXXXX1416"
+            />
           </div>
 
           <div className={SvCss.InpDiv}>
