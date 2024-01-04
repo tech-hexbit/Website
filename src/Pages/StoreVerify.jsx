@@ -14,6 +14,7 @@ import { Alert } from "./../MicroInteraction/Alert";
 import SvCss from "./Css/StoreVerify.module.css";
 
 export default function StoreVerify() {
+  const [load, setLoad] = useState(false);
   const [showData, setData] = useState({
     AccountHolderName: "",
     AccountNumber: "",
@@ -42,7 +43,30 @@ export default function StoreVerify() {
       showData.Branch == "" ||
       showData.IfscCode == ""
     ) {
+      setLoad(false);
+
+      setError({
+        mainColor: "#FFC0CB",
+        secondaryColor: "#FF69B4",
+        symbol: "pets",
+        title: "Check it out",
+        text: "Please Fill All The Details",
+        val: true,
+      });
     } else {
+      try {
+      } catch (e) {
+        setLoad(false);
+
+        setError({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "An unexpected error occurred",
+          val: true,
+        });
+      }
     }
   };
 
