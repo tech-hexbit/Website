@@ -18,9 +18,6 @@ export default function UserSideBar() {
     authCtx.logout();
   };
 
-  console.log("authCtx.user.StoreState");
-  console.log(authCtx.user.Store[0].StoreID.validation);
-
   return (
     <>
       {authCtx.user.Store[0].StoreID.validation ? (
