@@ -57,11 +57,14 @@ export default function StoreVerify() {
           <div className={SvCss.InpDiv}>
             <p>Account Number</p>
             <input
-              type="text"
+              type="number"
               name="AccountNumber"
               value={showData.AccountNumber}
               id=""
               placeholder="2134XXXXXX1416"
+              onChange={(e) => {
+                setData({ ...showData, AccountNumber: e.target.value });
+              }}
             />
           </div>
 
