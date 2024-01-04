@@ -32,7 +32,7 @@ export default function StoreVerify() {
   });
 
   useEffect(() => {
-    console.log(showData);
+    console.table(showData);
   }, [showData]);
   return (
     <>
@@ -72,9 +72,13 @@ export default function StoreVerify() {
             <p>Bank Name</p>
             <input
               type="text"
-              name=""
+              name="BankName"
+              value={showData.BankName}
               id=""
               placeholder="State Bank of India"
+              onChange={(e) => {
+                setData({ ...showData, BankName: e.target.value });
+              }}
             />
           </div>
 
