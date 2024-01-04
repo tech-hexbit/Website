@@ -98,9 +98,9 @@ export default function StoreVerify() {
             val: true,
           });
 
-          redirect("/me");
-
           await authCtx.updateStore(response.data.upData[0].Store);
+
+          redirect("/me");
 
           setLoad(false);
         } else {
