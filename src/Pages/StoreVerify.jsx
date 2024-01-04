@@ -34,6 +34,12 @@ export default function StoreVerify() {
     val: false,
   });
 
+  const authCtx = useContext(AuthContext);
+
+  useEffect(() => {
+    console.table(showData);
+  }, [showData]);
+
   const onSubmit = async () => {
     setLoad(true);
 
