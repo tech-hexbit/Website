@@ -18,6 +18,7 @@ export default function StoreVerify() {
   const [showData, setData] = useState({
     gps: "19.114424,72.867943",
     StartTime: "",
+    days: "",
     EndTime: "",
     phone: "",
     email: "",
@@ -60,15 +61,36 @@ export default function StoreVerify() {
       });
     } else {
       try {
+        let data = {
+          gps: showData.gps,
+          days: showData.days,
+          times: [],
+          phone: showData.phone,
+          email: showData.email,
+          holidays: [],
+          percentage: showData.percentage,
+          radiusValue: showData.radiusValue,
+          amountValue: showData.amountValue,
+        };
+
+        data.times.push(String(showData.StartTime));
+        data.times.push(String(showData.EndTime));
+        data.holidays = showData.holidays.split(",");
+
         const response = await axios.post(
           "/api/common/Store/CreateStore",
-          showData,
+          data,
           {
             headers: { Authorization: `${authCtx.token}` },
           }
         );
 
-        console.log(response.data);
+        if (response.data.success) {
+        } else {
+          setLoad(false);
+
+          console.log(e);
+        }
       } catch (e) {
         setLoad(false);
 
