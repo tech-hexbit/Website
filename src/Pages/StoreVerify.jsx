@@ -112,7 +112,16 @@ export default function StoreVerify() {
 
           <div className={SvCss.InpDiv}>
             <p>City</p>
-            <input type="text" name="" id="" placeholder="Jamtara" />
+            <input
+              type="text"
+              name="City"
+              value={showData.City}
+              id=""
+              placeholder="Jamtara"
+              onChange={(e) => {
+                setData({ ...showData, City: e.target.value });
+              }}
+            />
           </div>
         </div>
 
