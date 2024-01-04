@@ -100,24 +100,7 @@ export default function StoreVerify() {
 
           console.log(authCtx.user);
 
-          await authCtx.login(
-            // authCtx.user.image,
-            // authCtx.user.Email,
-            // authCtx.user.Phone,
-            // authCtx.user.access,
-            // authCtx.user.BusinessName,
-            // authCtx.user.ImporterLicense,
-            // authCtx.user.GSTIN,
-            // authCtx.user.ShopName,
-            // authCtx.user.Address,
-            // authCtx.user.State,
-            // authCtx.user.City,
-            // authCtx.user.Pincode,
-            // authCtx.user.AdditionalInfo,
-            response.data.upData,
-            // response.data.token,
-            10800000
-          );
+          await authCtx.updateStore(response.data.upData[0].Store);
 
           setLoad(false);
         } else {
