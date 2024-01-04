@@ -48,36 +48,49 @@ export default function Profile() {
 
       <div className={PCss.mDiv}>
         <UserSideBar />
-        <div className={PCss.CDiv}>
-          <Routes>
-            <Route path="/" element={<ProfileMain />} />
 
-            {authCtx.user.access === 0 ? (
-              // Admin
-              <>
-                <Route path="/admin/tickets" element={<TicketAdmin />} />
-                <Route path="/admin/support" element={<SupportAdmin />} />
-                <Route path="/admin/sellers" element={<SellersAdmin />} />
-              </>
-            ) : (
-              // Users
-              <>
-                <Route path="/sales" element={<Sales />} />
-                <Route path="/faqs" element={<Support />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/products" element={<Products />} />
-                <Route path="/help/desk" element={<HelpDesk />} />
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/Inventory" element={<Categories />} />
-                <Route path="/addProduct" element={<AddProduct />} />
-                <Route path="/Payment/Details" element={<PayDetails />} />
-                <Route path="/Payment/Request" element={<PayRequest />} />
-                <Route path="/orderdetails/:id" element={<Orderdetails />} />
-                <Route path="/help/desk/ViewMore" element={<HelpDeskTable />} />
-              </>
-            )}
-          </Routes>
-        </div>
+        {authCtx.user.Store[0].StoreID.validation ? (
+          <>
+            <div className={PCss.CDiv}>
+              <Routes>
+                <Route path="/" element={<ProfileMain />} />
+
+                {authCtx.user.access === 0 ? (
+                  // Admin
+                  <>
+                    <Route path="/admin/tickets" element={<TicketAdmin />} />
+                    <Route path="/admin/support" element={<SupportAdmin />} />
+                    <Route path="/admin/sellers" element={<SellersAdmin />} />
+                  </>
+                ) : (
+                  // Users
+                  <>
+                    <Route path="/sales" element={<Sales />} />
+                    <Route path="/faqs" element={<Support />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/products" element={<Products />} />
+                    <Route path="/help/desk" element={<HelpDesk />} />
+                    <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/Inventory" element={<Categories />} />
+                    <Route path="/addProduct" element={<AddProduct />} />
+                    <Route path="/Payment/Details" element={<PayDetails />} />
+                    <Route path="/Payment/Request" element={<PayRequest />} />
+                    <Route
+                      path="/orderdetails/:id"
+                      element={<Orderdetails />}
+                    />
+                    <Route
+                      path="/help/desk/ViewMore"
+                      element={<HelpDeskTable />}
+                    />
+                  </>
+                )}
+              </Routes>
+            </div>
+          </>
+        ) : (
+          ""
+        )}
       </div>
     </>
   );
