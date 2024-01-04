@@ -55,6 +55,15 @@ export default function StoreVerify() {
       });
     } else {
       try {
+        const response = await axios.post(
+          "/api/common/Store/CreateStore",
+          showData,
+          {
+            headers: { Authorization: `${authCtx.token}` },
+          }
+        );
+
+        console.log(response.data);
       } catch (e) {
         setLoad(false);
 
