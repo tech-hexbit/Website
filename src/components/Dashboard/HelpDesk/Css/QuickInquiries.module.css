@@ -69,3 +69,8 @@
     align-items: center;
   }
 }
+@media (width<=30em) {
+  .inside {
+    min-width: 0;
+  }
+}
