@@ -125,15 +125,15 @@ export default function StoreVerify() {
           </div>
 
           <div className={SvCss.InpDiv}>
-            <p>Bank Name</p>
+            <p>Phone</p>
             <input
               type="text"
-              name="BankName"
-              value={showData.BankName}
+              name="phone"
+              value={showData.phone}
               id=""
               placeholder="State Bank of India"
               onChange={(e) => {
-                setData({ ...showData, BankName: e.target.value });
+                setData({ ...showData, phone: e.target.value });
               }}
             />
           </div>
