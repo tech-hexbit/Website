@@ -31,9 +31,6 @@ export default function StoreVerify() {
     val: false,
   });
 
-  useEffect(() => {
-    console.table(showData);
-  }, [showData]);
   return (
     <>
       <div className={SvCss.mDiv}>
