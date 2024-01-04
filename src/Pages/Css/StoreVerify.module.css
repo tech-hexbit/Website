@@ -7,6 +7,12 @@
   align-items: center;
 }
 
+.CreateYourStore {
+  color: #383c3e;
+  font-size: 44px;
+  font-weight: 700;
+}
+
 .InpDiv {
   margin: 30px 0px;
   display: flex;
