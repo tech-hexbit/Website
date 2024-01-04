@@ -100,15 +100,26 @@ export default function StoreVerify() {
           </div>
 
           <div className={SvCss.InpDiv}>
-            <p>Account Number</p>
+            <p>Times</p>
             <input
               type="number"
-              name="AccountNumber"
-              value={showData.AccountNumber}
+              name="StartTime"
+              value={showData.StartTime}
               id=""
-              placeholder="2134XXXXXX1416"
+              placeholder="0900"
               onChange={(e) => {
-                setData({ ...showData, AccountNumber: e.target.value });
+                setData({ ...showData, StartTime: e.target.value });
+              }}
+            />
+
+            <input
+              type="number"
+              name="EndTime"
+              value={showData.EndTime}
+              id=""
+              placeholder="1800"
+              onChange={(e) => {
+                setData({ ...showData, EndTime: e.target.value });
               }}
             />
           </div>
