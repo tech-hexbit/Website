@@ -19,7 +19,7 @@ export default function UserSideBar() {
   };
 
   console.log("authCtx.user.StoreState");
-  console.log(authCtx.user.StoreState);
+  console.log(authCtx.user.Store);
 
   return (
     <div className={sidebarCSS.mainDiv}>
