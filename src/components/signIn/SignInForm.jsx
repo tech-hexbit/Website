@@ -74,7 +74,7 @@ export default function SignInForm() {
             val: true,
           });
 
-          if (response.data.StoreState) {
+          if (response.data.user[0].Store[0].StoreID.validation) {
             redirect("/me");
           } else {
             redirect("/me/SetUpStore");
