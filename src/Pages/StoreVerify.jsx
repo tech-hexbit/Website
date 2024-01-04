@@ -31,6 +31,21 @@ export default function StoreVerify() {
     val: false,
   });
 
+  const onSubmit = async () => {
+    setLoad(true);
+
+    if (
+      showData.AccountHolderName == "" ||
+      showData.AccountNumber == "" ||
+      showData.BankName == "" ||
+      showData.City == "" ||
+      showData.Branch == "" ||
+      showData.IfscCode == ""
+    ) {
+    } else {
+    }
+  };
+
   return (
     <>
       <div className={SvCss.mDiv}>
@@ -122,7 +137,9 @@ export default function StoreVerify() {
           </div>
         </div>
 
-        <button className={SvCss.SubmitBtn}>Submit</button>
+        <button className={SvCss.SubmitBtn} onClick={onSubmit}>
+          Submit
+        </button>
       </div>
 
       <Alert variant={variants} val={setError} />
