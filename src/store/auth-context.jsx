@@ -20,7 +20,6 @@ const AuthContext = React.createContext({
     Pincode: "",
     AdditionalInfo: "",
     Store: [],
-    StoreID: "",
   },
   target: null,
   login: async (token) => {},
@@ -113,7 +112,6 @@ export const AuthContextProvider = (props) => {
     Pincode,
     AdditionalInfo,
     Store,
-    StoreID,
     token,
     expirationTime
   ) => {
@@ -134,7 +132,6 @@ export const AuthContextProvider = (props) => {
       Pincode: Pincode,
       AdditionalInfo: AdditionalInfo,
       Store: Store,
-      StoreID: StoreID,
     };
 
     localStorage.setItem("user", JSON.stringify(setuserdata));
