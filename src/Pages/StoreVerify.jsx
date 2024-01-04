@@ -247,7 +247,7 @@ export default function StoreVerify() {
         </div>
 
         <button className={SvCss.SubmitBtn} onClick={onSubmit}>
-          Submit
+          {load ? <Load /> : "Submit"}
         </button>
       </div>
 
