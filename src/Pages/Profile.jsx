@@ -55,9 +55,9 @@ export default function Profile() {
             {authCtx.user.access === 0 ? (
               // Admin
               <>
+                <Route path="/admin/tickets" element={<TicketAdmin />} />
                 <Route path="/admin/support" element={<SupportAdmin />} />
                 <Route path="/admin/sellers" element={<SellersAdmin />} />
-                <Route path="/admin/tickets" element={<TicketAdmin />} />
               </>
             ) : (
               // Users

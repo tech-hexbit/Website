@@ -80,7 +80,7 @@ export default function PaymentTable() {
               {item.status}
             </td>
             <td data-cell="action">
-              <label>
+              <label className={pt.labelDiv}>
                 <input type="checkbox" className={pt.CheckBoxInp} />
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

@@ -4,10 +4,10 @@ import axios from "axios";
 import FCss from "./Css/Form.module.css";
 
 export default function Form1(props) {
-  // const [disable, setDisable] = useState(true);
   const [error, setError] = useState("");
+  const [sendotp, setSendotp] = useState(false);
+  // const [disable, setDisable] = useState(true);
   const [input, setInput] = useState({ WhatsAppNumber: 0, Otp: 0 });
-  const[sendotp,setSendotp]=useState(false);
 
   // const sendOTP = async () => {
   //   if (input.WhatsAppNumber == "") {
@@ -23,7 +23,9 @@ export default function Form1(props) {
   //     }
   //   }
   // };
-  console.log(sendotp)
+
+  console.log(sendotp);
+
   const nextFN = async () => {
     if (
       props.input.Phone == 0 ||
@@ -59,7 +61,7 @@ export default function Form1(props) {
       </div>
       <div className={FCss.form}>
         <div className={FCss.phoneInput}>
-        <label htmlFor="phone">Phone</label>
+          <label htmlFor="phone">Phone</label>
           <div className={FCss.formInput}>
             <input
               type="number"
@@ -71,28 +73,28 @@ export default function Form1(props) {
                 setInput({ ...input, WhatsAppNumber: e.target.value });
               }}
             />
-             <div className={FCss.otpButton}>
-             {
-              sendotp ===true ? (
+            <div className={FCss.otpButton}>
+              {sendotp === true ? (
                 <button>Verify OTP</button>
-              ):(<button onClick={()=>setSendotp(true)}>Send OTP</button>)
-             }
+              ) : (
+                <button onClick={() => setSendotp(true)}>Send OTP</button>
+              )}
             </div>
           </div>
           <div className={FCss.otp}>
             <div className={FCss.otpText}>
-              {
-                sendotp===true && (<input
-                type="text"
-                id="otp"
-                placeholder="Enter the OTP sent"
-                // disabled={disable}
-                name="Password"
-                onChange={(e) => {
-                  setInput({ ...input, Otp: e.target.value });
-                }}
-              />)
-              }
+              {sendotp === true && (
+                <input
+                  type="text"
+                  id="otp"
+                  placeholder="Enter the OTP sent"
+                  // disabled={disable}
+                  name="Password"
+                  onChange={(e) => {
+                    setInput({ ...input, Otp: e.target.value });
+                  }}
+                />
+              )}
             </div>
           </div>
         </div>
