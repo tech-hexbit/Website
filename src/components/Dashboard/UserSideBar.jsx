@@ -500,7 +500,9 @@ export default function UserSideBar() {
           </div>
         </>
       ) : (
-        ""
+        <>
+          <div>Store Verify</div>
+        </>
       )}
     </>
   );
