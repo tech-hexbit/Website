@@ -16,12 +16,14 @@ import SvCss from "./Css/StoreVerify.module.css";
 export default function StoreVerify() {
   const [load, setLoad] = useState(false);
   const [showData, setData] = useState({
-    AccountHolderName: "",
-    AccountNumber: "",
-    BankName: "",
-    City: "",
-    Branch: "",
-    IfscCode: "",
+    gps: "19.114424,72.867943",
+    StartTime: "",
+    EndTime: "",
+    phone: "",
+    email: "",
+    holidays: "",
+    percentage: "",
+    radiusValue: "",
   });
   const [variants, setError] = useState({
     mainColor: "",
