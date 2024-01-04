@@ -21,6 +21,7 @@ const AuthContext = React.createContext({
     AdditionalInfo: "",
     Store: [],
     StoreID: "",
+    SetUpStore: false,
   },
   target: null,
   login: async (token) => {},
