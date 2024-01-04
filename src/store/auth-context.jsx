@@ -21,7 +21,6 @@ const AuthContext = React.createContext({
     AdditionalInfo: "",
     Store: [],
     StoreID: "",
-    StoreState: false,
   },
   target: null,
   login: async (token) => {},
@@ -113,13 +112,13 @@ export const AuthContextProvider = (props) => {
     City,
     Pincode,
     AdditionalInfo,
-    StoreState,
     Store,
     StoreID,
     token,
     expirationTime
   ) => {
     localStorage.setItem("token", token);
+
     const setuserdata = {
       Email: Email,
       image: image,
@@ -134,7 +133,6 @@ export const AuthContextProvider = (props) => {
       City: City,
       Pincode: Pincode,
       AdditionalInfo: AdditionalInfo,
-      StoreState: StoreState,
       Store: Store,
       StoreID: StoreID,
     };
