@@ -40,6 +40,8 @@ export default function StoreVerify() {
           <input type="text" name="" id="" placeholder="Jamtara" />
         </div>
       </div>
+
+      <button className={SvCss.SubmitBtn}>Submit</button>
     </div>
   );
 }
