@@ -40,12 +40,13 @@ export default function StoreVerify() {
     setLoad(true);
 
     if (
-      showData.AccountHolderName == "" ||
-      showData.AccountNumber == "" ||
-      showData.BankName == "" ||
-      showData.City == "" ||
-      showData.Branch == "" ||
-      showData.IfscCode == ""
+      showData.StartTime == "" ||
+      showData.EndTime == "" ||
+      showData.phone == "" ||
+      showData.email == "" ||
+      showData.holidays == "" ||
+      showData.percentage == "" ||
+      showData.radiusValue == ""
     ) {
       setLoad(false);
 
