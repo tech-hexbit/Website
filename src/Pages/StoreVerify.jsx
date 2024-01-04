@@ -127,11 +127,11 @@ export default function StoreVerify() {
           <div className={SvCss.InpDiv}>
             <p>Phone</p>
             <input
-              type="text"
+              type="number"
               name="phone"
               value={showData.phone}
               id=""
-              placeholder="State Bank of India"
+              placeholder="+91 99XXXXXX21"
               onChange={(e) => {
                 setData({ ...showData, phone: e.target.value });
               }}
@@ -139,43 +139,71 @@ export default function StoreVerify() {
           </div>
 
           <div className={SvCss.InpDiv}>
-            <p>Branch</p>
+            <p>email</p>
             <input
-              type="text"
-              name="Branch"
-              value={showData.Branch}
+              type="email"
+              name="email"
+              value={showData.email}
               id=""
-              placeholder="Jamtara Bazar"
+              placeholder="example@example.com"
               onChange={(e) => {
-                setData({ ...showData, Branch: e.target.value });
+                setData({ ...showData, email: e.target.value });
               }}
             />
           </div>
 
           <div className={SvCss.InpDiv}>
-            <p>IFSC Code</p>
+            <p>holidays</p>
             <input
               type="text"
-              name="IfscCode"
-              value={showData.IfscCode}
+              name="holidays"
+              value={showData.holidays}
               id=""
-              placeholder="SBINXXXXXX5"
+              placeholder="2024-02-15"
               onChange={(e) => {
-                setData({ ...showData, IfscCode: e.target.value });
+                setData({ ...showData, holidays: e.target.value });
               }}
             />
           </div>
 
           <div className={SvCss.InpDiv}>
-            <p>City</p>
+            <p>Percentage</p>
             <input
-              type="text"
-              name="City"
-              value={showData.City}
+              type="number"
+              name="percentage"
+              value={showData.percentage}
               id=""
-              placeholder="Jamtara"
+              placeholder="20"
               onChange={(e) => {
-                setData({ ...showData, City: e.target.value });
+                setData({ ...showData, percentage: e.target.value });
+              }}
+            />
+          </div>
+
+          <div className={SvCss.InpDiv}>
+            <p>Radius</p>
+            <input
+              type="number"
+              name="radiusValue"
+              value={showData.radiusValue}
+              id=""
+              placeholder="150"
+              onChange={(e) => {
+                setData({ ...showData, radiusValue: e.target.value });
+              }}
+            />
+          </div>
+
+          <div className={SvCss.InpDiv}>
+            <p>Amount</p>
+            <input
+              type="number"
+              name="amountValue"
+              value={showData.amountValue}
+              id=""
+              placeholder="210"
+              onChange={(e) => {
+                setData({ ...showData, amountValue: e.target.value });
               }}
             />
           </div>
