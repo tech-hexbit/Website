@@ -7,7 +7,7 @@ export default function StoreVerify() {
   // Ifsc Code
   return (
     <div className={SvCss.mDiv}>
-      <p>Create Your Store</p>
+      <p className={SvCss.CreateYourStore}>Create Your Store</p>
 
       <div>
         <div className={SvCss.InpDiv}>
