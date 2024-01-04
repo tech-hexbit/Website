@@ -94,6 +94,8 @@ export const AuthContextProvider = (props) => {
     if (logoutTimer) {
       clearTimeout(logoutTimer);
     }
+
+    window.location.reload();
   }, []);
 
   const loginHandler = (
