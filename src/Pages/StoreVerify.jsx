@@ -84,12 +84,30 @@ export default function StoreVerify() {
 
           <div className={SvCss.InpDiv}>
             <p>Branch</p>
-            <input type="text" name="" id="" placeholder="Jamtara Bazar" />
+            <input
+              type="text"
+              name="Branch"
+              value={showData.Branch}
+              id=""
+              placeholder="Jamtara Bazar"
+              onChange={(e) => {
+                setData({ ...showData, Branch: e.target.value });
+              }}
+            />
           </div>
 
           <div className={SvCss.InpDiv}>
             <p>IFSC Code</p>
-            <input type="text" name="" id="" placeholder="SBINXXXXXX5" />
+            <input
+              type="text"
+              name="IfscCode"
+              value={showData.IfscCode}
+              id=""
+              placeholder="SBINXXXXXX5"
+              onChange={(e) => {
+                setData({ ...showData, IfscCode: e.target.value });
+              }}
+            />
           </div>
 
           <div className={SvCss.InpDiv}>
