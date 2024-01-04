@@ -331,6 +331,8 @@ export default function Form() {
     }
   };
 
+  console.log(authCtx.user.StoreID);
+
   return (
     <>
       <div>
