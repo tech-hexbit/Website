@@ -4,7 +4,7 @@ import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
 
 // state
-import AuthContext from "../../store/auth-context";
+import AuthContext from "./../store/auth-context";
 
 // MicroInteraction
 import Load from "./../MicroInteraction/Load";
@@ -14,6 +14,7 @@ import { Alert } from "./../MicroInteraction/Alert";
 import SvCss from "./Css/StoreVerify.module.css";
 
 export default function StoreVerify() {
+  const [showData, setData] = useState();
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
