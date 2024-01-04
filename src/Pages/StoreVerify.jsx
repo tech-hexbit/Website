@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
+
+// axios
+import axios from "axios";
+
+// state
+import AuthContext from "../../store/auth-context";
 
 // css
 import SvCss from "./Css/StoreVerify.module.css";
 
 export default function StoreVerify() {
-  // Ifsc Code
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
   return (
     <div className={SvCss.mDiv}>
       <p className={SvCss.CreateYourStore}>Create Your Store</p>
