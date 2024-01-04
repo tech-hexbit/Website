@@ -18,6 +18,9 @@ export default function UserSideBar() {
     authCtx.logout();
   };
 
+  console.log("authCtx.user.StoreState");
+  console.log(authCtx.user.StoreState);
+
   return (
     <div className={sidebarCSS.mainDiv}>
       {authCtx.user.access === 0 ? (
