@@ -74,9 +74,11 @@ export default function SignInForm() {
             val: true,
           });
 
-          redirect("/me");
-
-          console.log(response.data);
+          if (response.data?.StoreState) {
+            redirect("/me");
+          } else {
+            redirect("/me/SetUpStore");
+          }
 
           await authCtx.login(
             response.data.user[0].image,
