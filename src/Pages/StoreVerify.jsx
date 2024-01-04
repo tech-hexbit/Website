@@ -98,8 +98,6 @@ export default function StoreVerify() {
             val: true,
           });
 
-          console.log(authCtx.user);
-
           await authCtx.updateStore(response.data.upData[0].Store);
 
           setLoad(false);
