@@ -4,7 +4,6 @@ import React from "react";
 import SvCss from "./Css/StoreVerify.module.css";
 
 export default function StoreVerify() {
-  // Branch
   // Ifsc Code
   return (
     <div className={SvCss.mDiv}>
@@ -29,6 +28,11 @@ export default function StoreVerify() {
         <div className={SvCss.InpDiv}>
           <p>Branch</p>
           <input type="text" name="" id="" placeholder="Jamtara Bazar" />
+        </div>
+
+        <div className={SvCss.InpDiv}>
+          <p>IFSC Code</p>
+          <input type="text" name="" id="" placeholder="SBINXXXXXX5" />
         </div>
 
         <div className={SvCss.InpDiv}>
