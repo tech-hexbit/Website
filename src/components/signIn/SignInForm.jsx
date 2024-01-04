@@ -96,6 +96,7 @@ export default function SignInForm() {
             response.data.user[0].AdditionalInfo,
             response.data.user[0].Store,
             response.data.user[0].Store[0].StoreID,
+            response.data?.StoreState,
             response.data.token,
             10800000
           );
