@@ -155,6 +155,13 @@ export const AuthContextProvider = (props) => {
     }
   }, [tokenData, logoutHandler]);
 
+  const updateStoreHandler = (newStore) => {
+    const updatedUser = { ...user, Store: newStore };
+
+    setUser(updatedUser);
+    localStorage.setItem("user", JSON.stringify(updatedUser));
+  };
+
   const contextValue = useMemo(
     () => ({
       token: token,
@@ -164,8 +171,9 @@ export const AuthContextProvider = (props) => {
       login: loginHandler,
       logout: logoutHandler,
       settarget: targetHandler,
+      updateStore: updateStoreHandler,
     }),
-    [token, userIsLoggedIn, target]
+    [token, userIsLoggedIn, target, user]
   );
 
   return (
