@@ -19,3 +19,18 @@
   justify-content: space-between;
   gap: 0px 30px;
 }
+
+.SubmitBtn {
+  width: 30%;
+  min-width: 300px;
+  padding: 1rem;
+  gap: 10px;
+  background: #008f17;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  margin-block-start: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
