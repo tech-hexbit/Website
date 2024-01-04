@@ -38,6 +38,8 @@
 
 .trans_table {
   text-align: left;
+  table-layout: fixed;
+  width: 100%;
 }
 
 .trans_table tr {
@@ -51,12 +53,6 @@
 
 .trans_table tr:hover {
   background-color: #ebefff;
-}
-
-.trans_table td:nth-child(3),
-.trans_table th:nth-child(3) {
-  text-align: center;
-  width: 120px;
 }
 
 .processed {
