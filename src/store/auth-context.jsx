@@ -20,7 +20,6 @@ const AuthContext = React.createContext({
     Pincode: "",
     AdditionalInfo: "",
     Store: [],
-    StoreID: "",
   },
   target: null,
   login: async (token) => {},
@@ -94,6 +93,8 @@ export const AuthContextProvider = (props) => {
     if (logoutTimer) {
       clearTimeout(logoutTimer);
     }
+
+    window.location.reload();
   }, []);
 
   const loginHandler = (
@@ -111,11 +112,11 @@ export const AuthContextProvider = (props) => {
     Pincode,
     AdditionalInfo,
     Store,
-    StoreID,
     token,
     expirationTime
   ) => {
     localStorage.setItem("token", token);
+
     const setuserdata = {
       Email: Email,
       image: image,
@@ -131,7 +132,6 @@ export const AuthContextProvider = (props) => {
       Pincode: Pincode,
       AdditionalInfo: AdditionalInfo,
       Store: Store,
-      StoreID: StoreID,
     };
 
     localStorage.setItem("user", JSON.stringify(setuserdata));
@@ -155,6 +155,13 @@ export const AuthContextProvider = (props) => {
     }
   }, [tokenData, logoutHandler]);
 
+  const updateStoreHandler = (newStore) => {
+    const updatedUser = { ...user, Store: newStore };
+
+    setUser(updatedUser);
+    localStorage.setItem("user", JSON.stringify(updatedUser));
+  };
+
   const contextValue = useMemo(
     () => ({
       token: token,
@@ -164,8 +171,9 @@ export const AuthContextProvider = (props) => {
       login: loginHandler,
       logout: logoutHandler,
       settarget: targetHandler,
+      updateStore: updateStoreHandler,
     }),
-    [token, userIsLoggedIn, target]
+    [token, userIsLoggedIn, target, user]
   );
 
   return (

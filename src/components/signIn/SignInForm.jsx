@@ -74,9 +74,11 @@ export default function SignInForm() {
             val: true,
           });
 
-          redirect("/me");
-
-          console.log(response.data);
+          if (response.data.user[0].Store[0].StoreID.validation) {
+            redirect("/me");
+          } else {
+            redirect("/me/SetUpStore");
+          }
 
           await authCtx.login(
             response.data.user[0].image,
@@ -93,7 +95,6 @@ export default function SignInForm() {
             response.data.user[0].Pincode,
             response.data.user[0].AdditionalInfo,
             response.data.user[0].Store,
-            response.data.user[0].Store[0].StoreID,
             response.data.token,
             10800000
           );
