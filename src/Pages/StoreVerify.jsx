@@ -86,6 +86,16 @@ export default function StoreVerify() {
         );
 
         if (response.data.success) {
+          setError({
+            mainColor: "#EDFEEE",
+            secondaryColor: "#5CB660",
+            symbol: "check_circle",
+            title: "Success",
+            text: response.data.msg,
+            val: true,
+          });
+
+          setLoad(false);
         } else {
           setLoad(false);
 
