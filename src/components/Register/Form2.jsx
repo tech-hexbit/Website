@@ -58,10 +58,6 @@ export default function Form2(props) {
     }
   };
 
-  useEffect(() => {
-    console.table(input);
-  }, [input]);
-
   return (
     <>
       <div className={FCss.mainDiv}>
