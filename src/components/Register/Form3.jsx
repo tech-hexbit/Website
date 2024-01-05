@@ -73,6 +73,7 @@ export default function Form3(props) {
             Fill in Your Shop Details For Better Connectivity
           </div>
         </div>
+
         <div className={FCss.form}>
           {load ? (
             <div className="loadCenterDiv">
