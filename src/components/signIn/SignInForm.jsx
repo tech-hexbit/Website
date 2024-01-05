@@ -22,10 +22,10 @@ import style from "./SignInForm.module.css";
 import slider1 from "../../assets/slider/Group3.png";
 
 export default function SignInForm() {
-  const [input, setInput] = useState({ email: "", password: "" });
   const [see, hide] = useState(false);
   const [load, setLoad] = useState(false);
   const [seeOTP, hideOTP] = useState(false);
+  const [input, setInput] = useState({ email: "", password: "" });
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
