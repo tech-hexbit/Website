@@ -26,20 +26,18 @@ export default function Form3(props) {
   });
 
   const nextFN = async () => {
-    console.log(props.input.category);
-
-    // if (dataArray.length === 0) {
-    //   setError({
-    //     mainColor: "#FFC0CB",
-    //     secondaryColor: "#FF69B4",
-    //     symbol: "pets",
-    //     title: "Check it out",
-    //     text: "Please Select atleast 1 feild",
-    //     val: true,
-    //   });
-    // } else {
-    //   props.register();
-    // }
+    if (props.input.category.length === 0) {
+      setError({
+        mainColor: "#FFC0CB",
+        secondaryColor: "#FF69B4",
+        symbol: "pets",
+        title: "Check it out",
+        text: "Please Select atleast 1 feild",
+        val: true,
+      });
+    } else {
+      props.register();
+    }
   };
 
   const loadData = async () => {
