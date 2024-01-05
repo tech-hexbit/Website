@@ -141,7 +141,7 @@ export default function RegisterMain() {
         </div>
       </div>
 
-      <Alert variant={variants} val={setError} email={input.email} />
+      <Alert variant={variants} val={setError} />
     </>
   );
 }
