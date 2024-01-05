@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // MicroInteraction
-import Load from "./../../MicroInteraction/Load";
 import { Alert } from "./../../MicroInteraction/Alert";
 
 // axios
@@ -173,6 +172,7 @@ export default function RegisterMain() {
             <Form3
               button="Register"
               input={input}
+              load={load}
               variant={variants}
               val={setError}
               setInput={setInput}
