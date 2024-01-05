@@ -76,144 +76,150 @@ export default function Form1(props) {
   };
 
   return (
-    <div className={FCss.mainDiv}>
-      <div className={FCss.top}>
-        <div className={FCss.head}>
-          Welcome to <span>Hexbit</span> !
+    <>
+      <div className={FCss.mainDiv}>
+        <div className={FCss.top}>
+          <div className={FCss.head}>
+            Welcome to <span>Hexbit</span> !
+          </div>
+          <div className={FCss.subHead}>
+            Create your account and start selling with Hexbit
+          </div>
         </div>
-        <div className={FCss.subHead}>
-          Create your account and start selling with Hexbit
-        </div>
-      </div>
-      <div className={FCss.form}>
-        <div className={FCss.phoneInput}>
-          <label htmlFor="phone">Phone</label>
-          <div className={FCss.formInput}>
+        <div className={FCss.form}>
+          <div className={FCss.phoneInput}>
+            <label htmlFor="phone">Phone</label>
+            <div className={FCss.formInput}>
+              <input
+                type="number"
+                id="phone"
+                placeholder="Enter phone no."
+                name="Phone"
+                onChange={(e) => {
+                  props.setInput({ ...props.input, Phone: e.target.value });
+                  setInput({ ...input, WhatsAppNumber: e.target.value });
+                }}
+              />
+              <div className={FCss.otpButton}>
+                {sendotp === true ? (
+                  <button>Verify OTP</button>
+                ) : (
+                  <button onClick={() => setSendotp(true)}>Send OTP</button>
+                )}
+              </div>
+            </div>
+            <div className={FCss.otp}>
+              <div className={FCss.otpText}>
+                {sendotp === true && (
+                  <input
+                    type="text"
+                    id="otp"
+                    placeholder="Enter the OTP sent"
+                    // disabled={disable}
+                    name="Password"
+                    onChange={(e) => {
+                      setInput({ ...input, Otp: e.target.value });
+                    }}
+                  />
+                )}
+              </div>
+            </div>
+          </div>
+          <div className={FCss.formInputs}>
+            <label htmlFor="email">Email</label>
             <input
-              type="number"
-              id="phone"
-              placeholder="Enter phone no."
-              name="Phone"
+              type="email"
+              id="email"
+              placeholder="Enter the email"
+              name="Email"
+              value={props.input.Email}
               onChange={(e) => {
-                props.setInput({ ...props.input, Phone: e.target.value });
-                setInput({ ...input, WhatsAppNumber: e.target.value });
+                props.setInput({ ...props.input, Email: e.target.value });
               }}
             />
-            <div className={FCss.otpButton}>
-              {sendotp === true ? (
-                <button>Verify OTP</button>
-              ) : (
-                <button onClick={() => setSendotp(true)}>Send OTP</button>
-              )}
-            </div>
           </div>
-          <div className={FCss.otp}>
-            <div className={FCss.otpText}>
-              {sendotp === true && (
-                <input
-                  type="text"
-                  id="otp"
-                  placeholder="Enter the OTP sent"
-                  // disabled={disable}
-                  name="Password"
-                  onChange={(e) => {
-                    setInput({ ...input, Otp: e.target.value });
-                  }}
+          <div className={FCss.formInputs}>
+            <label htmlFor="pass">Password</label>
+            <input
+              type="password"
+              id="pass"
+              placeholder="Enter your password"
+              name="Password"
+              value={props.input.Password}
+              onChange={(e) => {
+                props.setInput({ ...props.input, Password: e.target.value });
+              }}
+            />
+          </div>
+          <div className={FCss.formInputs}>
+            <label htmlFor="busName">Business Name</label>
+            <input
+              type="text"
+              id="busName"
+              placeholder="Your business name"
+              name="BusinessName"
+              value={props.input.BusinessName}
+              onChange={(e) => {
+                props.setInput({
+                  ...props.input,
+                  BusinessName: e.target.value,
+                });
+              }}
+            />
+          </div>
+          <div className={FCss.formInputs}>
+            <label htmlFor="license">Importer License</label>
+            <input
+              type="text"
+              id="license"
+              placeholder="Importer License no."
+              name="ImporterLicense"
+              value={props.input.ImporterLicense}
+              onChange={(e) => {
+                props.setInput({
+                  ...props.input,
+                  ImporterLicense: e.target.value,
+                });
+              }}
+            />
+          </div>
+          <div className={FCss.formInputs}>
+            <label htmlFor="gstin">GSTIN</label>
+            <input
+              type="text"
+              id="gstin"
+              placeholder="Your GSTIN"
+              name="GSTIN"
+              value={props.input.GSTIN}
+              onChange={(e) => {
+                props.setInput({ ...props.input, GSTIN: e.target.value });
+              }}
+            />
+          </div>
+        </div>
+        <div className={FCss.button}>
+          <div></div>
+          <div>
+            <button onClick={nextFN}>
+              {props.button}{" "}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="21"
+                height="10"
+                viewBox="0 0 21 10"
+                fill="none"
+              >
+                <path
+                  d="M1.81791 5.97787L16.9094 5.9877L14.0445 8.32675C13.577 8.71004 13.577 9.32919 14.0445 9.71252C14.512 10.0958 15.2792 10.0958 15.7466 9.71252L20.6493 5.69288C21.1168 5.30958 21.1168 4.69044 20.6493 4.30711L15.7466 0.287469C15.2791 -0.095823 14.5119 -0.095823 14.0445 0.287469C13.577 0.670761 13.577 1.28991 14.0445 1.67324L16.9094 4.02217L1.81791 4.01234C1.15862 4.01234 0.619141 4.45461 0.619141 4.9952C0.619141 5.53578 1.15857 5.97805 1.81791 5.97805V5.97787Z"
+                  fill="white"
                 />
-              )}
-            </div>
+              </svg>
+            </button>
           </div>
         </div>
-        <div className={FCss.formInputs}>
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            placeholder="Enter the email"
-            name="Email"
-            value={props.input.Email}
-            onChange={(e) => {
-              props.setInput({ ...props.input, Email: e.target.value });
-            }}
-          />
-        </div>
-        <div className={FCss.formInputs}>
-          <label htmlFor="pass">Password</label>
-          <input
-            type="password"
-            id="pass"
-            placeholder="Enter your password"
-            name="Password"
-            value={props.input.Password}
-            onChange={(e) => {
-              props.setInput({ ...props.input, Password: e.target.value });
-            }}
-          />
-        </div>
-        <div className={FCss.formInputs}>
-          <label htmlFor="busName">Business Name</label>
-          <input
-            type="text"
-            id="busName"
-            placeholder="Your business name"
-            name="BusinessName"
-            value={props.input.BusinessName}
-            onChange={(e) => {
-              props.setInput({ ...props.input, BusinessName: e.target.value });
-            }}
-          />
-        </div>
-        <div className={FCss.formInputs}>
-          <label htmlFor="license">Importer License</label>
-          <input
-            type="text"
-            id="license"
-            placeholder="Importer License no."
-            name="ImporterLicense"
-            value={props.input.ImporterLicense}
-            onChange={(e) => {
-              props.setInput({
-                ...props.input,
-                ImporterLicense: e.target.value,
-              });
-            }}
-          />
-        </div>
-        <div className={FCss.formInputs}>
-          <label htmlFor="gstin">GSTIN</label>
-          <input
-            type="text"
-            id="gstin"
-            placeholder="Your GSTIN"
-            name="GSTIN"
-            value={props.input.GSTIN}
-            onChange={(e) => {
-              props.setInput({ ...props.input, GSTIN: e.target.value });
-            }}
-          />
-        </div>
       </div>
-      <div className="error">{error}</div>
-      <div className={FCss.button}>
-        <div></div>
-        <div>
-          <button onClick={nextFN}>
-            {props.button}{" "}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="21"
-              height="10"
-              viewBox="0 0 21 10"
-              fill="none"
-            >
-              <path
-                d="M1.81791 5.97787L16.9094 5.9877L14.0445 8.32675C13.577 8.71004 13.577 9.32919 14.0445 9.71252C14.512 10.0958 15.2792 10.0958 15.7466 9.71252L20.6493 5.69288C21.1168 5.30958 21.1168 4.69044 20.6493 4.30711L15.7466 0.287469C15.2791 -0.095823 14.5119 -0.095823 14.0445 0.287469C13.577 0.670761 13.577 1.28991 14.0445 1.67324L16.9094 4.02217L1.81791 4.01234C1.15862 4.01234 0.619141 4.45461 0.619141 4.9952C0.619141 5.53578 1.15857 5.97805 1.81791 5.97805V5.97787Z"
-                fill="white"
-              />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </div>
+
+      <Alert variant={variants} val={setError} />
+    </>
   );
 }
