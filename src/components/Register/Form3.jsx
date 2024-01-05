@@ -15,7 +15,6 @@ import FCss from "./Css/Form.module.css";
 
 export default function Form3(props) {
   const [data, setData] = useState([]);
-  const [dataArray, setDataArray] = useState([]);
   const [load, setLoad] = useState(false);
   const [variants, setError] = useState({
     mainColor: "",
@@ -27,18 +26,20 @@ export default function Form3(props) {
   });
 
   const nextFN = async () => {
-    if (dataArray.length === 0) {
-      setError({
-        mainColor: "#FFC0CB",
-        secondaryColor: "#FF69B4",
-        symbol: "pets",
-        title: "Check it out",
-        text: "Please Select atleast 1 feild",
-        val: true,
-      });
-    } else {
-      props.register();
-    }
+    console.log(input);
+
+    // if (dataArray.length === 0) {
+    //   setError({
+    //     mainColor: "#FFC0CB",
+    //     secondaryColor: "#FF69B4",
+    //     symbol: "pets",
+    //     title: "Check it out",
+    //     text: "Please Select atleast 1 feild",
+    //     val: true,
+    //   });
+    // } else {
+    //   props.register();
+    // }
   };
 
   const loadData = async () => {
@@ -98,7 +99,6 @@ export default function Form3(props) {
               {data.length > 0 ? (
                 <>
                   {data.map((val, key) => {
-                    console.log(props);
                     return (
                       <div key={key}>
                         <CatBox
