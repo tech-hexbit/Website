@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 // MicroInteraction
-import Load from "../../MicroInteraction/Load";
+import Load from "../../MicroInteraction/LoadBlack";
 import { Alert } from "./../../MicroInteraction/Alert";
 
 // axios
@@ -66,7 +66,30 @@ export default function Form3(props) {
     <>
       <div className={FCss.mainDiv}>
         <div className={FCss.top}>
-          <CatBox />
+          {load ? (
+            <div className="loadCenterDiv">
+              <Load />
+            </div>
+          ) : (
+            <>
+              {data.length > 0 ? (
+                <>
+                  {data.map((val, key) => {
+                    return (
+                      <div key={key}>
+                        <CatBox val={val} />
+                      </div>
+                    );
+                  })}
+                </>
+              ) : (
+                <div className="loadCenterDiv">
+                  Error In fetching Category list
+                </div>
+              )}
+            </>
+          )}
+
           <div className={FCss.button}>
             <div></div>
             <div>
