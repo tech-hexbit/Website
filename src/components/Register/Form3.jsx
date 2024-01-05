@@ -70,7 +70,7 @@ export default function Form3(props) {
             Get your Business <span>Started</span>
           </div>
           <div className={FCss.subHead}>
-            Fill in Your Shop Details For Better Connectivity
+            Select your store category / Categories as per your store inventory.
           </div>
         </div>
 
