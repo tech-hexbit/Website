@@ -26,7 +26,7 @@ export default function Form3(props) {
   });
 
   const nextFN = async () => {
-    console.log(input);
+    console.log(props.input.category);
 
     // if (dataArray.length === 0) {
     //   setError({
