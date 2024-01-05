@@ -52,30 +52,11 @@ export default function RegisterMain() {
   const redirect = useNavigate();
 
   const register = async () => {
-    if (
-      input.ShopName == "" ||
-      input.State == "" ||
-      input.City == "" ||
-      input.Pincode == "" ||
-      input.AdditionalInfo == ""
-    ) {
-      setError({
-        mainColor: "#FFC0CB",
-        secondaryColor: "#FF69B4",
-        symbol: "pets",
-        title: "Check it out",
-        text: "Please Fill All The Details",
-        val: true,
-      });
+    console.log(input);
 
-      window.scrollTo(0, 0);
-    } else {
-      console.log(input);
-
-      const response = await axios.post("/api/website/auth/register/", input);
-      setError("");
-      redirect("/");
-    }
+    // const response = await axios.post("/api/website/auth/register/", input);
+    // setError("");
+    // redirect("/");
   };
 
   return (
@@ -139,7 +120,7 @@ export default function RegisterMain() {
             />
           )}
 
-          {count == 3 && <Form3 button="Register" />}
+          {count == 3 && <Form3 button="Register" register={register} />}
         </div>
       </div>
 
