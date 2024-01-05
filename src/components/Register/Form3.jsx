@@ -26,7 +26,20 @@ export default function Form3(props) {
     val: false,
   });
 
-  const nextFN = async () => {};
+  const nextFN = async () => {
+    if (dataArray.length === 0) {
+      setError({
+        mainColor: "#FFC0CB",
+        secondaryColor: "#FF69B4",
+        symbol: "pets",
+        title: "Check it out",
+        text: "Please Select atleast 1 feild",
+        val: true,
+      });
+    } else {
+      props.register();
+    }
+  };
 
   const loadData = async () => {
     setLoad(true);
