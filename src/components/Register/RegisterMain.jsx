@@ -53,11 +53,45 @@ export default function RegisterMain() {
   const redirect = useNavigate();
 
   const register = async () => {
-    console.log(input);
+    setLoad(true);
 
-    // const response = await axios.post("/api/website/auth/register/", input);
-    // setError("");
-    // redirect("/");
+    try {
+      const response = await axios.post("/api/website/auth/register/", input);
+
+      console.log(response);
+
+      if (response.data.success) {
+        setLoad(false);
+
+        setError({
+          mainColor: "",
+          secondaryColor: "",
+          symbol: "",
+          title: "",
+          text: "",
+          val: false,
+        });
+
+        console.log(response.data);
+
+        // redirect("/");
+      } else {
+        setLoad(false);
+      }
+    } catch (e) {
+      setLoad(false);
+
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "An unexpected error occurred",
+        val: true,
+      });
+    }
+
+    console.log(input);
   };
 
   return (
@@ -131,6 +165,8 @@ export default function RegisterMain() {
           )}
         </div>
       </div>
+
+      <Alert variant={variants} val={setError} />
     </>
   );
 }
