@@ -1,13 +1,24 @@
 import React, { useState } from "react";
-import axios from "axios";
 
+// MicroInteraction
+import Load from "../../MicroInteraction/Load";
+import { Alert } from "./../../MicroInteraction/Alert";
+
+// css
 import FCss from "./Css/Form.module.css";
 
 export default function Form1(props) {
-  const [error, setError] = useState("");
   const [sendotp, setSendotp] = useState(false);
   // const [disable, setDisable] = useState(true);
   const [input, setInput] = useState({ WhatsAppNumber: 0, Otp: 0 });
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
 
   // const sendOTP = async () => {
   //   if (input.WhatsAppNumber == "") {
@@ -36,11 +47,26 @@ export default function Form1(props) {
       props.input.ImporterLicense == "" ||
       props.input.GSTIN == ""
     ) {
-      setError("Please fill all fields!!");
+      setError({
+        mainColor: "#FFC0CB",
+        secondaryColor: "#FF69B4",
+        symbol: "pets",
+        title: "Check it out",
+        text: "Please Fill All The Details",
+        val: true,
+      });
+
       window.scrollTo(0, 0);
     } else {
       if (props.input.Phone.length != 10) {
-        setError("Invalid phone number!");
+        setError({
+          mainColor: "#FFC0CB",
+          secondaryColor: "#FF69B4",
+          symbol: "pets",
+          title: "Check it out",
+          text: "Invalid phone number",
+          val: true,
+        });
       } else {
         setError("");
         props.setCount(2);
