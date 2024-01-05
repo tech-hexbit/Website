@@ -120,7 +120,13 @@ export default function Form3(props) {
             <div></div>
             <div>
               <button onClick={nextFN}>
-                {props.button}{" "}
+                {load ? (
+                  <>
+                    <Load />
+                  </>
+                ) : (
+                  <>{props.button}</>
+                )}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="21"
