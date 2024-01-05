@@ -24,7 +24,7 @@ import icon3 from "../../assets/register/icon3.png";
 import icon4 from "../../assets/register/icon4.png";
 
 export default function RegisterMain() {
-  const [count, setCount] = useState(3);
+  const [count, setCount] = useState(1);
   const [load, setLoad] = useState(false);
   const [input, setInput] = useState({
     Phone: 0,
@@ -38,7 +38,7 @@ export default function RegisterMain() {
     State: "",
     City: "",
     Pincode: "",
-    category: "",
+    category: [],
     AdditionalInfo: "",
   });
   const [variants, setError] = useState({
@@ -121,11 +121,16 @@ export default function RegisterMain() {
             />
           )}
 
-          {count == 3 && <Form3 button="Register" register={register} />}
+          {count == 3 && (
+            <Form3
+              button="Register"
+              input={input}
+              setInput={setInput}
+              register={register}
+            />
+          )}
         </div>
       </div>
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }
