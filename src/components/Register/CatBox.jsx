@@ -12,7 +12,12 @@ export default function CatBox(props) {
         id={`${props.val.name}`}
         className={FCss.inpCheckBoxCat}
         onChange={() => {
-          props.setDataArray((prevArray) => [...prevArray, props.val]);
+          props.setInput((prevInput) => ({
+            ...prevInput,
+            category: Array.isArray(prevInput.category)
+              ? [...prevInput.category, props.val]
+              : [props.val],
+          }));
         }}
       />
       <label className={FCss.CheckBoxCatLabel} htmlFor={`${props.val.name}`}>
