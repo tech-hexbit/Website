@@ -24,16 +24,16 @@
   padding-left: 84px;
 }
 
-.formInput{
+.formInput {
   display: flex;
   flex-direction: row;
   /* padding-bottom: 30px; */
   justify-content: space-between;
 }
 
-.formInput input{
-  width:70%;
-  margin-right:0;
+.formInput input {
+  width: 70%;
+  margin-right: 0;
 }
 
 .formInputs {
@@ -113,6 +113,33 @@ label {
 
 span {
   color: #350b5e;
+}
+
+.form3Cat {
+  margin: 30px 0px 0px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px 0px;
+}
+
+#btn3 {
+  margin-top: 30px;
+}
+
+.CheckBoxCatLabel {
+  font-size: 16px;
+  letter-spacing: 0.18px;
+  padding-top: 15px;
+  cursor: pointer;
+}
+
+.inpCheckBoxCat {
+  transform: scale(1.3);
+  margin-right: 30px;
+}
+
+.buttonSvg {
+  margin-left: 5px;
 }
 
 @media screen and (max-width: 1200px) {
