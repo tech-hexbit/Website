@@ -60,10 +60,6 @@ export default function RegisterMain() {
     // redirect("/");
   };
 
-  useEffect(() => {
-    console.log(input);
-  }, [input]);
-
   return (
     <>
       <div className={RFCss.mainDiv}>
