@@ -11,6 +11,7 @@ import axios from "axios";
 // components
 import Form1 from "./Form1";
 import Form2 from "./Form2";
+import Form3 from "./Form3";
 import GrowCard from "./GrowCard";
 
 // css
@@ -133,11 +134,13 @@ export default function RegisterMain() {
             <Form2
               button="Select Product Categories"
               setInput={setInput}
-              register={register}
+              // register={register}
               input={input}
               variants={variants}
             />
           )}
+
+          {count == 3 && <Form3 register={register} input={input} />}
         </div>
       </div>
 
