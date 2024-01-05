@@ -10,13 +10,18 @@ export default function CatBox(props) {
         type="checkbox"
         name={`${props.val.name}`}
         id={`${props.val.name}`}
+        checked={props.input.category.includes(props.val)}
         className={FCss.inpCheckBoxCat}
-        onChange={() => {
+        onChange={(event) => {
+          const isChecked = event.target.checked;
+
           props.setInput((prevInput) => ({
             ...prevInput,
-            category: Array.isArray(prevInput.category)
-              ? [...prevInput.category, props.val]
-              : [props.val],
+            category: isChecked
+              ? Array.isArray(prevInput.category)
+                ? [...prevInput.category, props.val]
+                : [props.val]
+              : prevInput.category.filter((category) => category !== props.val),
           }));
         }}
       />
