@@ -74,7 +74,7 @@ export default function Form3(props) {
           </div>
         </div>
 
-        <div className={FCss.form}>
+        <div className={FCss.form3Cat}>
           {load ? (
             <div className="loadCenterDiv">
               <Load />
@@ -99,7 +99,7 @@ export default function Form3(props) {
             </>
           )}
 
-          <div className={FCss.button}>
+          <div className={FCss.button} id={FCss.btn3}>
             <div></div>
             <div>
               <button onClick={nextFN}>
