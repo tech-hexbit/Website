@@ -134,13 +134,12 @@ export default function RegisterMain() {
             <Form2
               button="Select Product Categories"
               setInput={setInput}
-              // register={register}
+              setCount={setCount}
               input={input}
-              variants={variants}
             />
           )}
 
-          {count == 3 && <Form3 register={register} input={input} />}
+          {count == 3 && <Form3 />}
         </div>
       </div>
 
