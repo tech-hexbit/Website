@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // MicroInteraction
@@ -59,6 +59,10 @@ export default function RegisterMain() {
     // setError("");
     // redirect("/");
   };
+
+  useEffect(() => {
+    console.log(input);
+  }, [input]);
 
   return (
     <>
