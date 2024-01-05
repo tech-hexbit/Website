@@ -75,7 +75,10 @@ export default function Form2(props) {
               name="ShopName"
               value={props.input.ShopName}
               onChange={(e) => {
-                setInput({ ...props.input, ShopName: e.target.value });
+                props.setInput({
+                  ...props.input,
+                  ShopName: e.target.value,
+                });
               }}
             />
           </div>
@@ -90,7 +93,7 @@ export default function Form2(props) {
               value={props.input.Address}
               placeholder="Enter your address"
               onChange={(e) => {
-                setInput({ ...props.input, Address: e.target.value });
+                props.setInput({ ...props.input, Address: e.target.value });
               }}
             />
           </div>
@@ -105,7 +108,7 @@ export default function Form2(props) {
               name="State"
               value={props.input.State}
               onChange={(e) => {
-                setInput({ ...props.input, State: e.target.value });
+                props.setInput({ ...props.input, State: e.target.value });
               }}
             />
           </div>
@@ -120,7 +123,7 @@ export default function Form2(props) {
               name="City"
               value={props.input.City}
               onChange={(e) => {
-                setInput({ ...props.input, City: e.target.value });
+                props.setInput({ ...props.input, City: e.target.value });
               }}
             />
           </div>
@@ -135,7 +138,7 @@ export default function Form2(props) {
               name="Pincode"
               value={props.input.Pincode}
               onChange={(e) => {
-                setInput({ ...props.input, Pincode: e.target.value });
+                props.setInput({ ...props.input, Pincode: e.target.value });
               }}
             />
           </div>
@@ -150,7 +153,7 @@ export default function Form2(props) {
               name="AdditionalInfo"
               value={props.input.AdditionalInfo}
               onChange={(e) => {
-                setInput({
+                props.setInput({
                   ...props.input,
                   AdditionalInfo: e.target.value,
                 });
