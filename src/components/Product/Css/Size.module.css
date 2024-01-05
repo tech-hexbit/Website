@@ -41,10 +41,14 @@
   .sizesDiv {
     display: block;
    align-items: center;
+   /* border: #56117c; */
+   /* gap: 10px 0px 10px 0px; */
+
 }
 
 .sizeBlock{
   max-width: 100px;
-
+  padding: 10px;
+  margin: 10px;
 }
 }

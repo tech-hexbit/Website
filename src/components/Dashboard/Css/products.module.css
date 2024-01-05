@@ -1,7 +1,7 @@
 .mdiv {
   display: flex;
   justify-content: space-between;
-  gap: 0px 20px;
+  gap: 0px 12px;
 }
 
 .mainDiv {

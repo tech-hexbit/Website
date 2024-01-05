@@ -151,7 +151,13 @@ export default function Display({ filteredlist, setfilteredlist }) {
           </div>
           <div className={DCss.search}>
             <Link to="/me/addProduct" className={DCss.LinkStyle}>
-              <button>+ <span className="DCss.hideText">Add Product</span>  </button>
+              <button>{window.innerWidth > 750 ? (
+          <>
+            + <span className={DCss.hideTextMobile}>Add Product</span>
+          </>
+        ) : (
+          "+"
+        )}  </button>
             </Link>
           </div>
         </div>
@@ -210,7 +216,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
                             <td data-cell="Stock" className={DCss.row} id={DCss.stock}>
                               {val.quantity.maximum.count}
                             </td>
-                            <td data-cell="Orders"className={DCss.row} id={DCss.orders}>
+                            <td data-cell="orders" className={DCss.row} id={DCss.orders}>
                               {val.fulfillment_id}
                             </td>
                             <td className={DCss.row}>

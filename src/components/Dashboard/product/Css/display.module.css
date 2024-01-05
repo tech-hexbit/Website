@@ -1,7 +1,7 @@
 .mainDiv {
   background-color: #fff;
   width: 100%;
-  height: fit-content;
+  /* height: fit-content; */
   border-radius: 15px;
   margin-bottom: 40px;
 }
@@ -87,7 +87,9 @@
     text-align: left;
 }
 
-.table td:nth-child(2),
+.table td:nth-child(2){
+  z-index: 300;
+}
 .table th:nth-child(2) {
   position: sticky;
   left: 20px;
@@ -121,10 +123,10 @@
   width: 100%;
 }
 
-#col1 {
+/* #col1 {
   width: 40%;
   cursor: pointer;
-}
+} */
 
 .col1 {
   display: flex;
@@ -149,11 +151,11 @@
   font-size: 14px;
 }
 
-#price,
+/* #price,
 #stock,
 #orders {
   padding-right: 10px;
-}
+} */
 
 #published {
   width: max-content;
@@ -193,9 +195,12 @@
 }
 
 .tableTag tr th:first-child,
-.tableTag tr td:first-child {
+.tableTag tr  {
   position: sticky;
   left: 0;
+  z-index: 20;
+}
+td:first-child{
   z-index: 20;
 }
 
@@ -278,6 +283,10 @@
   .table th{
     display: none;
 
+
+  }
+  .table td:before {
+    content: none; /* Hide the colons on smaller screens */
   }
   .mainDiv{
     padding-left: 10px;
@@ -305,10 +314,10 @@
    margin: 0px;
 }     
 
-  .row{
+  /* .row{
     display: flex;
     flex-direction: row;
-  }
+  } */
   .col1{
     display: flex;
     width: 200px;
@@ -340,7 +349,7 @@
   .table tr{
     display: flex;
     flex-direction: column;
-    min-width: 300;
+    min-width: 300px;
     border-radius: 5px;
     border: 1px solid #ddd;
   }
@@ -370,11 +379,9 @@
   }
 }
 
-@media only screen and (max-width: 750) {
-  
-  .hideText {
-      display: none;
-      
+@media screen and (max-width: 750px) {
+  .hideTextMobile {
+    display: none;
   }
 }
 @media screen and (max-width: 500px) {

@@ -1,9 +1,12 @@
-.Midv {
+._mDiv_10ej2_1 {
   border-style: dashed;
   border-width: 1px;
   border-color: #ddd;
   padding: 5px 12px;
+  width: 220px;
   transition: all 0.3s;
+  border-radius: 5px;
+  margin: 10px;
 }
 
 .Midv:hover {

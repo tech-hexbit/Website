@@ -176,23 +176,24 @@ export default function Des(props) {
         </p>
       </div>
 
-      <div className={DCss.mDiv}>
+      <div className={`${DCss.mDiv} ${DCss.tableContainer}`}>
         <p className={DCss.subTitlePTag}>Product description :</p>
         <table>
           <tr>
-            <td className={DCss.headingName}>Category :</td>
-            <UpdateLabel
+         
+            <td className={DCss.headingName}>Category :  <UpdateLabel
               crrValue={props.res.category_id}
               id={props.id}
               fieldName="category_id"
               placeholder="Updated Category"
               type="text"
               setChange={props.setChange}
-            />
+            /></td>
+           
+       
           </tr>
           <tr>
-            <td className={DCss.headingName}>Brand :</td>
-            <UpdateLabel
+            <td className={DCss.headingName}>Brand :   <UpdateLabel
               crrValue={
                 props.res["@ondc/org/statutory_reqs_packaged_commodities"][
                   "manufacturer_or_packer_name"
@@ -203,11 +204,11 @@ export default function Des(props) {
               placeholder="Updated Name"
               type="text"
               setChange={props.setChange}
-            />
+            /></td>
+          
           </tr>
           <tr>
-            <td className={DCss.headingName}>Weight :</td>
-            <UpdateLabel
+            <td className={DCss.headingName}>Weight : <UpdateLabel
               crrValue={
                 props.res["@ondc/org/mandatory_reqs_veggies_fruits"]
                   .net_quantity
@@ -217,73 +218,74 @@ export default function Des(props) {
               placeholder="Updated Quantity"
               type="text"
               setChange={props.setChange}
-            />
+            /></td>
+            
           </tr>
           <tr>
-            <td className={DCss.headingName}>Returnable :</td>
-            <UpdateLabel
+            <td className={DCss.headingName}>Returnable :   <UpdateLabel
               crrValue={props.res["@ondc/org/returnable"]}
               id={props.id}
               fieldName="@ondc/org/returnable"
               placeholder="Select the Return Type"
               type="select"
               setChange={props.setChange}
-            />
+            /></td>
+          
           </tr>
           <tr>
-            <td className={DCss.headingName}>Cancellable :</td>
-            <UpdateLabel
+            <td className={DCss.headingName}>Cancellable :  <UpdateLabel
               crrValue={props.res["@ondc/org/cancellable"]}
               id={props.id}
               fieldName="@ondc/org/cancellable"
               placeholder="Select the Cancellable Type"
               type="select"
               setChange={props.setChange}
-            />
+            /></td>
+           
           </tr>
           <tr>
-            <td className={DCss.headingName}>Return Window :</td>
-            <UpdateLabel
+            <td className={DCss.headingName}>Return Window : <UpdateLabel
               crrValue={props.res["@ondc/org/return_window"]}
               id={props.id}
               fieldName="@ondc/org/return_window"
               placeholder="Updated Return Window"
               type="text"
               setChange={props.setChange}
-            />
+            /></td>
+            
           </tr>
           <tr>
-            <td className={DCss.headingName}>Seller Pickup Return :</td>
-            <UpdateLabel
+            <td className={DCss.headingName}>Seller Pickup Return : <UpdateLabel
               crrValue={props.res["@ondc/org/seller_pickup_return"]}
               id={props.id}
               fieldName="@ondc/org/seller_pickup_return"
               placeholder="Select the PickUp Type"
               type="select"
               setChange={props.setChange}
-            />
+            /></td>
+            
           </tr>
           <tr>
-            <td className={DCss.headingName}>Time To Ship :</td>
-            <UpdateLabel
+            <td className={DCss.headingName}>Time To Ship : <UpdateLabel
               crrValue={props.res["@ondc/org/time_to_ship"]}
               id={props.id}
               fieldName="@ondc/org/time_to_ship"
               placeholder="Updated Shipping Time"
               type="text"
               setChange={props.setChange}
-            />
+            /></td>
+            
           </tr>
           <tr>
-            <td className={DCss.headingName}>Available on COD :</td>
-            <UpdateLabel
+            <td className={DCss.headingName}>Available on COD :  <UpdateLabel
               crrValue={props.res["@ondc/org/available_on_cod"]}
               id={props.id}
               fieldName="@ondc/org/available_on_cod"
               placeholder="Select the COD"
               type="select"
               setChange={props.setChange}
-            />
+            /></td>
+           
           </tr>
         </table>
       </div>

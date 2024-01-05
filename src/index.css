@@ -226,7 +226,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 #yesProductsPage {
   opacity: 0;
-  /* visibility: hidden; */
+  visibility: hidden;
   display: none;
 }
 

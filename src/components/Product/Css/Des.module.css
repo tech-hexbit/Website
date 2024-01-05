@@ -53,6 +53,9 @@
   font-weight: 700;
   line-height: 19px;
   letter-spacing: 0.14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .desName {
@@ -91,6 +94,6 @@
   padding: 10px;
   display: flex;
   gap: 0px 20px;
-  align-items: center;
-  justify-content: space-between;
+  /* align-items: center; */
+  /* justify-content: space-between; */
 }
