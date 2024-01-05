@@ -15,6 +15,7 @@ import FCss from "./Css/Form.module.css";
 
 export default function Form3(props) {
   const [data, setData] = useState([]);
+  const [dataArray, setDataArray] = useState([]);
   const [load, setLoad] = useState(false);
   const [variants, setError] = useState({
     mainColor: "",
@@ -86,7 +87,7 @@ export default function Form3(props) {
                   {data.map((val, key) => {
                     return (
                       <div key={key}>
-                        <CatBox val={val} />
+                        <CatBox val={val} setDataArray={setDataArray} />
                       </div>
                     );
                   })}
