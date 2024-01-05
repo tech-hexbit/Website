@@ -38,6 +38,7 @@ export default function RegisterMain() {
     State: "",
     City: "",
     Pincode: "",
+    category: "",
     AdditionalInfo: "",
   });
   const [variants, setError] = useState({
