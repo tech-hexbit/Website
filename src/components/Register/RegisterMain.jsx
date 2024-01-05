@@ -57,9 +57,6 @@ export default function RegisterMain() {
     try {
       const response = await axios.post("/api/website/auth/register/", input);
 
-      console.log(response);
-      console.log(response.data?.exists);
-
       if (response.data?.exists) {
         setError({
           mainColor: "#FFF4E5",
