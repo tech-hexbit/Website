@@ -1,6 +1,11 @@
-import { useState } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+// MicroInteraction
+import { Alert } from "./../../MicroInteraction/Alert";
+
+// axios
+import axios from "axios";
 
 // components
 import Form1 from "./Form1";
@@ -60,66 +65,70 @@ export default function RegisterMain() {
   };
 
   return (
-    <div className={RFCss.mainDiv}>
-      <div className={RFCss.left}>
-        <div className={RFCss.heading}>
-          “<span>Welcome</span> To a Revolutionary Full-Stack{" "}
-          <span>Seller Solution.</span>”
+    <>
+      <div className={RFCss.mainDiv}>
+        <div className={RFCss.left}>
+          <div className={RFCss.heading}>
+            “<span>Welcome</span> To a Revolutionary Full-Stack{" "}
+            <span>Seller Solution.</span>”
+          </div>
+          <div className={RFCss.subHead}>
+            Grow your business with new customers on the <b>Hexbit Ecommerce</b>{" "}
+            network
+          </div>
+          <div className={RFCss.points}>
+            <div className={RFCss.growCard}>
+              <GrowCard
+                image={icon1}
+                heading="MORE BUYERS"
+                subHead="Access to the entire buyer universe"
+              />
+            </div>
+            <div className={RFCss.growCard}>
+              <GrowCard
+                image={icon2}
+                heading="ZERO COST"
+                subHead="No upfront cost to get started"
+              />
+            </div>
+            <div className={RFCss.growCard}>
+              <GrowCard
+                image={icon3}
+                heading="EASY TO USE"
+                subHead="Start selling in no time"
+              />
+            </div>
+            <div className={RFCss.growCard}>
+              <GrowCard
+                image={icon4}
+                heading="GROW TOUR BUSINESS"
+                subHead="Promote your business with your own webpage"
+              />
+            </div>
+          </div>
         </div>
-        <div className={RFCss.subHead}>
-          Grow your business with new customers on the <b>Hexbit Ecommerce</b>{" "}
-          network
-        </div>
-        <div className={RFCss.points}>
-          <div className={RFCss.growCard}>
-            <GrowCard
-              image={icon1}
-              heading="MORE BUYERS"
-              subHead="Access to the entire buyer universe"
+        <div className={RFCss.right}>
+          {count == 1 && (
+            <Form1
+              button="Next"
+              setCount={setCount}
+              setInput={setInput}
+              input={input}
             />
-          </div>
-          <div className={RFCss.growCard}>
-            <GrowCard
-              image={icon2}
-              heading="ZERO COST"
-              subHead="No upfront cost to get started"
+          )}
+          {count == 2 && (
+            <Form2
+              button="Select Product Categories"
+              setInput={setInput}
+              register={register}
+              input={input}
+              error={error}
             />
-          </div>
-          <div className={RFCss.growCard}>
-            <GrowCard
-              image={icon3}
-              heading="EASY TO USE"
-              subHead="Start selling in no time"
-            />
-          </div>
-          <div className={RFCss.growCard}>
-            <GrowCard
-              image={icon4}
-              heading="GROW TOUR BUSINESS"
-              subHead="Promote your business with your own webpage"
-            />
-          </div>
+          )}
         </div>
       </div>
-      <div className={RFCss.right}>
-        {count == 1 && (
-          <Form1
-            button="Next"
-            setCount={setCount}
-            setInput={setInput}
-            input={input}
-          />
-        )}
-        {count == 2 && (
-          <Form2
-            button="Select Product Categories"
-            setInput={setInput}
-            register={register}
-            input={input}
-            error={error}
-          />
-        )}
-      </div>
-    </div>
+
+      <Alert variant={variants} val={setError} email={input.email} />
+    </>
   );
 }
