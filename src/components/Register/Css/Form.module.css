@@ -24,16 +24,16 @@
   padding-left: 84px;
 }
 
-.formInput{
+.formInput {
   display: flex;
   flex-direction: row;
   /* padding-bottom: 30px; */
   justify-content: space-between;
 }
 
-.formInput input{
-  width:70%;
-  margin-right:0;
+.formInput input {
+  width: 70%;
+  margin-right: 0;
 }
 
 .formInputs {
@@ -113,6 +113,21 @@ label {
 
 span {
   color: #350b5e;
+}
+
+.form3Cat {
+  margin: 30px 0px 0px 0px;
+}
+
+#btn3 {
+  margin-top: 30px;
+}
+
+.catMDiv {
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: flex-start; */
+  background-color: red;
 }
 
 @media screen and (max-width: 1200px) {
