@@ -62,9 +62,6 @@ export default function Form3(props) {
     loadData();
   }, []);
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
   return (
     <>
       <div className={FCss.mainDiv}>
