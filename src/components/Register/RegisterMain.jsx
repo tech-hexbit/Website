@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // MicroInteraction
+import Load from "./../../MicroInteraction/Load";
 import { Alert } from "./../../MicroInteraction/Alert";
 
 // axios
@@ -11,8 +12,6 @@ import axios from "axios";
 import Form1 from "./Form1";
 import Form2 from "./Form2";
 import GrowCard from "./GrowCard";
-import { Alert } from "./../../MicroInteraction/Alert";
-import Load from "./../../MicroInteraction/Load";
 
 // css
 import RFCss from "./Css/Register.module.css";
@@ -26,7 +25,6 @@ import icon4 from "../../assets/register/icon4.png";
 export default function RegisterMain() {
   const [count, setCount] = useState(1);
   const [load, setLoad] = useState(false);
-  const [error, setError] = useState("");
   const [input, setInput] = useState({
     Phone: 0,
     Email: "",
@@ -41,6 +39,14 @@ export default function RegisterMain() {
     Pincode: "",
     AdditionalInfo: "",
   });
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
 
   const redirect = useNavigate();
 
@@ -52,13 +58,20 @@ export default function RegisterMain() {
       input.Pincode == "" ||
       input.AdditionalInfo == ""
     ) {
-      setError("Please fill all fields!!");
+      setError({
+        mainColor: "#FFC0CB",
+        secondaryColor: "#FF69B4",
+        symbol: "pets",
+        title: "Check it out",
+        text: "Please Fill All The Details",
+        val: true,
+      });
+
       window.scrollTo(0, 0);
     } else {
       console.log(input);
 
       const response = await axios.post("/api/website/auth/register/", input);
-      console.log(response);
       setError("");
       redirect("/");
     }
