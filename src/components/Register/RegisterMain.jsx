@@ -103,10 +103,6 @@ export default function RegisterMain() {
     }
   };
 
-  useEffect(() => {
-    console.log(variants);
-  }, [variants]);
-
   return (
     <>
       <div className={RFCss.mainDiv}>
