@@ -11,6 +11,9 @@ export default function CatBox(props) {
         name={`${props.val.name}`}
         id={`${props.val.name}`}
         className={FCss.inpCheckBoxCat}
+        onChange={() => {
+          props.setDataArray((prevArray) => [...prevArray, props.val]);
+        }}
       />
       <label className={FCss.CheckBoxCatLabel} htmlFor={`${props.val.name}`}>
         {props.val.name}
