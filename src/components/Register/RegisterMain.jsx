@@ -86,8 +86,6 @@ export default function RegisterMain() {
           val: false,
         });
 
-        console.log(response.data);
-
         // redirect("/");
       } else {
         setLoad(false);
