@@ -84,7 +84,7 @@ export default function RegisterMain() {
           val: false,
         });
 
-        // redirect("/");
+        redirect("/signIn");
       } else {
         setLoad(false);
       }
