@@ -24,7 +24,7 @@ import icon3 from "../../assets/register/icon3.png";
 import icon4 from "../../assets/register/icon4.png";
 
 export default function RegisterMain() {
-  const [count, setCount] = useState(2);
+  const [count, setCount] = useState(3);
   const [load, setLoad] = useState(false);
   const [input, setInput] = useState({
     Phone: 0,
@@ -139,7 +139,7 @@ export default function RegisterMain() {
             />
           )}
 
-          {count == 3 && <Form3 />}
+          {count == 3 && <Form3 button="Register" />}
         </div>
       </div>
 
