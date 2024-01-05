@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 // MicroInteraction
 import Load from "../../MicroInteraction/Load";
@@ -11,11 +11,13 @@ import CatBox from "./CatBox";
 import FCss from "./Css/Form.module.css";
 
 export default function Form3(props) {
+  const [load, setLoad] = useState(false);
+
   const nextFN = async () => {};
   return (
     <div className={FCss.mainDiv}>
       <div className={FCss.top}>
-        Form3
+        <CatBox />
         <div className={FCss.button}>
           <div></div>
           <div>
