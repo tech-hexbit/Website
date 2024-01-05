@@ -59,6 +59,23 @@ export default function RegisterMain() {
       const response = await axios.post("/api/website/auth/register/", input);
 
       console.log(response);
+      console.log(response.data?.exists);
+
+      if (response.data?.exists) {
+        console.log("exists");
+
+        setError({
+          mainColor: "#FFF4E5",
+          secondaryColor: "#FFA117",
+          symbol: "warning",
+          title: "Warning",
+          text: "User Exists. Kindly try to login",
+        });
+
+        return;
+      } else {
+        console.log("first");
+      }
 
       if (response.data.success) {
         setLoad(false);
@@ -90,9 +107,11 @@ export default function RegisterMain() {
         val: true,
       });
     }
-
-    console.log(input);
   };
+
+  useEffect(() => {
+    console.log(variants);
+  }, [variants]);
 
   return (
     <>
@@ -165,8 +184,6 @@ export default function RegisterMain() {
           )}
         </div>
       </div>
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }
