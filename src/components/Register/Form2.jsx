@@ -24,6 +24,44 @@ export default function Form2(props) {
     val: false,
   });
 
+  const checkInfo = async () => {
+    if (
+      input.ShopName == "" ||
+      input.State == "" ||
+      input.City == "" ||
+      input.Pincode == "" ||
+      input.AdditionalInfo == ""
+    ) {
+      setError({
+        mainColor: "#FFC0CB",
+        secondaryColor: "#FF69B4",
+        symbol: "pets",
+        title: "Check it out",
+        text: "Please Fill All The Details",
+        val: true,
+      });
+
+      window.scrollTo(0, 0);
+    } else {
+      setError({
+        mainColor: "",
+        secondaryColor: "",
+        symbol: "",
+        title: "",
+        text: "",
+        val: false,
+      });
+
+      props.setCount(3);
+
+      window.scrollTo(0, 0);
+    }
+  };
+
+  useEffect(() => {
+    console.table(input);
+  }, [input]);
+
   return (
     <>
       <div className={FCss.mainDiv}>
@@ -105,7 +143,7 @@ export default function Form2(props) {
           <div className={FCss.formInputs}>
             <label htmlFor="pincode">Pincode</label>
             <input
-              type="text"
+              type="number"
               id="pincode"
               placeholder="Your pincode"
               name="Pincode"
@@ -136,9 +174,7 @@ export default function Form2(props) {
         <div className={FCss.button}>
           <div></div>
           <div>
-            <button
-            // onClick={props.register}
-            >
+            <button onClick={checkInfo}>
               {props.button}{" "}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
