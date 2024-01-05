@@ -62,19 +62,16 @@ export default function RegisterMain() {
       console.log(response.data?.exists);
 
       if (response.data?.exists) {
-        console.log("exists");
-
         setError({
           mainColor: "#FFF4E5",
           secondaryColor: "#FFA117",
           symbol: "warning",
           title: "Warning",
           text: "User Exists. Kindly try to login",
+          val: true,
         });
 
         return;
-      } else {
-        console.log("first");
       }
 
       if (response.data.success) {
@@ -178,12 +175,16 @@ export default function RegisterMain() {
             <Form3
               button="Register"
               input={input}
+              variant={variants}
+              val={setError}
               setInput={setInput}
               register={register}
             />
           )}
         </div>
       </div>
+
+      <Alert variant={variants} val={setError} email={input.email} />
     </>
   );
 }
