@@ -2,7 +2,7 @@
 
 https://lucide.dev/
 
-- //red
+- red
   {
   mainColor: "#FDEDED",
   secondaryColor: "#F16360",
@@ -11,7 +11,7 @@ https://lucide.dev/
   text: "The action was not carried out succesfully please try again.",
   },
 
-- //blue
+- blue
   {
   mainColor: "#E5F6FD",
   secondaryColor: "#1AB1F5",
@@ -20,7 +20,7 @@ https://lucide.dev/
   text: "Our newest module can be bought, or you can always just use our 30 day trial.",
   },
 
-- //green
+- green
   {
   mainColor: "#EDFEEE",
   secondaryColor: "#5CB660",
@@ -29,7 +29,7 @@ https://lucide.dev/
   text: "Saving of your newest settings are successfuly carried out. ",
   },
 
-- //yellow
+- yellow
   {
   mainColor: "#FFF4E5",
   secondaryColor: "#FFA117",
@@ -38,7 +38,7 @@ https://lucide.dev/
   text: "Your trial is ending soon, please click here to renew it.",
   },
 
-- //pink
+- pink
   {
   mainColor: "#FFC0CB",
   secondaryColor: "#FF69B4",
