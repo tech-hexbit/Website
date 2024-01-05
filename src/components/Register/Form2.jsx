@@ -70,20 +70,6 @@ export default function Form2(props) {
           </div>
         </div>
         <div className={FCss.form}>
-          {/* <div className={FCss.phoneInput}>
-          <div className={FCss.formInputs}>
-            <label htmlFor="phone">Phone</label>
-            <input type="number" id="phone" placeholder="Enter phone no." />
-          </div>
-          <div className={FCss.otp}>
-            <div className={FCss.otpText}>
-              <input type="text" name="" id="" />
-            </div>
-            <div className={FCss.otpButton}>
-              <button>Send otp</button>
-            </div>
-          </div>
-        </div> */}
           <div className={FCss.formInputs}>
             <label htmlFor="shopBus">Shop Name / Business Name</label>
             <input
