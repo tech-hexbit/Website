@@ -1,8 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
+// MicroInteraction
+import Load from "./../../MicroInteraction/Load";
+import { Alert } from "./../../MicroInteraction/Alert";
+
+// css
 import FCss from "./Css/Form.module.css";
 
 export default function Form2(props) {
+  const [input, setInput] = useState({
+    ShopName: "",
+    State: "",
+    City: "",
+    Pincode: "",
+    AdditionalInfo: "",
+  });
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
+
   return (
     <>
       <div className={FCss.mainDiv}>
@@ -36,9 +57,9 @@ export default function Form2(props) {
               id="shopBus"
               placeholder="Enter the name"
               name="ShopName"
-              value={props.input.ShopName}
+              value={input.ShopName}
               onChange={(e) => {
-                props.setInput({ ...props.input, ShopName: e.target.value });
+                setInput({ ...input, ShopName: e.target.value });
               }}
             />
           </div>
@@ -48,10 +69,10 @@ export default function Form2(props) {
               type="text"
               id="address"
               name="Address"
-              value={props.input.Address}
+              value={input.Address}
               placeholder="Enter your address"
               onChange={(e) => {
-                props.setInput({ ...props.input, Address: e.target.value });
+                setInput({ ...input, Address: e.target.value });
               }}
             />
           </div>
@@ -62,9 +83,9 @@ export default function Form2(props) {
               id="state"
               placeholder="Your state"
               name="State"
-              value={props.input.State}
+              value={input.State}
               onChange={(e) => {
-                props.setInput({ ...props.input, State: e.target.value });
+                setInput({ ...input, State: e.target.value });
               }}
             />
           </div>
@@ -75,9 +96,9 @@ export default function Form2(props) {
               id="city"
               placeholder="Your city"
               name="City"
-              value={props.input.City}
+              value={input.City}
               onChange={(e) => {
-                props.setInput({ ...props.input, City: e.target.value });
+                setInput({ ...input, City: e.target.value });
               }}
             />
           </div>
@@ -88,9 +109,9 @@ export default function Form2(props) {
               id="pincode"
               placeholder="Your pincode"
               name="Pincode"
-              value={props.input.Pincode}
+              value={input.Pincode}
               onChange={(e) => {
-                props.setInput({ ...props.input, Pincode: e.target.value });
+                setInput({ ...input, Pincode: e.target.value });
               }}
             />
           </div>
@@ -101,10 +122,10 @@ export default function Form2(props) {
               id="contactInfo"
               placeholder="Additional Contact Information"
               name="AdditionalInfo"
-              value={props.input.AdditionalInfo}
+              value={input.AdditionalInfo}
               onChange={(e) => {
-                props.setInput({
-                  ...props.input,
+                setInput({
+                  ...input,
                   AdditionalInfo: e.target.value,
                 });
               }}
