@@ -66,6 +66,14 @@ export default function Form3(props) {
     <>
       <div className={FCss.mainDiv}>
         <div className={FCss.top}>
+          <div className={FCss.head}>
+            Get your Business <span>Started</span>
+          </div>
+          <div className={FCss.subHead}>
+            Fill in Your Shop Details For Better Connectivity
+          </div>
+        </div>
+        <div className={FCss.form}>
           {load ? (
             <div className="loadCenterDiv">
               <Load />
