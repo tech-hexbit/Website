@@ -110,7 +110,7 @@ export default function Form1(props) {
               <div className={FCss.otpText}>
                 {sendotp === true && (
                   <input
-                    type="text"
+                    type="number"
                     id="otp"
                     placeholder="Enter the OTP sent"
                     // disabled={disable}
