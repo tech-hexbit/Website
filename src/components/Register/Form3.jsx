@@ -98,9 +98,14 @@ export default function Form3(props) {
               {data.length > 0 ? (
                 <>
                   {data.map((val, key) => {
+                    console.log(props);
                     return (
                       <div key={key}>
-                        <CatBox val={val} setDataArray={setDataArray} />
+                        <CatBox
+                          val={val}
+                          input={props.input}
+                          setInput={props.setInput}
+                        />
                       </div>
                     );
                   })}
