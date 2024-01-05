@@ -35,12 +35,10 @@ export default function Form1(props) {
   //   }
   // };
 
-  console.log(sendotp);
-
   const nextFN = async () => {
     if (
-      props.input.Phone == 0 ||
-      input.Otp == 0 ||
+      props.input.Phone == "" ||
+      input.Otp == "" ||
       props.input.Email == "" ||
       props.input.Password == "" ||
       props.input.BusinessName == "" ||
