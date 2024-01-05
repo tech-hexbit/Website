@@ -8,13 +8,6 @@ import { Alert } from "./../../MicroInteraction/Alert";
 import FCss from "./Css/Form.module.css";
 
 export default function Form2(props) {
-  const [input, setInput] = useState({
-    ShopName: "",
-    State: "",
-    City: "",
-    Pincode: "",
-    AdditionalInfo: "",
-  });
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -26,11 +19,11 @@ export default function Form2(props) {
 
   const checkInfo = async () => {
     if (
-      input.ShopName == "" ||
-      input.State == "" ||
-      input.City == "" ||
-      input.Pincode == "" ||
-      input.AdditionalInfo == ""
+      props.input.ShopName == "" ||
+      props.input.State == "" ||
+      props.input.City == "" ||
+      props.input.Pincode == "" ||
+      props.input.AdditionalInfo == ""
     ) {
       setError({
         mainColor: "#FFC0CB",
@@ -69,7 +62,10 @@ export default function Form2(props) {
             Fill in Your Shop Details For Better Connectivity
           </div>
         </div>
+
+        {/* Form */}
         <div className={FCss.form}>
+          {/* ShopName */}
           <div className={FCss.formInputs}>
             <label htmlFor="shopBus">Shop Name / Business Name</label>
             <input
@@ -77,25 +73,29 @@ export default function Form2(props) {
               id="shopBus"
               placeholder="Enter the name"
               name="ShopName"
-              value={input.ShopName}
+              value={props.input.ShopName}
               onChange={(e) => {
-                setInput({ ...input, ShopName: e.target.value });
+                setInput({ ...props.input, ShopName: e.target.value });
               }}
             />
           </div>
+
+          {/* Address */}
           <div className={FCss.formInputs}>
             <label htmlFor="address">Address</label>
             <input
               type="text"
               id="address"
               name="Address"
-              value={input.Address}
+              value={props.input.Address}
               placeholder="Enter your address"
               onChange={(e) => {
-                setInput({ ...input, Address: e.target.value });
+                setInput({ ...props.input, Address: e.target.value });
               }}
             />
           </div>
+
+          {/* State */}
           <div className={FCss.formInputs}>
             <label htmlFor="state">State / District</label>
             <input
@@ -103,12 +103,14 @@ export default function Form2(props) {
               id="state"
               placeholder="Your state"
               name="State"
-              value={input.State}
+              value={props.input.State}
               onChange={(e) => {
-                setInput({ ...input, State: e.target.value });
+                setInput({ ...props.input, State: e.target.value });
               }}
             />
           </div>
+
+          {/* City */}
           <div className={FCss.formInputs}>
             <label htmlFor="city">City / Village / Town</label>
             <input
@@ -116,12 +118,14 @@ export default function Form2(props) {
               id="city"
               placeholder="Your city"
               name="City"
-              value={input.City}
+              value={props.input.City}
               onChange={(e) => {
-                setInput({ ...input, City: e.target.value });
+                setInput({ ...props.input, City: e.target.value });
               }}
             />
           </div>
+
+          {/* Pincode */}
           <div className={FCss.formInputs}>
             <label htmlFor="pincode">Pincode</label>
             <input
@@ -129,12 +133,14 @@ export default function Form2(props) {
               id="pincode"
               placeholder="Your pincode"
               name="Pincode"
-              value={input.Pincode}
+              value={props.input.Pincode}
               onChange={(e) => {
-                setInput({ ...input, Pincode: e.target.value });
+                setInput({ ...props.input, Pincode: e.target.value });
               }}
             />
           </div>
+
+          {/* AdditionalInfo */}
           <div className={FCss.formInputs}>
             <label htmlFor="contactInfo">Additional Contact Information</label>
             <input
@@ -142,17 +148,17 @@ export default function Form2(props) {
               id="contactInfo"
               placeholder="Additional Contact Information"
               name="AdditionalInfo"
-              value={input.AdditionalInfo}
+              value={props.input.AdditionalInfo}
               onChange={(e) => {
                 setInput({
-                  ...input,
+                  ...props.input,
                   AdditionalInfo: e.target.value,
                 });
               }}
             />
           </div>
         </div>
-        <div className="error">{props.error}</div>
+
         <div className={FCss.button}>
           <div></div>
           <div>
