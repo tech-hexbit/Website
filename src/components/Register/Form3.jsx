@@ -11,9 +11,30 @@ import CatBox from "./CatBox";
 import FCss from "./Css/Form.module.css";
 
 export default function Form3(props) {
+  const [data, setData] = useState([]);
   const [load, setLoad] = useState(false);
 
   const nextFN = async () => {};
+
+  const loadData = async () => {
+    setLoad(true);
+
+    try {
+      const response = await axios.get(`/api/common/Global/CategoryList`);
+
+      if (response.data.success) {
+        setres(response.data.OrderDetail);
+      } else {
+        console.log("Error");
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    loadData();
+  }, []);
   return (
     <div className={FCss.mainDiv}>
       <div className={FCss.top}>
