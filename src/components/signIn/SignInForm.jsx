@@ -258,6 +258,7 @@ export default function SignInForm() {
             </div>
           </div>
           <div className={style.loginDiv}>
+          <h4 className={style.forgot}><Link style={{textDecoration:"none"}} to='/forgotpassword'>Forgot password</Link></h4>
             <button onClick={login}>{load ? <Load /> : "Log In"}</button>
 
             <div className={style.tc}>

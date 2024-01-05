@@ -34,6 +34,13 @@
   text-decoration: underline;
 }
 
+.forgot{
+  padding-left: 60%;
+  padding-bottom:20px;
+  font-size:18px;
+  text-decoration: none;
+}
+
 .emailPassword {
   padding-top: 36px;
 }
