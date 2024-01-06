@@ -13,7 +13,9 @@
 }
 
 .contendDiv {
+  margin-top: 44px;
   width: 70%;
+  max-height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,6 +25,7 @@
   padding: 30px 50px;
   border-radius: 15px;
   color: #000;
+  overflow-y: scroll;
 }
 
 .UpdateOrderPTag {
