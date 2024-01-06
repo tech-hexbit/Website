@@ -47,7 +47,7 @@ export default function PaymentRequest() {
     <div className={pr.main}>
       <h3>Confirm Account Details For Payment Request </h3>
       <div className={pr.detailWrapper}>
-        <div className={pr.details_left}>
+        <div className={pr.detailsLeft}>
           {load ? (
             <div className="loadCenterDiv">
               <Load />
