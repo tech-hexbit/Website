@@ -134,6 +134,9 @@ export default function OrderLayUpdate(props) {
                                   id={props.id}
                                   ItemID={val.ItemID._id}
                                   state={val.state}
+                                  setLoadDataState={props.setLoadDataState}
+                                  loadDataState={props.loadDataState}
+                                  setEdit={props.setEdit}
                                 />
                                 <td data-cell="Total Amount">
                                   ₹{" "}
