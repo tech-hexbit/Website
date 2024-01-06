@@ -9,7 +9,7 @@ h3 {
   padding-inline-start: 0.5rem;
 }
 
-.detail_wrapper {
+.detailWrapper {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
@@ -123,13 +123,13 @@ svg {
 
 /* media queries */
 @media (width>=93.75em) {
-  .detail_wrapper {
+  .detailWrapper {
     align-items: start;
   }
 }
 
 @media (width<=94em) {
-  .detail_wrapper {
+  .detailWrapper {
     flex-direction: column;
     gap: 2rem;
   }
