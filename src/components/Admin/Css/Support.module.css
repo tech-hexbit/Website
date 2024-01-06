@@ -40,19 +40,23 @@
   text-align: center;
 }
 
-.icons{
+.icons {
   display: flex;
   flex-direction: row;
   margin-right: 5%;
 }
 
-.iconsContainer{
+.editIcon {
+  margin-right: 10px;
+}
+
+.iconsContainer {
   display: flex;
   align-items: center; /* Align items vertically in the center */
   justify-content: space-between; /* Distribute items evenly along the main axis */
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
 }
 
-.icons svg{
+.icons svg {
   cursor: pointer;
 }
