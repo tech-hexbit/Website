@@ -19,7 +19,7 @@ h3 {
 }
 
 /* left section */
-.details_left {
+.detailsLeft {
   border-radius: 1rem;
   min-width: 700px;
   border: 1px solid #ccd;
@@ -29,7 +29,7 @@ svg {
   margin-block-start: 0.2em;
 }
 
-.details_left p {
+.detailsLeft p {
   display: flex;
   gap: 1rem;
   align-items: center;
@@ -46,7 +46,7 @@ svg {
   font-weight: 600;
 }
 
-.details_left h4 {
+.detailsLeft h4 {
   font-size: 14 px;
   font-weight: normal;
 }
@@ -139,7 +139,7 @@ svg {
 }
 
 @media (width<=53em) {
-  .details_left {
+  .detailsLeft {
     min-width: 220px;
   }
 
