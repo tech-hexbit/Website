@@ -50,13 +50,17 @@
 }
 
 #Accept {
+  background-color: #1f9254;
 }
 
 #InProgress {
+  background-color: #3f81e0;
 }
 
 #Completed {
+  background-color: #4bb543;
 }
 
 #Cancelled {
+  background-color: #ff0000;
 }
