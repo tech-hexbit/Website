@@ -32,24 +32,26 @@ export default function LayUpdate(props) {
           Id: id,
         };
 
-        const response = await axios.post(
-          "/api/common/Order/UpdateStateItem",
-          data,
-          {
-            headers: { Authorization: `${authCtx.token}` },
-          }
-        );
+        console.log(data);
 
-        if (response.data.success) {
-          setSaveLoad(false);
-          setSelectedValue("Select");
+        // const response = await axios.post(
+        //   "/api/common/Order/UpdateStateItem",
+        //   data,
+        //   {
+        //     headers: { Authorization: `${authCtx.token}` },
+        //   }
+        // );
 
-          props.setLoadDataState(!props.loadDataState);
+        // if (response.data.success) {
+        //   setSaveLoad(false);
+        //   setSelectedValue("Select");
 
-          setEdit(!edit);
-        } else {
-          setSaveLoad(false);
-        }
+        //   props.setLoadDataState(!props.loadDataState);
+
+        //   setEdit(!edit);
+        // } else {
+        //   setSaveLoad(false);
+        // }
       } else {
         setSaveLoad(false);
       }
@@ -65,10 +67,95 @@ export default function LayUpdate(props) {
     setSelectedValue(event.target.value);
   };
 
-  console.log(props);
   return (
     <>
-      <td data-cell="Status">{props.state}</td>
+      <td data-cell="Status">
+        {edit ? (
+          <>
+            <select name="" value={selectedValue} onChange={handleSelectChange}>
+              <option value="Select" selected hidden>
+                Select the Updated Status
+              </option>
+              <option value="Accepted">Accepted</option>
+              <option value="In-progress">In-progress</option>
+              <option value="Completed">Completed</option>
+              <option value="Cancelled">Cancelled</option>
+            </select>
+          </>
+        ) : (
+          <>{props.state}</>
+        )}
+
+        {edit ? (
+          <>
+            {Saveload ? (
+              <SmallLoad />
+            ) : (
+              <>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-save"
+                  className={osCss.lucidePencil}
+                  onClick={() => {
+                    UpdateData(props.id);
+                  }}
+                >
+                  <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
+                  <polyline points="17 21 17 13 7 13 7 21" />
+                  <polyline points="7 3 7 8 15 8" />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-ban"
+                  className={osCss.lucideCancel}
+                  onClick={() => {
+                    setEdit(!edit);
+                  }}
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="m4.9 4.9 14.2 14.2" />
+                </svg>
+              </>
+            )}
+          </>
+        ) : (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-pencil"
+            className={osCss.lucidePencil}
+            onClick={() => {
+              setEdit(!edit);
+            }}
+          >
+            <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+            <path d="m15 5 4 4" />
+          </svg>
+        )}
+      </td>
     </>
   );
 }
