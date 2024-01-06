@@ -49,7 +49,7 @@ export default function OrderLayUpdate(props) {
   }, [props.id]);
 
   useEffect(() => {
-    console.log(res);
+    // console.log(res.Items);
   }, [res]);
   return (
     <>
@@ -107,26 +107,37 @@ export default function OrderLayUpdate(props) {
                     className={OLCss.tableCatTTag}
                     style={{ borderCollapse: "collapse" }}
                   >
-                    <>
-                      <tr>
-                        <th>Name</th>
-                        <th>Product ID</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Status</th>
-                        <th>Total Amount</th>
-                      </tr>
+                    {res ? (
+                      <>
+                        <tr>
+                          <th>Name</th>
+                          <th>Product ID</th>
+                          <th>Price</th>
+                          <th>Quantity</th>
+                          <th>Status</th>
+                          <th>Total Amount</th>
+                        </tr>
 
-                      {/* to be map */}
-                      <tr>
-                        <td data-cell="Name">val.descriptor.name</td>
-                        <td data-cell="Available Inventory">val.product.id</td>
-                        <td data-cell="Price">₹ val.price.value.toFixed(2)</td>
-                        <td data-cell="Total Orders">val.totalSold</td>
-                        <td data-cell="Shipping Time">val.status</td>
-                        <td data-cell="Return Window">val.amount</td>
-                      </tr>
-                    </>
+                        {res.Items?.map((val, key) => {
+                          return (
+                            <>
+                              <tr key={key}>
+                                <td data-cell="Name">val.descriptor.name</td>
+                                <td data-cell="Product ID">val.product.id</td>
+                                <td data-cell="Price">
+                                  ₹ val.price.value.toFixed(2)
+                                </td>
+                                <td data-cell="Quantity">val.totalSold</td>
+                                <td data-cell="Status">val.status</td>
+                                <td data-cell="Total Amount">val.amount</td>
+                              </tr>
+                            </>
+                          );
+                        })}
+                      </>
+                    ) : (
+                      <div className="loadCenterDiv">No Orders</div>
+                    )}
                   </table>
                 </>
               )}
