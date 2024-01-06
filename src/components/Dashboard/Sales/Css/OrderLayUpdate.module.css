@@ -24,6 +24,11 @@
   color: #000;
 }
 
+.UpdateOrderPTag {
+  font-size: 20px;
+  font-weight: 600;
+}
+
 .closeBtn {
   position: absolute;
   top: 30px;
