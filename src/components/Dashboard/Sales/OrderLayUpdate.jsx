@@ -49,7 +49,7 @@ export default function OrderLayUpdate(props) {
   }, [props.id]);
 
   useEffect(() => {
-    // console.log(res.Items);
+    res ? console.log(res.Items[0].ItemID.descriptor.name) : "";
   }, [res]);
   return (
     <>
@@ -122,13 +122,17 @@ export default function OrderLayUpdate(props) {
                           return (
                             <>
                               <tr key={key}>
-                                <td data-cell="Name">val.descriptor.name</td>
-                                <td data-cell="Product ID">val.product.id</td>
-                                <td data-cell="Price">
-                                  ₹ val.price.value.toFixed(2)
+                                <td data-cell="Name">
+                                  {val.ItemID.descriptor.name}
                                 </td>
-                                <td data-cell="Quantity">val.totalSold</td>
-                                <td data-cell="Status">val.status</td>
+                                <td data-cell="Product ID">
+                                  {val.ItemID._id.slice(-4)}
+                                </td>
+                                <td data-cell="Price">
+                                  ₹ {val.ItemID.price.maximum_value.toFixed(2)}
+                                </td>
+                                <td data-cell="Quantity">{val.quantity}</td>
+                                <td data-cell="Status">val.state</td>
                                 <td data-cell="Total Amount">val.amount</td>
                               </tr>
                             </>
