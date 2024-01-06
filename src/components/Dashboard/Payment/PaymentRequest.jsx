@@ -1,109 +1,80 @@
-import React from "react";
+import React, { useEffect, useState, useContext } from "react";
+
+// axios
+import axios from "axios";
+
+// components
+import BankDel from "./BankDel";
+
+// MicroInteraction
+import Load from "./../../../MicroInteraction/LoadBlack";
+
+// state
+import AuthContext from "../../../store/auth-context";
 
 // css
 import pr from "./Css/PaymentRequest.module.css";
 
 export default function PaymentRequest() {
+  const [load, setLoad] = useState(true);
+  const [bankDetails, setBankDetails] = useState([]);
+
+  useEffect(() => {
+    loadBankDetails();
+  }, []);
+
+  const authCtx = useContext(AuthContext);
+
+  const loadBankDetails = async () => {
+    setLoad(true);
+    try {
+      const response = await axios.get(`/api/common/bank/BankInfo`, {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+
+      if (response.data.success) {
+        setBankDetails(response.data.bankDetail);
+
+        setLoad(false);
+      } else {
+        console.log("Error fetching bank details");
+        setLoad(false);
+      }
+    } catch (e) {
+      setLoad(false);
+      console.log("Error fetching bank details", e);
+    }
+  };
+
   return (
     <div className={pr.main}>
       <h3>Confirm Account Details For Payment Request </h3>
-      <div className={pr.detail_wrapper}>
-        <div className={pr.details_left}>
-          <p>
-            <span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-wallet-2"
-              >
-                <path d="M17 14h.01" />
-                <path d="M7 7h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14" />
-              </svg>
-            </span>
-            <span>Account Details</span>
-          </p>
-          <div className={pr.grid}>
-            <div className={pr.grid_item}>
-              <input type="checkbox" />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-wallet-2"
-              >
-                <path d="M17 14h.01" />
-                <path d="M7 7h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14" />
-              </svg>
+      <div className={pr.detailWrapper}>
+        <div className={pr.detailsLeft}>
+          {load ? (
+            <div className="loadCenterDiv" id="loadPadding">
+              <Load />
             </div>
-            <div className={pr.grid_item}>
-              <h4>BANK</h4>
-              <h3>SBI</h3>
+          ) : bankDetails.length > 0 ? (
+            <>
+              {bankDetails.map((bank, key) => (
+                <BankDel
+                  BankName={bank.BankName}
+                  AccountNumber={String(bank.AccountNumber).slice(-4)}
+                  AccountHolderName={bank.AccountHolderName}
+                  IfscCode={bank.IfscCode}
+                  key={key}
+                />
+              ))}
+            </>
+          ) : (
+            <div className="loadCenterDiv" id="loadPadding">
+              No Bank info available
             </div>
-            <div className={pr.grid_item}>
-              <h4>LAST 4 Digit</h4>
-              <h3>1234</h3>
-            </div>
-            <div className={pr.grid_item}>
-              <h4>Account Holder</h4>
-              <h3>TATHAGT</h3>
-            </div>
-            <div className={pr.grid_item}>
-              <h4>IFSC CODE</h4>
-              <h3>SBIN00000153</h3>
-            </div>
-          </div>
-          <div className={pr.grid}>
-            <div className={pr.grid_item}>
-              <input type="checkbox" />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-wallet-2"
-              >
-                <path d="M17 14h.01" />
-                <path d="M7 7h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14" />
-              </svg>
-            </div>
-            <div className={pr.grid_item}>
-              <h4>BANK</h4>
-              <h3>IDBI</h3>
-            </div>
-            <div className={pr.grid_item}>
-              <h4>LAST 4 Digit</h4>
-              <h3>1234</h3>
-            </div>
-            <div className={pr.grid_item}>
-              <h4>Account Holder</h4>
-              <h3>ANUJ</h3>
-            </div>
-            <div className={pr.grid_item}>
-              <h4>IFSC CODE</h4>
-              <h3>IDBI0000012</h3>
-            </div>
-          </div>
+          )}
         </div>
 
-        <div className={pr.details_right}>
+        <div className={pr.detailsRight}>
           <p>
             <span>
               <svg
@@ -126,11 +97,11 @@ export default function PaymentRequest() {
             <span>Alışveriş Özeti</span>
           </p>
           <div className={pr.flex}>
-            <div className={pr.flex_item}>
+            <div className={pr.flexItem}>
               <h4>Total Selected</h4>
               <h1>1</h1>
             </div>
-            <div className={pr.flex_item}>
+            <div className={pr.flexItem}>
               <h4>Total Amount</h4>
               <h1 className={pr.ruppee}>
                 <span>
@@ -157,7 +128,7 @@ export default function PaymentRequest() {
               </h1>
             </div>
           </div>
-          <div className={pr.flex_item}>
+          <div className={pr.flexItem}>
             <button>Raise Payment Request</button>
           </div>
         </div>
