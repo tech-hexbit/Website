@@ -107,7 +107,7 @@ export default function PaymentRequest() {
           )}
         </div>
 
-        <div className={pr.details_right}>
+        <div className={pr.detailsRight}>
           <p>
             <span>
               <svg
