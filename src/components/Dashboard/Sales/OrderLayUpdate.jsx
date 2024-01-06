@@ -42,7 +42,7 @@ export default function OrderLayUpdate(props) {
     }
   };
 
-  console.log(props);
+  //   console.log(props);
 
   useEffect(() => {
     loadOrderdel(props.id);
