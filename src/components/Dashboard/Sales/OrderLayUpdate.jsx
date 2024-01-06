@@ -10,7 +10,6 @@ import axios from "axios";
 import Load from "./../../../MicroInteraction/LoadBlack";
 
 // Css
-import osCss from "./Css/overallSales.module.css";
 import OLCss from "./Css/OrderLayUpdate.module.css";
 
 export default function OrderLayUpdate(props) {
