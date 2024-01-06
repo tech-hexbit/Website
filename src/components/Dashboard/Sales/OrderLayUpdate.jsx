@@ -69,7 +69,18 @@ export default function OrderLayUpdate(props) {
                   <table
                     className={OLCss.tableCatTTag}
                     style={{ borderCollapse: "collapse" }}
-                  ></table>
+                  >
+                    <>
+                      <tr>
+                        <th>Name</th>
+                        <th>Product ID</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                        <th>Total Amount</th>
+                      </tr>
+                    </>
+                  </table>
                 </>
               )}
             </div>
