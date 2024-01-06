@@ -130,11 +130,11 @@ export default function PaymentRequest() {
             <span>Alışveriş Özeti</span>
           </p>
           <div className={pr.flex}>
-            <div className={pr.flex_item}>
+            <div className={pr.flexItem}>
               <h4>Total Selected</h4>
               <h1>1</h1>
             </div>
-            <div className={pr.flex_item}>
+            <div className={pr.flexItem}>
               <h4>Total Amount</h4>
               <h1 className={pr.ruppee}>
                 <span>
@@ -161,7 +161,7 @@ export default function PaymentRequest() {
               </h1>
             </div>
           </div>
-          <div className={pr.flex_item}>
+          <div className={pr.flexItem}>
             <button>Raise Payment Request</button>
           </div>
         </div>
