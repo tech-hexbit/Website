@@ -31,6 +31,7 @@ export default function OrderLayUpdate(props) {
               stroke-linecap="round"
               stroke-linejoin="round"
               class="lucide lucide-x"
+              className={OLCss.closeBtn}
               onClick={() => {
                 props.setEdit(false);
               }}
