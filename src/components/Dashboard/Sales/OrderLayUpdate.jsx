@@ -127,7 +127,7 @@ export default function OrderLayUpdate(props) {
                                   ₹ {val.ItemID.price.maximum_value.toFixed(2)}
                                 </td>
                                 <td data-cell="Quantity">{val.quantity}</td>
-                                <td data-cell="Status">val.state</td>
+                                <td data-cell="Status">{val.state}</td>
                                 <td data-cell="Total Amount">
                                   ₹{" "}
                                   {(
