@@ -58,14 +58,14 @@ export default function PaymentRequest() {
           ) : bankDetails.length > 0 ? (
             <>
               {bankDetails.map((bank, key) => (
-                <div key={key} className={pr.grid}>
-                  <BankDel
-                    BankName={bank.BankName}
-                    AccountNumber={String(bank.AccountNumber).slice(-4)}
-                    AccountHolderName={bank.AccountHolderName}
-                    IfscCode={bank.IfscCode}
-                  />
-                </div>
+                <BankDel
+                  BankName={bank.BankName}
+                  AccountNumber={String(bank.AccountNumber).slice(-4)}
+                  AccountHolderName={bank.AccountHolderName}
+                  IfscCode={bank.IfscCode}
+                  key={key}
+                />
+                // </div>
               ))}
             </>
           ) : (
