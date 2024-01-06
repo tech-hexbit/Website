@@ -22,3 +22,11 @@
   padding: 30px 50px;
   border-radius: 15px;
 }
+
+.closeBtn {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  color: #000;
+  cursor: pointer;
+}
