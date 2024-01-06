@@ -413,10 +413,7 @@ export default function OverallSales() {
                                   ₹ {val.amount.toFixed(2)}
                                 </td>
                                 <td data-cell="ORDERED ON"> {val.when.date}</td>
-                                <td data-cell="PAYMENT METHOD">
-                                  {" "}
-                                  {val.status}
-                                </td>
+                                <td data-cell="PAYMENT METHOD">{val.status}</td>
 
                                 <UpdateState
                                   state={val.state}
