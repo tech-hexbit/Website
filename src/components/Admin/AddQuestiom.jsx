@@ -14,14 +14,12 @@ import axios from "axios";
 import AQCss from "./Css/AddQuestion.module.css";
 
 export default function AddQuestiom(props) {
-  // console.log(props);
   const [load, setLoad] = useState(false);
   const [showData, setData] = useState({
     question: "",
     answer: "",
     tag: "",
   });
-
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
