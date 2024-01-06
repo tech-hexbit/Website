@@ -57,7 +57,7 @@ export default function PaymentRequest() {
               {bankDetails.map((bank, index) => (
                 <div key={index} className={pr.grid}>
                   <div className={pr.grid_item}>
-                    <input type="checkbox" />
+                    <input type="checkbox" className={pr.checkBoxBank} />
 
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
