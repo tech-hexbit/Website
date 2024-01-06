@@ -44,6 +44,7 @@ export default function LayUpdate(props) {
           setSaveLoad(false);
           setSelectedValue("Select");
 
+          props.setEdit(false);
           props.setLoadDataState(!props.loadDataState);
 
           setEdit(!edit);
@@ -67,7 +68,21 @@ export default function LayUpdate(props) {
 
   return (
     <>
-      <td data-cell="Status">
+      <td
+        data-cell="Status"
+        style={{
+          color:
+            props.state == "Created"
+              ? "#7925c7"
+              : props.state == "Accepted"
+              ? "#FEC107"
+              : props.state == "In-progress"
+              ? "#3F81E0"
+              : props.state == "Completed"
+              ? "#4bb543"
+              : "#D0342C",
+        }}
+      >
         {edit ? (
           <>
             <select name="" value={selectedValue} onChange={handleSelectChange}>
