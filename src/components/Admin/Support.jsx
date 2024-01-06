@@ -82,10 +82,6 @@ export default function Support() {
     console.log(_id);
   };
 
-  useEffect(() => {
-    console.log(showEdit);
-  }, [showEdit]);
-
   return (
     <>
       {showAdd ? (
@@ -164,6 +160,7 @@ export default function Support() {
                                   stroke-linecap="round"
                                   stroke-linejoin="round"
                                   class="lucide lucide-pencil"
+                                  className={SupCss.editIcon}
                                   onClick={() => {
                                     const selectedItem = data.find(
                                       (item) => item._id === val._id
