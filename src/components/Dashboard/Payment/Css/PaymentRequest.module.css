@@ -22,7 +22,7 @@ h3 {
 .details_left {
   border-radius: 1rem;
   min-width: 700px;
-  min-height: 258px;
+  max-height: 258px;
   border: 1px solid #ccd;
 }
 
@@ -57,7 +57,6 @@ svg {
   grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
   padding: 1rem;
-  border-top: 1px solid #ccd;
 }
 
 .grid_item {
@@ -117,6 +116,13 @@ svg {
 }
 
 /* media queries */
+
+@media (width>=93.75em) {
+  .detail_wrapper {
+    align-items: start;
+  }
+}
+
 @media (width<=94em) {
   .detail_wrapper {
     flex-direction: column;
