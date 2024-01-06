@@ -26,7 +26,7 @@ export default function PaymentRequest() {
     setLoad(true);
     try {
       const response = await axios.get(`/api/common/bank/BankInfo`, {
-        headers: { Authorization: `${authCtx.token}` }
+        headers: { Authorization: `${authCtx.token}` },
       });
 
       if (response.data.success) {
@@ -58,6 +58,7 @@ export default function PaymentRequest() {
                 <div key={index} className={pr.grid}>
                   <div className={pr.grid_item}>
                     <input type="checkbox" />
+
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -76,33 +77,27 @@ export default function PaymentRequest() {
                   </div>
 
                   {/* BANK NAME */}
-
                   <div className={pr.grid_item}>
                     <h4>BANK</h4>
-                    <h3>{bank.BankDetails[0].BankName}</h3>
+                    <h3>{bank.BankName}</h3>
                   </div>
 
                   {/* ACCOUNT NUMBER */}
-
                   <div className={pr.grid_item}>
                     <h4>LAST 4 Digit</h4>
-                    <h3>
-                      {String(bank.BankDetails[0].AccountNumber).slice(-4)}
-                    </h3>
+                    <h3>{String(bank.AccountNumber).slice(-4)}</h3>
                   </div>
 
                   {/* HOLDER'S NAME */}
-
                   <div className={pr.grid_item}>
                     <h4>Account Holder</h4>
-                    <h3>{bank.BankDetails[0].AccountHolderName}</h3>
+                    <h3>{bank.AccountHolderName}</h3>
                   </div>
 
                   {/* IFSC CODE */}
-
                   <div className={pr.grid_item}>
                     <h4>IFSC CODE</h4>
-                    <h3>{bank.BankDetails[0].IfscCode}</h3>
+                    <h3>{bank.IfscCode}</h3>
                   </div>
                 </div>
               ))}
