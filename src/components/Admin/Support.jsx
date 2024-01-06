@@ -93,10 +93,8 @@ export default function Support() {
       {showAdd ? (
         <AddQuestiom setAdd={setAdd} setRef={setRef} />
       ) : showEdit ? (
-        <div className={showEdit ? "yesAdd" : "noAdd"}>
           <EditQuestion data={editdata} setShowEdit={setShowEdit} setRef={setRef} />
-        </div>
-      ): (
+      ):(
         <div>
           <div className={SupCss.titleDiv}>
             <p
