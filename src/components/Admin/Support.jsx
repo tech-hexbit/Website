@@ -201,6 +201,7 @@ export default function Support() {
                                   stroke-linecap="round"
                                   stroke-linejoin="round"
                                   class="lucide lucide-trash"
+                                  className={SupCss.DeleteIcon}
                                   onClick={() => deleteHandle(val._id)}
                                 >
                                   <path d="M3 6h18" />
