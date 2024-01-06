@@ -47,7 +47,11 @@
 }
 
 .editIcon {
-  margin-right: 10px;
+  margin-right: 20px;
+}
+
+.DeleteIcon {
+  color: #800000;
 }
 
 .iconsContainer {
