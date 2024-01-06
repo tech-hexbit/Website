@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 // components
 import UpdateState from "./UpdateState";
 import Orderdetails from "./../Orderdetails";
+import OrderLayUpdate from "./OrderLayUpdate";
 
 // state
 import AuthContext from "./../../../store/auth-context";
@@ -415,12 +416,19 @@ export default function OverallSales() {
                                 <td data-cell="ORDERED ON"> {val.when.date}</td>
                                 <td data-cell="PAYMENT METHOD">{val.status}</td>
 
-                                <UpdateState
+                                {/* <UpdateState
                                   state={val.state}
                                   id={val._id}
                                   setLoadDataState={setLoadDataState}
                                   loadDataState={loadDataState}
                                   dataCell="DELIVERY STATUS"
+                                /> */}
+
+                                <OrderLayUpdate
+                                  state={val.state}
+                                  id={val._id}
+                                  setLoadDataState={setLoadDataState}
+                                  loadDataState={loadDataState}
                                 />
 
                                 <td data-cell="BUYER ">{val.buyer}</td>
