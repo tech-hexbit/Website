@@ -48,6 +48,9 @@
 .BtnDiv {
   padding: 7px 30px;
   border-radius: 8px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
 }
 
 #Accept {
