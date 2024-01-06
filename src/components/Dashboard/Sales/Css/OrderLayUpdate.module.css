@@ -68,3 +68,13 @@
 #Cancelled {
   background-color: #ff0000;
 }
+
+.ProductDelTableDiv {
+  width: 100%;
+}
+
+.ProductDelPTag {
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0px 0px 20px 0px;
+}
