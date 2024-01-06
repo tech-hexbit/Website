@@ -118,7 +118,6 @@ svg {
 }
 
 /* media queries */
-
 @media (width>=93.75em) {
   .detail_wrapper {
     align-items: start;
