@@ -12,11 +12,20 @@ export default function QA(props) {
         hide(!show);
       }}
     >
+      {/* Question */}
       <p className={SupCss.qptag}>
         <>{props.question}</>
       </p>
+
+      {/* Answer */}
       <p className={SupCss.ansPTag} id={show ? "showqa" : "hideqa"}>
-        <i>{props.answer}</i>
+        <i>
+          <span
+            dangerouslySetInnerHTML={{
+              __html: props.answer,
+            }}
+          />
+        </i>
       </p>
     </div>
   );
