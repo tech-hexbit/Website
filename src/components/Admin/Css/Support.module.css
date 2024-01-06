@@ -56,8 +56,8 @@
 
 .iconsContainer {
   display: flex;
-  align-items: center; /* Align items vertically in the center */
-  justify-content: space-between; /* Distribute items evenly along the main axis */
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 10px;
 }
 
