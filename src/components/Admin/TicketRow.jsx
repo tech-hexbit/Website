@@ -4,28 +4,24 @@ import TicCss from './Css/Tickets.module.css';
 const TicketRow = ({ id, storeId, storeName, subject, date, status }) => {
   return (
     <tr className={TicCss.frameGroup}>
-      <td>{id}</td>
-      <td>{storeId}</td>
-      <td>{storeName}</td>
-      <td>{subject}</td>
-      <td>{date}</td>
-      <td>
+      <td data-cell ="Id">{id}</td>
+      <td data-cell ="storeId">{storeId}</td>
+      <td data-cell ="storeName">{storeName}</td>
+      <td data-cell ="subject">{subject}</td>
+      <td data-cell ="date">{date}</td>
+      <td data-cell ="status">
         <div
           className={status === 'Solved' ? TicCss.solvedWrapper : TicCss.pendingWrapper}
         >
-          <div className={TicCss.solved}>{status}</div>
+          <div className={status === 'Solved' ? TicCss.solvedHead : TicCss.pendingHead}>{status}</div>
         </div>
       </td>
-      <td>
+      <td data-cell ="Action">
         <div className={TicCss.frameContainer}>
           <div className={TicCss.tickMarkWrapper}>
-            <img
-              className={TicCss.tickMarkIcon}
-              alt=""
-            //   src="/tick-mark@2x.png"
-            />
+          <img className={TicCss.pathIcon} alt="" src="/src/assets/tickets/path@2x.png" />
           </div>
-          {/* <img className={TicCss.pathIcon} alt="" src="/path@2x.png" /> */}
+         
         </div>
       </td>
     </tr>

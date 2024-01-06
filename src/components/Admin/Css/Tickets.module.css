@@ -1,12 +1,19 @@
-.mDiv {
+.mDIvTabs {
     display: flex;
-    flex-direction: column;
-
-  
+    justify-content: space-between;
+    align-items: center;
+    gap: 0px 10px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding: 0px 3px;
+    transition: all 0.3;
+    margin-bottom: 30px;
   }
-  .InventoryPTag{
+
+
+  .TicketsPTag{
     margin: 0px 0px 20px;
-    color: #031849;
+    color: black;
     font-size: 15px;
     font-family: Poppins;
    font-weight: 700;
@@ -18,35 +25,188 @@
     flex-direction: column;
     width: 100%;
     border-collapse: collapse;
+    padding: 0px 0px;
+    overflow-x: scroll;
+    width: 100%;
   }
 
   .ticketId{
     font-family: Poppins; 
     font-weight: 700;
   }
-
-  .frameGroup , .frameParent {
+  .pathIcon{
+    width: 70%; 
+    height: 70%; 
+    
+  }
+  .frameGroup  {
     display: flex;
     justify-content: space-between;
     background-color: #f2f2f2;
     padding: 16px;
+    color: black;
+    border-bottom: 1px #D5DCE8 solid
+  }
+ .frameParent {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f2f2f2;
+    /* width: 100%; */
+    padding: 16px;
+    color: black;
     border-bottom: 1px #D5DCE8 solid
   }
   .solvedWrapper{
-    background-color: #1F9254;
-    font-size: 12px;
-    font-family: Montserrat;
-    font-weight: 500;
-    padding: 8px 45px 8px 45px;
-    border-radius: 10px;
-}
+    width: 100%; 
+    height: 100%; 
+    padding-left: 12px;
+     padding-right: 12px; 
+     padding-top: 8px; 
+     padding-bottom: 8px; 
+     background: #EBF9F1; 
+     border-radius: 22px; 
+     justify-content: center; 
+     align-items: center; 
+     gap: 10px;
+     display: inline-flex;
+    }
+    .solvedHead{
+
+        color: #1F9254;
+        font-size: 14px;
+        font-family: Montserrat;
+        font-weight: bold;
+        padding: 8px 45px 8px 45px;
+        border-radius: 10px;
+    }
+
     
   .pendingWrapper{
-    background-color:  #FF731D;
+    width: 100%; 
+    height: 100%; 
+    padding-left: 12px;
+     padding-right: 12px; 
+     padding-top: 8px; 
+     padding-bottom: 8px; 
+     background: #FEF2E5; 
+     border-radius: 22px; 
+     justify-content: center; 
+     align-items: center; 
+     gap: 10px;
+     display: inline-flex;
+
+}
+
+.pendingHead{
+
+
+    
+    color: #FF731D;
     font-size: 12px;
     font-family: Montserrat;
-    font-weight: 500;
+    font-weight: 600;
     padding: 8px 40px 8px 40px;
     border-radius: 10px;
+}
+
+  .table tr:hover{
+    background-color: #ebefff;
   }
-  
+ 
+
+  @media only screen and (max-width: 1090px) {
+    .frameGroup{
+        margin: 10px;
+        padding: 16px 0px 16px 16px;
+    }
+    .solvedWrapper{
+        width: 70%; 
+        height: 70%; 
+        
+        padding-left: 12px;
+         padding-right: 12px; 
+         padding-top: 8px; 
+         padding-bottom: 8px;  
+        }
+        .solvedHead{
+            padding: 8px 45px 8px 45px;
+           
+        }
+    
+        
+      .pendingWrapper{
+        width: 70%; 
+        height: 70%; 
+        padding-left: 12px;
+         padding-right: 12px; 
+         padding-top: 8px; 
+         padding-bottom: 8px; 
+    
+    }
+    
+    .pendingHead{
+        padding: 8px 40px 8px 40px;
+       
+    }
+    tbody{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+      }
+    .table th {
+        display: none;
+      }
+      
+
+      .tableCatTTag{
+           display: flex;
+           flex-wrap: wrap;
+           justify-content: space-evenly;
+           align-items: center;
+           gap: 30px;
+           margin-right: 40px;
+      }
+
+      .table tr:nth-child(1) {
+        display: none;
+      }
+
+      .table tr {
+        display: flex;
+        flex-direction: column;
+        min-width: 250px;
+        border-radius: 10px;
+        border:1px solid #d7dced;
+      }
+
+      .table td {
+        border-bottom: 0px solid #ddd;
+      }
+      .table td:first-child {
+        padding-top: 1rem;
+      }
+    
+      .table td:last-child {
+        padding-bottom: 1rem;
+      }
+     
+      .table td {
+        display: flex;
+        padding: 0.5rem 1rem;
+        
+      }
+
+      .table td::before {
+        content: attr(data-cell) ": ";
+        font-weight: 700;
+        text-transform: capitalize;
+      }
+      .pathIcon{
+        width: 50%; 
+        height: 50%; 
+        
+      }
+  }
+
+ 
