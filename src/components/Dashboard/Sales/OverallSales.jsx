@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 // components
 import UpdateState from "./UpdateState";
 import Orderdetails from "./../Orderdetails";
-import OrderLayUpdate from "./OrderLayUpdate";
 
 // state
 import AuthContext from "./../../../store/auth-context";
@@ -48,6 +47,34 @@ export default function OverallSales() {
   useEffect(() => {
     loadData();
   }, [currentPage, loadDataState]);
+
+  // scroll to top
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [, currentPage]);
+
+  useEffect(() => {
+    maxPage();
+  }, [prodcutsCount, currentPage]);
+
+  useEffect(() => {
+    const u = (buyer) => [...new Set(buyer)];
+    setunique(u(buyer));
+  }, [buyer]);
+
+  useEffect(() => {
+    if (filters.buyer !== "" || filters.status !== "") {
+      var filterValues = orderDelCopy.filter((order) => {
+        if (order.buyer == filters.buyer || order.state == filters.status) {
+          return true;
+        }
+        return false;
+      });
+
+      setOrderDel(filterValues);
+    } else {
+    }
+  }, [filters]);
 
   const authCtx = useContext(AuthContext);
 
@@ -166,34 +193,6 @@ export default function OverallSales() {
     setfilters({ ...filters, [name]: value });
   };
 
-  // scroll to top
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [, currentPage]);
-
-  useEffect(() => {
-    maxPage();
-  }, [prodcutsCount, currentPage]);
-
-  useEffect(() => {
-    const u = (buyer) => [...new Set(buyer)];
-    setunique(u(buyer));
-  }, [buyer]);
-
-  useEffect(() => {
-    if (filters.buyer !== "" || filters.status !== "") {
-      var filterValues = orderDelCopy.filter((order) => {
-        if (order.buyer == filters.buyer || order.state == filters.status) {
-          return true;
-        }
-        return false;
-      });
-
-      setOrderDel(filterValues);
-    } else {
-    }
-  }, [filters]);
-
   return (
     <>
       {showDel ? (
@@ -245,7 +244,6 @@ export default function OverallSales() {
             </div>
           </div>
 
-          {/* Table */}
           <div className={osCss.middle}>
             <div className={osCss.table}>
               <table
@@ -414,21 +412,17 @@ export default function OverallSales() {
                                   ₹ {val.amount.toFixed(2)}
                                 </td>
                                 <td data-cell="ORDERED ON"> {val.when.date}</td>
-                                <td data-cell="PAYMENT METHOD">{val.status}</td>
+                                <td data-cell="PAYMENT METHOD">
+                                  {" "}
+                                  {val.status}
+                                </td>
 
-                                {/* <UpdateState
+                                <UpdateState
                                   state={val.state}
                                   id={val._id}
                                   setLoadDataState={setLoadDataState}
                                   loadDataState={loadDataState}
                                   dataCell="DELIVERY STATUS"
-                                /> */}
-
-                                <OrderLayUpdate
-                                  state={val.state}
-                                  id={val._id}
-                                  setLoadDataState={setLoadDataState}
-                                  loadDataState={loadDataState}
                                 />
 
                                 <td data-cell="BUYER ">{val.buyer}</td>
