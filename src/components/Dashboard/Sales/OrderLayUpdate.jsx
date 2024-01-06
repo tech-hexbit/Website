@@ -40,10 +40,18 @@ export default function OrderLayUpdate(props) {
           </svg>
 
           <div className={OLCss.BtnDivMain}>
-            <div className={OLCss.BtnDiv}>Accept</div>
-            <div className={OLCss.BtnDiv}>In-progress</div>
-            <div className={OLCss.BtnDiv}>Completed</div>
-            <div className={OLCss.BtnDiv}>Cancelled</div>
+            <div className={OLCss.BtnDiv} id={OLCss.Accept}>
+              Accept
+            </div>
+            <div className={OLCss.BtnDiv} id={OLCss.InProgress}>
+              In-progress
+            </div>
+            <div className={OLCss.BtnDiv} id={OLCss.Completed}>
+              Completed
+            </div>
+            <div className={OLCss.BtnDiv} id={OLCss.Cancelled}>
+              Cancelled
+            </div>
           </div>
         </div>
       </div>
