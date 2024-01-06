@@ -205,7 +205,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
                               </div>
                             </td>
                             <td className={DCss.row} id={DCss.price}>
-                              ₹ {val.price.value.toFixed(2)}
+                              ₹ {val.price.maximum_value.toFixed(2)}
                             </td>
                             <td className={DCss.row} id={DCss.stock}>
                               {val.quantity.maximum.count}
