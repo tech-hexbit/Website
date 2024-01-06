@@ -94,7 +94,7 @@ svg {
   gap: 1rem;
 }
 
-.flex_item button {
+.flexItem button {
   border: none;
   border-radius: 5px;
   height: 56px;
@@ -108,7 +108,7 @@ svg {
   transition: all 0.3s ease;
 }
 
-.flex_item button:hover {
+.flexItem button:hover {
   background-color: #1f965f;
 }
 
@@ -163,7 +163,7 @@ svg {
     align-items: start;
   }
 
-  .flex_item button {
+  .flexItem button {
     font-size: 16px;
   }
 }
