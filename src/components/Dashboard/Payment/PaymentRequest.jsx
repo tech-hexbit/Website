@@ -54,8 +54,8 @@ export default function PaymentRequest() {
             </div>
           ) : bankDetails.length > 0 ? (
             <>
-              {bankDetails.map((bank, index) => (
-                <div key={index} className={pr.grid}>
+              {bankDetails.map((bank, key) => (
+                <div key={key} className={pr.grid}>
                   <div className={pr.gridItem}>
                     <input type="checkbox" className={pr.checkBoxBank} />
 
