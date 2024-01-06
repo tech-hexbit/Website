@@ -44,3 +44,19 @@
   justify-content: space-evenly;
   align-items: center;
 }
+
+.BtnDiv {
+  border-radius: 8px;
+}
+
+#Accept {
+}
+
+#InProgress {
+}
+
+#Completed {
+}
+
+#Cancelled {
+}
