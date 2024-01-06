@@ -13,6 +13,7 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 import OLCss from "./Css/OrderLayUpdate.module.css";
 
 export default function OrderLayUpdate(props) {
+  const [load, setLoad] = useState(false);
   return (
     <>
       <div className={OLCss.mDiv}>
@@ -58,7 +59,20 @@ export default function OrderLayUpdate(props) {
           <div className={OLCss.ProductDelTableDiv}>
             <p className={OLCss.ProductDelPTag}>Product details</p>
 
-            <table></table>
+            <div id="wrap" className={OLCss.tableCat}>
+              {load ? (
+                <div className="loadCenterDiv">
+                  <Load />
+                </div>
+              ) : (
+                <>
+                  <table
+                    className={OLCss.tableCatTTag}
+                    style={{ borderCollapse: "collapse" }}
+                  ></table>
+                </>
+              )}
+            </div>
           </div>
         </div>
       </div>
