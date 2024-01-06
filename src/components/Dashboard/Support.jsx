@@ -30,10 +30,6 @@ export default function Support() {
     window.scrollTo(0, 0);
   }, []);
 
-  useEffect(() => {
-    console.log(searchValue);
-  }, [searchValue]);
-
   const loadData = async () => {
     setLoad(true);
 
@@ -95,7 +91,7 @@ export default function Support() {
           <Load />
         </div>
       ) : (
-        <QA data={data} />
+        <QA data={data} searchValue={searchValue} />
       )}
 
       <div className={SupCss.getintouch}>
