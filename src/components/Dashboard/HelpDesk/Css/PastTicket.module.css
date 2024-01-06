@@ -18,7 +18,6 @@
   grid-template-columns: repeat(2, 1fr);
   justify-items: center;
   gap: 1rem;
-
   padding-block-start: 1rem;
 }
 
@@ -38,10 +37,10 @@
   text-decoration-line: underline;
 }
 
-.orange {
+#orange {
   color: #ff731d;
 }
 
-.green {
+#green {
   color: #1f9254;
 }

@@ -75,7 +75,7 @@ export default function Form() {
     Status: "",
     Visibility: "",
     schedule_Date_and_time: "10/10/2023",
-    StoreID: authCtx.user.StoreID,
+    StoreID: authCtx.user.Store[0].StoreID._id,
   });
 
   const handleClick = () => {
@@ -289,7 +289,7 @@ export default function Form() {
             Status: "",
             Visibility: "",
             schedule_Date_and_time: "10/10/2023",
-            StoreID: authCtx.user.StoreID,
+            StoreID: authCtx.user.Store[0].StoreID._id,
           });
         } else {
           setLoad(false);

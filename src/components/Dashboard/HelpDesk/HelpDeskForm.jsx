@@ -173,7 +173,7 @@ export default function HelpDeskForm(props) {
               />
             </div>
 
-            {/* Store Name */}
+            {/* Store Name
             <div className={hdf.flex}>
               <label htmlFor="storeName">Store Name *</label>
               <input
@@ -185,7 +185,7 @@ export default function HelpDeskForm(props) {
                 onChange={handleChange}
                 required
               />
-            </div>
+            </div> */}
 
             {/* Store ID */}
             <div className={hdf.flex}>
@@ -242,6 +242,7 @@ export default function HelpDeskForm(props) {
                                     setData({
                                       ...data,
                                       StoreID: val.StoreID._id,
+                                      StoreName: val.StoreID.StoreName,
                                     });
                                     hideDrop(false);
                                   }}

@@ -23,6 +23,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [prodcutsCount, setProdcutsCount] = useState(0);
   const [showProductDel, setProductDel] = useState({ state: false, id: "" });
+  const [allProducts, setAllProducts] = useState([]);
 
   useEffect(() => {
     loadData();
@@ -31,6 +32,10 @@ export default function Display({ filteredlist, setfilteredlist }) {
   useEffect(() => {
     maxPage();
   }, [prodcutsCount, currentPage]);
+
+  useEffect(() => {
+    fetchAllProducts();
+  }, []);
 
   // scroll to top
   useEffect(() => {
@@ -46,7 +51,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
       const response = await axios.get(
         `/api/common/product/all?page=${currentPage}`,
         {
-          headers: { Authorization: `${authCtx.token}` },
+          headers: { Authorization: `${authCtx.token}` }
         }
       );
 
@@ -67,10 +72,28 @@ export default function Display({ filteredlist, setfilteredlist }) {
     }
   };
 
+  // filter all products
+  const fetchAllProducts = async () => {
+    try {
+      const response = await axios.get(`/api/common/product/allproducts`, {
+        headers: { Authorization: `${authCtx.token}` }
+      });
+      if (response.data.success) {
+        const fetchedProducts = response.data.products;
+        setAllProducts(fetchedProducts);
+        setfilteredlist(fetchedProducts);
+      } else {
+        console.log("Failed to fetch all products");
+      }
+    } catch (error) {
+      console.error("Error fetching all products:", error);
+    }
+  };
+
   const deleteproduct = async (_id) => {
     try {
       const response = await axios.delete(`/api/common/product/delete/${_id}`, {
-        headers: { Authorization: `${authCtx.token}` },
+        headers: { Authorization: `${authCtx.token}` }
       });
 
       if (response.status === 200) {
@@ -84,15 +107,19 @@ export default function Display({ filteredlist, setfilteredlist }) {
   };
 
   const filter = (event) => {
-    var updatedprod = orderDel.filter((f) =>
-      f?.descriptor?.name
-        .toLowerCase()
-        .includes(event.target.value.toLowerCase())
+    const searchTerm = event.target.value.toLowerCase();
+    console.log("Search Term:", searchTerm);
+
+    const updatedProducts = allProducts.filter((product) =>
+      product?.descriptor?.name.toLowerCase().includes(searchTerm)
     );
-    if (event.target.value === "") {
+
+    console.log("Filtered Products:", updatedProducts);
+
+    if (searchTerm === "") {
       setfilteredlist(orderDel);
     } else {
-      setfilteredlist(updatedprod);
+      setfilteredlist(updatedProducts);
     }
   };
 

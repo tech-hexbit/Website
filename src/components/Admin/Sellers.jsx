@@ -18,9 +18,9 @@ import SelCss from "./Css/Sellers.module.css";
 
 export default function Sellers() {
   const [data, setData] = useState([]);
-  const [SellerType, setSellerType] = useState("all");
   const [load, setLoad] = useState(false);
   const [loadNow, setloadNow] = useState(false);
+  const [SellerType, setSellerType] = useState("all");
 
   const authCtx = useContext(AuthContext);
 
