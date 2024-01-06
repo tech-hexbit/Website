@@ -57,6 +57,8 @@ export default function OrderLayUpdate(props) {
 
           <div className={OLCss.ProductDelTableDiv}>
             <p className={OLCss.ProductDelPTag}>Product details</p>
+
+            <table></table>
           </div>
         </div>
       </div>
