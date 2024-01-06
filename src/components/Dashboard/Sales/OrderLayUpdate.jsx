@@ -18,6 +18,8 @@ export default function OrderLayUpdate(props) {
       <div className={OLCss.mDiv}>
         <div className={OLCss.contendDiv}>
           <p className={OLCss.UpdateOrderPTag}>UPDATE ORDER STATUS</p>
+
+          {/* Close Btn */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -51,6 +53,10 @@ export default function OrderLayUpdate(props) {
             <div className={OLCss.BtnDiv} id={OLCss.Cancelled}>
               Cancelled
             </div>
+          </div>
+
+          <div className={OLCss.ProductDelTableDiv}>
+            <p className={OLCss.ProductDelPTag}>Product details</p>
           </div>
         </div>
       </div>
