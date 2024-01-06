@@ -26,21 +26,25 @@ export default function BankDel(props) {
             <path d="M7 7h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14" />
           </svg>
         </div>
+
         {/* BANK NAME */}
         <div className={pr.gridItem}>
           <h4>BANK</h4>
           <h3>{props.BankName}</h3>
         </div>
+
         {/* ACCOUNT NUMBER */}
         <div className={pr.gridItem}>
           <h4>LAST 4 Digit</h4>
           <h3>{props.AccountNumber}</h3>
         </div>
+
         {/* HOLDER'S NAME */}
         <div className={pr.gridItem}>
           <h4>Account Holder</h4>
           <h3>{props.AccountHolderName}</h3>
         </div>
+
         {/* IFSC CODE */}
         <div className={pr.gridItem}>
           <h4>IFSC CODE</h4>
