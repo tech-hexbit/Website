@@ -22,41 +22,39 @@ export default function LayUpdate(props) {
 
   const authCtx = useContext(AuthContext);
 
-  const UpdateData = async (id) => {
+  const UpdateData = async (id, ItemId) => {
     setSaveLoad(true);
     try {
       if (selectedValue !== "" || selectedValue !== "Select") {
         let data = {
           value: selectedValue,
-          ItemId: "",
+          ItemId,
           Id: id,
         };
 
-        console.log(data);
+        const response = await axios.post(
+          "/api/common/Order/UpdateStateItem",
+          data,
+          {
+            headers: { Authorization: `${authCtx.token}` },
+          }
+        );
 
-        // const response = await axios.post(
-        //   "/api/common/Order/UpdateStateItem",
-        //   data,
-        //   {
-        //     headers: { Authorization: `${authCtx.token}` },
-        //   }
-        // );
+        if (response.data.success) {
+          setSaveLoad(false);
+          setSelectedValue("Select");
 
-        // if (response.data.success) {
-        //   setSaveLoad(false);
-        //   setSelectedValue("Select");
+          props.setLoadDataState(!props.loadDataState);
 
-        //   props.setLoadDataState(!props.loadDataState);
-
-        //   setEdit(!edit);
-        // } else {
-        //   setSaveLoad(false);
-        // }
+          setEdit(!edit);
+        } else {
+          setSaveLoad(false);
+        }
       } else {
         setSaveLoad(false);
       }
     } catch (e) {
-      setLoad(false);
+      //   setLoad(false);
       setSaveLoad(false);
 
       console.log(e);
@@ -105,7 +103,7 @@ export default function LayUpdate(props) {
                   class="lucide lucide-save"
                   className={osCss.lucidePencil}
                   onClick={() => {
-                    UpdateData(props.id);
+                    UpdateData(props.id, props.ItemID);
                   }}
                 >
                   <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
