@@ -244,6 +244,7 @@ export default function OverallSales() {
             </div>
           </div>
 
+          {/* Table */}
           <div className={osCss.middle}>
             <div className={osCss.table}>
               <table
