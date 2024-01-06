@@ -89,13 +89,11 @@ export default function Support() {
       ) : (
         <>
           {showEdit ? (
-            <div className={showEdit ? "yesAdd" : "noAdd"}>
-              {/* <EditQuestion
-                data={editdata}
-                setShowEdit={setShowEdit}
-                setRef={setRef}
-              /> */}
-            </div>
+            <EditQuestion
+              data={editdata}
+              setShowEdit={setShowEdit}
+              setRef={setRef}
+            />
           ) : (
             <>
               <div>
