@@ -37,7 +37,7 @@ svg {
   font-weight: 600;
 }
 
-.details_right p {
+.detailsRight p {
   display: flex;
   gap: 1rem;
   align-items: center;
@@ -78,7 +78,7 @@ svg {
   height: 100%;
 }
 
-.details_right {
+.detailsRight {
   border-radius: 1rem;
   min-width: 400px;
   width: 45%;
@@ -133,7 +133,7 @@ svg {
     gap: 2rem;
   }
 
-  .details_right {
+  .detailsRight {
     width: 100%;
   }
 }
@@ -153,7 +153,7 @@ svg {
     justify-content: flex-start;
   }
 
-  .details_right {
+  .detailsRight {
     min-width: 220px;
   }
 
