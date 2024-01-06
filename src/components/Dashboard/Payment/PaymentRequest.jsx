@@ -52,7 +52,7 @@ export default function PaymentRequest() {
       <div className={pr.detailWrapper}>
         <div className={pr.detailsLeft}>
           {load ? (
-            <div className="loadCenterDiv">
+            <div className="loadCenterDiv" id="loadPadding">
               <Load />
             </div>
           ) : bankDetails.length > 0 ? (
@@ -68,7 +68,9 @@ export default function PaymentRequest() {
               ))}
             </>
           ) : (
-            <div className="loadCenterDiv">No Bank info available</div>
+            <div className="loadCenterDiv" id="loadPadding">
+              No Bank info available
+            </div>
           )}
         </div>
 
