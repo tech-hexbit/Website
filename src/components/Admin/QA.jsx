@@ -16,7 +16,13 @@ export default function QA(props) {
         <>{props.question}</>
       </p>
       <p className={SupCss.ansPTag} id={show ? "showqa" : "hideqa"}>
-        <i>{props.answer}</i>
+        <i>
+          <span
+            dangerouslySetInnerHTML={{
+              __html: props.answer,
+            }}
+          />
+        </i>
       </p>
     </div>
   );
