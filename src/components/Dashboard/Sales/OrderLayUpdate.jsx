@@ -13,7 +13,44 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 import OLCss from "./Css/OrderLayUpdate.module.css";
 
 export default function OrderLayUpdate(props) {
+  const [res, setres] = useState(null);
   const [load, setLoad] = useState(false);
+
+  const authCtx = useContext(AuthContext);
+
+  const loadOrderdel = async (id) => {
+    setLoad(true);
+
+    try {
+      const response = await axios.get(`/api/common/order/details/${id}`, {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+
+      if (response.data.success) {
+        setLoad(false);
+
+        setres(response.data.OrderDetail);
+      } else {
+        setLoad(false);
+
+        console.log("Error");
+      }
+    } catch (e) {
+      setLoad(false);
+
+      console.log(e);
+    }
+  };
+
+  console.log(props);
+
+  useEffect(() => {
+    loadOrderdel(props.id);
+  }, [props.id]);
+
+  useEffect(() => {
+    console.log(res);
+  }, [res]);
   return (
     <>
       <div className={OLCss.mDiv}>
