@@ -18,7 +18,7 @@ import Load from "./../../MicroInteraction/LoadBlack";
 import SupCss from "./Support/Css/Support.module.css";
 
 export default function Support() {
-  const [searchValue, setSearchValue] = useState();
+  const [searchValue, setSearchValue] = useState("");
   const [data, setData] = useState([]);
   const [load, setLoad] = useState(false);
 
@@ -29,6 +29,10 @@ export default function Support() {
 
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    console.log(searchValue);
+  }, [searchValue]);
 
   const loadData = async () => {
     setLoad(true);
@@ -69,6 +73,9 @@ export default function Support() {
           placeholder="Search here"
           value={searchValue}
           className={SupCss.search}
+          onChange={(e) => {
+            setSearchValue(e.target.value);
+          }}
         />
       </div>
 
