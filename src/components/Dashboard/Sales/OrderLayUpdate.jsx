@@ -42,12 +42,6 @@ export default function OrderLayUpdate(props) {
     }
   };
 
-  //   console.log(props);
-
-  useEffect(() => {
-    loadOrderdel(props.id);
-  }, [props.id]);
-
   useEffect(() => {
     res ? console.log(res.Items[0].ItemID.descriptor.name) : "";
   }, [res]);
