@@ -21,12 +21,12 @@
   backdrop-filter: blur(0px);
   padding: 30px 50px;
   border-radius: 15px;
+  color: #000;
 }
 
 .closeBtn {
   position: absolute;
   top: 30px;
   right: 50px;
-  color: #000;
   cursor: pointer;
 }
