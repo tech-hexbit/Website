@@ -35,6 +35,11 @@
   top: 30px;
   right: 50px;
   cursor: pointer;
+  transition: all 0.3s;
+}
+
+.closeBtn:hover {
+  color: #880000;
 }
 
 .BtnDivMain {
