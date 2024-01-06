@@ -22,7 +22,7 @@ h3 {
 .details_left {
   border-radius: 1rem;
   min-width: 700px;
-  max-height: 258px;
+  /* max-height: 258px; */
   border: 1px solid #ccd;
 }
 
@@ -162,5 +162,16 @@ svg {
 
   .flex_item button {
     font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .grid {
+    flex-direction: column;
+  }
+
+  .grid_item {
+    align-items: flex-start;
+    width: 100%;
   }
 }
