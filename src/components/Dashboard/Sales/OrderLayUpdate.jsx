@@ -133,6 +133,7 @@ export default function OrderLayUpdate(props) {
                                 <LayUpdate
                                   id={props.id}
                                   ItemID={val.ItemID._id}
+                                  state={val.state}
                                 />
                                 <td data-cell="Total Amount">
                                   ₹{" "}
