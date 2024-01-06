@@ -25,9 +25,9 @@ export default function Support() {
   const [showAdd, setAdd] = useState(false);
   const [showRef, setRef] = useState(false);
   const [showCurr, setCurr] = useState("Support");
-  
-  const[showEdit,setShowEdit]=useState(false);
-  const[editdata,setEditdata]=useState(null);
+
+  const [showEdit, setShowEdit] = useState(false);
+  const [editdata, setEditdata] = useState(null);
 
   const authCtx = useContext(AuthContext);
 
@@ -60,41 +60,37 @@ export default function Support() {
     }
   };
 
-  const deleteHandle=async(_id)=>{
-    setLoad(true);
-    // console.log(_id);
-    try{
-      const res=await axios.delete(`/api/website/qna/delete/${_id}`,{
+  const deleteHandle = async (_id) => {
+    try {
+      const res = await axios.delete(`/api/website/qna/delete/${_id}`, {
         headers: { Authorization: `${authCtx.token}` },
       });
+
       console.log(res.data.message);
-      if(res.data.success){
+
+      if (res.data.success) {
         loadData();
-        setLoad(false);
+      } else {
+        console.log("problem in loading data");
       }
-      else{
-        setLoad(false);
-        console.log('problem in loading data');
-      }
-    }catch(e){
-      setLoad(false);
-      console.log('delete handle not working')
+    } catch (e) {
+      console.log("delete handle not working");
     }
-  }
+  };
 
-  const editHandle=async(_id)=>{
+  const editHandle = async (_id) => {
     console.log(_id);
-  }
+  };
 
-  useEffect(()=>{ console.log(showEdit)},[showEdit])
+  useEffect(() => {
+    console.log(showEdit);
+  }, [showEdit]);
 
   return (
     <>
       {showAdd ? (
         <AddQuestiom setAdd={setAdd} setRef={setRef} />
-      ) : showEdit ? (
-          <EditQuestion data={editdata} setShowEdit={setShowEdit} setRef={setRef} />
-      ):(
+      ) : (
         <div>
           <div className={SupCss.titleDiv}>
             <p
@@ -135,91 +131,102 @@ export default function Support() {
             </svg>
           </div>
 
-        {showCurr === "Support" ? (
-          <>
-            <div className={SupCss.qamDiv}>
-              {load ? (
-                <div className="loadCenterDiv">
-                  <Load />
-                </div>
-              ) : (
-                <>
-                  {data.length > 0 ? (
-                    <>
-                      {data.map((val, key) => {
-                        return (
-                          <div className={SupCss.iconsContainer}>
-                          <QA
-                            key={key}
-                            answer={val.answer}
-                            question={val.question}
-                          />
-                          <div className={SupCss.icons}>
-                              {/* edit func */}
-                                <svg 
-                                xmlns="http://www.w3.org/2000/svg" 
-                                width="32" 
-                                height="24" 
-                                viewBox="0 0 24 24" 
-                                fill="none" 
-                                stroke="currentColor" 
-                                stroke-width="2" 
-                                stroke-linecap="round" 
-                                stroke-linejoin="round" 
-                                class="lucide lucide-pencil"
-                                onClick={() => {
-                                  const selectedItem = data.find(item => item._id === val._id)
-                                  // console.log('item',selectedItem);
-                                  setShowEdit(true);
-                                  setEditdata({ _id: selectedItem._id, ques: selectedItem.question, ans: selectedItem.answer , tag:selectedItem.tag })
-                                  // console.log(val._id)
-                                }}>
-                                  <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
-                                  <path d="m15 5 4 4"/>
+          {showCurr === "Support" ? (
+            <>
+              <div className={SupCss.qamDiv}>
+                {load ? (
+                  <div className="loadCenterDiv">
+                    <Load />
+                  </div>
+                ) : (
+                  <>
+                    {data.length > 0 ? (
+                      <>
+                        {data.map((val, key) => {
+                          return (
+                            <div className={SupCss.iconsContainer}>
+                              <QA
+                                key={key}
+                                answer={val.answer}
+                                question={val.question}
+                              />
+                              <div className={SupCss.icons}>
+                                {/* edit func */}
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="32"
+                                  height="24"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  class="lucide lucide-pencil"
+                                  onClick={() => {
+                                    const selectedItem = data.find(
+                                      (item) => item._id === val._id
+                                    );
+                                    setShowEdit(true);
+                                    setEditdata({
+                                      _id: selectedItem._id,
+                                      ques: selectedItem.question,
+                                      ans: selectedItem.answer,
+                                    });
+                                    // console.log(val._id)
+                                  }}
+                                >
+                                  <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+                                  <path d="m15 5 4 4" />
                                 </svg>
 
-                                {/* {
-                                    showEdit && (
-                                      <div className={showEdit ? "yesAdd" : "noAdd"}>
-                                        <EditQuestion data={editdata} setShowEdit={setShowEdit} setRef={setRef} />
-                                      </div>
-                                    )
-                                } */}
+                                {showEdit && (
+                                  <div
+                                    className={showEdit ? "yesAdd" : "noAdd"}
+                                  >
+                                    <EditQuestion
+                                      data={editdata}
+                                      setShowEdit={setShowEdit}
+                                      setRef={setRef}
+                                    />
+                                  </div>
+                                )}
 
                                 {/* delete func */}
-                                <svg 
-                                xmlns="http://www.w3.org/2000/svg" 
-                                width="32" 
-                                height="24" 
-                                viewBox="0 0 24 24" 
-                                fill="none" 
-                                stroke="currentColor" 
-                                stroke-width="2" 
-                                stroke-linecap="round" 
-                                stroke-linejoin="round" 
-                                class="lucide lucide-trash"
-                                onClick={()=>deleteHandle(val._id)}>
-                                  <path d="M3 6h18"/>
-                                  <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
-                                  <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="32"
+                                  height="24"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  class="lucide lucide-trash"
+                                  onClick={() => deleteHandle(val._id)}
+                                >
+                                  <path d="M3 6h18" />
+                                  <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+                                  <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
                                 </svg>
+                              </div>
                             </div>
-                          </div>
-                        );
-                      })}
-                    </>
-                  ) : (
-                    <>
-                      <p id={SupCss.NoData}>No Data</p>
-                    </>
-                  )}
-                </>
-              )}
-            </div>
-          </>
-        ) : (
-          ""
-        )}
+                          );
+                        })}
+                      </>
+                    ) : (
+                      <>
+                        <p id={SupCss.NoData}>No Data</p>
+                      </>
+                    )}
+                  </>
+                )}
+              </div>
+            </>
+          ) : (
+            ""
+          )}
 
           {showCurr === "Contacted" ? (
             <>

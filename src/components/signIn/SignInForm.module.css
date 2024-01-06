@@ -34,13 +34,6 @@
   text-decoration: underline;
 }
 
-.forgot{
-  padding-left: 60%;
-  padding-bottom:20px;
-  font-size:18px;
-  text-decoration: none;
-}
-
 .emailPassword {
   padding-top: 36px;
 }
@@ -94,6 +87,7 @@
 }
 
 .inputPO input {
+  outline: none;
   border-radius: 6px;
   border: 1px solid #d9d9d9;
   background: #fff;
@@ -105,13 +99,24 @@
   margin-top: 5px;
 }
 
+.phone::-webkit-outer-spin-button,
+.phone::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.phone[type="number"] {
+  -moz-appearance: textfield;
+}
+
 .phoneInputs {
   display: flex;
   justify-content: space-between;
 }
 
 #countryCode {
-  width: 15%;
+  width: 17%;
   padding: 10px 6px;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
@@ -200,13 +205,7 @@ input[type="text"]:disabled::placeholder {
   cursor: pointer;
 }
 
-.requiredSpan {
-  color: #ff0000;
-  margin-left: 3px;
-}
-
 .right {
-  position: relative;
   width: 60%;
   background: linear-gradient(
     90deg,
@@ -219,6 +218,10 @@ input[type="text"]:disabled::placeholder {
   width: 100%;
   min-height: 650px;
   object-fit: contain;
+}
+
+.pDiv {
+  margin: -50px 0px 0px 0px;
 }
 
 .head {

@@ -2,15 +2,12 @@ import React , { useState, useContext } from "react";
 
 import AuthContext from "../../store/auth-context";
 
-//css
-import Ucss from './Css/Contacted.module.css'
-
 // axios
 import axios from "axios";
 
 export default function UpdateContacted(props){
     const authCtx = useContext(AuthContext);
-    const [tagValue,setTagValue]=useState(props.tag);
+    const tagValue=props.tag;
 
     const updateTag = async () => {
         // console.log(props.id)
@@ -39,39 +36,18 @@ export default function UpdateContacted(props){
           updateTag();
     
         }catch(e){
-          console.log("contacted not working...",e.message)
+          console.log("contacted not working...")
         }
       }
 
-      console.log('tag',props.tag)
+      console.log(props.tag)
     return(
         <div>
         {
             tagValue ? (
-              <svg xmlns="http://www.w3.org/2000/svg" 
-                width="18" 
-                height="18" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="green" 
-                stroke-width="2" 
-                stroke-linecap="round" 
-                stroke-linejoin="round" 
-                class="lucide lucide-user-round-check"
-                className={Ucss.icon}
-                >
-                  <path d="M2 21a8 8 0 0 1 13.292-6"/>
-                  <circle cx="10" cy="8" r="5"/>
-                  <path d="m16 19 2 2 4-4"/>
-              </svg>
+              <h4>Contacted</h4>
             ) : (
-              // <input type="checkbox" value={tagValue} onClick={contactedhandle}/>
-              <div class="checkbox-wrapper-3">
-                <input type="checkbox" id="cbx-3" value={tagValue} onClick={contactedhandle}/>
-                <label for="cbx-3" class="toggle">
-                  <span></span>
-                </label>
-              </div>
+              <input type="checkbox" value={tagValue} onClick={contactedhandle}/>
             )
         } 
         </div>

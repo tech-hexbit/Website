@@ -15,9 +15,6 @@ const Terms = React.lazy(() => import("./Pages/Terms"));
 const Error = React.lazy(() => import("./Pages/Error"));
 const Contact = React.lazy(() => import("./Pages/Contact"));
 const Privacy = React.lazy(() => import("./Pages/Privacy"));
-const ForgotPassword=React.lazy(()=>import("./Pages/ForgotPassword"));
-const ForgetPassword=React.lazy(()=>import("../src/components/ForgetPassword/ForgetPasswordSec"));
-const PasswordChanged=React.lazy(()=>import("../src/components/ForgetPassword/PwdChanged"));
 //        || Auth
 const SignIn = React.lazy(() => import("./Pages/SignIn"));
 const Register = React.lazy(() => import("./Pages/Register"));
@@ -33,7 +30,6 @@ import AuthContext from "./store/auth-context";
 
 // axios
 import axios from "axios";
-
 
 axios.defaults.baseURL = import.meta.env.VITE_SERVER_URL;
 
@@ -92,30 +88,6 @@ function App() {
               element={
                 <Suspense fallback={<LoadingPage />}>
                   <TrackingPage />
-                </Suspense>
-              }
-            />
-            <Route 
-              path="/forgotpassword"
-              element={
-                <Suspense fallback={<LoadingPage />}>
-                  <ForgotPassword/>
-                </Suspense>
-              }
-            />
-            <Route 
-              path="/forgotpasswordsec"
-              element={
-                <Suspense fallback={<LoadingPage />}>
-                  <ForgetPassword/>
-                </Suspense>
-              }
-            />
-            <Route 
-              path="/changepwd"
-              element={
-                <Suspense fallback={<LoadingPage />}>
-                  <PasswordChanged/>
                 </Suspense>
               }
             />

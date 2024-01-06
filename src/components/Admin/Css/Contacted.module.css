@@ -20,12 +20,6 @@
   border-color: #c075ff;
 }
 
-.icon{
-  display: flex;
-  flex-direction: column;
-  margin-left: auto;
-}
-
 .titleDiv,
 .datetimeDiv {
   display: flex;
@@ -46,13 +40,6 @@
 .submainDivMain {
   margin-bottom: 10px;
 }
-
-.companyContactedContainer{
-  display: flex;
-  flex-direction: column;
-  margin-left: auto;
-}
-
 
 @media screen and (max-width: 850px) {
   .qamDiv {

@@ -24,33 +24,16 @@
   padding-left: 84px;
 }
 
-/* .formInput{
-  display: flex;
-  flex-direction: row;
-  /* padding-bottom: 30px; */
-  /* justify-content: space-between; */
-
-
 .formInput{
   display: flex;
   flex-direction: row;
-  gap:0px;
-}
-
-.phone {
-  border-top-left-radius: 0px !important;
-  border-bottom-left-radius: 0px !important;
-}
-
-#phone{
-  width: 80%;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
-}
-
-.phoneInputs {
-  display: flex;
+  /* padding-bottom: 30px; */
   justify-content: space-between;
+}
+
+.formInput input{
+  width:70%;
+  margin-right:0;
 }
 
 .formInputs {
@@ -71,7 +54,7 @@
 }
 
 .phoneInput {
-  /* padding-bottom: 50px; */
+  /* padding-bottom: 30px; */
 }
 
 input {
@@ -80,13 +63,6 @@ input {
   border: 1px solid #ddd;
   background: transparent;
   padding: 10px;
-}
-
-#countryCode {
-  width: 8%;
-  padding: 10px 6px;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
 }
 
 label {
@@ -109,13 +85,10 @@ label {
   border-radius: 5px;
   background: #350b5e;
   color: #fff;
-  font-size: 14px;
-  width:100%;
+  font-size: 16px;
   height: 100%;
-  padding: 2px 15px;
+  padding: 0px 15px;
   cursor: pointer;
-  margin-left:20px;
-  min-width: 56px;
 }
 
 .otp input {
@@ -142,21 +115,10 @@ span {
   color: #350b5e;
 }
 
-@media screen and (max-width:1300px){
-  .form {
-    padding-left: 0px;
-  }
-}
-
 @media screen and (max-width: 1200px) {
   .otpText {
-    width: 100%;
+    width: 55%;
   }
-
-  #countryCode {
-    width: 20%;
-  }
-
 }
 
 @media screen and (max-width: 1000px) {
@@ -171,12 +133,8 @@ span {
   .otpButton button {
     width: 100%;
     padding: 10px 0px;
+    margin-top: 10px;
   }
-
-  #countryCode {
-    width: 20%;
-  }
-  
 }
 
 @media screen and (max-width: 840px) {
@@ -186,9 +144,5 @@ span {
 
   .form {
     padding-left: 0px;
-  }
-
-  #countryCode {
-    width: 20%;
   }
 }

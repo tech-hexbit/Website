@@ -4,6 +4,8 @@
   flex-shrink: 0;
   display: flex;
   padding-top: 50px;
+  font-size: 1.4rem;
+  font-weight: 700;
 }
 
 .details {
@@ -26,6 +28,9 @@
 
 .customer-details1 {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: bold;
 }
 
 .shipping-address {
@@ -37,18 +42,22 @@
   padding-top: 35px;
   padding-right: 110px;
   font-size: 20px;
+  text-align: center;
 }
 
 .payment-method {
   padding: 10px;
   margin-top: 10px;
+  text-align: center;
 }
 
 .name-text {
   padding: 15px;
   margin-top: 5px;
-  font-size: 18px;
+
   color: gray;
+  font-size: 1.1rem;
+  font-weight: bold;
 }
 
 .c-name {
@@ -73,12 +82,15 @@
 
 .adress {
   margin-top: 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
 }
 
 .transactions {
   display: flex;
   align-items: center;
-  font-size: 18px;
+  font-size: 1.1rem;
+  font-weight: bold;
   color: gray;
 }
 
@@ -106,7 +118,8 @@
 
 .product-details1 {
   text-decoration: solid;
-  font-size: 20px;
+  font-size: 1.4rem;
+  font-weight: bold;
 }
 
 .products-table th {
@@ -119,15 +132,12 @@
   font-size: 20px;
 }
 
-td {
-}
-
-table,
+/* table,
 th,
 td {
   border-collapse: collapse;
   padding: 10px;
-}
+} */
 
 .products-table table {
   width: 100%;
@@ -164,6 +174,8 @@ td {
   justify-content: space-evenly;
   margin: 20px 30px;
   gap: 0px 20px;
+  font-size: 1.4rem;
+  font-weight: bold;
 }
 
 .total-bill {
@@ -194,11 +206,14 @@ td {
 .gt {
   text-align: center;
   margin: 7px 0px;
+  font-size: 1.4rem;
+  font-weight: bold;
 }
 
 .dt1 {
   margin: 12px 0px;
-  font-size: 16px;
+  font-size: 1.1rem;
+  font-weight: bold;
 }
 
 .LogisticsGif {
@@ -229,4 +244,94 @@ td {
 .header {
   display: flex;
   align-items: center;
+}
+
+@media only screen and (max-width: 750px) {
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .order-id1 {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+  }
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .adress {
+    text-align: center;
+  }
+
+  .customer-details,
+  .shipping-address,
+  .payment-details {
+    padding: 10px 0;
+    font-size: 1.2rem;
+  }
+
+  .transactions .cno {
+    margin-top: 5px;
+  }
+
+  .details-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+    padding-top: 2px;
+  }
+
+  .name,
+  .dettails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-details1 {
+    font-size: 1.2rem;
+  }
+
+  .text-content {
+    flex-direction: column;
+    align-items: center;
+    margin: 5px 0;
+  }
+
+  .text-wrapper {
+    margin-left: 0;
+  }
+
+  .mapDivBU {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .products-table th,
+  .products-table tbody td {
+    padding: 5px;
+  }
+
+  .logistic-img {
+    height: auto;
+    max-width: 100%;
+  }
+
+  .total-bill {
+    padding: 10px 0;
+    font-size: 0.8rem;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
