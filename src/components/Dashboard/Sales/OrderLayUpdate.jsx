@@ -18,7 +18,7 @@ export default function OrderLayUpdate(props) {
     <>
       <div className={OLCss.mDiv}>
         <div className={OLCss.contendDiv}>
-          <p>UPDATE ORDER STATUS</p>
+          <p className={OLCss.UpdateOrderPTag}>UPDATE ORDER STATUS</p>
           <div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
