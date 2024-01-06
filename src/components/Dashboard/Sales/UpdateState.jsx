@@ -99,7 +99,13 @@ export default function UpdateState(props) {
         {/* )} */}
 
         {edit ? (
-          <OrderLayUpdate setEdit={setEdit} id={props.id} state={props.state} />
+          <OrderLayUpdate
+            setEdit={setEdit}
+            id={props.id}
+            state={props.state}
+            setLoadDataState={props.setLoadDataState}
+            loadDataState={props.loadDataState}
+          />
         ) : (
           // <>
           //   {Saveload ? (
