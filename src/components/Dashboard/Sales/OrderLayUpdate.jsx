@@ -6,6 +6,9 @@ import AuthContext from "./../../../store/auth-context";
 // axios
 import axios from "axios";
 
+// components
+import LayUpdate from "./LayUpdate";
+
 // MicroInteraction
 import Load from "./../../../MicroInteraction/LoadBlack";
 
@@ -127,7 +130,10 @@ export default function OrderLayUpdate(props) {
                                   ₹ {val.ItemID.price.maximum_value.toFixed(2)}
                                 </td>
                                 <td data-cell="Quantity">{val.quantity}</td>
-                                <td data-cell="Status">{val.state}</td>
+                                <LayUpdate
+                                  id={props.id}
+                                  ItemID={val.ItemID._id}
+                                />
                                 <td data-cell="Total Amount">
                                   ₹{" "}
                                   {(
