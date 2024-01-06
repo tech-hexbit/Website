@@ -79,6 +79,16 @@ export default function OrderLayUpdate(props) {
                         <th>Status</th>
                         <th>Total Amount</th>
                       </tr>
+
+                      {/* to be map */}
+                      <tr>
+                        <td data-cell="Name">val.descriptor.name</td>
+                        <td data-cell="Available Inventory">val.product.id</td>
+                        <td data-cell="Price">₹ val.price.value.toFixed(2)</td>
+                        <td data-cell="Total Orders">val.totalSold</td>
+                        <td data-cell="Shipping Time">val.status</td>
+                        <td data-cell="Return Window">val.amount</td>
+                      </tr>
                     </>
                   </table>
                 </>
