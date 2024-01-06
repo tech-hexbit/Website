@@ -53,8 +53,10 @@ svg {
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
   gap: 1rem;
   padding: 1rem;
 }
