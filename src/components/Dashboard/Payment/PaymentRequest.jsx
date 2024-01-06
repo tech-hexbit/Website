@@ -56,7 +56,7 @@ export default function PaymentRequest() {
             <>
               {bankDetails.map((bank, index) => (
                 <div key={index} className={pr.grid}>
-                  <div className={pr.grid_item}>
+                  <div className={pr.gridItem}>
                     <input type="checkbox" className={pr.checkBoxBank} />
 
                     <svg
@@ -77,25 +77,25 @@ export default function PaymentRequest() {
                   </div>
 
                   {/* BANK NAME */}
-                  <div className={pr.grid_item}>
+                  <div className={pr.gridItem}>
                     <h4>BANK</h4>
                     <h3>{bank.BankName}</h3>
                   </div>
 
                   {/* ACCOUNT NUMBER */}
-                  <div className={pr.grid_item}>
+                  <div className={pr.gridItem}>
                     <h4>LAST 4 Digit</h4>
                     <h3>{String(bank.AccountNumber).slice(-4)}</h3>
                   </div>
 
                   {/* HOLDER'S NAME */}
-                  <div className={pr.grid_item}>
+                  <div className={pr.gridItem}>
                     <h4>Account Holder</h4>
                     <h3>{bank.AccountHolderName}</h3>
                   </div>
 
                   {/* IFSC CODE */}
-                  <div className={pr.grid_item}>
+                  <div className={pr.gridItem}>
                     <h4>IFSC CODE</h4>
                     <h3>{bank.IfscCode}</h3>
                   </div>
