@@ -87,153 +87,152 @@ export default function Support() {
       {showAdd ? (
         <AddQuestiom setAdd={setAdd} setRef={setRef} />
       ) : (
-        <div>
-          <div className={SupCss.titleDiv}>
-            <p
-              id={showCurr === "Support" ? "Support" : "nonAc"}
-              onClick={() => {
-                setCurr("Support");
-              }}
-            >
-              Support
-            </p>
-            <p
-              id={showCurr === "Contacted" ? "Contacted" : "nonAc"}
-              onClick={() => {
-                setCurr("Contacted");
-              }}
-            >
-              Contacted
-            </p>
-
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-plus"
-              className={SupCss.plusIcon}
-              onClick={() => {
-                setAdd(true);
-              }}
-            >
-              <path d="M5 12h14" />
-              <path d="M12 5v14" />
-            </svg>
-          </div>
-
-          {showCurr === "Support" ? (
+        <>
+          {showEdit ? (
+            <EditQuestion
+              data={editdata}
+              setShowEdit={setShowEdit}
+              setRef={setRef}
+            />
+          ) : (
             <>
-              <div className={SupCss.qamDiv}>
-                {load ? (
-                  <div className="loadCenterDiv">
-                    <Load />
-                  </div>
-                ) : (
+              <div>
+                <div className={SupCss.titleDiv}>
+                  <p
+                    id={showCurr === "Support" ? "Support" : "nonAc"}
+                    onClick={() => {
+                      setCurr("Support");
+                    }}
+                  >
+                    Support
+                  </p>
+                  <p
+                    id={showCurr === "Contacted" ? "Contacted" : "nonAc"}
+                    onClick={() => {
+                      setCurr("Contacted");
+                    }}
+                  >
+                    Contacted
+                  </p>
+
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-plus"
+                    className={SupCss.plusIcon}
+                    onClick={() => {
+                      setAdd(true);
+                    }}
+                  >
+                    <path d="M5 12h14" />
+                    <path d="M12 5v14" />
+                  </svg>
+                </div>
+
+                {showCurr === "Support" ? (
                   <>
-                    {data.length > 0 ? (
-                      <>
-                        {data.map((val, key) => {
-                          return (
-                            <div className={SupCss.iconsContainer}>
-                              <QA
-                                key={key}
-                                answer={val.answer}
-                                question={val.question}
-                              />
-
-                              <div className={SupCss.icons}>
-                                {/* edit func */}
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="18"
-                                  height="18"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  class="lucide lucide-pencil"
-                                  className={SupCss.editIcon}
-                                  onClick={() => {
-                                    const selectedItem = data.find(
-                                      (item) => item._id === val._id
-                                    );
-                                    setShowEdit(true);
-                                    setEditdata({
-                                      _id: selectedItem._id,
-                                      ques: selectedItem.question,
-                                      ans: selectedItem.answer,
-                                    });
-                                  }}
-                                >
-                                  <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
-                                  <path d="m15 5 4 4" />
-                                </svg>
-
-                                {showEdit && (
-                                  <div
-                                    className={showEdit ? "yesAdd" : "noAdd"}
-                                  >
-                                    <EditQuestion
-                                      data={editdata}
-                                      setShowEdit={setShowEdit}
-                                      setRef={setRef}
+                    <div className={SupCss.qamDiv}>
+                      {load ? (
+                        <div className="loadCenterDiv">
+                          <Load />
+                        </div>
+                      ) : (
+                        <>
+                          {data.length > 0 ? (
+                            <>
+                              {data.map((val, key) => {
+                                return (
+                                  <div className={SupCss.iconsContainer}>
+                                    <QA
+                                      key={key}
+                                      answer={val.answer}
+                                      question={val.question}
                                     />
-                                  </div>
-                                )}
 
-                                {/* delete func */}
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="18"
-                                  height="18"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  class="lucide lucide-trash"
-                                  className={SupCss.DeleteIcon}
-                                  onClick={() => deleteHandle(val._id)}
-                                >
-                                  <path d="M3 6h18" />
-                                  <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
-                                  <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
-                                </svg>
-                              </div>
-                            </div>
-                          );
-                        })}
-                      </>
-                    ) : (
-                      <>
-                        <p id={SupCss.NoData}>No Data</p>
-                      </>
-                    )}
+                                    <div className={SupCss.icons}>
+                                      {/* Edit */}
+                                      <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="18"
+                                        height="18"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-pencil"
+                                        className={SupCss.editIcon}
+                                        onClick={() => {
+                                          const selectedItem = data.find(
+                                            (item) => item._id === val._id
+                                          );
+                                          setShowEdit(true);
+                                          setEditdata({
+                                            _id: selectedItem._id,
+                                            ques: selectedItem.question,
+                                            ans: selectedItem.answer,
+                                          });
+                                        }}
+                                      >
+                                        <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+                                        <path d="m15 5 4 4" />
+                                      </svg>
+                                      {/* Delete */}
+                                      <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="18"
+                                        height="18"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-trash"
+                                        className={SupCss.DeleteIcon}
+                                        onClick={() => deleteHandle(val._id)}
+                                      >
+                                        <path d="M3 6h18" />
+                                        <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+                                        <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+                                      </svg>
+                                    </div>
+                                  </div>
+                                );
+                              })}
+                            </>
+                          ) : (
+                            <>
+                              <p id={SupCss.NoData}>No Data</p>
+                            </>
+                          )}
+                        </>
+                      )}
+                    </div>
                   </>
+                ) : (
+                  ""
+                )}
+
+                {showCurr === "Contacted" ? (
+                  <>
+                    <Contacted />
+                  </>
+                ) : (
+                  ""
                 )}
               </div>
             </>
-          ) : (
-            ""
           )}
-
-          {showCurr === "Contacted" ? (
-            <>
-              <Contacted />
-            </>
-          ) : (
-            ""
-          )}
-        </div>
+        </>
       )}
     </>
   );
