@@ -65,7 +65,6 @@ export default function PaymentRequest() {
                   IfscCode={bank.IfscCode}
                   key={key}
                 />
-                // </div>
               ))}
             </>
           ) : (
