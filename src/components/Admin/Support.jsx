@@ -82,10 +82,6 @@ export default function Support() {
     console.log(_id);
   };
 
-  useEffect(() => {
-    console.log(showEdit);
-  }, [showEdit]);
-
   return (
     <>
       {showAdd ? (
@@ -150,12 +146,13 @@ export default function Support() {
                                 answer={val.answer}
                                 question={val.question}
                               />
+
                               <div className={SupCss.icons}>
                                 {/* edit func */}
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
-                                  width="32"
-                                  height="24"
+                                  width="18"
+                                  height="18"
                                   viewBox="0 0 24 24"
                                   fill="none"
                                   stroke="currentColor"
@@ -163,6 +160,7 @@ export default function Support() {
                                   stroke-linecap="round"
                                   stroke-linejoin="round"
                                   class="lucide lucide-pencil"
+                                  className={SupCss.editIcon}
                                   onClick={() => {
                                     const selectedItem = data.find(
                                       (item) => item._id === val._id
@@ -173,7 +171,6 @@ export default function Support() {
                                       ques: selectedItem.question,
                                       ans: selectedItem.answer,
                                     });
-                                    // console.log(val._id)
                                   }}
                                 >
                                   <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
@@ -195,8 +192,8 @@ export default function Support() {
                                 {/* delete func */}
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
-                                  width="32"
-                                  height="24"
+                                  width="18"
+                                  height="18"
                                   viewBox="0 0 24 24"
                                   fill="none"
                                   stroke="currentColor"
@@ -204,6 +201,7 @@ export default function Support() {
                                   stroke-linecap="round"
                                   stroke-linejoin="round"
                                   class="lucide lucide-trash"
+                                  className={SupCss.DeleteIcon}
                                   onClick={() => deleteHandle(val._id)}
                                 >
                                   <path d="M3 6h18" />

@@ -14,14 +14,12 @@ import axios from "axios";
 import AQCss from "./Css/AddQuestion.module.css";
 
 export default function AddQuestiom(props) {
-  // console.log(props);
   const [load, setLoad] = useState(false);
   const [showData, setData] = useState({
     question: "",
     answer: "",
     tag: "",
   });
-
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -141,6 +139,8 @@ export default function AddQuestiom(props) {
             <path d="m6 6 12 12" />
           </svg>
         </div>
+
+        {/* Tag */}
         <div className={AQCss.inpmDiv}>
           <select
             id="dropdown"
@@ -156,6 +156,8 @@ export default function AddQuestiom(props) {
             <option value="order">Order</option>
             <option value="approved">Important Bulletin</option>
           </select>
+
+          {/* Question */}
           <input
             type="text"
             name="question"
@@ -166,6 +168,7 @@ export default function AddQuestiom(props) {
             onChange={updateData}
           />
 
+          {/* Answer */}
           <textarea
             name="answer"
             id=""
