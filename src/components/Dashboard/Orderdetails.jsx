@@ -383,7 +383,38 @@ const Orderdetails = (props) => {
               )}
             </div>
           ) : (
-            ""
+            <>
+              {/* Header */}
+              <div className={odcss.header}>
+                <span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-move-left"
+                    className={odcss.leftArrow}
+                    onClick={() => {
+                      props.setProductDel(false);
+                      props.setHideDel(!props.showDel);
+                    }}
+                  >
+                    <path d="M6 8L2 12L6 16" />
+                    <path d="M2 12H22" />
+                  </svg>
+                </span>
+                <b>Order detail</b>
+              </div>
+
+              <div className="loadCenterDiv" id="loadPadding">
+                No Data to show
+              </div>
+            </>
           )}
         </>
       )}
