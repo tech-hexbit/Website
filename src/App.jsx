@@ -111,6 +111,16 @@ function App() {
                 }
               />
             )}
+            {!authCtx.isLoggedIn && (
+              <Route
+                path="/forgotpassword"
+                element={
+                  <Suspense fallback={<LoadingPage />}>
+                    <ForgotPassword />
+                  </Suspense>
+                }
+              />
+            )}
             {authCtx.isLoggedIn && (
               <Route
                 path="/me/*"
