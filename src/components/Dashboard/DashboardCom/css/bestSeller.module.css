@@ -151,12 +151,14 @@
     padding: 20px;
   }
 
-  #td {
-    margin-right: auto;
-  }
-
   .col1 {
     width: 300px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .table th {
+    display: none;
   }
 }
 
