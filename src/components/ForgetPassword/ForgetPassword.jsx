@@ -41,6 +41,7 @@ export default function ForgetPassword() {
               </div>
 
               <h3 className={fpstyle.or}>Or</h3>
+
               {/* Phone */}
               <div className={fpstyle.inputPO}>
                 <label htmlFor="phone">
@@ -62,6 +63,7 @@ export default function ForgetPassword() {
                   />
                 </div>
               </div>
+
               {/* OTP */}
               <div className={fpstyle.inputPO}>
                 <label htmlFor="otp">
