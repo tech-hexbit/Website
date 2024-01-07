@@ -193,6 +193,13 @@ const Orderdetails = (props) => {
                           .beneficiary_name
                       }
                     </p>
+                    <p className={odcss.pl1}>
+                      Card number/ UPI ID :{" "}
+                      {
+                        res.payment["@ondc/org/settlement_details"][0]
+                          .settlement_bank_account_no
+                      }
+                    </p>
 
                     <div className={odcss.transactions}>
                       <div className={odcss["payment-method"]}>
