@@ -71,7 +71,6 @@ export default function BestSellers() {
                   <th id={BSCss.th} className={BSCss.sales}>
                     Sales
                   </th>
-                  {/* <th id={BSCss.th}>Ratings</th> */}
                 </tr>
 
                 {orderDel ? (
@@ -95,9 +94,6 @@ export default function BestSellers() {
                           <td data-cell="Amount" id={BSCss.td}>
                             {val.totalSold}
                           </td>
-                          {/* <td data-cell="Ratings" id={BSCss.td}>
-                            {val.rating.toFixed(1)}
-                          </td> */}
                         </tr>
                       );
                     })}
