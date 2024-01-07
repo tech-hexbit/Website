@@ -84,18 +84,33 @@ export default function RecentOrders() {
                         {orderDel.map((val, key) => {
                           return (
                             <tr key={key}>
-                              <td id={RCss.td} class={RCss.truncate}>
+                              <td
+                                id={RCss.td}
+                                class={RCss.truncate}
+                                data-cell="ID"
+                              >
                                 {val._id.slice(-4)}
                               </td>
-                              <td id={RCss.td} className={RCss.product}>
+                              <td
+                                id={RCss.td}
+                                className={RCss.product}
+                                data-cell="Product"
+                              >
                                 {val.Items[0].ItemID.descriptor.name}
                               </td>
-                              <td id={RCss.td}>₹ {val.amount.toFixed(2)}</td>
-                              <td id={RCss.td} className={RCss.quantity}>
+                              <td id={RCss.td} data-cell="Amount">
+                                ₹ {val.amount.toFixed(2)}
+                              </td>
+                              <td
+                                id={RCss.td}
+                                className={RCss.quantity}
+                                data-cell="Quantity"
+                              >
                                 {val.Items[0].quantity}
                               </td>
                               <td
                                 id={RCss.td}
+                                data-cell="Status"
                                 style={
                                   val.status === "PAID"
                                     ? { color: "#4BB543" }
