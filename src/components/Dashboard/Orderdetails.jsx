@@ -179,8 +179,7 @@ const Orderdetails = (props) => {
 
                 <div className={odcss.customerDetails}>
                   <div className={odcss.SubHeading}>Payment details</div>
-                  <div className={odcss["details-list"]}>
-                    <div className={odcss.transactions}></div>
+                  <div className={odcss.ContentDels}>
                     <div className={odcss.transactions}>
                       <p className={odcss["payment-method"]}>
                         Payment method :{" "}
