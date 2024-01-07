@@ -9,7 +9,6 @@ import AuthContext from "./../../../store/auth-context";
 
 // components
 import DoughnutChart from "./charts/Doughnut";
-import StackedBar from "./charts/StackedBar";
 
 // css
 import RCss from "./css/revenue.module.css";
@@ -69,10 +68,6 @@ export default function Revenue() {
           <p className={RCss.chartHeadLabel}>Sales Division By Buyer Apps</p>
           <DoughnutChart />
         </div>
-        {/* <div className={RCss.chartHead}>
-          <p className={RCss.chartHeadLabel}>Weekly Sales Review</p>
-          <StackedBar />
-        </div> */}
       </div>
 
       <Link to="/me/Inventory" className="LinkStyle" id={RCss.moreInfo}>
