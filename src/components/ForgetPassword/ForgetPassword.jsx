@@ -1,88 +1,58 @@
 import React, { useEffect, useState } from "react";
-import style from "./CSS/ForgetPassword.module.css";
 import { Link } from "react-router-dom";
+
+// components
+import Form1 from "./Form1";
+import Form2 from "./Form2";
+import Information from "./Information";
+
+//MicroInteraction
 import Load from "../../MicroInteraction/Load";
 
+//css
+import fpstyle from "./CSS/ForgetPassword.module.css";
+
 export default function ForgetPassword() {
-  const [input, setInput] = useState({ email: "", phone: "", otp: "" });
   const [load, setLoad] = useState(false);
+  const [forget, setForget] = useState(true);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [, forget]);
 
   return (
     <>
-      <div className={style.mainDiv}>
-        <div className={style.left}>
-          <h1 className={style.forgot}>Forgot Password?</h1>
-          <p className={style.dont}>Don't worry. We can help.</p>
-          {/* Email */}
-          <div className={style.inputEP}>
-            <label>Email address *</label>
-            <br />
-            <input
-              type="email"
-              placeholder="Email address"
-              id="email"
-              name="email"
-              value={input.email}
-              onChange={(e) => {
-                setInput({ ...input, email: e.target.value });
-              }}
-            />
-          </div>
+      <div className={fpstyle.mainDiv}>
+        <div className={fpstyle.left}>
+          <h1 className={fpstyle.forgot}>Forgot Password?</h1>
+          <p className={fpstyle.dont}>Don't worry. We can help.</p>
 
-          <h3 className={style.or}>Or</h3>
-          {/* Phone */}
-          <div className={style.inputPO}>
-            <label htmlFor="phone">
-              Phone<span style={{ color: "#350B5E" }}>*</span>
-            </label>
-            <br />
-            <div className={style.phoneInputs}>
-              <input
-                type="text"
-                placeholder="+91"
-                disabled
-                id={style.countryCode}
-              />
-              <input
-                type="number"
-                placeholder="XXXXX-XXXXX"
-                id="phone"
-                className={style.phone}
-              />
-            </div>
-          </div>
+          {forget ? <Form1 /> : <Form2 />}
 
-          {/* OTP */}
-          <div className={style.inputPO}>
-            <label htmlFor="otp">
-              Enter OTP<span style={{ color: "#350B5E" }}>*</span>
-            </label>
-            <br />
-            <div className={style.otpInputs}>
-              <input type="text" placeholder="Enter the otp" id="otp" />
-              <button>Resend OTP</button>
-            </div>
-          </div>
-
-          <div className={style.loginDiv}>
-            <div style={{ paddingBottom: "20px" }}>
-              <p className={style.forget}>
-                <Link
-                  to="/forgotpasswordsec"
-                  style={{ textDecoration: "none", color: "black" }}
-                >
+          <div className={fpstyle.loginDiv}>
+            {forget && (
+              <div className={fpstyle.forCont}>
+                <p className={fpstyle.forget} onClick={() => setForget(false)}>
                   Remembered your password?
+                </p>
+                <Link className={fpstyle.login} to="/signIn">
+                  Back to login
                 </Link>
-              </p>
-              <Link className={style.login}>Back to login</Link>
-            </div>
-            <button>{load ? <Load /> : "Continue"}</button>
+              </div>
+            )}
+            {forget ? (
+              <button onClick={() => setForget(false)}>
+                {load ? <Load /> : "Continue"}
+              </button>
+            ) : (
+              <button>
+                <Link to="/changepwd" className={fpstyle.linkStyles}>
+                  {load ? <Load /> : "Continue"}
+                </Link>
+              </button>
+            )}
 
-            <div className={style.tc}>
+            <div className={fpstyle.tc}>
               By signing up, you are agreeing to our{" "}
               <Link
                 to="/terms"
@@ -103,28 +73,8 @@ export default function ForgetPassword() {
             </div>
           </div>
         </div>
-        <div className={style.right}>
-          <h1 className={style.headline}>
-            Sell Smarter <br /> Sell Faster <br /> At HEXBIT
-          </h1>
-          <div className={style.impCont}>
-            <h3 className={style.imp}>Important information:</h3>
-            <p className={style.line}>
-              Please read the information below and then kindly share the
-              requested information.{" "}
-            </p>
-            <ul>
-              <li>Use AlphaNumeric passwords.</li>
-              <li>Your Login ID. and security answer are required</li>
-              <li>Login IDs are case sensitive.</li>
-              <li>Do not reveal your password to anybody</li>
-              <li>Do not reuse passwords</li>
-            </ul>
-          </div>
-          <h2 className={style.terms}>
-            Terms and conditions | FAQs | Contact us
-          </h2>
-        </div>
+
+        <Information />
       </div>
     </>
   );
