@@ -18,6 +18,12 @@ import OLCss from "./Css/OrderLayUpdate.module.css";
 export default function OrderLayUpdate(props) {
   const [res, setres] = useState(null);
   const [load, setLoad] = useState(false);
+  const [disableCon, setDisableCon] = useState({
+    Accept: false,
+    InProgress: false,
+    Completed: false,
+    Cancelled: false,
+  });
 
   const authCtx = useContext(AuthContext);
 
@@ -45,9 +51,28 @@ export default function OrderLayUpdate(props) {
     }
   };
 
+  // const checkItemsInfo = async () => {
+  //   const itemStates = res.Items.map((item) => item.state);
+
+  //   let curr = {
+  //     Accept: false,
+  //     InProgress: false,
+  //     Completed: false,
+  //     Cancelled: false,
+  //   };
+
+  //   for (let i = 0; i < itemStates.length; i++) {
+  //     if (itemStates[i] === "In-progress") console.log(itemStates[i]);
+  //   }
+  // };
+
   useEffect(() => {
     loadOrderdel(props.id);
   }, [props.id]);
+
+  // useEffect(() => {
+  //   res && checkItemsInfo();
+  // }, [res]);
 
   return (
     <>
@@ -76,7 +101,7 @@ export default function OrderLayUpdate(props) {
             <path d="m6 6 12 12" />
           </svg>
 
-          <div className={OLCss.BtnDivMain}>
+          {/* <div className={OLCss.BtnDivMain}>
             <div className={OLCss.BtnDiv} id={OLCss.Accept}>
               Accept
             </div>
@@ -89,7 +114,7 @@ export default function OrderLayUpdate(props) {
             <div className={OLCss.BtnDiv} id={OLCss.Cancelled}>
               Cancelled
             </div>
-          </div>
+          </div> */}
 
           <div className={OLCss.ProductDelTableDiv}>
             <p className={OLCss.ProductDelPTag}>Product details</p>
