@@ -73,13 +73,13 @@ export default function Revenue() {
           <p className={RCss.chartHeadLabel}>Sales Division By Buyer Apps</p>
           <DoughnutChart />
         </div>
-        <div className={RCss.chartHead}>
+        {/* <div className={RCss.chartHead}>
           <p className={RCss.chartHeadLabel}>Weekly Sales Review</p>
           <StackedBar />
-        </div>
+        </div> */}
       </div>
 
-      <Link to="/me/categories" className="LinkStyle" id={RCss.moreInfo}>
+      <Link to="/me/Inventory" className="LinkStyle" id={RCss.moreInfo}>
         More Info
       </Link>
     </div>
