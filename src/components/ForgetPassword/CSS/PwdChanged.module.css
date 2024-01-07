@@ -1,0 +1,38 @@
+.pwd{
+    text-align: center;
+    justify-content: center;
+    padding-top: 10%;
+    font-size:44px;
+}
+
+.container {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .icon {
+    width: 20%;
+    display: block;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .text{
+    font-size: 20px;
+    color:#474747;
+    text-align: center;
+    justify-content: center;
+    font-weight: 400;
+    padding-bottom: 10px;
+  }
+
+  .head{
+    color:#4A246F;
+    text-transform: uppercase;
+    text-align: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 34px;
+    padding-bottom: 40px;
+  }
