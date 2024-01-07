@@ -20,37 +20,32 @@ export default function RecentOrders() {
   const [orderNumber, setOrderNumber] = useState(0);
   const [orderDel, setOrderDel] = useState([]);
   const [load, setLoad] = useState(false);
-  const [showHeaders, setShowHeaders] = useState(window.matchMedia("(min-width: 751px)").matches);
-  
+  const [showHeaders, setShowHeaders] = useState(
+    window.matchMedia("(min-width: 751px)").matches
+  );
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(min-width: 751px)");
-    
 
     const handleResize = () => {
       setShowHeaders(mediaQuery.matches);
-      
-    }; 
+    };
     mediaQuery.addListener(handleResize);
-    
+
     return () => {
       mediaQuery.removeListener(handleResize);
-     
     };
   }, []);
- 
+
   useEffect(() => {
-    
     const mediaQueryMaxWidth = window.matchMedia("(max-width: 750px)");
 
     const handleResize = () => {
-      
       setShowLabels(mediaQueryMaxWidth.matches);
-    }; 
-    
+    };
+
     mediaQueryMaxWidth.addListener(handleResize);
     return () => {
-      
       mediaQueryMaxWidth.removeListener(handleResize);
     };
   }, []);
@@ -100,42 +95,44 @@ export default function RecentOrders() {
               <>
                 <div className={RCss.table}>
                   <table className={RCss.tableTag}>
-                  {!window.matchMedia("(max-width: 751px)").matches && (
-                    <tr className={RCss.trHrline}>
-                      <th id={RCss.th}>ID</th>
-                      <th id={RCss.th} className={RCss.product}>
-                        Product
-                      </th>
-                      <th id={RCss.th}>Amount</th>
-                      <th id={RCss.th} className={RCss.quantity}>
-                        Quantity
-                      </th>
-                      <th id={RCss.th}>Status</th>
-                    </tr>
-                  )}
+                    {!window.matchMedia("(max-width: 751px)").matches && (
+                      <tr className={RCss.trHrline}>
+                        <th id={RCss.th}>ID</th>
+                        <th id={RCss.th} className={RCss.product}>
+                          Product
+                        </th>
+                        <th id={RCss.th}>Amount</th>
+                        <th id={RCss.th} className={RCss.quantity}>
+                          Quantity
+                        </th>
+                        <th id={RCss.th}>Status</th>
+                      </tr>
+                    )}
                     {orderDel ? (
                       <>
                         {orderDel.map((val, key) => {
                           return (
-                           
-                            <tr key={key} >
+                            <tr key={key}>
                               <td id={RCss.td} class={RCss.truncate}>
-                              {!window.matchMedia("(min-width: 750px)").matches && (
-                                  <b>ID:</b>
-                                )}   {val._id.slice(-4)}
+                                {!window.matchMedia("(min-width: 750px)")
+                                  .matches && <b>ID:</b>}{" "}
+                                {val._id.slice(-4)}
                               </td>
                               <td id={RCss.td} className={RCss.product}>
-                              {!window.matchMedia("(min-width: 750px)").matches && (
-                                  <b>PRODUCT:</b>
-                                )}   {val.Items[0].ItemID.descriptor.name}
+                                {!window.matchMedia("(min-width: 750px)")
+                                  .matches && <b>PRODUCT:</b>}{" "}
+                                {val.Items[0].ItemID.descriptor.name}
                               </td>
-                              <td id={RCss.td}>  {!window.matchMedia("(min-width: 750px)").matches && (
-                                  <b>AMOUNT:</b>
-                                )} ₹ {val.amount.toFixed(2)}</td>
+                              <td id={RCss.td}>
+                                {" "}
+                                {!window.matchMedia("(min-width: 750px)")
+                                  .matches && <b>AMOUNT:</b>}{" "}
+                                ₹ {val.amount.toFixed(2)}
+                              </td>
                               <td id={RCss.td} className={RCss.quantity}>
-                              {!window.matchMedia("(min-width: 750px)").matches && (
-                                  <b>QUANTITY:</b>
-                                )} {val.Items[0].quantity}
+                                {!window.matchMedia("(min-width: 750px)")
+                                  .matches && <b>QUANTITY:</b>}{" "}
+                                {val.Items[0].quantity}
                               </td>
                               <td
                                 id={RCss.td}
@@ -145,12 +142,11 @@ export default function RecentOrders() {
                                     : { color: "#800000" }
                                 }
                               >
-                               {!window.matchMedia("(min-width: 750px)").matches && (
-                                  <b>SALES:</b>
-                                )}  {val.status}
+                                {!window.matchMedia("(min-width: 750px)")
+                                  .matches && <b>SALES:</b>}{" "}
+                                {val.status}
                               </td>
                             </tr>
-                           
                           );
                         })}
                       </>
