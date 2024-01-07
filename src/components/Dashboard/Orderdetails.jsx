@@ -23,15 +23,13 @@ const Orderdetails = (props) => {
 
   useEffect(() => {
     loadOrderdel(props.id);
-  }, [props.id]);
-
-  useEffect(() => {
-    console.log(loadData);
-  }, [loadData]);
+  }, [props.id, loadData]);
 
   const authCtx = useContext(AuthContext);
 
   const loadOrderdel = async (id) => {
+    setLoad(true);
+
     try {
       const response = await axios.get(`/api/common/order/details/${id}`, {
         headers: { Authorization: `${authCtx.token}` },
