@@ -149,16 +149,12 @@ const Orderdetails = (props) => {
                 </div>
 
                 <div className={odcss.customerDetails}>
-                  <div className={odcss["texxt-content"]}>
-                    <div className={odcss["customer-details1"]}>
-                      Shipping address
-                    </div>
-                    <div className={odcss.addressdetails}>
-                      <div className={odcss.adress}>
-                        <p className={odcss.adl1}>{res.ShippingAddress}</p>
-                        <p className={odcss.adl2}></p>
-                        <p className={odcss.adl3}></p>
-                      </div>
+                  <div className={odcss.SubHeading}>Shipping address</div>
+                  <div className={odcss.addressdetails}>
+                    <div className={odcss.adress}>
+                      <p className={odcss.adl1}>{res.ShippingAddress}</p>
+                      <p className={odcss.adl2}></p>
+                      <p className={odcss.adl3}></p>
                     </div>
                   </div>
                 </div>
