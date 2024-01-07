@@ -3,6 +3,9 @@ import React, { useState, useEffect, useContext } from "react";
 // components
 import UpdateDel from "./Sales/UpdateDel";
 
+// MicroInteraction
+import Load from "./../../MicroInteraction/LoadBlack";
+
 // axios
 import axios from "axios";
 
@@ -24,6 +27,11 @@ const Orderdetails = (props) => {
   useEffect(() => {
     loadOrderdel(props.id);
   }, [props.id, loadData]);
+
+  // scroll to top
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [, loadData]);
 
   const authCtx = useContext(AuthContext);
 
