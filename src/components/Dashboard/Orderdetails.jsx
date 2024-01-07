@@ -79,7 +79,8 @@ const Orderdetails = (props) => {
 
               {/* Customer || Shipping || Payment */}
               <div className={odcss.details}>
-                <div className={odcss.customerDetails}>
+                {/* Customer */}
+                <div className={odcss.BlockSub} id={odcss.customerDetails}>
                   <div className={odcss.SubHeading}>Customer details</div>
                   <div className={odcss.ContentDels}>
                     {/* Name */}
@@ -149,7 +150,7 @@ const Orderdetails = (props) => {
                 </div>
 
                 {/* Shipping */}
-                <div className={odcss.customerDetails}>
+                <div className={odcss.BlockSub}>
                   <div className={odcss.SubHeading}>Shipping address</div>
                   <div className={odcss.ContentDels}>
                     <div className={odcss.adress}>
@@ -179,7 +180,7 @@ const Orderdetails = (props) => {
                 </div>
 
                 {/* Payment */}
-                <div className={odcss.customerDetails}>
+                <div className={odcss.BlockSub}>
                   <div className={odcss.SubHeading}>Payment details</div>
                   <div className={odcss.ContentDels}>
                     <p className={odcss.pl1}>
