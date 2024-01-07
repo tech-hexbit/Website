@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 // components
-import Form1 from "./Form1" 
-import Form1 from "./Form2" 
+import Form1 from "./Form1";
+import Form2 from "./Form2";
 
 //MicroInteraction
 import Load from "../../MicroInteraction/Load";
@@ -25,46 +25,8 @@ export default function ForgetPassword() {
         <div className={fpstyle.left}>
           <h1 className={fpstyle.forgot}>Forgot Password?</h1>
           <p className={fpstyle.dont}>Don't worry. We can help.</p>
-          {/* Email */}
-          {forget ? (
-          
-          ) : (
-            <>
-              <div className={fpstyle.inputEP}>
-                <label>Create New Password *</label>
-                <br />
-                <input
-                  type="password"
-                  placeholder="Enter Password"
-                  id="password"
-                  name="password"
-                  value={input.newpwd}
-                  onChange={(e) => {
-                    setInput({ ...input, newpwd: e.target.value });
-                  }}
-                />
-              </div>
 
-              {/* Phone */}
-              <div className={fpstyle.inputPO}>
-                <label htmlFor="password">
-                  Confirm New Password
-                  <span style={{ color: "#350B5E" }}>*</span>
-                </label>
-                <br />
-                <input
-                  type="password"
-                  placeholder="Enter Password"
-                  id="password"
-                  name="password"
-                  value={input.confirmpwd}
-                  onChange={(e) => {
-                    setInput({ ...input, confirmpwd: e.target.value });
-                  }}
-                />
-              </div>
-            </>
-          )}
+          {forget ? <Form1 /> : <Form2 />}
 
           <div className={fpstyle.loginDiv}>
             {forget && (
