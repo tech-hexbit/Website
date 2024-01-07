@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 import Load from "../../MicroInteraction/Load";
 
 export default function ForgetPassword() {
+  const [input, setInput] = useState({ email: "", phone: "", otp: "" });
+  const [load, setLoad] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const [input, setInput] = useState({ email: "", phone: "", otp: "" });
-  const [load, setLoad] = useState(false);
 
   return (
     <>
