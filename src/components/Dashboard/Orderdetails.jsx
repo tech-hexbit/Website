@@ -245,76 +245,6 @@ const Orderdetails = (props) => {
                     loadDataState={loadData}
                   />
 
-                  {/* <div className={odcss["product-details"]}>
-          <div className={odcss["text-content"]}>
-            <p className={odcss["product-details1"]}>Product details:</p> */}
-                  {/* <br /> */}
-                  {/* <div className={odcss["products-table"]}>
-               <table>
-                <thead>
-                  <tr>
-                    <th>Product</th>
-                    <th>Product Id</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Total Amount</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className={odcss.list1}>
-                    <td className={odcss.imgtext}>
-                      <td>
-                        <img src="" alt="ff" />
-                      </td>
-                      <td>
-                        <div className={odcss["prod-imgn"]}>Shoes</div>
-                      </td>
-                    </td>
-                    <td>
-                      <div className={odcss["prod-idn"]}>22</div>
-                    </td>
-                    <td>
-                      <div className={odcss["price-n"]}>22</div>
-                    </td>
-                    <td>
-                      <div className={odcss.quantity}>2</div>
-                    </td>
-                    <td>
-                      <div className={odcss["t-amount"]}>222</div>
-                    </td>
-                  </tr>
-
-                  <tr className={odcss.list1}>
-                    <td className={odcss.imgtext}>
-                      <td>
-                        <img src="" alt="ff" />
-                      </td>
-                      <td>
-                        <div className={odcss["prod-imgn"]}>Shoes</div>
-                      </td>
-                    </td>
-                    <td>
-                      <div className={odcss["prod-idn"]}>22</div>
-                    </td>
-                    <td>
-                      <div className={odcss["price-n"]}>22</div>
-                    </td>
-                    <td>
-                      <div className={odcss.quantity}>2</div>
-                    </td>
-                    <td>
-                      <div className={odcss["t-amount"]}>222</div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table> 
-            </div>*/}
-                  {/* <p>
-              Total Number of Products = <b>{res.Items.length}</b>
-            </p>
-          </div>
-        </div> */}
-
                   <div className={odcss["text-content"]}>
                     <div className={odcss["overlap-group"]}>
                       <div className={odcss["text-wrapper"]}>
@@ -330,26 +260,7 @@ const Orderdetails = (props) => {
                       <div className={odcss["text-l"]}>
                         <div className={odcss.name}>
                           <div className={odcss.div}>Soon To be Alloted</div>
-                          {/* <div className={odcss.div}>ABX Logistics</div> */}
-                          {/* <div className={odcss.product_rating}>
-                  {Array(4)
-                    .fill()
-                    .map((_, i) => (
-                      <p>⭐</p>
-                    ))}
-                </div> */}
                         </div>
-                        {/* <div className={odcss["details-l"]}>
-                <div className={odcss["text-wrapper-2"]}>11</div>
-                <div className={odcss["text-wrapper-2"]}>11</div>
-                <div className={odcss["text-wrapper-2"]}>Id : 3</div>
-                <div className={odcss["text-wrapper-2"]}>
-                  Amount charged : ₹ 65
-                </div>
-                <div className={odcss["text-wrapper-2"]}>
-                  Payment method : ff
-                </div>
-              </div> */}
                       </div>
                     </div>
 
