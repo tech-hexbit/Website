@@ -27,7 +27,6 @@
   border-collapse: collapse;
   display: block;
   position: relative;
-
 }
 
 .trHrline {
@@ -35,7 +34,6 @@
   border-color: #e3e3e3;
   border-width: 0px 0px 1px 0px;
 }
-
 
 .tableTag::-webkit-scrollbar {
   width: 0px;
@@ -63,11 +61,10 @@
   position: sticky;
   left: 0;
   z-index: 20;
- 
+
   background-color: #fff;
   text-align: center;
 }
-
 
 .tableTag tr th,
 .tableTag tr td {
@@ -76,8 +73,6 @@
   z-index: 1;
   background-color: #fff;
 }
-  
-
 
 .tableTag tr th:nth-child(2),
 .tableTag tr td:nth-child(2) {
@@ -95,7 +90,6 @@
 
 #td {
   padding: 6px;
-
 }
 
 .product {
@@ -131,7 +125,6 @@
   font-size: 12px;
   text-decoration: underline;
   cursor: pointer;
- 
 }
 
 .truncate {
@@ -142,11 +135,6 @@
 }
 
 @media screen and (max-width: 750px) {
-
-   
-
-
-
   .tableTag tr th,
   .tableTag tr td {
     width: 100px;
@@ -180,15 +168,8 @@
   }
 }
 
-
-
-
 @media screen and (min-width: 750px) {
   .tableTag tr td label {
     display: none;
   }
 }
-
-
-
-
