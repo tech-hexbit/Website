@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
+//css
+import fpstyle from "./CSS/ForgetPassword.module.css";
 
 export default function Form1() {
+  const [input, setInput] = useState({ email: "", phone: "", otp: "" });
+
   return (
     <>
       <div className={fpstyle.inputEP}>
