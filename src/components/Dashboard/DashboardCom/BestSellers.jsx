@@ -79,11 +79,7 @@ export default function BestSellers() {
                     {orderDel.map((val, key) => {
                       return (
                         <tr key={key}>
-                          <td
-                            data-cell="Product"
-                            id={BSCss.td}
-                            className="prod"
-                          >
+                          <td data-cell="" id={BSCss.td} className="prod">
                             <div className={BSCss.col1}>
                               <div className={BSCss.image}>
                                 <img
