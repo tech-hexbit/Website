@@ -15,7 +15,8 @@ const Terms = React.lazy(() => import("./Pages/Terms"));
 const Error = React.lazy(() => import("./Pages/Error"));
 const Contact = React.lazy(() => import("./Pages/Contact"));
 const Privacy = React.lazy(() => import("./Pages/Privacy"));
-const ForgotPassword = React.lazy(() => import("./Pages/ForgotPassword"));
+const ForgotPassword=React.lazy(()=>import("./Pages/ForgotPassword"));
+const PasswordChanged=React.lazy(()=>import("./Pages/PasswordChanged"));
 //        || Auth
 const SignIn = React.lazy(() => import("./Pages/SignIn"));
 const Register = React.lazy(() => import("./Pages/Register"));
@@ -31,6 +32,7 @@ import AuthContext from "./store/auth-context";
 
 // axios
 import axios from "axios";
+
 
 axios.defaults.baseURL = import.meta.env.VITE_SERVER_URL;
 
@@ -92,6 +94,22 @@ function App() {
                 </Suspense>
               }
             />
+            <Route 
+              path="/forgotpassword"
+              element={
+                <Suspense fallback={<LoadingPage />}>
+                  <ForgotPassword/>
+                </Suspense>
+              }
+            />
+            <Route 
+              path="/changepwd"
+              element={
+                <Suspense fallback={<LoadingPage />}>
+                  <PasswordChanged/>
+                </Suspense>
+              }
+            />
             {!authCtx.isLoggedIn && (
               <Route
                 path="/register"
@@ -108,16 +126,6 @@ function App() {
                 element={
                   <Suspense fallback={<LoadingPage />}>
                     <SignIn />
-                  </Suspense>
-                }
-              />
-            )}
-            {!authCtx.isLoggedIn && (
-              <Route
-                path="/forgotpassword"
-                element={
-                  <Suspense fallback={<LoadingPage />}>
-                    <ForgotPassword />
                   </Suspense>
                 }
               />
@@ -140,6 +148,9 @@ function App() {
                 </Suspense>
               }
             />
+
+
+            {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
           </Routes>
         </div>
       </div>
