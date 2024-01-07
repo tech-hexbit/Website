@@ -163,6 +163,7 @@ export default function SignInForm() {
               </Link>
             </div>
           </div>
+
           <div className={style.emailPassword}>
             {/* Email */}
             <div className={style.inputEP}>
