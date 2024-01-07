@@ -107,6 +107,7 @@ const Orderdetails = (props) => {
 
                         {res.ONDCBilling.name}
                       </div>
+
                       {/* <Mail /> */}
                       <div className={odcss.name}>
                         <svg
@@ -127,6 +128,7 @@ const Orderdetails = (props) => {
                         </svg>
                         {res.ONDCBilling.email}
                       </div>
+
                       {/* <Phone /> */}
                       <div className={odcss.name}>
                         <svg
