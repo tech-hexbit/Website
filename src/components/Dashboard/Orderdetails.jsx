@@ -200,13 +200,7 @@ const Orderdetails = (props) => {
                           .settlement_bank_account_no
                       }
                     </p>
-
-                    <div className={odcss.transactions}>
-                      <div className={odcss["payment-method"]}>
-                        Total amount :
-                      </div>
-                      <div className={odcss.div3}>{res.amount}</div>
-                    </div>
+                    <p className={odcss.pl1}>Total amount : {res.amount}</p>
                   </div>
                 </div>
               </div>
