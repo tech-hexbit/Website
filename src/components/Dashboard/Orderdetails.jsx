@@ -148,6 +148,7 @@ const Orderdetails = (props) => {
                   </div>
                 </div>
 
+                {/* Shipping */}
                 <div className={odcss.customerDetails}>
                   <div className={odcss.SubHeading}>Shipping address</div>
                   <div className={odcss.ContentDels}>
@@ -177,6 +178,7 @@ const Orderdetails = (props) => {
                   </div>
                 </div>
 
+                {/* Payment */}
                 <div className={odcss.customerDetails}>
                   <div className={odcss.SubHeading}>Payment details</div>
                   <div className={odcss.ContentDels}>
