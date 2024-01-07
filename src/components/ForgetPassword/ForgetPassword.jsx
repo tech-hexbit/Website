@@ -3,11 +3,10 @@ import { Link } from "react-router-dom";
 
 // components
 import Form1 from "./Form1" 
-import Form1 from "./Form1" 
+import Form1 from "./Form2" 
 
 //MicroInteraction
 import Load from "../../MicroInteraction/Load";
-
 
 //css
 import fpstyle from "./CSS/ForgetPassword.module.css";
@@ -15,7 +14,6 @@ import fpstyle from "./CSS/ForgetPassword.module.css";
 export default function ForgetPassword() {
   const [load, setLoad] = useState(false);
   const [forget, setForget] = useState(true);
-  const [input, setInput] = useState({ email: "", phone: "", otp: "" });
 
   useEffect(() => {
     window.scrollTo(0, 0);
