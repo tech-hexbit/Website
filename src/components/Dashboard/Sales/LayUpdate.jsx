@@ -66,7 +66,7 @@ export default function LayUpdate(props) {
     setSelectedValue(event.target.value);
   };
 
-  console.log(props);
+  // console.log(props);
 
   return (
     <>
