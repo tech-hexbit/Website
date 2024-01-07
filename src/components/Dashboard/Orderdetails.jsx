@@ -150,51 +150,67 @@ const Orderdetails = (props) => {
 
                 <div className={odcss.customerDetails}>
                   <div className={odcss.SubHeading}>Shipping address</div>
-                  <div className={odcss.addressdetails}>
+                  <div className={odcss.ContentDels}>
                     <div className={odcss.adress}>
-                      <p className={odcss.adl1}>{res.ShippingAddress}</p>
-                      <p className={odcss.adl2}></p>
-                      <p className={odcss.adl3}></p>
+                      <p className={odcss.adl1}>
+                        Name: {res.ONDCBilling.address.name}
+                      </p>
+                      <p className={odcss.adl1}>
+                        Building: {res.ONDCBilling.address.building}
+                      </p>
+                      <p className={odcss.adl1}>
+                        Locality: {res.ONDCBilling.address.locality}
+                      </p>
+                      <p className={odcss.adl1}>
+                        City: {res.ONDCBilling.address.city}
+                      </p>
+                      <p className={odcss.adl1}>
+                        State: {res.ONDCBilling.address.state}
+                      </p>
+                      <p className={odcss.adl1}>
+                        Country: {res.ONDCBilling.address.country}
+                      </p>
+                      <p className={odcss.adl1}>
+                        Area Code: {res.ONDCBilling.address.area_code}
+                      </p>
                     </div>
                   </div>
                 </div>
 
                 <div className={odcss.customerDetails}>
-                  <div className={odcss["cust-details"]}>
-                    <div className={odcss.SubHeading}>Payment details</div>
-                    <div className={odcss["details-list"]}>
-                      <div className={odcss.transactions}></div>
-                      <div className={odcss.transactions}>
-                        <p className={odcss["payment-method"]}>
-                          Payment method :{" "}
-                          <span className={odcss["p-method"]}>
-                            {res.payment.tl_method}
-                          </span>
-                        </p>
+                  <div className={odcss.SubHeading}>Payment details</div>
+                  <div className={odcss["details-list"]}>
+                    <div className={odcss.transactions}></div>
+                    <div className={odcss.transactions}>
+                      <p className={odcss["payment-method"]}>
+                        Payment method :{" "}
+                        <span className={odcss["p-method"]}>
+                          {res.payment.tl_method}
+                        </span>
+                      </p>
+                    </div>
+                    <div className={odcss.transactions}>
+                      <p className={odcss["payment-method"]}>
+                        Card holder name :{" "}
+                        <span className={odcss["c-holdername"]}>
+                          {
+                            res.payment["@ondc/org/settlement_details"][0]
+                              .beneficiary_name
+                          }
+                        </span>
+                      </p>
+                    </div>
+                    <div className={odcss.transactions}>
+                      <div className={odcss["payment-method"]}>
+                        Card number :
                       </div>
-                      <div className={odcss.transactions}>
-                        <p className={odcss["payment-method"]}>
-                          Card holder name :{" "}
-                          <span className={odcss["c-holdername"]}>
-                            {
-                              res.payment["@ondc/org/settlement_details"][0]
-                                .beneficiary_name
-                            }
-                          </span>
-                        </p>
+                      <div className={odcss.cno}>afaf</div>
+                    </div>
+                    <div className={odcss.transactions}>
+                      <div className={odcss["payment-method"]}>
+                        Total amount :
                       </div>
-                      <div className={odcss.transactions}>
-                        <div className={odcss["payment-method"]}>
-                          Card number :
-                        </div>
-                        <div className={odcss.cno}>afaf</div>
-                      </div>
-                      <div className={odcss.transactions}>
-                        <div className={odcss["payment-method"]}>
-                          Total amount :
-                        </div>
-                        <div className={odcss.div3}>{res.amount}</div>
-                      </div>
+                      <div className={odcss.div3}>{res.amount}</div>
                     </div>
                   </div>
                 </div>
