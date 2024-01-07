@@ -50,7 +50,7 @@
 }
 
 #td:nth-child(2) {
-  width: 100%;
+  width: 80%;
 }
 
 .amount {
@@ -152,12 +152,11 @@
   }
 
   #td {
-    font-size: 15px;
     margin-right: auto;
   }
 
-  #th {
-    font-size: 15px;
+  .col1 {
+    width: 300px;
   }
 }
 
