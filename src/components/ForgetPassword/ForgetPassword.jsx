@@ -55,6 +55,7 @@ export default function ForgetPassword() {
               />
             </div>
           </div>
+
           {/* OTP */}
           <div className={style.inputPO}>
             <label htmlFor="otp">
