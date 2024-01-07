@@ -17,38 +17,10 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 import RCss from "./css/recentOrders.module.css";
 
 export default function RecentOrders() {
-  const [orderNumber, setOrderNumber] = useState(0);
-  const [orderDel, setOrderDel] = useState([]);
   const [load, setLoad] = useState(false);
-  const [showHeaders, setShowHeaders] = useState(
-    window.matchMedia("(min-width: 751px)").matches
-  );
+  const [orderDel, setOrderDel] = useState([]);
+  const [orderNumber, setOrderNumber] = useState(0);
 
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(min-width: 751px)");
-
-    const handleResize = () => {
-      setShowHeaders(mediaQuery.matches);
-    };
-    mediaQuery.addListener(handleResize);
-
-    return () => {
-      mediaQuery.removeListener(handleResize);
-    };
-  }, []);
-
-  useEffect(() => {
-    const mediaQueryMaxWidth = window.matchMedia("(max-width: 750px)");
-
-    const handleResize = () => {
-      setShowLabels(mediaQueryMaxWidth.matches);
-    };
-
-    mediaQueryMaxWidth.addListener(handleResize);
-    return () => {
-      mediaQueryMaxWidth.removeListener(handleResize);
-    };
-  }, []);
   useEffect(() => {
     loadData();
   }, []);
