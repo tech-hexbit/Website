@@ -404,10 +404,9 @@ export default function OverallSales() {
                                   ₹ {val.amount.toFixed(2)}
                                 </td>
                                 <td data-cell="ORDERED ON"> {val.when.date}</td>
-                                <td data-cell="PAYMENT METHOD">
-                                  {" "}
-                                  {val.status}
-                                </td>
+                                <td data-cell="PAYMENT METHOD">{val.status}</td>
+
+                                <td data-cell="BUYER ">{val.buyer}</td>
 
                                 <UpdateState
                                   state={val.state}
@@ -416,8 +415,6 @@ export default function OverallSales() {
                                   loadDataState={loadDataState}
                                   dataCell="DELIVERY STATUS"
                                 />
-
-                                <td data-cell="BUYER ">{val.buyer}</td>
                               </tr>
                             );
                           })}
