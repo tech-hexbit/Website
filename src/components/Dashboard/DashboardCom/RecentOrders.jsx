@@ -67,19 +67,17 @@ export default function RecentOrders() {
               <>
                 <div className={RCss.table}>
                   <table className={RCss.tableTag}>
-                    {!window.matchMedia("(max-width: 751px)").matches && (
-                      <tr className={RCss.trHrline}>
-                        <th id={RCss.th}>ID</th>
-                        <th id={RCss.th} className={RCss.product}>
-                          Product
-                        </th>
-                        <th id={RCss.th}>Amount</th>
-                        <th id={RCss.th} className={RCss.quantity}>
-                          Quantity
-                        </th>
-                        <th id={RCss.th}>Status</th>
-                      </tr>
-                    )}
+                    <tr className={RCss.trHrline}>
+                      <th id={RCss.th}>ID</th>
+                      <th id={RCss.th} className={RCss.product}>
+                        Product
+                      </th>
+                      <th id={RCss.th}>Amount</th>
+                      <th id={RCss.th} className={RCss.quantity}>
+                        Quantity
+                      </th>
+                      <th id={RCss.th}>Status</th>
+                    </tr>
                     {orderDel ? (
                       <>
                         {orderDel.map((val, key) => {
