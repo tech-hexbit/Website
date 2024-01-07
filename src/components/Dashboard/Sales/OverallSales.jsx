@@ -252,7 +252,7 @@ export default function OverallSales() {
                       <>
                         <tr>
                           <th className={osCss.thTag}>
-                            <p>Id</p>
+                            <p>Order ID</p>
                           </th>
                           <th className={osCss.thTag} onClick={sortByName}>
                             Customer
