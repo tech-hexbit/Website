@@ -41,7 +41,7 @@ export default function Categories() {
       const response = await axios.get(
         `/api/common/product/all?page=${currentPage}`,
         {
-          headers: { Authorization: `${authCtx.token}` }
+          headers: { Authorization: `${authCtx.token}` },
         }
       );
 

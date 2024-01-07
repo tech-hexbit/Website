@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 
-// components
+// MicroInteraction
 import Load from "./../../MicroInteraction/Load";
 import { Alert } from "./../../MicroInteraction/Alert";
 

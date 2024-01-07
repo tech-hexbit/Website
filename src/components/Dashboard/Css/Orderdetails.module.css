@@ -10,12 +10,29 @@
 
 .details {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  gap: 30px 0px;
+  flex-wrap: wrap;
+  margin: 50px 0px;
 }
 
-.customer-details {
-  padding-top: 35px;
+.BlockSub {
+  /* padding-top: 35px; */
   font-size: 20px;
+  width: 30%;
+  /* min-width: 30%; */
+}
+
+#customerDetails {
+  min-width: 350px;
+}
+
+#shippingDetails {
+  min-width: 400px;
+}
+
+#paymentDetails {
+  min-width: 550px;
 }
 
 .email {
@@ -26,7 +43,7 @@
   display: flex;
 }
 
-.customer-details1 {
+.SubHeading {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   text-align: center;
   font-size: 1.4rem;
@@ -51,17 +68,12 @@
   text-align: center;
 }
 
-.name-text {
+.ContentDels {
   padding: 15px;
   margin-top: 5px;
-
   color: gray;
   font-size: 1.1rem;
-  font-weight: bold;
-}
-
-.c-name {
-  color: gray;
+  /* font-weight: bold; */
 }
 
 .mail {
@@ -77,20 +89,28 @@
 }
 
 .name {
+  display: flex;
+  align-items: center;
   margin-bottom: 29px;
+  color: gray;
+  gap: 0px 10px;
+}
+
+.particuarsSvg {
+  color: #000;
 }
 
 .adress {
   margin-top: 20px;
   font-size: 1.1rem;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .transactions {
   display: flex;
   align-items: center;
   font-size: 1.1rem;
-  font-weight: bold;
+  /* font-weight: bold; */
   color: gray;
 }
 
@@ -119,7 +139,7 @@
 .product-details1 {
   text-decoration: solid;
   font-size: 1.4rem;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .products-table th {
@@ -156,10 +176,6 @@ td {
   font-size: 20px;
 }
 
-.name {
-  display: flex;
-}
-
 .product_rating {
   display: flex;
   margin-left: 130px;
@@ -175,7 +191,7 @@ td {
   margin: 20px 30px;
   gap: 0px 20px;
   font-size: 1.4rem;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .total-bill {
@@ -185,7 +201,7 @@ td {
 
 .tbtext {
   font-size: 25px;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .total-billdetails {
@@ -200,20 +216,20 @@ td {
 .titleVal {
   display: inline-block;
   width: 200px;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .gt {
   text-align: center;
   margin: 7px 0px;
   font-size: 1.4rem;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .dt1 {
   margin: 12px 0px;
   font-size: 1.1rem;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .LogisticsGif {
@@ -228,12 +244,12 @@ td {
   display: flex;
   padding-top: 40px;
   font-size: 18px;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .amtbold {
   margin-left: 485px;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .leftArrow {
@@ -258,11 +274,11 @@ td {
     padding: 10px;
   }
 
-  .details {
+  /* .details {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
+  } */
 
   .adress {
     text-align: center;
@@ -287,12 +303,12 @@ td {
     padding-top: 2px;
   }
 
-  .name,
+  /* .name,
   .dettails {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
+  } */
 
   .product-details1 {
     font-size: 1.2rem;
@@ -333,5 +349,11 @@ td {
   img {
     max-width: 100%;
     height: auto;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  #paymentDetails {
+    min-width: 300px;
   }
 }
