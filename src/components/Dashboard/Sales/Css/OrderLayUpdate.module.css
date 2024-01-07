@@ -96,3 +96,12 @@
   font-weight: 400;
   margin: 0px 0px 20px 0px;
 }
+
+.tableCatTTagDel td {
+  padding: 27px 5px 27px;
+  border-bottom: 1px solid #ddd;
+}
+
+.tableCatTTagDel tr:hover {
+  background-color: #ebefff;
+}
