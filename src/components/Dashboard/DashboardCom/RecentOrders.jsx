@@ -78,30 +78,20 @@ export default function RecentOrders() {
                       </th>
                       <th id={RCss.th}>Status</th>
                     </tr>
+
                     {orderDel ? (
                       <>
                         {orderDel.map((val, key) => {
                           return (
                             <tr key={key}>
                               <td id={RCss.td} class={RCss.truncate}>
-                                {!window.matchMedia("(min-width: 750px)")
-                                  .matches && <b>ID:</b>}{" "}
                                 {val._id.slice(-4)}
                               </td>
                               <td id={RCss.td} className={RCss.product}>
-                                {!window.matchMedia("(min-width: 750px)")
-                                  .matches && <b>PRODUCT:</b>}{" "}
                                 {val.Items[0].ItemID.descriptor.name}
                               </td>
-                              <td id={RCss.td}>
-                                {" "}
-                                {!window.matchMedia("(min-width: 750px)")
-                                  .matches && <b>AMOUNT:</b>}{" "}
-                                ₹ {val.amount.toFixed(2)}
-                              </td>
+                              <td id={RCss.td}>₹ {val.amount.toFixed(2)}</td>
                               <td id={RCss.td} className={RCss.quantity}>
-                                {!window.matchMedia("(min-width: 750px)")
-                                  .matches && <b>QUANTITY:</b>}{" "}
                                 {val.Items[0].quantity}
                               </td>
                               <td
@@ -112,8 +102,6 @@ export default function RecentOrders() {
                                     : { color: "#800000" }
                                 }
                               >
-                                {!window.matchMedia("(min-width: 750px)")
-                                  .matches && <b>SALES:</b>}{" "}
                                 {val.status}
                               </td>
                             </tr>
