@@ -17,12 +17,17 @@ import LogisticsGif from "./../../assets/Logistic/Logistics.gif";
 
 const Orderdetails = (props) => {
   const [load, setLoad] = useState(false);
+  const [edit, setEdit] = useState(false);
   const [loadData, setLoadData] = useState(false);
   const [res, setres] = useState(null);
 
   useEffect(() => {
     loadOrderdel(props.id);
-  }, [props.id, loadData]);
+  }, [props.id]);
+
+  useEffect(() => {
+    console.log(loadData);
+  }, [loadData]);
 
   const authCtx = useContext(AuthContext);
 
@@ -214,16 +219,17 @@ const Orderdetails = (props) => {
               </div>
 
               <UpdateDel
+                setEdit={setEdit}
                 id={props.id}
                 setLoadDataState={setLoadData}
                 loadDataState={loadData}
               />
 
-              <div className={odcss["product-details"]}>
+              {/* <div className={odcss["product-details"]}>
                 <div className={odcss["text-content"]}>
-                  <p className={odcss["product-details1"]}>Product details:</p>
-                  {/* <br /> */}
-                  {/* <div className={odcss["products-table"]}>
+                  <p className={odcss["product-details1"]}>Product details:</p> */}
+              {/* <br /> */}
+              {/* <div className={odcss["products-table"]}>
                      <table>
                       <thead>
                         <tr>
@@ -283,11 +289,11 @@ const Orderdetails = (props) => {
                       </tbody>
                     </table> 
                   </div>*/}
-                  <p>
+              {/* <p>
                     Total Number of Products = <b>{res.Items.length}</b>
                   </p>
                 </div>
-              </div>
+              </div> */}
 
               <div className={odcss["text-content"]}>
                 <div className={odcss["overlap-group"]}>
