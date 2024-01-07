@@ -52,12 +52,11 @@ export default function OverallSales() {
     try {
       const response = await axios.post(
         `/api/common/Order/all?page=${currentPage}`,
+        filters,
         {
           headers: { Authorization: `${authCtx.token}` },
         }
       );
-
-      console.log(response);
 
       if (response.data.success) {
         setProdcutsCount(response?.data?.length);
@@ -182,21 +181,7 @@ export default function OverallSales() {
   }, [buyer]);
 
   useEffect(() => {
-    console.log(filters);
-
     loadData();
-
-    // if (filters.buyer !== "" || filters.status !== "") {
-    //   var filterValues = orderDelCopy.filter((order) => {
-    //     if (order.buyer == filters.buyer || order.state == filters.status) {
-    //       return true;
-    //     }
-    //     return false;
-    //   });
-
-    //   setOrderDel(filterValues);
-    // } else {
-    // }
   }, [filters]);
 
   return (
@@ -231,6 +216,7 @@ export default function OverallSales() {
                     <option value="Status" hidden selected>
                       Status
                     </option>
+                    <option value="Created">Created</option>
                     <option value="Accepted">Accepted</option>
                     <option value="In-progress">In-progress</option>
                     <option value="Completed">Completed</option>
