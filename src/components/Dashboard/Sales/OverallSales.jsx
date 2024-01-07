@@ -44,38 +44,6 @@ export default function OverallSales() {
     status: "",
   });
 
-  useEffect(() => {
-    loadData();
-  }, [currentPage, loadDataState]);
-
-  // scroll to top
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [, currentPage]);
-
-  useEffect(() => {
-    maxPage();
-  }, [prodcutsCount, currentPage]);
-
-  useEffect(() => {
-    const u = (buyer) => [...new Set(buyer)];
-    setunique(u(buyer));
-  }, [buyer]);
-
-  useEffect(() => {
-    if (filters.buyer !== "" || filters.status !== "") {
-      var filterValues = orderDelCopy.filter((order) => {
-        if (order.buyer == filters.buyer || order.state == filters.status) {
-          return true;
-        }
-        return false;
-      });
-
-      setOrderDel(filterValues);
-    } else {
-    }
-  }, [filters]);
-
   const authCtx = useContext(AuthContext);
 
   const loadData = async () => {
@@ -192,6 +160,38 @@ export default function OverallSales() {
     const value = e.target.value;
     setfilters({ ...filters, [name]: value });
   };
+
+  useEffect(() => {
+    loadData();
+  }, [currentPage, loadDataState]);
+
+  // scroll to top
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [, currentPage]);
+
+  useEffect(() => {
+    maxPage();
+  }, [prodcutsCount, currentPage]);
+
+  useEffect(() => {
+    const u = (buyer) => [...new Set(buyer)];
+    setunique(u(buyer));
+  }, [buyer]);
+
+  useEffect(() => {
+    if (filters.buyer !== "" || filters.status !== "") {
+      var filterValues = orderDelCopy.filter((order) => {
+        if (order.buyer == filters.buyer || order.state == filters.status) {
+          return true;
+        }
+        return false;
+      });
+
+      setOrderDel(filterValues);
+    } else {
+    }
+  }, [filters]);
 
   return (
     <>
