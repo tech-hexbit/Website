@@ -85,6 +85,7 @@ const Orderdetails = (props) => {
                     </div>
                     <div className={odcss["texxt-content-child"]} />
                     <div className={odcss["name-text"]}>
+                      {/* Name */}
                       <div className={odcss.name}>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -106,18 +107,16 @@ const Orderdetails = (props) => {
 
                         {res.ONDCBilling.name}
                       </div>
-                      <div className={odcss.dettails}>
-                        <div className={odcss.email}>
-                          {/* <Mail /> */}
-                          <div className={odcss.mail}>
-                            {res.ONDCBilling.email}
-                          </div>
+                      {/* <Mail /> */}
+                      <div className={odcss.name}>
+                        <div className={odcss.mail}>
+                          {res.ONDCBilling.email}
                         </div>
-                        <div className={odcss.mobile}>
-                          {/* <Phone /> */}
-                          <div className={odcss.phone}>
-                            {res.ONDCBilling.phone}
-                          </div>
+                      </div>
+                      {/* <Phone /> */}
+                      <div className={odcss.mobile}>
+                        <div className={odcss.phone}>
+                          {res.ONDCBilling.phone}
                         </div>
                       </div>
                     </div>
