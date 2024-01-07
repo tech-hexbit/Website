@@ -82,6 +82,10 @@ export default function OTP(props) {
             />
             <button>Resend OTP</button>
           </div>
+
+          <p>
+            <Link to="/forgotpassword" className="LinkStyle"></Link>
+          </p>
         </div>
       </div>
     </>
