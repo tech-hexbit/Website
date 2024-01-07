@@ -17,43 +17,10 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 import RCss from "./css/recentOrders.module.css";
 
 export default function RecentOrders() {
-  const [orderNumber, setOrderNumber] = useState(0);
-  const [orderDel, setOrderDel] = useState([]);
   const [load, setLoad] = useState(false);
-  const [showHeaders, setShowHeaders] = useState(window.matchMedia("(min-width: 751px)").matches);
-  
+  const [orderDel, setOrderDel] = useState([]);
+  const [orderNumber, setOrderNumber] = useState(0);
 
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(min-width: 751px)");
-    
-
-    const handleResize = () => {
-      setShowHeaders(mediaQuery.matches);
-      
-    }; 
-    mediaQuery.addListener(handleResize);
-    
-    return () => {
-      mediaQuery.removeListener(handleResize);
-     
-    };
-  }, []);
- 
-  useEffect(() => {
-    
-    const mediaQueryMaxWidth = window.matchMedia("(max-width: 750px)");
-
-    const handleResize = () => {
-      
-      setShowLabels(mediaQueryMaxWidth.matches);
-    }; 
-    
-    mediaQueryMaxWidth.addListener(handleResize);
-    return () => {
-      
-      mediaQueryMaxWidth.removeListener(handleResize);
-    };
-  }, []);
   useEffect(() => {
     loadData();
   }, []);
@@ -100,7 +67,6 @@ export default function RecentOrders() {
               <>
                 <div className={RCss.table}>
                   <table className={RCss.tableTag}>
-                  {!window.matchMedia("(max-width: 751px)").matches && (
                     <tr className={RCss.trHrline}>
                       <th id={RCss.th}>ID</th>
                       <th id={RCss.th} className={RCss.product}>
@@ -112,45 +78,48 @@ export default function RecentOrders() {
                       </th>
                       <th id={RCss.th}>Status</th>
                     </tr>
-                  )}
+
                     {orderDel ? (
                       <>
                         {orderDel.map((val, key) => {
                           return (
-                           
-                            <tr key={key} >
-                              <td id={RCss.td} class={RCss.truncate}>
-                              {!window.matchMedia("(min-width: 750px)").matches && (
-                                  <b>ID:</b>
-                                )}   {val._id.slice(-4)}
-                              </td>
-                              <td id={RCss.td} className={RCss.product}>
-                              {!window.matchMedia("(min-width: 750px)").matches && (
-                                  <b>PRODUCT:</b>
-                                )}   {val.Items[0].ItemID.descriptor.name}
-                              </td>
-                              <td id={RCss.td}>  {!window.matchMedia("(min-width: 750px)").matches && (
-                                  <b>AMOUNT:</b>
-                                )} ₹ {val.amount.toFixed(2)}</td>
-                              <td id={RCss.td} className={RCss.quantity}>
-                              {!window.matchMedia("(min-width: 750px)").matches && (
-                                  <b>QUANTITY:</b>
-                                )} {val.Items[0].quantity}
+                            <tr key={key}>
+                              <td
+                                id={RCss.td}
+                                class={RCss.truncate}
+                                data-cell="ID"
+                              >
+                                {val._id.slice(-4)}
                               </td>
                               <td
                                 id={RCss.td}
+                                className={RCss.product}
+                                data-cell="Product"
+                              >
+                                {val.Items[0].ItemID.descriptor.name}
+                              </td>
+                              <td id={RCss.td} data-cell="Amount">
+                                ₹ {val.amount.toFixed(2)}
+                              </td>
+                              <td
+                                id={RCss.td}
+                                className={RCss.quantity}
+                                data-cell="Quantity"
+                              >
+                                {val.Items[0].quantity}
+                              </td>
+                              <td
+                                id={RCss.td}
+                                data-cell="Status"
                                 style={
                                   val.status === "PAID"
                                     ? { color: "#4BB543" }
                                     : { color: "#800000" }
                                 }
                               >
-                               {!window.matchMedia("(min-width: 750px)").matches && (
-                                  <b>SALES:</b>
-                                )}  {val.status}
+                                {val.status}
                               </td>
                             </tr>
-                           
                           );
                         })}
                       </>

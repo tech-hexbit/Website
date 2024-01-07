@@ -252,7 +252,7 @@ export default function OverallSales() {
                       <>
                         <tr>
                           <th className={osCss.thTag}>
-                            <p>Id</p>
+                            <p>Order ID</p>
                           </th>
                           <th className={osCss.thTag} onClick={sortByName}>
                             Customer
@@ -370,10 +370,11 @@ export default function OverallSales() {
                               />
                             </svg>
                           </th>
-                          <th className={osCss.payment}>Delivery status</th>
                           <th>Buyer</th>
+                          <th className={osCss.payment}>Delivery status</th>
                         </tr>
 
+                        {/* Maping Data */}
                         {orderDel
                           .filter((value) => {
                             if (search === "") {
@@ -404,10 +405,9 @@ export default function OverallSales() {
                                   ₹ {val.amount.toFixed(2)}
                                 </td>
                                 <td data-cell="ORDERED ON"> {val.when.date}</td>
-                                <td data-cell="PAYMENT METHOD">
-                                  {" "}
-                                  {val.status}
-                                </td>
+                                <td data-cell="PAYMENT METHOD">{val.status}</td>
+
+                                <td data-cell="BUYER ">{val.buyer}</td>
 
                                 <UpdateState
                                   state={val.state}
@@ -416,8 +416,6 @@ export default function OverallSales() {
                                   loadDataState={loadDataState}
                                   dataCell="DELIVERY STATUS"
                                 />
-
-                                <td data-cell="BUYER ">{val.buyer}</td>
                               </tr>
                             );
                           })}

@@ -13,9 +13,9 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 import BSCss from "./css/bestSeller.module.css";
 
 export default function BestSellers() {
-  const [orderNumber, setOrderNumber] = useState(0);
-  const [orderDel, setOrderDel] = useState([]);
   const [load, setLoad] = useState(false);
+  const [orderDel, setOrderDel] = useState([]);
+  const [orderNumber, setOrderNumber] = useState(0);
 
   useEffect(() => {
     loadData();
@@ -71,7 +71,6 @@ export default function BestSellers() {
                   <th id={BSCss.th} className={BSCss.sales}>
                     Sales
                   </th>
-                  <th id={BSCss.th}>Ratings</th>
                 </tr>
 
                 {orderDel ? (
@@ -79,11 +78,7 @@ export default function BestSellers() {
                     {orderDel.map((val, key) => {
                       return (
                         <tr key={key}>
-                          <td
-                            data-cell="Product"
-                            id={BSCss.td}
-                            className="prod"
-                          >
+                          <td data-cell="" id={BSCss.td} className="prod">
                             <div className={BSCss.col1}>
                               <div className={BSCss.image}>
                                 <img
@@ -98,9 +93,6 @@ export default function BestSellers() {
                           </td>
                           <td data-cell="Amount" id={BSCss.td}>
                             {val.totalSold}
-                          </td>
-                          <td data-cell="Ratings" id={BSCss.td}>
-                            {val.rating.toFixed(1)}
                           </td>
                         </tr>
                       );

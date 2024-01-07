@@ -55,29 +55,28 @@
 }
 
 /* media queries */
-
 @media (max-width: 1050px) {
   .main {
     justify-content: start;
   }
 
-  th {
+  .trans_table th {
     display: none;
   }
 
-  td {
+  .trans_table td {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
 
-  td:before {
+  .trans_table td:before {
     content: attr(data-cell) " :";
     font-weight: 600;
     text-transform: capitalize;
     padding-right: 0.5em;
   }
 
-  td:first-child {
+  .trans_table td:first-child {
     padding-block-start: 1rem;
   }
 

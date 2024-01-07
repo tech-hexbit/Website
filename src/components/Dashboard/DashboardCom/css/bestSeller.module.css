@@ -21,7 +21,7 @@
 
 .col1 {
   display: flex;
-  width: 200px;
+  width: 500px;
 }
 
 .image {
@@ -38,19 +38,19 @@
   font-size: 12px;
 }
 
-#th {
+.table #th {
   color: #000;
   font-size: 15px;
   font-weight: 400;
 }
 
-#td {
+.table #td {
   padding: 25px 15px 15px 0px;
   border-bottom: #ddd 1px solid;
 }
 
-#td:nth-child(2) {
-  width: 100%;
+.table #td:nth-child(2) {
+  width: 80%;
 }
 
 .amount {
@@ -151,33 +151,75 @@
     padding: 20px;
   }
 
-  #td {
-    font-size: 15px;
-    margin-right: auto;
-  }
-
-  #th {
-    font-size: 15px;
+  .col1 {
+    width: 300px;
   }
 }
 
-@media screen and (max-width: 450px) {
-  .col1 {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-
-  .image {
-    padding: 0px;
-  }
-
-  .BusinessNameSel {
+@media screen and (max-width: 650px) {
+  .table th {
     display: none;
   }
 
-  .tableTag tr th:nth-child(1),
-  .tableTag tr td:nth-child(1) {
-    width: 70px;
+  .table {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .table tr:nth-child(1) {
+    display: none;
+  }
+
+  .table tr {
+    display: flex;
+    flex-direction: column;
+    min-width: 250px;
+    border-radius: 5px;
+  }
+
+  .table #td {
+    width: 100%;
+    border-bottom: 0px solid #ddd;
+  }
+
+  .table #td:first-child {
+    padding-top: 1rem;
+  }
+
+  .table #td:last-child {
+    padding: 0px 0px 1rem 0px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .table td {
+    display: block;
+    padding: 0.5rem 1rem;
+  }
+
+  .table td:nth-child(2)::before {
+    content: attr(data-cell) ": ";
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+
+  .table #td:nth-child(2) {
+    text-align: left;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .mainDiv {
+    width: 90%;
+    margin: 0px 5%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .mainDiv {
+    width: 88%;
   }
 }

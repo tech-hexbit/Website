@@ -27,7 +27,6 @@
   border-collapse: collapse;
   display: block;
   position: relative;
-
 }
 
 .trHrline {
@@ -35,7 +34,6 @@
   border-color: #e3e3e3;
   border-width: 0px 0px 1px 0px;
 }
-
 
 .tableTag::-webkit-scrollbar {
   width: 0px;
@@ -63,11 +61,10 @@
   position: sticky;
   left: 0;
   z-index: 20;
- 
+
   background-color: #fff;
   text-align: center;
 }
-
 
 .tableTag tr th,
 .tableTag tr td {
@@ -76,8 +73,6 @@
   z-index: 1;
   background-color: #fff;
 }
-  
-
 
 .tableTag tr th:nth-child(2),
 .tableTag tr td:nth-child(2) {
@@ -95,7 +90,6 @@
 
 #td {
   padding: 6px;
-
 }
 
 .product {
@@ -131,7 +125,6 @@
   font-size: 12px;
   text-decoration: underline;
   cursor: pointer;
- 
 }
 
 .truncate {
@@ -141,54 +134,64 @@
   width: 50px;
 }
 
-@media screen and (max-width: 750px) {
-
-   
-
-
-
-  .tableTag tr th,
-  .tableTag tr td {
-    width: 100px;
-
-    display: block;
-    text-align: left;
+@media only screen and (max-width: 750px) {
+  .middle {
+    padding: 0px;
+    display: flex;
   }
 
-  .tableTag tr th:first-child,
-  .tableTag tr td:first-child {
-    position: relative;
-    padding-left: 0%;
-    width: 75px;
-  }
-
-  .tableTag tr th,
-  .tableTag tr td {
-    width: 200%;
-    box-sizing: border-box;
-    border-bottom: none;
-    padding: 10px;
-    text-align: left;
-  }
-
-  .tableTag tr th:nth-child,
-  .tableTag tr td:nth-child {
-    background-color: transparent;
-  }
-  .bottom {
-    padding: 12px 0px 30px 0px;
-  }
-}
-
-
-
-
-@media screen and (min-width: 750px) {
-  .tableTag tr td label {
+  .tableTag th {
     display: none;
   }
+
+  .tableTag tr:nth-child(1) {
+    display: none;
+  }
+
+  .tableTag tr {
+    display: flex;
+    flex-direction: column;
+    min-width: 250px;
+    border-radius: 5px;
+  }
+
+  .tableTag #td {
+    text-align: left;
+    width: 100%;
+    border-bottom: 0px solid #ddd;
+  }
+
+  .tableTag #td:first-child {
+    padding-top: 1rem;
+  }
+
+  .tableTag #td:last-child {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .tableTag td {
+    display: block;
+    padding: 0.5rem 1rem;
+  }
+
+  .tableTag td::before {
+    content: attr(data-cell) ": ";
+    font-weight: 700;
+    text-transform: capitalize;
+    color: #000;
+  }
 }
 
+@media screen and (max-width: 600px) {
+  .mainDiv {
+    width: 90%;
+    margin: 0px 5%;
+  }
+}
 
-
-
+@media screen and (max-width: 400px) {
+  .mainDiv {
+    width: 88%;
+  }
+}
