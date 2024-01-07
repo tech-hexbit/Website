@@ -12,10 +12,8 @@
   z-index: 3;
 }
 
-.contendDiv {
-  /* margin-top: 44px; */
-  /* width: 70%; */
-  /* max-height: 80vh; */
+.contendDiv,
+.contendDivDel {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,6 +24,12 @@
   border-radius: 15px;
   color: #000;
   overflow-y: scroll;
+}
+
+.contendDiv {
+  margin-top: 44px;
+  width: 70%;
+  max-height: 80vh;
 }
 
 .tableCatTTagDel {
