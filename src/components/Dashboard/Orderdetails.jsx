@@ -77,6 +77,7 @@ const Orderdetails = (props) => {
                 </div>
               </div>
 
+              {/* Customer || Shipping || Payment */}
               <div className={odcss.details}>
                 <div className={odcss.customerDetails}>
                   <div className={odcss["customer-details1"]}>
