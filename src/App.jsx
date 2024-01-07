@@ -16,8 +16,8 @@ const Error = React.lazy(() => import("./Pages/Error"));
 const Contact = React.lazy(() => import("./Pages/Contact"));
 const Privacy = React.lazy(() => import("./Pages/Privacy"));
 const ForgotPassword=React.lazy(()=>import("./Pages/ForgotPassword"));
-const ForgetPassword=React.lazy(()=>import("../src/components/ForgetPassword/ForgetPasswordSec"));
-const PasswordChanged=React.lazy(()=>import("../src/components/ForgetPassword/PwdChanged"));
+// const ForgetPassword=React.lazy(()=>import("./Pages/ForgotPasswordSec"));
+const PasswordChanged=React.lazy(()=>import("./Pages/PasswordChanged"));
 //        || Auth
 const SignIn = React.lazy(() => import("./Pages/SignIn"));
 const Register = React.lazy(() => import("./Pages/Register"));
@@ -103,14 +103,14 @@ function App() {
                 </Suspense>
               }
             />
-            <Route 
+            {/* <Route 
               path="/forgotpasswordsec"
               element={
                 <Suspense fallback={<LoadingPage />}>
                   <ForgetPassword/>
                 </Suspense>
               }
-            />
+            /> */}
             <Route 
               path="/changepwd"
               element={

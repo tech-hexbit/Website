@@ -2,6 +2,8 @@
     text-align: center;
     justify-content: center;
     padding-top: 10%;
+    padding-left:10px;
+    padding-right:10px;
     font-size:44px;
 }
 
@@ -35,4 +37,9 @@
     font-weight: 700;
     font-size: 34px;
     padding-bottom: 40px;
+  }
+
+  .linkStyle{
+    text-decoration: none;
+    color:#4A246F;
   }

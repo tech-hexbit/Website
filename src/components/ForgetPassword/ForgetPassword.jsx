@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from "react";
-import style from "./CSS/ForgetPassword.module.css"
 import { Link } from "react-router-dom";
 import Load from "../../MicroInteraction/Load";
 
+//style
+import style from "./CSS/ForgetPassword.module.css"
+
+
 export default function ForgetPassword(){
+    const [input, setInput] = useState({ email: "", phone: "" , otp: ""});
+    const [load, setLoad] = useState(false);
+    const[forget,setForget]=useState(true);
 
     useEffect(() => {
         window.scrollTo(0, 0);
-      }, []);
-
-    const [input, setInput] = useState({ email: "", phone: "" , otp: ""});
-    const [load, setLoad] = useState(false);
+      }, [forget]);
 
     return(
         <>
@@ -19,7 +22,10 @@ export default function ForgetPassword(){
                     <h1 className={style.forgot}>Forgot Password?</h1>
                     <p className={style.dont}>Don't worry. We can help.</p>
                     {/* Email */}
-                    <div className={style.inputEP}>
+                    {
+                        forget ? (
+                            <>
+                            <div className={style.inputEP}>
                         <label>Email address *</label>
                         <br />
                         <input
@@ -67,13 +73,61 @@ export default function ForgetPassword(){
                             <button>Resend OTP</button>
                         </div>
                     </div>
+                            </>
+                        ):(
+                            <><div className={style.inputEP}>
+                            <label>Create New Password *</label>
+                            <br />
+                            <input
+                                type="password"
+                                placeholder="Enter Password"
+                                id="password"
+                                name="password"
+                                value={input.newpwd}
+                                onChange={(e) => {
+                                setInput({ ...input, newpwd: e.target.value });
+                                }}
+                            />
+                        </div>
+    
+                        {/* Phone */}
+                        <div className={style.inputPO}>
+                            <label htmlFor="password">
+                                Confirm New Password<span style={{ color: "#350B5E" }}>*</span>
+                            </label>
+                            <br />
+                            <input
+                                type="password"
+                                placeholder="Enter Password"
+                                id="password"
+                                name="password"
+                                value={input.confirmpwd}
+                                onChange={(e) => {
+                                setInput({ ...input, confirmpwd: e.target.value });
+                                }}
+                            />
+                        </div>
+                        </>
+                        )
+                    }
 
                     <div className={style.loginDiv}>
-                            <div style={{paddingBottom:'20px'}}>
-                                <p className={style.forget}><Link to="/forgotpasswordsec" style={{textDecoration:'none' , color:'black'}}>Remembered your password?</Link></p>
-                                <Link className={style.login}>Back to login</Link>
-                            </div>
-                            <button>{load ? <Load /> :"Continue"}</button>
+                           {
+                            forget && (
+                                <div className={style.forCont}>
+                                {/* <p className={style.forget}><Link to="/forgotpasswordsec" className={style.linkStyle}>Remembered your password?</Link></p> */}
+                                <p className={style.forget} onClick={()=>setForget(false)}>Remembered your password?</p>
+                                <Link className={style.login} to="/signIn" >Back to login</Link>
+                                </div>
+                            )
+                           }
+                            {
+                                forget ? (
+                                    <button onClick={()=>setForget(false)}>{load ? <Load /> :"Continue"}</button>
+                                ):(
+                                    <button><Link to="/changepwd" className={style.linkStyles}>{load ? <Load /> :"Continue"}</Link></button>
+                                )
+                            }
 
                             <div className={style.tc}>
                             By signing up, you are agreeing to our{" "}
