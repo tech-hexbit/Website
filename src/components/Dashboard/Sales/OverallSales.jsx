@@ -370,10 +370,11 @@ export default function OverallSales() {
                               />
                             </svg>
                           </th>
-                          <th className={osCss.payment}>Delivery status</th>
                           <th>Buyer</th>
+                          <th className={osCss.payment}>Delivery status</th>
                         </tr>
 
+                        {/* Maping Data */}
                         {orderDel
                           .filter((value) => {
                             if (search === "") {
