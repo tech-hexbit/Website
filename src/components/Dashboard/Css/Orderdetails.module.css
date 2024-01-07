@@ -81,6 +81,10 @@
   gap: 0px 10px;
 }
 
+.particuarsSvg {
+  color: #000;
+}
+
 .adress {
   margin-top: 20px;
   font-size: 1.1rem;
