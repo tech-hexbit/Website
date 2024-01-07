@@ -81,7 +81,7 @@ const Orderdetails = (props) => {
               <div className={odcss.details}>
                 <div className={odcss.customerDetails}>
                   <div className={odcss.SubHeading}>Customer details</div>
-                  <div className={odcss["name-text"]}>
+                  <div className={odcss.ContentDels}>
                     {/* Name */}
                     <div className={odcss.name}>
                       <svg
