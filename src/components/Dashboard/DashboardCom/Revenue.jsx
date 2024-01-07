@@ -49,10 +49,6 @@ export default function Revenue() {
     }
   };
 
-  useEffect(() => {
-    console.log(current);
-  }, [current]);
-
   return (
     <div className={RCss.mainDiv}>
       <div className={RCss.heading}>Revenue</div>
