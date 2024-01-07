@@ -77,7 +77,7 @@ export default function OrderLayUpdate(props) {
   return (
     <>
       {/* <div className={OLCss.mainDivDel}> */}
-      <div className={OLCss.contendDiv}>
+      <div className={OLCss.contendDivDel}>
         <p className={OLCss.UpdateOrderPTag}>UPDATE ORDER STATUS</p>
 
         {/* Close Btn
