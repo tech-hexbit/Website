@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 // axios
 import axios from "axios";
@@ -81,6 +82,12 @@ export default function OTP(props) {
             />
             <button>Resend OTP</button>
           </div>
+
+          <p className={style.forgotpassword}>
+            <Link to="/forgotpassword" className="LinkStyle">
+              Forgot Password ?
+            </Link>
+          </p>
         </div>
       </div>
     </>
