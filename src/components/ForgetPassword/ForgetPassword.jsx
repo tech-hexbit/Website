@@ -72,6 +72,7 @@ export default function ForgetPassword() {
             </div>
           </div>
         </div>
+
         <div className={fpstyle.right}>
           <h1 className={fpstyle.headline}>
             Sell Smarter <br /> Sell Faster <br /> At HEXBIT
