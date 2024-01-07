@@ -44,46 +44,15 @@ export default function OverallSales() {
     status: "",
   });
 
-  useEffect(() => {
-    loadData();
-  }, [currentPage, loadDataState]);
-
-  // scroll to top
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [, currentPage]);
-
-  useEffect(() => {
-    maxPage();
-  }, [prodcutsCount, currentPage]);
-
-  useEffect(() => {
-    const u = (buyer) => [...new Set(buyer)];
-    setunique(u(buyer));
-  }, [buyer]);
-
-  useEffect(() => {
-    if (filters.buyer !== "" || filters.status !== "") {
-      var filterValues = orderDelCopy.filter((order) => {
-        if (order.buyer == filters.buyer || order.state == filters.status) {
-          return true;
-        }
-        return false;
-      });
-
-      setOrderDel(filterValues);
-    } else {
-    }
-  }, [filters]);
-
   const authCtx = useContext(AuthContext);
 
   const loadData = async () => {
     setLoad(true);
 
     try {
-      const response = await axios.get(
+      const response = await axios.post(
         `/api/common/Order/all?page=${currentPage}`,
+        filters,
         {
           headers: { Authorization: `${authCtx.token}` },
         }
@@ -193,6 +162,28 @@ export default function OverallSales() {
     setfilters({ ...filters, [name]: value });
   };
 
+  useEffect(() => {
+    loadData();
+  }, [currentPage, loadDataState]);
+
+  // scroll to top
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [, currentPage]);
+
+  useEffect(() => {
+    maxPage();
+  }, [prodcutsCount, currentPage]);
+
+  useEffect(() => {
+    const u = (buyer) => [...new Set(buyer)];
+    setunique(u(buyer));
+  }, [buyer]);
+
+  useEffect(() => {
+    loadData();
+  }, [filters]);
+
   return (
     <>
       {showDel ? (
@@ -225,6 +216,7 @@ export default function OverallSales() {
                     <option value="Status" hidden selected>
                       Status
                     </option>
+                    <option value="Created">Created</option>
                     <option value="Accepted">Accepted</option>
                     <option value="In-progress">In-progress</option>
                     <option value="Completed">Completed</option>
