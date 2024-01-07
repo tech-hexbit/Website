@@ -187,20 +187,10 @@
 
   .table #td:first-child {
     padding-top: 1rem;
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
   }
-
-  /* .col1 { */
-  /* width: 100%; */
-  /* display: flex; */
-  /* justify-content: center; */
-  /* } */
 
   .table #td:last-child {
     padding: 0px 0px 1rem 0px;
-    /* background-color: red; */
     border-bottom: 1px solid #ddd;
   }
 
@@ -220,24 +210,3 @@
     width: 100%;
   }
 }
-
-/* @media screen and (max-width: 450px) {
-  .col1 {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-
-  .image {
-    padding: 0px;
-  }
-
-  .BusinessNameSel {
-    display: none;
-  }
-
-  .tableTag tr th:nth-child(1),
-  .tableTag tr td:nth-child(1) {
-    width: 70px;
-  }
-} */
