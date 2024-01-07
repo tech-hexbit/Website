@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import fpstyle from "./CSS/ForgetPassword.module.css";
 
 export default function Form2() {
+  const [input, setInput] = useState({ email: "", phone: "", otp: "" });
+
   return (
     <>
       <div className={fpstyle.inputEP}>
