@@ -79,6 +79,12 @@
   padding-top: 20px;
 }
 
+.forgotpassword {
+  color: rgb(53, 11, 94);
+  margin: 10px 0px 0px 0px;
+  text-align: right;
+}
+
 .inputPO label {
   color: #444150;
   font-size: 16px;
