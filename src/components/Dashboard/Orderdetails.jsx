@@ -180,31 +180,20 @@ const Orderdetails = (props) => {
                 <div className={odcss.customerDetails}>
                   <div className={odcss.SubHeading}>Payment details</div>
                   <div className={odcss.ContentDels}>
-                    <div className={odcss.transactions}>
-                      <p className={odcss["payment-method"]}>
-                        Payment method :{" "}
-                        <span className={odcss["p-method"]}>
-                          {res.payment.tl_method}
-                        </span>
-                      </p>
-                    </div>
-                    <div className={odcss.transactions}>
-                      <p className={odcss["payment-method"]}>
-                        Card holder name :{" "}
-                        <span className={odcss["c-holdername"]}>
-                          {
-                            res.payment["@ondc/org/settlement_details"][0]
-                              .beneficiary_name
-                          }
-                        </span>
-                      </p>
-                    </div>
-                    <div className={odcss.transactions}>
-                      <div className={odcss["payment-method"]}>
-                        Card number :
-                      </div>
-                      <div className={odcss.cno}>afaf</div>
-                    </div>
+                    <p className={odcss.pl1}>
+                      Transaction ID : {res.payment.params.transaction_id}
+                    </p>
+                    <p className={odcss.pl1}>
+                      Payment method : {res.payment.tl_method}
+                    </p>
+                    <p className={odcss.pl1}>
+                      Card holder name :{" "}
+                      {
+                        res.payment["@ondc/org/settlement_details"][0]
+                          .beneficiary_name
+                      }
+                    </p>
+
                     <div className={odcss.transactions}>
                       <div className={odcss["payment-method"]}>
                         Total amount :
