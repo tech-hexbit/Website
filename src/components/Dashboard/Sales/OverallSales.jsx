@@ -50,12 +50,14 @@ export default function OverallSales() {
     setLoad(true);
 
     try {
-      const response = await axios.get(
+      const response = await axios.post(
         `/api/common/Order/all?page=${currentPage}`,
         {
           headers: { Authorization: `${authCtx.token}` },
         }
       );
+
+      console.log(response);
 
       if (response.data.success) {
         setProdcutsCount(response?.data?.length);
@@ -180,17 +182,21 @@ export default function OverallSales() {
   }, [buyer]);
 
   useEffect(() => {
-    if (filters.buyer !== "" || filters.status !== "") {
-      var filterValues = orderDelCopy.filter((order) => {
-        if (order.buyer == filters.buyer || order.state == filters.status) {
-          return true;
-        }
-        return false;
-      });
+    console.log(filters);
 
-      setOrderDel(filterValues);
-    } else {
-    }
+    loadData();
+
+    // if (filters.buyer !== "" || filters.status !== "") {
+    //   var filterValues = orderDelCopy.filter((order) => {
+    //     if (order.buyer == filters.buyer || order.state == filters.status) {
+    //       return true;
+    //     }
+    //     return false;
+    //   });
+
+    //   setOrderDel(filterValues);
+    // } else {
+    // }
   }, [filters]);
 
   return (
