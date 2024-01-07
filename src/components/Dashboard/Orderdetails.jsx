@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 
+// components
+import UpdateDel from "./Sales/UpdateDel";
+
 // axios
 import axios from "axios";
 
@@ -13,11 +16,13 @@ import odcss from "./Css/Orderdetails.module.css";
 import LogisticsGif from "./../../assets/Logistic/Logistics.gif";
 
 const Orderdetails = (props) => {
+  const [load, setLoad] = useState(false);
+  const [loadData, setLoadData] = useState(false);
   const [res, setres] = useState(null);
 
   useEffect(() => {
     loadOrderdel(props.id);
-  }, [props.id]);
+  }, [props.id, loadData]);
 
   const authCtx = useContext(AuthContext);
 
@@ -207,6 +212,12 @@ const Orderdetails = (props) => {
                   </div>
                 </div>
               </div>
+
+              <UpdateDel
+                id={props.id}
+                setLoadDataState={setLoadData}
+                loadDataState={loadData}
+              />
 
               <div className={odcss["product-details"]}>
                 <div className={odcss["text-content"]}>
