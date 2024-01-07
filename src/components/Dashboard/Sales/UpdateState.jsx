@@ -20,22 +20,7 @@ export default function UpdateState(props) {
 
   return (
     <>
-      <td
-        data-cell="DELIVERY STATUS"
-        // style={{
-        //   color:
-        //     props.state == "Created"
-        //       ? "#7925c7"
-        //       : props.state == "Accepted"
-        //       ? "#FEC107"
-        //       : props.state == "In-progress"
-        //       ? "#3F81E0"
-        //       : props.state == "Completed"
-        //       ? "#4bb543"
-        //       : "#D0342C",
-        // }}
-        className={osCss.tdStateBlock}
-      >
+      <td data-cell="DELIVERY STATUS" className={osCss.tdStateBlock}>
         {edit ? (
           <OrderLayUpdate
             setEdit={setEdit}
@@ -66,26 +51,6 @@ export default function UpdateState(props) {
               <polyline points="15 3 21 3 21 9" />
               <line x1="10" x2="21" y1="14" y2="3" />
             </svg>
-
-            {/* <svg
-             xmlns="http://www.w3.org/2000/svg"
-             width="16"
-             height="16"
-             viewBox="0 0 24 24"
-             fill="none"
-             stroke="currentColor"
-             stroke-width="2"
-             stroke-linecap="round"
-             stroke-linejoin="round"
-             class="lucide lucide-pencil"
-             className={osCss.lucidePencil}
-             onClick={() => {
-               setEdit(!edit);
-             }}
-           >
-             <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
-             <path d="m15 5 4 4" />
-           </svg> */}
           </>
         )}
       </td>
