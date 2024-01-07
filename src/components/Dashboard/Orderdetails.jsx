@@ -200,7 +200,7 @@ const Orderdetails = (props) => {
                           .settlement_bank_account_no
                       }
                     </p>
-                    <p className={odcss.pl1}>Total amount : {res.amount}</p>
+                    <p className={odcss.pl1}>Total amount : ₹ {res.amount}</p>
                   </div>
                 </div>
               </div>
