@@ -154,7 +154,6 @@
     text-align: left;
     width: 100%;
     border-bottom: 0px solid #ddd;
-    /* background-color: red; */
   }
 
   .tableTag #td:first-child {
@@ -176,5 +175,18 @@
     font-weight: 700;
     text-transform: capitalize;
     color: #000;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .mainDiv {
+    width: 90%;
+    margin: 0px 5%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .mainDiv {
+    width: 88%;
   }
 }
