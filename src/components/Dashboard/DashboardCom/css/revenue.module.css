@@ -106,22 +106,22 @@
 }
 
 @media screen and (max-width: 600px) {
-  .text {
+  /* .text {
     font-size: 15px;
     padding: 5px;
-  }
+  } */
 }
 
 @media screen and (max-width: 530px) {
-  .text {
+  /* .text {
     font-size: 12px;
-  }
+  } */
 }
 
 @media screen and (max-width: 485px) {
-  .text {
+  /* .text {
     font-size: 10px;
-  }
+  } */
 
   .elements {
     height: 65px;
