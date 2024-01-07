@@ -157,12 +157,13 @@
     /* background-color: red; */
   }
 
-  .tableTag td:first-child {
+  .tableTag #td:first-child {
     padding-top: 1rem;
   }
 
-  .tableTag td:last-child {
+  .tableTag #td:last-child {
     padding-bottom: 1rem;
+    border-bottom: 1px solid #ddd;
   }
 
   .tableTag td {
