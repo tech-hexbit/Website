@@ -46,7 +46,7 @@
 .charts {
   display: flex;
   padding: 30px;
-  justify-content: space-between;
+  justify-content: space-evenly;
   gap: 30px;
 }
 
