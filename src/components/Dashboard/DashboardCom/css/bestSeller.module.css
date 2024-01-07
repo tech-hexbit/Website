@@ -210,3 +210,16 @@
     width: 100%;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .mainDiv {
+    width: 90%;
+    margin: 0px 5%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .mainDiv {
+    width: 88%;
+  }
+}
