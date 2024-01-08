@@ -274,10 +274,6 @@ body::-webkit-scrollbar-thumb:hover {
   color: #d3d3d3;
 }
 
-.alertTrue {
-  background-color: #ff9564;
-}
-
 #showDropMenuClg {
   opacity: 1;
   visibility: visible;
