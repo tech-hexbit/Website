@@ -57,6 +57,7 @@ export default function Support() {
   return (
     <div>
       <h3>Support</h3>
+
       <div className={SupCss.ask}>
         <p className={SupCss.FAQsPTag}>FAQs</p>
         <h1 className={SupCss.AskPTag}>Ask us anything</h1>
@@ -102,7 +103,14 @@ export default function Support() {
             friendly team.
           </p>
         </div>
-        <button className={SupCss.getintouchBTN}>Get in touch</button>
+
+        {/* Btn */}
+
+        <button className={SupCss.getintouchBTN}>
+          <Link to="/me/help/desk" className={SupCss.getintouchBTN}>
+            Get in touch
+          </Link>
+        </button>
       </div>
     </div>
   );
