@@ -77,9 +77,7 @@ export default function Categories() {
 
   return (
     <div className={Ccss.mDiv}>
-      <Header name="Support" />
-
-      <p className={Ccss.InventoryPTag}>Inventory</p>
+      <Header name="Inventory" />
 
       <DataMain />
 
