@@ -77,7 +77,7 @@ export default function Form1(props) {
   const handleInputChange = (e) => {
     let inputValue = e.target.value;
     if (/^[0-9]*$/.test(inputValue)) {
-      inputValue = inputValue.slice(0, 10);
+      // inputValue = inputValue.slice(0, 10);
       props.setInput({ ...props.input, Phone: inputValue });
       setInput({ ...input, WhatsAppNumber: inputValue });
     }
