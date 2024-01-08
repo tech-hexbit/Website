@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 // components
 import Form from "./AddProduct/Form";
+import Header from "./MainParts/Header";
 import UploadCsvPopup from "./AddProduct/UploadCsvPopup";
 
 // MicroInteraction
@@ -38,9 +39,11 @@ export default function AddProduct() {
     <>
       <div className={ApCss.mDiv}>
         <div className={ApCss.headDiv}>
-          <p className={ApCss.AddHPTag}>Add Product</p>
+          <Header name="Add Product" />
           <div className={ApCss.addCsv}>
-            <button onClick={() => setShowPopup(true)}>+ Add bulk</button>
+            <button onClick={() => setShowPopup(true)}>
+              + <span className={ApCss.hideTxt}>Add bulk</span>
+            </button>
           </div>
         </div>
 
