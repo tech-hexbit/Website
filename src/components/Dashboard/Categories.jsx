@@ -26,14 +26,6 @@ export default function Categories() {
   const [currentPage, setCurrentPage] = useState(1);
   const [prodcutsCount, setProdcutsCount] = useState(0);
 
-  useEffect(() => {
-    loadData();
-  }, [, currentPage]);
-
-  useEffect(() => {
-    maxPage();
-  }, [prodcutsCount, currentPage]);
-
   const authCtx = useContext(AuthContext);
 
   const loadData = async () => {
@@ -76,33 +68,13 @@ export default function Categories() {
     }
   };
 
-  const fliterData = async () => {
-    setLoad(true);
+  useEffect(() => {
+    loadData();
+  }, [, currentPage]);
 
-    try {
-      const response = await axios.get(
-        `/api/common/product/all?page=${currentPage}`,
-        {
-          headers: { Authorization: `${authCtx.token}` },
-        }
-      );
-
-      if (response.data.success) {
-        setorderlist(response?.data?.orderList);
-        setProdcutsCount(response?.data?.length);
-
-        setLoad(false);
-      } else {
-        setLoad(false);
-
-        console.log(e);
-      }
-    } catch (e) {
-      setLoad(false);
-
-      console.log(e);
-    }
-  };
+  useEffect(() => {
+    maxPage();
+  }, [prodcutsCount, currentPage]);
 
   useEffect(() => {
     fliterData();
