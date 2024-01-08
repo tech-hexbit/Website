@@ -17,10 +17,8 @@
 }
 
 .BlockSub {
-  /* padding-top: 35px; */
   font-size: 20px;
   width: 30%;
-  /* min-width: 30%; */
 }
 
 #customerDetails {
@@ -73,7 +71,6 @@
   margin-top: 5px;
   color: gray;
   font-size: 1.1rem;
-  /* font-weight: bold; */
 }
 
 .mail {
@@ -103,14 +100,12 @@
 .adress {
   margin-top: 20px;
   font-size: 1.1rem;
-  /* font-weight: bold; */
 }
 
 .transactions {
   display: flex;
   align-items: center;
   font-size: 1.1rem;
-  /* font-weight: bold; */
   color: gray;
 }
 
@@ -139,7 +134,6 @@
 .product-details1 {
   text-decoration: solid;
   font-size: 1.4rem;
-  /* font-weight: bold; */
 }
 
 .products-table th {
@@ -151,13 +145,6 @@
   margin-bottom: 50px;
   font-size: 20px;
 }
-
-/* table,
-th,
-td {
-  border-collapse: collapse;
-  padding: 10px;
-} */
 
 .products-table table {
   width: 100%;
@@ -191,7 +178,6 @@ td {
   margin: 20px 30px;
   gap: 0px 20px;
   font-size: 1.4rem;
-  /* font-weight: bold; */
 }
 
 .total-bill {
@@ -201,7 +187,6 @@ td {
 
 .tbtext {
   font-size: 25px;
-  /* font-weight: bold; */
 }
 
 .total-billdetails {
@@ -216,20 +201,17 @@ td {
 .titleVal {
   display: inline-block;
   width: 200px;
-  /* font-weight: bold; */
 }
 
 .gt {
   text-align: center;
   margin: 7px 0px;
   font-size: 1.4rem;
-  /* font-weight: bold; */
 }
 
 .dt1 {
   margin: 12px 0px;
   font-size: 1.1rem;
-  /* font-weight: bold; */
 }
 
 .LogisticsGif {
@@ -244,16 +226,14 @@ td {
   display: flex;
   padding-top: 40px;
   font-size: 18px;
-  /* font-weight: bold; */
 }
 
 .amtbold {
   margin-left: 485px;
-  /* font-weight: bold; */
 }
 
 .leftArrow {
-  margin: 5px 7px 0px 0px;
+  margin: 0px 20px 0px 0px;
   cursor: pointer;
 }
 
@@ -273,12 +253,6 @@ td {
     height: auto;
     padding: 10px;
   }
-
-  /* .details {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  } */
 
   .adress {
     text-align: center;
@@ -302,13 +276,6 @@ td {
     margin-left: 0;
     padding-top: 2px;
   }
-
-  /* .name,
-  .dettails {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  } */
 
   .product-details1 {
     font-size: 1.2rem;

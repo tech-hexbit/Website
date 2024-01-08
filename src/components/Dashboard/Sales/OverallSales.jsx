@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 // components
 import UpdateState from "./UpdateState";
+import Header from "./../MainParts/Header";
 import Orderdetails from "./../Orderdetails";
 
 // state
@@ -187,14 +188,22 @@ export default function OverallSales() {
   return (
     <>
       {showDel ? (
-        ""
+        <>
+          <Orderdetails
+            id={showProductDel.id}
+            setProductDel={setProductDel}
+            showDel={showDel}
+            setHideDel={setHideDel}
+          />
+        </>
       ) : (
         <div
           className={osCss.mainDiv}
           id={showProductDel.state ? "yesProductsPage" : "noProductsPage"}
         >
           <div className={osCss.top}>
-            <div>Overall Sales</div>
+            <Header name="Overall Sales" />
+
             <div className={osCss.filters}>
               {/* Filters */}
               <div className={osCss.select}>
@@ -480,17 +489,6 @@ export default function OverallSales() {
             </button>
           </div>
         </div>
-      )}
-
-      {showDel ? (
-        <Orderdetails
-          id={showProductDel.id}
-          setProductDel={setProductDel}
-          showDel={showDel}
-          setHideDel={setHideDel}
-        />
-      ) : (
-        ""
       )}
     </>
   );
