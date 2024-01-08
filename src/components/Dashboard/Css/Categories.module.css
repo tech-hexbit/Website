@@ -118,27 +118,28 @@
   background-color: #ebefff;
 }
 
+.headerFlex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-style: solid;
+  border-width: 0px 0px 1px 0px;
+  border-color: #d3d3d3;
+  padding-bottom: 7px;
+}
+
 .addCsv button {
-  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #56117c;
+  background-color: #fff;
+  border: solid 1px #56117c;
   border-radius: 5px;
-  background: rgba(63, 129, 224, 0.5);
-  color: #1746a2;
   font-size: 18px;
   padding: 12px 32px;
   width: 200px;
   cursor: pointer;
-}
-
-@media screen and (max-width: 650px) {
-  .hideTxt {
-    display: none;
-  }
-
-  .addCsv button {
-    padding: 12px 32px;
-    width: 70px;
-    font-weight: bold;
-  }
 }
 
 @media only screen and (max-width: 950px) {
@@ -189,8 +190,32 @@
   }
 }
 
+@media screen and (max-width: 650px) {
+  .hideTxt {
+    display: none;
+  }
+
+  .addCsv button {
+    padding: 12px 32px;
+    width: 70px;
+    font-weight: bold;
+  }
+}
+
 @media screen and (max-width: 450px) {
   .mDiv {
     margin-right: 25px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .headDiv {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .headDiv > h1 {
+    font-size: 38px;
+    width: 100%;
   }
 }
