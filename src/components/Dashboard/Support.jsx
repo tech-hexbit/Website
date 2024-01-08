@@ -105,9 +105,12 @@ export default function Support() {
         </div>
 
         {/* Btn */}
-        <Link to="/me/help/desk" className="LinkStyle">
-          <button className={SupCss.getintouchBTN}>Get in touch</button>
-        </Link>
+
+        <button className={SupCss.getintouchBTN}>
+          <Link to="/me/help/desk" className={SupCss.getintouchBTN}>
+            Get in touch
+          </Link>
+        </button>
       </div>
     </div>
   );
