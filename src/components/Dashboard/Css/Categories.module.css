@@ -196,8 +196,9 @@
   }
 
   .addCsv button {
-    padding: 12px 32px;
-    width: 70px;
+    justify-content: center;
+    padding: 12px;
+    width: 50px;
     font-weight: bold;
   }
 }
@@ -207,7 +208,7 @@
     margin-right: 25px;
   }
 
-  .headDiv > h1 {
+  .headerFlex > h1 {
     font-size: 38px;
     width: 100%;
   }
