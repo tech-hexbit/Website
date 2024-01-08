@@ -33,7 +33,7 @@ export default function Categories() {
 
     try {
       const response = await axios.get(
-        `/api/common/product/all?page=${currentPage}`,
+        `/api/common/product/all/${showFilter}?page=${currentPage}`,
         {
           headers: { Authorization: `${authCtx.token}` },
         }
@@ -70,14 +70,15 @@ export default function Categories() {
 
   useEffect(() => {
     loadData();
-  }, [, currentPage]);
+  }, [, currentPage, showFilter]);
 
   useEffect(() => {
     maxPage();
   }, [prodcutsCount, currentPage]);
 
   useEffect(() => {
-    fliterData();
+    console.log(showFilter);
+    // fliterData();
   }, [showFilter]);
 
   return (
@@ -192,7 +193,7 @@ export default function Categories() {
               </table>
 
               <p className={DCss.showingPTag}>
-                Showing
+                Showing{" "}
                 {orderlist?.length <= 10 ? (
                   <b>{10 * (currentPage - 1) + orderlist?.length} </b>
                 ) : (
