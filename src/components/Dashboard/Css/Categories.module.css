@@ -14,6 +14,17 @@
   font-weight: 500;
 }
 
+.warnDiv {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 0px 20px;
+}
+
+.warnDiv svg {
+  color: #880000;
+}
+
 .mDIvTabs::-webkit-scrollbar {
   display: none;
 }
