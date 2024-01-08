@@ -130,15 +130,16 @@
 
 .addCsv button {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  width: 200px;
   color: #56117c;
   background-color: #fff;
   border: solid 1px #56117c;
   border-radius: 5px;
   font-size: 18px;
   padding: 12px 32px;
-  width: 200px;
+  width: 220px;
   cursor: pointer;
 }
 
