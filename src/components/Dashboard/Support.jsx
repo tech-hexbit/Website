@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 // components
 import QA from "./Support/QA";
 import Box from "./Support/Box";
+import Header from "./MainParts/Header";
 
 // state
 import AuthContext from "./.././../store/auth-context";
@@ -56,7 +57,7 @@ export default function Support() {
 
   return (
     <div>
-      <h3>Support</h3>
+      <Header name="Support" />
 
       <div className={SupCss.ask}>
         <p className={SupCss.FAQsPTag}>FAQs</p>
