@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 
 // components
+import Header from "./MainParts/Header";
 import DataMain from "./Categories/DataMain";
 
 // axios
@@ -76,6 +77,8 @@ export default function Categories() {
 
   return (
     <div className={Ccss.mDiv}>
+      <Header name="Support" />
+
       <p className={Ccss.InventoryPTag}>Inventory</p>
 
       <DataMain />
