@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import HCss from "./Css/Header.module.css";
 
 export default function Header({ name }) {
-  return <div>{name}</div>;
+  return <h1 className={HCss.heading}>{name}</h1>;
 }
 
 Header.propTypes = {
