@@ -76,11 +76,6 @@ export default function Categories() {
     maxPage();
   }, [prodcutsCount, currentPage]);
 
-  useEffect(() => {
-    console.log(showFilter);
-    // fliterData();
-  }, [showFilter]);
-
   return (
     <div className={Ccss.mDiv}>
       {/* Header */}

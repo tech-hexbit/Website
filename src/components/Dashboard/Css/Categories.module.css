@@ -132,7 +132,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 200px;
   color: #56117c;
   background-color: #fff;
   border: solid 1px #56117c;
@@ -165,6 +164,7 @@
     flex-direction: column;
     min-width: 250px;
     border-radius: 5px;
+    border: solid 1px #d3d3d3;
   }
 
   .tableCat td {
@@ -197,8 +197,9 @@
   }
 
   .addCsv button {
-    padding: 12px 32px;
-    width: 70px;
+    justify-content: center;
+    padding: 12px;
+    width: 50px;
     font-weight: bold;
   }
 }
@@ -207,15 +208,8 @@
   .mDiv {
     margin-right: 25px;
   }
-}
 
-@media screen and (max-width: 450px) {
-  .headDiv {
-    flex-direction: column;
-    align-items: flex-end;
-  }
-
-  .headDiv > h1 {
+  .headerFlex > h1 {
     font-size: 38px;
     width: 100%;
   }
