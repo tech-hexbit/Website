@@ -72,7 +72,6 @@ export default function Form1(props) {
       }
     }
   };
-
   return (
     <>
       <div className={FCss.mainDiv}>
@@ -87,41 +86,86 @@ export default function Form1(props) {
         <div className={FCss.form}>
           <div className={FCss.phoneInput}>
             <label htmlFor="phone">Phone</label>
-            <div className={FCss.formInput}>
-              <input
-                type="number"
-                id="phone"
-                placeholder="Enter phone no."
-                name="Phone"
-                onChange={(e) => {
-                  props.setInput({ ...props.input, Phone: e.target.value });
-                  setInput({ ...input, WhatsAppNumber: e.target.value });
-                }}
-              />
-              <div className={FCss.otpButton}>
-                {sendotp === true ? (
-                  <button>Verify OTP</button>
-                ) : (
-                  <button onClick={() => setSendotp(true)}>Send OTP</button>
-                )}
-              </div>
-            </div>
-            <div className={FCss.otp}>
-              <div className={FCss.otpText}>
-                {sendotp === true && (
-                  <input
-                    type="number"
-                    id="otp"
-                    placeholder="Enter the OTP sent"
-                    // disabled={disable}
-                    name="Password"
-                    onChange={(e) => {
-                      setInput({ ...input, Otp: e.target.value });
-                    }}
-                  />
-                )}
-              </div>
-            </div>
+            {
+              input.WhatsAppNumber.length  >= 10  ? (
+                <div>
+                  <div className={FCss.formInput}>
+                    <input
+                      type="number"
+                      id="phone"
+                      placeholder="Enter phone no."
+                      name="Phone"
+                      onChange={(e) => {
+                        props.setInput({ ...props.input, Phone: e.target.value });
+                        setInput({ ...input, WhatsAppNumber: e.target.value });
+                      }}
+                    />
+                    <div className={FCss.otpButton}>
+                      <button onClick={() => setSendotp(!sendotp)}>Send OTP</button>
+                      {/* {sendotp === true ? (
+                        <button>Verify OTP</button>
+                        ) : (
+                        )} */}
+                    </div>
+                  </div>
+                  {
+                    sendotp  ? (
+                      <div className={FCss.otp}>
+                        <div className={FCss.otpText}>
+                          {sendotp === true && (
+                            <input
+                              type="number"
+                              id="otp"
+                              placeholder="Enter the OTP sent"
+                              // disabled={disable}
+                              name="Password"
+                              onChange={(e) => {
+                                setInput({ ...input, Otp: e.target.value });
+                              }}
+                            />
+                          )}
+                      </div>
+                        {
+                          input.Otp.length >= 4 ? (
+                            <div className={FCss.otpButtonVerify}>
+                              <button>Verify OTP</button>
+                            </div>
+                          ):(
+                            null
+                          )
+                        }
+                
+                        </div>
+                      ):(
+                        null
+                      )
+                    }
+                  </div>
+              ):(
+                <div>
+                   <div className={FCss.formInputNumber}>
+                    <input
+                      type="number"
+                      id="phone"
+                      placeholder="Enter phone no."
+                      name="Phone"
+                      onChange={(e) => {
+                        props.setInput({ ...props.input, Phone: e.target.value });
+                        setInput({ ...input, WhatsAppNumber: e.target.value });
+                      }}
+                    />
+                    {/* <div className={FCss.otpButton}>
+                      {sendotp === true ? (
+                        <button>Verify OTP</button>
+                      ) : (
+                        <button onClick={() => setSendotp(true)}>Send OTP</button>
+                      )}
+                    </div> */}
+                  </div>
+                </div>
+              )
+            }
+            
           </div>
           <div className={FCss.formInputs}>
             <label htmlFor="email">Email</label>
