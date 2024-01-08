@@ -124,7 +124,11 @@ export default function Form1(props) {
                   </div>
                   {
                     sendotp  ? (
-                      <div className={FCss.otp}>
+                    
+                      <div>
+                        {
+                          input.Otp.length >= 4 ? (
+                            <div className={FCss.otp}>
                         <div className={FCss.otpText}>
                           {sendotp === true && (
                             <input
@@ -137,7 +141,7 @@ export default function Form1(props) {
                           />
                           )}
                       </div>
-                        {
+                      {
                           input.Otp.length >= 4 ? (
                             <div className={FCss.otpButtonVerify}>
                               <button>Verify OTP</button>
@@ -148,6 +152,26 @@ export default function Form1(props) {
                         }
                 
                         </div>
+                          ):(
+                            <div className={FCss.otp}>
+                        <div className={FCss.otpTextNumber}>
+                          {sendotp === true && (
+                            <input
+                            type="text"  
+                            id="otp"
+                            placeholder="Enter the OTP sent"
+                            name="Password"
+                            value={input.Otp}
+                            onChange={handleOtpChange}
+                          />
+                          )}
+                      </div>
+                       
+                
+                        </div>
+                          )
+                        }
+                      </div>
                       ):(
                         ""
                       )

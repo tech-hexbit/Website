@@ -89,6 +89,12 @@ label {
   /* margin: 10px ; */
   width: 70%;
 }
+.otpTextNumber {
+  /* padding-top: 10px; */
+  /* padding-bottom: 30px; */
+  /* margin: 10px ; */
+  width: 100%;
+}
 
 .otpButton button {
   border: none;
