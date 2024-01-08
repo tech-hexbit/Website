@@ -164,6 +164,7 @@
     flex-direction: column;
     min-width: 250px;
     border-radius: 5px;
+    border: solid 1px #d3d3d3;
   }
 
   .tableCat td {
