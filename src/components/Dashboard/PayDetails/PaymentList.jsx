@@ -10,14 +10,17 @@ export default function PaymentList() {
         <h4>Total Payment</h4>
         <p className={Gplist.para}>Rs. xxxx</p>
       </div>
+
       <div className={Gplist.box}>
         <h4>Processed Amount</h4>
         <p className={Gplist.para}>Rs. xxxx</p>
       </div>
+
       <div className={Gplist.box}>
         <h4>Rejected Payments</h4>
         <p className={Gplist.para}>Rs. xxxx</p>
       </div>
+
       <div className={Gplist.box}>
         <h4>Transactions </h4>
         <div className={Gplist.outer_box}>
