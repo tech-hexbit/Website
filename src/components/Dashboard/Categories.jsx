@@ -21,17 +21,10 @@ import osCss from "../Dashboard/Sales/Css/overallSales.module.css";
 export default function Categories() {
   const [max, setmax] = useState(false);
   const [load, setLoad] = useState(false);
+  const [showFilter, setFilter] = useState(false);
   const [orderlist, setorderlist] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [prodcutsCount, setProdcutsCount] = useState(0);
-
-  useEffect(() => {
-    loadData();
-  }, [, currentPage]);
-
-  useEffect(() => {
-    maxPage();
-  }, [prodcutsCount, currentPage]);
 
   const authCtx = useContext(AuthContext);
 
@@ -40,7 +33,7 @@ export default function Categories() {
 
     try {
       const response = await axios.get(
-        `/api/common/product/all?page=${currentPage}`,
+        `/api/common/product/all/${showFilter}?page=${currentPage}`,
         {
           headers: { Authorization: `${authCtx.token}` },
         }
@@ -75,9 +68,49 @@ export default function Categories() {
     }
   };
 
+  useEffect(() => {
+    loadData();
+  }, [, currentPage, showFilter]);
+
+  useEffect(() => {
+    maxPage();
+  }, [prodcutsCount, currentPage]);
+
+  useEffect(() => {
+    console.log(showFilter);
+    // fliterData();
+  }, [showFilter]);
+
   return (
     <div className={Ccss.mDiv}>
-      <Header name="Inventory" />
+      {/* Header */}
+      <div className={Ccss.headerFlex}>
+        <Header name="Inventory" />
+        <div className={Ccss.addCsv}>
+          <button onClick={() => setFilter(!showFilter)}>
+            <p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-arrow-down-up"
+              >
+                <path d="m3 16 4 4 4-4" />
+                <path d="M7 20V4" />
+                <path d="m21 8-4-4-4 4" />
+                <path d="M17 4v16" />
+              </svg>
+            </p>
+            <p className={Ccss.hideTxt}>Low Inventory</p>
+          </button>
+        </div>
+      </div>
 
       <DataMain />
 
@@ -160,7 +193,7 @@ export default function Categories() {
               </table>
 
               <p className={DCss.showingPTag}>
-                Showing
+                Showing{" "}
                 {orderlist?.length <= 10 ? (
                   <b>{10 * (currentPage - 1) + orderlist?.length} </b>
                 ) : (
