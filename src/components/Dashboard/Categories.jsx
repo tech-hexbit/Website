@@ -77,7 +77,10 @@ export default function Categories() {
 
   return (
     <div className={Ccss.mDiv}>
-      <Header name="Inventory" />
+      {/* Header */}
+      <div>
+        <Header name="Inventory" />
+      </div>
 
       <DataMain />
 
