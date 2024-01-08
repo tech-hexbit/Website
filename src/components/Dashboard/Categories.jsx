@@ -21,6 +21,7 @@ import osCss from "../Dashboard/Sales/Css/overallSales.module.css";
 export default function Categories() {
   const [max, setmax] = useState(false);
   const [load, setLoad] = useState(false);
+  const [showFilter, setFilter] = useState(false);
   const [orderlist, setorderlist] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [prodcutsCount, setProdcutsCount] = useState(0);
@@ -75,13 +76,45 @@ export default function Categories() {
     }
   };
 
+  const fliterData = async () => {
+    setLoad(true);
+
+    try {
+      const response = await axios.get(
+        `/api/common/product/all?page=${currentPage}`,
+        {
+          headers: { Authorization: `${authCtx.token}` },
+        }
+      );
+
+      if (response.data.success) {
+        setorderlist(response?.data?.orderList);
+        setProdcutsCount(response?.data?.length);
+
+        setLoad(false);
+      } else {
+        setLoad(false);
+
+        console.log(e);
+      }
+    } catch (e) {
+      setLoad(false);
+
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    fliterData();
+  }, [showFilter]);
+
   return (
     <div className={Ccss.mDiv}>
       {/* Header */}
       <div className={Ccss.headerFlex}>
         <Header name="Inventory" />
         <div className={Ccss.addCsv}>
-          <button>
+          <button onClick={() => setFilter(!showFilter)}>
             <p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
