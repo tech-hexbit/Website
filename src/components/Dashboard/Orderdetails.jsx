@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 
 // components
+import Header from "./MainParts/Header";
 import UpdateDel from "./Sales/UpdateDel";
 
 // MicroInteraction
