@@ -132,7 +132,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 200px;
   color: #56117c;
   background-color: #fff;
   border: solid 1px #56117c;
@@ -206,13 +205,6 @@
 @media screen and (max-width: 450px) {
   .mDiv {
     margin-right: 25px;
-  }
-}
-
-@media screen and (max-width: 450px) {
-  .headDiv {
-    flex-direction: column;
-    align-items: flex-end;
   }
 
   .headDiv > h1 {
