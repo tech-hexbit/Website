@@ -70,6 +70,7 @@
 }
 
 .tableCat th {
+  padding-block: 1rem;
   text-align: left;
 }
 
