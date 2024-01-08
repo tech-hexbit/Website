@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 // css
 import ggit from "./Css/GetinTouch.module.css";
@@ -14,7 +15,9 @@ export default function GetinTouch() {
         </p>
       </div>
       <div className={ggit.content}>
-        <button>Get in Touch</button>
+        <Link to="/me/help/desk" className="LinkStyle">
+          <button>Get in Touch</button>
+        </Link>
       </div>
     </div>
   );
