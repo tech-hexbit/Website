@@ -107,12 +107,7 @@ export default function Categories() {
                     {orderlist?.map((val, key) => {
                       return (
                         <>
-                          <tr
-                            key={key}
-                            // className={
-                            //   val.quantity.maximum.count <= 5 ? "alertTrue" : ""
-                            // }
-                          >
+                          <tr key={key}>
                             <td data-cell="Name">{val.descriptor.name}</td>
                             <td data-cell="Price">
                               ₹ {val.price.value.toFixed(2)}
