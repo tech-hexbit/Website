@@ -10,13 +10,8 @@
   margin-bottom: 30px;
 }
 
-.InventoryPTag {
-  font-weight: 500;
-}
-
 .warnDiv {
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   gap: 0px 20px;
 }
