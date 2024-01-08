@@ -118,6 +118,29 @@
   background-color: #ebefff;
 }
 
+.addCsv button {
+  border: none;
+  border-radius: 5px;
+  background: rgba(63, 129, 224, 0.5);
+  color: #1746a2;
+  font-size: 18px;
+  padding: 12px 32px;
+  width: 200px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 650px) {
+  .hideTxt {
+    display: none;
+  }
+
+  .addCsv button {
+    padding: 12px 32px;
+    width: 70px;
+    font-weight: bold;
+  }
+}
+
 @media only screen and (max-width: 950px) {
   .tableCat th {
     display: none;
