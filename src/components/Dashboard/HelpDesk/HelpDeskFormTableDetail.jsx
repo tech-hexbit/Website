@@ -1,14 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
+import PropTypes from "prop-types";
 
 // css
 import tableDetailStyle from "./Css/HelpDeskFormTableDetail.module.css";
 
-export default function HelpDeskFormTableDetail({
-  tableData,
-  onBackButtonClick,
-}) {
-  console.log(tableData);
-
+export default function HelpDeskFormTableDetail({ tableData }) {
   return (
     <div>
       <div>
@@ -60,3 +56,7 @@ export default function HelpDeskFormTableDetail({
     </div>
   );
 }
+
+HelpDeskFormTableDetail.propTypes = {
+  tableData: PropTypes.object.isRequired,
+};
