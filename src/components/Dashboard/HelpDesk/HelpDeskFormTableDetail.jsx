@@ -46,7 +46,7 @@ export default function HelpDeskFormTableDetail({ tableData }) {
       </div>
 
       {/* Message */}
-      <div>
+      <div className={tableDetailStyle.msgMDiv}>
         <label className={tableDetailStyle.message}>Message*</label>
         <textarea
           name=""
