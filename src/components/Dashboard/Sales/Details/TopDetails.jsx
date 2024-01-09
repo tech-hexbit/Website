@@ -132,3 +132,7 @@ export default function TopDetails({ del }) {
     </>
   );
 }
+
+TopDetails.propTypes = {
+  del: PropTypes.object.isRequired,
+};
