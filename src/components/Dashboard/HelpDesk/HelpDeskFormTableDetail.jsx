@@ -12,7 +12,7 @@ function HelpDeskFormTableDetail({ tableData, onBackButtonClick }) {
           TICKET ID :#HX{tableData._id.slice(-5)}
         </h3>
         <h3 className={tableDetailStyle.headerTextSecond}>
-          SUBJECT : {tableData.subject}{" "}
+          SUBJECT : {tableData.subject}
         </h3>
       </div>
       <div className={tableDetailStyle.detailsSection}>
