@@ -76,12 +76,14 @@ export default function HelpDeskFormTable() {
     setHideTabel(!hideTabel);
   };
 
+  useEffect(() => {
+    loadStore();
+  }, []);
+
   // scroll to top
   useEffect(() => {
     window.scrollTo(0, 0);
-
-    loadStore();
-  }, []);
+  }, [, hideTabel]);
 
   return (
     <>
