@@ -9,7 +9,8 @@ import FCss from "./Css/Form.module.css";
 
 export default function Form1(props) {
   const [sendotp, setSendotp] = useState(false);
-  // const [disable, setDisable] = useState(true);
+  const [disableNoField, setDisableNoField] = useState(false);
+  const [isOtpButtonClicked, setIsOtpButtonClicked] = useState(false);
   const [input, setInput] = useState({ WhatsAppNumber: "", Otp: "" });
   const [variants, setError] = useState({
     mainColor: "",
@@ -19,21 +20,6 @@ export default function Form1(props) {
     text: "",
     val: false,
   });
-
-  // const sendOTP = async () => {
-  //   if (input.WhatsAppNumber == "") {
-  //     setDisable(true);
-  //     setError("Please enter phone number");
-  //   } else {
-  //     if (input.WhatsAppNumber.length == 10) {
-  //       setError("");
-  //       setDisable(false);
-  //     } else {
-  //       setDisable(true);
-  //       setError("Invalid phone no.");
-  //     }
-  //   }
-  // };
 
   const nextFN = async () => {
     if (
@@ -89,11 +75,10 @@ export default function Form1(props) {
     setInput({ ...input, Otp: otpValue });
   };
 
-  const [isOtpButtonClicked, setIsOtpButtonClicked] = useState(false);
-  const [disableNoField, setDisableNoField] = useState(false);
   const handleOtpButton = () => {
     setIsOtpButtonClicked(!isOtpButtonClicked);
   };
+
   const handleSendOtpButton = () => {
     setSendotp(!sendotp);
     setDisableNoField(true);
