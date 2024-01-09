@@ -76,13 +76,14 @@ export default function Form1(props) {
 
   const handleInputChange = (e) => {
     let inputValue = e.target.value;
+    inputValue=inputValue.slice(0,10);
     if (/^[0-9]*$/.test(inputValue)) {
       props.setInput({ ...props.input, Phone: inputValue });
       setInput({ ...input, WhatsAppNumber: inputValue });
     }
   };
 
-  const handleOtpChange = (e) => {
+  const handleOtpValue = (e) => {
     let otpValue = e.target.value;
     otpValue = otpValue.replace(/[^0-9]/g, '');
     otpValue = otpValue.slice(0, 4);
@@ -90,12 +91,16 @@ export default function Form1(props) {
   };
 
   const [isOtpButtonClicked, setIsOtpButtonClicked] = useState(false);
-
-  const handleButtonClick = () => {
+  const [disableNoField, setDisableNoField] = useState(false);
+  const handleOtpButton = () => {
     setIsOtpButtonClicked(!isOtpButtonClicked);
   };
+  const handleSendOtpButton=()=>{
+    setSendotp(!sendotp);
+    setDisableNoField(true);
+  }
 
-  const buttonDivClassName = `${FCss.otpButtonVerify} ${isOtpButtonClicked ? FCss.otpButtonColor : ''}`;
+  // const buttonDivClassName = `${FCss.otpButtonVerify} ${isOtpButtonClicked ? FCss.otpButtonColor : ''}`;
 
 
 
@@ -124,15 +129,16 @@ export default function Form1(props) {
                       name="Phone"
                       value={input.WhatsAppNumber}
                       onInput={handleInputChange}
+                      disabled={disableNoField}
                     />
                       {
                         sendotp ? (
                           <div className={FCss.otpButtonClicked}>
-                          <button onClick={() => setSendotp(!sendotp)}>Send OTP</button>
+                          <button onClick={handleSendOtpButton}  disabled={disableNoField}>Send OTP</button>
                         </div>
                         ):(
                           <div className={FCss.otpButton}>
-                            <button onClick={() => setSendotp(!sendotp)}>Send OTP</button>
+                            <button onClick={handleSendOtpButton} >Send OTP</button>
                           </div>
                         )
                       }
@@ -152,14 +158,14 @@ export default function Form1(props) {
                             placeholder="Enter the OTP sent"
                             name="Password"
                             value={input.Otp}
-                            onChange={handleOtpChange}
+                            onChange={handleOtpValue}
                           />
                           )}
                       </div>
                       {
                           input.Otp.length >= 4 ? (
-                            <div className={buttonDivClassName}>
-                              <button onClick={handleButtonClick}>Verify OTP</button>
+                            <div className={`${FCss.otpButtonVerify} ${isOtpButtonClicked ? FCss.otpButtonColor : ''}`}>
+                              <button onClick={handleOtpButton}>Verify OTP</button>
                             </div>
                           ):(
                             ""
@@ -177,12 +183,10 @@ export default function Form1(props) {
                             placeholder="Enter the OTP sent"
                             name="Password"
                             value={input.Otp}
-                            onChange={handleOtpChange}
+                            onChange={handleOtpValue}
                           />
                           )}
                       </div>
-                       
-                
                         </div>
                           )
                         }
@@ -203,13 +207,6 @@ export default function Form1(props) {
                       value={input.WhatsAppNumber}
                       onInput={handleInputChange}
                     />
-                    {/* <div className={FCss.otpButton}>
-                      {sendotp === true ? (
-                        <button>Verify OTP</button>
-                      ) : (
-                        <button onClick={() => setSendotp(true)}>Send OTP</button>
-                      )}
-                    </div> */}
                   </div>
                 </div>
               )
