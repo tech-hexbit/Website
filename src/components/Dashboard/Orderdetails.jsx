@@ -84,7 +84,13 @@ const Orderdetails = (props) => {
           <path d="m15 18-6-6 6-6" />
         </svg>
 
-        <Header name={`Order ID : #${res._id.slice(-4)}`} />
+        {res ? (
+          <>
+            <Header name={`Order ID : #${res._id.slice(-4)}`} />
+          </>
+        ) : (
+          ""
+        )}
       </div>
 
       {load ? (
