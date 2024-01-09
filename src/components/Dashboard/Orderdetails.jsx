@@ -20,10 +20,10 @@ import odcss from "./Css/Orderdetails.module.css";
 import LogisticsGif from "./../../assets/Logistic/Logistics.gif";
 
 const Orderdetails = (props) => {
+  const [res, setres] = useState(null);
   const [load, setLoad] = useState(false);
   const [edit, setEdit] = useState(false);
   const [loadData, setLoadData] = useState(false);
-  const [res, setres] = useState(null);
 
   useEffect(() => {
     loadOrderdel(props.id);
