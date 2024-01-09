@@ -1,10 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 // css
 import odcss from "./../../Css/Orderdetails.module.css";
 
 export default function TopDetails({ del }) {
-  console.log(del);
   return (
     <>
       <div className={odcss.details}>
