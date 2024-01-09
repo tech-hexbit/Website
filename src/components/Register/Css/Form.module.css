@@ -35,12 +35,14 @@
 .formInput input {
   width: 70%;
   margin-right: 0;
+  margin-top:10px ;
   
 }
 .formInputNumber input {
   width: 100%;
   margin-right: 0;
   margin-bottom: 30px;
+  margin-top: 10px;
 }
 
 .formInputs {
@@ -102,9 +104,21 @@ label {
   background: #350b5e;
   color: #fff;
   font-size: 16px;
-  height: 100%;
-  padding: 0px 15px;
+  /* height: 100%; */
+  padding: 10px 15px;
   cursor: pointer;
+  margin-top: 10px;
+}
+.otpButtonClicked button {
+  border: none;
+  border-radius: 5px;
+  background: #5b1d9a;
+  color: #fff;
+  font-size: 16px;
+  /* height: 100%; */
+  padding: 10px 15px;
+  cursor: pointer;
+  margin-top: 10px;
 }
 
 .otpButtonVerify button {
@@ -117,6 +131,18 @@ label {
   padding: 0px 13px;
   cursor: pointer;
 }
+
+.otpButtonColor button {
+  border: none;
+  border-radius: 5px;
+  background: #5b1d9a;
+  color: #fff;
+  font-size: 16px;
+  height: 100%;
+  padding: 0px 13px;
+  cursor: pointer;
+}
+
 
 .otp input {
   width: 100%;

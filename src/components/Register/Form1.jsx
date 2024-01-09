@@ -88,6 +88,17 @@ export default function Form1(props) {
     otpValue = otpValue.slice(0, 4);
     setInput({ ...input, Otp: otpValue });
   };
+
+  const [isOtpButtonClicked, setIsOtpButtonClicked] = useState(false);
+
+  const handleButtonClick = () => {
+    setIsOtpButtonClicked(!isOtpButtonClicked);
+  };
+
+  const buttonDivClassName = `${FCss.otpButtonVerify} ${isOtpButtonClicked ? FCss.otpButtonColor : ''}`;
+
+
+
   return (
     <>
       <div className={FCss.mainDiv}>
@@ -114,13 +125,17 @@ export default function Form1(props) {
                       value={input.WhatsAppNumber}
                       onInput={handleInputChange}
                     />
-                    <div className={FCss.otpButton}>
-                      <button onClick={() => setSendotp(!sendotp)}>Send OTP</button>
-                      {/* {sendotp === true ? (
-                        <button>Verify OTP</button>
-                        ) : (
-                        )} */}
-                    </div>
+                      {
+                        sendotp ? (
+                          <div className={FCss.otpButtonClicked}>
+                          <button onClick={() => setSendotp(!sendotp)}>Send OTP</button>
+                        </div>
+                        ):(
+                          <div className={FCss.otpButton}>
+                            <button onClick={() => setSendotp(!sendotp)}>Send OTP</button>
+                          </div>
+                        )
+                      }
                   </div>
                   {
                     sendotp  ? (
@@ -143,8 +158,8 @@ export default function Form1(props) {
                       </div>
                       {
                           input.Otp.length >= 4 ? (
-                            <div className={FCss.otpButtonVerify}>
-                              <button>Verify OTP</button>
+                            <div className={buttonDivClassName}>
+                              <button onClick={handleButtonClick}>Verify OTP</button>
                             </div>
                           ):(
                             ""
