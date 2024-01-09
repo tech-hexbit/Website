@@ -3,8 +3,12 @@ import React, { useState, useEffect, useContext } from "react";
 // css
 import tableDetailStyle from "./Css/HelpDeskFormTableDetail.module.css";
 
-function HelpDeskFormTableDetail({ tableData, onBackButtonClick }) {
+export default function HelpDeskFormTableDetail({
+  tableData,
+  onBackButtonClick,
+}) {
   console.log(tableData);
+
   return (
     <div>
       <div>
@@ -56,5 +60,3 @@ function HelpDeskFormTableDetail({ tableData, onBackButtonClick }) {
     </div>
   );
 }
-
-export default HelpDeskFormTableDetail;
