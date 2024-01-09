@@ -22,6 +22,8 @@ import HelpDeskFormTableDetail from "./HelpDeskFormTableDetail";
 export default function HelpDeskFormTable() {
   const [load, setLoad] = useState(false);
   const [data, setloadStore] = useState([]);
+  const [tableData, setTableData] = useState([]);
+  const [hideTabel, setHideTabel] = useState(false);
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -65,21 +67,21 @@ export default function HelpDeskFormTable() {
     }
   };
 
+  const tableVal = (val) => {
+    setTableData(val);
+    setHideTabel(!hideTabel);
+  };
+
+  const overlayerTabel = () => {
+    setHideTabel(!hideTabel);
+  };
+
   // scroll to top
   useEffect(() => {
     window.scrollTo(0, 0);
 
     loadStore();
   }, []);
-  const [hideTabel, setHideTabel] = useState(false);
-  const [tableData, setTableData] = useState([]);
-  const tableVal = (val) => {
-    setTableData(val);
-    setHideTabel(!hideTabel);
-  };
-  const overlayerTabel = () => {
-    setHideTabel(!hideTabel);
-  };
 
   return (
     <>
