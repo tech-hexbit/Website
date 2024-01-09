@@ -35,7 +35,7 @@ export default function Filter({ filteredlist, setfilteredlist }) {
     setLoad(true);
 
     try {
-      const response = await axios.get("/api/common/product/all", {
+      const response = await axios.get("/api/common/product/all/false", {
         headers: { Authorization: `${authCtx.token}` },
       });
 

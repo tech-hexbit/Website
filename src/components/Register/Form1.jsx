@@ -10,7 +10,7 @@ import FCss from "./Css/Form.module.css";
 export default function Form1(props) {
   const [sendotp, setSendotp] = useState(false);
   // const [disable, setDisable] = useState(true);
-  const [input, setInput] = useState({ WhatsAppNumber: 0, Otp: 0 });
+  const [input, setInput] = useState({ WhatsAppNumber: "", Otp: "" });
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -73,6 +73,31 @@ export default function Form1(props) {
     }
   };
 
+  const handleInputChange = (e) => {
+    let inputValue = e.target.value;
+    if (/^[0-9]*$/.test(inputValue)) {
+      props.setInput({ ...props.input, Phone: inputValue });
+      setInput({ ...input, WhatsAppNumber: inputValue });
+    }
+  };
+
+  const handleOtpChange = (e) => {
+    let otpValue = e.target.value;
+    otpValue = otpValue.replace(/[^0-9]/g, "");
+    otpValue = otpValue.slice(0, 4);
+    setInput({ ...input, Otp: otpValue });
+  };
+
+  const [isOtpButtonClicked, setIsOtpButtonClicked] = useState(false);
+
+  const handleButtonClick = () => {
+    setIsOtpButtonClicked(!isOtpButtonClicked);
+  };
+
+  const buttonDivClassName = `${FCss.otpButtonVerify} ${
+    isOtpButtonClicked ? FCss.otpButtonColor : ""
+  }`;
+
   return (
     <>
       <div className={FCss.mainDiv}>
@@ -85,44 +110,99 @@ export default function Form1(props) {
           </div>
         </div>
         <div className={FCss.form}>
+          {/* Phone */}
           <div className={FCss.phoneInput}>
             <label htmlFor="phone">Phone</label>
-            <div className={FCss.formInput}>
-              <input
-                type="number"
-                id="phone"
-                placeholder="Enter phone no."
-                name="Phone"
-                onChange={(e) => {
-                  props.setInput({ ...props.input, Phone: e.target.value });
-                  setInput({ ...input, WhatsAppNumber: e.target.value });
-                }}
-              />
-              <div className={FCss.otpButton}>
-                {sendotp === true ? (
-                  <button>Verify OTP</button>
-                ) : (
-                  <button onClick={() => setSendotp(true)}>Send OTP</button>
-                )}
-              </div>
-            </div>
-            <div className={FCss.otp}>
-              <div className={FCss.otpText}>
-                {sendotp === true && (
+            {input.WhatsAppNumber.length >= 10 ? (
+              <div>
+                <div className={FCss.formInput}>
                   <input
-                    type="number"
-                    id="otp"
-                    placeholder="Enter the OTP sent"
-                    // disabled={disable}
-                    name="Password"
-                    onChange={(e) => {
-                      setInput({ ...input, Otp: e.target.value });
-                    }}
+                    type="text"
+                    id="phone"
+                    placeholder="Enter phone no."
+                    name="Phone"
+                    value={input.WhatsAppNumber}
+                    onInput={handleInputChange}
                   />
+                  {sendotp ? (
+                    <div className={FCss.otpButtonClicked}>
+                      <button onClick={() => setSendotp(!sendotp)}>
+                        Send OTP
+                      </button>
+                    </div>
+                  ) : (
+                    <div className={FCss.otpButton}>
+                      <button onClick={() => setSendotp(!sendotp)}>
+                        Send OTP
+                      </button>
+                    </div>
+                  )}
+                </div>
+
+                {sendotp ? (
+                  <div>
+                    {input.Otp.length >= 4 ? (
+                      <div className={FCss.otp}>
+                        <div className={FCss.otpText}>
+                          {sendotp === true && (
+                            <input
+                              type="text"
+                              id="otp"
+                              placeholder="Enter the OTP sent"
+                              name="Password"
+                              value={input.Otp}
+                              onChange={handleOtpChange}
+                            />
+                          )}
+                        </div>
+                        {input.Otp.length >= 4 ? (
+                          <div className={buttonDivClassName}>
+                            <button onClick={handleButtonClick}>
+                              Verify OTP
+                            </button>
+                          </div>
+                        ) : (
+                          ""
+                        )}
+                      </div>
+                    ) : (
+                      <div className={FCss.otp}>
+                        <div className={FCss.otpTextNumber}>
+                          {sendotp === true && (
+                            <input
+                              type="text"
+                              id="otp"
+                              placeholder="Enter the OTP sent"
+                              name="Password"
+                              value={input.Otp}
+                              onChange={handleOtpChange}
+                            />
+                          )}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  ""
                 )}
               </div>
-            </div>
+            ) : (
+              <div>
+                <div className={FCss.formInputNumber}>
+                  <input
+                    type="text"
+                    id="phone"
+                    placeholder="Enter phone no."
+                    name="Phone"
+                    value={input.WhatsAppNumber}
+                    onInput={handleInputChange}
+                  />
+                </div>
+              </div>
+            )}
           </div>
+
+          {/* Email */}
           <div className={FCss.formInputs}>
             <label htmlFor="email">Email</label>
             <input
@@ -136,6 +216,8 @@ export default function Form1(props) {
               }}
             />
           </div>
+
+          {/* Password */}
           <div className={FCss.formInputs}>
             <label htmlFor="pass">Password</label>
             <input
@@ -149,6 +231,8 @@ export default function Form1(props) {
               }}
             />
           </div>
+
+          {/* Business Name */}
           <div className={FCss.formInputs}>
             <label htmlFor="busName">Business Name</label>
             <input
@@ -165,6 +249,8 @@ export default function Form1(props) {
               }}
             />
           </div>
+
+          {/* Importer License */}
           <div className={FCss.formInputs}>
             <label htmlFor="license">Importer License</label>
             <input
@@ -181,6 +267,8 @@ export default function Form1(props) {
               }}
             />
           </div>
+
+          {/* GSTIN */}
           <div className={FCss.formInputs}>
             <label htmlFor="gstin">GSTIN</label>
             <input
@@ -195,6 +283,7 @@ export default function Form1(props) {
             />
           </div>
         </div>
+
         <div className={FCss.button}>
           <div></div>
           <div>
