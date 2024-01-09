@@ -141,6 +141,12 @@
   }
 }
 
+@media screen and (max-width: 550px) {
+  .messageInput {
+    width: 95%;
+  }
+}
+
 @media (max-width: 450px) {
   .headerText {
     margin-top: 20px;
@@ -209,7 +215,7 @@
   }
 }
 
-@media (max-width: 370px) {
+@media (max-width: 400px) {
   .headerText {
     margin-top: 20px;
     font-size: 20px;
