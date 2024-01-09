@@ -209,7 +209,11 @@ export default function OverallSales() {
               <div className={osCss.select}>
                 {/* Buyers */}
                 <div className={osCss.selectInner}>
-                  <select onChange={handleChange1} name="buyer">
+                  <select
+                    onChange={handleChange1}
+                    name="buyer"
+                    value={filters.buyer}
+                  >
                     <option value="Buyer" hidden selected>
                       Buyer
                     </option>
@@ -221,7 +225,11 @@ export default function OverallSales() {
 
                 {/* Status */}
                 <div className={osCss.selectInner}>
-                  <select onChange={handleChange1} name="status">
+                  <select
+                    onChange={handleChange1}
+                    name="status"
+                    value={filters.status}
+                  >
                     <option value="Status" hidden selected>
                       Status
                     </option>
