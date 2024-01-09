@@ -238,6 +238,7 @@ export default function OverallSales() {
               <div className={osCss.search}>
                 <input
                   type="text"
+                  value={search}
                   placeholder="Search order"
                   onChange={filterData}
                 />
