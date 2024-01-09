@@ -28,7 +28,7 @@ export default function HelpDeskFormTableDetail({ tableData }) {
           <div className={tableDetailStyle.detailsText}>
             <p className={tableDetailStyle.name}>Store Id</p>
             <p className={tableDetailStyle.nameSecond}>
-              {tableData.StoreID.slice(-4)}
+              #{tableData.StoreID.slice(-4)}
             </p>
           </div>
           <div className={tableDetailStyle.detailsText}>
