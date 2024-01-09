@@ -67,8 +67,7 @@
 }
 
 .ContentDels {
-  padding: 15px;
-  margin-top: 5px;
+  padding: 15px 0px;
   color: gray;
   font-size: 1.1rem;
 }
@@ -98,7 +97,6 @@
 }
 
 .adress {
-  margin-top: 20px;
   font-size: 1.1rem;
 }
 
