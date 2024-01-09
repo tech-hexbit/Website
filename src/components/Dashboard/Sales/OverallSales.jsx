@@ -258,6 +258,14 @@ export default function OverallSales() {
                       stroke-linejoin="round"
                       class="lucide lucide-filter-x"
                       className={osCss.resetFilBtn}
+                      onClick={() => {
+                        setSearch("");
+                        setfilters((prevFilters) => ({
+                          ...prevFilters,
+                          buyer: "",
+                          status: "",
+                        }));
+                      }}
                     >
                       <path d="M13.013 3H2l8 9.46V19l4 2v-8.54l.9-1.055" />
                       <path d="m22 3-5 5" />
