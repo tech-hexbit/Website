@@ -84,7 +84,7 @@ const Orderdetails = (props) => {
           <path d="m15 18-6-6 6-6" />
         </svg>
 
-        <Header name="Order detail" />
+        <Header name={`Order ID : #${res._id.slice(-4)}`} />
       </div>
 
       {load ? (
@@ -97,13 +97,6 @@ const Orderdetails = (props) => {
             <div className={odcss.orderdetails}>
               {res ? (
                 <>
-                  <div className={odcss["order-id"]}>
-                    <div className={odcss["order-id1"]}>
-                      <div className={odcss["od-1"]}>Order id :</div>
-                      <div className={odcss["od-1"]}>#{res._id.slice(-4)}</div>
-                    </div>
-                  </div>
-
                   {/* Customer || Shipping || Payment */}
                   <div className={odcss.details}>
                     {/* Customer */}
