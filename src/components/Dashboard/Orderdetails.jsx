@@ -3,6 +3,7 @@ import React, { useState, useEffect, useContext } from "react";
 // components
 import Header from "./MainParts/Header";
 import UpdateDel from "./Sales/UpdateDel";
+import TopDetails from "./Sales/Details/TopDetails";
 
 // MicroInteraction
 import Load from "./../../MicroInteraction/LoadBlack";
@@ -104,6 +105,7 @@ const Orderdetails = (props) => {
               {res ? (
                 <>
                   {/* Customer || Shipping || Payment */}
+                  <TopDetails del={res} />
 
                   <UpdateDel
                     setEdit={setEdit}
