@@ -13,19 +13,6 @@ function HelpDeskFormTableDetail({tableData,onBackButtonClick}) {
       </div>
       <div className={tableDetailStyle.detailsSection}>
         <div>
-          <div className={tableDetailStyle.detailsText }>
-            <p className={tableDetailStyle.reqDate}>
-              Request Time and Date
-            </p>
-            <p className={tableDetailStyle.reqDateSecond}>
-              <p>
-                {tableData.when.date},
-              </p>
-              <p>
-                {tableData.when.time}
-              </p>
-            </p>
-          </div>
           <div className={tableDetailStyle.detailsText}>
             <p className={tableDetailStyle.name}>
               Name
@@ -47,7 +34,7 @@ function HelpDeskFormTableDetail({tableData,onBackButtonClick}) {
               Store Id
             </p>
             <p className={tableDetailStyle.nameSecond}>
-              {tableData.StoreID}
+              {tableData.StoreID.slice(-4)}
             </p>
           </div>
           <div className={tableDetailStyle.detailsText}>
@@ -56,6 +43,19 @@ function HelpDeskFormTableDetail({tableData,onBackButtonClick}) {
             </p>
             <p className={tableDetailStyle.nameSecond}>
               {tableData.StoreName}
+            </p>
+          </div>
+          <div className={tableDetailStyle.timeDate }>
+            <p className={tableDetailStyle.reqDate}>
+              Request Time and Date
+            </p>
+            <p className={tableDetailStyle.reqDateSecond}>
+              <p>
+                {tableData.when.date},
+              </p>
+              <p>
+                {tableData.when.time}
+              </p>
             </p>
           </div>
         </div>

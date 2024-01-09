@@ -100,9 +100,6 @@ export default function Form1(props) {
     setDisableNoField(true);
   }
 
-  // const buttonDivClassName = `${FCss.otpButtonVerify} ${isOtpButtonClicked ? FCss.otpButtonColor : ''}`;
-
-
 
   return (
     <>
@@ -119,8 +116,8 @@ export default function Form1(props) {
           <div className={FCss.phoneInput}>
             <label htmlFor="phone">Phone</label>
             {
-              input.WhatsAppNumber.length  >= 10  ? (
-                <div>
+              input.WhatsAppNumber.length  === 10  ? (
+                <>
                   <div className={FCss.formInput}>
                   <input
                       type="text"
@@ -131,17 +128,11 @@ export default function Form1(props) {
                       onInput={handleInputChange}
                       disabled={disableNoField}
                     />
-                      {
-                        sendotp ? (
-                          <div className={FCss.otpButtonClicked}>
-                          <button onClick={handleSendOtpButton}  disabled={disableNoField}>Send OTP</button>
-                        </div>
-                        ):(
-                          <div className={FCss.otpButton}>
-                            <button onClick={handleSendOtpButton} >Send OTP</button>
-                          </div>
-                        )
-                      }
+                    <div className={sendotp ? FCss.otpButtonClicked : FCss.otpButton}>
+                      <button onClick={handleSendOtpButton} disabled={disableNoField}>
+                        {sendotp ? 'OTP Sent' : 'Send OTP'}
+                      </button>
+                    </div>
                   </div>
                   {
                     sendotp  ? (
@@ -195,7 +186,7 @@ export default function Form1(props) {
                         ""
                       )
                     }
-                  </div>
+                  </>
               ):(
                 <div>
                    <div className={FCss.formInputNumber}>
