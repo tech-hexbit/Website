@@ -132,13 +132,13 @@ export default function Form1(props) {
                       onClick={handleSendOtpButton}
                       disabled={disableNoField}
                     >
-                      {sendotp ? "Sent" : "Send OTP"}
+                      {sendotp ? "OTP Sent" : "Send OTP"}
                     </button>
                   </div>
                 </div>
                 {sendotp ? (
                   <div>
-                    {input.Otp.length >= 4 ? (
+                    {input.Otp.length === 4 ? (
                       <div className={FCss.otp}>
                         <div className={FCss.otpText}>
                           {sendotp === true && (
