@@ -402,7 +402,10 @@ export default function OverallSales() {
                                 <td data-cell="ID"> #{val._id.slice(-4)}</td>
                                 <td
                                   onClick={() => {
-                                    setProductDel({ state: true, id: val._id });
+                                    setProductDel({
+                                      state: true,
+                                      id: val._id,
+                                    });
                                     setHideDel(!showDel);
                                   }}
                                   data-cell="CUSTOMER "
