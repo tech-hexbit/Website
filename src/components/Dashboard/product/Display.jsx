@@ -49,7 +49,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
 
     try {
       const response = await axios.get(
-        `/api/common/product/all?page=${currentPage}`,
+        `/api/common/product/all/false?page=${currentPage}`,
         {
           headers: { Authorization: `${authCtx.token}` },
         }
