@@ -137,6 +137,7 @@ export default function Form1(props) {
                     </div>
                   )}
                 </div>
+
                 {sendotp ? (
                   <div>
                     {input.Otp.length >= 4 ? (
@@ -195,17 +196,11 @@ export default function Form1(props) {
                     value={input.WhatsAppNumber}
                     onInput={handleInputChange}
                   />
-                  {/* <div className={FCss.otpButton}>
-                      {sendotp === true ? (
-                        <button>Verify OTP</button>
-                      ) : (
-                        <button onClick={() => setSendotp(true)}>Send OTP</button>
-                      )}
-                    </div> */}
                 </div>
               </div>
             )}
           </div>
+
           <div className={FCss.formInputs}>
             <label htmlFor="email">Email</label>
             <input
@@ -219,6 +214,7 @@ export default function Form1(props) {
               }}
             />
           </div>
+
           <div className={FCss.formInputs}>
             <label htmlFor="pass">Password</label>
             <input
@@ -232,6 +228,8 @@ export default function Form1(props) {
               }}
             />
           </div>
+
+          {/* Business Name */}
           <div className={FCss.formInputs}>
             <label htmlFor="busName">Business Name</label>
             <input
@@ -248,6 +246,8 @@ export default function Form1(props) {
               }}
             />
           </div>
+
+          {/* Importer License */}
           <div className={FCss.formInputs}>
             <label htmlFor="license">Importer License</label>
             <input
@@ -264,6 +264,8 @@ export default function Form1(props) {
               }}
             />
           </div>
+
+          {/* GSTIN */}
           <div className={FCss.formInputs}>
             <label htmlFor="gstin">GSTIN</label>
             <input
@@ -278,6 +280,7 @@ export default function Form1(props) {
             />
           </div>
         </div>
+
         <div className={FCss.button}>
           <div></div>
           <div>
