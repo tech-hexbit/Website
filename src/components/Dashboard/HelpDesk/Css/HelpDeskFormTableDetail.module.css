@@ -81,6 +81,8 @@
 }
 
 .message {
+  width: 100%;
+  text-align: left;
   color: rgba(96, 96, 96, 1);
   padding: 20px 0px 0px 20px;
   font-weight: 700;
@@ -116,7 +118,14 @@
   color: rgba(255, 255, 255, 1);
 }
 
-@media (max-width: 720px) {
+.msgMDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 720px) {
   .timeDate {
     display: flex;
     flex-direction: column;
@@ -143,11 +152,11 @@
 
 @media screen and (max-width: 550px) {
   .messageInput {
-    width: 95%;
+    width: 90%;
   }
 }
 
-@media (max-width: 450px) {
+@media screen and (max-width: 450px) {
   .headerText {
     margin-top: 20px;
     font-size: 24px;
@@ -215,7 +224,7 @@
   }
 }
 
-@media (max-width: 400px) {
+@media screen and (max-width: 400px) {
   .headerText {
     margin-top: 20px;
     font-size: 20px;
