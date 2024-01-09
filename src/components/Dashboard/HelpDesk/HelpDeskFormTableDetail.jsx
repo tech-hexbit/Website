@@ -44,17 +44,20 @@ export default function HelpDeskFormTableDetail({ tableData }) {
           </div>
         </div>
       </div>
+
+      {/* Message */}
       <div>
         <label className={tableDetailStyle.message}>Message*</label>
+        <textarea
+          name=""
+          id=""
+          cols="30"
+          rows="10"
+          className={tableDetailStyle.messageInput}
+          placeholder="Brief description of the query min 120 characters."
+        ></textarea>
       </div>
-      <textarea
-        name=""
-        id=""
-        cols="30"
-        rows="10"
-        className={tableDetailStyle.messageInput}
-        placeholder="Brief description of the query min 120 characters."
-      ></textarea>
+
       <div className={tableDetailStyle.resolveButton}>
         <p className={tableDetailStyle.resolveButtonText}>Resolve Query</p>
       </div>
