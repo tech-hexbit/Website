@@ -110,6 +110,7 @@ export default function Form1(props) {
           </div>
         </div>
         <div className={FCss.form}>
+          {/* Phone */}
           <div className={FCss.phoneInput}>
             <label htmlFor="phone">Phone</label>
             {input.WhatsAppNumber.length >= 10 ? (
