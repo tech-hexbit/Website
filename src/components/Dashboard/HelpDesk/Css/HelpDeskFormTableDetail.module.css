@@ -154,6 +154,18 @@
   .messageInput {
     width: 90%;
   }
+
+  .reqDate,
+  .comma {
+    display: none;
+  }
+
+  .reqDateSecond {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 @media screen and (max-width: 450px) {
