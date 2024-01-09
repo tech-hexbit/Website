@@ -201,6 +201,7 @@ export default function Form1(props) {
             )}
           </div>
 
+          {/* Email */}
           <div className={FCss.formInputs}>
             <label htmlFor="email">Email</label>
             <input
@@ -215,6 +216,7 @@ export default function Form1(props) {
             />
           </div>
 
+          {/* Password */}
           <div className={FCss.formInputs}>
             <label htmlFor="pass">Password</label>
             <input
