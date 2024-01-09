@@ -66,6 +66,7 @@
 
 .resetFilBtn {
   margin-left: 20px;
+  cursor: pointer;
 }
 
 .search input {
