@@ -104,8 +104,7 @@
 }
 
 .table th {
-  color: #777;
-  font-weight: 400;
+  padding-block: 1rem;
   text-align: left;
 }
 
@@ -114,7 +113,6 @@
 }
 
 .table tr {
-  /* position: relative; */
   z-index: 1;
 }
 
