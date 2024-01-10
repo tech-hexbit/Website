@@ -225,23 +225,9 @@
     text-align: left;
   }
 
-  .reqDate {
-    color: rgba(112, 112, 112, 1);
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 30px;
-    text-align: left;
-    padding-top: 15px;
-  }
-
   .reqDateSecond {
-    color: rgba(112, 112, 112, 1);
     font-size: 18px;
     font-weight: 400;
-    line-height: 30px;
-    text-align: center;
-    display: flex;
-    gap: 7px;
     padding-top: 5px;
   }
 }
@@ -272,23 +258,7 @@
     text-align: left;
   }
 
-  .reqDate {
-    color: rgba(112, 112, 112, 1);
-    font-size: 17px;
-    font-weight: 400;
-    line-height: 30px;
-    text-align: left;
-    padding-top: 15px;
-  }
-
   .reqDateSecond {
-    color: rgba(112, 112, 112, 1);
     font-size: 15px;
-    font-weight: 400;
-    line-height: 30px;
-    text-align: center;
-    display: flex;
-    gap: 7px;
-    padding-top: 5px;
   }
 }
