@@ -134,8 +134,17 @@ export default function Form2(props) {
           <div>
             <label htmlFor="pincode">Pincode</label>
             {props.input.Pincode.length >= 6 ? (
-              <div className={FCss.formInput}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  gap: "1rem",
+                }}
+                className={FCss.formInput}
+              >
                 <input
+                  inputMode="numeric"
+                  style={{ width: "100%" }}
                   disabled={disable}
                   type="number"
                   id="pincode"
