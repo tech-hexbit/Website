@@ -150,7 +150,6 @@
 
   .reqDateSecond {
     width: 100%;
-    display: flex;
     justify-content: space-between;
     align-items: center;
   }
@@ -158,9 +157,6 @@
   .resolveButton {
     margin: 30px 5%;
     width: 90%;
-    height: 43px;
-    border-radius: 14px;
-    background: rgba(35, 25, 99, 0.83);
   }
 
   .resolveButtonText {
@@ -183,7 +179,6 @@
   .headerTextSecond {
     padding-top: 10px;
     font-size: 22px;
-    line-height: 24px;
     font-weight: 700;
   }
 
