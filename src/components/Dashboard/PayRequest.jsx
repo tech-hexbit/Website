@@ -24,8 +24,11 @@ export default function PayRequest() {
       <PaymentTable />
 
       <div className={pr.main}>
-        <PaymentRequest />
-        <SelectedBlock />
+        <h3>Confirm Account Details For Payment Request </h3>
+        <div className={pr.detailWrapper}>
+          <PaymentRequest />
+          <SelectedBlock />
+        </div>
       </div>
     </div>
   );
