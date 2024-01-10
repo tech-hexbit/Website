@@ -27,10 +27,11 @@ export default function SelectedBlock({ total, amount }) {
           </svg>
           <span>Selected</span>
         </p>
+
         <div className={pr.flex}>
           <div className={pr.flexItem}>
             <h4>Total Selected</h4>
-            <h1>1</h1>
+            <h1>{total}</h1>
           </div>
           <div className={pr.flexItem}>
             <h4>Total Amount</h4>
@@ -55,12 +56,20 @@ export default function SelectedBlock({ total, amount }) {
                   <path d="M9 13c6.667 0 6.667-10 0-10" />
                 </svg>
               </span>
-              317.46
+              {amount}
             </h1>
           </div>
         </div>
         <div className={pr.flexItem}>
-          <button>Raise Payment Request</button>
+          {amount > 0 ? (
+            <>
+              <button>Raise Payment Request</button>
+            </>
+          ) : (
+            <>
+              <button>Select Orders</button>
+            </>
+          )}
         </div>
       </div>
     </>
