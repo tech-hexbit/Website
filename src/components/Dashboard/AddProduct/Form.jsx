@@ -837,9 +837,6 @@ export default function Form() {
               style={{ display: "none" }}
               ref={fileInp}
             />
-            
-            {/* IMAGE UPLAOD IS HANDLED HERE */}
-
             {imageUpload ? (
               <img
                 src={URL.createObjectURL(imageUpload)}
@@ -858,8 +855,7 @@ export default function Form() {
           </div>
         </div>
 
-        
-                 <MultipleImageHandler multipleImageUpload={multipleImageUpload} setMultipleImageUpload={setMultipleImageUpload} />
+        <MultipleImageHandler multipleImageUpload={multipleImageUpload} setMultipleImageUpload={setMultipleImageUpload} />
 
         <div className={FCss.SubmitBtnDiv}>
           <p className={FCss.SubmitBtn} onClick={onSubmit}>
