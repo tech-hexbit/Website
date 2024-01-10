@@ -186,7 +186,8 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 #onCat {
-  width: 50px;
+  width: 0px;
+  /* width: 50px; */
 }
 
 #offCat {

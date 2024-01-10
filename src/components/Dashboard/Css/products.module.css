@@ -5,7 +5,7 @@
 }
 
 .mainDiv {
-  padding-right: 10px;
+  padding-right: 10px; 
   display: grid;
   height: fit-content;
   gap: 20px;

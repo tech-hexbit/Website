@@ -12,7 +12,7 @@ import FCss from "./Css/filter.module.css";
 // state
 import AuthContext from "./../../../store/auth-context";
 
-export default function Filter({ filteredlist, setfilteredlist }) {
+export default function Filter({ filteredlist, setfilteredlist}) {
   const [load, setLoad] = useState(false);
   const [onFil, offFil] = useState(false);
   const [unique, setunique] = useState([]);
@@ -21,7 +21,7 @@ export default function Filter({ filteredlist, setfilteredlist }) {
   const [allcategory, setallcategory] = useState([]);
 
   const authCtx = useContext(AuthContext);
-
+  
   useEffect(() => {
     loadData();
   }, []);

@@ -5,7 +5,6 @@
   border-radius: 15px;
   margin-bottom: 40px;
 }
-
 .top {
   display: flex;
   justify-content: space-between;
@@ -21,7 +20,7 @@
   padding: 8px;
   font-size: 15px;
   outline: none;
-  width: 400px;
+  width: 40vw;
 }
 
 .search input::placeholder {
@@ -41,12 +40,27 @@
   letter-spacing: 0.12px;
   padding: 6px 25px;
   cursor: pointer;
+  
 }
+
+@media (width>950px) {
+  .button button::after {
+    content: '+ Add Product';
+  }
+}
+
+@media (max-width: 950px) {
+  .button button:after{
+    content: '+';
+  }
+}
+
 
 .table table {
   width: 100%;
   overflow-x: scroll;
 }
+
 
 ::-webkit-scrollbar {
   display: none;
@@ -240,4 +254,10 @@
   border-width: 0px;
   margin: 5px 0px 0px 0px;
   cursor: pointer;
+}
+
+@media (max-width: 1100px) {
+  .table table {
+   display: none;
+  }
 }
