@@ -13,7 +13,7 @@ import AuthContext from "../../../store/auth-context";
 // css
 import pt from "./Css/PaymentTable.module.css";
 
-export default function PaymentTable() {
+export default function PaymentTable({ total, amount }) {
   const [load, setLoad] = useState(false);
   const [showData, setData] = useState([]);
   const [variants, setError] = useState({
@@ -149,3 +149,8 @@ export default function PaymentTable() {
     </>
   );
 }
+
+PaymentTable.propTypes = {
+  total: PropTypes.number.isRequired,
+  amount: PropTypes.number.isRequired,
+};
