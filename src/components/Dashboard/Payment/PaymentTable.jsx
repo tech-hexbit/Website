@@ -153,7 +153,11 @@ export default function PaymentTable() {
                       </td>
                       <td data-cell="action">
                         <label className={pt.labelDiv}>
-                          <input type="checkbox" className={pt.CheckBoxInp} />
+                          {val.action === "Delivered & Eligible" ? (
+                            <input type="checkbox" className={pt.CheckBoxInp} />
+                          ) : (
+                            ""
+                          )}
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
