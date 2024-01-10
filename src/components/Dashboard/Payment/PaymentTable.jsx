@@ -14,7 +14,7 @@ import AuthContext from "../../../store/auth-context";
 // css
 import pt from "./Css/PaymentTable.module.css";
 
-export default function PaymentTable({ setSel, showSel }) {
+export default function PaymentTable({ setSel }) {
   const [load, setLoad] = useState(false);
   const [showData, setData] = useState([]);
   const [variants, setError] = useState({
@@ -170,11 +170,6 @@ export default function PaymentTable({ setSel, showSel }) {
 }
 
 PaymentTable.propTypes = {
-  showSel: PropTypes.shape({
-    total: PropTypes.number.isRequired,
-    amount: PropTypes.number.isRequired,
-  }).isRequired,
-
   showSel: PropTypes.shape({
     total: PropTypes.number.isRequired,
     amount: PropTypes.number.isRequired,
