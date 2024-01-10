@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 // components
 import PaymentList from "./Payment/PaymentList";
@@ -12,6 +12,11 @@ import pr from "./Payment/Css/PaymentRequest.module.css";
 import Payt from "../Dashboard/Payment/Css/Payment.module.css";
 
 export default function PayRequest() {
+  const [showSel, setSel] = useState({
+    total: 0,
+    amount: 0,
+  });
+
   // scroll to top
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -27,7 +32,7 @@ export default function PayRequest() {
         <h3>Confirm Account Details For Payment Request </h3>
         <div className={pr.detailWrapper}>
           <PaymentRequest />
-          <SelectedBlock />
+          <SelectedBlock total={showSel.total} amount={showSel.amount} />
         </div>
       </div>
     </div>
