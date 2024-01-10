@@ -1,5 +1,8 @@
 import React from "react";
 
+// css
+import pr from "./Css/PaymentRequest.module.css";
+
 export default function SelectedBlock() {
   return (
     <>
