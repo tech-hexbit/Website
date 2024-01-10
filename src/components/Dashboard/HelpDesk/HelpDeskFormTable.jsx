@@ -121,7 +121,7 @@ export default function HelpDeskFormTable() {
                     </div>
                   </div>
                 </div>
-                 <HelpDeskFormTableDetail tableData={tableData} />
+                 <HelpDeskFormTableDetail props={tableData} />
             </div>
           ):(
         <div className={hdftable.main}>

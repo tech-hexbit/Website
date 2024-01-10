@@ -1,15 +1,14 @@
-import React, { useState, useEffect, useContext } from "react";
+import React from "react";
 
 // css
 import tableDetailStyle from "./Css/HelpDeskFormTableDetail.module.css";
 
-function HelpDeskFormTableDetail({tableData,onBackButtonClick}) {
-  console.log(tableData)
+function HelpDeskFormTableDetail({props}) {
   return (
-    <div >
+    <>
       <div>
-          <h3 className={tableDetailStyle.headerText}>TICKET ID :#HX{tableData._id.slice(-5)}</h3>
-          <h3 className={tableDetailStyle.headerTextSecond}>SUBJECT : {tableData.subject} </h3>
+          <h3 className={tableDetailStyle.headerText}>TICKET ID :#HX{props._id.slice(-5)}</h3>
+          <h3 className={tableDetailStyle.headerTextSecond}>SUBJECT : {props.subject} </h3>
       </div>
       <div className={tableDetailStyle.detailsSection}>
         <div>
@@ -18,7 +17,7 @@ function HelpDeskFormTableDetail({tableData,onBackButtonClick}) {
               Name
             </p>
             <p className={tableDetailStyle.nameSecond}>
-              {tableData.name}
+              {props.name}
             </p>
           </div>
           <div className={tableDetailStyle.detailsText}>
@@ -26,7 +25,7 @@ function HelpDeskFormTableDetail({tableData,onBackButtonClick}) {
               Email
             </p>
             <p className={tableDetailStyle.nameSecond}>
-              {tableData.emailID}
+              {props.emailID}
             </p>
           </div>
           <div className={tableDetailStyle.detailsText}>
@@ -34,7 +33,7 @@ function HelpDeskFormTableDetail({tableData,onBackButtonClick}) {
               Store Id
             </p>
             <p className={tableDetailStyle.nameSecond}>
-              {tableData.StoreID.slice(-4)}
+              {props.StoreID.slice(-4)}
             </p>
           </div>
           <div className={tableDetailStyle.detailsText}>
@@ -42,7 +41,7 @@ function HelpDeskFormTableDetail({tableData,onBackButtonClick}) {
               Store Name
             </p>
             <p className={tableDetailStyle.nameSecond}>
-              {tableData.StoreName}
+              {props.StoreName}
             </p>
           </div>
           <div className={tableDetailStyle.timeDate }>
@@ -51,10 +50,10 @@ function HelpDeskFormTableDetail({tableData,onBackButtonClick}) {
             </p>
             <p className={tableDetailStyle.reqDateSecond}>
               <p>
-                {tableData.when.date},
+                {props.when.date},
               </p>
               <p>
-                {tableData.when.time}
+                {props.when.time}
               </p>
             </p>
           </div>
@@ -64,15 +63,16 @@ function HelpDeskFormTableDetail({tableData,onBackButtonClick}) {
       <div >
         <p className={tableDetailStyle.message}>Message*</p>
       </div>
-      <div className={tableDetailStyle.messageInput}> 
-        <p>
-          Brief description of the query min 120 characters.
-        </p>
-      </div>
+      <div className={tableDetailStyle.messageContainer} >
+      <textarea
+        placeholder="Brief description of the query min 120 characters."
+        className={tableDetailStyle.textareaField}
+      />
+    </div>
       <div className={tableDetailStyle.resolveButton}>
           <p className={tableDetailStyle.resolveButtonText}>Resolve Query</p>
       </div>
-    </div>
+    </>
   )
 }
 
