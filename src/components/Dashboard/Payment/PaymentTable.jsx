@@ -113,12 +113,19 @@ export default function PaymentTable() {
       <div className={pt.main}>
         <h3>Transactions</h3>
 
-        {showData ? (
-          <div className={BSCss.loadCenterDiv}>
+        {load ? (
+          <div className="loadCenterDiv">
             <Load />
           </div>
         ) : (
           <>
+            {showData ? (
+              ""
+            ) : (
+              <div className="loadCenterDiv" id="loadPadding">
+                <Load />
+              </div>
+            )}
             <table className={pt.trans_table}>
               <tr>
                 <th>Tracking ID</th>
