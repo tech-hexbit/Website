@@ -26,7 +26,7 @@ export default function PayRequest() {
     <div className={Payt.main}>
       <PaymentList />
       <PaymentQuote />
-      <PaymentTable total={showSel.total} amount={showSel.amount} />
+      <PaymentTable setSel={setSel} showSel={showSel} />
 
       <div className={pr.main}>
         <h3>Confirm Account Details For Payment Request </h3>
