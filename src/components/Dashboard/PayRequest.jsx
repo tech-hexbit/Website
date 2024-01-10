@@ -4,8 +4,8 @@ import React, { useEffect } from "react";
 import PaymentList from "./Payment/PaymentList";
 import PaymentTable from "./Payment/PaymentTable";
 import PaymentQuote from "./Payment/PaymentQuote";
-import PaymentRequest from "./Payment/PaymentRequest";
 import SelectedBlock from "./Payment/SelectedBlock";
+import PaymentRequest from "./Payment/PaymentRequest";
 
 // css
 import pr from "./Payment/Css/PaymentRequest.module.css";
