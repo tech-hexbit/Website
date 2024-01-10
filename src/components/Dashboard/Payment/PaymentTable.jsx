@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 
 // MicroInteraction
-import Load from "./../../../MicroInteraction/Load";
+import Load from "./../../../MicroInteraction/LoadBlack";
 import { Alert } from "./../../../MicroInteraction/Alert";
 
 // axios
