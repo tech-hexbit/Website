@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
+
+// MicroInteraction
+import Load from "./../../../MicroInteraction/Load";
+import { Alert } from "./../../../MicroInteraction/Alert";
+
+// axios
+import axios from "axios";
+
+// state
+import AuthContext from "../../../store/auth-context";
 
 // css
 import pt from "./Css/PaymentTable.module.css";
 
 export default function PaymentTable() {
+  const [load, setLoad] = useState(false);
+  const [showData, setData] = useState([]);
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
+
   // dema data t be deleted
   const data = [
     {
@@ -44,65 +65,73 @@ export default function PaymentTable() {
     },
   ];
 
-  return (
-    <div className={pt.main}>
-      <h3>Transactions</h3>
-      <table className={pt.trans_table}>
-        <tr>
-          <th>Tracking ID</th>
-          <th>Product</th>
-          <th>Customer</th>
-          <th>Date</th>
-          <th>Amount</th>
-          <th>Payment Mode</th>
-          <th>Status</th>
-          <th>Action</th>
-        </tr>
+  useEffect(() => {
+    loadData();
+  }, []);
 
-        {data.map((item, index) => (
-          <tr key={index}>
-            <td data-cell="tracking Id">{item.trackingId}</td>
-            <td data-cell="order id">{item.product}</td>
-            <td data-cell="name">{item.customer}</td>
-            <td data-cell="date">{item.date}</td>
-            <td data-cell="amount">{item.amount}</td>
-            <td data-cell="payment mode">{item.paymentMode}</td>
-            <td
-              className={
-                item.status === "Delivered & Eligible"
-                  ? pt.processed
-                  : item.status === "Delivered"
-                  ? pt.pending
-                  : pt.rejected
-              }
-              data-cell="status"
-            >
-              {item.status}
-            </td>
-            <td data-cell="action">
-              <label className={pt.labelDiv}>
-                <input type="checkbox" className={pt.CheckBoxInp} />
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className={pt.lucide}
-                >
-                  <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" />
-                  <path d="M12 12v9" />
-                  <path d="m16 16-4-4-4 4" />
-                </svg>
-              </label>
-            </td>
+  return (
+    <>
+      <div className={pt.main}>
+        <h3>Transactions</h3>
+        <table className={pt.trans_table}>
+          <tr>
+            <th>Tracking ID</th>
+            <th>Product</th>
+            <th>Customer</th>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Payment Mode</th>
+            <th>Status</th>
+            <th>Action</th>
           </tr>
-        ))}
-      </table>
-    </div>
+
+          {data.map((item, index) => (
+            <tr key={index}>
+              <td data-cell="tracking Id">{item.trackingId}</td>
+              <td data-cell="order id">{item.product}</td>
+              <td data-cell="name">{item.customer}</td>
+              <td data-cell="date">{item.date}</td>
+              <td data-cell="amount">{item.amount}</td>
+              <td data-cell="payment mode">{item.paymentMode}</td>
+              <td
+                className={
+                  item.status === "Delivered & Eligible"
+                    ? pt.processed
+                    : item.status === "Delivered"
+                    ? pt.pending
+                    : pt.rejected
+                }
+                data-cell="status"
+              >
+                {item.status}
+              </td>
+              <td data-cell="action">
+                <label className={pt.labelDiv}>
+                  <input type="checkbox" className={pt.CheckBoxInp} />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className={pt.lucide}
+                  >
+                    <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" />
+                    <path d="M12 12v9" />
+                    <path d="m16 16-4-4-4 4" />
+                  </svg>
+                </label>
+              </td>
+            </tr>
+          ))}
+        </table>
+      </div>
+
+      <Alert variant={variants} val={setError} />
+    </>
   );
 }
