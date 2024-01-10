@@ -3,8 +3,9 @@ import React, { useEffect } from "react";
 // components
 import PaymentList from "./Payment/PaymentList";
 import PaymentTable from "./Payment/PaymentTable";
-import PaymentRequest from "./Payment/PaymentRequest";
 import PaymentQuote from "./Payment/PaymentQuote";
+import PaymentRequest from "./Payment/PaymentRequest";
+import SelectedBlock from "./Payment/SelectedBlock";
 
 // css
 import pr from "./Payment/Css/PaymentRequest.module.css";
@@ -20,10 +21,11 @@ export default function PayRequest() {
     <div className={Payt.main}>
       <PaymentList />
       <PaymentQuote />
+      <PaymentTable />
 
       <div className={pr.main}>
-        <PaymentTable />
         <PaymentRequest />
+        <SelectedBlock />
       </div>
     </div>
   );
