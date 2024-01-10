@@ -142,13 +142,16 @@ export default function OrderLayUpdate(props) {
                         </tr>
 
                         {res.Items?.map((val, key) => {
-                          console.log(val.ItemID.descriptor.symbol);
                           return (
                             <>
                               <tr key={key}>
                                 <td data-cell="Name">
                                   <div>
-                                    <img src="" alt="" />
+                                    <img
+                                      className={OLCss.itemImg}
+                                      src={val.ItemID.descriptor.symbol}
+                                      alt=""
+                                    />
                                   </div>
                                   {val.ItemID.descriptor.name}
                                 </td>
