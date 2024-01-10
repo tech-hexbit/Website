@@ -50,7 +50,7 @@ export default function HelpDeskFormTableDetail({ tableData }) {
           <div className={tableDetailStyle.timeDate}>
             <p className={tableDetailStyle.reqDate}>Request Time and Date</p>
             <p className={tableDetailStyle.reqDateSecond}>
-              <p>{tableData.when.date}</p>{" "}
+              <p>{tableData.when.date}</p>
               <span className={tableDetailStyle.comma}>,</span>
               <p>{tableData.when.time}</p>
             </p>
