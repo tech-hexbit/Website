@@ -18,7 +18,6 @@ export default function HelpDeskFormTableDetail({ tableData }) {
           SUBJECT : {tableData.subject}
         </h3>
       </div>
-
       <div className={tableDetailStyle.detailsSection}>
         <div>
           {/* Name */}
@@ -58,7 +57,6 @@ export default function HelpDeskFormTableDetail({ tableData }) {
           </div>
         </div>
       </div>
-
       {/* Message */}
       <div className={tableDetailStyle.msgMDiv}>
         <label className={tableDetailStyle.message}>Message*</label>
@@ -72,6 +70,7 @@ export default function HelpDeskFormTableDetail({ tableData }) {
         ></textarea>
       </div>
 
+      {/* Resolve Button */}
       <div className={tableDetailStyle.resolveButton}>
         <p className={tableDetailStyle.resolveButtonText}>Resolve Query</p>
       </div>
