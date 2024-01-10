@@ -20,8 +20,11 @@ export default function PayRequest() {
     <div className={Payt.main}>
       <PaymentList />
       <PaymentQuote />
-      <PaymentTable />
-      <PaymentRequest />
+
+      <div className={pr.main}>
+        <PaymentTable />
+        <PaymentRequest />
+      </div>
     </div>
   );
 }
