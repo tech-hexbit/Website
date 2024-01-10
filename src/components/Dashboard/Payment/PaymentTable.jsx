@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import PropTypes from "prop-types";
 
 // MicroInteraction
 import Load from "./../../../MicroInteraction/LoadBlack";
@@ -13,7 +14,7 @@ import AuthContext from "../../../store/auth-context";
 // css
 import pt from "./Css/PaymentTable.module.css";
 
-export default function PaymentTable() {
+export default function PaymentTable({ setSel }) {
   const [load, setLoad] = useState(false);
   const [showData, setData] = useState([]);
   const [variants, setError] = useState({
@@ -110,7 +111,25 @@ export default function PaymentTable() {
                       <td data-cell="action">
                         <label className={pt.labelDiv}>
                           {val.action === "Delivered & Eligible" ? (
-                            <input type="checkbox" className={pt.CheckBoxInp} />
+                            <input
+                              type="checkbox"
+                              className={pt.CheckBoxInp}
+                              onClick={() => {
+                                console.log("first");
+
+                                setSel((prevShowSel) => ({
+                                  ...prevShowSel,
+                                  total:
+                                    prevShowSel.total +
+                                    (prevShowSel.total === 0 ? 1 : -1),
+                                  amount:
+                                    prevShowSel.amount +
+                                    (prevShowSel.amount === 0
+                                      ? val.amount
+                                      : -val.amount),
+                                }));
+                              }}
+                            />
                           ) : (
                             ""
                           )}
@@ -149,3 +168,11 @@ export default function PaymentTable() {
     </>
   );
 }
+
+PaymentTable.propTypes = {
+  showSel: PropTypes.shape({
+    total: PropTypes.number.isRequired,
+    amount: PropTypes.number.isRequired,
+  }).isRequired,
+  setSel: PropTypes.func.isRequired,
+};
