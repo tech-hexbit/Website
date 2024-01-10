@@ -65,6 +65,42 @@ export default function PaymentTable() {
     },
   ];
 
+  const authCtx = useContext(AuthContext);
+
+  const loadData = async () => {
+    setLoad(true);
+
+    try {
+      const response = await axios.get("/api/common/Payment/OrderList", {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+
+      if (response.data.success) {
+        setOrderDel(response.data.topItems);
+        setOrderNumber(response.data.topItems?.length);
+
+        setLoad(false);
+      } else {
+        setLoad(false);
+
+        console.log(e);
+      }
+    } catch (e) {
+      setLoad(false);
+
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "An unexpected error occurred",
+        val: true,
+      });
+
+      console.log(e);
+    }
+  };
+
   useEffect(() => {
     loadData();
   }, []);
