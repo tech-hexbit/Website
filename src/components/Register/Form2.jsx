@@ -131,54 +131,64 @@ export default function Form2(props) {
           </div>
 
           {/* Pincode */}
-          {props.input.Pincode.length >= 6 ? (
-            <div>
-              <div className={FCss.formInputs}>
-                <label htmlFor="pincode">Pincode</label>
-                <input
-                  disabled={disable}
-                  type="number"
-                  id="pincode"
-                  placeholder="Your pincode"
-                  name="Pincode"
-                  value={props.input.Pincode}
-                  onChange={(e) => {
-                    props.setInput({ ...props.input, Pincode: e.target.value });
-                    const pin = props.input.Pincode;
-                    console.log(pin);
-                  }}
-                />
-                <div className={FCss.otpButtonClicked}>
-                  <button
-                    onClick={() => {
-                      console.log(`verify button clicked`);
-                      // setSendotp(!sendotp);
-                      pincodeVerify();
+          <div>
+            <label htmlFor="pincode">Pincode</label>
+            {props.input.Pincode.length >= 6 ? (
+              <div>
+                <div className={FCss.formInput}>
+                  <input
+                    disabled={disable}
+                    type="number"
+                    id="pincode"
+                    placeholder="Your pincode"
+                    name="Pincode"
+                    value={props.input.Pincode}
+                    onChange={(e) => {
+                      props.setInput({
+                        ...props.input,
+                        Pincode: e.target.value,
+                      });
+                      const pin = props.input.Pincode;
+                      console.log(pin);
                     }}
-                  >
-                    Verify Pincode
-                  </button>
+                  />
+                  <div className={FCss.otpButtonClicked}>
+                    <button
+                      onClick={() => {
+                        console.log(`verify button clicked`);
+                        // setSendotp(!sendotp);
+                        pincodeVerify();
+                      }}
+                    >
+                      Verify Pincode
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ) : (
-            <div className={FCss.formInputs}>
-              <label htmlFor="pincode">Pincode</label>
-              <input
-                disabled={disable}
-                type="number"
-                id="pincode"
-                placeholder="Your pincode"
-                name="Pincode"
-                value={props.input.Pincode}
-                onChange={(e) => {
-                  props.setInput({ ...props.input, Pincode: e.target.value });
-                  const pin = props.input.Pincode;
-                  console.log(pin);
-                }}
-              />
-            </div>
-          )}
+            ) : (
+              <div>
+                <div className={FCss.formInputNumber}>
+                  {/* <label htmlFor="pincode">Pincode</label> */}
+                  <input
+                    disabled={disable}
+                    type="number"
+                    id="pincode"
+                    placeholder="Your pincode"
+                    name="Pincode"
+                    value={props.input.Pincode}
+                    onChange={(e) => {
+                      props.setInput({
+                        ...props.input,
+                        Pincode: e.target.value,
+                      });
+                      const pin = props.input.Pincode;
+                      console.log(pin);
+                    }}
+                  />
+                </div>
+              </div>
+            )}
+          </div>
 
           {/* Address */}
           <div className={FCss.formInputs}>
