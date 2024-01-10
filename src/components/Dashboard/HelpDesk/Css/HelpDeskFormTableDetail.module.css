@@ -166,6 +166,19 @@
     justify-content: space-between;
     align-items: center;
   }
+
+  .resolveButton {
+    margin: 30px 5%;
+    width: 90%;
+    height: 43px;
+    border-radius: 14px;
+    background: rgba(35, 25, 99, 0.83);
+  }
+
+  .resolveButtonText {
+    font-size: 22px;
+    font-weight: 600;
+  }
 }
 
 @media screen and (max-width: 450px) {
@@ -233,11 +246,6 @@
     display: flex;
     gap: 7px;
     padding-top: 5px;
-  }
-
-  .resolveButtonText {
-    font-size: 22px;
-    font-weight: 600;
   }
 }
 
