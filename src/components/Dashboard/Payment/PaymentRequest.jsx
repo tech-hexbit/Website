@@ -47,35 +47,37 @@ export default function PaymentRequest() {
   };
 
   return (
-    <div className={pr.main}>
-      <h3>Confirm Account Details For Payment Request </h3>
-      <div className={pr.detailWrapper}>
-        <div className={pr.detailsLeft}>
-          {load ? (
-            <div className="loadCenterDiv" id="loadPadding">
-              <Load />
-            </div>
-          ) : bankDetails.length > 0 ? (
-            <>
-              {bankDetails.map((bank, key) => (
-                <BankDel
-                  BankName={bank.BankName}
-                  AccountNumber={String(bank.AccountNumber).slice(-4)}
-                  AccountHolderName={bank.AccountHolderName}
-                  IfscCode={bank.IfscCode}
-                  key={key}
-                />
-              ))}
-            </>
-          ) : (
-            <div className="loadCenterDiv" id="loadPadding">
-              No Bank info available
-            </div>
-          )}
-        </div>
+    <>
+      <div className={pr.main}>
+        <h3>Confirm Account Details For Payment Request </h3>
+        <div className={pr.detailWrapper}>
+          <div className={pr.detailsLeft}>
+            {load ? (
+              <div className="loadCenterDiv" id="loadPadding">
+                <Load />
+              </div>
+            ) : bankDetails.length > 0 ? (
+              <>
+                {bankDetails.map((bank, key) => (
+                  <BankDel
+                    BankName={bank.BankName}
+                    AccountNumber={String(bank.AccountNumber).slice(-4)}
+                    AccountHolderName={bank.AccountHolderName}
+                    IfscCode={bank.IfscCode}
+                    key={key}
+                  />
+                ))}
+              </>
+            ) : (
+              <div className="loadCenterDiv" id="loadPadding">
+                No Bank info available
+              </div>
+            )}
+          </div>
 
-        <></>
+          <></>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
