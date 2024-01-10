@@ -94,7 +94,7 @@ export default function PaymentRequest() {
                 <path d="M8 11h8" />
               </svg>
             </span>
-            <span>Alışveriş Özeti</span>
+            <span>Selected</span>
           </p>
           <div className={pr.flex}>
             <div className={pr.flexItem}>
