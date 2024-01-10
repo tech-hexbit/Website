@@ -134,35 +134,34 @@ export default function Form2(props) {
           <div>
             <label htmlFor="pincode">Pincode</label>
             {props.input.Pincode.length >= 6 ? (
-              <div>
-                <div className={FCss.formInput}>
-                  <input
-                    disabled={disable}
-                    type="number"
-                    id="pincode"
-                    placeholder="Your pincode"
-                    name="Pincode"
-                    value={props.input.Pincode}
-                    onChange={(e) => {
-                      props.setInput({
-                        ...props.input,
-                        Pincode: e.target.value,
-                      });
-                      const pin = props.input.Pincode;
-                      console.log(pin);
+              <div className={FCss.formInput}>
+                <input
+                  disabled={disable}
+                  type="number"
+                  id="pincode"
+                  placeholder="Your pincode"
+                  name="Pincode"
+                  value={props.input.Pincode}
+                  onChange={(e) => {
+                    props.setInput({
+                      ...props.input,
+                      Pincode: e.target.value,
+                    });
+                    const pin = props.input.Pincode;
+                    console.log(pin);
+                  }}
+                />
+                <div className={FCss.otpButton}>
+                  <button
+                    style={{ paddingRight: "0.5rem", paddingLeft: "0.5rem" }}
+                    onClick={() => {
+                      console.log(`verify button clicked`);
+                      // setSendotp(!sendotp);
+                      pincodeVerify();
                     }}
-                  />
-                  <div className={FCss.otpButtonClicked}>
-                    <button
-                      onClick={() => {
-                        console.log(`verify button clicked`);
-                        // setSendotp(!sendotp);
-                        pincodeVerify();
-                      }}
-                    >
-                      Verify Pincode
-                    </button>
-                  </div>
+                  >
+                    Verify
+                  </button>
                 </div>
               </div>
             ) : (
