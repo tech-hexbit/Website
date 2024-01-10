@@ -91,6 +91,14 @@
   width: 100%;
 }
 
+.itemImg {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: contain;
+  aspect-ratio: 1/1;
+}
+
 .ProductDelPTag {
   font-size: 18px;
   font-weight: 400;
