@@ -47,7 +47,7 @@ export default function PaymentRequest() {
   };
 
   return (
-    <>
+    <div>
       <h3>Confirm Account Details For Payment Request </h3>
       <div className={pr.detailWrapper}>
         <div className={pr.detailsLeft}>
@@ -74,6 +74,6 @@ export default function PaymentRequest() {
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 }
