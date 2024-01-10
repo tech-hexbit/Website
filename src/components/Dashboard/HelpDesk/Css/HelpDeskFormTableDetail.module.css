@@ -133,11 +133,8 @@
   }
 
   .nameSecond {
-    color: rgba(18, 18, 18, 1);
     font-size: 20px;
-    font-weight: 700;
     text-align: left;
-    padding-top: 1px;
   }
 
   .detailsSection {
@@ -215,11 +212,9 @@
   }
 
   .nameSecond {
-    color: rgba(18, 18, 18, 1);
     font-size: 18px;
     font-weight: 600;
     line-height: 28px;
-    text-align: left;
   }
 
   .reqDateSecond {
