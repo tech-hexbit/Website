@@ -146,14 +146,14 @@ export default function OrderLayUpdate(props) {
                             <>
                               <tr key={key}>
                                 <td data-cell="Name">
-                                  <div>
+                                  <div className={OLCss.titleItemDiv}>
                                     <img
                                       className={OLCss.itemImg}
                                       src={val.ItemID.descriptor.symbol}
                                       alt=""
                                     />
+                                    {val.ItemID.descriptor.name}
                                   </div>
-                                  {val.ItemID.descriptor.name}
                                 </td>
                                 <td data-cell="Product ID">
                                   {val.ItemID._id.slice(-4)}
