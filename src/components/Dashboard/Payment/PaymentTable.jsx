@@ -76,8 +76,7 @@ export default function PaymentTable() {
       });
 
       if (response.data.success) {
-        setOrderDel(response.data.topItems);
-        setOrderNumber(response.data.topItems?.length);
+        setData(response.data.data);
 
         setLoad(false);
       } else {
@@ -104,6 +103,10 @@ export default function PaymentTable() {
   useEffect(() => {
     loadData();
   }, []);
+
+  useEffect(() => {
+    console.log(showData);
+  }, [showData]);
 
   return (
     <>
