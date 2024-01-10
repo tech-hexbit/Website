@@ -124,7 +124,6 @@ export default function PaymentTable() {
                 <table className={pt.trans_table}>
                   <tr>
                     <th>Tracking ID</th>
-                    {/* <th>Product</th> */}
                     <th>Customer</th>
                     <th>Date</th>
                     <th>Amount</th>
@@ -136,7 +135,6 @@ export default function PaymentTable() {
                   {showData.map((val, key) => (
                     <tr key={key}>
                       <td data-cell="tracking Id">#{val._id.slice(-4)}</td>
-                      {/* <td data-cell="order id">{val.product}</td> */}
                       <td data-cell="name">{val.ONDCBilling.name}</td>
                       <td data-cell="date">{val.when.date}</td>
                       <td data-cell="amount">₹ {val.amount.toFixed(2)}</td>
