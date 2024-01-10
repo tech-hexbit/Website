@@ -7,6 +7,7 @@ import PaymentRequest from "./Payment/PaymentRequest";
 import PaymentQuote from "./Payment/PaymentQuote";
 
 // css
+import pr from "./Payment/Css/PaymentRequest.module.css";
 import Payt from "../Dashboard/Payment/Css/Payment.module.css";
 
 export default function PayRequest() {
