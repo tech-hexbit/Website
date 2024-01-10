@@ -1,0 +1,33 @@
+
+.addimgDivMain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.images_style {
+max-width: 10px;
+max-height: 10px;
+margin: 5px;
+/* Add any additional styling as needed */
+}
+
+
+.addImgDiv {
+  width: 120px;
+  height: 130px;
+  background-color: #dbdbdb;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #777;
+  font-family: "Merriweather", serif;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 40.811px;
+  letter-spacing: 0.653px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}

@@ -13,11 +13,15 @@ import AuthContext from "../../../store/auth-context";
 // css
 import FCss from "./Css/Form.module.css";
 
+//component
+import MultipleImageHandler from "./MultipleImageHandler"
+
 export default function Form() {
   const [tags, settags] = useState([]);
   const [load, setLoad] = useState(false);
-  const [tagvalue, settagvalue] = useState("");
+  const [tagvalue, settagvalue] = useState("");``
   const [imageUpload, setImageUpload] = useState();
+  const [multipleImageUpload, setMultipleImageUpload] = useState([]);
   const [PublishOpen, setPublishOpen] = useState(true);
   const [ServiceOpen, setServiceOpen] = useState(false);
   const [variants, setError] = useState({
@@ -833,6 +837,8 @@ export default function Form() {
               style={{ display: "none" }}
               ref={fileInp}
             />
+            
+            {/* IMAGE UPLAOD IS HANDLED HERE */}
 
             {imageUpload ? (
               <img
@@ -852,13 +858,15 @@ export default function Form() {
           </div>
         </div>
 
+        
+                 <MultipleImageHandler multipleImageUpload={multipleImageUpload} setMultipleImageUpload={setMultipleImageUpload} />
+
         <div className={FCss.SubmitBtnDiv}>
           <p className={FCss.SubmitBtn} onClick={onSubmit}>
             {load ? <Load /> : "Submit"}
           </p>
         </div>
       </div>
-
       <Alert variant={variants} val={setError} />
     </>
   );
