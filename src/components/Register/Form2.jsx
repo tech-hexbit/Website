@@ -6,8 +6,11 @@ import { Alert } from "./../../MicroInteraction/Alert";
 
 // css
 import FCss from "./Css/Form.module.css";
+import axios from "axios";
 
 export default function Form2(props) {
+  const [verifyPin, setVerify] = useState(false);
+  const [disable, setDisable] = useState(false);
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -16,6 +19,41 @@ export default function Form2(props) {
     text: "",
     val: false,
   });
+
+  const pincodeVerify = async () => {
+    try {
+      const validPin = ({ response }) => {
+        // console.log(response.data[0].PostOffice[0].State);
+        props.setInput({
+          ...props.input,
+          State: response.data[0].PostOffice[0].State,
+          City: response.data[0].PostOffice[0].Name,
+        });
+        setDisable(true);
+        setVerify(true);
+      };
+      const invalidPin = () => {
+        setError({
+          mainColor: "#FFC0CB",
+          secondaryColor: "#FF69B4",
+          symbol: "pets",
+          title: "Check it out",
+          text: "Invalid pincode",
+          val: true,
+        });
+        setVerify(false);
+      };
+      const response = await axios.get(
+        `https://api.postalpincode.in/pincode/${props.input.Pincode}`
+      );
+      // console.log(response.data);
+      response.data[0].PostOffice ? validPin({ response }) : invalidPin();
+      // console.log("invalid pincode");
+      console.log(props.input.State);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   const checkInfo = async () => {
     if (
@@ -33,7 +71,16 @@ export default function Form2(props) {
         text: "Please Fill All The Details",
         val: true,
       });
-
+      window.scrollTo(0, 0);
+    } else if (!verifyPin) {
+      setError({
+        mainColor: "#FFC0CB",
+        secondaryColor: "#FF69B4",
+        symbol: "pets",
+        title: "Check it out",
+        text: "Invalid pincode",
+        val: true,
+      });
       window.scrollTo(0, 0);
     } else {
       setError({
@@ -83,6 +130,56 @@ export default function Form2(props) {
             />
           </div>
 
+          {/* Pincode */}
+          {props.input.Pincode.length >= 6 ? (
+            <div>
+              <div className={FCss.formInputs}>
+                <label htmlFor="pincode">Pincode</label>
+                <input
+                  disabled={disable}
+                  type="number"
+                  id="pincode"
+                  placeholder="Your pincode"
+                  name="Pincode"
+                  value={props.input.Pincode}
+                  onChange={(e) => {
+                    props.setInput({ ...props.input, Pincode: e.target.value });
+                    const pin = props.input.Pincode;
+                    console.log(pin);
+                  }}
+                />
+                <div className={FCss.otpButtonClicked}>
+                  <button
+                    onClick={() => {
+                      console.log(`verify button clicked`);
+                      // setSendotp(!sendotp);
+                      pincodeVerify();
+                    }}
+                  >
+                    Verify Pincode
+                  </button>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className={FCss.formInputs}>
+              <label htmlFor="pincode">Pincode</label>
+              <input
+                disabled={disable}
+                type="number"
+                id="pincode"
+                placeholder="Your pincode"
+                name="Pincode"
+                value={props.input.Pincode}
+                onChange={(e) => {
+                  props.setInput({ ...props.input, Pincode: e.target.value });
+                  const pin = props.input.Pincode;
+                  console.log(pin);
+                }}
+              />
+            </div>
+          )}
+
           {/* Address */}
           <div className={FCss.formInputs}>
             <label htmlFor="address">Address</label>
@@ -102,6 +199,7 @@ export default function Form2(props) {
           <div className={FCss.formInputs}>
             <label htmlFor="state">State / District</label>
             <input
+              disabled={disable}
               type="text"
               id="state"
               placeholder="Your state"
@@ -117,6 +215,7 @@ export default function Form2(props) {
           <div className={FCss.formInputs}>
             <label htmlFor="city">City / Village / Town</label>
             <input
+              disabled={disable}
               type="text"
               id="city"
               placeholder="Your city"
@@ -124,21 +223,6 @@ export default function Form2(props) {
               value={props.input.City}
               onChange={(e) => {
                 props.setInput({ ...props.input, City: e.target.value });
-              }}
-            />
-          </div>
-
-          {/* Pincode */}
-          <div className={FCss.formInputs}>
-            <label htmlFor="pincode">Pincode</label>
-            <input
-              type="number"
-              id="pincode"
-              placeholder="Your pincode"
-              name="Pincode"
-              value={props.input.Pincode}
-              onChange={(e) => {
-                props.setInput({ ...props.input, Pincode: e.target.value });
               }}
             />
           </div>
