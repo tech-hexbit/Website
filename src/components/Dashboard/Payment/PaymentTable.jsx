@@ -64,10 +64,6 @@ export default function PaymentTable() {
     loadData();
   }, []);
 
-  useEffect(() => {
-    console.log(showData);
-  }, [showData]);
-
   return (
     <>
       <div className={pt.main}>
