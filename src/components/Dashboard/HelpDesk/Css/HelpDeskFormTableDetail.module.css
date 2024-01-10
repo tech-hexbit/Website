@@ -24,8 +24,8 @@
 .detailsSection {
   width: 100%;
   margin-top: 24px;
-  padding: 20px 39.97px 30px 39.97px;
-  border-radius: 39.97px;
+  padding: 20px 40px 30px 40px;
+  border-radius: 40px;
   box-shadow: 0px 13px 40px 0px rgba(170, 170, 170, 0.12);
   background: rgba(255, 255, 255, 1);
 }
@@ -34,6 +34,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 15px 0px 0px 0px;
 }
 
 .timeDate {
@@ -48,7 +49,6 @@
   font-weight: 400;
   line-height: 30px;
   text-align: left;
-  padding-top: 15px;
 }
 
 .reqDateSecond {
@@ -133,20 +133,8 @@
   }
 
   .nameSecond {
-    color: rgba(18, 18, 18, 1);
     font-size: 20px;
-    font-weight: 700;
     text-align: left;
-    padding-top: 1px;
-  }
-
-  .detailsSection {
-    width: 100%;
-    margin-top: 24px;
-    padding: 30px 39.97px 46px 39.97px;
-    border-radius: 39.97px;
-    box-shadow: 0px 13px 40px 0px rgba(170, 170, 170, 0.12);
-    background: rgba(255, 255, 255, 1);
   }
 }
 
@@ -154,125 +142,89 @@
   .messageInput {
     width: 90%;
   }
+
+  .reqDate,
+  .comma {
+    display: none;
+  }
+
+  .reqDateSecond {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .resolveButton {
+    margin: 30px 5%;
+    width: 90%;
+  }
+
+  .resolveButtonText {
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  .detailsText {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 @media screen and (max-width: 450px) {
   .headerText {
-    margin-top: 20px;
     font-size: 24px;
-    line-height: 24px;
     font-weight: 800;
   }
 
   .headerTextSecond {
     padding-top: 10px;
     font-size: 22px;
-    line-height: 24px;
     font-weight: 700;
   }
 
   .detailsSection {
-    width: 100%;
     margin-top: 15px;
     padding: 20px 20px 30px 20px;
-    border-radius: 39.97px;
-    box-shadow: 0px 13px 40px 0px rgba(170, 170, 170, 0.12);
-    background: rgba(255, 255, 255, 1);
-  }
-
-  .detailsText {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
   }
 
   .name {
-    color: rgba(112, 112, 112, 1);
     font-size: 20px;
     font-weight: 600;
     line-height: 28px;
-    text-align: left;
-    padding-top: 15px;
   }
 
   .nameSecond {
-    color: rgba(18, 18, 18, 1);
     font-size: 18px;
     font-weight: 600;
     line-height: 28px;
-    text-align: left;
-  }
-
-  .reqDate {
-    color: rgba(112, 112, 112, 1);
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 30px;
-    text-align: left;
-    padding-top: 15px;
   }
 
   .reqDateSecond {
-    color: rgba(112, 112, 112, 1);
     font-size: 18px;
     font-weight: 400;
-    line-height: 30px;
-    text-align: center;
-    display: flex;
-    gap: 7px;
     padding-top: 5px;
   }
 }
 
 @media screen and (max-width: 400px) {
   .headerText {
-    margin-top: 20px;
     font-size: 20px;
-    line-height: 24px;
-    font-weight: 800;
   }
 
   .headerTextSecond {
-    padding-top: 10px;
     font-size: 18px;
-    line-height: 24px;
-    font-weight: 700;
   }
 
   .name {
-    color: rgba(112, 112, 112, 1);
     font-size: 17px;
-    font-weight: 600;
-    line-height: 28px;
-    text-align: left;
     padding-top: 7px;
   }
 
   .nameSecond {
-    color: rgba(18, 18, 18, 1);
     font-size: 15px;
-    font-weight: 600;
-    line-height: 28px;
-    text-align: left;
-  }
-
-  .reqDate {
-    color: rgba(112, 112, 112, 1);
-    font-size: 17px;
-    font-weight: 400;
-    line-height: 30px;
-    text-align: left;
-    padding-top: 15px;
   }
 
   .reqDateSecond {
-    color: rgba(112, 112, 112, 1);
     font-size: 15px;
-    font-weight: 400;
-    line-height: 30px;
-    text-align: center;
-    display: flex;
-    gap: 7px;
-    padding-top: 5px;
   }
 }
