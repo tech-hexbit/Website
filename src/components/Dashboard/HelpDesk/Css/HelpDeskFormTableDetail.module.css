@@ -183,9 +183,7 @@
 
 @media screen and (max-width: 450px) {
   .headerText {
-    margin-top: 20px;
     font-size: 24px;
-    line-height: 24px;
     font-weight: 800;
   }
 
@@ -251,10 +249,7 @@
 
 @media screen and (max-width: 400px) {
   .headerText {
-    margin-top: 20px;
     font-size: 20px;
-    line-height: 24px;
-    font-weight: 800;
   }
 
   .headerTextSecond {
