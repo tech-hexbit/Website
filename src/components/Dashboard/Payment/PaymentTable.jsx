@@ -139,7 +139,7 @@ export default function PaymentTable() {
                       <td data-cell="order id">{val.product}</td>
                       <td data-cell="name">{val.customer}</td>
                       <td data-cell="date">{val.date}</td>
-                      <td data-cell="amount">{val.amount}</td>
+                      <td data-cell="amount">{val.amount.toFixed(2)}</td>
                       <td data-cell="payment mode">{val.paymentMode}</td>
                       <td
                         className={
