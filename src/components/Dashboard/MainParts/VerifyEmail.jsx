@@ -22,9 +22,12 @@ export default function VerifyEmail({ onClose }) {
             <div className={Vcss.tick}>
               <img src={verifyEmail} alt="Centered Image" />
             </div>
+
             <p className={Vcss.para}>Email sent for Verification!!</p>
+
             <p className={Vcss.l2}>Check Your Mailbox and Verify</p>
-            <p className={[Vcss.para, Vcss.l3].join(" ")}>
+
+            <p className={`${Vcss.para} ${Vcss.l3}`}>
               Click on the link in the mail for verification
             </p>
           </div>
