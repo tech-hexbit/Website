@@ -31,3 +31,37 @@ margin: 5px;
   margin-bottom: 30px;
   cursor: pointer;
 }
+
+.labelDes {
+  color: #777777;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0.14px;
+  margin: 15px 0px 10px 0px;
+}
+
+.label{
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 19px;
+  letter-spacing: 0.14px;
+}
+
+.inpDiv {
+  margin-bottom: 30px;
+}
+
+.closeButton {
+  position: relative;
+  bottom: 108px;
+  left: 140px;
+  border: none;
+  cursor: pointer;
+  z-index: 110;
+  width: 20px;
+  height: 20px;
+  /* background-color: rgb(153, 255, 0); */
+}
