@@ -48,6 +48,14 @@
   width: 100%;
 }
 
+.verIcon {
+  height: 100%;
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  color: #c075ff;
+}
+
 .formInput2 input {
   margin-right: 0;
   margin-top: 10px;
