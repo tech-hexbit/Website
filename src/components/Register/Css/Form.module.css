@@ -141,7 +141,8 @@ label {
   cursor: pointer;
 }
 
-.otpButtonT button {
+.otpButtonT button,
+#curNA {
   cursor: not-allowed;
 }
 
