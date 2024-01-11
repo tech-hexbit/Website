@@ -109,11 +109,11 @@ export default function PaymentTable() {
 
   return (
     <div className={Gptable.main}>
-      <h4>Transactions</h4>
+      <h4>Transactions</h4> 
       {showOverlay ? (
         <table className={Gptable.trans_table}>
           <tr>
-            {/* <th>Ref. No.</th> */}
+            <th>Ref. No.</th>
             <th>Order Id</th>
             <th>A/c Holder Name</th>
             <th>Date</th>

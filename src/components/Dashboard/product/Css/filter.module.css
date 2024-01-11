@@ -1,16 +1,18 @@
 .mainDiv {
   border-radius: 15px;
-  padding: 20px 0px;
+  padding: 17px 0px;
   height: fit-content;
   transition: all 0.3s;
   margin-top: 9px;
 }
 
 .div1 {
-  padding: 0px 0px 13px 0px;
   border-bottom: #ddd 1px solid;
-  min-width: 120px;
-  transition: all 0.3s;
+  padding: 0px 0px 13px 0px;
+  min-width: 20px;
+  transition: all 0.3s;   
+  margin:0px auto;
+
 }
 
 .heading {
@@ -60,4 +62,15 @@
   float: right;
   margin: 10px 5px 10px 0px;
   cursor: pointer;
+}
+
+@media (max-width:650px){
+  .div1{
+    width: 80%;
+    padding:  0px;
+  }
+  .mainDiv{
+    padding: 0px 0px;
+  }
+  
 }
