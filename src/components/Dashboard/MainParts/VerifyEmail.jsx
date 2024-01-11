@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Vcss from "./Css/VerifyEmail.module.css";
 
 // img
-import verifyEmail from "../assets/SuccessIcon.png";
+import verifyEmail from "./../../../assets/SuccessIcon.png";
 
 export default function VerifyEmail({ onClose }) {
   const [isModalOpen, setModalOpen] = useState(true);
