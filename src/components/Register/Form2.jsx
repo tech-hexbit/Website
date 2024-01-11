@@ -151,7 +151,7 @@ export default function Form2(props) {
                     });
                   }}
                 />
-                <div className={FCss.otpButton}>
+                <div className={verifyPin ? FCss.otpButtonT : FCss.otpButtonF}>
                   <button
                     className={FCss.otpBtn}
                     onClick={() => {
