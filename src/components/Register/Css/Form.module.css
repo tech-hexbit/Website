@@ -102,8 +102,12 @@ label {
 .otp {
   display: flex;
   justify-content: space-between;
-
   padding-bottom: 30px;
+}
+
+.otpBtn {
+  min-height: 40px;
+  padding: 0px 1rem;
 }
 
 .otpText {
