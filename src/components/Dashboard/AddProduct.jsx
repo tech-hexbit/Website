@@ -40,6 +40,8 @@ export default function AddProduct() {
       <div className={ApCss.mDiv}>
         <div className={ApCss.headDiv}>
           <Header name="Add Product" />
+
+          {/* Bulk Btn */}
           <div className={ApCss.addCsv}>
             <button onClick={() => setShowPopup(true)}>
               + <span className={ApCss.hideTxt}>Add bulk</span>
