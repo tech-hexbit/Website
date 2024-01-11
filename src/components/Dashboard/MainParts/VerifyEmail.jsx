@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 // css
 import Vcss from "./Css/VerifyEmail.module.css";
@@ -36,3 +37,7 @@ export default function VerifyEmail({ onClose }) {
     </>
   );
 }
+
+VerifyEmail.propTypes = {
+  onClose: PropTypes.func.isRequired,
+};
