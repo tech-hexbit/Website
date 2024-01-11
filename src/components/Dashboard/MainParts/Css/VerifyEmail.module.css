@@ -12,11 +12,11 @@
 }
 
 .modalContent {
-  background-color: #f4fff8;
-  padding: 30px 80px 30px 80px;
-  border-radius: 8px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   position: relative;
+  padding: 30px 80px;
+  border-radius: 8px;
+  background-color: #f4fff8;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .tick img {
@@ -50,4 +50,9 @@
   cursor: pointer;
   font-size: 20px;
   color: #333;
+}
+
+@media screen and (max-width: 550px) {
+  .verifyEmail {
+  }
 }
