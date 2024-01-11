@@ -225,11 +225,11 @@ export default function Form2(props) {
               <input
                 disabled={disable}
                 type="text"
-                id="state"
                 placeholder="Your state"
                 name="State"
                 className={FCss.stateInp}
                 value={props.input.State}
+                id={verifyPin ? FCss.curNA : "state"}
                 onChange={(e) => {
                   props.setInput({ ...props.input, State: e.target.value });
                 }}
@@ -266,11 +266,11 @@ export default function Form2(props) {
               <input
                 disabled={disable}
                 type="text"
-                id="city"
                 placeholder="Your city"
                 name="City"
                 className={FCss.stateInp}
                 value={props.input.City}
+                id={verifyPin ? FCss.curNA : "city"}
                 onChange={(e) => {
                   props.setInput({ ...props.input, City: e.target.value });
                 }}
