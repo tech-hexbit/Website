@@ -191,13 +191,19 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 #offCat {
-  width: 30%;
+  width: 15vw;
+}
+@media (max-width:650px){
+  #offCat {
+    width: 100%;
+  }
 }
 
-#Div1Cat {
+ #Div1Cat {
   opacity: 0;
   visibility: hidden;
-}
+  display: none;
+} 
 
 #onCat #div1CatFilter {
   display: flex;

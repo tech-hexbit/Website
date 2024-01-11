@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-
+import { Link } from "react-router-dom";
 // axios
 import axios from "axios";
 
@@ -78,7 +78,6 @@ export default function Filter({ filteredlist, setfilteredlist}) {
             console.log("Match");
             console.log(orderDel.category_id === e);
             console.log(`Match ${orderDel.category_id} === ${e}`);
-
             newFIltered.push(orderDel);
           }
         });
@@ -89,7 +88,6 @@ export default function Filter({ filteredlist, setfilteredlist}) {
       setfilteredlist(orderDel);
     }
   }, [category]);
-
   return (
     <div className={FCss.mainDiv} id={onFil ? "onCat" : "offCat"}>
       <div className={FCss.div1} id="div1CatFilter">

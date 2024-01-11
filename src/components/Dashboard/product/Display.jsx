@@ -136,7 +136,8 @@ export default function Display({ filteredlist, setfilteredlist }) {
       setmax(true);
     }
   };
-  const [onFil, offFil] = useState(false);
+
+
   return (
     <>
       <div
@@ -157,7 +158,9 @@ export default function Display({ filteredlist, setfilteredlist }) {
             </Link>
           </div>
         </div>
-
+        <div className={DCss.hideFilter}>
+          <Filter filteredlist={filteredlist} setfilteredlist={setfilteredlist} />
+        </div>
         <div className={DCss.middle}>
           {load ? (
             <div className="loadCenterDiv">
