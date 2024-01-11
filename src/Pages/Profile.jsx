@@ -1,6 +1,9 @@
 import React, { useEffect, useContext, useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 
+// axios
+import axios from "axios";
+
 // helmet
 import { Helmet } from "react-helmet";
 
@@ -43,20 +46,18 @@ export default function Profile() {
 
   const authCtx = useContext(AuthContext);
 
-  const handleLinkClick = () => {
-    const resendMail = async () => {
-      try {
-        const response = await axios.get(
-          `/api/website/auth/verification/resend/${authCtx.user.Email}`
-        );
+  const resendMail = async () => {
+    try {
+      const response = await axios.get(
+        `/api/website/auth/verification/resend/${authCtx.user.Email}`
+      );
 
-        if (response.data.status) {
-          setShowModal(true);
-        }
-      } catch (e) {
-        console.log(e);
+      if (response.data.status) {
+        setShowModal(true);
       }
-    };
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   const closePopup = () => {
@@ -82,7 +83,7 @@ export default function Profile() {
                 ) : (
                   <>
                     <p className={PCss.alert}>
-                      <Link to="#" onClick={handleLinkClick}>
+                      <Link to="#" onClick={resendMail}>
                         <div className={PCss.icon}>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
