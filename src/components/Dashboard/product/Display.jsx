@@ -17,6 +17,7 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 import DCss from "./Css/display.module.css";
 import cardDisplay from "./Css/cardDisplay.module.css";
 import Filter from "./Filter";
+import TabCss from "./Css/tableStyle.module.css"
 
 export default function Display({ filteredlist, setfilteredlist }) {
   const [max, setmax] = useState(false);
@@ -170,6 +171,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
             <div className={DCss.table}>
               <table
                 className={DCss.tableTag}
+                // className={TabCss.trans_table}
                 style={{ borderCollapse: "collapse" }}
               >
                 {orderDel?.length > 0 ? (

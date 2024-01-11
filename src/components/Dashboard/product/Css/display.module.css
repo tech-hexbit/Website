@@ -89,6 +89,7 @@
   left: 0px;
   z-index: 300;
   box-shadow: #777;
+  border: 2px solid white;
 }
 
 .table td:nth-child(2),
@@ -98,11 +99,23 @@
   z-index: 300;
 }
 
+
 .table th {
-  color: #555;
-  font-size: 14px;
-  font-weight: 400;
+  /* color: #555; */
+  color:black;
+  font-size: 20 px;
+  font-weight: 700;
+  border: 2px solid white;
 }
+.table tr:hover{
+  background-color: #ebefff;
+}
+.table tr{
+  transition: background-color 200ms ease;
+}
+
+
+
 
 .imgTag {
   width: 100%;
@@ -117,6 +130,7 @@
   padding: 17px 0px 17px 15px;
   border-bottom: 1px solid #ddd;
   position: relative;
+  border: 2px solid white;
 }
 
 .middle {
@@ -130,6 +144,9 @@
 
 .col1 {
   display: flex;
+  /* align-items: center; */
+  align-items: center;
+  gap: 10px;
 }
 
 .image {
@@ -139,6 +156,9 @@
 
 .col1Text {
   padding-left: 10px;
+  display: flexbox;
+
+ 
 }
 
 .textTop {
