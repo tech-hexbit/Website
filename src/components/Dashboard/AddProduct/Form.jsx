@@ -14,16 +14,16 @@ import AuthContext from "../../../store/auth-context";
 import FCss from "./Css/Form.module.css";
 
 //component
-import MultipleImageHandler from "./MultipleImageHandler"
+import MultipleImageHandler from "./MultipleImageHandler";
 
 export default function Form() {
   const [tags, settags] = useState([]);
   const [load, setLoad] = useState(false);
-  const [tagvalue, settagvalue] = useState("");``
+  const [tagvalue, settagvalue] = useState("");
   const [imageUpload, setImageUpload] = useState();
-  const [multipleImageUpload, setMultipleImageUpload] = useState([]);
   const [PublishOpen, setPublishOpen] = useState(true);
   const [ServiceOpen, setServiceOpen] = useState(false);
+  const [multipleImageUpload, setMultipleImageUpload] = useState([]);
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -855,7 +855,10 @@ export default function Form() {
           </div>
         </div>
 
-        <MultipleImageHandler multipleImageUpload={multipleImageUpload} setMultipleImageUpload={setMultipleImageUpload} />
+        <MultipleImageHandler
+          multipleImageUpload={multipleImageUpload}
+          setMultipleImageUpload={setMultipleImageUpload}
+        />
 
         <div className={FCss.SubmitBtnDiv}>
           <p className={FCss.SubmitBtn} onClick={onSubmit}>
