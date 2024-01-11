@@ -47,24 +47,21 @@ export default function Profile() {
     const resendMail = async () => {
       try {
         const response = await axios.get(
-          `/api/website/auth/verification/resend/${email}`
+          `/api/website/auth/verification/resend/${authCtx.user.Email}`
         );
 
         if (response.data.status) {
-          setSent(true);
+          setShowModal(true);
         }
       } catch (e) {
         console.log(e);
       }
     };
-    setShowModal(true);
   };
 
   const closePopup = () => {
     setShowModal(false);
   };
-
-  console.log(authCtx.user.emailVerified);
 
   return (
     <>
