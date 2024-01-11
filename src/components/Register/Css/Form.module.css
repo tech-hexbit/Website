@@ -27,12 +27,19 @@
 .formInput {
   display: flex;
   flex-direction: row;
-  /* padding-bottom: 30px; */
   justify-content: space-between;
   margin-bottom: 10px;
 }
 
-.formInput input {
+.formInput2 {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0px 0px 30px 0px;
+}
+
+.formInput input,
+.formInput2 input {
   width: 70%;
   margin-right: 0;
   margin-top: 10px;
