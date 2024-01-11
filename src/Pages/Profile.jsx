@@ -86,8 +86,6 @@ export default function Profile() {
     setShowModal(false);
   };
 
-  console.log(load);
-
   return (
     <>
       <Helmet>
