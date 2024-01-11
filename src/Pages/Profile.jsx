@@ -51,6 +51,8 @@ export default function Profile() {
     setShowModal(false);
   };
 
+  console.log(authCtx.user);
+
   return (
     <>
       <Helmet>
