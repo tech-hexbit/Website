@@ -2,15 +2,15 @@ import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 
 //Css
-import style from './Css/MultipleImageHandler.module.css';
+import MulImgCss from './Css/MultipleImageHandler.module.css';
 
-const MultipleImageHandler = (props) => {
+const MultipleImageHandler = ({multipleImageUpload, setMultipleImageUpload}) => {
   const fileInp = useRef(null);
 
   // Functions to handle change
   const handleFileChange = (e) => {
     const selectedFiles = Array.from(e.target.files);
-    props.setMultipleImageUpload((prevImages) => [...prevImages, ...selectedFiles]);
+    setMultipleImageUpload((prevImages) => [...prevImages, ...selectedFiles]);
   };
 
   const handleClick = () => {
@@ -19,15 +19,15 @@ const MultipleImageHandler = (props) => {
 
   const handleDeselectImage = (index) => {
     const filteredImages = props.multipleImageUpload.filter((_, i) => i !== index);
-    props.setMultipleImageUpload(filteredImages);
+    setMultipleImageUpload(filteredImages);
   };
 
   return (
     <>
-      <div className={style.inpDiv}>
-        <p className={style.label}>Product image</p>
-        <p className={style.labelDes}>Add the product main image</p>
-        <div className={style.addimgDivMain}>
+      <div className={MulImgCss.inpDiv}>
+        <p className={MulImgCss.label}>Product image</p>
+        <p className={MulImgCss.labelDes}>Add the product main image</p>
+        <div className={MulImgCss.addimgDivMain}>
           <input
             type="file"
             multiple
@@ -35,19 +35,19 @@ const MultipleImageHandler = (props) => {
             onChange={handleFileChange}
             ref={fileInp}
           />
-          {props.multipleImageUpload.map((image, index) => (
-            <div key={index} className={style.imageContainer}>
+          {multipleImageUpload.map((image, index) => (
+            <div key={index} className={MulImgCss.imageContainer}>
               <img
                 src={URL.createObjectURL(image)}
                 alt=""
-                style={{ maxWidth: '150px', maxHeight: '100px', margin: '5px', position: 'relative' }}
+                MulImgCss={{ maxWidth: '150px', maxHeight: '100px', margin: '5px', position: 'relative' }}
               />
-              <div className={style.closeButton}>
+              <div className={MulImgCss.closeButton}>
                 <button onClick={() => handleDeselectImage(index)}>&#x2715;</button>
               </div>
             </div>
           ))}
-          <div className={style.addImgDiv} onClick={handleClick}>
+          <div className={MulImgCss.addImgDiv} onClick={handleClick}>
             <div>
               <p>+</p>
             </div>

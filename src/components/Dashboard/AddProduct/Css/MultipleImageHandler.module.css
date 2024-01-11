@@ -55,13 +55,13 @@ margin: 5px;
 }
 
 .closeButton {
-  position: relative;
-  bottom: 108px;
-  left: 140px;
-  border: none;
-  cursor: pointer;
-  z-index: 110;
-  width: 20px;
-  height: 20px;
-  /* background-color: rgb(153, 255, 0); */
+  position: absolute;
+  top: 0;
+  right: 0;
 }
+
+.imageContainer {
+  position: relative;
+  overflow: hidden; 
+}
+/* Responsive styles for larger screens */
