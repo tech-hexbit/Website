@@ -69,7 +69,7 @@
 .formInputNumber input {
   width: 100%;
   margin-right: 0;
-  /* margin-bottom: 30px; */
+  margin-bottom: 30px;
   margin-top: 10px;
 }
 
@@ -126,6 +126,7 @@ label {
 }
 
 .otpButtonF button,
+.otpButton button,
 .otpButtonT button {
   border: none;
   border-radius: 5px;
@@ -136,7 +137,8 @@ label {
   margin-top: 10px;
 }
 
-.otpButtonF button {
+.otpButtonF button,
+.otpButton button {
   cursor: pointer;
 }
 
@@ -259,6 +261,12 @@ span {
   .otpButtonF button {
     width: 100%;
     padding: 10px 0px;
+    margin-top: 10px;
+  }
+
+  .otpButton button {
+    width: 100%;
+    padding: 10px 17px;
     margin-top: 10px;
   }
 }
