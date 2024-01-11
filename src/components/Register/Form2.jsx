@@ -154,11 +154,7 @@ export default function Form2(props) {
                 />
                 <div className={FCss.otpButton}>
                   <button
-                    style={{
-                      paddingRight: "1.0rem",
-                      paddingLeft: "1.0rem",
-                      maxHeight: "40px",
-                    }}
+                    className={FCss.otpBtn}
                     onClick={() => {
                       pincodeVerify();
                     }}
