@@ -37,6 +37,7 @@
   margin-right: 0;
   margin-top: 10px;
 }
+
 .formInputNumber input {
   width: 100%;
   margin-right: 0;
@@ -87,6 +88,7 @@ label {
 .otpText {
   width: 70%;
 }
+
 .otpTextNumber {
   width: 100%;
 }
@@ -101,6 +103,19 @@ label {
   cursor: pointer;
   margin-top: 10px;
 }
+
+.PinCodeInp {
+  width: 100%;
+  -moz-appearance: textfield;
+  min-height: 40px;
+}
+
+.PinCodeInp::-webkit-outer-spin-button,
+.PinCodeInp::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .otpButtonClicked button {
   border: none;
   border-radius: 5px;
