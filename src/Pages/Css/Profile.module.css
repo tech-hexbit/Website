@@ -12,9 +12,11 @@
   color: rgb(233, 38, 38);
   text-decoration: none;
 }
+
 .icon {
   margin-right: 10px;
 }
+
 .mDiv {
   display: flex;
   justify-content: space-between;
