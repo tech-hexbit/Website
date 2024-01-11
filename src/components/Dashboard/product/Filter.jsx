@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+
 // axios
 import axios from "axios";
 
@@ -9,11 +9,10 @@ import Tags from "./Tags";
 // css
 import FCss from "./Css/filter.module.css";
 
-
 // state
 import AuthContext from "./../../../store/auth-context";
 
-export default function Filter({ filteredlist, setfilteredlist}) {
+export default function Filter({ filteredlist, setfilteredlist }) {
   const [load, setLoad] = useState(false);
   const [onFil, offFil] = useState(false);
   const [unique, setunique] = useState([]);
@@ -22,7 +21,7 @@ export default function Filter({ filteredlist, setfilteredlist}) {
   const [allcategory, setallcategory] = useState([]);
 
   const authCtx = useContext(AuthContext);
-  
+
   useEffect(() => {
     loadData();
   }, []);
@@ -36,7 +35,7 @@ export default function Filter({ filteredlist, setfilteredlist}) {
     setLoad(true);
 
     try {
-      const response = await axios.get("/api/common/product/all", {
+      const response = await axios.get("/api/common/product/all/false", {
         headers: { Authorization: `${authCtx.token}` },
       });
 
@@ -79,6 +78,7 @@ export default function Filter({ filteredlist, setfilteredlist}) {
             console.log("Match");
             console.log(orderDel.category_id === e);
             console.log(`Match ${orderDel.category_id} === ${e}`);
+
             newFIltered.push(orderDel);
           }
         });
@@ -89,6 +89,7 @@ export default function Filter({ filteredlist, setfilteredlist}) {
       setfilteredlist(orderDel);
     }
   }, [category]);
+
   return (
     <div className={FCss.mainDiv} id={onFil ? "onCat" : "offCat"}>
       <div className={FCss.div1} id="div1CatFilter">
