@@ -35,7 +35,7 @@
 .formInput input {
   width: 70%;
   margin-right: 0;
-  margin-top:10px ;
+  margin-top: 10px;
 }
 .formInputNumber input {
   width: 100%;
@@ -80,20 +80,14 @@ label {
 .otp {
   display: flex;
   justify-content: space-between;
-  
+
   padding-bottom: 30px;
 }
 
 .otpText {
-  /* padding-top: 10px; */
-  /* padding-bottom: 30px; */
-  /* margin: 10px ; */
   width: 70%;
 }
 .otpTextNumber {
-  /* padding-top: 10px; */
-  /* padding-bottom: 30px; */
-  /* margin: 10px ; */
   width: 100%;
 }
 
@@ -103,7 +97,6 @@ label {
   background: #5b1d9a;
   color: #fff;
   font-size: 16px;
-  /* height: 100%; */
   padding: 10px 15px;
   cursor: pointer;
   margin-top: 10px;
@@ -140,7 +133,6 @@ label {
   padding: 0px 13px;
   cursor: pointer;
 }
-
 
 .otp input {
   width: 100%;
