@@ -194,12 +194,6 @@ body::-webkit-scrollbar-thumb:hover {
   width: 15vw;
 }
 
-@media (max-width: 650px) {
-  #offCat {
-    width: 100%;
-  }
-}
-
 #Div1Cat {
   opacity: 0;
   visibility: hidden;
@@ -316,5 +310,11 @@ body::-webkit-scrollbar-thumb:hover {
 @media screen and (max-width: 820px) {
   .slider-wrapper {
     height: 100% !important;
+  }
+}
+
+@media (max-width: 650px) {
+  #offCat {
+    width: 100%;
   }
 }
