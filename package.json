@@ -15,7 +15,6 @@
     "blurhash": "^2.0.5",
     "chart.js": "^3.9.1",
     "framer-motion": "^10.16.4",
-    "lucide-react": "^0.309.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-blurhash": "^0.3.0",
