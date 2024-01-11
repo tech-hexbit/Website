@@ -26,11 +26,6 @@ export default function Filter({ filteredlist, setfilteredlist }) {
     loadData();
   }, []);
 
-  useEffect(() => {
-    const u = (allcategory) => [...new Set(allcategory)];
-    setunique(u(allcategory));
-  }, [allcategory]);
-
   const loadData = async () => {
     setLoad(true);
 
@@ -89,6 +84,11 @@ export default function Filter({ filteredlist, setfilteredlist }) {
       setfilteredlist(orderDel);
     }
   }, [category]);
+
+  useEffect(() => {
+    const u = (allcategory) => [...new Set(allcategory)];
+    setunique(u(allcategory));
+  }, [allcategory]);
 
   return (
     <div className={FCss.mainDiv} id={onFil ? "onCat" : "offCat"}>
