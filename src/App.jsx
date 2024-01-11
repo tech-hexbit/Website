@@ -53,6 +53,7 @@ function App() {
                 </Suspense>
               }
             />
+
             <Route
               path="/AboutUs"
               element={
@@ -61,6 +62,7 @@ function App() {
                 </Suspense>
               }
             />
+
             <Route
               path="/contact"
               element={
@@ -69,6 +71,7 @@ function App() {
                 </Suspense>
               }
             />
+
             <Route
               path="/privacy"
               element={
@@ -77,6 +80,7 @@ function App() {
                 </Suspense>
               }
             />
+
             <Route
               path="/terms"
               element={
@@ -85,6 +89,7 @@ function App() {
                 </Suspense>
               }
             />
+
             <Route
               path="/Tracking/:id"
               element={
@@ -93,6 +98,7 @@ function App() {
                 </Suspense>
               }
             />
+            {/* protect this  */}
             <Route
               path="/forgotpassword"
               element={
@@ -101,6 +107,7 @@ function App() {
                 </Suspense>
               }
             />
+
             <Route
               path="/changepwd"
               element={
@@ -109,6 +116,8 @@ function App() {
                 </Suspense>
               }
             />
+            {/* protect this  */}
+
             {!authCtx.isLoggedIn && (
               <Route
                 path="/register"
@@ -119,6 +128,7 @@ function App() {
                 }
               />
             )}
+
             {!authCtx.isLoggedIn && (
               <Route
                 path="/signIn"
@@ -129,6 +139,7 @@ function App() {
                 }
               />
             )}
+
             {authCtx.isLoggedIn && (
               <Route
                 path="/me/*"
