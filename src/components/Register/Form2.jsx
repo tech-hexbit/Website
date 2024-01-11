@@ -4,11 +4,13 @@ import React, { useState, useEffect } from "react";
 import Load from "./../../MicroInteraction/Load";
 import { Alert } from "./../../MicroInteraction/Alert";
 
-// css
-import FCss from "./Css/Form.module.css";
+// axios
 import axios from "axios";
 
-import { BadgeCheck } from "lucide-react";
+// css
+import FCss from "./Css/Form.module.css";
+
+// import { BadgeCheck } from "lucide-react";
 
 export default function Form2(props) {
   const [verifyPin, setVerify] = useState(false);
@@ -184,7 +186,27 @@ export default function Form2(props) {
                       pincodeVerify();
                     }}
                   >
-                    {verifyPin ? <BadgeCheck size={20} /> : "Verify"}
+                    {verifyPin ? (
+                      <>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-badge-check"
+                        >
+                          <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
+                          <path d="m9 12 2 2 4-4" />
+                        </svg>
+                      </>
+                    ) : (
+                      "Verify"
+                    )}
                   </button>
                 </div>
               </div>
@@ -251,18 +273,35 @@ export default function Form2(props) {
                 }}
               />
               {verifyPin ? (
-                <BadgeCheck
-                  style={{
-                    position: "absolute",
-                    right: "10px",
-                    top: "10px",
-                    // left: "1px",
-                    // bottom: "1px",
-                    // width: "10%",
-                  }}
-                  color="black"
-                  size={20}
-                />
+                // <BadgeCheck
+                //   style={{
+                //     position: "absolute",
+                //     right: "10px",
+                //     top: "10px",
+                //     // left: "1px",
+                //     // bottom: "1px",
+                //     // width: "10%",
+                //   }}
+                //   color="black"
+                //   size={20}
+                // />
+                <>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-badge-check"
+                  >
+                    <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
+                    <path d="m9 12 2 2 4-4" />
+                  </svg>
+                </>
               ) : (
                 ""
               )}
@@ -292,18 +331,35 @@ export default function Form2(props) {
                 }}
               />
               {verifyPin ? (
-                <BadgeCheck
-                  style={{
-                    position: "absolute",
-                    right: "10px",
-                    top: "10px",
-                    // left: "1px",
-                    // bottom: "1px",
-                    // width: "10%",
-                  }}
-                  color="black"
-                  size={20}
-                />
+                // <BadgeCheck
+                //   style={{
+                //     position: "absolute",
+                //     right: "10px",
+                //     top: "10px",
+                //     // left: "1px",
+                //     // bottom: "1px",
+                //     // width: "10%",
+                //   }}
+                //   color="black"
+                //   size={20}
+                // />
+                <>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-badge-check"
+                  >
+                    <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
+                    <path d="m9 12 2 2 4-4" />
+                  </svg>
+                </>
               ) : (
                 ""
               )}
