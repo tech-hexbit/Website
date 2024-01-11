@@ -32,8 +32,7 @@ import AuthContext from "./../store/auth-context";
 
 // Css
 import PCss from "./Css/Profile.module.css";
-//images
-import alertIcon from "../assets/alert-circle.png";
+
 export default function Profile() {
   const [showModal, setShowModal] = useState(false);
 
@@ -50,53 +49,51 @@ export default function Profile() {
   const closePopup = () => {
     setShowModal(false);
   };
+
   return (
     <>
-   
       <Helmet>
         <title>HexBit.io - Profile</title>
       </Helmet>
-      
+
       <div className={PCss.mDiv}>
-  
         <UserSideBar />
 
         {authCtx.user.Store[0].StoreID.validation ? (
           <>
-          
             <div className={PCss.CDiv}>
-            {/* email verification */}
+              {/* email verification */}
+              <>
+                <p className={PCss.alert}>
+                  <Link to="#" onClick={handleLinkClick}>
+                    <div className={PCss.icon}>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-alert-circle"
+                      >
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="12" x2="12" y1="8" y2="12" />
+                        <line x1="12" x2="12.01" y1="16" y2="16" />
+                      </svg>
+                    </div>
+                    Email Verification Pending !! CLICK TO VERIFY
+                  </Link>
+                </p>
+              </>
 
-              <p className={PCss.alert}>
-        <Link to="#" onClick={handleLinkClick}>
-          <div className={PCss.icon}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-alert-circle"
-          >
-         
-            <circle cx="12" cy="12" r="10" />
-            <line x1="12" x2="12" y1="8" y2="12" />
-            <line x1="12" x2="12.01" y1="16" y2="16" />
-          </svg>
-          </div>
-          Email Verification Pending !! CLICK TO VERIFY
-        </Link>
-      </p>
-      {showModal && <VerifyEmail onClose={closePopup} />} 
+              {showModal && <VerifyEmail onClose={closePopup} />}
 
               <Routes>
                 <Route path="/" element={<ProfileMain />} />
-                
-                  
+
                 {authCtx.user.access === 0 ? (
                   // Admin
                   <>
