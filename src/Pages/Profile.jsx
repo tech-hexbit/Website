@@ -33,10 +33,15 @@ import SellersAdmin from "./../components/Admin/Sellers";
 // state
 import AuthContext from "./../store/auth-context";
 
+// MicroInteraction
+import Load from "./../MicroInteraction/Load";
+import { Alert } from "./../MicroInteraction/Alert";
+
 // Css
 import PCss from "./Css/Profile.module.css";
 
 export default function Profile() {
+  const [load, setLoad] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
   // scroll to top
@@ -47,15 +52,23 @@ export default function Profile() {
   const authCtx = useContext(AuthContext);
 
   const resendMail = async () => {
+    setLoad(true);
+
     try {
       const response = await axios.get(
         `/api/website/auth/verification/resend/${authCtx.user.Email}`
       );
 
       if (response.data.status) {
+        setLoad(false);
+
         setShowModal(true);
+      } else {
+        setLoad(false);
       }
     } catch (e) {
+      setLoad(false);
+
       console.log(e);
     }
   };
