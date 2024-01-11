@@ -111,7 +111,7 @@
   background-color: #ebefff;
 }
 .table tr{
-  transition: background-color 200ms ease;
+  transition: background-color 150ms ease;
 }
 
 
@@ -144,7 +144,6 @@
 
 .col1 {
   display: flex;
-  /* align-items: center; */
   align-items: center;
   gap: 10px;
 }
@@ -156,7 +155,6 @@
 
 .col1Text {
   padding-left: 10px;
-  display: flexbox;
 
  
 }
@@ -164,11 +162,13 @@
 .textTop {
   color: #000;
   font-size: 16px;
+
 }
 
 .textBottom {
   color: #aaa;
   font-size: 14px;
+
 }
 
 #price,
