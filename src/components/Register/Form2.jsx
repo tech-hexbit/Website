@@ -6,8 +6,13 @@ import { Alert } from "./../../MicroInteraction/Alert";
 
 // css
 import FCss from "./Css/Form.module.css";
+import axios from "axios";
+
+import { BadgeCheck } from "lucide-react";
 
 export default function Form2(props) {
+  const [verifyPin, setVerify] = useState(false);
+  const [disable, setDisable] = useState(false);
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -16,6 +21,41 @@ export default function Form2(props) {
     text: "",
     val: false,
   });
+
+  const pincodeVerify = async () => {
+    try {
+      const validPin = ({ response }) => {
+        // console.log(response.data[0].PostOffice[0].State);
+        props.setInput({
+          ...props.input,
+          State: response.data[0].PostOffice[0].State,
+          City: response.data[0].PostOffice[0].Name,
+        });
+        setDisable(true);
+        setVerify(true);
+      };
+      const invalidPin = () => {
+        setError({
+          mainColor: "#FFC0CB",
+          secondaryColor: "#FF69B4",
+          symbol: "pets",
+          title: "Check it out",
+          text: "Invalid pincode",
+          val: true,
+        });
+        setVerify(false);
+      };
+      const response = await axios.get(
+        `https://api.postalpincode.in/pincode/${props.input.Pincode}`
+      );
+      // console.log(response.data);
+      response.data[0].PostOffice ? validPin({ response }) : invalidPin();
+      // console.log("invalid pincode");
+      // console.log(props.input.State);
+    } catch (e) {
+      // console.log(e);
+    }
+  };
 
   const checkInfo = async () => {
     if (
@@ -33,7 +73,16 @@ export default function Form2(props) {
         text: "Please Fill All The Details",
         val: true,
       });
-
+      window.scrollTo(0, 0);
+    } else if (!verifyPin) {
+      setError({
+        mainColor: "#FFC0CB",
+        secondaryColor: "#FF69B4",
+        symbol: "pets",
+        title: "Check it out",
+        text: "Invalid pincode",
+        val: true,
+      });
       window.scrollTo(0, 0);
     } else {
       setError({
@@ -83,6 +132,87 @@ export default function Form2(props) {
             />
           </div>
 
+          {/* Pincode */}
+          <style jsx>{`
+            .verifyPin input[type="number"]::-webkit-inner-spin-button,
+            .verifyPin input[type="number"]::-webkit-outer-spin-button {
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              appearance: none;
+              margin: 0;
+            }
+          `}</style>
+          <div className="verifyPin">
+            <label htmlFor="pincode">Pincode</label>
+            {props.input.Pincode.length >= 6 ? (
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  gap: "1rem",
+                }}
+                className={FCss.formInput}
+              >
+                <input
+                  // inputMode="numeric"
+                  style={{ width: "100%", maxHeight: "40px" }}
+                  disabled={disable}
+                  type="number"
+                  id="pincode"
+                  placeholder="Your pincode"
+                  name="Pincode"
+                  value={props.input.Pincode}
+                  onChange={(e) => {
+                    props.setInput({
+                      ...props.input,
+                      Pincode: e.target.value,
+                    });
+                    const pin = props.input.Pincode;
+                    // console.log(pin);
+                  }}
+                />
+                <div className={FCss.otpButton}>
+                  <button
+                    style={{
+                      paddingRight: "1.0rem",
+                      paddingLeft: "1.0rem",
+                      maxHeight: "40px",
+                    }}
+                    onClick={() => {
+                      // console.log(`verify button clicked`);
+                      // setSendotp(!sendotp);
+                      pincodeVerify();
+                    }}
+                  >
+                    {verifyPin ? <BadgeCheck size={20} /> : "Verify"}
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div>
+                <div className={FCss.formInputNumber}>
+                  {/* <label htmlFor="pincode">Pincode</label> */}
+                  <input
+                    disabled={disable}
+                    type="number"
+                    id="pincode"
+                    placeholder="Your pincode"
+                    name="Pincode"
+                    value={props.input.Pincode}
+                    onChange={(e) => {
+                      props.setInput({
+                        ...props.input,
+                        Pincode: e.target.value,
+                      });
+                      const pin = props.input.Pincode;
+                      // console.log(pin);
+                    }}
+                  />
+                </div>
+              </div>
+            )}
+          </div>
+
           {/* Address */}
           <div className={FCss.formInputs}>
             <label htmlFor="address">Address</label>
@@ -100,47 +230,84 @@ export default function Form2(props) {
 
           {/* State */}
           <div className={FCss.formInputs}>
-            <label htmlFor="state">State / District</label>
-            <input
-              type="text"
-              id="state"
-              placeholder="Your state"
-              name="State"
-              value={props.input.State}
-              onChange={(e) => {
-                props.setInput({ ...props.input, State: e.target.value });
+            <label htmlFor="state">State / District</label>{" "}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                position: "relative",
               }}
-            />
+            >
+              <input
+                style={{ width: "100%" }}
+                disabled={disable}
+                type="text"
+                id="state"
+                placeholder="Your state"
+                name="State"
+                value={props.input.State}
+                onChange={(e) => {
+                  props.setInput({ ...props.input, State: e.target.value });
+                }}
+              />
+              {verifyPin ? (
+                <BadgeCheck
+                  style={{
+                    position: "absolute",
+                    right: "10px",
+                    top: "10px",
+                    // left: "1px",
+                    // bottom: "1px",
+                    // width: "10%",
+                  }}
+                  color="black"
+                  size={20}
+                />
+              ) : (
+                ""
+              )}
+            </div>
           </div>
 
           {/* City */}
           <div className={FCss.formInputs}>
             <label htmlFor="city">City / Village / Town</label>
-            <input
-              type="text"
-              id="city"
-              placeholder="Your city"
-              name="City"
-              value={props.input.City}
-              onChange={(e) => {
-                props.setInput({ ...props.input, City: e.target.value });
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                position: "relative",
               }}
-            />
-          </div>
-
-          {/* Pincode */}
-          <div className={FCss.formInputs}>
-            <label htmlFor="pincode">Pincode</label>
-            <input
-              type="number"
-              id="pincode"
-              placeholder="Your pincode"
-              name="Pincode"
-              value={props.input.Pincode}
-              onChange={(e) => {
-                props.setInput({ ...props.input, Pincode: e.target.value });
-              }}
-            />
+            >
+              <input
+                style={{ width: "100%" }}
+                disabled={disable}
+                type="text"
+                id="city"
+                placeholder="Your city"
+                name="City"
+                value={props.input.City}
+                onChange={(e) => {
+                  props.setInput({ ...props.input, City: e.target.value });
+                }}
+              />
+              {verifyPin ? (
+                <BadgeCheck
+                  style={{
+                    position: "absolute",
+                    right: "10px",
+                    top: "10px",
+                    // left: "1px",
+                    // bottom: "1px",
+                    // width: "10%",
+                  }}
+                  color="black"
+                  size={20}
+                />
+              ) : (
+                ""
+              )}
+            </div>
           </div>
 
           {/* AdditionalInfo */}
