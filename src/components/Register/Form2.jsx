@@ -132,28 +132,12 @@ export default function Form2(props) {
           </div>
 
           {/* Pincode */}
-          {/* <style jsx>{`
-            .verifyPin input[type="number"]::-webkit-inner-spin-button,
-            .verifyPin input[type="number"]::-webkit-outer-spin-button {
-              -webkit-appearance: none;
-              -moz-appearance: none;
-              appearance: none;
-              margin: 0;
-            }
-          `}</style> */}
           <div className="verifyPin">
             <label htmlFor="pincode">Pincode</label>
+
             {props.input.Pincode.length >= 6 ? (
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  gap: "1rem",
-                }}
-                className={FCss.formInput}
-              >
+              <div className={FCss.formInput2}>
                 <input
-                  // style={{ width: "100%", maxHeight: "40px" }}
                   disabled={disable}
                   type="number"
                   id="pincode"
