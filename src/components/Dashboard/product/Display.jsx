@@ -27,19 +27,6 @@ export default function Display({ filteredlist, setfilteredlist }) {
   const [prodcutsCount, setProdcutsCount] = useState(0);
   const [showProductDel, setProductDel] = useState({ state: false, id: "" });
 
-  useEffect(() => {
-    loadData();
-  }, [, currentPage]);
-
-  useEffect(() => {
-    maxPage();
-  }, [prodcutsCount, currentPage]);
-
-  // scroll to top
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [, currentPage]);
-
   const authCtx = useContext(AuthContext);
 
   const loadData = async () => {
@@ -114,6 +101,19 @@ export default function Display({ filteredlist, setfilteredlist }) {
       setmax(true);
     }
   };
+
+  useEffect(() => {
+    loadData();
+  }, [, currentPage]);
+
+  useEffect(() => {
+    maxPage();
+  }, [prodcutsCount, currentPage]);
+
+  // scroll to top
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [, currentPage]);
 
   return (
     <>
