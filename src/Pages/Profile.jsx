@@ -69,6 +69,15 @@ export default function Profile() {
     } catch (e) {
       setLoad(false);
 
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "Unable to Send Mail",
+        val: true,
+      });
+
       console.log(e);
     }
   };
