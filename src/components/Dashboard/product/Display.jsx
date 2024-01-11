@@ -141,6 +141,8 @@ export default function Display({ filteredlist, setfilteredlist }) {
             setfilteredlist={setfilteredlist}
           />
         </div>
+
+        {/* Table */}
         <div className={DCss.middle}>
           {load ? (
             <div className="loadCenterDiv">
@@ -244,6 +246,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
                   <p className="NoOrders">No Orders</p>
                 )}
               </table>
+
               <div>
                 {orderDel?.length > 0 ? (
                   <>
@@ -327,6 +330,8 @@ export default function Display({ filteredlist, setfilteredlist }) {
                   <p className="NoOrders">No Orders</p>
                 )}
               </div>
+
+              {/* Show Label */}
               <p className={DCss.showingPTag}>
                 Showing{" "}
                 {filteredlist?.length <= 10 ? (
@@ -340,6 +345,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
           )}
         </div>
 
+        {/* Pagination */}
         <div className={DCss.cenDiv}>
           <button
             onClick={() => setCurrentPage(currentPage - 1)}
@@ -387,6 +393,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
         </div>
       </div>
 
+      {/* Product Details */}
       <div
         className={showProductDel.state ? "yesProductsPage" : "noProductsPage"}
       >
