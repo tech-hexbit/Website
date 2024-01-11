@@ -10,8 +10,6 @@ import axios from "axios";
 // css
 import FCss from "./Css/Form.module.css";
 
-// import { BadgeCheck } from "lucide-react";
-
 export default function Form2(props) {
   const [verifyPin, setVerify] = useState(false);
   const [disable, setDisable] = useState(false);
@@ -27,7 +25,6 @@ export default function Form2(props) {
   const pincodeVerify = async () => {
     try {
       const validPin = ({ response }) => {
-        // console.log(response.data[0].PostOffice[0].State);
         props.setInput({
           ...props.input,
           State: response.data[0].PostOffice[0].State,
@@ -156,7 +153,6 @@ export default function Form2(props) {
                 className={FCss.formInput}
               >
                 <input
-                  // inputMode="numeric"
                   style={{ width: "100%", maxHeight: "40px" }}
                   disabled={disable}
                   type="number"
@@ -169,8 +165,6 @@ export default function Form2(props) {
                       ...props.input,
                       Pincode: e.target.value,
                     });
-                    const pin = props.input.Pincode;
-                    // console.log(pin);
                   }}
                 />
                 <div className={FCss.otpButton}>
@@ -181,8 +175,6 @@ export default function Form2(props) {
                       maxHeight: "40px",
                     }}
                     onClick={() => {
-                      // console.log(`verify button clicked`);
-                      // setSendotp(!sendotp);
                       pincodeVerify();
                     }}
                   >
