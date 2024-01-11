@@ -258,12 +258,7 @@ span {
     width: 100%;
   }
 
-  .otpButtonF button {
-    width: 100%;
-    padding: 10px 0px;
-    margin-top: 10px;
-  }
-
+  .otpButtonF button,
   .otpButton button {
     width: 100%;
     padding: 10px 17px;
