@@ -8,19 +8,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; 
-  
-  /* Make sure the z-index is higher than other elements on the page */
+  z-index: 1000;
 }
 
 .modalContent {
-  background-color: #F4FFF8;
+  background-color: #f4fff8;
   padding: 30px 80px 30px 80px;
-  /* padding-left: 20px;
-  padding-right: 20px; */
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  position: relative; /* Ensure the modal content is positioned relative to the overlay */
+  position: relative;
 }
 
 .tick img {
@@ -31,19 +27,20 @@
   margin-left: 50px;
 }
 
-.para, .l2, .l3 {
+.para,
+.l2,
+.l3 {
   font-size: 18px;
   color: #333;
   text-align: center;
   margin: 10px 0;
 }
 
-
 .l2 {
   font-size: 39.97px;
   font-size: 23px;
   font-weight: 900;
-  color:#4A246F;
+  color: #4a246f;
 }
 
 .close-btn {
