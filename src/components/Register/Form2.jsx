@@ -132,18 +132,18 @@ export default function Form2(props) {
           </div>
 
           {/* Pincode */}
-          <div>
+          <div className={FCss.formInputs}>
             <label htmlFor="pincode">Pincode</label>
             {props.input.Pincode.length >= 6 ? (
               <div className={FCss.formInput2}>
                 <input
                   disabled={disable}
                   type="number"
-                  id="pincode"
                   placeholder="Your pincode"
                   name="Pincode"
                   className={FCss.PinCodeInp}
                   value={props.input.Pincode}
+                  id={verifyPin ? FCss.curNA : "pincode"}
                   onChange={(e) => {
                     props.setInput({
                       ...props.input,
