@@ -90,10 +90,6 @@
   -moz-appearance: textfield;
 }
 
-.phoneInput {
-  /* padding-bottom: 30px; */
-}
-
 input {
   outline: none;
   border-radius: 5px;
