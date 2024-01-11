@@ -32,6 +32,7 @@ import AuthContext from "./store/auth-context";
 
 // axios
 import axios from "axios";
+import VerifyEmail from "./components/VerifyEmail";
 
 
 axios.defaults.baseURL = import.meta.env.VITE_SERVER_URL;
@@ -140,6 +141,16 @@ function App() {
                 }
               />
             )}
+            {/* {authCtx.isLoggedIn && (
+              <Route
+                path="/verifyemail"
+                element={
+                  <Suspense fallback={<LoadingPage />}>
+                    <VerifyEmail />
+                  </Suspense>
+                }
+              />
+            )} */}
             <Route
               path="*"
               element={

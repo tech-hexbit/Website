@@ -1,3 +1,21 @@
+.alert {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: 150px;
+  font-size: 20px;
+  color: red;
+}
+
+.alert a {
+  display: flex;
+  align-items: center;
+  color: rgb(233, 38, 38);
+  text-decoration: none;
+}
+ .icon{
+  margin-right: 10px;
+}
 .mDiv {
   display: flex;
   justify-content: space-between;
