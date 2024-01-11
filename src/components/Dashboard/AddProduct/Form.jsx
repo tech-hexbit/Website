@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 
+//component
+import MultipleImageHandler from "./MultipleImageHandler";
+
 // MicroInteraction
-import { Alert } from "./../../../MicroInteraction/Alert";
 import Load from "./../../../MicroInteraction/Load";
+import { Alert } from "./../../../MicroInteraction/Alert";
 
 // axios
 import axios from "axios";
@@ -20,6 +23,7 @@ export default function Form() {
   const [imageUpload, setImageUpload] = useState();
   const [PublishOpen, setPublishOpen] = useState(true);
   const [ServiceOpen, setServiceOpen] = useState(false);
+  const [multipleImageUpload, setMultipleImageUpload] = useState([]);
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -833,7 +837,6 @@ export default function Form() {
               style={{ display: "none" }}
               ref={fileInp}
             />
-
             {imageUpload ? (
               <img
                 src={URL.createObjectURL(imageUpload)}
@@ -852,13 +855,17 @@ export default function Form() {
           </div>
         </div>
 
+        <MultipleImageHandler
+          multipleImageUpload={multipleImageUpload}
+          setMultipleImageUpload={setMultipleImageUpload}
+        />
+
         <div className={FCss.SubmitBtnDiv}>
           <p className={FCss.SubmitBtn} onClick={onSubmit}>
             {load ? <Load /> : "Submit"}
           </p>
         </div>
       </div>
-
       <Alert variant={variants} val={setError} />
     </>
   );

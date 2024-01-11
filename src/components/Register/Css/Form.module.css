@@ -27,16 +27,45 @@
 .formInput {
   display: flex;
   flex-direction: row;
-  /* padding-bottom: 30px; */
   justify-content: space-between;
   margin-bottom: 10px;
+}
+
+.formInput2 {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.stateInpDiv {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.stateInp {
+  width: 100%;
+}
+
+.verIcon {
+  height: 100%;
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  color: #c075ff;
+}
+
+.formInput2 input {
+  margin-right: 0;
+  margin-top: 10px;
 }
 
 .formInput input {
   width: 70%;
   margin-right: 0;
-  margin-top:10px ;
+  margin-top: 10px;
 }
+
 .formInputNumber input {
   width: 100%;
   margin-right: 0;
@@ -61,10 +90,6 @@
   -moz-appearance: textfield;
 }
 
-.phoneInput {
-  /* padding-bottom: 30px; */
-}
-
 input {
   outline: none;
   border-radius: 5px;
@@ -80,34 +105,56 @@ label {
 .otp {
   display: flex;
   justify-content: space-between;
-  
   padding-bottom: 30px;
 }
 
+.otpBtn {
+  max-height: 40px;
+  padding: 0px 1rem;
+}
+
 .otpText {
-  /* padding-top: 10px; */
-  /* padding-bottom: 30px; */
-  /* margin: 10px ; */
   width: 70%;
 }
+
 .otpTextNumber {
-  /* padding-top: 10px; */
-  /* padding-bottom: 30px; */
-  /* margin: 10px ; */
   width: 100%;
 }
 
-.otpButton button {
+.otpButtonF button,
+.otpButton button,
+.otpButtonT button {
   border: none;
   border-radius: 5px;
   background: #5b1d9a;
   color: #fff;
   font-size: 16px;
-  /* height: 100%; */
   padding: 10px 15px;
-  cursor: pointer;
   margin-top: 10px;
 }
+
+.otpButtonF button,
+.otpButton button {
+  cursor: pointer;
+}
+
+.otpButtonT button,
+#curNA {
+  cursor: not-allowed;
+}
+
+.PinCodeInp {
+  width: 100%;
+  -moz-appearance: textfield;
+  min-height: 40px;
+}
+
+.PinCodeInp::-webkit-outer-spin-button,
+.PinCodeInp::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0px;
+}
+
 .otpButtonClicked button {
   border: none;
   border-radius: 5px;
@@ -140,7 +187,6 @@ label {
   padding: 0px 13px;
   cursor: pointer;
 }
-
 
 .otp input {
   width: 100%;
@@ -208,9 +254,10 @@ span {
     width: 100%;
   }
 
+  .otpButtonF button,
   .otpButton button {
     width: 100%;
-    padding: 10px 0px;
+    padding: 10px 17px;
     margin-top: 10px;
   }
 }
