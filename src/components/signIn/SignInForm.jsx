@@ -94,6 +94,8 @@ export default function SignInForm() {
             response.data.user[0].City,
             response.data.user[0].Pincode,
             response.data.user[0].AdditionalInfo,
+            response.data.user[0].accountVerified,
+            response.data.user[0].emailVerified,
             response.data.user[0].Store,
             response.data.token,
             10800000
