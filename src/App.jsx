@@ -141,16 +141,7 @@ function App() {
                 }
               />
             )}
-            {/* {authCtx.isLoggedIn && (
-              <Route
-                path="/verifyemail"
-                element={
-                  <Suspense fallback={<LoadingPage />}>
-                    <VerifyEmail />
-                  </Suspense>
-                }
-              />
-            )} */}
+           
             <Route
               path="*"
               element={

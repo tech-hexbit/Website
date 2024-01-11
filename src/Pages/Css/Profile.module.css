@@ -1,8 +1,7 @@
 .alert {
   display: flex;
   align-items: center;
-  margin-top: 20px;
-  margin-left: 150px;
+  margin-bottom: 15px;
   font-size: 20px;
   color: red;
 }
