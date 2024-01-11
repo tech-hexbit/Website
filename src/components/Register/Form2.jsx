@@ -132,7 +132,7 @@ export default function Form2(props) {
           </div>
 
           {/* Pincode */}
-          <div className="verifyPin">
+          <div>
             <label htmlFor="pincode">Pincode</label>
 
             {props.input.Pincode.length >= 6 ? (
