@@ -4,16 +4,16 @@ import PropTypes from "prop-types";
 //Css
 import style from "./Css/MultipleImageHandler.module.css";
 
-const MultipleImageHandler = (props) => {
+const MultipleImageHandler = ({
+  multipleImageUpload,
+  setMultipleImageUpload,
+}) => {
   const fileInp = useRef(null);
 
   // Functions to handle change
   const handleFileChange = (e) => {
     const selectedFiles = Array.from(e.target.files);
-    props.setMultipleImageUpload((prevImages) => [
-      ...prevImages,
-      ...selectedFiles,
-    ]);
+    setMultipleImageUpload((prevImages) => [...prevImages, ...selectedFiles]);
   };
 
   const handleClick = () => {
@@ -21,10 +21,8 @@ const MultipleImageHandler = (props) => {
   };
 
   const handleDeselectImage = (index) => {
-    const filteredImages = props.multipleImageUpload.filter(
-      (_, i) => i !== index
-    );
-    props.setMultipleImageUpload(filteredImages);
+    const filteredImages = multipleImageUpload.filter((_, i) => i !== index);
+    setMultipleImageUpload(filteredImages);
   };
 
   return (
@@ -40,7 +38,8 @@ const MultipleImageHandler = (props) => {
             onChange={handleFileChange}
             ref={fileInp}
           />
-          {props.multipleImageUpload.map((image, index) => (
+
+          {multipleImageUpload.map((image, index) => (
             <div key={index} className={style.imageContainer}>
               <img
                 src={URL.createObjectURL(image)}
@@ -59,6 +58,7 @@ const MultipleImageHandler = (props) => {
               </div>
             </div>
           ))}
+
           <div className={style.addImgDiv} onClick={handleClick}>
             <div>
               <p>+</p>
