@@ -90,8 +90,6 @@ export default function Filter({ filteredlist, setfilteredlist }) {
     }
   }, [category]);
 
-  
-
   return (
     <div className={FCss.mainDiv} id={onFil ? "onCat" : "offCat"}>
       <div className={FCss.div1} id="div1CatFilter">
