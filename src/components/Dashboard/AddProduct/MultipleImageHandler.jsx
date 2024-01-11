@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 //Css
 import style from "./Css/MultipleImageHandler.module.css";
 
-const MultipleImageHandler = ({
+export default function MultipleImageHandler({
   multipleImageUpload,
   setMultipleImageUpload,
-}) => {
+}) {
   const fileInp = useRef(null);
 
   // Functions to handle change
@@ -68,11 +68,9 @@ const MultipleImageHandler = ({
       </div>
     </>
   );
-};
+}
 
 MultipleImageHandler.propTypes = {
   multipleImageUpload: PropTypes.array.isRequired,
   setMultipleImageUpload: PropTypes.func.isRequired,
 };
-
-export default MultipleImageHandler;
