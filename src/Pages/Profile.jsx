@@ -44,6 +44,19 @@ export default function Profile() {
   const authCtx = useContext(AuthContext);
 
   const handleLinkClick = () => {
+    const resendMail = async () => {
+      try {
+        const response = await axios.get(
+          `/api/website/auth/verification/resend/${email}`
+        );
+
+        if (response.data.status) {
+          setSent(true);
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    };
     setShowModal(true);
   };
 
