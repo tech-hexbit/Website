@@ -227,20 +227,14 @@ export default function Form2(props) {
           {/* State */}
           <div className={FCss.formInputs}>
             <label htmlFor="state">State / District</label>{" "}
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                position: "relative",
-              }}
-            >
+            <div className={FCss.stateInpDiv}>
               <input
-                style={{ width: "100%" }}
                 disabled={disable}
                 type="text"
                 id="state"
                 placeholder="Your state"
                 name="State"
+                className={FCss.stateInp}
                 value={props.input.State}
                 onChange={(e) => {
                   props.setInput({ ...props.input, State: e.target.value });
@@ -273,20 +267,14 @@ export default function Form2(props) {
           {/* City */}
           <div className={FCss.formInputs}>
             <label htmlFor="city">City / Village / Town</label>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                position: "relative",
-              }}
-            >
+            <div className={FCss.stateInpDiv}>
               <input
-                style={{ width: "100%" }}
                 disabled={disable}
                 type="text"
                 id="city"
                 placeholder="Your city"
                 name="City"
+                className={FCss.stateInp}
                 value={props.input.City}
                 onChange={(e) => {
                   props.setInput({ ...props.input, City: e.target.value });
