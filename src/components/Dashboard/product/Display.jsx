@@ -8,6 +8,7 @@ import AuthContext from "./../../../store/auth-context";
 import axios from "axios";
 
 // components
+import Filter from "./Filter";
 import ProductsPage from "./../../ProductsPage/ProductsPage";
 
 // MicroInteraction
@@ -16,17 +17,15 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 // css
 import DCss from "./Css/display.module.css";
 import cardDisplay from "./Css/cardDisplay.module.css";
-import Filter from "./Filter";
-import TabCss from "./Css/tableStyle.module.css"
 
 export default function Display({ filteredlist, setfilteredlist }) {
   const [max, setmax] = useState(false);
   const [load, setLoad] = useState(false);
   const [orderDel, setOrderDel] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [allProducts, setAllProducts] = useState([]);
   const [prodcutsCount, setProdcutsCount] = useState(0);
   const [showProductDel, setProductDel] = useState({ state: false, id: "" });
-  const [allProducts, setAllProducts] = useState([]);
 
   useEffect(() => {
     loadData();
@@ -35,10 +34,6 @@ export default function Display({ filteredlist, setfilteredlist }) {
   useEffect(() => {
     maxPage();
   }, [prodcutsCount, currentPage]);
-
-  // useEffect(() => {
-  //   fetchAllProducts();
-  // }, []);
 
   // scroll to top
   useEffect(() => {
@@ -74,24 +69,6 @@ export default function Display({ filteredlist, setfilteredlist }) {
       console.log(e);
     }
   };
-
-  // filter all products
-  // const fetchAllProducts = async () => {
-  //   try {
-  //     const response = await axios.get(`/api/common/product/allproducts`, {
-  //       headers: { Authorization: `${authCtx.token}` },
-  //     });
-  //     if (response.data.success) {
-  //       const fetchedProducts = response.data.products;
-  //       setAllProducts(fetchedProducts);
-  //       setfilteredlist(fetchedProducts);
-  //     } else {
-  //       console.log("Failed to fetch all products");
-  //     }
-  //   } catch (error) {
-  //     console.error("Error fetching all products:", error);
-  //   }
-  // };
 
   const deleteproduct = async (_id) => {
     try {
@@ -173,7 +150,6 @@ export default function Display({ filteredlist, setfilteredlist }) {
             <div className={DCss.table}>
               <table
                 className={DCss.tableTag}
-                // className={TabCss.trans_table}
                 style={{ borderCollapse: "collapse" }}
               >
                 {orderDel?.length > 0 ? (
