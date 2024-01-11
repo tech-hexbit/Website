@@ -145,6 +145,7 @@ export default function RegisterMain() {
             </div>
           </div>
         </div>
+
         <div className={RFCss.right}>
           {count == 1 && (
             <Form1
