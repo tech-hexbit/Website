@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 // components
 import UpdateState from "./UpdateState";
+import Header from "./../MainParts/Header";
 import Orderdetails from "./../Orderdetails";
 
 // state
@@ -187,20 +188,32 @@ export default function OverallSales() {
   return (
     <>
       {showDel ? (
-        ""
+        <>
+          <Orderdetails
+            id={showProductDel.id}
+            setProductDel={setProductDel}
+            showDel={showDel}
+            setHideDel={setHideDel}
+          />
+        </>
       ) : (
         <div
           className={osCss.mainDiv}
           id={showProductDel.state ? "yesProductsPage" : "noProductsPage"}
         >
           <div className={osCss.top}>
-            <div>Overall Sales</div>
+            <Header name="Overall Sales" />
+
             <div className={osCss.filters}>
               {/* Filters */}
               <div className={osCss.select}>
                 {/* Buyers */}
                 <div className={osCss.selectInner}>
-                  <select onChange={handleChange1} name="buyer">
+                  <select
+                    onChange={handleChange1}
+                    name="buyer"
+                    value={filters.buyer}
+                  >
                     <option value="Buyer" hidden selected>
                       Buyer
                     </option>
@@ -212,7 +225,11 @@ export default function OverallSales() {
 
                 {/* Status */}
                 <div className={osCss.selectInner}>
-                  <select onChange={handleChange1} name="status">
+                  <select
+                    onChange={handleChange1}
+                    name="status"
+                    value={filters.status}
+                  >
                     <option value="Status" hidden selected>
                       Status
                     </option>
@@ -229,9 +246,44 @@ export default function OverallSales() {
               <div className={osCss.search}>
                 <input
                   type="text"
+                  value={search}
                   placeholder="Search order"
                   onChange={filterData}
                 />
+
+                {search !== "" ||
+                filters.buyer !== "" ||
+                filters.status !== "" ? (
+                  <>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-filter-x"
+                      className={osCss.resetFilBtn}
+                      onClick={() => {
+                        setSearch("");
+                        setfilters((prevFilters) => ({
+                          ...prevFilters,
+                          buyer: "",
+                          status: "",
+                        }));
+                      }}
+                    >
+                      <path d="M13.013 3H2l8 9.46V19l4 2v-8.54l.9-1.055" />
+                      <path d="m22 3-5 5" />
+                      <path d="m17 3 5 5" />
+                    </svg>
+                  </>
+                ) : (
+                  ""
+                )}
               </div>
             </div>
           </div>
@@ -393,7 +445,10 @@ export default function OverallSales() {
                                 <td data-cell="ID"> #{val._id.slice(-4)}</td>
                                 <td
                                   onClick={() => {
-                                    setProductDel({ state: true, id: val._id });
+                                    setProductDel({
+                                      state: true,
+                                      id: val._id,
+                                    });
                                     setHideDel(!showDel);
                                   }}
                                   data-cell="CUSTOMER "
@@ -480,17 +535,6 @@ export default function OverallSales() {
             </button>
           </div>
         </div>
-      )}
-
-      {showDel ? (
-        <Orderdetails
-          id={showProductDel.id}
-          setProductDel={setProductDel}
-          showDel={showDel}
-          setHideDel={setHideDel}
-        />
-      ) : (
-        ""
       )}
     </>
   );

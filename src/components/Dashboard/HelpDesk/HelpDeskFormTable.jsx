@@ -17,12 +17,13 @@ import axios from "axios";
 
 // css
 import hdftable from "./Css/HelpDeskFormTable.module.css";
-import tableDetailStyle from "./Css/HelpDeskFormTableDetail.module.css";
 import HelpDeskFormTableDetail from "./HelpDeskFormTableDetail";
 
 export default function HelpDeskFormTable() {
   const [load, setLoad] = useState(false);
   const [data, setloadStore] = useState([]);
+  const [tableData, setTableData] = useState([]);
+  const [hideTabel, setHideTabel] = useState(false);
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -66,126 +67,133 @@ export default function HelpDeskFormTable() {
     }
   };
 
-  // scroll to top
-  useEffect(() => {
-    window.scrollTo(0, 0);
-
-    loadStore();
-  }, []);
-  const [hideTabel, setHideTabel] = useState(false);
-  const [tableData, setTableData] = useState([]);
   const tableVal = (val) => {
     setTableData(val);
     setHideTabel(!hideTabel);
-  }
+  };
+
   const overlayerTabel = () => {
     setHideTabel(!hideTabel);
-  }
-  
+  };
+
+  useEffect(() => {
+    loadStore();
+  }, []);
+
+  // scroll to top
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [, hideTabel]);
 
   return (
     <>
       <div>
-        {
-          hideTabel ? (
+        {hideTabel ? (
           <div>
             <div className={hdftable.main}>
               <h1>Contact us</h1>
               <div className={hdftable.submain}>
                 <h3>Tickets</h3>
                 <div onClick={overlayerTabel}>
-                    <table className={hdftable.trans_table}   >
-                      <tr>
-                        <th>Ticket ID</th>
-                        <th>Subject</th>
-                        <th>Date</th>
-                        <th>Status</th>
-                      </tr>
-                          <tr >
-                            <td data-cell="ticket Id" >#HX{tableData._id.slice(-5)}</td>
-                            <td data-cell="subject">{tableData.subject}</td>
-                            <td data-cell="date">{tableData.when.date}</td>
-                            <td
-                              className={
-                                tableData.Status === "Delivered & Eligible" ||
-                                tableData.Status === "Solved"
-                                  ? hdftable.processed
-                                  : hdftable.pending
-                              }
-                              data-cell="status"
-                            >
-                              {tableData.Status}
-                            </td>
-                          </tr>
-                    </table>
-                    </div>
-                  </div>
+                  <table className={hdftable.trans_table}>
+                    <tr>
+                      <th>Ticket ID</th>
+                      <th>Subject</th>
+                      <th>Date</th>
+                      <th>Status</th>
+                    </tr>
+                    <tr>
+                      <td data-cell="ticket Id">
+                        #HX{tableData._id.slice(-5)}
+                      </td>
+                      <td data-cell="subject">{tableData.subject}</td>
+                      <td data-cell="date">{tableData.when.date}</td>
+                      <td
+                        className={
+                          tableData.Status === "Delivered & Eligible" ||
+                          tableData.Status === "Solved"
+                            ? hdftable.processed
+                            : hdftable.pending
+                        }
+                        data-cell="status"
+                      >
+                        {tableData.Status}
+                      </td>
+                    </tr>
+                  </table>
                 </div>
-                 <HelpDeskFormTableDetail props={tableData} />
-            </div>
-          ):(
-        <div className={hdftable.main}>
-          <h1>Contact us</h1>
-
-          <div className={hdftable.submain}>
-            <h3>Tickets</h3>
-
-            {load ? (
-              <div className="loadCenterDiv">
-                <Load />
               </div>
-            ) : (
-              <>
-                {data ? (
-                  <>
-                    {/* Table */}
-                    <table className={hdftable.trans_table} >
-                      <tr>
-                        <th>Ticket ID</th>
-                        <th>Subject</th>
-                        <th>Date</th>
-                        <th>Status</th>
-                      </tr>
-                      {data.map((val, key) => (
-                        <>
-                          <tr key={key} onClick={()=>{tableVal(val)}}>
-                            <td data-cell="ticket Id" >#HX{val._id.slice(-5)}</td>
-                            <td data-cell="subject">{val.subject}</td>
-                            <td data-cell="date">{val.when.date}</td>
-                            <td
-                              className={
-                                val.Status === "Delivered & Eligible" ||
-                                val.Status === "Solved"
-                                  ? hdftable.processed
-                                  : hdftable.pending
-                              }
-                              data-cell="status"
+            </div>
+            <HelpDeskFormTableDetail tableData={tableData} />
+          </div>
+        ) : (
+          <div className={hdftable.main}>
+            <h1>Contact us</h1>
+
+            <div className={hdftable.submain}>
+              <h3>Tickets</h3>
+
+              {load ? (
+                <div className="loadCenterDiv">
+                  <Load />
+                </div>
+              ) : (
+                <>
+                  {data ? (
+                    <>
+                      {/* Table */}
+                      <table className={hdftable.trans_table}>
+                        <tr>
+                          <th>Ticket ID</th>
+                          <th>Subject</th>
+                          <th>Date</th>
+                          <th>Status</th>
+                        </tr>
+                        {data.map((val, key) => (
+                          <>
+                            <tr
+                              key={key}
+                              onClick={() => {
+                                tableVal(val);
+                              }}
                             >
-                              {val.Status}
-                            </td>
-                          </tr>
-                        </>
-                      ))}
-                    </table>
-                  </>
-                ) : (
-                  <div className="loadCenterDiv">No Ticket Raised</div>
-                )}
-              </>
-            )}
-          </div>
-          <div className={hdftable.wrapper}>
-            <MoreInquiries />
-            <HelpDeskContent />
-          </div>
+                              <td data-cell="ticket Id">
+                                #HX{val._id.slice(-5)}
+                              </td>
+                              <td data-cell="subject">{val.subject}</td>
+                              <td data-cell="date">{val.when.date}</td>
+                              <td
+                                className={
+                                  val.Status === "Delivered & Eligible" ||
+                                  val.Status === "Solved"
+                                    ? hdftable.processed
+                                    : hdftable.pending
+                                }
+                                data-cell="status"
+                              >
+                                {val.Status}
+                              </td>
+                            </tr>
+                          </>
+                        ))}
+                      </table>
+                    </>
+                  ) : (
+                    <div className="loadCenterDiv">No Ticket Raised</div>
+                  )}
+                </>
+              )}
+            </div>
+            <div className={hdftable.wrapper}>
+              <MoreInquiries />
+              <HelpDeskContent />
+            </div>
 
-          <Link to="/me/help/desk" className={hdftable.newrequest}>
-            <>New Request</>
-          </Link>
-        </div>
-          )
-        }
-
+            <Link to="/me/help/desk" className={hdftable.newrequest}>
+              <>New Request</>
+            </Link>
+          </div>
+        )}
       </div>
 
       <Alert variant={variants} val={setError} />

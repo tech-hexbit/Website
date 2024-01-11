@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 // components
+import Header from "./MainParts/Header";
 import PastTicket from "./HelpDesk/PastTicket";
 import HelpDeskForm from "./HelpDesk/HelpDeskForm";
 import QuickInquiries from "./HelpDesk/QuickInquiries";
@@ -19,7 +20,8 @@ export default function HelpDesk() {
 
   return (
     <>
-      <h1 className={hd.heading}>Contact Us</h1>
+      <Header name="Contact Us" />
+
       {!submitted ? (
         <>
           <p className={hd.para}>

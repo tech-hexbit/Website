@@ -32,8 +32,7 @@
 
 .filters {
   display: flex;
-  margin-left: 68px;
-  margin-top: 90px;
+  margin-top: 50px;
 }
 
 .select {
@@ -47,7 +46,7 @@
 .selectInner {
   width: 47%;
   padding: 9px 20px;
-  border: 1px solid #3f81e0;
+  border: 1px solid #ddd;
   border-radius: 5px;
 }
 
@@ -62,6 +61,12 @@
   width: 50%;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+}
+
+.resetFilBtn {
+  margin-left: 20px;
+  cursor: pointer;
 }
 
 .search input {
@@ -105,8 +110,7 @@
 }
 
 .table th {
-  color: #777;
-  font-weight: 400;
+  padding-block: 1rem;
   text-align: left;
 }
 
@@ -115,7 +119,6 @@
 }
 
 .table tr {
-  /* position: relative; */
   z-index: 1;
 }
 

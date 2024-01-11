@@ -1,79 +1,83 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
+import PropTypes from "prop-types";
 
 // css
 import tableDetailStyle from "./Css/HelpDeskFormTableDetail.module.css";
 
-function HelpDeskFormTableDetail({props}) {
+export default function HelpDeskFormTableDetail({ tableData }) {
   return (
-    <>
+    <div>
       <div>
-          <h3 className={tableDetailStyle.headerText}>TICKET ID :#HX{props._id.slice(-5)}</h3>
-          <h3 className={tableDetailStyle.headerTextSecond}>SUBJECT : {props.subject} </h3>
+        {/* ID */}
+        <h3 className={tableDetailStyle.headerText}>
+          TICKET ID :#HX{tableData._id.slice(-5)}
+        </h3>
+
+        {/* SUBJECT */}
+        <h3 className={tableDetailStyle.headerTextSecond}>
+          SUBJECT : {tableData.subject}
+        </h3>
       </div>
       <div className={tableDetailStyle.detailsSection}>
         <div>
+          {/* Name */}
           <div className={tableDetailStyle.detailsText}>
-            <p className={tableDetailStyle.name}>
-              Name
-            </p>
+            <p className={tableDetailStyle.name}>Name</p>
+            <p className={tableDetailStyle.nameSecond}>{tableData.name}</p>
+          </div>
+
+          {/* Email */}
+          <div className={tableDetailStyle.detailsText}>
+            <p className={tableDetailStyle.name}>Email</p>
+            <p className={tableDetailStyle.nameSecond}>{tableData.emailID}</p>
+          </div>
+
+          {/* Store Id */}
+          <div className={tableDetailStyle.detailsText}>
+            <p className={tableDetailStyle.name}>Store Id</p>
             <p className={tableDetailStyle.nameSecond}>
-              {props.name}
+              #{tableData.StoreID.slice(-4)}
             </p>
           </div>
+
+          {/* Store Name */}
           <div className={tableDetailStyle.detailsText}>
-            <p className={tableDetailStyle.name}>
-              Email
-            </p>
-            <p className={tableDetailStyle.nameSecond}>
-              {props.emailID}
-            </p>
+            <p className={tableDetailStyle.name}>Store Name</p>
+            <p className={tableDetailStyle.nameSecond}>{tableData.StoreName}</p>
           </div>
-          <div className={tableDetailStyle.detailsText}>
-            <p className={tableDetailStyle.name}>
-              Store Id
-            </p>
-            <p className={tableDetailStyle.nameSecond}>
-              {props.StoreID.slice(-4)}
-            </p>
-          </div>
-          <div className={tableDetailStyle.detailsText}>
-            <p className={tableDetailStyle.name}>
-              Store Name
-            </p>
-            <p className={tableDetailStyle.nameSecond}>
-              {props.StoreName}
-            </p>
-          </div>
-          <div className={tableDetailStyle.timeDate }>
-            <p className={tableDetailStyle.reqDate}>
-              Request Time and Date
-            </p>
+
+          {/* Request Time */}
+          <div className={tableDetailStyle.timeDate}>
+            <p className={tableDetailStyle.reqDate}>Request Time and Date</p>
             <p className={tableDetailStyle.reqDateSecond}>
-              <p>
-                {props.when.date},
-              </p>
-              <p>
-                {props.when.time}
-              </p>
+              <p>{tableData.when.date}</p>
+              <span className={tableDetailStyle.comma}>,</span>
+              <p>{tableData.when.time}</p>
             </p>
           </div>
         </div>
+      </div>
+      {/* Message */}
+      <div className={tableDetailStyle.msgMDiv}>
+        <label className={tableDetailStyle.message}>Message*</label>
+        <textarea
+          name=""
+          id=""
+          cols="30"
+          rows="10"
+          className={tableDetailStyle.messageInput}
+          placeholder="Brief description of the query min 120 characters."
+        ></textarea>
+      </div>
 
-      </div>
-      <div >
-        <p className={tableDetailStyle.message}>Message*</p>
-      </div>
-      <div className={tableDetailStyle.messageContainer} >
-      <textarea
-        placeholder="Brief description of the query min 120 characters."
-        className={tableDetailStyle.textareaField}
-      />
-    </div>
+      {/* Resolve Button */}
       <div className={tableDetailStyle.resolveButton}>
-          <p className={tableDetailStyle.resolveButtonText}>Resolve Query</p>
+        <p className={tableDetailStyle.resolveButtonText}>Resolve Query</p>
       </div>
-    </>
-  )
+    </div>
+  );
 }
 
-export default HelpDeskFormTableDetail
+HelpDeskFormTableDetail.propTypes = {
+  tableData: PropTypes.object.isRequired,
+};
