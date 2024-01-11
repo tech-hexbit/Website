@@ -42,6 +42,7 @@ export default function Profile() {
   }, []);
 
   const authCtx = useContext(AuthContext);
+
   const handleLinkClick = () => {
     setShowModal(true);
   };
