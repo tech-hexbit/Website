@@ -102,17 +102,6 @@ export default function SignInForm() {
           );
         } else {
           setLoad(false);
-
-          // if (response.data?.code === 1) {
-          //   setError({
-          //     mainColor: "#E5F6FD",
-          //     secondaryColor: "#1AB1F5",
-          //     symbol: "info",
-          //     title: "Information",
-          //     text: "email",
-          //     val: true,
-          //   });
-          // }
         }
       } catch (e) {
         setLoad(false);
@@ -297,11 +286,7 @@ export default function SignInForm() {
         </div>
       </div>
 
-      <Alert
-        variant={variants}
-        val={setError}
-        // email={input.email}
-      />
+      <Alert variant={variants} val={setError} />
     </>
   );
 }
