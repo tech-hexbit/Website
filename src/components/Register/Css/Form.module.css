@@ -38,8 +38,22 @@
   padding: 0px 0px 30px 0px;
 }
 
-.formInput input,
+.stateInpDiv {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.stateInp {
+  width: 100%;
+}
+
 .formInput2 input {
+  margin-right: 0;
+  margin-top: 10px;
+}
+
+.formInput input {
   width: 70%;
   margin-right: 0;
   margin-top: 10px;
