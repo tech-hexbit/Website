@@ -34,7 +34,7 @@ import SellersAdmin from "./../components/Admin/Sellers";
 import AuthContext from "./../store/auth-context";
 
 // MicroInteraction
-import Load from "./../MicroInteraction/Load";
+import Load from "./../MicroInteraction/LoadBlack";
 import { Alert } from "./../MicroInteraction/Alert";
 
 // Css
@@ -124,7 +124,16 @@ export default function Profile() {
                             <line x1="12" x2="12.01" y1="16" y2="16" />
                           </svg>
                         </div>
-                        Email Verification Pending !! CLICK TO VERIFY
+                        Email Verification Pending !!{" "}
+                        <span>
+                          {load ? (
+                            <>
+                              <Load />
+                            </>
+                          ) : (
+                            "CLICK TO VERIFY"
+                          )}
+                        </span>
                       </Link>
                     </p>
 
