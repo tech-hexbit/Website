@@ -1,8 +1,8 @@
-import React, { useRef } from 'react';
-import PropTypes from 'prop-types';
+import React, { useRef } from "react";
+import PropTypes from "prop-types";
 
 //Css
-import style from './Css/MultipleImageHandler.module.css';
+import style from "./Css/MultipleImageHandler.module.css";
 
 const MultipleImageHandler = (props) => {
   const fileInp = useRef(null);
@@ -10,7 +10,10 @@ const MultipleImageHandler = (props) => {
   // Functions to handle change
   const handleFileChange = (e) => {
     const selectedFiles = Array.from(e.target.files);
-    props.setMultipleImageUpload((prevImages) => [...prevImages, ...selectedFiles]);
+    props.setMultipleImageUpload((prevImages) => [
+      ...prevImages,
+      ...selectedFiles,
+    ]);
   };
 
   const handleClick = () => {
@@ -18,7 +21,9 @@ const MultipleImageHandler = (props) => {
   };
 
   const handleDeselectImage = (index) => {
-    const filteredImages = props.multipleImageUpload.filter((_, i) => i !== index);
+    const filteredImages = props.multipleImageUpload.filter(
+      (_, i) => i !== index
+    );
     props.setMultipleImageUpload(filteredImages);
   };
 
@@ -31,7 +36,7 @@ const MultipleImageHandler = (props) => {
           <input
             type="file"
             multiple
-            style={{ display: 'none' }}
+            style={{ display: "none" }}
             onChange={handleFileChange}
             ref={fileInp}
           />
@@ -40,10 +45,17 @@ const MultipleImageHandler = (props) => {
               <img
                 src={URL.createObjectURL(image)}
                 alt=""
-                style={{ maxWidth: '150px', maxHeight: '100px', margin: '5px', position: 'relative' }}
+                style={{
+                  maxWidth: "150px",
+                  maxHeight: "100px",
+                  margin: "5px",
+                  position: "relative",
+                }}
               />
               <div className={style.closeButton}>
-                <button onClick={() => handleDeselectImage(index)}>&#x2715;</button>
+                <button onClick={() => handleDeselectImage(index)}>
+                  &#x2715;
+                </button>
               </div>
             </div>
           ))}
