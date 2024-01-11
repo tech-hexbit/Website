@@ -51,7 +51,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
 
     try {
       const response = await axios.get(
-        `/api/common/product/all?page=${currentPage}`,
+        `/api/common/product/all/false?page=${currentPage}`,
         {
           headers: { Authorization: `${authCtx.token}` },
         }
@@ -137,7 +137,6 @@ export default function Display({ filteredlist, setfilteredlist }) {
     }
   };
 
-
   return (
     <>
       <div
@@ -159,7 +158,10 @@ export default function Display({ filteredlist, setfilteredlist }) {
           </div>
         </div>
         <div className={DCss.hideFilter}>
-          <Filter filteredlist={filteredlist} setfilteredlist={setfilteredlist} />
+          <Filter
+            filteredlist={filteredlist}
+            setfilteredlist={setfilteredlist}
+          />
         </div>
         <div className={DCss.middle}>
           {load ? (
@@ -265,59 +267,56 @@ export default function Display({ filteredlist, setfilteredlist }) {
                 )}
               </table>
               <div>
-              {orderDel?.length > 0 ? (
-                <>   
-                  <div className={cardDisplay.cardMain} >
-                    {filteredlist.map((val, key) => {
-                      return(
-                        <div className={cardDisplay.card}>
-                          <div onClick={() => {
+                {orderDel?.length > 0 ? (
+                  <>
+                    <div className={cardDisplay.cardMain}>
+                      {filteredlist.map((val, key) => {
+                        return (
+                          <div className={cardDisplay.card}>
+                            <div
+                              onClick={() => {
                                 setProductDel({ state: true, id: val._id });
-                              }}>
-                            <div className={cardDisplay.imgDiv} >
-                              <img src={val.descriptor.images[0]} className={cardDisplay.imgTag} />
+                              }}
+                            >
+                              <div className={cardDisplay.imgDiv}>
+                                <img
+                                  src={val.descriptor.images[0]}
+                                  className={cardDisplay.imgTag}
+                                />
+                              </div>
+                              <div className={cardDisplay.cardcontent}>
+                                <p className={cardDisplay.cardText}>Product:</p>
+                                <p className={cardDisplay.cardTextSecond}>
+                                  {val.descriptor.name}
+                                </p>
+                              </div>
+                              <div className={cardDisplay.cardcontent}>
+                                <p className={cardDisplay.cardText}>Price:</p>
+                                <p className={cardDisplay.cardTextSecond}>
+                                  ₹ {val.price.maximum_value.toFixed(2)}
+                                </p>
+                              </div>
+                              <div className={cardDisplay.cardcontent}>
+                                <p className={cardDisplay.cardText}>Stock:</p>
+                                <p className={cardDisplay.cardTextSecond}>
+                                  {val.quantity.maximum.count}
+                                </p>
+                              </div>
+                              <div className={cardDisplay.cardcontent}>
+                                <p className={cardDisplay.cardText}>Orders:</p>
+                                <p className={cardDisplay.cardTextSecond}>
+                                  {val.fulfillment_id}
+                                </p>
+                              </div>
+                              <div className={cardDisplay.cardcontent}>
+                                <p className={cardDisplay.cardText}>
+                                  Published on:
+                                </p>
+                                <p className={cardDisplay.cardTextSecond}>
+                                  {val.when.date}
+                                </p>
+                              </div>
                             </div>
-                            <div className={cardDisplay.cardcontent}>
-                              <p className={cardDisplay.cardText}>
-                                Product:
-                              </p>
-                              <p className={cardDisplay.cardTextSecond}>
-                                {val.descriptor.name}
-                              </p>
-                            </div>
-                            <div className={cardDisplay.cardcontent}>
-                              <p className={cardDisplay.cardText}>
-                                Price:
-                              </p>
-                              <p className={cardDisplay.cardTextSecond}>
-                              ₹ {val.price.maximum_value.toFixed(2)}
-                              </p>
-                            </div>
-                            <div className={cardDisplay.cardcontent}>
-                              <p className={cardDisplay.cardText}>
-                                Stock:
-                              </p>
-                              <p className={cardDisplay.cardTextSecond}> 
-                                {val.quantity.maximum.count}
-                              </p>
-                            </div>
-                            <div className={cardDisplay.cardcontent}>
-                              <p className={cardDisplay.cardText}>
-                                Orders:
-                              </p>
-                              <p className={cardDisplay.cardTextSecond}>
-                                {val.fulfillment_id}
-                              </p>
-                            </div>
-                            <div className={cardDisplay.cardcontent}>
-                              <p className={cardDisplay.cardText}>
-                                Published on:
-                              </p>
-                              <p className={cardDisplay.cardTextSecond}>
-                                {val.when.date}
-                              </p>
-                            </div>
-                          </div>
                             <div
                               className={cardDisplay.deleteBtn}
                               onClick={() => deleteproduct(val._id)}
@@ -341,11 +340,12 @@ export default function Display({ filteredlist, setfilteredlist }) {
                                 <line x1="14" x2="14" y1="11" y2="17" />
                               </svg>
                             </div>
-                        </div>
-                      )
-                    })}
-                  </div>
-                </> ) : (
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </>
+                ) : (
                   <p className="NoOrders">No Orders</p>
                 )}
               </div>
@@ -361,7 +361,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
             </div>
           )}
         </div>
-      
+
         <div className={DCss.cenDiv}>
           <button
             onClick={() => setCurrentPage(currentPage - 1)}
