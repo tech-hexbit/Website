@@ -132,7 +132,7 @@ export default function Form2(props) {
           </div>
 
           {/* Pincode */}
-          <style jsx>{`
+          {/* <style jsx>{`
             .verifyPin input[type="number"]::-webkit-inner-spin-button,
             .verifyPin input[type="number"]::-webkit-outer-spin-button {
               -webkit-appearance: none;
@@ -140,7 +140,7 @@ export default function Form2(props) {
               appearance: none;
               margin: 0;
             }
-          `}</style>
+          `}</style> */}
           <div className="verifyPin">
             <label htmlFor="pincode">Pincode</label>
             {props.input.Pincode.length >= 6 ? (
@@ -153,12 +153,13 @@ export default function Form2(props) {
                 className={FCss.formInput}
               >
                 <input
-                  style={{ width: "100%", maxHeight: "40px" }}
+                  // style={{ width: "100%", maxHeight: "40px" }}
                   disabled={disable}
                   type="number"
                   id="pincode"
                   placeholder="Your pincode"
                   name="Pincode"
+                  className={FCss.PinCodeInp}
                   value={props.input.Pincode}
                   onChange={(e) => {
                     props.setInput({
@@ -205,7 +206,6 @@ export default function Form2(props) {
             ) : (
               <div>
                 <div className={FCss.formInputNumber}>
-                  {/* <label htmlFor="pincode">Pincode</label> */}
                   <input
                     disabled={disable}
                     type="number"
@@ -218,8 +218,6 @@ export default function Form2(props) {
                         ...props.input,
                         Pincode: e.target.value,
                       });
-                      const pin = props.input.Pincode;
-                      // console.log(pin);
                     }}
                   />
                 </div>
@@ -265,18 +263,6 @@ export default function Form2(props) {
                 }}
               />
               {verifyPin ? (
-                // <BadgeCheck
-                //   style={{
-                //     position: "absolute",
-                //     right: "10px",
-                //     top: "10px",
-                //     // left: "1px",
-                //     // bottom: "1px",
-                //     // width: "10%",
-                //   }}
-                //   color="black"
-                //   size={20}
-                // />
                 <>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -323,18 +309,6 @@ export default function Form2(props) {
                 }}
               />
               {verifyPin ? (
-                // <BadgeCheck
-                //   style={{
-                //     position: "absolute",
-                //     right: "10px",
-                //     top: "10px",
-                //     // left: "1px",
-                //     // bottom: "1px",
-                //     // width: "10%",
-                //   }}
-                //   color="black"
-                //   size={20}
-                // />
                 <>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
