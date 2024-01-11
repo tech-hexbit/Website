@@ -21,7 +21,7 @@ import AddProduct from "./../components/Dashboard/AddProduct";
 import Dashboard from "./../components/Dashboard/DashboardMain";
 import Orderdetails from "./../components/Dashboard/Orderdetails";
 import HelpDeskTable from "./../components/Dashboard/HelpDesk/HelpDeskFormTable";
-import VerifyEmail from "../components/VerifyEmail";
+import VerifyEmail from "../components/Dashboard/MainParts/VerifyEmail";
 //          || Admin
 import TicketAdmin from "./../components/Admin/Ticket";
 import SupportAdmin from "./../components/Admin/Support";
@@ -87,9 +87,9 @@ export default function Profile() {
                     Email Verification Pending !! CLICK TO VERIFY
                   </Link>
                 </p>
-              </>
 
-              {showModal && <VerifyEmail onClose={closePopup} />}
+                {showModal && <VerifyEmail onClose={closePopup} />}
+              </>
 
               <Routes>
                 <Route path="/" element={<ProfileMain />} />
