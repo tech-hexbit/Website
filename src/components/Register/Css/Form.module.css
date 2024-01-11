@@ -126,15 +126,23 @@ label {
   width: 100%;
 }
 
-.otpButton button {
+.otpButtonF button,
+.otpButtonT button {
   border: none;
   border-radius: 5px;
   background: #5b1d9a;
   color: #fff;
   font-size: 16px;
   padding: 10px 15px;
-  cursor: pointer;
   margin-top: 10px;
+}
+
+.otpButtonF button {
+  cursor: pointer;
+}
+
+.otpButtonT button {
+  cursor: not-allowed;
 }
 
 .PinCodeInp {
@@ -248,7 +256,7 @@ span {
     width: 100%;
   }
 
-  .otpButton button {
+  .otpButtonF button {
     width: 100%;
     padding: 10px 0px;
     margin-top: 10px;
