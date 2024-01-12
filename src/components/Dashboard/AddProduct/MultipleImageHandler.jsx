@@ -4,7 +4,10 @@ import PropTypes from 'prop-types';
 //Css
 import MulImgCss from './Css/MultipleImageHandler.module.css';
 
-const MultipleImageHandler = ({multipleImageUpload, setMultipleImageUpload}) => {
+export default function MultipleImageHandler({ 
+  multipleImageUpload, setMultipleImageUpload 
+}) 
+  {
   const fileInp = useRef(null);
 
   // Functions to handle change
@@ -18,7 +21,7 @@ const MultipleImageHandler = ({multipleImageUpload, setMultipleImageUpload}) => 
   };
 
   const handleDeselectImage = (index) => {
-    const filteredImages = props.multipleImageUpload.filter((_, i) => i !== index);
+    const filteredImages = multipleImageUpload.filter((_, i) => i !== index);
     setMultipleImageUpload(filteredImages);
   };
 
@@ -40,7 +43,7 @@ const MultipleImageHandler = ({multipleImageUpload, setMultipleImageUpload}) => 
               <img
                 src={URL.createObjectURL(image)}
                 alt=""
-                MulImgCss={{ maxWidth: '150px', maxHeight: '100px', margin: '5px', position: 'relative' }}
+                style={{ maxWidth: '150px', maxHeight: '100px', margin: '5px', position: 'relative' }}
               />
               <div className={MulImgCss.closeButton}>
                 <button onClick={() => handleDeselectImage(index)}>&#x2715;</button>
@@ -56,11 +59,9 @@ const MultipleImageHandler = ({multipleImageUpload, setMultipleImageUpload}) => 
       </div>
     </>
   );
-};
+}
 
 MultipleImageHandler.propTypes = {
   multipleImageUpload: PropTypes.array.isRequired,
   setMultipleImageUpload: PropTypes.func.isRequired,
 };
-
-export default MultipleImageHandler;

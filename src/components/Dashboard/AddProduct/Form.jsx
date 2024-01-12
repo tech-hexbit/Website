@@ -130,6 +130,7 @@ export default function Form() {
 
   const onSubmit = async () => {
     setLoad(true);
+  console.log(multipleImageUpload);
 
     if (!imageUpload) {
       setLoad(false);
@@ -226,7 +227,15 @@ export default function Form() {
     ) {
       const formData = new FormData();
       formData.append("data", JSON.stringify(data));
-      formData.append("images", imageUpload);
+      if(imageUpload) {
+        formData.append("images", imageUpload);
+      }
+      
+        if(multipleImageUpload){
+      for (let i = 0; i < multipleImageUpload.length; i++) {
+        formData.append("images", multipleImageUpload[i]);
+      }
+    }
 
       for (var key of formData.entries()) {
         console.log(key[0] + ", " + key[1]);
