@@ -4,10 +4,15 @@ import React, { useState, useEffect } from "react";
 import Load from "./../../MicroInteraction/Load";
 import { Alert } from "./../../MicroInteraction/Alert";
 
+// axios
+import axios from "axios";
+
 // css
 import FCss from "./Css/Form.module.css";
 
 export default function Form2(props) {
+  const [verifyPin, setVerify] = useState(false);
+  const [disable, setDisable] = useState(false);
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -16,6 +21,40 @@ export default function Form2(props) {
     text: "",
     val: false,
   });
+
+  const pincodeVerify = async () => {
+    try {
+      const validPin = ({ response }) => {
+        props.setInput({
+          ...props.input,
+          State: response.data[0].PostOffice[0].State,
+          City: response.data[0].PostOffice[0].Name,
+        });
+        setDisable(true);
+        setVerify(true);
+      };
+      const invalidPin = () => {
+        setError({
+          mainColor: "#FFC0CB",
+          secondaryColor: "#FF69B4",
+          symbol: "pets",
+          title: "Check it out",
+          text: "Invalid pincode",
+          val: true,
+        });
+        setVerify(false);
+      };
+      const response = await axios.get(
+        `https://api.postalpincode.in/pincode/${props.input.Pincode}`
+      );
+      // console.log(response.data);
+      response.data[0].PostOffice ? validPin({ response }) : invalidPin();
+      // console.log("invalid pincode");
+      // console.log(props.input.State);
+    } catch (e) {
+      // console.log(e);
+    }
+  };
 
   const checkInfo = async () => {
     if (
@@ -33,7 +72,16 @@ export default function Form2(props) {
         text: "Please Fill All The Details",
         val: true,
       });
-
+      window.scrollTo(0, 0);
+    } else if (!verifyPin) {
+      setError({
+        mainColor: "#FFC0CB",
+        secondaryColor: "#FF69B4",
+        symbol: "pets",
+        title: "Check it out",
+        text: "Invalid pincode",
+        val: true,
+      });
       window.scrollTo(0, 0);
     } else {
       setError({
@@ -83,6 +131,78 @@ export default function Form2(props) {
             />
           </div>
 
+          {/* Pincode */}
+          <div className={FCss.formInputs}>
+            <label htmlFor="pincode">Pincode</label>
+            {props.input.Pincode.length >= 6 ? (
+              <div className={FCss.formInput2}>
+                <input
+                  disabled={disable}
+                  type="number"
+                  placeholder="Your pincode"
+                  name="Pincode"
+                  className={FCss.PinCodeInp}
+                  value={props.input.Pincode}
+                  id={verifyPin ? FCss.curNA : "pincode"}
+                  onChange={(e) => {
+                    props.setInput({
+                      ...props.input,
+                      Pincode: e.target.value,
+                    });
+                  }}
+                />
+                <div className={verifyPin ? FCss.otpButtonT : FCss.otpButtonF}>
+                  <button
+                    className={FCss.otpBtn}
+                    onClick={() => {
+                      pincodeVerify();
+                    }}
+                  >
+                    {verifyPin ? (
+                      <>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-check"
+                        >
+                          <path d="M20 6 9 17l-5-5" />
+                        </svg>
+                      </>
+                    ) : (
+                      "Verify"
+                    )}
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div>
+                <div className={FCss.formInputNumber}>
+                  <input
+                    disabled={disable}
+                    type="number"
+                    id="pincode"
+                    placeholder="Your pincode"
+                    name="Pincode"
+                    value={props.input.Pincode}
+                    onChange={(e) => {
+                      props.setInput({
+                        ...props.input,
+                        Pincode: e.target.value,
+                      });
+                    }}
+                  />
+                </div>
+              </div>
+            )}
+          </div>
+
           {/* Address */}
           <div className={FCss.formInputs}>
             <label htmlFor="address">Address</label>
@@ -100,47 +220,84 @@ export default function Form2(props) {
 
           {/* State */}
           <div className={FCss.formInputs}>
-            <label htmlFor="state">State / District</label>
-            <input
-              type="text"
-              id="state"
-              placeholder="Your state"
-              name="State"
-              value={props.input.State}
-              onChange={(e) => {
-                props.setInput({ ...props.input, State: e.target.value });
-              }}
-            />
+            <label htmlFor="state">State / District</label>{" "}
+            <div className={FCss.stateInpDiv}>
+              <input
+                disabled={disable}
+                type="text"
+                placeholder="Your state"
+                name="State"
+                className={FCss.stateInp}
+                value={props.input.State}
+                id={verifyPin ? FCss.curNA : "state"}
+                onChange={(e) => {
+                  props.setInput({ ...props.input, State: e.target.value });
+                }}
+              />
+              {verifyPin ? (
+                <>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-badge-check"
+                    className={FCss.verIcon}
+                  >
+                    <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
+                    <path d="m9 12 2 2 4-4" />
+                  </svg>
+                </>
+              ) : (
+                ""
+              )}
+            </div>
           </div>
 
           {/* City */}
           <div className={FCss.formInputs}>
             <label htmlFor="city">City / Village / Town</label>
-            <input
-              type="text"
-              id="city"
-              placeholder="Your city"
-              name="City"
-              value={props.input.City}
-              onChange={(e) => {
-                props.setInput({ ...props.input, City: e.target.value });
-              }}
-            />
-          </div>
-
-          {/* Pincode */}
-          <div className={FCss.formInputs}>
-            <label htmlFor="pincode">Pincode</label>
-            <input
-              type="number"
-              id="pincode"
-              placeholder="Your pincode"
-              name="Pincode"
-              value={props.input.Pincode}
-              onChange={(e) => {
-                props.setInput({ ...props.input, Pincode: e.target.value });
-              }}
-            />
+            <div className={FCss.stateInpDiv}>
+              <input
+                disabled={disable}
+                type="text"
+                placeholder="Your city"
+                name="City"
+                className={FCss.stateInp}
+                value={props.input.City}
+                id={verifyPin ? FCss.curNA : "city"}
+                onChange={(e) => {
+                  props.setInput({ ...props.input, City: e.target.value });
+                }}
+              />
+              {verifyPin ? (
+                <>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-badge-check"
+                    className={FCss.verIcon}
+                  >
+                    <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
+                    <path d="m9 12 2 2 4-4" />
+                  </svg>
+                </>
+              ) : (
+                ""
+              )}
+            </div>
           </div>
 
           {/* AdditionalInfo */}

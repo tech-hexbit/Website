@@ -8,6 +8,7 @@ import AuthContext from "./../../../store/auth-context";
 import axios from "axios";
 
 // components
+import Filter from "./Filter";
 import ProductsPage from "./../../ProductsPage/ProductsPage";
 
 // MicroInteraction
@@ -23,26 +24,9 @@ export default function Display({ filteredlist, setfilteredlist }) {
   const [load, setLoad] = useState(false);
   const [orderDel, setOrderDel] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [allProducts, setAllProducts] = useState([]);
   const [prodcutsCount, setProdcutsCount] = useState(0);
   const [showProductDel, setProductDel] = useState({ state: false, id: "" });
-  const [allProducts, setAllProducts] = useState([]);
-
-  useEffect(() => {
-    loadData();
-  }, [, currentPage]);
-
-  useEffect(() => {
-    maxPage();
-  }, [prodcutsCount, currentPage]);
-
-  // useEffect(() => {
-  //   fetchAllProducts();
-  // }, []);
-
-  // scroll to top
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [, currentPage]);
 
   const authCtx = useContext(AuthContext);
 
@@ -73,24 +57,6 @@ export default function Display({ filteredlist, setfilteredlist }) {
       console.log(e);
     }
   };
-
-  // filter all products
-  // const fetchAllProducts = async () => {
-  //   try {
-  //     const response = await axios.get(`/api/common/product/allproducts`, {
-  //       headers: { Authorization: `${authCtx.token}` },
-  //     });
-  //     if (response.data.success) {
-  //       const fetchedProducts = response.data.products;
-  //       setAllProducts(fetchedProducts);
-  //       setfilteredlist(fetchedProducts);
-  //     } else {
-  //       console.log("Failed to fetch all products");
-  //     }
-  //   } catch (error) {
-  //     console.error("Error fetching all products:", error);
-  //   }
-  // };
 
   const deleteproduct = async (_id) => {
     try {
@@ -137,6 +103,19 @@ export default function Display({ filteredlist, setfilteredlist }) {
     }
   };
 
+  useEffect(() => {
+    loadData();
+  }, [, currentPage]);
+
+  useEffect(() => {
+    maxPage();
+  }, [prodcutsCount, currentPage]);
+
+  // scroll to top
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [, currentPage]);
+
   return (
     <>
       <div
@@ -163,6 +142,8 @@ export default function Display({ filteredlist, setfilteredlist }) {
             setfilteredlist={setfilteredlist}
           />
         </div>
+
+        {/* Table */}
         <div className={DCss.middle}>
           {load ? (
             <div className="loadCenterDiv">
@@ -172,7 +153,6 @@ export default function Display({ filteredlist, setfilteredlist }) {
             <div className={DCss.table}>
               <table
                 className={DCss.tableTag}
-                // className={TabCss.trans_table}
                 style={{ borderCollapse: "collapse" }}
               >
                 {orderDel?.length > 0 ? (
@@ -267,6 +247,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
                   <p className="NoOrders">No Orders</p>
                 )}
               </table>
+
               <div>
                 {orderDel?.length > 0 ? (
                   <>
@@ -350,6 +331,8 @@ export default function Display({ filteredlist, setfilteredlist }) {
                   <p className="NoOrders">No Orders</p>
                 )}
               </div>
+
+              {/* Show Label */}
               <p className={DCss.showingPTag}>
                 Showing{" "}
                 {filteredlist?.length <= 10 ? (
@@ -363,6 +346,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
           )}
         </div>
 
+        {/* Pagination */}
         <div className={DCss.cenDiv}>
           <button
             onClick={() => setCurrentPage(currentPage - 1)}
@@ -410,6 +394,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
         </div>
       </div>
 
+      {/* Product Details */}
       <div
         className={showProductDel.state ? "yesProductsPage" : "noProductsPage"}
       >

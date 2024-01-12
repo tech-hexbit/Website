@@ -19,6 +19,8 @@ const AuthContext = React.createContext({
     City: "",
     Pincode: "",
     AdditionalInfo: "",
+    accountVerified: false,
+    emailVerified: false,
     Store: [],
   },
   target: null,
@@ -111,6 +113,8 @@ export const AuthContextProvider = (props) => {
     City,
     Pincode,
     AdditionalInfo,
+    accountVerified,
+    emailVerified,
     Store,
     token,
     expirationTime
@@ -131,6 +135,8 @@ export const AuthContextProvider = (props) => {
       City: City,
       Pincode: Pincode,
       AdditionalInfo: AdditionalInfo,
+      accountVerified: accountVerified,
+      emailVerified: emailVerified,
       Store: Store,
     };
 

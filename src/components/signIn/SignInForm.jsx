@@ -94,23 +94,14 @@ export default function SignInForm() {
             response.data.user[0].City,
             response.data.user[0].Pincode,
             response.data.user[0].AdditionalInfo,
+            response.data.user[0].accountVerified,
+            response.data.user[0].emailVerified,
             response.data.user[0].Store,
             response.data.token,
             10800000
           );
         } else {
           setLoad(false);
-
-          if (response.data?.code === 1) {
-            setError({
-              mainColor: "#E5F6FD",
-              secondaryColor: "#1AB1F5",
-              symbol: "info",
-              title: "Information",
-              text: "email",
-              val: true,
-            });
-          }
         }
       } catch (e) {
         setLoad(false);
@@ -295,7 +286,7 @@ export default function SignInForm() {
         </div>
       </div>
 
-      <Alert variant={variants} val={setError} email={input.email} />
+      <Alert variant={variants} val={setError} />
     </>
   );
 }

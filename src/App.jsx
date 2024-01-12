@@ -15,8 +15,8 @@ const Terms = React.lazy(() => import("./Pages/Terms"));
 const Error = React.lazy(() => import("./Pages/Error"));
 const Contact = React.lazy(() => import("./Pages/Contact"));
 const Privacy = React.lazy(() => import("./Pages/Privacy"));
-const ForgotPassword=React.lazy(()=>import("./Pages/ForgotPassword"));
-const PasswordChanged=React.lazy(()=>import("./Pages/PasswordChanged"));
+const ForgotPassword = React.lazy(() => import("./Pages/ForgotPassword"));
+const PasswordChanged = React.lazy(() => import("./Pages/PasswordChanged"));
 //        || Auth
 const SignIn = React.lazy(() => import("./Pages/SignIn"));
 const Register = React.lazy(() => import("./Pages/Register"));
@@ -32,7 +32,6 @@ import AuthContext from "./store/auth-context";
 
 // axios
 import axios from "axios";
-
 
 axios.defaults.baseURL = import.meta.env.VITE_SERVER_URL;
 
@@ -54,6 +53,7 @@ function App() {
                 </Suspense>
               }
             />
+
             <Route
               path="/AboutUs"
               element={
@@ -62,6 +62,7 @@ function App() {
                 </Suspense>
               }
             />
+
             <Route
               path="/contact"
               element={
@@ -70,6 +71,7 @@ function App() {
                 </Suspense>
               }
             />
+
             <Route
               path="/privacy"
               element={
@@ -78,6 +80,7 @@ function App() {
                 </Suspense>
               }
             />
+
             <Route
               path="/terms"
               element={
@@ -86,6 +89,7 @@ function App() {
                 </Suspense>
               }
             />
+
             <Route
               path="/Tracking/:id"
               element={
@@ -94,22 +98,26 @@ function App() {
                 </Suspense>
               }
             />
-            <Route 
+            {/* protect this  */}
+            <Route
               path="/forgotpassword"
               element={
                 <Suspense fallback={<LoadingPage />}>
-                  <ForgotPassword/>
+                  <ForgotPassword />
                 </Suspense>
               }
             />
-            <Route 
+
+            <Route
               path="/changepwd"
               element={
                 <Suspense fallback={<LoadingPage />}>
-                  <PasswordChanged/>
+                  <PasswordChanged />
                 </Suspense>
               }
             />
+            {/* protect this  */}
+
             {!authCtx.isLoggedIn && (
               <Route
                 path="/register"
@@ -120,6 +128,7 @@ function App() {
                 }
               />
             )}
+
             {!authCtx.isLoggedIn && (
               <Route
                 path="/signIn"
@@ -130,6 +139,7 @@ function App() {
                 }
               />
             )}
+
             {authCtx.isLoggedIn && (
               <Route
                 path="/me/*"
@@ -140,6 +150,7 @@ function App() {
                 }
               />
             )}
+
             <Route
               path="*"
               element={
@@ -148,7 +159,6 @@ function App() {
                 </Suspense>
               }
             />
-
 
             {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
           </Routes>
