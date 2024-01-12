@@ -221,7 +221,7 @@
   transition: background-color 150ms ease; 
 }
 
-@media only screen and (max-width: 1050px) {
+@media only screen and (max-width: 1080px) {
   .top {
     padding: 15px 0px;
   }
@@ -278,6 +278,8 @@
     flex-direction: column;
     min-width: 250px;
     border-radius: 5px;
+    border: solid 1px #d3d3d3;
+    overflow: hidden;
   }
 
   .table td {
