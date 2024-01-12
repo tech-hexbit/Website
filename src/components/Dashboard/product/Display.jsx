@@ -17,7 +17,6 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 import DCss from "./Css/display.module.css";
 import cardDisplay from "./Css/cardDisplay.module.css";
 import Filter from "./Filter";
-import TabCss from "./Css/tableStyle.module.css"
 
 export default function Display({ filteredlist, setfilteredlist }) {
   const [max, setmax] = useState(false);
