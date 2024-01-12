@@ -32,7 +32,7 @@ export default function BarChart() {
   const fetchData = async () => {
     try {
       const res = await axios.get("/api/website/DashBoard/SellerActivity", {
-        headers: { Authorization: `${authCtx.token}` },
+        headers: { Authorization: `${authCtx.token}` }
       });
       if (res.data.success) {
         // setDaysData(true);
@@ -52,7 +52,7 @@ export default function BarChart() {
 
   let randomColors = [];
   if (days.length > 2) {
-    randomColors = generateRandomColors(data.length - 2);
+    randomColors = generateRandomColors(days.length - 2);
     randomColors.push("#d8b4fe");
     randomColors.push("#f3e8ff");
   } else {
@@ -68,13 +68,13 @@ export default function BarChart() {
         label: "Cost",
         data: days[0],
         backgroundColor: randomColors,
-        maxBarThickness: 14,
-      },
-    ],
+        maxBarThickness: 14
+      }
+    ]
   };
   const options = {
     maintainAspectRatio: false,
-    responsive: true,
+    responsive: true
   };
   return (
     <div className="barChart">
