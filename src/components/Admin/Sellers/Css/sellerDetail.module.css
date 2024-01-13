@@ -1,0 +1,231 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .main{
+    font-family: 'Roboto', sans-serif;  
+  display: flex;
+  position: relative;
+}
+
+
+
+.svg{
+    width: 13vw;
+    /* height: 100vh; */
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.topText{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding-left: 4px;
+    margin-left: 20px;
+    margin-top: 20px;
+  
+    
+}
+.topText p{
+    font-weight: 600;
+    color: rgba(72, 72, 72, 1);
+}
+.seller{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    font-family: Roboto;
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 36px;
+    color: rgba(72, 72, 72, 1);
+}
+
+.alert{
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: rgba(169, 0, 0, 1);
+    ;
+}
+.alertSvg{
+  padding-top: 4px;
+}
+
+
+.KYCmain{
+    margin-top: 15px ;
+    padding: 1rem 2rem;
+    width: 55vw;
+    margin-bottom: 20px;
+}
+
+.KYCtop{
+    font-size: 18px;
+    font-weight: 700;
+    padding-bottom: 10px;
+}
+
+.KYCSec{
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    padding: 9px 0px ;
+    border-bottom: 1px solid rgb(228, 210, 210);
+}
+
+.secText{
+    font-weight: 700;
+    font-size: 15px;
+    word-wrap: break-word;
+}
+.empty{
+    padding: 10px 0px;
+}
+.empty2{
+    padding: 20px 0px;
+}
+
+.downloadBtn{
+    background: rgba(53, 11, 94, 1);
+    display: flex ;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 13px 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.btnText{
+    color: white;
+    font-weight: 500;
+    font-size: 18px;
+    padding-right: 4px;
+    
+}
+.btn{
+    margin: 9.5rem auto;
+    gap: 55%;
+}
+
+.checkbox  {
+    display: flex;
+    gap: 15px;
+    margin-left: 9px;
+    margin-top:5px;
+  }
+  .checkbox p{
+    padding: 7px 0px;
+    font-size: 18px;
+    font-weight: 600;
+    color: rgba(72, 72, 72, 1);
+  }
+  .mandatoryT {
+    display: flex;
+    align-items: first baseline;
+    font-size: medium; 
+    font-weight: 600;
+    line-height:2;
+  }
+  .asterisk{
+    color: red  ;
+    font-size: larger;
+  }
+  .mandatoryFields{
+    position: absolute;
+    bottom: 10px;
+    right: 25px;
+    margin: 10px 0px;
+    padding: 10px;
+  }
+
+  @media (max-width:1190px){
+    .btn{
+        margin: 9.5rem 1rem;
+    }
+    
+  }
+  @media (max-width:1065px){
+    .mandatoryFields{
+      right: 2px;
+    }
+  }
+  @media (max-width:1000px){
+    .downloadBtn{
+        padding: 13px 10px;
+    }
+    .btn{
+        margin: 9.5rem 5px;
+    }
+    
+  }
+  @media (max-width:960px){
+    .main{
+        flex-wrap: wrap;
+    }
+    .KYCmain{
+        width: 100vw;
+    }
+    .btn{
+        width: 95vw;
+        margin: 20px auto;
+    }
+    .mandatoryFields{
+        position: relative;
+        margin: 30px 0px;
+        padding: 10px;
+        right: 0px;
+      }
+      .topText{
+        margin-left: 2rem;
+      }
+      .seller{
+        margin-left: 2rem;
+      }
+    .alert{
+        margin-left: 1.7rem;
+    }
+    .KYCmain{
+        margin-top: 10px;
+    }
+}
+@media (max-width:460px){
+  .KYCSec{
+    display: flex;
+    flex-direction: column;
+  }
+  .secText{
+    padding-bottom: 4px;
+  }
+}
+@media (max-width:370px){
+  .mandatoryT{
+    font-size: 14px; ;
+  }
+}
+
+  .verifiedBtn{
+    background: green;
+    display: flex ;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 13px 25px;
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 15px;
+    /* margin: 10px 20px; */
+
+  }
+    .verifiedBtn p{
+        color: white;
+        font-weight: 700;
+        font-size: 18px;
+        padding-right: 4px;
+    }
