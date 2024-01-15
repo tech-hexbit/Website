@@ -30,7 +30,7 @@ import TicketAdmin from "./../components/Admin/Ticket";
 import SupportAdmin from "./../components/Admin/Support";
 import SellersAdmin from "./../components/Admin/Sellers";
 //          || Super Admin
-import TicketAdmin from "./../components/Admin/Ticket";
+import FrontPage from "./../components/MainAdmin/FrontPage";
 
 // state
 import AuthContext from "./../store/auth-context";
@@ -159,7 +159,7 @@ export default function Profile() {
 
                 {authCtx.user.access === 2 && (
                   <>
-                    <Route path="/admin/tickets" element={<TicketAdmin />} />
+                    <Route path="/admin/tickets" element={<FrontPage />} />
                   </>
                 )}
 
