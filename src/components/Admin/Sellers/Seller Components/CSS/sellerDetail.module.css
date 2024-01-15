@@ -110,7 +110,7 @@
     
 }
 .btn{
-    margin: 9.5rem auto;
+    margin: 9.5rem 1.5rem;
     gap: 55%;
 }
 
@@ -140,9 +140,14 @@
   .mandatoryFields{
     position: absolute;
     bottom: 10px;
-    right: 25px;
+    right: auto; 
     margin: 10px 0px;
     padding: 10px;
+  }
+  @media (max-width:1255px){
+    .KYCmain{
+        width: 50vw;
+    }
   }
 
   @media (max-width:1190px){
