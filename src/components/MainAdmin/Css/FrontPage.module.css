@@ -54,45 +54,8 @@
   box-sizing: border-box;
 }
 
-@media screen and (max-width: 1200px) {
-  .acc,
-  .accp {
-    margin-left: 0px;
-    justify-content: center;
-    text-align: center;
-  }
-}
-
-@media screen and (max-width: 992px) {
-  .acc,
-  .accp {
-    margin-left: 0;
-    justify-content: center;
-    text-align: center;
-  }
-}
-
 @media screen and (max-width: 768px) {
-  /* .acc {
-    margin-left: 0;
-    justify-content: center;
-  } */
-
-  .accp {
-    margin-left: 0;
-    text-align: center;
-  }
-
   .row {
     justify-content: flex-start;
-  }
-}
-
-@media screen and (max-width: 558px) {
-  .acc,
-  .accp {
-    margin-left: 0;
-    justify-content: center;
-    text-align: center;
   }
 }
