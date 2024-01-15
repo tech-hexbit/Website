@@ -48,6 +48,7 @@ export default function FrontPage() {
           label="Support and Help Desk Data"
         />
         <ListBox title="Inventory Statistics" label="Sales data" />
+        <ListBox title="Inventory" label="Our Inventory" />
 
         {/* Row 2 */}
         <div className={Acss.row}>
