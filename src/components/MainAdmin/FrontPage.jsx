@@ -12,6 +12,7 @@ import Acss from "./Css/FrontPage.module.css";
 
 export default function FrontPage() {
   const authCtx = useContext(AuthContext);
+
   return (
     <>
       <div className={Acss.titleDiv}>
