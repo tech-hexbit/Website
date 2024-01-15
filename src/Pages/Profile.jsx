@@ -29,6 +29,8 @@ import VerifyEmail from "../components/Dashboard/MainParts/VerifyEmail";
 import TicketAdmin from "./../components/Admin/Ticket";
 import SupportAdmin from "./../components/Admin/Support";
 import SellersAdmin from "./../components/Admin/Sellers";
+//          || Super Admin
+import TicketAdmin from "./../components/Admin/Ticket";
 
 // state
 import AuthContext from "./../store/auth-context";
@@ -155,7 +157,11 @@ export default function Profile() {
                   </>
                 )}
 
-                {authCtx.user.access === 2 && <></>}
+                {authCtx.user.access === 2 && (
+                  <>
+                    <Route path="/admin/tickets" element={<TicketAdmin />} />
+                  </>
+                )}
 
                 {authCtx.user.access === 1 && (
                   // Users
@@ -187,6 +193,8 @@ export default function Profile() {
           ""
         )}
       </div>
+
+      <Alert variant={variants} val={setError} />
     </>
   );
 }
