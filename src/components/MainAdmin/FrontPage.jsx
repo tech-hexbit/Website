@@ -14,13 +14,16 @@ export default function FrontPage() {
   const authCtx = useContext(AuthContext);
   return (
     <>
-      <h2 className={Acss.acc}>Account</h2>
-      <p className={Acss.accp}>
-        <b>ADMIN QUCKBOARD,</b> {authCtx.user.Email} ·{" "}
-        <Link>
-          <b>Go to profile</b>
-        </Link>
-      </p>
+      <div className={Acss.titleDiv}>
+        <h2 className={Acss.acc}>Account</h2>
+        <p className={Acss.accp}>
+          <b>ADMIN QUCKBOARD,</b> {authCtx.user.Email} ·{" "}
+          <Link>
+            <b>Go to profile</b>
+          </Link>
+        </p>
+      </div>
+
       <div className={Acss.container}>
         <ListBox title="Seller info" label="Seller Data" />
         <ListBox
