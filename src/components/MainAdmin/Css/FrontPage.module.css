@@ -2,8 +2,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  width: 75%;
-  margin: 0 auto;
+  width: 100%;
+  margin: 0px auto;
   box-sizing: border-box;
 }
 
@@ -41,13 +41,9 @@
   justify-content: flex-start;
 }
 
-.column {
-  width: calc(33.33% - 20px);
-  margin: 10px;
-  box-sizing: border-box;
-}
-
 .card {
+  width: 30%;
+  min-width: 300px;
   box-shadow: 0px 8px 16px 4px #0000001f;
   border-radius: 12px;
   padding: 20px;
@@ -114,7 +110,7 @@
     max-width: 100%;
     font-size: small;
     box-sizing: border-box;
-    word-wrap: break-word; /* Ensure text responsiveness */
+    word-wrap: break-word;
   }
 }
 @media screen and (max-width: 558px) {
