@@ -18,10 +18,36 @@ export default function FrontPage() {
         </Link>
       </p>
       <div className={Acss.container}>
-        <ListBox />
-        <ListBox />
-        <ListBox />
-        <ListBox />
+        <ListBox title="Seller info" label="Seller Data" />
+        <ListBox
+          title="Login & security"
+          label="Update passwords and login credentials"
+        />
+        <ListBox
+          title="Payments & payouts"
+          label="Review payments, payouts, Invoices"
+        />
+        <ListBox
+          title="Taxes"
+          label="Manage taxpayer information and tax documents"
+        />
+        <ListBox
+          title="Notifications"
+          label="Send Communications Via E-mail."
+        />
+        <ListBox
+          title="Data & sharing"
+          label="Manage your personal data, connected services, and data sharing settings"
+        />
+        <ListBox
+          title="Seller KYC"
+          label="New Seller Data Validation and Approval."
+        />
+        <ListBox
+          title="Support & Help Desk"
+          label="Support and Help Desk Data"
+        />
+        <ListBox title="Inventory Statistics" label="Sales data" />
 
         {/* Row 2 */}
         <div className={Acss.row}>
