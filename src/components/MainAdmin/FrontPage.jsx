@@ -1,15 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+// components
+import ListBox from "./ListBox";
+
+// css
+import Acss from "./Css/FrontPage.module.css";
 
 export default function FrontPage() {
-  return <div>FrontPage</div>;
-}
-
-import React from "react";
-import { Link } from "react-router-dom";
-//css
-import Acss from "../../components/Account/Account.module.css";
-
-export default function Account() {
   return (
     <>
       <h2 className={Acss.acc}>Account</h2>
@@ -20,76 +18,10 @@ export default function Account() {
         </Link>
       </p>
       <div className={Acss.container}>
-        {/* Row 1 */}
-        <div className={Acss.row}>
-          <div className={Acss.column}>
-            <div className={Acss.card}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.75"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-book-user"
-              >
-                <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
-                <circle cx="12" cy="8" r="2" />
-                <path d="M15 13a3 3 0 1 0-6 0" />
-              </svg>
-              <h3 className={Acss.a1}>Seller info</h3>
-              <p className={Acss.a2}>Seller Data</p>
-            </div>
-          </div>
-
-          <div className={Acss.column}>
-            <div className={Acss.card}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="35"
-                height="35"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.75"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-shield-half"
-              >
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
-                <path d="M12 22V2" />
-              </svg>
-              <h3 className={Acss.a1}>Login & Security</h3>
-              <p className={Acss.a2}>Update passwords and login credentials.</p>
-            </div>
-          </div>
-
-          <div className={Acss.column}>
-            <div className={Acss.card}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="35"
-                height="35"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.75"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-banknote"
-              >
-                <rect width="20" height="12" x="2" y="6" rx="2" />
-                <circle cx="12" cy="12" r="2" />
-                <path d="M6 12h.01M18 12h.01" />
-              </svg>
-              <h3 className={Acss.a1}>Payments & payout</h3>
-              <p className={Acss.a2}>Review payments, payouts, Invoices</p>
-            </div>
-          </div>
-        </div>
+        <ListBox />
+        <ListBox />
+        <ListBox />
+        <ListBox />
 
         {/* Row 2 */}
         <div className={Acss.row}>
