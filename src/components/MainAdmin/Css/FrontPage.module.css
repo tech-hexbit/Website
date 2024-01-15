@@ -1,22 +1,24 @@
+.titleDiv {
+}
+
+.acc {
+  display: flex;
+}
+
+.accp {
+  margin: 10px 0px;
+}
+
+.accp a {
+  color: black;
+}
+
 .container {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  gap: 30px 30px;
-}
-
-.acc {
-  display: flex;
-  margin: 40px 0 5px 230px;
-}
-
-.accp {
-  margin: 5px 0 30px 230px;
-}
-
-.accp a {
-  color: black;
+  gap: 30px;
 }
 
 .a1 {
@@ -70,10 +72,10 @@
 }
 
 @media screen and (max-width: 768px) {
-  .acc {
+  /* .acc {
     margin-left: 0;
     justify-content: center;
-  }
+  } */
 
   .accp {
     margin-left: 0;
