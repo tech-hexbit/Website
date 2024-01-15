@@ -1,9 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 // css
 import Acss from "./Css/FrontPage.module.css";
 
-export default function ListBox({}) {
+export default function ListBox({ title, label }) {
   return (
     <div className={Acss.card}>
       <svg
@@ -22,8 +23,13 @@ export default function ListBox({}) {
         <circle cx="12" cy="8" r="2" />
         <path d="M15 13a3 3 0 1 0-6 0" />
       </svg>
-      <h3 className={Acss.a1}>Seller info</h3>
-      <p className={Acss.a2}>Seller Data</p>
+      <h3 className={Acss.a1}>{title}</h3>
+      <p className={Acss.a2}>{label}</p>
     </div>
   );
 }
+
+ListBox.propTypes = {
+  title: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+};
