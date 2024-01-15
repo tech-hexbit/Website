@@ -26,7 +26,7 @@ export default function UserSideBar() {
       {authCtx.user.Store[0].StoreID.validation ? (
         <>
           <div className={sidebarCSS.mainDiv}>
-            {authCtx.user.access === 0 ? (
+            {authCtx.user.access === 0 && (
               // Admin
               <>
                 {/* Seller Verification */}
@@ -132,7 +132,9 @@ export default function UserSideBar() {
                   </div>
                 </NavLink>
               </>
-            ) : (
+            )}
+
+            {authCtx.user.access === 1 && (
               // Users
               <>
                 {/* Dashboard */}
