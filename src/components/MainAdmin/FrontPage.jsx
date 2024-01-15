@@ -19,7 +19,7 @@ export default function FrontPage() {
         <h2 className={Acss.acc}>Account</h2>
         <p className={Acss.accp}>
           <b>ADMIN QUCKBOARD,</b> {authCtx.user.Email} ·{" "}
-          <Link>
+          <Link to="/me">
             <b>Go to profile</b>
           </Link>
         </p>
