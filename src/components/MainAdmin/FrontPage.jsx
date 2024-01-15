@@ -1,18 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
 // components
 import ListBox from "./ListBox";
 
+// state
+import AuthContext from "./../../store/auth-context";
+
 // css
 import Acss from "./Css/FrontPage.module.css";
 
 export default function FrontPage() {
+  const authCtx = useContext(AuthContext);
   return (
     <>
       <h2 className={Acss.acc}>Account</h2>
       <p className={Acss.accp}>
-        <b>ADMIN QUCKBOARD,</b> hello@designdrops.io ·{" "}
+        <b>ADMIN QUCKBOARD,</b> {authCtx.user.Email} ·{" "}
         <Link>
           <b>Go to profile</b>
         </Link>
