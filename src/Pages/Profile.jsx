@@ -45,6 +45,14 @@ import PCss from "./Css/Profile.module.css";
 export default function Profile() {
   const [load, setLoad] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
 
   // scroll to top
   useEffect(() => {
@@ -159,7 +167,7 @@ export default function Profile() {
 
                 {authCtx.user.access === 2 && (
                   <>
-                    <Route path="/admin/tickets" element={<FrontPage />} />
+                    <Route path="/admin/super/List" element={<FrontPage />} />
                   </>
                 )}
 
