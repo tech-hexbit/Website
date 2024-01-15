@@ -1,10 +1,11 @@
 .container {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  width: 100%;
-  margin: 0px auto;
-  box-sizing: border-box;
+  gap: 30px 30px;
+  /* margin: 0px auto; */
+  /* box-sizing: border-box; */
 }
 
 .acc {
@@ -54,9 +55,9 @@
 }
 
 @media screen and (max-width: 1200px) {
-  .container {
+  /* .container {
     width: 85%;
-  }
+  } */
   .acc,
   .accp {
     margin-left: 0;
@@ -70,9 +71,9 @@
 }
 
 @media screen and (max-width: 992px) {
-  .container {
+  /* .container {
     width: 90%;
-  }
+  } */
 
   .acc,
   .accp {
@@ -88,9 +89,9 @@
 }
 
 @media screen and (max-width: 768px) {
-  .container {
+  /* .container {
     width: 90%;
-  }
+  } */
 
   .acc {
     margin-left: 0;
@@ -115,9 +116,9 @@
   }
 }
 @media screen and (max-width: 558px) {
-  .container {
+  /* .container {
     width: 90%;
-  }
+  } */
 
   .acc,
   .accp {
