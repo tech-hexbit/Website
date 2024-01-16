@@ -442,7 +442,15 @@ export default function OverallSales() {
                           .map((val, key) => {
                             return (
                               <tr key={key}>
-                                <td data-cell="ID"> #{val._id.slice(-4)}</td>
+                                <td
+                                onClick={() => {
+                                  setProductDel({
+                                    state: true,
+                                    id: val._id,
+                                  });
+                                  setHideDel(!showDel);
+                                }}
+                                 data-cell="ID"> #{val._id.slice(-4)}</td>
                                 <td
                                   onClick={() => {
                                     setProductDel({
@@ -455,14 +463,45 @@ export default function OverallSales() {
                                 >
                                   {val.ONDCBilling.name}
                                 </td>
-                                <td data-cell="PRICE">
+                                <td
+                                onClick={() => {
+                                  setProductDel({
+                                    state: true,
+                                    id: val._id,
+                                  });
+                                  setHideDel(!showDel);
+                                }} 
+                                data-cell="PRICE">
                                   {" "}
                                   ₹ {val.amount.toFixed(2)}
                                 </td>
-                                <td data-cell="ORDERED ON"> {val.when.date}</td>
-                                <td data-cell="PAYMENT METHOD">{val.status}</td>
-
-                                <td data-cell="BUYER ">{val.buyer}</td>
+                                <td
+                                onClick={() => {
+                                  setProductDel({
+                                    state: true,
+                                    id: val._id,
+                                  });
+                                  setHideDel(!showDel);
+                                }}
+                                 data-cell="ORDERED ON"> {val.when.date}</td>
+                                <td
+                                onClick={() => {
+                                    setProductDel({
+                                      state: true,
+                                      id: val._id,
+                                    });
+                                    setHideDel(!showDel);
+                                  }}
+                                 data-cell="PAYMENT METHOD">{val.status}</td>
+                                <td
+                                onClick={() => {
+                                    setProductDel({
+                                      state: true,
+                                      id: val._id,
+                                    });
+                                    setHideDel(!showDel);
+                                  }}
+                                 data-cell="BUYER ">{val.buyer}</td>
 
                                 <UpdateState
                                   state={val.state}

@@ -110,22 +110,26 @@
 }
 
 .table th {
-  padding-block: 1rem;
+  padding-block: 5px;
   text-align: left;
+  border: 2px solid white;
 }
 
 .table table {
   width: 100%;
 }
 
-.table tr {
+.table tr:hover {
   z-index: 1;
+  background-color: #ebefff;
+  
 }
 
 .table td {
-  padding: 27px 5px 27px;
-  border-bottom: 1px solid #ddd;
+  padding: 12px 0px;
+  border: 2px solid white;
 }
+
 
 .table td:first-child,
 .table th:first-child {
@@ -210,16 +214,14 @@
 }
 
 .tdStateBlock {
-  display: flex;
-  justify-content: space-evenly;
-  color: black;
+  text-align: center;
 }
 
-.table tr:hover {
-  background-color: #ebefff;
+.table tr {
+  transition: background-color 150ms ease; 
 }
 
-@media only screen and (max-width: 1050px) {
+@media only screen and (max-width: 1080px) {
   .top {
     padding: 15px 0px;
   }
@@ -276,6 +278,8 @@
     flex-direction: column;
     min-width: 250px;
     border-radius: 5px;
+    border: solid 1px #d3d3d3;
+    overflow: hidden;
   }
 
   .table td {
