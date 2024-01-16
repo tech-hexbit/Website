@@ -856,7 +856,7 @@ export default function Form() {
                   className={FCss.prevImg}
                 />
               ) : (
-                <div className={FCss["text-center"]}>
+                <div className={FCss.textCenter}>
                   <p className={FCss["dropzone-content"]}>+</p>
                 </div>
               )}
