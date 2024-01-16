@@ -186,6 +186,7 @@
 .prevImg {
   width: 100px;
   height: 100px;
+  object-fit: contain;
 }
 
 @media (width<=60em) {
