@@ -12,7 +12,6 @@ margin: 5px;
 /* Add any additional styling as needed */
 }
 
-
 .addImgDiv {
   width: 120px;
   height: 130px;
@@ -54,14 +53,18 @@ margin: 5px;
   margin-bottom: 30px;
 }
 
-.closeButton {
+.imageContainer {
   position: relative;
-  bottom: 108px;
-  left: 140px;
-  border: none;
-  cursor: pointer;
-  z-index: 110;
-  width: 20px;
-  height: 20px;
-  /* background-color: rgb(153, 255, 0); */
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 5px;
 }
+
+
+
+.closeButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+/* Responsive styles for larger screens */

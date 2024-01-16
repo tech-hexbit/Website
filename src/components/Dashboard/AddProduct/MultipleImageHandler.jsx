@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import PropTypes from "prop-types";
 
 //Css
-import style from "./Css/MultipleImageHandler.module.css";
+import MulImgCss from "./Css/MultipleImageHandler.module.css";
 
 export default function MultipleImageHandler({
   multipleImageUpload,
@@ -27,10 +27,10 @@ export default function MultipleImageHandler({
 
   return (
     <>
-      <div className={style.inpDiv}>
-        <p className={style.label}>Product image</p>
-        <p className={style.labelDes}>Add the product main image</p>
-        <div className={style.addimgDivMain}>
+      <div className={MulImgCss.inpDiv}>
+        <p className={MulImgCss.label}>Product image</p>
+        <p className={MulImgCss.labelDes}>Add the product main image</p>
+        <div className={MulImgCss.addimgDivMain}>
           <input
             type="file"
             multiple
@@ -38,9 +38,8 @@ export default function MultipleImageHandler({
             onChange={handleFileChange}
             ref={fileInp}
           />
-
           {multipleImageUpload.map((image, index) => (
-            <div key={index} className={style.imageContainer}>
+            <div key={index} className={MulImgCss.imageContainer}>
               <img
                 src={URL.createObjectURL(image)}
                 alt=""
@@ -51,15 +50,14 @@ export default function MultipleImageHandler({
                   position: "relative",
                 }}
               />
-              <div className={style.closeButton}>
+              <div className={MulImgCss.closeButton}>
                 <button onClick={() => handleDeselectImage(index)}>
                   &#x2715;
                 </button>
               </div>
             </div>
           ))}
-
-          <div className={style.addImgDiv} onClick={handleClick}>
+          <div className={MulImgCss.addImgDiv} onClick={handleClick}>
             <div>
               <p>+</p>
             </div>
