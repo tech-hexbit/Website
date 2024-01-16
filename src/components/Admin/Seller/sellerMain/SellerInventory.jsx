@@ -10,9 +10,7 @@ import AuthContext from "../../../../store/auth-context";
 import Load from "./../../../../MicroInteraction/LoadBlack";
 
 // css
-// import Ccss from "../../../../Css/Categories.module.css";
 import Ccss from "../../../Dashboard/Css/Categories.module.css";
-// import DCss from "../product/Css/display.module.css";
 import DCss from "../../../Dashboard/product/Css/display.module.css";
 import osCss from "../../../Dashboard/Sales/Css/overallSales.module.css";
 

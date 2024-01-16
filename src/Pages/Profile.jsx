@@ -98,116 +98,120 @@ export default function Profile() {
   };
 
   return (
-    <>
-      <Helmet>
-        <title>HexBit.io - Profile</title>
-      </Helmet>
+    // <>
+    //   <Helmet>
+    //     <title>HexBit.io - Profile</title>
+    //   </Helmet>
 
-      <div className={PCss.mDiv}>
-        {/* <UserSideBar /> */}
+    //   <div className={PCss.mDiv}>
+    //     {/* <UserSideBar /> */}
 
-        {authCtx.user.Store[0].StoreID.validation ? (
-          <>
-            <div className={PCss.CDiv}>
-              {/* email verification */}
-              <>
-                {authCtx.user.emailVerified ? (
-                  <></>
-                ) : (
-                  <>
-                    {load ? (
-                      <div className="loadCenterDiv" id="loadPadding">
-                        <Load />
-                      </div>
-                    ) : (
-                      <p className={PCss.alert}>
-                        <span>
-                          <>
-                            <Link to="#" onClick={resendMail}>
-                              <div className={PCss.icon}>
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="24"
-                                  height="24"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  class="lucide lucide-alert-circle"
-                                >
-                                  <circle cx="12" cy="12" r="10" />
-                                  <line x1="12" x2="12" y1="8" y2="12" />
-                                  <line x1="12" x2="12.01" y1="16" y2="16" />
-                                </svg>
-                              </div>
-                              Email Verification Pending !! CLICK TO VERIFY
-                            </Link>
-                          </>
-                        </span>
-                      </p>
-                    )}
+    //     {authCtx.user.Store[0].StoreID.validation ? (
+    //       <>
+    //         <div className={PCss.CDiv}>
+    //           {/* email verification */}
+    //           <>
+    //             {authCtx.user.emailVerified ? (
+    //               <></>
+    //             ) : (
+    //               <>
+    //                 {load ? (
+    //                   <div className="loadCenterDiv" id="loadPadding">
+    //                     <Load />
+    //                   </div>
+    //                 ) : (
+    //                   <p className={PCss.alert}>
+    //                     <span>
+    //                       <>
+    //                         <Link to="#" onClick={resendMail}>
+    //                           <div className={PCss.icon}>
+    //                             <svg
+    //                               xmlns="http://www.w3.org/2000/svg"
+    //                               width="24"
+    //                               height="24"
+    //                               viewBox="0 0 24 24"
+    //                               fill="none"
+    //                               stroke="currentColor"
+    //                               stroke-width="2"
+    //                               stroke-linecap="round"
+    //                               stroke-linejoin="round"
+    //                               class="lucide lucide-alert-circle"
+    //                             >
+    //                               <circle cx="12" cy="12" r="10" />
+    //                               <line x1="12" x2="12" y1="8" y2="12" />
+    //                               <line x1="12" x2="12.01" y1="16" y2="16" />
+    //                             </svg>
+    //                           </div>
+    //                           Email Verification Pending !! CLICK TO VERIFY
+    //                         </Link>
+    //                       </>
+    //                     </span>
+    //                   </p>
+    //                 )}
 
-                    {showModal && <VerifyEmail onClose={closePopup} />}
-                  </>
-                )}
-              </>
+    //                 {showModal && <VerifyEmail onClose={closePopup} />}
+    //               </>
+    //             )}
+    //           </>
 
-              <Routes>
-                <Route path="/" element={<ProfileMain />} />
+    //           <Routes>
+    //             <Route path="/" element={<ProfileMain />} />
 
-                {authCtx.user.access === 0 && (
-                  // Admin
-                  <>
-                    <Route path="/admin/tickets" element={<TicketAdmin />} />
-                    <Route path="/admin/support" element={<SupportAdmin />} />
-                    <Route path="/admin/sellers" element={<SellersAdmin />} />
-                  </>
-                )}
+    //             {authCtx.user.access === 0 && (
+    //               // Admin
+    //               <>
+    //                 <Route path="/admin/tickets" element={<TicketAdmin />} />
+    //                 <Route path="/admin/support" element={<SupportAdmin />} />
+    //                 <Route path="/admin/sellers" element={<SellersAdmin />} />
+    //               </>
+    //             )}
 
-                {authCtx.user.access === 2 && (
-                  <>
-                    <Route path="/admin/super/List" element={<FrontPage />} />
-                    <Route
-                      path="/admin/super/SelectSeller"
-                      element={<SelectSellerDetail />}
-                    />
-                  </>
-                )}
+    //             {authCtx.user.access === 2 && (
+    //               <>
+    //                 <Route path="/admin/super/List" element={<FrontPage />} />
+    //                 <Route
+    //                   path="/admin/super/SelectSeller"
+    //                   element={<SelectSellerDetail />}
+    //                 />
+    //               </>
+    //             )}
 
-                {authCtx.user.access === 1 && (
-                  // Users
-                  <>
-                    <Route path="/sales" element={<Sales />} />
-                    <Route path="/faqs" element={<Support />} />
-                    <Route path="/contact" element={<Contact />} />
-                    <Route path="/products" element={<Products />} />
-                    <Route path="/help/desk" element={<HelpDesk />} />
-                    <Route path="/dashboard" element={<Dashboard />} />
-                    <Route path="/Inventory" element={<Categories />} />
-                    <Route path="/addProduct" element={<AddProduct />} />
-                    <Route path="/Payment/Details" element={<PayDetails />} />
-                    <Route path="/Payment/Request" element={<PayRequest />} />
-                    <Route
-                      path="/orderdetails/:id"
-                      element={<Orderdetails />}
-                    />
-                    <Route
-                      path="/help/desk/ViewMore"
-                      element={<HelpDeskTable />}
-                    />
-                  </>
-                )}
-              </Routes>
-            </div>
-          </>
-        ) : (
-          ""
-        )}
-      </div>
+    //             {authCtx.user.access === 1 && (
+    //               // Users
+    //               <>
+    //                 <Route path="/sales" element={<Sales />} />
+    //                 <Route path="/faqs" element={<Support />} />
+    //                 <Route path="/contact" element={<Contact />} />
+    //                 <Route path="/products" element={<Products />} />
+    //                 <Route path="/help/desk" element={<HelpDesk />} />
+    //                 <Route path="/dashboard" element={<Dashboard />} />
+    //                 <Route path="/Inventory" element={<Categories />} />
+    //                 <Route path="/addProduct" element={<AddProduct />} />
+    //                 <Route path="/Payment/Details" element={<PayDetails />} />
+    //                 <Route path="/Payment/Request" element={<PayRequest />} />
+    //                 <Route
+    //                   path="/orderdetails/:id"
+    //                   element={<Orderdetails />}
+    //                 />
+    //                 <Route
+    //                   path="/help/desk/ViewMore"
+    //                   element={<HelpDeskTable />}
+    //                 />
+    //               </>
+    //             )}
+    //           </Routes>
+    //         </div>
+    //       </>
+    //     ) : (
+    //       ""
+    //     )}
+    //   </div>
 
-      <Alert variant={variants} val={setError} />
-    </>
+    //   <Alert variant={variants} val={setError} />
+    // </>
+    <Routes>
+    <Route path="/selectSeller" element={<SelectSellerDetail />} />
+    </Routes>
+      
   );
 }
