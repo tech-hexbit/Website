@@ -49,7 +49,7 @@ export default function Profile() {
       <div className={PCss.mDiv}>
         <UserSideBar />
 
-        {authCtx.user.Store[0].StoreID.validation ? (
+        {!authCtx.user.Store[0].StoreID.validation ? (
           <>
             <div className={PCss.CDiv}>
               <Routes>

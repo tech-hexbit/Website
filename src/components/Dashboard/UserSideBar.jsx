@@ -23,7 +23,7 @@ export default function UserSideBar() {
 
   return (
     <>
-      {authCtx.user.Store[0].StoreID.validation ? (
+      {!authCtx.user.Store[0].StoreID.validation ? (
         <>
           <div className={sidebarCSS.mainDiv}>
             {authCtx.user.access === 0 ? (
