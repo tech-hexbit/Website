@@ -26,26 +26,31 @@ export default function FrontPage() {
       </div>
 
       <div className={Acss.container}>
-        <ListBox title="Seller info" label="Seller Data" />
+        <ListBox title="Seller info" label="Seller Data" redirect="/me" />
         <ListBox
           title="Login & security"
           label="Update passwords and login credentials"
+          redirect="/me"
         />
         <ListBox
           title="Payments & payouts"
           label="Review payments, payouts, Invoices"
+          redirect="/me"
         />
         <ListBox
           title="Taxes"
           label="Manage taxpayer information and tax documents"
+          redirect="/me"
         />
         <ListBox
           title="Notifications"
           label="Send Communications Via E-mail."
+          redirect="/me"
         />
         <ListBox
           title="Data & sharing"
           label="Manage your personal data, connected services, and data sharing settings"
+          redirect="/me"
         />
         <ListBox
           title="Seller KYC"
@@ -55,6 +60,7 @@ export default function FrontPage() {
         <ListBox
           title="Support & Help Desk"
           label="Support and Help Desk Data"
+          redirect="/me"
         />
         <ListBox title="Inventory Statistics" label="Sales data" />
         <ListBox title="Inventory" label="Our Inventory" />
