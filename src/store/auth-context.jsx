@@ -22,11 +22,12 @@ const AuthContext = React.createContext({
     accountVerified: false,
     emailVerified: false,
     Store: [],
+    category: []
   },
   target: null,
   login: async (token) => {},
   logout: () => {},
-  settarget: () => {},
+  settarget: () => {}
 });
 
 const calculateRemainingTime = (expirationTime) => {
@@ -59,7 +60,7 @@ const retrieveStoredToken = () => {
   return {
     token: storedToken,
     duration: remainingTime,
-    user: finaluser,
+    user: finaluser
   };
 };
 
@@ -116,6 +117,7 @@ export const AuthContextProvider = (props) => {
     accountVerified,
     emailVerified,
     Store,
+    category,
     token,
     expirationTime
   ) => {
@@ -138,9 +140,11 @@ export const AuthContextProvider = (props) => {
       accountVerified: accountVerified,
       emailVerified: emailVerified,
       Store: Store,
+      category: category
     };
 
     localStorage.setItem("user", JSON.stringify(setuserdata));
+    console.log(" ~ user:", user);
 
     const nowTime = new Date().getTime();
     const exptime = nowTime + expirationTime;
@@ -177,7 +181,7 @@ export const AuthContextProvider = (props) => {
       login: loginHandler,
       logout: logoutHandler,
       settarget: targetHandler,
-      updateStore: updateStoreHandler,
+      updateStore: updateStoreHandler
     }),
     [token, userIsLoggedIn, target, user]
   );

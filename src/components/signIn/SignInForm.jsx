@@ -32,7 +32,7 @@ export default function SignInForm() {
     symbol: "",
     title: "",
     text: "",
-    val: false,
+    val: false
   });
 
   const authCtx = useContext(AuthContext);
@@ -51,7 +51,7 @@ export default function SignInForm() {
         symbol: "pets",
         title: "Check it out",
         text: "Please Fill All The Details",
-        val: true,
+        val: true
       });
     } else {
       try {
@@ -62,7 +62,7 @@ export default function SignInForm() {
 
           setInput({
             email: "",
-            password: "",
+            password: ""
           });
 
           setError({
@@ -71,7 +71,7 @@ export default function SignInForm() {
             symbol: "check_circle",
             title: "Success",
             text: "Logged In",
-            val: true,
+            val: true
           });
 
           if (response.data.user[0].Store[0].StoreID.validation) {
@@ -79,7 +79,7 @@ export default function SignInForm() {
           } else {
             redirect("/me/SetUpStore");
           }
-
+          console.log("response", response.data.user[0].category);
           await authCtx.login(
             response.data.user[0].image,
             response.data.user[0].Email,
@@ -97,11 +97,23 @@ export default function SignInForm() {
             response.data.user[0].accountVerified,
             response.data.user[0].emailVerified,
             response.data.user[0].Store,
+            response.data.user[0].category,
             response.data.token,
             10800000
           );
         } else {
           setLoad(false);
+
+          if (response.data?.code === 1) {
+            setError({
+              mainColor: "#E5F6FD",
+              secondaryColor: "#1AB1F5",
+              symbol: "info",
+              title: "Information",
+              text: "email",
+              val: true
+            });
+          }
         }
       } catch (e) {
         setLoad(false);
@@ -112,7 +124,7 @@ export default function SignInForm() {
           symbol: "error",
           title: "Error",
           text: "Invalid Credentials",
-          val: true,
+          val: true
         });
       }
     }
@@ -126,7 +138,7 @@ export default function SignInForm() {
         symbol: "",
         title: "",
         text: "",
-        val: false,
+        val: false
       });
     }, 10000);
   }, [variants]);
@@ -135,7 +147,7 @@ export default function SignInForm() {
     if (seeOTP) {
       setInput({
         email: "",
-        password: "",
+        password: ""
       });
     }
   }, [seeOTP]);
