@@ -28,8 +28,7 @@ export default function MultipleImageHandler({
   return (
     <>
       <div className={MulImgCss.inpDiv}>
-        <p className={MulImgCss.label}>Product image</p>
-        <p className={MulImgCss.labelDes}>Add the product main image</p>
+        <p className={MulImgCss.labelDes}>Add the product images</p>
         <div className={MulImgCss.addimgDivMain}>
           <input
             type="file"
