@@ -826,9 +826,9 @@ export default function Form() {
         </div>
 
         <div className={FCss.inpDiv}>
-          <p className={FCss.label}>Product image</p>
+          <p className={FCss.label}>Product images</p>
 
-          <p className={FCss.labelDes}>Add the product main image</p>
+          <p className={FCss.labelDes}>Add the product thumbnail</p>
           <div className={FCss.addimgDivMain}>
             <input
               type="file"
