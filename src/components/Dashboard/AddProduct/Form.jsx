@@ -847,20 +847,19 @@ export default function Form() {
               style={{ display: "none" }}
               ref={fileInp}
             />
-            {imageUpload ? (
-              <img
-                src={URL.createObjectURL(imageUpload)}
-                alt=""
-                className={FCss.prevImg}
-              />
-            ) : (
-              ""
-            )}
 
             <div className={FCss.addImgDiv} onClick={handleClick}>
-              <div className={FCss["text-center"]}>
-                <p className={FCss["dropzone-content"]}>+</p>
-              </div>
+              {imageUpload ? (
+                <img
+                  src={URL.createObjectURL(imageUpload)}
+                  alt=""
+                  className={FCss.prevImg}
+                />
+              ) : (
+                <div className={FCss["text-center"]}>
+                  <p className={FCss["dropzone-content"]}>+</p>
+                </div>
+              )}
             </div>
           </div>
         </div>
