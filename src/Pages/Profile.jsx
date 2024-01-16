@@ -31,6 +31,7 @@ import SupportAdmin from "./../components/Admin/Support";
 import SellersAdmin from "./../components/Admin/Sellers";
 //          || Super Admin
 import FrontPage from "./../components/MainAdmin/FrontPage";
+import SelectSellerDetail from "../components/Admin/Seller/sellerMain/SelectSellerDetail"
 
 // state
 import AuthContext from "./../store/auth-context";
@@ -103,7 +104,7 @@ export default function Profile() {
       </Helmet>
 
       <div className={PCss.mDiv}>
-        <UserSideBar />
+        {/* <UserSideBar /> */}
 
         {authCtx.user.Store[0].StoreID.validation ? (
           <>
@@ -168,6 +169,10 @@ export default function Profile() {
                 {authCtx.user.access === 2 && (
                   <>
                     <Route path="/admin/super/List" element={<FrontPage />} />
+                    <Route
+                      path="/admin/super/SelectSeller"
+                      element={<SelectSellerDetail />}
+                    />
                   </>
                 )}
 

@@ -3,7 +3,6 @@ import {React , useState } from 'react'
 // Css
 // import SSDCss from './CSS/selectSellerDetail.module.css'
 import SSDCss from '../CSS/selectSellerDetail.module.css'
-import SCss from '../CSS/SellerDetail.module.css'
 
 // Components
 import SellerInventory from '../sellerMain/SellerInventory';

@@ -31,7 +31,7 @@
 }
 .slideSec {
     font-size: 17px;
-    width: 20%;
+    width: 25%;
     text-align: center;
     color: initialColor;
     border-bottom: 1.5px solid white;
@@ -68,8 +68,8 @@
         width: 30%;
     }
 }
-@media (max-width:470px){
+@media (max-width:510px){
     .slideSec{
-        width: 26%;
+        width: 23%;
     }
 }

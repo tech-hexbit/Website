@@ -200,7 +200,7 @@
         margin-top: 10px;
     }
 }
-@media (max-width:460px){
+@media (max-width:540px){
   .KYCSec{
     display: flex;
     flex-direction: column;
