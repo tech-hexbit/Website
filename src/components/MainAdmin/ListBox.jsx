@@ -227,4 +227,5 @@ export default function ListBox({ title, label, redirect }) {
 ListBox.propTypes = {
   title: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
+  redirect: PropTypes.string.isRequired,
 };
