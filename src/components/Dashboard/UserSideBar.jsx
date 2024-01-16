@@ -26,8 +26,8 @@ export default function UserSideBar() {
       {authCtx.user.Store[0].StoreID.validation ? (
         <>
           <div className={sidebarCSS.mainDiv}>
-            {authCtx.user.access === 0 ? (
-              // Admin
+            {/* Admin */}
+            {authCtx.user.access === 0 && (
               <>
                 {/* Seller Verification */}
                 <NavLink
@@ -132,8 +132,51 @@ export default function UserSideBar() {
                   </div>
                 </NavLink>
               </>
-            ) : (
-              // Users
+            )}
+
+            {/* Super Admin */}
+            {authCtx.user.access === 2 && (
+              <>
+                {/* Dashboard */}
+                <NavLink
+                  to="/me/admin/super/List"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "LinkStyle sideBarActive"
+                      : "LinkStyle sideBarNonActive"
+                  }
+                >
+                  <div className={sidebarCSS.navElement}>
+                    <div className={sidebarCSS.icons}>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-layout-panel-left"
+                        className="temp"
+                      >
+                        <rect width="7" height="18" x="3" y="3" rx="1" />
+                        <rect width="7" height="7" x="14" y="3" rx="1" />
+                        <rect width="7" height="7" x="14" y="14" rx="1" />
+                      </svg>
+                    </div>
+                    <div className={sidebarCSS.heading}>
+                      <div className={sidebarCSS.arrow}></div>
+                      Dashboard
+                    </div>
+                  </div>
+                </NavLink>
+              </>
+            )}
+
+            {/* Users */}
+            {authCtx.user.access === 1 && (
               <>
                 {/* Dashboard */}
                 <NavLink

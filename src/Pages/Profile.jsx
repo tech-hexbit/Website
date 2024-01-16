@@ -29,6 +29,8 @@ import VerifyEmail from "../components/Dashboard/MainParts/VerifyEmail";
 import TicketAdmin from "./../components/Admin/Ticket";
 import SupportAdmin from "./../components/Admin/Support";
 import SellersAdmin from "./../components/Admin/Sellers";
+//          || Super Admin
+import FrontPage from "./../components/MainAdmin/FrontPage";
 
 // state
 import AuthContext from "./../store/auth-context";
@@ -43,6 +45,14 @@ import PCss from "./Css/Profile.module.css";
 export default function Profile() {
   const [load, setLoad] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
 
   // scroll to top
   useEffect(() => {
@@ -146,14 +156,22 @@ export default function Profile() {
               <Routes>
                 <Route path="/" element={<ProfileMain />} />
 
-                {authCtx.user.access === 0 ? (
+                {authCtx.user.access === 0 && (
                   // Admin
                   <>
                     <Route path="/admin/tickets" element={<TicketAdmin />} />
                     <Route path="/admin/support" element={<SupportAdmin />} />
                     <Route path="/admin/sellers" element={<SellersAdmin />} />
                   </>
-                ) : (
+                )}
+
+                {authCtx.user.access === 2 && (
+                  <>
+                    <Route path="/admin/super/List" element={<FrontPage />} />
+                  </>
+                )}
+
+                {authCtx.user.access === 1 && (
                   // Users
                   <>
                     <Route path="/sales" element={<Sales />} />
@@ -183,6 +201,8 @@ export default function Profile() {
           ""
         )}
       </div>
+
+      <Alert variant={variants} val={setError} />
     </>
   );
 }
