@@ -14,7 +14,7 @@
   margin-bottom: 30px;
 }
 
-.text-center {
+.textCenter {
   cursor: pointer;
 }
 
@@ -76,9 +76,13 @@
   align-items: center;
 }
 
-.addImgDiv {
+.addImgDiv,
+.prevImg {
   width: 120px;
   height: 130px;
+}
+
+.addImgDiv {
   background-color: #dbdbdb;
   border-radius: 3px;
   display: flex;
@@ -90,12 +94,14 @@
   font-style: normal;
   font-weight: 900;
   line-height: 40.811px;
-  letter-spacing: 0.653px;
   margin-bottom: 30px;
   cursor: pointer;
 }
 
-.labelDes {
+.prevImg {
+  object-fit: contain;
+}
+s .labelDes {
   color: #777777;
   font-size: 16px;
   font-style: normal;
@@ -181,11 +187,6 @@
   letter-spacing: 0.2px;
   margin-bottom: 30px;
   cursor: pointer;
-}
-
-.prevImg {
-  width: 100px;
-  height: 100px;
 }
 
 @media (width<=60em) {
