@@ -23,8 +23,8 @@ import Categories from "./../components/Dashboard/Categories";
 import AddProduct from "./../components/Dashboard/AddProduct";
 import Dashboard from "./../components/Dashboard/DashboardMain";
 import Orderdetails from "./../components/Dashboard/Orderdetails";
-import HelpDeskTable from "./../components/Dashboard/HelpDesk/HelpDeskFormTable";
 import VerifyEmail from "../components/Dashboard/MainParts/VerifyEmail";
+import HelpDeskTable from "./../components/Dashboard/HelpDesk/HelpDeskFormTable";
 //          || Admin
 import TicketAdmin from "./../components/Admin/Ticket";
 import SupportAdmin from "./../components/Admin/Support";
