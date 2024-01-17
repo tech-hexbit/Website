@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 // css
-import Acss from "./Css/FrontPage.module.css";
+import Acss from "./../Css/FrontPage.module.css";
 
 export default function ListBox({ title, label, redirect }) {
   return (
