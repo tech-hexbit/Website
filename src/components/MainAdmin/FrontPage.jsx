@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
 // components
-import ListBox from "./ListBox";
+import ListBox from "./FrontPage/ListBox";
 
 // state
 import AuthContext from "./../../store/auth-context";
