@@ -156,23 +156,23 @@ export default function Profile() {
               <Routes>
                 <Route path="/" element={<ProfileMain />} />
 
+                {/* Admin */}
                 {authCtx.user.access === 0 && (
-                  // Admin
                   <>
                     <Route path="/admin/tickets" element={<TicketAdmin />} />
                     <Route path="/admin/support" element={<SupportAdmin />} />
                     <Route path="/admin/sellers" element={<SellersAdmin />} />
                   </>
                 )}
-
+                {/* Super Admin */}
                 {authCtx.user.access === 2 && (
                   <>
                     <Route path="/admin/super/List" element={<FrontPage />} />
                   </>
                 )}
 
+                {/* Users */}
                 {authCtx.user.access === 1 && (
-                  // Users
                   <>
                     <Route path="/sales" element={<Sales />} />
                     <Route path="/faqs" element={<Support />} />
