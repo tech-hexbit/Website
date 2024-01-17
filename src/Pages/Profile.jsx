@@ -31,6 +31,7 @@ import SupportAdmin from "./../components/Admin/Support";
 import SellersAdmin from "./../components/Admin/Sellers";
 //          || Super Admin
 import FrontPage from "./../components/MainAdmin/FrontPage";
+import SellerInfo from "./../components/MainAdmin/SellerInfo";
 
 // state
 import AuthContext from "./../store/auth-context";
@@ -168,6 +169,10 @@ export default function Profile() {
                 {authCtx.user.access === 2 && (
                   <>
                     <Route path="/admin/super/List" element={<FrontPage />} />
+                    <Route
+                      path="/admin/super/SellerInfo"
+                      element={<SellerInfo />}
+                    />
                   </>
                 )}
 
