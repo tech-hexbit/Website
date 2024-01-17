@@ -165,6 +165,7 @@ export default function Profile() {
                     <Route path="/admin/sellers" element={<SellersAdmin />} />
                   </>
                 )}
+
                 {/* Super Admin */}
                 {authCtx.user.access === 2 && (
                   <>
