@@ -26,7 +26,11 @@ export default function FrontPage() {
       </div>
 
       <div className={Acss.container}>
-        <ListBox title="Seller info" label="Seller Data" redirect="/me" />
+        <ListBox
+          title="Seller info"
+          label="Seller Data"
+          redirect="/me/admin/super/SellerInfo"
+        />
         <ListBox
           title="Login & security"
           label="Update passwords and login credentials"
