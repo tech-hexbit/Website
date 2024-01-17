@@ -26,7 +26,9 @@ export default function FrontPage() {
       </div>
 
       <div className={Acss.container}>
+      <Link to="/me/admin/super/seller_infos"> 
         <ListBox title="Seller info" label="Seller Data" redirect="/me" />
+      </Link>
         <ListBox
           title="Login & security"
           label="Update passwords and login credentials"
@@ -63,7 +65,9 @@ export default function FrontPage() {
           redirect="/me"
         />
         <ListBox title="Inventory Statistics" label="Sales data" />
+        <Link to="/me/admin/super/inventory">
         <ListBox title="Inventory" label="Our Inventory" />
+        </Link>
       </div>
     </>
   );

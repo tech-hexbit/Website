@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Nav from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import MobileNav from "./components/header/MobileHeader";
+import Sellers from "./components/Admin/Sellers";
 
 // Pages
 const Home = React.lazy(() => import("./Pages/Home"));
@@ -32,6 +33,7 @@ import AuthContext from "./store/auth-context";
 
 // axios
 import axios from "axios";
+import ProductsForAdmin from "./components/Dashboard/ProductsForAdmin";
 
 axios.defaults.baseURL = import.meta.env.VITE_SERVER_URL;
 
@@ -139,7 +141,7 @@ function App() {
                 }
               />
             )}
-
+           
             {authCtx.isLoggedIn && (
               <Route
                 path="/me/*"
@@ -159,7 +161,22 @@ function App() {
                 </Suspense>
               }
             />
-
+            <Route
+                path="/me/admin/super/seller_infos"
+                element={
+                  <Suspense fallback={<LoadingPage />}>
+                    <Sellers />
+                  </Suspense>
+                }
+              />
+               <Route
+                path="/me/admin/super/inventory"
+                element={
+                  <Suspense fallback={<LoadingPage />}>
+                    <ProductsForAdmin />
+                  </Suspense>
+                }
+              />
             {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
           </Routes>
         </div>

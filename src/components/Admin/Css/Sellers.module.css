@@ -1,33 +1,120 @@
+
 .typesOfUsers {
+  position: relative;
+  width: 96%;
+  left: 32px;
   margin: 30px 0px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 }
 
 .mapMDiv {
-  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  right: 2px;
+  width: 1350px;
+  max-width: 100%;
+  padding: 15px 20px; 
   border-style: dashed;
   border-color: #d3d3d3;
-  border-width: 1px;
+  border-width: 2px;
   margin-bottom: 30px;
-  border-radius: 5px;
   transition: all 0.3s;
   cursor: pointer;
+  height: 125px;
 }
 
 .mapMDiv:hover {
   border-color: #c27aff;
 }
 
-.conDel,
+.conDel
 .conDelT {
   margin-top: 12px;
-  display: flex;
   justify-content: space-between;
 }
 
 .conDel {
   font-size: 12px;
   color: #717171;
+}
+.Left_data{
+  text-align: end;
+  gap: 4px;
+  font-weight: 600;
+  left: 10px;
+  position: relative;
+  top: 13px;
+}
+
+.AllSellersIcon{
+  gap: 8px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  
+}
+
+.IconText{
+  font-size: 20px;
+  font-weight: 400;
+  font-family: Roboto;
+}
+
+.TopDiv{
+  left: 95px;
+  position: relative;
+  bottom: 205px;
+  width: 90%;
+}
+
+.statusIcons{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+ 
+@media (max-width: 1081px) {
+  .AllSellersIcon{
+    position: relative;
+    bottom: 60px;
+ width: 220px;
+ height: 200px;
+  }
+  .IconText {
+  display: none;
+} .TopDiv{
+  position: relative;
+  bottom: 220px;
+  width: 86%;
+}
+.mapMDiv{
+  bottom: 136px;
+}
+.typesOfUsers{
+  position: relative;
+  left: 20px;
+}
+
+}
+@media(max-width : 800px){
+  .TopDiv{
+    width: 82%;
+  }
+}
+@media(max-width : 490px){
+  .TopDiv{
+    width: 72%;
+  }
+  .TopDiv{
+    position: relative;
+    right: 100px;
+  }
+  .conDelT{
+    font-size: 10px;
+  }
 }

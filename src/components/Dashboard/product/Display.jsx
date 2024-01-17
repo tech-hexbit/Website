@@ -121,6 +121,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
         className={DCss.mainDiv}
         id={showProductDel.state ? "yesProductsPage" : "noProductsPage"}
       >
+      
         <div className={DCss.top}>
           <div className={DCss.search}>
             <input
