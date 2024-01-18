@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
 
+// components
+import HeaderTabs from "./../Admin/Sellers/HeaderTabs";
+
 // state
 import AuthContext from "./.././../store/auth-context";
 
 // axios
 import axios from "axios";
-
-// MicroInteraction
-import Load from "./../../MicroInteraction/LoadBlack";
 
 // css
 import SelCss from "./Css/Sellers.module.css";
