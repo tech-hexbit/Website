@@ -59,7 +59,7 @@ export default function FrontPage() {
         <ListBox
           title="Seller KYC"
           label="New Seller Data Validation and Approval."
-          redirect="/me"
+          redirect="/me/admin/super/SellerKYC"
         />
         <ListBox
           title="Support & Help Desk"
