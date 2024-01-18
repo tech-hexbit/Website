@@ -25,7 +25,7 @@ export default function HeaderTabs({ SellerType, setSellerType }) {
           stroke-linecap="round"
           stroke-linejoin="round"
           class="lucide lucide-users-round"
-          id={SellerType === "all" ? "Selcolor" : "notSelColor"}
+          id={SellerType === "all" ? SelCss.Selcolor1 : SelCss.notSelColor1}
         >
           <path d="M18 21a8 8 0 0 0-16 0" />
           <circle cx="10" cy="8" r="5" />
