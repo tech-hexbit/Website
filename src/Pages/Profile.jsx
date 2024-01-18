@@ -23,14 +23,15 @@ import Categories from "./../components/Dashboard/Categories";
 import AddProduct from "./../components/Dashboard/AddProduct";
 import Dashboard from "./../components/Dashboard/DashboardMain";
 import Orderdetails from "./../components/Dashboard/Orderdetails";
-import HelpDeskTable from "./../components/Dashboard/HelpDesk/HelpDeskFormTable";
 import VerifyEmail from "../components/Dashboard/MainParts/VerifyEmail";
+import HelpDeskTable from "./../components/Dashboard/HelpDesk/HelpDeskFormTable";
 //          || Admin
 import TicketAdmin from "./../components/Admin/Ticket";
 import SupportAdmin from "./../components/Admin/Support";
 import SellersAdmin from "./../components/Admin/Sellers";
 //          || Super Admin
 import FrontPage from "./../components/MainAdmin/FrontPage";
+import SellerInfo from "./../components/MainAdmin/SellerInfo";
 
 // state
 import AuthContext from "./../store/auth-context";
@@ -156,8 +157,8 @@ export default function Profile() {
               <Routes>
                 <Route path="/" element={<ProfileMain />} />
 
+                {/* Admin */}
                 {authCtx.user.access === 0 && (
-                  // Admin
                   <>
                     <Route path="/admin/tickets" element={<TicketAdmin />} />
                     <Route path="/admin/support" element={<SupportAdmin />} />
@@ -165,14 +166,23 @@ export default function Profile() {
                   </>
                 )}
 
+                {/* Super Admin */}
                 {authCtx.user.access === 2 && (
                   <>
                     <Route path="/admin/super/List" element={<FrontPage />} />
+                    <Route
+                      path="/admin/super/SellerKYC"
+                      element={<SellersAdmin />}
+                    />
+                    <Route
+                      path="/admin/super/SellerInfo"
+                      element={<SellerInfo />}
+                    />
                   </>
                 )}
 
+                {/* Users */}
                 {authCtx.user.access === 1 && (
-                  // Users
                   <>
                     <Route path="/sales" element={<Sales />} />
                     <Route path="/faqs" element={<Support />} />

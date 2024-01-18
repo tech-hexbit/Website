@@ -1,17 +1,20 @@
 .typesOfUsers {
   margin: 30px 0px;
+  padding: 0px 30px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 }
 
 .mapMDiv {
+  display: flex;
+  justify-content: space-between;
   padding: 15px 20px;
   border-style: dashed;
   border-color: #d3d3d3;
-  border-width: 1px;
+  border-width: 1.5px;
   margin-bottom: 30px;
-  border-radius: 5px;
+  border-radius: 0px;
   transition: all 0.3s;
   cursor: pointer;
 }
@@ -22,12 +25,78 @@
 
 .conDel,
 .conDelT {
-  margin-top: 12px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 
 .conDel {
+  text-align: right;
   font-size: 12px;
   color: #717171;
+  align-items: flex-end;
+}
+
+.LeftData {
+  margin-top: 12px;
+}
+
+.AllSellersIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.IconTextYes,
+.IconTextNo {
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.IconTextYes {
+  color: #000;
+}
+
+.IconTextNo,
+#notSelColor3,
+#notSelColor2,
+#notSelColor1 {
+  color: #d3d3d3;
+}
+
+#Selcolor3,
+#notSelColor3,
+#Selcolor2,
+#notSelColor2,
+#Selcolor1,
+#notSelColor1,
+.IconTextYes,
+.IconTextNo {
+  cursor: pointer;
+}
+
+#Selcolor3 {
+  color: #20bf55;
+}
+
+#Selcolor2 {
+  color: #ff0000;
+}
+
+#Selcolor1 {
+  color: #69339e;
+}
+
+@media only screen and (max-width: 650px) {
+  .IconTextYes,
+  .IconTextNo {
+    display: none;
+  }
+
+  .typesOfUsers {
+    padding: 0px;
+    justify-content: space-evenly;
+  }
 }

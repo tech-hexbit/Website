@@ -52,6 +52,7 @@
   padding: 20px;
   background: #ffffff01;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 @media screen and (max-width: 768px) {

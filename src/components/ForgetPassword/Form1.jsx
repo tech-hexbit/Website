@@ -1,10 +1,17 @@
-import React, { useEffect, useState } from "react";
-
-//css
+import React, { useState } from "react";
 import fpstyle from "./CSS/ForgetPassword.module.css";
 
-export default function Form1() {
+const Form1 = ({ onValidateEmail }) => {
   const [input, setInput] = useState({ email: "", phone: "", otp: "" });
+
+  const handleEmailChange = (e) => {
+    setInput({ ...input, email: e.target.value });
+  };
+  //validate email
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
 
   return (
     <>
@@ -17,9 +24,8 @@ export default function Form1() {
           id="email"
           name="email"
           value={input.email}
-          onChange={(e) => {
-            setInput({ ...input, email: e.target.value });
-          }}
+          onChange={handleEmailChange}
+          onBlur={() => onValidateEmail(input.email)}
         />
       </div>
 
@@ -60,4 +66,5 @@ export default function Form1() {
       </div>
     </>
   );
-}
+};
+export default Form1;

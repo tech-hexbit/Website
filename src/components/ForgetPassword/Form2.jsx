@@ -1,10 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
-//css
+// css
 import fpstyle from "./CSS/ForgetPassword.module.css";
 
-export default function Form2() {
-  const [input, setInput] = useState({ email: "", phone: "", otp: "" });
+const Form2 = ({ onPasswordMatch }) => {
+  const [input, setInput] = useState({ newpwd: "", confirmpwd: "" });
+
+  const handlePasswordChange = (e, field) => {
+    setInput({ ...input, [field]: e.target.value });
+  };
+
+  // Check if passwords match
+  const checkPasswordMatch = () => {
+    const { newpwd, confirmpwd } = input;
+    onPasswordMatch(newpwd === confirmpwd);
+  };
 
   return (
     <>
@@ -14,33 +24,32 @@ export default function Form2() {
         <input
           type="password"
           placeholder="Enter Password"
-          id="password"
-          name="password"
+          id="newpwd"
+          name="newpwd"
           value={input.newpwd}
-          onChange={(e) => {
-            setInput({ ...input, newpwd: e.target.value });
-          }}
+          onChange={(e) => handlePasswordChange(e, "newpwd")}
         />
       </div>
 
-      {/* Phone */}
+      {/* Confirm Password */}
       <div className={fpstyle.inputPO}>
-        <label htmlFor="password">
+        <label htmlFor="confirmpassword">
           Confirm New Password
           <span style={{ color: "#350B5E" }}>*</span>
         </label>
         <br />
         <input
           type="password"
-          placeholder="Enter Password"
-          id="password"
-          name="password"
+          placeholder="Confirm Password"
+          id="confirmpwd"
+          name="confirmpwd"
           value={input.confirmpwd}
-          onChange={(e) => {
-            setInput({ ...input, confirmpwd: e.target.value });
-          }}
+          onChange={(e) => handlePasswordChange(e, "confirmpwd")}
+          onBlur={checkPasswordMatch}
         />
       </div>
     </>
   );
-}
+};
+
+export default Form2;

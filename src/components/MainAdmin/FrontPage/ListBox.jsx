@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 // css
-import Acss from "./Css/FrontPage.module.css";
+import Acss from "./../Css/FrontPage.module.css";
 
 export default function ListBox({ title, label, redirect }) {
   return (
-    <div className={Acss.card}>
-      <Link to={redirect}>
+    <Link to={redirect} className={Acss.card}>
+      <>
         {title === "Seller info" && (
           <>
             <svg
@@ -216,11 +216,11 @@ export default function ListBox({ title, label, redirect }) {
             </svg>
           </>
         )}
+      </>
 
-        <h3 className={Acss.a1}>{title}</h3>
-        <p className={Acss.a2}>{label}</p>
-      </Link>
-    </div>
+      <h3 className={Acss.a1}>{title}</h3>
+      <p className={Acss.a2}>{label}</p>
+    </Link>
   );
 }
 

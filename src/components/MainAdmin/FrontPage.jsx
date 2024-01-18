@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
 // components
-import ListBox from "./ListBox";
+import ListBox from "./FrontPage/ListBox";
 
 // state
 import AuthContext from "./../../store/auth-context";
@@ -26,7 +26,11 @@ export default function FrontPage() {
       </div>
 
       <div className={Acss.container}>
-        <ListBox title="Seller info" label="Seller Data" redirect="/me" />
+        <ListBox
+          title="Seller info"
+          label="Seller Data"
+          redirect="/me/admin/super/SellerInfo"
+        />
         <ListBox
           title="Login & security"
           label="Update passwords and login credentials"
@@ -55,7 +59,7 @@ export default function FrontPage() {
         <ListBox
           title="Seller KYC"
           label="New Seller Data Validation and Approval."
-          redirect="/me"
+          redirect="/me/admin/super/SellerKYC"
         />
         <ListBox
           title="Support & Help Desk"
