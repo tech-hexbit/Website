@@ -56,4 +56,8 @@
 }
 
 @media only screen and (max-width: 650px) {
+  .IconTextYes,
+  .IconTextNo {
+    display: none;
+  }
 }
