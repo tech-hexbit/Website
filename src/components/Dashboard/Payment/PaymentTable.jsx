@@ -23,7 +23,7 @@ export default function PaymentTable({ setSel }) {
     symbol: "",
     title: "",
     text: "",
-    val: false,
+    val: false
   });
 
   const authCtx = useContext(AuthContext);
@@ -33,7 +33,7 @@ export default function PaymentTable({ setSel }) {
 
     try {
       const response = await axios.get("/api/common/Payment/OrderList", {
-        headers: { Authorization: `${authCtx.token}` },
+        headers: { Authorization: `${authCtx.token}` }
       });
 
       if (response.data.success) {
@@ -54,7 +54,7 @@ export default function PaymentTable({ setSel }) {
         symbol: "error",
         title: "Error",
         text: "An unexpected error occurred",
-        val: true,
+        val: true
       });
 
       console.log(e);
@@ -114,19 +114,17 @@ export default function PaymentTable({ setSel }) {
                             <input
                               type="checkbox"
                               className={pt.CheckBoxInp}
-                              onClick={() => {
+                              onChange={(e) => {
                                 console.log("first");
 
                                 setSel((prevShowSel) => ({
                                   ...prevShowSel,
-                                  total:
-                                    prevShowSel.total +
-                                    (prevShowSel.total === 0 ? 1 : -1),
-                                  amount:
-                                    prevShowSel.amount +
-                                    (prevShowSel.amount === 0
-                                      ? val.amount
-                                      : -val.amount),
+                                  total: e.target.checked
+                                    ? prevShowSel.total + 1
+                                    : prevShowSel.total - 1,
+                                  amount: e.target.checked
+                                    ? prevShowSel.amount + val.amount
+                                    : prevShowSel.amount - val.amount
                                 }));
                               }}
                             />
@@ -172,7 +170,7 @@ export default function PaymentTable({ setSel }) {
 PaymentTable.propTypes = {
   showSel: PropTypes.shape({
     total: PropTypes.number.isRequired,
-    amount: PropTypes.number.isRequired,
+    amount: PropTypes.number.isRequired
   }).isRequired,
-  setSel: PropTypes.func.isRequired,
+  setSel: PropTypes.func.isRequired
 };
