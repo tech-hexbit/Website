@@ -1,53 +1,80 @@
 // import SvCss from "../Css/StoreVerify.module.css";
-
+import React from "react";
 import SvCss from "../../Pages/Css/StoreVerify.module.css";
-import PropTypes from "prop-types";
 
 const BankFields = (props) => {
   return (
     <div className={SvCss.nested_field_large_div}>
-      <div>{props.text}</div>
+      <div>Bank Details</div>
       <div className={SvCss.nested_field_small_div}>
         <div className={SvCss.inpDiv}>
-          <div className={SvCss.input_label}>{props.label1}</div>
-          <input placeholder={props.placeholder1} type={props.type1} />
+          <div className={SvCss.input_label}>A/c Holder Name.</div>
+          <input
+            placeholder="Account Holder Name"
+            type="text"
+            onChange={(e) => {
+              props.setData({
+                ...props.showData,
+                AcHolderName: e.target.value,
+              });
+            }}
+          />
         </div>
 
         <div className={SvCss.inpDiv}>
-          <div className={SvCss.input_label}>{props.label2}</div>
-          <input placeholder={props.placeholder2} type={props.type2} />
+          <div className={SvCss.input_label}>Account No.</div>
+          <input
+            placeholder="Enter Account Number"
+            type="number"
+            onChange={(e) => {
+              props.setData({
+                ...props.showData,
+                AccountNo: e.target.value,
+              });
+            }}
+          />
         </div>
         <div className={SvCss.inpDiv}>
-          <div className={SvCss.input_label}>{props.label3}</div>
-          <input placeholder={props.placeholder3} type={props.type3} />
+          <div className={SvCss.input_label}>IFSC CODE</div>
+          <input
+            placeholder="11-character IFSC Code"
+            type="text"
+            onChange={(e) => {
+              props.setData({
+                ...props.showData,
+                IfscCode: e.target.value,
+              });
+            }}
+          />
         </div>
         <div className={SvCss.inpDiv}>
-          <div className={SvCss.input_label}>{props.label4}</div>
-          <input placeholder={props.placeholder4} type={props.type4} />
+          <div className={SvCss.input_label}>Bank Name</div>
+          <input
+            placeholder="Name of Bank"
+            type="text"
+            onChange={(e) => {
+              props.setData({
+                ...props.showData,
+                BankName: e.target.value,
+              });
+            }}
+          />
         </div>
         <div className={SvCss.inpDiv}>
-          <div className={SvCss.input_label}>{props.label5}</div>
-          <input placeholder={props.placeholder5} type={props.type5} />
+          <div className={SvCss.input_label}>Branch Name</div>
+          <input
+            placeholder="Account Branch Name"
+            type="text"
+            onChange={(e) => {
+              props.setData({
+                ...props.showData,
+                BranchName: e.target.value,
+              });
+            }}
+          />
         </div>
       </div>
     </div>
   );
-};
-BankFields.propTypes = {
-  label1: PropTypes.string,
-  placeholder1: PropTypes.string,
-  type1: PropTypes.string,
-  label2: PropTypes.string,
-  placeholder2: PropTypes.string,
-  type2: PropTypes.string,
-  label3: PropTypes.string,
-  placeholder3: PropTypes.string,
-  type3: PropTypes.string,
-  label4: PropTypes.string,
-  placeholder4: PropTypes.string,
-  type4: PropTypes.string,
-  label5: PropTypes.string,
-  placeholder5: PropTypes.string,
-  type5: PropTypes.string,
 };
 export default BankFields;
