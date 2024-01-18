@@ -78,5 +78,5 @@ export default function SelectedBlock({ total, amount }) {
 
 SelectedBlock.propTypes = {
   total: PropTypes.number.isRequired,
-  amount: PropTypes.number.isRequired
+  amount: PropTypes.number.isRequired,
 };
