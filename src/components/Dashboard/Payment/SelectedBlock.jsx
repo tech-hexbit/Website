@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import pr from "./Css/PaymentRequest.module.css";
 
 export default function SelectedBlock({ total, amount }) {
-  console.log(" ~ SelectedBlock ~ amount:", typeof amount);
   return (
     <>
       <div className={pr.detailsRight}>
