@@ -50,7 +50,7 @@ export default function ForgetPassword() {
           secondaryColor: "#FF69B4",
           symbol: "pets",
           title: "Check it out",
-          text: "Please Enter Valid Email address",
+          text: "Please enter valid email address",
           val: true,
         },
       }));
