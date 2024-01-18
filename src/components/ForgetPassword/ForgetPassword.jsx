@@ -1,16 +1,12 @@
+// ForgetPassword.jsx
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
 // components
 import Form1 from "./Form1";
 import Form2 from "./Form2";
-import TandC from "./TandC";
 import Information from "./Information";
-
-// MicroInteraction
 import Load from "../../MicroInteraction/Load";
 import { Alert } from "./../../MicroInteraction/Alert";
-
 // css
 import fpstyle from "./CSS/ForgetPassword.module.css";
 
@@ -50,7 +46,7 @@ export default function ForgetPassword() {
           secondaryColor: "#FF69B4",
           symbol: "pets",
           title: "Check it out",
-          text: "Please enter valid email address",
+          text: "Please Enter Valid Email address",
           val: true,
         },
       }));
@@ -129,8 +125,25 @@ export default function ForgetPassword() {
             {state.load ? <Load /> : "Continue"}
           </button>
 
-          {/* T&C */}
-          <TandC />
+          <div className={fpstyle.tc}>
+            By signing up, you are agreeing to our{" "}
+            <Link
+              to="/terms"
+              className="LinkStyle"
+              style={{ color: "#350B5E" }}
+            >
+              Terms & Conditions
+            </Link>{" "}
+            and{" "}
+            <Link
+              to="/privacy"
+              className="LinkStyle"
+              style={{ color: "#350B5E" }}
+            >
+              Privacy Policy
+            </Link>
+            .
+          </div>
         </div>
       </div>
 
