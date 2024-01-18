@@ -12,9 +12,9 @@
   padding: 15px 20px;
   border-style: dashed;
   border-color: #d3d3d3;
-  border-width: 1px;
+  border-width: 2px;
   margin-bottom: 30px;
-  border-radius: 5px;
+  border-radius: 0px;
   transition: all 0.3s;
   cursor: pointer;
 }
@@ -25,7 +25,6 @@
 
 .conDel,
 .conDelT {
-  margin-top: 12px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
