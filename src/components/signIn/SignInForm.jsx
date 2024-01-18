@@ -60,11 +60,6 @@ export default function SignInForm() {
         if (response.data.success) {
           setLoad(false);
 
-          setInput({
-            email: "",
-            password: "",
-          });
-
           setError({
             mainColor: "#EDFEEE",
             secondaryColor: "#5CB660",
@@ -75,9 +70,12 @@ export default function SignInForm() {
           });
 
           if (response.data.user[0].Store[0].StoreID.validation) {
-            redirect("/me");
+            console.log("/me");
+
+            // redirect("/me");
           } else {
-            redirect("/me/SetUpStore");
+            console.log("/me/SetUpStore");
+            // redirect("/me/SetUpStore");
           }
           await authCtx.login(
             response.data.user[0].image,
