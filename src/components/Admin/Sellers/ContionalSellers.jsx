@@ -122,10 +122,7 @@ export default function ContionalSellers(props) {
                             </div>
                           )}
                         </p>
-                        <div
-                          className={SelCss.Left_data}
-                          style={{ display: "grid" }}
-                        >
+                        <div className={SelCss.Left_data}>
                           <p>{val.Phone}</p>
                           <p>{val.Email}</p>
                           <p>{val.Phone}</p>
