@@ -8,7 +8,12 @@ export default function HeaderTabs({ SellerType, setSellerType }) {
   return (
     <div className={SelCss.typesOfUsers}>
       {/* All Sellers */}
-      <div className={SelCss.AllSellersIcon}>
+      <div
+        className={SelCss.AllSellersIcon}
+        onClick={() => {
+          setSellerType("all");
+        }}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -21,14 +26,19 @@ export default function HeaderTabs({ SellerType, setSellerType }) {
           stroke-linejoin="round"
           class="lucide lucide-users-round"
           id={SellerType === "all" ? "Selcolor" : "notSelColor"}
-          onClick={() => {
-            setSellerType("all");
-          }}
         >
           <path d="M18 21a8 8 0 0 0-16 0" />
           <circle cx="10" cy="8" r="5" />
           <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3" />
         </svg>
+
+        <p
+          className={
+            SellerType === "all" ? SelCss.IconTextYes : SelCss.IconTextNo
+          }
+        >
+          All Sellers
+        </p>
       </div>
 
       {/* PENDING */}
