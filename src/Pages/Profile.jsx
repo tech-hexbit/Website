@@ -31,7 +31,6 @@ import SupportAdmin from "./../components/Admin/Support";
 import SellersAdmin from "./../components/Admin/Sellers";
 //          || Super Admin
 import FrontPage from "./../components/MainAdmin/FrontPage";
-import SellerKYC from "./../components/MainAdmin/SellerKYC";
 import SellerInfo from "./../components/MainAdmin/SellerInfo";
 
 // state
@@ -173,7 +172,7 @@ export default function Profile() {
                     <Route path="/admin/super/List" element={<FrontPage />} />
                     <Route
                       path="/admin/super/SellerKYC"
-                      element={<SellerKYC />}
+                      element={<SellersAdmin />}
                     />
                     <Route
                       path="/admin/super/SellerInfo"
