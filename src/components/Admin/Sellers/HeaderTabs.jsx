@@ -55,11 +55,15 @@ export default function HeaderTabs({ SellerType, setSellerType }) {
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
-          stroke-width="2"
+          stroke-width="1"
           stroke-linecap="round"
           stroke-linejoin="round"
           class="lucide lucide-alert-circle"
-          id={SellerType === "notVerified" ? "Selcolor" : "notSelColor"}
+          id={
+            SellerType === "notVerified"
+              ? SelCss.Selcolor2
+              : SelCss.notSelColor2
+          }
         >
           <circle cx="12" cy="12" r="10" />
           <line x1="12" x2="12" y1="8" y2="12" />
