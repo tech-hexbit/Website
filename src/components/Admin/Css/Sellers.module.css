@@ -54,3 +54,6 @@
 .IconTextNo {
   color: #d3d3d3;
 }
+
+@media only screen and (max-width: 650px) {
+}
