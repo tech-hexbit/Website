@@ -1,10 +1,17 @@
 import React, { useState } from "react";
-
-//css
 import fpstyle from "./CSS/ForgetPassword.module.css";
 
-export default function Form1() {
+const Form1 = ({ onValidateEmail }) => {
   const [input, setInput] = useState({ email: "", phone: "", otp: "" });
+
+  const handleEmailChange = (e) => {
+    setInput({ ...input, email: e.target.value });
+  };
+  //validate email
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
 
   return (
     <>
@@ -17,9 +24,8 @@ export default function Form1() {
           id="email"
           name="email"
           value={input.email}
-          onChange={(e) => {
-            setInput({ ...input, email: e.target.value });
-          }}
+          onChange={handleEmailChange}
+          onBlur={() => onValidateEmail(input.email)}
         />
       </div>
 
@@ -28,7 +34,7 @@ export default function Form1() {
       {/* Phone */}
       <div className={fpstyle.inputPO}>
         <label htmlFor="phone">
-          Phone <span>*</span>
+          Phone<span style={{ color: "#350B5E" }}>*</span>
         </label>
         <br />
         <div className={fpstyle.phoneInputs}>
@@ -50,20 +56,15 @@ export default function Form1() {
       {/* OTP */}
       <div className={fpstyle.inputPO}>
         <label htmlFor="otp">
-          Enter OTP <span>*</span>
+          Enter OTP<span style={{ color: "#350B5E" }}>*</span>
         </label>
         <br />
-
         <div className={fpstyle.otpInputs}>
-          <input
-            type="text"
-            placeholder="Enter the otp"
-            id="otp"
-            className={fpstyle.inpF}
-          />
+          <input type="text" placeholder="Enter the otp" id="otp" />
           <button>Resend OTP</button>
         </div>
       </div>
     </>
   );
-}
+};
+export default Form1;
