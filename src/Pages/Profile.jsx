@@ -25,12 +25,14 @@ import HelpDeskTable from "./../components/Dashboard/HelpDesk/HelpDeskFormTable"
 import TicketAdmin from "./../components/Admin/Ticket";
 import SupportAdmin from "./../components/Admin/Support";
 import SellersAdmin from "./../components/Admin/Sellers";
-
+import PaymentTable from "../components/Admin/PayDetails/PaymentTable";
 // state
 import AuthContext from "./../store/auth-context";
 
 // Css
 import PCss from "./Css/Profile.module.css";
+
+
 
 export default function Profile() {
   // scroll to top
@@ -61,6 +63,7 @@ export default function Profile() {
                     <Route path="/admin/tickets" element={<TicketAdmin />} />
                     <Route path="/admin/support" element={<SupportAdmin />} />
                     <Route path="/admin/sellers" element={<SellersAdmin />} />
+                    <Route path="/admin/paymentdetails" element={<PaymentTable />} />
                   </>
                 ) : (
                   // Users
