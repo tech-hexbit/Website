@@ -52,6 +52,8 @@ export default function SellerKYC() {
   return (
     <div>
       <HeaderTabs setSellerType={setSellerType} SellerType={SellerType} />
+
+      <div></div>
     </div>
   );
 }
