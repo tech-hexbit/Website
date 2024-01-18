@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 //components
-import PwdChanged from "../components/ForgetPassword/PwdChanged";
+import PwdChanged from "./../components/ForgetPassword/PwdChanged";
 
 export default function PasswordChanged() {
   useEffect(() => {
