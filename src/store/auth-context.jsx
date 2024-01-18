@@ -56,6 +56,7 @@ const retrieveStoredToken = () => {
     sec = Math.floor((ms / 1000) % 60);
 
   console.log(min + ":" + sec);
+
   const finaluser = JSON.parse(userdata);
   return {
     token: storedToken,
@@ -81,7 +82,7 @@ export const AuthContextProvider = (props) => {
   const [target, setTarget] = useState("");
   const [userIsLoggedIn, setUserIsLoggedIn] = useState(logedin);
 
-  console.log("userislogedin : -" + userIsLoggedIn);
+  console.log("userislogedin : - " + userIsLoggedIn);
 
   const targetHandler = (t) => {
     setTarget(t);
