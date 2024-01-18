@@ -11,6 +11,7 @@ import axios from "axios";
 import FCss from "./Css/Form.module.css";
 
 export default function Form2(props) {
+  const [load, setLoad] = useState(false);
   const [verifyPin, setVerify] = useState(false);
   const [disable, setDisable] = useState(false);
   const [variants, setError] = useState({
@@ -23,17 +24,27 @@ export default function Form2(props) {
   });
 
   const pincodeVerify = async () => {
+    setLoad(true);
+
     try {
-      const validPin = ({ response }) => {
+      const response = await axios.get(
+        `https://api.postalpincode.in/pincode/${props.input.Pincode}`
+      );
+
+      if (response.data[0].PostOffice) {
+        setLoad(false);
+
         props.setInput({
           ...props.input,
           State: response.data[0].PostOffice[0].State,
           City: response.data[0].PostOffice[0].Name,
         });
+
         setDisable(true);
         setVerify(true);
-      };
-      const invalidPin = () => {
+      } else {
+        setLoad(false);
+
         setError({
           mainColor: "#FFC0CB",
           secondaryColor: "#FF69B4",
@@ -43,16 +54,20 @@ export default function Form2(props) {
           val: true,
         });
         setVerify(false);
-      };
-      const response = await axios.get(
-        `https://api.postalpincode.in/pincode/${props.input.Pincode}`
-      );
-      // console.log(response.data);
-      response.data[0].PostOffice ? validPin({ response }) : invalidPin();
-      // console.log("invalid pincode");
-      // console.log(props.input.State);
+      }
     } catch (e) {
-      // console.log(e);
+      console.log(e);
+
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "An unexpected error occurred",
+        val: true,
+      });
+
+      setLoad(false);
     }
   };
 
@@ -72,6 +87,7 @@ export default function Form2(props) {
         text: "Please Fill All The Details",
         val: true,
       });
+
       window.scrollTo(0, 0);
     } else if (!verifyPin) {
       setError({
@@ -82,6 +98,7 @@ export default function Form2(props) {
         text: "Invalid pincode",
         val: true,
       });
+
       window.scrollTo(0, 0);
     } else {
       setError({
