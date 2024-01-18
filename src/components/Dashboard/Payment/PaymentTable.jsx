@@ -23,7 +23,7 @@ export default function PaymentTable({ setSel }) {
     symbol: "",
     title: "",
     text: "",
-    val: false
+    val: false,
   });
 
   const authCtx = useContext(AuthContext);
@@ -33,7 +33,7 @@ export default function PaymentTable({ setSel }) {
 
     try {
       const response = await axios.get("/api/common/Payment/OrderList", {
-        headers: { Authorization: `${authCtx.token}` }
+        headers: { Authorization: `${authCtx.token}` },
       });
 
       if (response.data.success) {
@@ -54,7 +54,7 @@ export default function PaymentTable({ setSel }) {
         symbol: "error",
         title: "Error",
         text: "An unexpected error occurred",
-        val: true
+        val: true,
       });
 
       console.log(e);
@@ -110,7 +110,7 @@ export default function PaymentTable({ setSel }) {
                       </td>
                       <td data-cell="action">
                         <label className={pt.labelDiv}>
-                          {val.action === "Delivered & Eligible" ? (
+                          {val.action === "Delivered & Eligible" && (
                             <input
                               type="checkbox"
                               className={pt.CheckBoxInp}
@@ -124,13 +124,12 @@ export default function PaymentTable({ setSel }) {
                                     : prevShowSel.total - 1,
                                   amount: e.target.checked
                                     ? prevShowSel.amount + val.amount
-                                    : prevShowSel.amount - val.amount
+                                    : prevShowSel.amount - val.amount,
                                 }));
                               }}
                             />
-                          ) : (
-                            ""
                           )}
+
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
@@ -170,7 +169,7 @@ export default function PaymentTable({ setSel }) {
 PaymentTable.propTypes = {
   showSel: PropTypes.shape({
     total: PropTypes.number.isRequired,
-    amount: PropTypes.number.isRequired
+    amount: PropTypes.number.isRequired,
   }).isRequired,
-  setSel: PropTypes.func.isRequired
+  setSel: PropTypes.func.isRequired,
 };
