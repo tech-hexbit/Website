@@ -102,6 +102,10 @@ export default function RegisterMain() {
     }
   };
 
+  useEffect(() => {
+    console.log(input);
+  }, [input]);
+
   return (
     <>
       <div className={RFCss.mainDiv}>
