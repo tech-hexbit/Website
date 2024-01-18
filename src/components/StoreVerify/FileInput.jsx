@@ -1,43 +1,36 @@
 // import SvCss from "../Css/StoreVerify.module.css";
 import React from "react";
-
+import PropTypes from "prop-types";
 import SvCss from "../../Pages/Css/StoreVerify.module.css";
 
-const FileInput = ({
-  label,
-  placeholder,
-  handleImage,
-  fileInp,
-  image,
-  handleClicksValue,
-}) => {
+const FileInput = (props) => {
   const handleClicks = (val) => {
     if (val === "cheque") {
-      fileInp.current.click();
+      props.fileInp.current.click();
     } else if (val === "address") {
-      fileInp.current.click();
+      props.fileInp.current.click();
     } else if (val === "id") {
-      fileInp.current.click();
+      props.fileInp.current.click();
     }
   };
 
   return (
     <div className={SvCss.input_ldiv_file}>
-      <p className={SvCss.input_label}>{label}</p>
+      <p className={SvCss.input_label}>{props.label}</p>
       <div className={SvCss.input_div_file}>
         <input
           className={SvCss.input_file}
           type="file"
           name="file"
-          placeholder={placeholder}
+          placeholder={props.placeholder}
           onChange={(e) => {
-            handleImage(e);
+            props.handleImage(e);
           }}
-          ref={fileInp}
+          ref={props.fileInp}
         />
-        {image ? (
+        {props.image ? (
           <img
-            src={URL.createObjectURL(image)}
+            src={URL.createObjectURL(props.image)}
             alt=""
             className={SvCss.prevImg}
           />
@@ -46,7 +39,7 @@ const FileInput = ({
         )}
         <div
           className={SvCss.addImgDiv}
-          onClick={() => handleClicks(handleClicksValue)}
+          onClick={() => handleClicks(props.handleClicksValue)}
         >
           <div className={SvCss["text-center"]}>
             <p>+</p>
@@ -56,9 +49,11 @@ const FileInput = ({
     </div>
   );
 };
-// BankFields.propTypes = {
-//   label: PropTypes.string,
-//   placeholder: PropTypes.string,
-//   type1: PropTypes.string,
-// };
+FileInput.propTypes = {
+  label: PropTypes.string,
+  placeholder: PropTypes.string,
+  type1: PropTypes.string,
+  fileInp: PropTypes.object,
+  image: PropTypes.object,
+};
 export default FileInput;

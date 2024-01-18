@@ -2,6 +2,7 @@
 import React from "react";
 import SvCss from "../../Pages/Css/StoreVerify.module.css";
 import axios from "axios";
+import PropTypes from "prop-types";
 
 const pincodeVerify = async ({
   setData,
@@ -122,5 +123,10 @@ const PincodeField = ({
       )}
     </div>
   );
+};
+PincodeField.propTypes = {
+  showData: PropTypes.object,
+  verifyPin: PropTypes.bool,
+  disable: PropTypes.bool,
 };
 export default PincodeField;

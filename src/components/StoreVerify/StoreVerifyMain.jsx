@@ -1,5 +1,9 @@
 import React, { useContext, useState, useRef } from "react";
 import SvCss from "../../Pages/Css/StoreVerify.module.css";
+import Load from "../../MicroInteraction/Load";
+import AuthContext from "../../store/auth-context";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 import TextInput from "./TextInput";
 import BankFields from "./BankFields";
@@ -9,8 +13,6 @@ import Heading from "./Heading";
 import TimingField from "./TimingField";
 import VerifiedFields from "./VerifiedFields";
 import PincodeField from "./PincodeField";
-import AuthContext from "../../store/auth-context";
-import { useNavigate } from "react-router-dom";
 
 const StoreVerifyMain = (props) => {
   const fileInp_cheque = useRef(null);
@@ -47,6 +49,7 @@ const StoreVerifyMain = (props) => {
     DefaultCategoryId: "",
     StoreTimingStart: "",
     StoreTimingEnd: "",
+    gps: "",
   });
   const [images, setImages] = useState({
     imageUploadCheque: "",
@@ -55,31 +58,70 @@ const StoreVerifyMain = (props) => {
   });
 
   const [load, setLoad] = useState(false);
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
   const authCtx = useContext(AuthContext);
   const redirect = useNavigate();
+
+  const successCallback = (position) => {
+    setData({
+      ...showData,
+      gps: {
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+      },
+    });
+    // console.log(position.coords.latitude);
+  };
+
+  const errorCallback = (error) => {
+    console.log(error);
+  };
+
+  navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
   const onSubmit = async () => {
     setLoad(true);
 
     if (
-      showData.StartTime == "" ||
-      showData.EndTime == "" ||
-      showData.phone == "" ||
-      showData.email == "" ||
-      showData.holidays == "" ||
-      showData.percentage == "" ||
-      showData.radiusValue == ""
+      showData.StoreTimingStart == "" ||
+      showData.StoreTimingEnd == "" ||
+      showData.FirstName == "" ||
+      showData.LastName == "" ||
+      showData.EmailID == "" ||
+      // showData.Password == "" ||
+      // showData.DOB == "" ||
+      showData.LegalName == "" ||
+      // Description: "",
+      showData.Address == "" ||
+      showData.City == "" ||
+      showData.State == "" ||
+      showData.Pincode == "" ||
+      showData.StoreLocation == "" ||
+      showData.AcHolderName == "" ||
+      showData.AccountNo == "" ||
+      showData.IfscCode == "" ||
+      showData.BankName == "" ||
+      showData.BranchName == "" ||
+      showData.GstNo == "" ||
+      showData.FssaiLicence == "" ||
+      showData.PanNo == "" ||
+      // showData.LocationAvailabilityMode== ""||
+      showData.Cancellable == "" ||
+      showData.Returnable == "" ||
+      // showData.ContactDetailsForConsumerCare == "" ||
+      // DefaultCategoryId: "",
+      // showData.StoreTimingStart == "" ||
+      // showData.StoreTimingEnd == "" ||
+      // showData.gps == "" ||
+      showData.imageUploadCheque == "" ||
+      showData.imageUploadAddress == "" ||
+      showData.imageUploadID == ""
+      // showData.phone == "" ||
+      // showData.email == "" ||
+      // showData.holidays == "" ||
+      // showData.percentage == "" ||
+      // showData.radiusValue == ""
     ) {
       setLoad(false);
-
-      setError({
+      props.setError({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
         symbol: "pets",
@@ -87,24 +129,32 @@ const StoreVerifyMain = (props) => {
         text: "Please Fill All The Details",
         val: true,
       });
+    } else if (!verifyPin) {
+      props.setError({
+        mainColor: "#FFC0CB",
+        secondaryColor: "#FF69B4",
+        symbol: "pets",
+        title: "Check it out",
+        text: "Invalid pincode",
+        val: true,
+      });
+      window.scrollTo(0, 0);
     } else {
       try {
         let data = {
           gps: showData.gps,
-          days: showData.days,
-          times: [],
-          phone: showData.phone,
-          email: showData.email,
-          holidays: [],
-          percentage: showData.percentage,
-          radiusValue: showData.radiusValue,
-          amountValue: showData.amountValue,
+          // days: showData.days,
+          // times: [],
+          // phone: showData.phone,
+          // email: showData.email,
+          // holidays: [],
+          // percentage: showData.percentage,
+          // radiusValue: showData.radiusValue,
+          // amountValue: showData.amountValue,
         };
-
-        data.times.push(String(showData.StartTime));
-        data.times.push(String(showData.EndTime));
-        data.holidays = showData.holidays.split(",");
-
+        data.times.push(String(showData.StoreTimingStart));
+        data.times.push(String(showData.StoreTimingEnd));
+        // data.holidays = showData.holidays.split(",");
         const response = await axios.post(
           "/api/common/Store/CreateStore",
           data,
@@ -112,9 +162,8 @@ const StoreVerifyMain = (props) => {
             headers: { Authorization: `${authCtx.token}` },
           }
         );
-
         if (response.data.success) {
-          setError({
+          props.setError({
             mainColor: "#EDFEEE",
             secondaryColor: "#5CB660",
             symbol: "check_circle",
@@ -122,21 +171,16 @@ const StoreVerifyMain = (props) => {
             text: response.data.msg,
             val: true,
           });
-
           await authCtx.updateStore(response.data.upData[0].Store);
-
           redirect("/me");
-
           setLoad(false);
         } else {
           setLoad(false);
-
           console.log(e);
         }
       } catch (e) {
         setLoad(false);
-
-        setError({
+        props.setError({
           mainColor: "#FDEDED",
           secondaryColor: "#F16360",
           symbol: "error",

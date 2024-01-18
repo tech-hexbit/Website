@@ -1,5 +1,6 @@
 // import SvCss from "../Css/StoreVerify.module.css";
 import React from "react";
+import PropTypes from "prop-types";
 import SvCss from "../../Pages/Css/StoreVerify.module.css";
 
 const Ondc_Details = (props) => {
@@ -74,5 +75,8 @@ const Ondc_Details = (props) => {
       </div>
     </div>
   );
+};
+Ondc_Details.propTypes = {
+  showData: PropTypes.object,
 };
 export default Ondc_Details;

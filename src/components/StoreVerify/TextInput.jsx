@@ -1,22 +1,30 @@
 // import SvCss from "../Css/StoreVerify.module.css";
 import React from "react";
+import PropTypes from "prop-types";
 import SvCss from "../../Pages/Css/StoreVerify.module.css";
 
-const TextInput = ({ showData, setData, Label, type, field, placeholder }) => {
+const TextInput = (props) => {
   return (
     <div className={SvCss.inpDiv}>
-      <p className={SvCss.input_label}>{Label}</p>
+      <p className={SvCss.input_label}>{props.Label}</p>
       <input
-        type={type}
+        type={props.type}
         name="days"
-        value={showData[field]}
+        value={props.showData[props.field]}
         id=""
-        placeholder={placeholder}
+        placeholder={props.placeholder}
         onChange={(e) => {
-          setData({ ...showData, [field]: e.target.value });
+          props.setData({ ...props.showData, [props.field]: e.target.value });
         }}
       />
     </div>
   );
+};
+TextInput.propTypes = {
+  Label: PropTypes.string,
+  type: PropTypes.string,
+  field: PropTypes.string,
+  placeholder: PropTypes.string,
+  showData: PropTypes.object,
 };
 export default TextInput;

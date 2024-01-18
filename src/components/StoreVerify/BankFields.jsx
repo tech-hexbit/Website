@@ -1,5 +1,6 @@
 // import SvCss from "../Css/StoreVerify.module.css";
 import React from "react";
+import PropTypes from "prop-types";
 import SvCss from "../../Pages/Css/StoreVerify.module.css";
 
 const BankFields = (props) => {
@@ -76,5 +77,8 @@ const BankFields = (props) => {
       </div>
     </div>
   );
+};
+BankFields.propTypes = {
+  showData: PropTypes.object,
 };
 export default BankFields;

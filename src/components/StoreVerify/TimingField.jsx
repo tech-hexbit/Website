@@ -1,8 +1,8 @@
 // import SvCss from "../Css/StoreVerify.module.css";
 import React from "react";
-
+import PropTypes from "prop-types";
 import SvCss from "../../Pages/Css/StoreVerify.module.css";
-const TimingField = ({ showData, setData }) => {
+const TimingField = (props) => {
   return (
     <div className={SvCss.timing_large_div}>
       <p className={SvCss.input_label}>Store Timing</p>
@@ -10,25 +10,34 @@ const TimingField = ({ showData, setData }) => {
         <input
           type="time"
           name="Store_Timing"
-          value={showData.StoreTimingStart}
+          value={props.showData.StoreTimingStart}
           id=""
           placeholder="0900"
           onChange={(e) => {
-            setData({ ...showData, StoreTimingStart: e.target.value });
+            props.setData({
+              ...props.showData,
+              StoreTimingStart: e.target.value,
+            });
           }}
         />
         <input
           type="time"
           name="days"
-          value={showData.StoreTimingEnd}
+          value={props.showData.StoreTimingEnd}
           id=""
           placeholder="1800"
           onChange={(e) => {
-            setData({ ...showData, StoreTimingEnd: e.target.value });
+            props.setData({
+              ...props.showData,
+              StoreTimingEnd: e.target.value,
+            });
           }}
         />
       </div>
     </div>
   );
+};
+TimingField.propTypes = {
+  showData: PropTypes.object,
 };
 export default TimingField;
