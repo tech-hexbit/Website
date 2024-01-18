@@ -32,6 +32,7 @@ import SellersAdmin from "./../components/Admin/Sellers";
 //          || Super Admin
 import FrontPage from "./../components/MainAdmin/FrontPage";
 import SellerInfo from "./../components/MainAdmin/SellerInfo";
+import SellerInfo from "./../components/MainAdmin/SellerKYC";
 
 // state
 import AuthContext from "./../store/auth-context";
