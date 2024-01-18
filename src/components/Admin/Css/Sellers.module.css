@@ -38,3 +38,17 @@
   justify-content: space-evenly;
   gap: 8px;
 }
+
+.IconTextYes,
+.IconTextNo {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.IconTextYes {
+  color: #000;
+}
+
+.IconTextNo {
+  color: #d3d3d3;
+}
