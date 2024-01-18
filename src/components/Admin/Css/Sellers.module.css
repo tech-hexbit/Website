@@ -38,6 +38,10 @@
   align-items: flex-end;
 }
 
+.LeftData {
+  margin-top: 12px;
+}
+
 .AllSellersIcon {
   display: flex;
   align-items: center;
