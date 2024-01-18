@@ -1,12 +1,15 @@
-// ForgetPassword.jsx
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+
 // components
 import Form1 from "./Form1";
 import Form2 from "./Form2";
 import Information from "./Information";
+
+// MicroInteraction
 import Load from "../../MicroInteraction/Load";
 import { Alert } from "./../../MicroInteraction/Alert";
+
 // css
 import fpstyle from "./CSS/ForgetPassword.module.css";
 
