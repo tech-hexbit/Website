@@ -28,7 +28,7 @@ export default function Form1() {
       {/* Phone */}
       <div className={fpstyle.inputPO}>
         <label htmlFor="phone">
-          Phone<span style={{ color: "#350B5E" }}>*</span>
+          Phone <span>*</span>
         </label>
         <br />
         <div className={fpstyle.phoneInputs}>
@@ -50,11 +50,17 @@ export default function Form1() {
       {/* OTP */}
       <div className={fpstyle.inputPO}>
         <label htmlFor="otp">
-          Enter OTP<span style={{ color: "#350B5E" }}>*</span>
+          Enter OTP <span>*</span>
         </label>
         <br />
+
         <div className={fpstyle.otpInputs}>
-          <input type="text" placeholder="Enter the otp" id="otp" />
+          <input
+            type="text"
+            placeholder="Enter the otp"
+            id="otp"
+            className={fpstyle.inpF}
+          />
           <button>Resend OTP</button>
         </div>
       </div>
