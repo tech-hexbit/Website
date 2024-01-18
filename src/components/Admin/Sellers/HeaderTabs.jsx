@@ -7,6 +7,7 @@ import SelCss from "./../Css/Sellers.module.css";
 export default function HeaderTabs({ SellerType, setSellerType }) {
   return (
     <div className={SelCss.typesOfUsers}>
+      {/* All Sellers */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -27,6 +28,8 @@ export default function HeaderTabs({ SellerType, setSellerType }) {
         <circle cx="10" cy="8" r="5" />
         <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3" />
       </svg>
+
+      {/* PENDING */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -47,6 +50,8 @@ export default function HeaderTabs({ SellerType, setSellerType }) {
         <line x1="12" x2="12" y1="16" y2="12" />
         <line x1="12" x2="12.01" y1="8" y2="8" />
       </svg>
+
+      {/* APPROVED */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
