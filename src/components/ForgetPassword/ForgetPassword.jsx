@@ -67,10 +67,10 @@ export default function ForgetPassword() {
       setState((prevState) => ({
         ...prevState,
         variants: {
-          mainColor: "#FFC0CB",
-          secondaryColor: "#FF69B4",
-          symbol: "pets",
-          title: "Check it out",
+          mainColor: "#E5F6FD",
+          secondaryColor: "#1AB1F5",
+          symbol: "info",
+          title: "Information",
           text: "Passwords didn't matched",
           val: true,
         },
