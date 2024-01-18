@@ -129,7 +129,7 @@ export default function ContionalSellers(props) {
                           <p>{val.Phone}</p>
                           <p>{val.Email}</p>
                           <p>{val.Phone}</p>
-                          <p>Seller since : </p>
+                          {/* <p>Seller since : </p> */}
                         </div>
                       </div>
                     </div>
