@@ -35,14 +35,16 @@
 .AllSellersIcon {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   gap: 8px;
 }
 
 .IconTextYes,
 .IconTextNo {
+  margin-left: 10px;
   font-size: 20px;
   font-weight: 400;
+  cursor: pointer;
 }
 
 .IconTextYes {
