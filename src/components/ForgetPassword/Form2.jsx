@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+
+// css
 import fpstyle from "./CSS/ForgetPassword.module.css";
 
 const Form2 = ({ onPasswordMatch }) => {
   const [input, setInput] = useState({ newpwd: "", confirmpwd: "" });
-  
+
   const handlePasswordChange = (e, field) => {
     setInput({ ...input, [field]: e.target.value });
   };
