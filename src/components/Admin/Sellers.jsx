@@ -51,7 +51,6 @@ export default function Sellers() {
 
   return (
     <div>
-      <p>Sellers</p>
       <HeaderTabs setSellerType={setSellerType} SellerType={SellerType} />
 
       <div>
