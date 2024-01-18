@@ -100,7 +100,6 @@ export default function SellerKYC() {
           </svg>
 
           <div className={SelCss.IconText}>
-            {" "}
             <p>PENDING</p>
           </div>
         </div>
