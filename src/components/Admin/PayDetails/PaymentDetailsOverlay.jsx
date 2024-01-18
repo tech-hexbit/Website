@@ -28,16 +28,16 @@ export default function PaymentDetailsOverlay({ selectedItem }) {
           <p className={gpdo.bold}>{status}</p>
         </div>
         <div className={gpdo.item}>
-          <p className={gpdo.bold}>Status Code</p>
-          <p className={gpdo.bold}>{paymentMode}</p>
+          <p className={gpdo.bold}>Order ID</p>
+          <p className={gpdo.bold}>20462</p>
         </div>
         <div className={gpdo.item}>
-          <p>Payment Method</p>
-          <p>NEFT</p>
-        </div>
-        <div className={gpdo.item}>
-          <p> Account Number</p>
+          <p>Order</p>
           <p>012345678</p>
+        </div>
+        <div className={gpdo.item}>
+          <p>Buyer Platform</p>
+          <p>ONDC</p>
         </div>
         <div className={gpdo.item}>
           <p> Account Holder Name</p>
@@ -50,14 +50,6 @@ export default function PaymentDetailsOverlay({ selectedItem }) {
         <div className={gpdo.item}>
           <p>IFSC Code</p>
           <p>SBIN0123456</p>
-        </div>
-        <div className={gpdo.item}>
-          <p>UTR Number</p>
-          <p>SVIN1234567890</p>
-        </div>
-        <div className={gpdo.item}>
-          <p>Payment Date & Time</p>
-          <p>05-03-2023, 13:22:16</p>
         </div>
         <div className={gpdo.item}>
           <p>Request Amount</p>
