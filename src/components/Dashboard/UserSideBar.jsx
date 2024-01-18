@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
 // components
-import StoreVerify from "./../../Pages/StoreVerify";
+import StoreVerify from "../../Pages/StoreVerify";
 
 // state
 import AuthContext from "./../../store/auth-context";

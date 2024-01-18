@@ -5,147 +5,30 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 // state
-import AuthContext from "./../store/auth-context";
+import AuthContext from "../store/auth-context";
 
 // MicroInteraction
-import Load from "./../MicroInteraction/Load";
-import { Alert } from "./../MicroInteraction/Alert";
+import Load from "../MicroInteraction/Load";
+import { Alert } from "../MicroInteraction/Alert";
 
 // css
 import SvCss from "./Css/StoreVerify.module.css";
 
-// import UserSideBar from "./../components/Dashboard/UserSideBar";
-
-const TextInput = ({ showData, setData, Label, type, field, placeholder }) => {
-  return (
-    <div className={SvCss.inpDiv}>
-      <p className={SvCss.input_label}>{Label}</p>
-      <input
-        type={type}
-        name="days"
-        value={showData[field]}
-        id=""
-        placeholder={placeholder}
-        onChange={(e) => {
-          setData({ ...showData, [field]: e.target.value });
-        }}
-      />
-    </div>
-  );
-};
-const BankFields = (props) => {
-  return (
-    <div className={SvCss.nested_field_large_div}>
-      <div>{props.text}</div>
-      <div className={SvCss.nested_field_small_div}>
-        <div className={SvCss.inpDiv}>
-          <div className={SvCss.input_label}>{props.label1}</div>
-          <input placeholder={props.placeholder1} type={props.type1} />
-        </div>
-
-        <div className={SvCss.inpDiv}>
-          <div className={SvCss.input_label}>{props.label2}</div>
-          <input placeholder={props.placeholder2} type={props.type2} />
-        </div>
-        <div className={SvCss.inpDiv}>
-          <div className={SvCss.input_label}>{props.label3}</div>
-          <input placeholder={props.placeholder3} type={props.type3} />
-        </div>
-        <div className={SvCss.inpDiv}>
-          <div className={SvCss.input_label}>{props.label4}</div>
-          <input placeholder={props.placeholder4} type={props.type4} />
-        </div>
-        <div className={SvCss.inpDiv}>
-          <div className={SvCss.input_label}>{props.label5}</div>
-          <input placeholder={props.placeholder5} type={props.type5} />
-        </div>
-      </div>
-    </div>
-  );
-};
-const Ondc_Details = (props) => {
-  return (
-    <div className={SvCss.nested_field_large_div}>
-      <div>{props.text}</div>
-      <div className={SvCss.nested_field_small_div}>
-        <div className={SvCss.inpDiv}>
-          <div className={SvCss.input_label}>{props.label1}</div>
-          <select name="languages" id="lang">
-            <option value="select">{props.placeholder_label1}</option>
-            {props.label1_val1 ? (
-              <option value={props.label1_val1}>{props.label1_val1}</option>
-            ) : (
-              ""
-            )}
-            {props.label1_val2 ? (
-              <option value={props.label1_val2}>{props.label1_val2}</option>
-            ) : (
-              ""
-            )}
-          </select>
-        </div>
-        <div className={SvCss.inpDiv}>
-          <div className={SvCss.input_label}>{props.label2}</div>
-          <select name="languages" id="lang">
-            <option value="select">{props.placeholder_label2}</option>
-            {props.label2_val1 ? (
-              <option value={props.label2_val1}>{props.label2_val1}</option>
-            ) : (
-              ""
-            )}
-            {props.label2_val2 ? (
-              <option value={props.label2_val2}>{props.label2_val2}</option>
-            ) : (
-              ""
-            )}
-          </select>
-        </div>
-        <div className={SvCss.inpDiv}>
-          <div className={SvCss.input_label}>{props.label3}</div>
-          <select name="languages" id="lang">
-            <option value="select">{props.placeholder_label3}</option>
-            {props.label3_val1 ? (
-              <option value={props.label3_val1}>{props.label3_val1}</option>
-            ) : (
-              ""
-            )}
-            {props.label3_val2 ? (
-              <option value={props.label3_val2}>{props.label3_val2}</option>
-            ) : (
-              ""
-            )}
-          </select>
-        </div>
-        <div className={SvCss.inpDiv}>
-          <p className={SvCss.input_label}>{props.label4}</p>
-          <input
-            type="number"
-            name="Contact Details For Customer Care"
-            value={props.showData.ContactDetailsForConsumerCare}
-            id=""
-            placeholder={props.placeholder_label4}
-            onChange={(e) => {
-              props.setData({
-                ...props.showData,
-                ContactDetailsForConsumerCare: e.target.value,
-              });
-            }}
-          />
-        </div>
-      </div>
-    </div>
-  );
-};
+import TextInput from "../components/StoreVerify/TextInput";
+import BankFields from "../components/StoreVerify/BankFields";
+import Ondc_Details from "../components/StoreVerify/OndcField";
+import FileInput from "../components/StoreVerify/FileInput";
+import Heading from "../components/StoreVerify/Heading";
+import TimingField from "../components/StoreVerify/TimingField";
+import VerifiedFields from "../components/StoreVerify/VerifiedFields";
+import PincodeField from "../components/StoreVerify/PincodeField";
 export default function StoreVerify() {
   const fileInp_cheque = useRef(null);
   const fileInp_address = useRef(null);
   const fileInp_id = useRef(null);
-
   const [load, setLoad] = useState(false);
-
   const [verifyPin, setVerify] = useState(false);
   const [disable, setDisable] = useState(false);
-
   const [showData, setData] = useState({
     FirstName: "",
     LastName: "",
@@ -175,9 +58,11 @@ export default function StoreVerify() {
     StoreTimingStart: "",
     StoreTimingEnd: "",
   });
-  const [imageUploadCheque, setImageUploadCheque] = useState();
-  const [imageUploadAddress, setImageUploadAddress] = useState();
-  const [imageUploadID, setImageUploadID] = useState();
+  const [images, setImages] = useState({
+    imageUploadCheque: "",
+    imageUploadAddress: "",
+    imageUploadID: "",
+  });
 
   const [variants, setError] = useState({
     mainColor: "",
@@ -189,58 +74,16 @@ export default function StoreVerify() {
   });
 
   const authCtx = useContext(AuthContext);
-
   const redirect = useNavigate();
 
-  const handleClick = () => {
-    fileInp_cheque.current.click();
-  };
-  const handleClick1 = () => {
-    fileInp_address.current.click();
-  };
-  const handleClick2 = () => {
-    fileInp_id.current.click();
-  };
-
   const handleImageCheque = (e) => {
-    setImageUploadCheque(e.target.files[0]);
+    setImages({ ...images, imageUploadCheque: e.target.files[0] });
   };
   const handleImageAddress = (e) => {
-    setImageUploadAddress(e.target.files[0]);
+    setImages({ ...images, imageUploadAddress: e.target.files[0] });
   };
   const handleImageID = (e) => {
-    setImageUploadID(e.target.files[0]);
-  };
-
-  const pincodeVerify = async () => {
-    try {
-      const validPin = ({ response }) => {
-        setData({
-          ...showData,
-          State: response.data[0].PostOffice[0].State,
-          City: response.data[0].PostOffice[0].Name,
-        });
-        setDisable(true);
-        setVerify(true);
-      };
-      const invalidPin = () => {
-        setError({
-          mainColor: "#FFC0CB",
-          secondaryColor: "#FF69B4",
-          symbol: "pets",
-          title: "Check it out",
-          text: "Invalid pincode",
-          val: true,
-        });
-        setVerify(false);
-      };
-      const response = await axios.get(
-        `https://api.postalpincode.in/pincode/${showData.Pincode}`
-      );
-      response.data[0].PostOffice ? validPin({ response }) : invalidPin();
-    } catch (e) {
-      // console.log(e);
-    }
+    setImages({ ...images, imageUploadID: e.target.files[0] });
   };
   const onSubmit = async () => {
     setLoad(true);
@@ -329,13 +172,7 @@ export default function StoreVerify() {
     <>
       <div className={SvCss.l_div}>
         <div className={SvCss.box_div}>
-          <div className={SvCss.heading}>
-            <p className={SvCss.createYourStore}>KYC DATA</p>
-            <div className={SvCss.save_buttons}>
-              <button className={SvCss.save_button_1}>Save</button>
-              <button className={SvCss.save_button_2}>Save & Next</button>
-            </div>
-          </div>
+          <Heading />
           <div className={SvCss.sub_headline}>
             Please allow us 2-3 business days to review your KYC and approve
             your account.
@@ -380,53 +217,15 @@ export default function StoreVerify() {
             setData={setData}
             field="DOB"
           />
-          <div>
-            {showData.Pincode.length >= 6 ? (
-              <div className={SvCss.inpDiv}>
-                <p className={SvCss.input_label}>Pincode</p>
-                <div className={SvCss.input_div_pincode}>
-                  <input
-                    disabled={disable}
-                    type="number"
-                    name="Pincode"
-                    value={showData.Pincode}
-                    id=""
-                    placeholder="Your Pincode"
-                    onChange={(e) => {
-                      setData({ ...showData, Pincode: e.target.value });
-                    }}
-                  />
-                  <div className={SvCss.verify_button_div}>
-                    <button
-                      className={SvCss.verify_button}
-                      onClick={() => {
-                        pincodeVerify();
-                      }}
-                    >
-                      {verifyPin ? <BadgeCheck size={20} /> : "Verify"}
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ) : (
-              <div className={SvCss.inpDiv}>
-                <p className={SvCss.input_label}>Pincode</p>
-                <div className={SvCss.input_div_pincode}>
-                  <input
-                    disabled={disable}
-                    type="number"
-                    name="Pincode"
-                    value={showData.Pincode}
-                    id=""
-                    placeholder="Your Pincode"
-                    onChange={(e) => {
-                      setData({ ...showData, Pincode: e.target.value });
-                    }}
-                  />
-                </div>
-              </div>
-            )}
-          </div>
+          <PincodeField
+            showData={showData}
+            setData={setData}
+            verifyPin={verifyPin}
+            disable={disable}
+            setDisable={setDisable}
+            setVerify={setVerify}
+            setError={setError}
+          />
           <TextInput
             type="text"
             Label="Address"
@@ -435,40 +234,26 @@ export default function StoreVerify() {
             field="Address"
             placeholder="Your address"
           />
-          <div className={SvCss.inpDiv}>
-            <p className={SvCss.input_label}>City</p>
-            <div className={SvCss.input_div_verified}>
-              <input
-                disabled={disable}
-                type="text"
-                name="City"
-                value={showData.City}
-                id=""
-                placeholder="Your City"
-                onChange={(e) => {
-                  setData({ ...showData, City: e.target.value });
-                }}
-              />
-              {verifyPin ? <BadgeCheck className={SvCss.badge_icon} /> : ""}
-            </div>
-          </div>
-          <div className={SvCss.inpDiv}>
-            <p className={SvCss.input_label}>State</p>
-            <div className={SvCss.input_div_verified}>
-              <input
-                disabled={disable}
-                type="text"
-                name="State"
-                value={showData.State}
-                id=""
-                placeholder="Your State"
-                onChange={(e) => {
-                  setData({ ...showData, State: e.target.value });
-                }}
-              />
-              {verifyPin ? <BadgeCheck className={SvCss.badge_icon} /> : ""}
-            </div>
-          </div>
+          <VerifiedFields
+            label="City"
+            disable={disable}
+            type="text"
+            name="City"
+            showData={showData}
+            setData={setData}
+            placeholder="Your City"
+            verifyPin={verifyPin}
+          />
+          <VerifiedFields
+            label="State"
+            disable={disable}
+            type="text"
+            name="State"
+            showData={showData}
+            setData={setData}
+            placeholder="Your State"
+            verifyPin={verifyPin}
+          />
           <TextInput
             type="number"
             Label="Store Location"
@@ -519,93 +304,30 @@ export default function StoreVerify() {
             field="PanNo"
             placeholder="10-digit PAN Number"
           />
-          <div className={SvCss.input_ldiv_file}>
-            <p className={SvCss.input_label}>Upload Cancelled Cheque</p>
-            <div className={SvCss.input_div_file}>
-              <input
-                className={SvCss.input_file}
-                type="file"
-                name="file"
-                placeholder="i"
-                onChange={(e) => {
-                  handleImageCheque(e);
-                }}
-                ref={fileInp_cheque}
-              />
-              {imageUploadCheque ? (
-                <img
-                  src={URL.createObjectURL(imageUploadCheque)}
-                  alt=""
-                  className={SvCss.prevImg}
-                />
-              ) : (
-                ""
-              )}
-              <div className={SvCss.addImgDiv} onClick={handleClick}>
-                <div className={SvCss["text-center"]}>
-                  <p>+</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className={SvCss.input_ldiv_file}>
-            <p className={SvCss.input_label}>Address Proof (GSTIN)</p>
-            <div className={SvCss.input_div_file}>
-              <input
-                className={SvCss.input_file}
-                type="file"
-                name="file"
-                placeholder="Address "
-                onChange={(e) => {
-                  handleImageAddress(e);
-                }}
-                ref={fileInp_address}
-              />
-              {imageUploadAddress ? (
-                <img
-                  src={URL.createObjectURL(imageUploadAddress)}
-                  alt=""
-                  className={SvCss.prevImg}
-                />
-              ) : (
-                ""
-              )}
-              <div className={SvCss.addImgDiv} onClick={handleClick1}>
-                <div className={SvCss["text-center"]}>
-                  <p>+</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className={SvCss.input_ldiv_file}>
-            <p className={SvCss.input_label}>ID Proof (PAN CARD)</p>
-            <div className={SvCss.input_div_file}>
-              <input
-                className={SvCss.input_file}
-                type="file"
-                name="file"
-                placeholder="PAN Card "
-                onChange={(e) => {
-                  handleImageID(e);
-                }}
-                ref={fileInp_id}
-              />
-              {imageUploadID ? (
-                <img
-                  src={URL.createObjectURL(imageUploadID)}
-                  alt=""
-                  className={SvCss.prevImg}
-                />
-              ) : (
-                ""
-              )}
-              <div className={SvCss.addImgDiv} onClick={handleClick2}>
-                <div className={SvCss["text-center"]}>
-                  <p>+</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <FileInput
+            label="Upload Cancelled Cheque"
+            placeholder="Cheque "
+            handleImage={handleImageCheque}
+            fileInp={fileInp_cheque}
+            image={images.imageUploadCheque}
+            handleClicksValue="cheque"
+          />
+          <FileInput
+            label="Address Proof (GSTIN)"
+            placeholder="Address "
+            handleImage={handleImageAddress}
+            fileInp={fileInp_address}
+            image={images.imageUploadAddress}
+            handleClicksValue="address"
+          />
+          <FileInput
+            label="ID Proof (PAN CARD)"
+            placeholder="PAN Card "
+            handleImage={handleImageID}
+            fileInp={fileInp_id}
+            image={images.imageUploadID}
+            handleClicksValue="id"
+          />
           <div className={SvCss.inpDiv}>
             <div className={SvCss.input_label}>LOCATION AVAILABILITY MODE</div>
             <select name="languages" id="lang">
@@ -631,31 +353,7 @@ export default function StoreVerify() {
             setData={setData}
             showData={showData}
           />
-          <div className={SvCss.timing_large_div}>
-            <p className={SvCss.input_label}>Store Timing</p>
-            <div className={SvCss.timing_small_div}>
-              <input
-                type="time"
-                name="Store_Timing"
-                value={showData.StoreTimingStart}
-                id=""
-                placeholder="0900"
-                onChange={(e) => {
-                  setData({ ...showData, StoreTimingStart: e.target.value });
-                }}
-              />
-              <input
-                type="time"
-                name="days"
-                value={showData.StoreTimingEnd}
-                id=""
-                placeholder="1800"
-                onChange={(e) => {
-                  setData({ ...showData, StoreTimingEnd: e.target.value });
-                }}
-              />
-            </div>
-          </div>
+          <TimingField showData={showData} setData={setData} />
           <div className={SvCss.submit_div}>
             <button className={SvCss.submitBtn} onClick={onSubmit}>
               {load ? <Load /> : "SUBMIT KYC"}
