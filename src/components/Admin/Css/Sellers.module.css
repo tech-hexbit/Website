@@ -52,7 +52,8 @@
 
 .IconTextNo,
 #notSelColor3,
-#notSelColor2 {
+#notSelColor2,
+#notSelColor1 {
   color: #d3d3d3;
 }
 
@@ -60,6 +61,8 @@
 #notSelColor3,
 #Selcolor2,
 #notSelColor2,
+#Selcolor1,
+#notSelColor1,
 .IconTextYes,
 .IconTextNo {
   cursor: pointer;
@@ -71,6 +74,10 @@
 
 #Selcolor2 {
   color: #ff0000;
+}
+
+#Selcolor1 {
+  color: #69339e;
 }
 
 @media only screen and (max-width: 650px) {
