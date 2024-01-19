@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
+import PropTypes from "prop-types";
 
 // axios
 import axios from "axios";
@@ -61,8 +62,8 @@ export default function PaymentRequest({ setSel }) {
                 AccountNumber={String(bank.AccountNumber).slice(-4)}
                 AccountHolderName={bank.AccountHolderName}
                 IfscCode={bank.IfscCode}
-                key={key}
                 setSel={setSel}
+                key={key}
               />
             ))}
           </>
