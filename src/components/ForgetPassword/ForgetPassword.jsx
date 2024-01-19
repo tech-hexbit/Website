@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Form1 from "./Form1";
 import Form2 from "./Form2";
 import TandC from "./TandC";
+import PwdChanged from "./PwdChanged";
 import Information from "./Information";
 
 // MicroInteraction
@@ -184,7 +185,7 @@ export default function ForgetPassword() {
         <p className={fpstyle.dont}>Don't worry. We can help.</p>
 
         {state.reset ? (
-          <>Save</>
+          <PwdChanged />
         ) : (
           <>
             {state.forget ? (
