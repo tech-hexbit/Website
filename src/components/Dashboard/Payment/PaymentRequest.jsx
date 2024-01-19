@@ -47,7 +47,6 @@ export default function PaymentRequest({ showSel, setSel }) {
     }
   };
 
-  console.log(bankDetails[0]);
   return (
     <>
       <div className={pr.detailsLeft}>
