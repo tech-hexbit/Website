@@ -57,9 +57,10 @@ export default function ForgetPassword() {
 
       window.scrollTo(0, 0);
       return;
+    } else {
+      console.log(state.email);
+      // setState((prevState) => ({ ...prevState, forget: false }));
     }
-
-    setState((prevState) => ({ ...prevState, forget: false }));
   };
 
   const handleContinueForm2 = () => {
