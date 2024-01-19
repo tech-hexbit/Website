@@ -15,6 +15,8 @@ export default function PayRequest() {
   const [showSel, setSel] = useState({
     total: 0,
     amount: 0,
+    bank: "",
+    order: [],
   });
 
   const raiseReq = async () => {
