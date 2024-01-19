@@ -70,19 +70,16 @@ export default function SignInForm() {
           });
 
           if (response.data.user[0].Store[0].StoreID.validation) {
-            console.log("/me");
-
-            // redirect("/me");
+            redirect("/me");
           } else {
-            console.log("/me/SetUpStore");
-            // redirect("/me/SetUpStore");
+            redirect("/me/SetUpStore");
           }
           await authCtx.login(
+            response.data.user[0].BusinessName,
             response.data.user[0].image,
             response.data.user[0].Email,
             response.data.user[0].Phone,
             response.data.user[0].access,
-            response.data.user[0].BusinessName,
             response.data.user[0].ImporterLicense,
             response.data.user[0].GSTIN,
             response.data.user[0].ShopName,
@@ -95,7 +92,6 @@ export default function SignInForm() {
             response.data.user[0].accountVerified,
             response.data.user[0].emailVerified,
             response.data.user[0].Store,
-            response.data.user[0].category,
             response.data.token,
             10800000
           );
@@ -112,62 +108,6 @@ export default function SignInForm() {
             });
           }
         }
-
-        //   const response = await axios.post("/api/website/auth/login", input);
-        //   if (response.data.success) {
-        //     setLoad(false);
-        //     setInput({
-        //       email: "",
-        //       password: "",
-        //     });
-        //     setError({
-        //       mainColor: "#EDFEEE",
-        //       secondaryColor: "#5CB660",
-        //       symbol: "check_circle",
-        //       title: "Success",
-        //       text: "Logged In",
-        //       val: true,
-        //     });
-        //     if (response.data.user[0].Store[0].StoreID.validation) {
-        //       // redirect("/me");
-        //     } else {
-        //       // redirect("/me/SetUpStore");
-        //     }
-        //     await authCtx.login(
-        //       response.data.user[0].image,
-        //       response.data.user[0].Email,
-        //       response.data.user[0].Phone,
-        //       response.data.user[0].access,
-        //       response.data.user[0].BusinessName,
-        //       response.data.user[0].ImporterLicense,
-        //       response.data.user[0].GSTIN,
-        //       response.data.user[0].ShopName,
-        //       response.data.user[0].Address,
-        //       response.data.user[0].State,
-        //       response.data.user[0].City,
-        //       response.data.user[0].Pincode,
-        //       response.data.user[0].AdditionalInfo,
-        //       response.data.user[0].category,
-        //       response.data.user[0].accountVerified,
-        //       response.data.user[0].emailVerified,
-        //       response.data.user[0].Store,
-        //       response.data.user[0].category,
-        //       response.data.token,
-        //       10800000
-        //     );
-        //   } else {
-        //     setLoad(false);
-        //     if (response.data?.code === 1) {
-        //       setError({
-        //         mainColor: "#E5F6FD",
-        //         secondaryColor: "#1AB1F5",
-        //         symbol: "info",
-        //         title: "Information",
-        //         text: "email",
-        //         val: true,
-        //       });
-        //     }
-        //   }
       } catch (e) {
         setLoad(false);
         setError({
