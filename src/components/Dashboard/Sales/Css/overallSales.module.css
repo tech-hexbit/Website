@@ -46,7 +46,7 @@
 .selectInner {
   width: 47%;
   padding: 9px 20px;
-  border: 1px solid #3f81e0;
+  border: 1px solid #ddd;
   border-radius: 5px;
 }
 
@@ -61,6 +61,12 @@
   width: 50%;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+}
+
+.resetFilBtn {
+  margin-left: 20px;
+  cursor: pointer;
 }
 
 .search input {
@@ -104,24 +110,26 @@
 }
 
 .table th {
-  color: #777;
-  font-weight: 400;
+  padding-block: 5px;
   text-align: left;
+  border: 2px solid white;
 }
 
 .table table {
   width: 100%;
 }
 
-.table tr {
-  /* position: relative; */
+.table tr:hover {
   z-index: 1;
+  background-color: #ebefff;
+  
 }
 
 .table td {
-  padding: 27px 5px 27px;
-  border-bottom: 1px solid #ddd;
+  padding: 12px 0px;
+  border: 2px solid white;
 }
+
 
 .table td:first-child,
 .table th:first-child {
@@ -206,16 +214,14 @@
 }
 
 .tdStateBlock {
-  display: flex;
-  justify-content: space-evenly;
-  color: black;
+  text-align: center;
 }
 
-.table tr:hover {
-  background-color: #ebefff;
+.table tr {
+  transition: background-color 150ms ease; 
 }
 
-@media only screen and (max-width: 1050px) {
+@media only screen and (max-width: 1080px) {
   .top {
     padding: 15px 0px;
   }
@@ -272,6 +278,8 @@
     flex-direction: column;
     min-width: 250px;
     border-radius: 5px;
+    border: solid 1px #d3d3d3;
+    overflow: hidden;
   }
 
   .table td {

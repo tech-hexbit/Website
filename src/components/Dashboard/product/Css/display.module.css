@@ -5,14 +5,15 @@
   border-radius: 15px;
   margin-bottom: 40px;
 }
-
 .top {
   display: flex;
   justify-content: space-between;
   padding: 20px;
   border-bottom: 1px solid #ddd;
 }
-
+.hideFilter{
+  display: none;
+}
 .search input {
   background-color: transparent;
   border: none;
@@ -21,7 +22,7 @@
   padding: 8px;
   font-size: 15px;
   outline: none;
-  width: 400px;
+  width: 40vw;
 }
 
 .search input::placeholder {
@@ -41,12 +42,42 @@
   letter-spacing: 0.12px;
   padding: 6px 25px;
   cursor: pointer;
+  
 }
+@media (max-width:380px ) {
+  .button button {
+    padding: 6px 17px;
+  }
+}
+
+@media (max-width: 650px) {
+  .hideFilter{
+    display: block;
+  }
+  .top{
+    /* padding:20px 10px; */
+    padding: 0px 10px 15px 10px;
+  }
+}
+
+@media (width>950px) {
+  .button button::after {
+    content: '+ Add Product';
+  }
+}
+
+@media (max-width: 950px) {
+  .button button:after{
+    content: '+';
+  }
+}
+
 
 .table table {
   width: 100%;
   overflow-x: scroll;
 }
+
 
 ::-webkit-scrollbar {
   display: none;
@@ -58,6 +89,7 @@
   left: 0px;
   z-index: 300;
   box-shadow: #777;
+  border: 2px solid white;
 }
 
 .table td:nth-child(2),
@@ -67,11 +99,23 @@
   z-index: 300;
 }
 
+
 .table th {
-  color: #555;
-  font-size: 14px;
-  font-weight: 400;
+  /* color: #555; */
+  color:black;
+  font-size: 20 px;
+  font-weight: 700;
+  border: 2px solid white;
 }
+.table tr:hover{
+  background-color: #ebefff;
+}
+.table tr{
+  transition: background-color 150ms ease;
+}
+
+
+
 
 .imgTag {
   width: 100%;
@@ -83,9 +127,11 @@
 }
 
 .row {
-  padding: 17px 0px 17px 15px;
+  /* padding: 17px 0px 17px 15px; */
+  padding: 7px 10px;
   border-bottom: 1px solid #ddd;
   position: relative;
+  border: 2px solid white;
 }
 
 .middle {
@@ -99,25 +145,32 @@
 
 .col1 {
   display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .image {
   height: 50px;
   width: 50px;
+  /* padding-left: 10px; */
 }
 
 .col1Text {
   padding-left: 10px;
+
+ 
 }
 
 .textTop {
   color: #000;
   font-size: 16px;
+
 }
 
 .textBottom {
   color: #aaa;
   font-size: 14px;
+
 }
 
 #price,
@@ -240,4 +293,10 @@
   border-width: 0px;
   margin: 5px 0px 0px 0px;
   cursor: pointer;
+}
+
+@media (max-width: 1100px) {
+  .table table {
+   display: none;
+  }
 }

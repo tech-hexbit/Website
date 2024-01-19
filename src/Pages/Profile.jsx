@@ -1,5 +1,8 @@
-import React, { useEffect, useContext } from "react";
-import { Routes, Route } from "react-router-dom";
+import React, { useEffect, useContext, useState } from "react";
+import { Routes, Route, Link } from "react-router-dom";
+
+// axios
+import axios from "axios";
 
 // helmet
 import { Helmet } from "react-helmet";
@@ -20,14 +23,26 @@ import Categories from "./../components/Dashboard/Categories";
 import AddProduct from "./../components/Dashboard/AddProduct";
 import Dashboard from "./../components/Dashboard/DashboardMain";
 import Orderdetails from "./../components/Dashboard/Orderdetails";
+import VerifyEmail from "../components/Dashboard/MainParts/VerifyEmail";
 import HelpDeskTable from "./../components/Dashboard/HelpDesk/HelpDeskFormTable";
 //          || Admin
 import TicketAdmin from "./../components/Admin/Ticket";
 import SupportAdmin from "./../components/Admin/Support";
 import SellersAdmin from "./../components/Admin/Sellers";
+
 import PaymentTable from "../components/Admin/PayDetails/PaymentTable";
+=======
+//          || Super Admin
+import FrontPage from "./../components/MainAdmin/FrontPage";
+import SellerInfo from "./../components/MainAdmin/SellerInfo";
+
+
 // state
 import AuthContext from "./../store/auth-context";
+
+// MicroInteraction
+import Load from "./../MicroInteraction/LoadBlack";
+import { Alert } from "./../MicroInteraction/Alert";
 
 // Css
 import PCss from "./Css/Profile.module.css";
@@ -35,12 +50,58 @@ import PCss from "./Css/Profile.module.css";
 
 
 export default function Profile() {
+  const [load, setLoad] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
+
   // scroll to top
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   const authCtx = useContext(AuthContext);
+
+  const resendMail = async () => {
+    setLoad(true);
+
+    try {
+      const response = await axios.get(
+        `/api/website/auth/verification/resend/${authCtx.user.Email}`
+      );
+
+      if (response.data.status) {
+        setLoad(false);
+
+        setShowModal(true);
+      } else {
+        setLoad(false);
+      }
+    } catch (e) {
+      setLoad(false);
+
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "Unable to Send Mail",
+        val: true,
+      });
+
+      console.log(e);
+    }
+  };
+
+  const closePopup = () => {
+    setShowModal(false);
+  };
 
   return (
     <>
@@ -54,19 +115,81 @@ export default function Profile() {
         {authCtx.user.Store[0].StoreID.validation ? (
           <>
             <div className={PCss.CDiv}>
+              {/* email verification */}
+              <>
+                {authCtx.user.emailVerified ? (
+                  <></>
+                ) : (
+                  <>
+                    {load ? (
+                      <div className="loadCenterDiv" id="loadPadding">
+                        <Load />
+                      </div>
+                    ) : (
+                      <p className={PCss.alert}>
+                        <span>
+                          <>
+                            <Link to="#" onClick={resendMail}>
+                              <div className={PCss.icon}>
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="24"
+                                  height="24"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  class="lucide lucide-alert-circle"
+                                >
+                                  <circle cx="12" cy="12" r="10" />
+                                  <line x1="12" x2="12" y1="8" y2="12" />
+                                  <line x1="12" x2="12.01" y1="16" y2="16" />
+                                </svg>
+                              </div>
+                              Email Verification Pending !! CLICK TO VERIFY
+                            </Link>
+                          </>
+                        </span>
+                      </p>
+                    )}
+
+                    {showModal && <VerifyEmail onClose={closePopup} />}
+                  </>
+                )}
+              </>
+
               <Routes>
                 <Route path="/" element={<ProfileMain />} />
 
-                {authCtx.user.access === 0 ? (
-                  // Admin
+                {/* Admin */}
+                {authCtx.user.access === 0 && (
                   <>
                     <Route path="/admin/tickets" element={<TicketAdmin />} />
                     <Route path="/admin/support" element={<SupportAdmin />} />
                     <Route path="/admin/sellers" element={<SellersAdmin />} />
                     <Route path="/admin/paymentdetails" element={<PaymentTable />} />
                   </>
-                ) : (
-                  // Users
+                )}
+
+                {/* Super Admin */}
+                {authCtx.user.access === 2 && (
+                  <>
+                    <Route path="/admin/super/List" element={<FrontPage />} />
+                    <Route
+                      path="/admin/super/SellerKYC"
+                      element={<SellersAdmin />}
+                    />
+                    <Route
+                      path="/admin/super/SellerInfo"
+                      element={<SellerInfo />}
+                    />
+                  </>
+                )}
+
+                {/* Users */}
+                {authCtx.user.access === 1 && (
                   <>
                     <Route path="/sales" element={<Sales />} />
                     <Route path="/faqs" element={<Support />} />
@@ -95,6 +218,8 @@ export default function Profile() {
           ""
         )}
       </div>
+
+      <Alert variant={variants} val={setError} />
     </>
   );
 }

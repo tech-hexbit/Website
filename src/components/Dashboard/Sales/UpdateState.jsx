@@ -1,16 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 
 // state
 import AuthContext from "./../../../store/auth-context";
 
 // components
 import OrderLayUpdate from "./OrderLayUpdate";
-
-// axios
-import axios from "axios";
-
-// MicroInteraction
-import SmallLoad from "./../../../MicroInteraction/SmallLoad";
 
 // Css
 import osCss from "./Css/overallSales.module.css";

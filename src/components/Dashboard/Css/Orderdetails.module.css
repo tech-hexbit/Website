@@ -43,7 +43,7 @@
 
 .SubHeading {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  text-align: center;
+  text-align: left;
   font-size: 1.4rem;
   font-weight: bold;
 }
@@ -67,8 +67,7 @@
 }
 
 .ContentDels {
-  padding: 15px;
-  margin-top: 5px;
+  padding: 15px 0px;
   color: gray;
   font-size: 1.1rem;
 }
@@ -98,7 +97,6 @@
 }
 
 .adress {
-  margin-top: 20px;
   font-size: 1.1rem;
 }
 

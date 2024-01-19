@@ -71,11 +71,13 @@
 }
 
 .CheckBoxInp {
+  cursor: pointer;
   width: 20px;
   height: 20px;
 }
 
 .lucide {
+  cursor: pointer;
   color: #3f81e0;
 }
 

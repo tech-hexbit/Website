@@ -1,8 +1,11 @@
-import React, { useState, useEffect, useContext, useRef } from "react";
+import React, { useState, useContext, useRef } from "react";
+
+//component
+import MultipleImageHandler from "./MultipleImageHandler";
 
 // MicroInteraction
-import { Alert } from "./../../../MicroInteraction/Alert";
 import Load from "./../../../MicroInteraction/Load";
+import { Alert } from "./../../../MicroInteraction/Alert";
 
 // axios
 import axios from "axios";
@@ -17,7 +20,9 @@ export default function Form() {
   const [tags, settags] = useState([]);
   const [load, setLoad] = useState(false);
   const [tagvalue, settagvalue] = useState("");
+  ``;
   const [imageUpload, setImageUpload] = useState();
+  const [multipleImageUpload, setMultipleImageUpload] = useState([]);
   const [PublishOpen, setPublishOpen] = useState(true);
   const [ServiceOpen, setServiceOpen] = useState(false);
   const [variants, setError] = useState({
@@ -126,6 +131,7 @@ export default function Form() {
 
   const onSubmit = async () => {
     setLoad(true);
+    console.log(multipleImageUpload);
 
     if (!imageUpload) {
       setLoad(false);
@@ -222,7 +228,15 @@ export default function Form() {
     ) {
       const formData = new FormData();
       formData.append("data", JSON.stringify(data));
-      formData.append("images", imageUpload);
+      if (imageUpload) {
+        formData.append("images", imageUpload);
+      }
+
+      if (multipleImageUpload) {
+        for (let i = 0; i < multipleImageUpload.length; i++) {
+          formData.append("images", multipleImageUpload[i]);
+        }
+      }
 
       for (var key of formData.entries()) {
         console.log(key[0] + ", " + key[1]);
@@ -824,7 +838,7 @@ export default function Form() {
         <div className={FCss.inpDiv}>
           <p className={FCss.label}>Product image</p>
 
-          <p className={FCss.labelDes}>Add the product main image</p>
+          <p className={FCss.labelDes}>Add the product thumbnail</p>
           <div className={FCss.addimgDivMain}>
             <input
               type="file"
@@ -834,23 +848,26 @@ export default function Form() {
               ref={fileInp}
             />
 
-            {imageUpload ? (
-              <img
-                src={URL.createObjectURL(imageUpload)}
-                alt=""
-                className={FCss.prevImg}
-              />
-            ) : (
-              ""
-            )}
-
             <div className={FCss.addImgDiv} onClick={handleClick}>
-              <div className={FCss["text-center"]}>
-                <p className={FCss["dropzone-content"]}>+</p>
-              </div>
+              {imageUpload ? (
+                <img
+                  src={URL.createObjectURL(imageUpload)}
+                  alt=""
+                  className={FCss.prevImg}
+                />
+              ) : (
+                <div className={FCss.textCenter}>
+                  <p className={FCss["dropzone-content"]}>+</p>
+                </div>
+              )}
             </div>
           </div>
         </div>
+
+        <MultipleImageHandler
+          multipleImageUpload={multipleImageUpload}
+          setMultipleImageUpload={setMultipleImageUpload}
+        />
 
         <div className={FCss.SubmitBtnDiv}>
           <p className={FCss.SubmitBtn} onClick={onSubmit}>
@@ -858,7 +875,6 @@ export default function Form() {
           </p>
         </div>
       </div>
-
       <Alert variant={variants} val={setError} />
     </>
   );

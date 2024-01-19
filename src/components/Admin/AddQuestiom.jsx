@@ -49,6 +49,8 @@ export default function AddQuestiom(props) {
           headers: { Authorization: `${authCtx.token}` },
         });
 
+        console.log(response.data);
+
         if (response.data.success) {
           setLoad(false);
 
@@ -110,7 +112,7 @@ export default function AddQuestiom(props) {
   };
 
   const handleSelectChange = (event) => {
-    setData({ tag: event.target.value });
+    setData({ ...showData, tag: event.target.value });
   };
 
   return (
