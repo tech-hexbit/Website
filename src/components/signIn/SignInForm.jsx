@@ -75,11 +75,11 @@ export default function SignInForm() {
             redirect("/me/SetUpStore");
           }
           await authCtx.login(
-            response.data.user[0].BusinessName,
             response.data.user[0].image,
             response.data.user[0].Email,
             response.data.user[0].Phone,
             response.data.user[0].access,
+            response.data.user[0].BusinessName,
             response.data.user[0].ImporterLicense,
             response.data.user[0].GSTIN,
             response.data.user[0].ShopName,
