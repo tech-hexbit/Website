@@ -41,6 +41,7 @@ export default function ForgetPassword() {
     return emailRegex.test(email);
   };
 
+  // form 1
   const handleContinueForm1 = async () => {
     setLoad(true);
 
@@ -103,6 +104,7 @@ export default function ForgetPassword() {
     }
   };
 
+  // form 2
   const handleContinueForm2 = () => {
     if (!state.passwordsMatch) {
       setError({
@@ -114,7 +116,6 @@ export default function ForgetPassword() {
         val: true,
       });
 
-      window.scrollTo(0, 0);
       return;
     }
 
