@@ -5,18 +5,11 @@
   }
   .main{
     font-family: 'Roboto', sans-serif;  
-  display: flex;
-  position: relative;
+    display: flex;
+    position: relative;
+    gap: 25px;
 }
 
-
-
-.svg{
-    width: 13vw;
-    /* height: 100vh; */
-    padding-top: 10px;
-    padding-left: 10px;
-}
 
 .topText{
     display: flex;
@@ -51,8 +44,12 @@
     margin-left: 20px;
     font-size: 18px;
     font-weight: 600;
-    color: rgba(169, 0, 0, 1);
-    ;
+}
+.ver{
+    color: rgb(20, 215, 20);
+}
+.unVer{
+    color: rgb(215, 3, 3);
 }
 .alertSvg{
   padding-top: 4px;
@@ -63,6 +60,7 @@
     margin-top: 15px ;
     padding: 1rem 2rem;
     width: 55vw;
+    max-width:1100px ;
     margin-bottom: 20px;
 }
 
@@ -175,11 +173,12 @@
         flex-wrap: wrap;
     }
     .KYCmain{
-        width: 100vw;
+        width: 90vw;
+        padding-left: 14px ;
     }
     .btn{
-        width: 95vw;
-        margin: 20px auto;
+        width: 90vw;
+        margin: 20px 10px;
     }
     .mandatoryFields{
         position: relative;
@@ -187,45 +186,63 @@
         padding: 10px;
         right: 0px;
       }
-      .topText{
-        margin-left: 2rem;
-      }
-      .seller{
-        margin-left: 2rem;
-      }
-    .alert{
-        margin-left: 1.7rem;
-    }
     .KYCmain{
         margin-top: 10px;
     }
 }
-@media (max-width:460px){
+@media (max-width:495px){
   .KYCSec{
     display: flex;
     flex-direction: column;
   }
+  .btn{
+    width: 80vw;
+    margin: 20px 10px;
+}
   .secText{
     padding-bottom: 4px;
   }
-}
-@media (max-width:370px){
   .mandatoryT{
-    font-size: 14px; ;
+    font-size: 14px; 
   }
 }
 
+@media (max-width:420px){
+  .main{
+    gap: 0px;
+  }
+  .asterisk{
+    display: none ;
+  }
+  .mandatoryT{
+    color: rgb(215, 3, 3);
+    font-size: 15px; 
+  }
+  .KYCmain{
+    width: 85vw;
+    padding-left: 14px ;
+  }
+  .btn{
+    width: 78vw;
+    margin: 20px 5px ;
+  }
+  .btnText{
+    font-size: 17px;
+    text-align: center;
+  }
+  .mandatoryT p {
+    text-align: center;
+  }
+}
+
+
   .verifiedBtn{
     background: green;
-    display: flex ;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
     padding: 13px 25px;
-    width: 100%;
     border-radius: 10px;
-    margin-top: 15px;
-    /* margin: 10px 20px; */
+    /* margin-top: 15px; */
+    margin: 20px auto;
+
 
   }
     .verifiedBtn p{
@@ -233,4 +250,5 @@
         font-weight: 700;
         font-size: 18px;
         padding-right: 4px;
+        text-align: center;
     }
