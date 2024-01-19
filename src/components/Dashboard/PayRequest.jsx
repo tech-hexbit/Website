@@ -23,10 +23,6 @@ export default function PayRequest() {
     console.log(showSel);
   };
 
-  useEffect(() => {
-    console.log(showSel);
-  }, [showSel]);
-
   // scroll to top
   useEffect(() => {
     window.scrollTo(0, 0);
