@@ -134,14 +134,14 @@ export default function ForgetPassword() {
 
         if (response.data.success) {
           setLoad(false);
-          // navigate("/changepwd");
-        } else {
-          setLoad(false);
 
           setState({
             ...state,
             reset: true,
           });
+          // navigate("/changepwd");
+        } else {
+          setLoad(false);
 
           setError({
             mainColor: "#E5F6FD",
@@ -174,9 +174,7 @@ export default function ForgetPassword() {
   };
 
   const handlePasswordMatch = (match, val) => {
-    setState((prevState) => ({ ...prevState, passwordsMatch: match }));
-
-    setState({ ...state, password: val });
+    setState({ ...state, passwordsMatch: match, password: val });
   };
 
   return (
