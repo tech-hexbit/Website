@@ -7,6 +7,7 @@ const Form1 = ({ onValidateEmail }) => {
   const handleEmailChange = (e) => {
     setInput({ ...input, email: e.target.value });
   };
+
   //validate email
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
