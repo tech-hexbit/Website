@@ -11,12 +11,23 @@ export default function BankDel({
   AccountNumber,
   AccountHolderName,
   IfscCode,
+  id,
+  showSel,
 }) {
   return (
     <>
       <div className={pr.grid} key={key}>
         <div className={pr.gridItem}>
-          <input type="checkbox" className={pr.checkBoxBank} />
+          <input
+            type="radio"
+            className={pr.checkBoxBank}
+            onChange={(e) => {
+              setSel({
+                ...showSel,
+                bank: id,
+              });
+            }}
+          />
 
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -69,4 +80,5 @@ BankDel.propTypes = {
   AccountNumber: PropTypes.string.isRequired,
   AccountHolderName: PropTypes.string.isRequired,
   IfscCode: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 };
