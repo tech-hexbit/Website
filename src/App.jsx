@@ -116,8 +116,8 @@ function App() {
                 </Suspense>
               }
             />
-
             {/* protect this  */}
+
             {!authCtx.isLoggedIn && (
               <Route
                 path="/register"
