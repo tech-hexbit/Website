@@ -18,6 +18,7 @@ import axios from "axios";
 import fpstyle from "./CSS/ForgetPassword.module.css";
 
 export default function ForgetPassword() {
+  const [load, setLoad] = useState(false);
   const [state, setState] = useState({
     load: false,
     forget: true,
