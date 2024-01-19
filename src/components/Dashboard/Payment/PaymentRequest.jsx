@@ -16,7 +16,7 @@ import AuthContext from "../../../store/auth-context";
 // css
 import pr from "./Css/PaymentRequest.module.css";
 
-export default function PaymentRequest({ setSel }) {
+export default function PaymentRequest({ showSel, setSel }) {
   const [load, setLoad] = useState(true);
   const [bankDetails, setBankDetails] = useState([]);
 
@@ -47,6 +47,7 @@ export default function PaymentRequest({ setSel }) {
     }
   };
 
+  console.log(bankDetails[0]);
   return (
     <>
       <div className={pr.detailsLeft}>
@@ -63,7 +64,9 @@ export default function PaymentRequest({ setSel }) {
                 AccountHolderName={bank.AccountHolderName}
                 IfscCode={bank.IfscCode}
                 setSel={setSel}
+                showSel={showSel}
                 key={key}
+                id={bank._id}
               />
             ))}
           </>
