@@ -21,7 +21,9 @@ export default function BankDel({
           <input
             type="radio"
             className={pr.checkBoxBank}
-            onChange={(e) => {
+            name="bank"
+            id={id}
+            onChange={() => {
               setSel({
                 ...showSel,
                 bank: id,
@@ -48,26 +50,34 @@ export default function BankDel({
 
         {/* BANK NAME */}
         <div className={pr.gridItem}>
-          <h4>BANK</h4>
-          <h3>{BankName}</h3>
+          <label htmlFor={id} className={pr.label}>
+            <h4>BANK</h4>
+            <h3>{BankName}</h3>
+          </label>
         </div>
 
         {/* ACCOUNT NUMBER */}
         <div className={pr.gridItem}>
-          <h4>LAST 4 Digit</h4>
-          <h3>{AccountNumber}</h3>
+          <label htmlFor={id} className={pr.label}>
+            <h4>LAST 4 Digit</h4>
+            <h3>{AccountNumber}</h3>
+          </label>
         </div>
 
         {/* HOLDER'S NAME */}
         <div className={pr.gridItem}>
-          <h4>Account Holder</h4>
-          <h3>{AccountHolderName}</h3>
+          <label htmlFor={id} className={pr.label}>
+            <h4>Account Holder</h4>
+            <h3>{AccountHolderName}</h3>
+          </label>
         </div>
 
         {/* IFSC CODE */}
         <div className={pr.gridItem}>
-          <h4>IFSC CODE</h4>
-          <h3>{IfscCode}</h3>
+          <label htmlFor={id} className={pr.label}>
+            <h4>IFSC CODE</h4>
+            <h3>{IfscCode}</h3>
+          </label>
         </div>
       </div>
     </>
