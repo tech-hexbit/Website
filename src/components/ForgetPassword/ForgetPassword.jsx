@@ -11,6 +11,9 @@ import Information from "./Information";
 import Load from "../../MicroInteraction/Load";
 import { Alert } from "./../../MicroInteraction/Alert";
 
+// axios
+import axios from "axios";
+
 // css
 import fpstyle from "./CSS/ForgetPassword.module.css";
 
@@ -21,14 +24,14 @@ export default function ForgetPassword() {
     email: "",
     isEmailValid: true,
     passwordsMatch: false,
-    variants: {
-      mainColor: "",
-      secondaryColor: "",
-      symbol: "",
-      title: "",
-      text: "",
-      val: false,
-    },
+  });
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
   });
 
   const navigate = useNavigate();
@@ -38,44 +41,57 @@ export default function ForgetPassword() {
     return emailRegex.test(email);
   };
 
-  const handleContinueForm1 = () => {
+  const handleContinueForm1 = async () => {
     const isEmailValid = validateEmail(state.email);
     setState((prevState) => ({ ...prevState, isEmailValid }));
 
     if (!isEmailValid) {
-      setState((prevState) => ({
-        ...prevState,
-        variants: {
-          mainColor: "#FFC0CB",
-          secondaryColor: "#FF69B4",
-          symbol: "pets",
-          title: "Check it out",
-          text: "Please Enter Valid Email address",
-          val: true,
-        },
-      }));
+      setError({
+        mainColor: "#FFC0CB",
+        secondaryColor: "#FF69B4",
+        symbol: "pets",
+        title: "Check it out",
+        text: "Please Enter Valid Email address",
+        val: true,
+      });
 
       window.scrollTo(0, 0);
       return;
     } else {
-      console.log(state.email);
-      // setState((prevState) => ({ ...prevState, forget: false }));
+      try {
+        const response = await axios.post("/api/website/qna/post", showData, {
+          headers: { Authorization: `${authCtx.token}` },
+        });
+
+        console.log(state.email);
+        // setState((prevState) => ({ ...prevState, forget: false }));
+      } catch (error) {
+        console.log(error);
+
+        setLoad(false);
+
+        setError({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "An unexpected error occurred",
+          val: true,
+        });
+      }
     }
   };
 
   const handleContinueForm2 = () => {
     if (!state.passwordsMatch) {
-      setState((prevState) => ({
-        ...prevState,
-        variants: {
-          mainColor: "#E5F6FD",
-          secondaryColor: "#1AB1F5",
-          symbol: "info",
-          title: "Information",
-          text: "Passwords didn't matched",
-          val: true,
-        },
-      }));
+      setError({
+        mainColor: "#E5F6FD",
+        secondaryColor: "#1AB1F5",
+        symbol: "info",
+        title: "Information",
+        text: "Passwords didn't matched",
+        val: true,
+      });
 
       window.scrollTo(0, 0);
       return;
@@ -136,12 +152,7 @@ export default function ForgetPassword() {
 
       <Information />
 
-      <Alert
-        variant={state.variants}
-        val={(variants) =>
-          setState((prevState) => ({ ...prevState, variants }))
-        }
-      />
+      <Alert variant={variants} val={setError} />
     </div>
   );
 }
