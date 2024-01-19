@@ -15,7 +15,7 @@ import AuthContext from "../../../store/auth-context";
 // css
 import pr from "./Css/PaymentRequest.module.css";
 
-export default function PaymentRequest() {
+export default function PaymentRequest({ setSel }) {
   const [load, setLoad] = useState(true);
   const [bankDetails, setBankDetails] = useState([]);
 
@@ -74,3 +74,7 @@ export default function PaymentRequest() {
     </>
   );
 }
+
+PaymentRequest.propTypes = {
+  setSel: PropTypes.func.isRequired,
+};
