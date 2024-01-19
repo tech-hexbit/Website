@@ -59,10 +59,16 @@ export default function ForgetPassword() {
       window.scrollTo(0, 0);
       return;
     } else {
+      let data = {
+        Email: state.email,
+      };
       try {
-        const response = await axios.post("/api/website/qna/post", showData, {
-          headers: { Authorization: `${authCtx.token}` },
-        });
+        const response = await axios.post(
+          "/api/website/password/reset/look/email",
+          data
+        );
+
+        console.log(response.data);
 
         console.log(state.email);
         // setState((prevState) => ({ ...prevState, forget: false }));
