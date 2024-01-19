@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 // css
 import pr from "./Css/PaymentRequest.module.css";
 
-export default function SelectedBlock({ total, amount }) {
+export default function SelectedBlock({ total, amount, raiseReq }) {
   return (
     <>
       <div className={pr.detailsRight}>
@@ -62,7 +62,7 @@ export default function SelectedBlock({ total, amount }) {
         <div className={pr.flexItem}>
           {amount > 0 ? (
             <>
-              <button>Raise Payment Request</button>
+              <button onClick={raiseReq}>Raise Payment Request</button>
             </>
           ) : (
             <>
@@ -78,4 +78,5 @@ export default function SelectedBlock({ total, amount }) {
 SelectedBlock.propTypes = {
   total: PropTypes.number.isRequired,
   amount: PropTypes.number.isRequired,
+  raiseReq: PropTypes.func.isRequired,
 };
