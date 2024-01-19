@@ -58,6 +58,7 @@ const retrieveStoredToken = () => {
   console.log(min + ":" + sec);
 
   const finaluser = JSON.parse(userdata);
+
   return {
     token: storedToken,
     duration: remainingTime,
@@ -87,7 +88,10 @@ export const AuthContextProvider = (props) => {
   const targetHandler = (t) => {
     setTarget(t);
   };
+
   const logoutHandler = useCallback(() => {
+    console.log("logout working ....");
+
     setToken(null);
     setUserIsLoggedIn(false);
     localStorage.removeItem("token");
