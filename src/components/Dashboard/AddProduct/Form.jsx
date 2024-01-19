@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useRef } from "react";
+import React, { useState, useContext, useRef } from "react";
 
 //component
 import MultipleImageHandler from "./MultipleImageHandler";
@@ -20,10 +20,11 @@ export default function Form() {
   const [tags, settags] = useState([]);
   const [load, setLoad] = useState(false);
   const [tagvalue, settagvalue] = useState("");
+  ``;
   const [imageUpload, setImageUpload] = useState();
+  const [multipleImageUpload, setMultipleImageUpload] = useState([]);
   const [PublishOpen, setPublishOpen] = useState(true);
   const [ServiceOpen, setServiceOpen] = useState(false);
-  const [multipleImageUpload, setMultipleImageUpload] = useState([]);
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -130,6 +131,7 @@ export default function Form() {
 
   const onSubmit = async () => {
     setLoad(true);
+    console.log(multipleImageUpload);
 
     if (!imageUpload) {
       setLoad(false);
@@ -226,7 +228,15 @@ export default function Form() {
     ) {
       const formData = new FormData();
       formData.append("data", JSON.stringify(data));
-      formData.append("images", imageUpload);
+      if (imageUpload) {
+        formData.append("images", imageUpload);
+      }
+
+      if (multipleImageUpload) {
+        for (let i = 0; i < multipleImageUpload.length; i++) {
+          formData.append("images", multipleImageUpload[i]);
+        }
+      }
 
       for (var key of formData.entries()) {
         console.log(key[0] + ", " + key[1]);
@@ -828,7 +838,7 @@ export default function Form() {
         <div className={FCss.inpDiv}>
           <p className={FCss.label}>Product image</p>
 
-          <p className={FCss.labelDes}>Add the product main image</p>
+          <p className={FCss.labelDes}>Add the product thumbnail</p>
           <div className={FCss.addimgDivMain}>
             <input
               type="file"
@@ -837,20 +847,19 @@ export default function Form() {
               style={{ display: "none" }}
               ref={fileInp}
             />
-            {imageUpload ? (
-              <img
-                src={URL.createObjectURL(imageUpload)}
-                alt=""
-                className={FCss.prevImg}
-              />
-            ) : (
-              ""
-            )}
 
             <div className={FCss.addImgDiv} onClick={handleClick}>
-              <div className={FCss["text-center"]}>
-                <p className={FCss["dropzone-content"]}>+</p>
-              </div>
+              {imageUpload ? (
+                <img
+                  src={URL.createObjectURL(imageUpload)}
+                  alt=""
+                  className={FCss.prevImg}
+                />
+              ) : (
+                <div className={FCss.textCenter}>
+                  <p className={FCss["dropzone-content"]}>+</p>
+                </div>
+              )}
             </div>
           </div>
         </div>

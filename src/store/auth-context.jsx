@@ -19,6 +19,7 @@ const AuthContext = React.createContext({
     City: "",
     Pincode: "",
     AdditionalInfo: "",
+    category: [],
     accountVerified: false,
     emailVerified: false,
     Store: [],
@@ -55,7 +56,9 @@ const retrieveStoredToken = () => {
     sec = Math.floor((ms / 1000) % 60);
 
   console.log(min + ":" + sec);
+
   const finaluser = JSON.parse(userdata);
+
   return {
     token: storedToken,
     duration: remainingTime,
@@ -80,12 +83,15 @@ export const AuthContextProvider = (props) => {
   const [target, setTarget] = useState("");
   const [userIsLoggedIn, setUserIsLoggedIn] = useState(logedin);
 
-  console.log("userislogedin : -" + userIsLoggedIn);
+  console.log("userislogedin : - " + userIsLoggedIn);
 
   const targetHandler = (t) => {
     setTarget(t);
   };
+
   const logoutHandler = useCallback(() => {
+    console.log("logout working ....");
+
     setToken(null);
     setUserIsLoggedIn(false);
     localStorage.removeItem("token");
@@ -95,8 +101,6 @@ export const AuthContextProvider = (props) => {
     if (logoutTimer) {
       clearTimeout(logoutTimer);
     }
-
-    window.location.reload();
   }, []);
 
   const loginHandler = (
@@ -113,6 +117,7 @@ export const AuthContextProvider = (props) => {
     City,
     Pincode,
     AdditionalInfo,
+    category,
     accountVerified,
     emailVerified,
     Store,
@@ -135,6 +140,7 @@ export const AuthContextProvider = (props) => {
       City: City,
       Pincode: Pincode,
       AdditionalInfo: AdditionalInfo,
+      category: category,
       accountVerified: accountVerified,
       emailVerified: emailVerified,
       Store: Store,

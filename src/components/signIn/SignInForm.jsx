@@ -7,7 +7,6 @@ import axios from "axios";
 // MicroInteraction
 import Load from "../../MicroInteraction/Load";
 import { Alert } from "./../../MicroInteraction/Alert";
-import LoadingPage from "../../MicroInteraction/Loading";
 
 // components
 import OTP from "./OTP";
@@ -44,7 +43,6 @@ export default function SignInForm() {
 
     if (input.email == "" || input.password == "") {
       setLoad(false);
-
       setError({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
@@ -57,13 +55,10 @@ export default function SignInForm() {
       try {
         const response = await axios.post("/api/website/auth/login", input);
 
+        console.log(response.data);
+
         if (response.data.success) {
           setLoad(false);
-
-          setInput({
-            email: "",
-            password: "",
-          });
 
           setError({
             mainColor: "#EDFEEE",
@@ -79,7 +74,6 @@ export default function SignInForm() {
           } else {
             redirect("/me/SetUpStore");
           }
-
           await authCtx.login(
             response.data.user[0].image,
             response.data.user[0].Email,
@@ -94,6 +88,7 @@ export default function SignInForm() {
             response.data.user[0].City,
             response.data.user[0].Pincode,
             response.data.user[0].AdditionalInfo,
+            response.data.user[0].category,
             response.data.user[0].accountVerified,
             response.data.user[0].emailVerified,
             response.data.user[0].Store,
@@ -102,10 +97,19 @@ export default function SignInForm() {
           );
         } else {
           setLoad(false);
+          if (response.data?.code === 1) {
+            setError({
+              mainColor: "#E5F6FD",
+              secondaryColor: "#1AB1F5",
+              symbol: "info",
+              title: "Information",
+              text: "email",
+              val: true,
+            });
+          }
         }
       } catch (e) {
         setLoad(false);
-
         setError({
           mainColor: "#FDEDED",
           secondaryColor: "#F16360",

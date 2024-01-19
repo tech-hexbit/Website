@@ -16,7 +16,6 @@ const Error = React.lazy(() => import("./Pages/Error"));
 const Contact = React.lazy(() => import("./Pages/Contact"));
 const Privacy = React.lazy(() => import("./Pages/Privacy"));
 const ForgotPassword = React.lazy(() => import("./Pages/ForgotPassword"));
-const PasswordChanged = React.lazy(() => import("./Pages/PasswordChanged"));
 //        || Auth
 const SignIn = React.lazy(() => import("./Pages/SignIn"));
 const Register = React.lazy(() => import("./Pages/Register"));
@@ -98,7 +97,7 @@ function App() {
                 </Suspense>
               }
             />
-            {/* protect this  */}
+
             <Route
               path="/forgotpassword"
               element={
@@ -108,16 +107,6 @@ function App() {
               }
             />
 
-            <Route
-              path="/changepwd"
-              element={
-                <Suspense fallback={<LoadingPage />}>
-                  <PasswordChanged />
-                </Suspense>
-              }
-            />
-
-            {/* protect this  */}
             {!authCtx.isLoggedIn && (
               <Route
                 path="/register"

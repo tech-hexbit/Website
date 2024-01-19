@@ -23,15 +23,15 @@ import Categories from "./../components/Dashboard/Categories";
 import AddProduct from "./../components/Dashboard/AddProduct";
 import Dashboard from "./../components/Dashboard/DashboardMain";
 import Orderdetails from "./../components/Dashboard/Orderdetails";
-import HelpDeskTable from "./../components/Dashboard/HelpDesk/HelpDeskFormTable";
 import VerifyEmail from "../components/Dashboard/MainParts/VerifyEmail";
+import HelpDeskTable from "./../components/Dashboard/HelpDesk/HelpDeskFormTable";
 //          || Admin
 import TicketAdmin from "./../components/Admin/Ticket";
 import SupportAdmin from "./../components/Admin/Support";
 import SellersAdmin from "./../components/Admin/Sellers";
 //          || Super Admin
 import FrontPage from "./../components/MainAdmin/FrontPage";
-import SelectSellerDetail from "../components/Admin/Seller/sellerMain/SelectSellerDetail"
+import SellerInfo from "./../components/MainAdmin/SellerInfo";
 
 // state
 import AuthContext from "./../store/auth-context";
@@ -154,64 +154,65 @@ export default function Profile() {
     //             )}
     //           </>
 
-    //           <Routes>
-    //             <Route path="/" element={<ProfileMain />} />
+              <Routes>
+                <Route path="/" element={<ProfileMain />} />
 
-    //             {authCtx.user.access === 0 && (
-    //               // Admin
-    //               <>
-    //                 <Route path="/admin/tickets" element={<TicketAdmin />} />
-    //                 <Route path="/admin/support" element={<SupportAdmin />} />
-    //                 <Route path="/admin/sellers" element={<SellersAdmin />} />
-    //               </>
-    //             )}
+                {/* Admin */}
+                {authCtx.user.access === 0 && (
+                  <>
+                    <Route path="/admin/tickets" element={<TicketAdmin />} />
+                    <Route path="/admin/support" element={<SupportAdmin />} />
+                    <Route path="/admin/sellers" element={<SellersAdmin />} />
+                  </>
+                )}
 
-    //             {authCtx.user.access === 2 && (
-    //               <>
-    //                 <Route path="/admin/super/List" element={<FrontPage />} />
-    //                 <Route
-    //                   path="/admin/super/SelectSeller"
-    //                   element={<SelectSellerDetail />}
-    //                 />
-    //               </>
-    //             )}
+                {/* Super Admin */}
+                {authCtx.user.access === 2 && (
+                  <>
+                    <Route path="/admin/super/List" element={<FrontPage />} />
+                    <Route
+                      path="/admin/super/SellerKYC"
+                      element={<SellersAdmin />}
+                    />
+                    <Route
+                      path="/admin/super/SellerInfo"
+                      element={<SellerInfo />}
+                    />
+                  </>
+                )}
 
-    //             {authCtx.user.access === 1 && (
-    //               // Users
-    //               <>
-    //                 <Route path="/sales" element={<Sales />} />
-    //                 <Route path="/faqs" element={<Support />} />
-    //                 <Route path="/contact" element={<Contact />} />
-    //                 <Route path="/products" element={<Products />} />
-    //                 <Route path="/help/desk" element={<HelpDesk />} />
-    //                 <Route path="/dashboard" element={<Dashboard />} />
-    //                 <Route path="/Inventory" element={<Categories />} />
-    //                 <Route path="/addProduct" element={<AddProduct />} />
-    //                 <Route path="/Payment/Details" element={<PayDetails />} />
-    //                 <Route path="/Payment/Request" element={<PayRequest />} />
-    //                 <Route
-    //                   path="/orderdetails/:id"
-    //                   element={<Orderdetails />}
-    //                 />
-    //                 <Route
-    //                   path="/help/desk/ViewMore"
-    //                   element={<HelpDeskTable />}
-    //                 />
-    //               </>
-    //             )}
-    //           </Routes>
-    //         </div>
-    //       </>
-    //     ) : (
-    //       ""
-    //     )}
-    //   </div>
+                {/* Users */}
+                {authCtx.user.access === 1 && (
+                  <>
+                    <Route path="/sales" element={<Sales />} />
+                    <Route path="/faqs" element={<Support />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/products" element={<Products />} />
+                    <Route path="/help/desk" element={<HelpDesk />} />
+                    <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/Inventory" element={<Categories />} />
+                    <Route path="/addProduct" element={<AddProduct />} />
+                    <Route path="/Payment/Details" element={<PayDetails />} />
+                    <Route path="/Payment/Request" element={<PayRequest />} />
+                    <Route
+                      path="/orderdetails/:id"
+                      element={<Orderdetails />}
+                    />
+                    <Route
+                      path="/help/desk/ViewMore"
+                      element={<HelpDeskTable />}
+                    />
+                  </>
+                )}
+              </Routes>
+            </div>
+          </>
+        ) : (
+          ""
+        )}
+      </div>
 
-    //   <Alert variant={variants} val={setError} />
-    // </>
-    <Routes>
-    <Route path="/selectSeller" element={<SelectSellerDetail />} />
-    </Routes>
-      
+      <Alert variant={variants} val={setError} />
+    </>
   );
 }

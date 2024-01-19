@@ -53,6 +53,10 @@ body::-webkit-scrollbar-thumb:hover {
   color: black;
 }
 
+input {
+  outline: none;
+}
+
 #right {
   text-align: right;
 }

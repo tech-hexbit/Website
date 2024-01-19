@@ -110,29 +110,26 @@ export default function PaymentTable({ setSel }) {
                       </td>
                       <td data-cell="action">
                         <label className={pt.labelDiv}>
-                          {val.action === "Delivered & Eligible" ? (
+                          {val.action === "Delivered & Eligible" && (
                             <input
                               type="checkbox"
                               className={pt.CheckBoxInp}
-                              onClick={() => {
+                              onChange={(e) => {
                                 console.log("first");
 
                                 setSel((prevShowSel) => ({
                                   ...prevShowSel,
-                                  total:
-                                    prevShowSel.total +
-                                    (prevShowSel.total === 0 ? 1 : -1),
-                                  amount:
-                                    prevShowSel.amount +
-                                    (prevShowSel.amount === 0
-                                      ? val.amount
-                                      : -val.amount),
+                                  total: e.target.checked
+                                    ? prevShowSel.total + 1
+                                    : prevShowSel.total - 1,
+                                  amount: e.target.checked
+                                    ? prevShowSel.amount + val.amount
+                                    : prevShowSel.amount - val.amount,
                                 }));
                               }}
                             />
-                          ) : (
-                            ""
                           )}
+
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"

@@ -1,81 +1,234 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 // components
 import Form1 from "./Form1";
 import Form2 from "./Form2";
+import TandC from "./TandC";
+import PwdChanged from "./PwdChanged";
 import Information from "./Information";
 
-//MicroInteraction
+// MicroInteraction
 import Load from "../../MicroInteraction/Load";
+import { Alert } from "./../../MicroInteraction/Alert";
 
-//css
+// axios
+import axios from "axios";
+
+// css
 import fpstyle from "./CSS/ForgetPassword.module.css";
 
 export default function ForgetPassword() {
   const [load, setLoad] = useState(false);
-  const [forget, setForget] = useState(true);
+  const [state, setState] = useState({
+    forget: true,
+    email: "",
+    password: "",
+    isEmailValid: true,
+    passwordsMatch: false,
+    reset: false,
+  });
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [, forget]);
+  const navigate = useNavigate();
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  // form 1
+  const handleContinueForm1 = async () => {
+    setLoad(true);
+
+    const isEmailValid = validateEmail(state.email);
+    setState((prevState) => ({ ...prevState, isEmailValid }));
+
+    if (!isEmailValid) {
+      setLoad(false);
+
+      setError({
+        mainColor: "#FFC0CB",
+        secondaryColor: "#FF69B4",
+        symbol: "pets",
+        title: "Check it out",
+        text: "Please Enter Valid Email address",
+        val: true,
+      });
+
+      return;
+    } else {
+      let data = {
+        Email: state.email,
+      };
+      try {
+        const response = await axios.post(
+          "/api/website/password/reset/look/email",
+          data
+        );
+
+        if (response.data.success) {
+          setLoad(false);
+
+          setState((prevState) => ({ ...prevState, forget: false }));
+        } else {
+          setLoad(false);
+
+          setError({
+            mainColor: "#E5F6FD",
+            secondaryColor: "#1AB1F5",
+            symbol: "info",
+            title: "Information",
+            text: "Email ID does not exist",
+            val: true,
+          });
+        }
+      } catch (error) {
+        console.log(error);
+
+        setLoad(false);
+
+        setError({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "An unexpected error occurred",
+          val: true,
+        });
+      }
+    }
+  };
+
+  // form 2
+  const handleContinueForm2 = async () => {
+    setLoad(true);
+
+    if (!state.passwordsMatch) {
+      setLoad(false);
+
+      setError({
+        mainColor: "#E5F6FD",
+        secondaryColor: "#1AB1F5",
+        symbol: "info",
+        title: "Information",
+        text: "Passwords didn't matched",
+        val: true,
+      });
+
+      return;
+    } else {
+      try {
+        let data = {
+          email: state.email,
+          password: state.password,
+        };
+
+        const response = await axios.post("/api/website/password/reset", data);
+
+        if (response.data.success) {
+          setLoad(false);
+
+          setState({
+            ...state,
+            reset: true,
+          });
+          // navigate("/changepwd");
+        } else {
+          setLoad(false);
+
+          setError({
+            mainColor: "#E5F6FD",
+            secondaryColor: "#1AB1F5",
+            symbol: "info",
+            title: "Information",
+            text: "Email ID does not exist",
+            val: true,
+          });
+        }
+      } catch (error) {
+        console.log(error);
+
+        setLoad(false);
+
+        setError({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "An unexpected error occurred",
+          val: true,
+        });
+      }
+    }
+  };
+
+  const handleValidateEmail = (enteredEmail) => {
+    setState((prevState) => ({ ...prevState, email: enteredEmail }));
+  };
+
+  const handlePasswordMatch = (match, val) => {
+    setState({ ...state, passwordsMatch: match, password: val });
+  };
 
   return (
-    <>
-      <div className={fpstyle.mainDiv}>
-        <div className={fpstyle.left}>
-          <h1 className={fpstyle.forgot}>Forgot Password?</h1>
-          <p className={fpstyle.dont}>Don't worry. We can help.</p>
+    <div className={fpstyle.mainDiv}>
+      <div className={fpstyle.left}>
+        <h1 className={fpstyle.forgot}>Forgot Password?</h1>
+        <p className={fpstyle.dont}>Don't worry. We can help.</p>
 
-          {forget ? <Form1 /> : <Form2 />}
-
-          <div className={fpstyle.loginDiv}>
-            {forget && (
-              <div className={fpstyle.forCont}>
-                <p className={fpstyle.forget} onClick={() => setForget(false)}>
-                  Remembered your password?
-                </p>
-                <Link className={fpstyle.login} to="/signIn">
-                  Back to login
-                </Link>
-              </div>
-            )}
-            {forget ? (
-              <button onClick={() => setForget(false)}>
-                {load ? <Load /> : "Continue"}
-              </button>
+        {state.reset ? (
+          <PwdChanged />
+        ) : (
+          <>
+            {state.forget ? (
+              <Form1
+                validateEmail={validateEmail}
+                onContinue={handleContinueForm1}
+                onValidateEmail={handleValidateEmail}
+              />
             ) : (
-              <button>
-                <Link to="/changepwd" className={fpstyle.linkStyles}>
-                  {load ? <Load /> : "Continue"}
-                </Link>
-              </button>
+              <Form2 onPasswordMatch={handlePasswordMatch} />
             )}
+          </>
+        )}
 
-            <div className={fpstyle.tc}>
-              By signing up, you are agreeing to our{" "}
-              <Link
-                to="/terms"
-                className="LinkStyle"
-                style={{ color: "#350B5E" }}
+        <div className={fpstyle.loginDiv}>
+          {state.forget && (
+            <div className={fpstyle.forCont}>
+              <p
+                className={fpstyle.forget}
+                onClick={() =>
+                  setState((prevState) => ({ ...prevState, forget: true }))
+                }
               >
-                Terms & Conditions
-              </Link>{" "}
-              and{" "}
-              <Link
-                to="/privacy"
-                className="LinkStyle"
-                style={{ color: "#350B5E" }}
-              >
-                Privacy Policy
+                Remembered your password?
+              </p>
+              <Link className={fpstyle.login} to="/signIn">
+                Back to login
               </Link>
-              .
             </div>
-          </div>
-        </div>
+          )}
+          <button
+            onClick={state.forget ? handleContinueForm1 : handleContinueForm2}
+          >
+            {load ? <Load /> : "Continue"}
+          </button>
 
-        <Information />
+          <TandC />
+        </div>
       </div>
-    </>
+
+      <Information />
+
+      <Alert variant={variants} val={setError} />
+    </div>
   );
 }
