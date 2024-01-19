@@ -43,10 +43,14 @@ export default function ForgetPassword() {
   };
 
   const handleContinueForm1 = async () => {
+    setLoad(true);
+
     const isEmailValid = validateEmail(state.email);
     setState((prevState) => ({ ...prevState, isEmailValid }));
 
     if (!isEmailValid) {
+      setLoad(false);
+
       setError({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
@@ -56,7 +60,6 @@ export default function ForgetPassword() {
         val: true,
       });
 
-      window.scrollTo(0, 0);
       return;
     } else {
       let data = {
@@ -68,10 +71,10 @@ export default function ForgetPassword() {
           data
         );
 
-        console.log(response.data);
-
-        console.log(state.email);
-        // setState((prevState) => ({ ...prevState, forget: false }));
+        if (response.data.success) {
+          // setState((prevState) => ({ ...prevState, forget: false }));
+        } else {
+        }
       } catch (error) {
         console.log(error);
 
