@@ -25,6 +25,7 @@ export default function ForgetPassword() {
     password: "",
     isEmailValid: true,
     passwordsMatch: false,
+    reset: false,
   });
   const [variants, setError] = useState({
     mainColor: "",
@@ -106,7 +107,7 @@ export default function ForgetPassword() {
   };
 
   // form 2
-  const handleContinueForm2 = () => {
+  const handleContinueForm2 = async () => {
     setLoad(true);
 
     if (!state.passwordsMatch) {
@@ -123,12 +124,43 @@ export default function ForgetPassword() {
 
       return;
     } else {
-      let data = {
-        email: state.email,
-        password: state.password,
-      };
+      try {
+        let data = {
+          email: state.email,
+          password: state.password,
+        };
 
-      // navigate("/changepwd");
+        const response = await axios.post("/api/website/password/reset", data);
+
+        if (response.data.success) {
+          setLoad(false);
+          // navigate("/changepwd");
+        } else {
+          setLoad(false);
+
+          setError({
+            mainColor: "#E5F6FD",
+            secondaryColor: "#1AB1F5",
+            symbol: "info",
+            title: "Information",
+            text: "Email ID does not exist",
+            val: true,
+          });
+        }
+      } catch (error) {
+        console.log(error);
+
+        setLoad(false);
+
+        setError({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "An unexpected error occurred",
+          val: true,
+        });
+      }
     }
   };
 
