@@ -7,6 +7,7 @@ const Form1 = ({ onValidateEmail }) => {
   const handleEmailChange = (e) => {
     setInput({ ...input, email: e.target.value });
   };
+
   //validate email
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -27,42 +28,6 @@ const Form1 = ({ onValidateEmail }) => {
           onChange={handleEmailChange}
           onBlur={() => onValidateEmail(input.email)}
         />
-      </div>
-
-      <h3 className={fpstyle.or}>Or</h3>
-
-      {/* Phone */}
-      <div className={fpstyle.inputPO}>
-        <label htmlFor="phone">
-          Phone<span style={{ color: "#350B5E" }}>*</span>
-        </label>
-        <br />
-        <div className={fpstyle.phoneInputs}>
-          <input
-            type="text"
-            placeholder="+91"
-            disabled
-            id={fpstyle.countryCode}
-          />
-          <input
-            type="number"
-            placeholder="XXXXX-XXXXX"
-            id="phone"
-            className={fpstyle.phone}
-          />
-        </div>
-      </div>
-
-      {/* OTP */}
-      <div className={fpstyle.inputPO}>
-        <label htmlFor="otp">
-          Enter OTP<span style={{ color: "#350B5E" }}>*</span>
-        </label>
-        <br />
-        <div className={fpstyle.otpInputs}>
-          <input type="text" placeholder="Enter the otp" id="otp" />
-          <button>Resend OTP</button>
-        </div>
       </div>
     </>
   );

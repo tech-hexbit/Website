@@ -5,30 +5,36 @@ import { Link, useNavigate } from "react-router-dom";
 import Form1 from "./Form1";
 import Form2 from "./Form2";
 import TandC from "./TandC";
+import PwdChanged from "./PwdChanged";
 import Information from "./Information";
 
 // MicroInteraction
 import Load from "../../MicroInteraction/Load";
 import { Alert } from "./../../MicroInteraction/Alert";
 
+// axios
+import axios from "axios";
+
 // css
 import fpstyle from "./CSS/ForgetPassword.module.css";
 
 export default function ForgetPassword() {
+  const [load, setLoad] = useState(false);
   const [state, setState] = useState({
-    load: false,
     forget: true,
     email: "",
+    password: "",
     isEmailValid: true,
     passwordsMatch: false,
-    variants: {
-      mainColor: "",
-      secondaryColor: "",
-      symbol: "",
-      title: "",
-      text: "",
-      val: false,
-    },
+    reset: false,
+  });
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
   });
 
   const navigate = useNavigate();
@@ -38,57 +44,138 @@ export default function ForgetPassword() {
     return emailRegex.test(email);
   };
 
-  const handleContinueForm1 = () => {
+  // form 1
+  const handleContinueForm1 = async () => {
+    setLoad(true);
+
     const isEmailValid = validateEmail(state.email);
     setState((prevState) => ({ ...prevState, isEmailValid }));
 
     if (!isEmailValid) {
-      setState((prevState) => ({
-        ...prevState,
-        variants: {
-          mainColor: "#FFC0CB",
-          secondaryColor: "#FF69B4",
-          symbol: "pets",
-          title: "Check it out",
-          text: "Please Enter Valid Email address",
-          val: true,
-        },
-      }));
+      setLoad(false);
 
-      window.scrollTo(0, 0);
+      setError({
+        mainColor: "#FFC0CB",
+        secondaryColor: "#FF69B4",
+        symbol: "pets",
+        title: "Check it out",
+        text: "Please Enter Valid Email address",
+        val: true,
+      });
+
       return;
-    }
+    } else {
+      let data = {
+        Email: state.email,
+      };
+      try {
+        const response = await axios.post(
+          "/api/website/password/reset/look/email",
+          data
+        );
 
-    setState((prevState) => ({ ...prevState, forget: false }));
+        if (response.data.success) {
+          setLoad(false);
+
+          setState((prevState) => ({ ...prevState, forget: false }));
+        } else {
+          setLoad(false);
+
+          setError({
+            mainColor: "#E5F6FD",
+            secondaryColor: "#1AB1F5",
+            symbol: "info",
+            title: "Information",
+            text: "Email ID does not exist",
+            val: true,
+          });
+        }
+      } catch (error) {
+        console.log(error);
+
+        setLoad(false);
+
+        setError({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "An unexpected error occurred",
+          val: true,
+        });
+      }
+    }
   };
 
-  const handleContinueForm2 = () => {
+  // form 2
+  const handleContinueForm2 = async () => {
+    setLoad(true);
+
     if (!state.passwordsMatch) {
-      setState((prevState) => ({
-        ...prevState,
-        variants: {
-          mainColor: "#E5F6FD",
-          secondaryColor: "#1AB1F5",
-          symbol: "info",
-          title: "Information",
-          text: "Passwords didn't matched",
-          val: true,
-        },
-      }));
+      setLoad(false);
 
-      window.scrollTo(0, 0);
+      setError({
+        mainColor: "#E5F6FD",
+        secondaryColor: "#1AB1F5",
+        symbol: "info",
+        title: "Information",
+        text: "Passwords didn't matched",
+        val: true,
+      });
+
       return;
-    }
+    } else {
+      try {
+        let data = {
+          email: state.email,
+          password: state.password,
+        };
 
-    navigate("/changepwd");
+        const response = await axios.post("/api/website/password/reset", data);
+
+        if (response.data.success) {
+          setLoad(false);
+
+          setState({
+            ...state,
+            reset: true,
+          });
+          // navigate("/changepwd");
+        } else {
+          setLoad(false);
+
+          setError({
+            mainColor: "#E5F6FD",
+            secondaryColor: "#1AB1F5",
+            symbol: "info",
+            title: "Information",
+            text: "Email ID does not exist",
+            val: true,
+          });
+        }
+      } catch (error) {
+        console.log(error);
+
+        setLoad(false);
+
+        setError({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "An unexpected error occurred",
+          val: true,
+        });
+      }
+    }
   };
 
   const handleValidateEmail = (enteredEmail) => {
     setState((prevState) => ({ ...prevState, email: enteredEmail }));
   };
 
-  const handlePasswordMatch = (match) => {
-    setState((prevState) => ({ ...prevState, passwordsMatch: match }));
+  const handlePasswordMatch = (match, val) => {
+    setState({ ...state, passwordsMatch: match, password: val });
   };
 
   return (
@@ -97,14 +184,20 @@ export default function ForgetPassword() {
         <h1 className={fpstyle.forgot}>Forgot Password?</h1>
         <p className={fpstyle.dont}>Don't worry. We can help.</p>
 
-        {state.forget ? (
-          <Form1
-            validateEmail={validateEmail}
-            onContinue={handleContinueForm1}
-            onValidateEmail={handleValidateEmail}
-          />
+        {state.reset ? (
+          <PwdChanged />
         ) : (
-          <Form2 onPasswordMatch={handlePasswordMatch} />
+          <>
+            {state.forget ? (
+              <Form1
+                validateEmail={validateEmail}
+                onContinue={handleContinueForm1}
+                onValidateEmail={handleValidateEmail}
+              />
+            ) : (
+              <Form2 onPasswordMatch={handlePasswordMatch} />
+            )}
+          </>
         )}
 
         <div className={fpstyle.loginDiv}>
@@ -126,7 +219,7 @@ export default function ForgetPassword() {
           <button
             onClick={state.forget ? handleContinueForm1 : handleContinueForm2}
           >
-            {state.load ? <Load /> : "Continue"}
+            {load ? <Load /> : "Continue"}
           </button>
 
           <TandC />
@@ -135,12 +228,7 @@ export default function ForgetPassword() {
 
       <Information />
 
-      <Alert
-        variant={state.variants}
-        val={(variants) =>
-          setState((prevState) => ({ ...prevState, variants }))
-        }
-      />
+      <Alert variant={variants} val={setError} />
     </div>
   );
 }
