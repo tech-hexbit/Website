@@ -62,6 +62,7 @@ export default function PaymentRequest({ setSel }) {
                 AccountHolderName={bank.AccountHolderName}
                 IfscCode={bank.IfscCode}
                 key={key}
+                setSel={setSel}
               />
             ))}
           </>
