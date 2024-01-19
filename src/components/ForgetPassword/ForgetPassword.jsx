@@ -22,6 +22,7 @@ export default function ForgetPassword() {
   const [state, setState] = useState({
     forget: true,
     email: "",
+    password: "",
     isEmailValid: true,
     passwordsMatch: false,
   });
@@ -106,7 +107,11 @@ export default function ForgetPassword() {
 
   // form 2
   const handleContinueForm2 = () => {
+    setLoad(true);
+
     if (!state.passwordsMatch) {
+      setLoad(false);
+
       setError({
         mainColor: "#E5F6FD",
         secondaryColor: "#1AB1F5",
@@ -117,6 +122,12 @@ export default function ForgetPassword() {
       });
 
       return;
+    } else {
+      let data = {
+        Email: state.email,
+      };
+
+      // console.log(first)
     }
 
     navigate("/changepwd");
