@@ -20,7 +20,6 @@ import fpstyle from "./CSS/ForgetPassword.module.css";
 export default function ForgetPassword() {
   const [load, setLoad] = useState(false);
   const [state, setState] = useState({
-    load: false,
     forget: true,
     email: "",
     isEmailValid: true,
@@ -72,8 +71,20 @@ export default function ForgetPassword() {
         );
 
         if (response.data.success) {
-          // setState((prevState) => ({ ...prevState, forget: false }));
+          setLoad(false);
+
+          setState((prevState) => ({ ...prevState, forget: false }));
         } else {
+          setLoad(false);
+
+          setError({
+            mainColor: "#E5F6FD",
+            secondaryColor: "#1AB1F5",
+            symbol: "info",
+            title: "Information",
+            text: "Email ID does not exist",
+            val: true,
+          });
         }
       } catch (error) {
         console.log(error);
@@ -153,7 +164,7 @@ export default function ForgetPassword() {
           <button
             onClick={state.forget ? handleContinueForm1 : handleContinueForm2}
           >
-            {state.load ? <Load /> : "Continue"}
+            {load ? <Load /> : "Continue"}
           </button>
 
           <TandC />
