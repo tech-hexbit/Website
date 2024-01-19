@@ -17,6 +17,10 @@ export default function PayRequest() {
     amount: 0,
   });
 
+  const raiseReq = async () => {
+    console.log("raiseReq");
+  };
+
   // scroll to top
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -32,7 +36,11 @@ export default function PayRequest() {
         <h3>Confirm Account Details For Payment Request </h3>
         <div className={pr.detailWrapper}>
           <PaymentRequest />
-          <SelectedBlock total={showSel.total} amount={showSel.amount} />
+          <SelectedBlock
+            total={showSel.total}
+            amount={showSel.amount}
+            raiseReq={raiseReq}
+          />
         </div>
       </div>
     </div>
