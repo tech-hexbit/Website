@@ -55,7 +55,7 @@ export default function SelectedBlock({ total, amount }) {
                   <path d="M9 13c6.667 0 6.667-10 0-10" />
                 </svg>
               </span>
-              {amount}
+              {amount.toFixed(2)}
             </h1>
           </div>
         </div>
