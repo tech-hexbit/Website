@@ -138,6 +138,11 @@ export default function ForgetPassword() {
         } else {
           setLoad(false);
 
+          setState({
+            ...state,
+            reset: true,
+          });
+
           setError({
             mainColor: "#E5F6FD",
             secondaryColor: "#1AB1F5",
@@ -180,14 +185,20 @@ export default function ForgetPassword() {
         <h1 className={fpstyle.forgot}>Forgot Password?</h1>
         <p className={fpstyle.dont}>Don't worry. We can help.</p>
 
-        {state.forget ? (
-          <Form1
-            validateEmail={validateEmail}
-            onContinue={handleContinueForm1}
-            onValidateEmail={handleValidateEmail}
-          />
+        {state.reset ? (
+          <>Save</>
         ) : (
-          <Form2 onPasswordMatch={handlePasswordMatch} />
+          <>
+            {state.forget ? (
+              <Form1
+                validateEmail={validateEmail}
+                onContinue={handleContinueForm1}
+                onValidateEmail={handleValidateEmail}
+              />
+            ) : (
+              <Form2 onPasswordMatch={handlePasswordMatch} />
+            )}
+          </>
         )}
 
         <div className={fpstyle.loginDiv}>
