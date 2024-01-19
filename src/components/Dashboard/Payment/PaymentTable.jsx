@@ -115,8 +115,6 @@ export default function PaymentTable({ setSel }) {
                               type="checkbox"
                               className={pt.CheckBoxInp}
                               onChange={(e) => {
-                                console.log("first");
-
                                 setSel((prevShowSel) => ({
                                   ...prevShowSel,
                                   total: e.target.checked
