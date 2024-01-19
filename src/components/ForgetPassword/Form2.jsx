@@ -13,7 +13,8 @@ const Form2 = ({ onPasswordMatch }) => {
   // Check if passwords match
   const checkPasswordMatch = () => {
     const { newpwd, confirmpwd } = input;
-    onPasswordMatch(newpwd === confirmpwd);
+
+    onPasswordMatch(newpwd === confirmpwd, confirmpwd);
   };
 
   return (
