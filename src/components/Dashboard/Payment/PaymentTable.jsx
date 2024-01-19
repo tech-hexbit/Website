@@ -123,6 +123,13 @@ export default function PaymentTable({ setSel }) {
                                   amount: e.target.checked
                                     ? prevShowSel.amount + val.amount
                                     : prevShowSel.amount - val.amount,
+                                  order: e.target.checked
+                                    ? Array.isArray(prevShowSel.order)
+                                      ? [...prevShowSel.order, val._id]
+                                      : [val._id]
+                                    : prevShowSel.order.filter(
+                                        (order) => order !== val._id
+                                      ),
                                 }));
                               }}
                             />
@@ -165,9 +172,5 @@ export default function PaymentTable({ setSel }) {
 }
 
 PaymentTable.propTypes = {
-  showSel: PropTypes.shape({
-    total: PropTypes.number.isRequired,
-    amount: PropTypes.number.isRequired,
-  }).isRequired,
   setSel: PropTypes.func.isRequired,
 };
