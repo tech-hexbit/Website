@@ -124,21 +124,22 @@ export default function ForgetPassword() {
       return;
     } else {
       let data = {
-        Email: state.email,
+        email: state.email,
+        password: state.password,
       };
 
-      // console.log(first)
+      // navigate("/changepwd");
     }
-
-    navigate("/changepwd");
   };
 
   const handleValidateEmail = (enteredEmail) => {
     setState((prevState) => ({ ...prevState, email: enteredEmail }));
   };
 
-  const handlePasswordMatch = (match) => {
+  const handlePasswordMatch = (match, val) => {
     setState((prevState) => ({ ...prevState, passwordsMatch: match }));
+
+    setState({ ...state, password: val });
   };
 
   return (
