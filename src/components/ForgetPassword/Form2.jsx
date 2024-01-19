@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // css
 import fpstyle from "./CSS/ForgetPassword.module.css";
@@ -16,6 +16,10 @@ const Form2 = ({ onPasswordMatch }) => {
 
     onPasswordMatch(newpwd === confirmpwd, confirmpwd);
   };
+
+  useEffect(() => {
+    console.table(input);
+  }, [input]);
 
   return (
     <>
