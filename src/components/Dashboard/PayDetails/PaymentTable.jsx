@@ -88,10 +88,10 @@ export default function PaymentTable({ load, showData }) {
             <table className={Gptable.trans_table}>
               <tr>
                 <th>Ref. No.</th>
-                <th>Order Id</th>
                 <th>A/c Holder Name</th>
                 <th>Date</th>
                 <th>Amount</th>
+                <th>Order Id</th>
                 <th>Payment Mode</th>
                 <th>Status</th>
                 <th>Action</th>
@@ -102,13 +102,18 @@ export default function PaymentTable({ load, showData }) {
                   {showData.map((item, index) => (
                     <tr key={index}>
                       <td data-cell="ref no">{item._id.slice(-4)}</td>
-                      <td data-cell="order id">{item.orderId}</td>
                       <td data-cell="name">
                         {item.bank.BankDetails[0].AccountHolderName}
                       </td>
                       <td data-cell="date">{item.when.date}</td>
                       <td data-cell="amount">
                         ₹ {item.totalAmount.toFixed(2)}
+                      </td>
+                      <td data-cell="order id">
+                        [
+                        {item.order.map((val, key) => {
+                          return <>{val.orderID._id.slice(-4)}, </>;
+                        })}
                       </td>
                       <td data-cell="payment mode">{item.paymentMode}</td>
                       <td
@@ -127,7 +132,7 @@ export default function PaymentTable({ load, showData }) {
                         data-cell="action"
                         onClick={() => handleOverlay(item.refNo)}
                       >
-                        {item.action}
+                        View Details
                       </td>
                     </tr>
                   ))}
