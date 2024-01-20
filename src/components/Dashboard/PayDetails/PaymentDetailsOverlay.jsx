@@ -30,12 +30,18 @@ export default function PaymentDetailsOverlay({ selectedItem }) {
           <p className={gpdo.bold}> {selectedItem[0].status}</p>
         </div>
         <div className={gpdo.item}>
-          <p className={gpdo.bold}>Status Code</p>
-          <p className={gpdo.bold}>---paymentMode---</p>
-        </div>
-        <div className={gpdo.item}>
           <p>Payment Method</p>
-          <p>---Method---</p>
+          <p>
+            {" "}
+            [{" "}
+            {selectedItem[0].order.map((val, key) => {
+              const lastFourChars = val.orderID.payment.type;
+              return key === selectedItem[0].order.length - 1
+                ? lastFourChars
+                : `${lastFourChars}, `;
+            })}{" "}
+            ]
+          </p>
         </div>
         <div className={gpdo.item}>
           <p> Account Number</p>
@@ -55,7 +61,17 @@ export default function PaymentDetailsOverlay({ selectedItem }) {
         </div>
         <div className={gpdo.item}>
           <p>UTR Number</p>
-          <p>---UTR---</p>
+          <p>
+            {" "}
+            [{" "}
+            {selectedItem[0].order.map((val, key) => {
+              const lastFourChars = val.orderID.payment.uri;
+              return key === selectedItem[0].order.length - 1
+                ? lastFourChars
+                : `${lastFourChars}, `;
+            })}{" "}
+            ]
+          </p>
         </div>
         <div className={gpdo.item}>
           <p>Payment Date & Time</p>
@@ -63,19 +79,19 @@ export default function PaymentDetailsOverlay({ selectedItem }) {
         </div>
         <div className={gpdo.item}>
           <p>Request Amount</p>
-          <p>INR 366.16</p>
+          <p>INR {selectedItem[0].breakUp[0].amount.toFixed(2)}</p>
         </div>
         <div className={gpdo.item}>
           <p>Platform Fee</p>
-          <p>INR 20</p>
+          <p>INR {selectedItem[0].breakUp[0].platformFee.toFixed(2)}</p>
         </div>
         <div className={gpdo.item}>
           <p>Tax</p>
-          <p>INR 16</p>
+          <p>INR {selectedItem[0].breakUp[0].tax.toFixed(2)}</p>
         </div>
         <div className={gpdo.final}>
           <p>Final Transferred Amount (Total)</p>
-          <p>INR 330.16</p>
+          <p>INR {selectedItem[0].totalAmount.toFixed(2)}</p>
         </div>
       </div>
       <GatewayGetinTouch />
