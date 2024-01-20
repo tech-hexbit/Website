@@ -1,14 +1,36 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 // css
 import pr from "./Css/PaymentRequest.module.css";
 
-export default function BankDel(props) {
+export default function BankDel({
+  setSel,
+  key,
+  BankName,
+  AccountNumber,
+  AccountHolderName,
+  IfscCode,
+  id,
+  showSel,
+}) {
+  console.log(BankName);
   return (
     <>
-      <div className={pr.grid} key={props.key}>
+      <div className={pr.grid} key={key}>
         <div className={pr.gridItem}>
-          <input type="checkbox" className={pr.checkBoxBank} />
+          <input
+            type="radio"
+            className={pr.checkBoxBank}
+            name="bank"
+            id={id}
+            onChange={() => {
+              setSel({
+                ...showSel,
+                bank: id,
+              });
+            }}
+          />
 
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -29,28 +51,45 @@ export default function BankDel(props) {
 
         {/* BANK NAME */}
         <div className={pr.gridItem}>
-          <h4>BANK</h4>
-          <h3>{props.BankName}</h3>
+          <label htmlFor={id} className={pr.label}>
+            <h4>BANK</h4>
+            <h3>{BankName}</h3>
+          </label>
         </div>
 
         {/* ACCOUNT NUMBER */}
         <div className={pr.gridItem}>
-          <h4>LAST 4 Digit</h4>
-          <h3>{props.AccountNumber}</h3>
+          <label htmlFor={id} className={pr.label}>
+            <h4>LAST 4 Digit</h4>
+            <h3>{AccountNumber}</h3>
+          </label>
         </div>
 
         {/* HOLDER'S NAME */}
         <div className={pr.gridItem}>
-          <h4>Account Holder</h4>
-          <h3>{props.AccountHolderName}</h3>
+          <label htmlFor={id} className={pr.label}>
+            <h4>Account Holder</h4>
+            <h3>{AccountHolderName}</h3>
+          </label>
         </div>
 
         {/* IFSC CODE */}
         <div className={pr.gridItem}>
-          <h4>IFSC CODE</h4>
-          <h3>{props.IfscCode}</h3>
+          <label htmlFor={id} className={pr.label}>
+            <h4>IFSC CODE</h4>
+            <h3>{IfscCode}</h3>
+          </label>
         </div>
       </div>
     </>
   );
 }
+
+BankDel.propTypes = {
+  setSel: PropTypes.func.isRequired,
+  BankName: PropTypes.string.isRequired,
+  AccountNumber: PropTypes.string.isRequired,
+  AccountHolderName: PropTypes.string.isRequired,
+  IfscCode: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+};

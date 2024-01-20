@@ -200,30 +200,36 @@ export default function ForgetPassword() {
           </>
         )}
 
-        <div className={fpstyle.loginDiv}>
-          {state.forget && (
-            <div className={fpstyle.forCont}>
-              <p
-                className={fpstyle.forget}
-                onClick={() =>
-                  setState((prevState) => ({ ...prevState, forget: true }))
+        {!state.reset && (
+          <>
+            <div className={fpstyle.loginDiv}>
+              {state.forget && (
+                <div className={fpstyle.forCont}>
+                  <p
+                    className={fpstyle.forget}
+                    onClick={() =>
+                      setState((prevState) => ({ ...prevState, forget: true }))
+                    }
+                  >
+                    Remembered your password?
+                  </p>
+                  <Link className={fpstyle.login} to="/signIn">
+                    Back to login
+                  </Link>
+                </div>
+              )}
+              <button
+                onClick={
+                  state.forget ? handleContinueForm1 : handleContinueForm2
                 }
               >
-                Remembered your password?
-              </p>
-              <Link className={fpstyle.login} to="/signIn">
-                Back to login
-              </Link>
-            </div>
-          )}
-          <button
-            onClick={state.forget ? handleContinueForm1 : handleContinueForm2}
-          >
-            {load ? <Load /> : "Continue"}
-          </button>
+                {load ? <Load /> : "Continue"}
+              </button>
 
-          <TandC />
-        </div>
+              <TandC />
+            </div>
+          </>
+        )}
       </div>
 
       <Information />
