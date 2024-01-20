@@ -20,6 +20,16 @@ import Gate from "./../Dashboard/PayDetails/Css/PayDetails.module.css";
 export default function PayDetails() {
   const [load, setLoad] = useState(false);
   const [showData, setData] = useState([]);
+  const [showlist, setList] = useState({
+    payment: 0,
+    Amount: 0,
+    Rejected: 0,
+    transactions: {
+      completed: 0,
+      raised: 0,
+      pending: 0,
+    },
+  });
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -43,7 +53,10 @@ export default function PayDetails() {
       );
 
       if (response.data.success) {
+        console.log(response.data);
+
         setData(response.data.reqList);
+        setList(response.data.listData);
 
         setLoad(false);
       } else {
@@ -74,14 +87,10 @@ export default function PayDetails() {
     window.scrollTo(0, 0);
   }, []);
 
-  useEffect(() => {
-    console.log(showData);
-  }, [showData]);
-
   return (
     <>
       <div className={Gate.main}>
-        <PaymentList />
+        <PaymentList showlist={showlist} />
         <PaymentTable showData={showData} />
       </div>
 
