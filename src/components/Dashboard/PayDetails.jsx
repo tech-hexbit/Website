@@ -82,7 +82,7 @@ export default function PayDetails() {
     <>
       <div className={Gate.main}>
         <PaymentList />
-        <PaymentTable />
+        <PaymentTable showData={showData} />
       </div>
 
       <Alert variant={variants} val={setError} />
