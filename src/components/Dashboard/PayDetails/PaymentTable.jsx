@@ -51,6 +51,7 @@ export default function PaymentTable({ load, showData }) {
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
+
                 {/* display selected row */}
                 {filteredRowItem.map((item, index) => (
                   <tr key={index}>
@@ -100,11 +101,15 @@ export default function PaymentTable({ load, showData }) {
                 <>
                   {showData.map((item, index) => (
                     <tr key={index}>
-                      <td data-cell="ref no">{item.refNo}</td>
+                      <td data-cell="ref no">{item._id.slice(-4)}</td>
                       <td data-cell="order id">{item.orderId}</td>
-                      <td data-cell="name">{item.accountHolderName}</td>
-                      <td data-cell="date">{item.date}</td>
-                      <td data-cell="amount">{item.amount}</td>
+                      <td data-cell="name">
+                        {item.bank.BankDetails[0].AccountHolderName}
+                      </td>
+                      <td data-cell="date">{item.when.date}</td>
+                      <td data-cell="amount">
+                        ₹ {item.totalAmount.toFixed(2)}
+                      </td>
                       <td data-cell="payment mode">{item.paymentMode}</td>
                       <td
                         className={
