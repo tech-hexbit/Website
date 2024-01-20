@@ -116,13 +116,16 @@ export default function PaymentTable({ load, showData }) {
                           return key === item.order.length - 1
                             ? lastFourChars
                             : `${lastFourChars}, `;
-                        })}
+                        })}{" "}
                         ]
                       </td>
                       <td data-cell="payment mode">
                         [{" "}
                         {item.order.map((val, key) => {
-                          return <>{val.orderID.payment.status}, </>;
+                          const lastFourChars = val.orderID.payment.status;
+                          return key === item.order.length - 1
+                            ? lastFourChars
+                            : `${lastFourChars}, `;
                         })}{" "}
                         ]
                       </td>
