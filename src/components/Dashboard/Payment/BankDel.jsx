@@ -14,6 +14,7 @@ export default function BankDel({
   id,
   showSel,
 }) {
+  console.log(BankName);
   return (
     <>
       <div className={pr.grid} key={key}>
