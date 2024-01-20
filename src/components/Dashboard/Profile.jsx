@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 
 // components
 import Header from "./Profile/Header";
+import StoreVerify from "./../../Pages/StoreVerify";
 
 export default function Profile() {
   // scroll to top
@@ -12,6 +13,8 @@ export default function Profile() {
   return (
     <>
       <Header />
+
+      <StoreVerify />
     </>
   );
 }
