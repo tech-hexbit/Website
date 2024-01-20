@@ -27,31 +27,31 @@ export default function PaymentDetailsOverlay({ selectedItem }) {
         </div>
         <div className={gpdo.item}>
           <p className={gpdo.bold}>Status</p>
-          {/* <p className={gpdo.bold}>{status}</p> */}
+          <p className={gpdo.bold}> {selectedItem[0].status}</p>
         </div>
         <div className={gpdo.item}>
           <p className={gpdo.bold}>Status Code</p>
-          {/* <p className={gpdo.bold}>{paymentMode}</p> */}
+          <p className={gpdo.bold}>---paymentMode---</p>
         </div>
         <div className={gpdo.item}>
           <p>Payment Method</p>
-          <p>NEFT</p>
+          <p>---Method---</p>
         </div>
         <div className={gpdo.item}>
           <p> Account Number</p>
-          <p>012345678</p>
+          <p>{selectedItem[0].bank.BankDetails[0].AccountNumber}</p>
         </div>
         <div className={gpdo.item}>
           <p> Account Holder Name</p>
-          {/* <p>{accountHolderName}</p> */}
+          <p>{selectedItem[0].bank.BankDetails[0].AccountHolderName}</p>
         </div>
         <div className={gpdo.item}>
           <p>Bank Name</p>
-          <p>SBI</p>
+          <p>{selectedItem[0].bank.BankDetails[0].BankName}</p>
         </div>
         <div className={gpdo.item}>
           <p>IFSC Code</p>
-          <p>SBIN0123456</p>
+          <p>{selectedItem[0].bank.BankDetails[0].IfscCode}</p>
         </div>
         <div className={gpdo.item}>
           <p>UTR Number</p>
