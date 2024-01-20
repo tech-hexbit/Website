@@ -39,9 +39,14 @@ export default function PayRequest() {
   const raiseReq = async () => {
     setLoad(true);
 
-    console.log(showSel);
-
     try {
+      let data = {
+        bank: showSel.bank,
+        count: showSel.total,
+        order: showSel.order,
+        amount: showSel.amount,
+      };
+
       const response = await axios.post(
         "/api/common/Payment/Order/Request/Up",
         data,
