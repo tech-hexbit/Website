@@ -24,7 +24,9 @@ export default function PaymentTable({ load, showData }) {
     setShowOverlay(showOverlay);
   };
 
-  const filteredRowItem = data.filter((item) => item.refNo === selectedItem);
+  // const filteredRowItem = showData.filter(
+  //   (item) => item.refNo === selectedItem
+  // );
 
   return (
     <div className={Gptable.main}>
