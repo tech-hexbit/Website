@@ -110,12 +110,22 @@ export default function PaymentTable({ load, showData }) {
                         ₹ {item.totalAmount.toFixed(2)}
                       </td>
                       <td data-cell="order id">
-                        [
+                        [{" "}
                         {item.order.map((val, key) => {
-                          return <>{val.orderID._id.slice(-4)}, </>;
+                          const lastFourChars = val.orderID._id.slice(-4);
+                          return key === item.order.length - 1
+                            ? lastFourChars
+                            : `${lastFourChars}, `;
                         })}
+                        ]
                       </td>
-                      <td data-cell="payment mode">{item.paymentMode}</td>
+                      <td data-cell="payment mode">
+                        [{" "}
+                        {item.order.map((val, key) => {
+                          return <>{val.orderID.payment.status}, </>;
+                        })}{" "}
+                        ]
+                      </td>
                       <td
                         className={
                           item.status === "Payment Processed"
