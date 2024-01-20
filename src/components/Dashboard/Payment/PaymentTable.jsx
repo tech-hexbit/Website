@@ -14,7 +14,7 @@ import AuthContext from "../../../store/auth-context";
 // css
 import pt from "./Css/PaymentTable.module.css";
 
-export default function PaymentTable({ setSel }) {
+export default function PaymentTable({ setSel, loadDataSave }) {
   const [load, setLoad] = useState(false);
   const [showData, setData] = useState([]);
   const [variants, setError] = useState({
@@ -63,7 +63,7 @@ export default function PaymentTable({ setSel }) {
 
   useEffect(() => {
     loadData();
-  }, []);
+  }, [, loadDataSave]);
 
   return (
     <>
@@ -76,7 +76,7 @@ export default function PaymentTable({ setSel }) {
           </div>
         ) : (
           <>
-            {showData ? (
+            {showData.length > 0 ? (
               <>
                 <table className={pt.trans_table}>
                   <tr>
