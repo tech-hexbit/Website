@@ -1,25 +1,32 @@
 import React, { useContext, useState, useRef } from "react";
-import SvCss from "../../Pages/Css/StoreVerify.module.css";
-import Load from "../../MicroInteraction/Load";
-import AuthContext from "../../store/auth-context";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+// css
+import SvCss from "../../Pages/Css/StoreVerify.module.css";
+
+// MicroInteraction
+import Load from "../../MicroInteraction/Load";
+
+// store
+import AuthContext from "../../store/auth-context";
+
+// axios
+import axios from "axios";
+
+// components
+import Heading from "./Heading";
 import TextInput from "./TextInput";
 import BankFields from "./BankFields";
 import Ondc_Details from "./OndcField";
 import FileInput from "./FileInput";
-import Heading from "./Heading";
 import TimingField from "./TimingField";
 import VerifiedFields from "./VerifiedFields";
 import PincodeField from "./PincodeField";
 
 const StoreVerifyMain = (props) => {
-  const fileInp_cheque = useRef(null);
-  const fileInp_address = useRef(null);
-  const fileInp_id = useRef(null);
-  const [verifyPin, setVerify] = useState(false);
+  const [load, setLoad] = useState(false);
   const [disable, setDisable] = useState(false);
+  const [verifyPin, setVerify] = useState(false);
   const [showData, setData] = useState({
     FirstName: "",
     LastName: "",
@@ -57,8 +64,12 @@ const StoreVerifyMain = (props) => {
     imageUploadID: "",
   });
 
-  const [load, setLoad] = useState(false);
+  const fileInp_id = useRef(null);
+  const fileInp_cheque = useRef(null);
+  const fileInp_address = useRef(null);
+
   const authCtx = useContext(AuthContext);
+
   const redirect = useNavigate();
 
   const successCallback = (position) => {
