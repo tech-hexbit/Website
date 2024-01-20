@@ -9,7 +9,7 @@ import gpdo from "./Css/PaymentDetailsOverlay.module.css";
 export default function PaymentDetailsOverlay({ selectedItem }) {
   if (!selectedItem) return null;
 
-  const { refNo, accountHolderName, status, paymentMode } = selectedItem[0];
+  console.log(selectedItem);
 
   return (
     <div className={gpdo.main}>
@@ -17,19 +17,21 @@ export default function PaymentDetailsOverlay({ selectedItem }) {
       <div className={gpdo.wrapper}>
         <div className={gpdo.item}>
           <p> Ref Number</p>
-          <p>{refNo}</p>
+          <p>{selectedItem[0]._id.slice(-4)}</p>
         </div>
         <div className={gpdo.item}>
           <p> Request Date & Time</p>
-          <p>25-02-2023, 13:22:16</p>
+          <p>
+            {selectedItem[0].when.date}, {selectedItem[0].when.time}
+          </p>
         </div>
         <div className={gpdo.item}>
           <p className={gpdo.bold}>Status</p>
-          <p className={gpdo.bold}>{status}</p>
+          {/* <p className={gpdo.bold}>{status}</p> */}
         </div>
         <div className={gpdo.item}>
           <p className={gpdo.bold}>Status Code</p>
-          <p className={gpdo.bold}>{paymentMode}</p>
+          {/* <p className={gpdo.bold}>{paymentMode}</p> */}
         </div>
         <div className={gpdo.item}>
           <p>Payment Method</p>
@@ -41,7 +43,7 @@ export default function PaymentDetailsOverlay({ selectedItem }) {
         </div>
         <div className={gpdo.item}>
           <p> Account Holder Name</p>
-          <p>{accountHolderName}</p>
+          {/* <p>{accountHolderName}</p> */}
         </div>
         <div className={gpdo.item}>
           <p>Bank Name</p>
