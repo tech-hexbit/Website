@@ -44,6 +44,8 @@ export default function PayRequest() {
     setLoad(true);
 
     if (showSel.bank === "") {
+      setLoad(false);
+
       setError({
         mainColor: "#E5F6FD",
         secondaryColor: "#1AB1F5",
@@ -60,6 +62,8 @@ export default function PayRequest() {
       showSel.amount === 0 ||
       showSel.order.length === 0
     ) {
+      setLoad(false);
+
       setError({
         mainColor: "#E5F6FD",
         secondaryColor: "#1AB1F5",
@@ -91,6 +95,14 @@ export default function PayRequest() {
         setLoad(false);
 
         setloadData(!loadData);
+
+        setSel({
+          ...showSel,
+          total: 0,
+          amount: 0,
+          bank: "",
+          order: [],
+        });
       } else {
         setLoad(false);
       }
