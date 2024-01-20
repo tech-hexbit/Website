@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
 // components
-import StoreVerify from "./../../Pages/StoreVerify";
+import StoreVerify from "../../Pages/StoreVerify";
 
 // state
 import AuthContext from "./../../store/auth-context";
@@ -23,7 +23,7 @@ export default function UserSideBar() {
 
   return (
     <>
-      {authCtx.user.Store[0].StoreID.validation ? (
+      {!authCtx.user.Store[0].StoreID.validation ? (
         <>
           <div className={sidebarCSS.mainDiv}>
             {/* Admin */}
