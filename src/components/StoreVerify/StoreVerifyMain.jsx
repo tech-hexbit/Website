@@ -16,12 +16,12 @@ import axios from "axios";
 // components
 import Heading from "./Heading";
 import TextInput from "./TextInput";
+import FileInput from "./FileInput";
 import BankFields from "./BankFields";
 import Ondc_Details from "./OndcField";
-import FileInput from "./FileInput";
 import TimingField from "./TimingField";
-import VerifiedFields from "./VerifiedFields";
 import PincodeField from "./PincodeField";
+import VerifiedFields from "./VerifiedFields";
 
 const StoreVerifyMain = (props) => {
   const [load, setLoad] = useState(false);
