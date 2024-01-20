@@ -43,7 +43,7 @@ export default function PayDetails() {
       );
 
       if (response.data.success) {
-        setData(response.data.data);
+        setData(response.data.reqList);
 
         setLoad(false);
       } else {
@@ -73,6 +73,10 @@ export default function PayDetails() {
 
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    console.log(showData);
+  }, [showData]);
 
   return (
     <>
