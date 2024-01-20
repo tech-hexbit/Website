@@ -55,7 +55,7 @@ export default function PaymentDetailsOverlay({ selectedItem }) {
         </div>
         <div className={gpdo.item}>
           <p>UTR Number</p>
-          <p>SVIN1234567890</p>
+          <p>---UTR---</p>
         </div>
         <div className={gpdo.item}>
           <p>Payment Date & Time</p>
