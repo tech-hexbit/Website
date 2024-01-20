@@ -1,9 +1,6 @@
 import React, { useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
-// components
-import StoreVerify from "./../../Pages/StoreVerify";
-
 // state
 import AuthContext from "./../../store/auth-context";
 
@@ -544,7 +541,79 @@ export default function UserSideBar() {
         </>
       ) : (
         <>
-          <StoreVerify />
+          <div className={sidebarCSS.mainDiv}>
+            {authCtx.user.access === 1 && (
+              <>
+                {/* Store Verify */}
+                <NavLink
+                  to="/me"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "LinkStyle sideBarActive"
+                      : "LinkStyle sideBarNonActive"
+                  }
+                >
+                  <div className={sidebarCSS.navElement}>
+                    <div className={sidebarCSS.icons}>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-store"
+                      >
+                        <path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7" />
+                        <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
+                        <path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4" />
+                        <path d="M2 7h20" />
+                        <path d="M22 7v3a2 2 0 0 1-2 2v0a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12v0a2 2 0 0 1-2-2V7" />
+                      </svg>
+                    </div>
+                    <div className={sidebarCSS.heading}>
+                      <div className={sidebarCSS.arrow}></div>
+                      Store
+                    </div>
+                  </div>
+                </NavLink>
+
+                <div onClick={logout}>
+                  <div className={sidebarCSS.navElement}>
+                    <div className={sidebarCSS.icons}>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-log-out"
+                        className={sidebarCSS.logoutIcon}
+                      >
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                        <polyline points="16 17 21 12 16 7" />
+                        <line x1="21" x2="9" y1="12" y2="12" />
+                      </svg>
+                    </div>
+                    <div
+                      className={sidebarCSS.heading}
+                      id={sidebarCSS.headingLogout}
+                    >
+                      <div className={sidebarCSS.arrow}></div>
+                      Logout
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
         </>
       )}
     </>
