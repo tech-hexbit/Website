@@ -132,6 +132,7 @@ export default function PayRequest() {
               total={showSel.total}
               amount={showSel.amount}
               raiseReq={raiseReq}
+              loadState={load}
             />
           </div>
         </div>
