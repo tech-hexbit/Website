@@ -60,15 +60,8 @@ export default function SelectedBlock({ total, amount, raiseReq }) {
           </div>
         </div>
         <div className={pr.flexItem}>
-          {amount > 0 ? (
-            <>
-              <button onClick={raiseReq}>Raise Payment Request</button>
-            </>
-          ) : (
-            <>
-              <button>Select Orders</button>
-            </>
-          )}
+          {/* {amount > 0 ? ( */}
+          <button onClick={raiseReq}>Raise Payment Request</button>
         </div>
       </div>
     </>
