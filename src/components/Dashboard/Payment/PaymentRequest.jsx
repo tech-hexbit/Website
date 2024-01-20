@@ -47,6 +47,8 @@ export default function PaymentRequest({ showSel, setSel }) {
     }
   };
 
+  console.log(bankDetails);
+
   return (
     <>
       <div className={pr.detailsLeft}>
@@ -58,10 +60,12 @@ export default function PaymentRequest({ showSel, setSel }) {
           <>
             {bankDetails.map((bank, key) => (
               <BankDel
-                BankName={bank.BankName}
-                AccountNumber={String(bank.AccountNumber).slice(-4)}
-                AccountHolderName={bank.AccountHolderName}
-                IfscCode={bank.IfscCode}
+                BankName={bank.BankDetails[0].BankName}
+                AccountNumber={String(bank.BankDetails[0].AccountNumber).slice(
+                  -4
+                )}
+                AccountHolderName={bank.BankDetails[0].AccountHolderName}
+                IfscCode={bank.BankDetails[0].IfscCode}
                 setSel={setSel}
                 showSel={showSel}
                 key={key}
