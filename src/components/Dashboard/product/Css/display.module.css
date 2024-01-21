@@ -18,6 +18,10 @@
   display: none;
 }
 
+.arcMain {
+  margin-top: 30px;
+}
+
 .search input {
   background-color: transparent;
   border: none;
