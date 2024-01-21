@@ -88,7 +88,7 @@ export default function Products() {
 
   return (
     <>
-      {archive ? (
+      {!archive ? (
         <Archive />
       ) : (
         <div>
