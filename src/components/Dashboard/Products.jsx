@@ -19,6 +19,7 @@ import pdtCSS from "./Css/products.module.css";
 export default function Products() {
   const [load, setLoad] = useState(false);
   const [allcategory, setallcategory] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
   const [filterData, setfilterData] = useState({
     category: [],
   });
@@ -94,7 +95,9 @@ export default function Products() {
         </div>
         <Display
           load={load}
+          currentPage={currentPage}
           filteredlist={filteredlist}
+          setCurrentPage={setCurrentPage}
           setfilteredlist={setfilteredlist}
         />
       </div>
