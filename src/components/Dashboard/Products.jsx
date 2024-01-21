@@ -34,6 +34,8 @@ export default function Products() {
     val: false,
   });
 
+  const authCtx = useContext(AuthContext);
+
   const loadData = async () => {
     setLoad(true);
 
@@ -56,8 +58,6 @@ export default function Products() {
         setLoad(false);
       } else {
         setLoad(false);
-
-        console.log(e);
       }
     } catch (e) {
       setLoad(false);
@@ -68,7 +68,7 @@ export default function Products() {
 
   useEffect(() => {
     loadData();
-  }, [, filteredlist]);
+  }, []);
 
   return (
     <>
