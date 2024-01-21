@@ -24,6 +24,7 @@ export default function Products() {
   const [allcategory, setallcategory] = useState([]);
   const [filterData, setfilterData] = useState({
     category: [],
+    search: "",
   });
   const [filteredlist, setfilteredlist] = useState({
     productList: [],
