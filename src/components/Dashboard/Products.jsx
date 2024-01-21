@@ -100,8 +100,10 @@ export default function Products() {
         </div>
         <Display
           load={load}
+          filterData={filterData}
           currentPage={currentPage}
           filteredlist={filteredlist}
+          setfilterData={setfilterData}
           setCurrentPage={setCurrentPage}
           setfilteredlist={setfilteredlist}
         />
