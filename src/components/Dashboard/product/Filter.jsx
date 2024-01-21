@@ -1,58 +1,20 @@
-import React, { useState, useEffect, useContext } from "react";
-
-// axios
-import axios from "axios";
+import React, { useState, useEffect } from "react";
 
 // components
 import Tags from "./Tags";
 
+// MicroInteraction
+import Load from "./../../../MicroInteraction/LoadBlack";
+
 // css
 import FCss from "./Css/filter.module.css";
 
-// state
-import AuthContext from "./../../../store/auth-context";
-
-export default function Filter({ filteredlist, setfilteredlist }) {
-  const [load, setLoad] = useState(false);
+export default function Filter({ load, filteredlist, setfilteredlist }) {
   const [onFil, offFil] = useState(false);
   const [unique, setunique] = useState([]);
   const [orderDel, setOrderDel] = useState([]);
   const [category, setcategory] = useState([]);
   const [allcategory, setallcategory] = useState([]);
-
-  const authCtx = useContext(AuthContext);
-
-  useEffect(() => {
-    loadData();
-  }, []);
-
-  const loadData = async () => {
-    setLoad(true);
-
-    try {
-      const response = await axios.get("/api/common/product/all/false", {
-        headers: { Authorization: `${authCtx.token}` },
-      });
-
-      if (response.data.success) {
-        setOrderDel(response?.data?.orderList);
-
-        response?.data?.orderList?.forEach((order) => {
-          setallcategory((prevState) => [...prevState, order.category_id]);
-        });
-
-        setLoad(false);
-      } else {
-        setLoad(false);
-
-        console.log(e);
-      }
-    } catch (e) {
-      setLoad(false);
-
-      console.log(e);
-    }
-  };
 
   const handlechange = (e) => {
     if (e.target.checked) {
