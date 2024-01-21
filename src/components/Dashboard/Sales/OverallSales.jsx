@@ -155,7 +155,7 @@ export default function OverallSales() {
   };
 
   const filterData = async function (e) {
-    setSearch(e.target.value);
+    setSearch(e.target.value.toLowerCase());
   };
 
   const handleChange1 = (e) => {
