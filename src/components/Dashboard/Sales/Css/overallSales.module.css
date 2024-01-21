@@ -261,6 +261,11 @@
     padding-top: 35px;
   }
 
+  .searchParent {
+    width: 100%;
+    min-width: 250px;
+  }
+
   .select {
     width: 100%;
   }
