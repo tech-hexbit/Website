@@ -106,28 +106,28 @@ export default function Filter({
           </div>
 
           {/* <div className={FCss.div1}>
-        <select className={FCss.select}>
-          <option hidden>Brands</option>
-        </select>
-      </div> */}
+            <select className={FCss.select}>
+              <option hidden>Brands</option>
+            </select>
+          </div> */}
 
           {/* <div className={FCss.div1}>
-        <select className={FCss.select}>
-          <option hidden>Price</option>
-        </select>
-      </div> */}
+            <select className={FCss.select}>
+              <option hidden>Price</option>
+            </select>
+          </div> */}
 
           {/* <div className={FCss.div1}>
-        <select className={FCss.select}>
-          <option hidden>Discounts</option>
-        </select>
-      </div> */}
+            <select className={FCss.select}>
+              <option hidden>Discounts</option>
+            </select>
+          </div> */}
 
           {/* <div className={FCss.div1} id={FCss.rate}>
-        <select className={FCss.select}>
-          <option hidden>Rating</option>
-        </select> 
-      </div>*/}
+            <select className={FCss.select}>
+              <option hidden>Rating</option>
+            </select>
+          </div> */}
         </>
       )}
     </div>
