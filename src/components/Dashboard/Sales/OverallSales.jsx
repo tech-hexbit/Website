@@ -163,6 +163,12 @@ export default function OverallSales() {
     setfilters({ ...filters, [name]: value });
   };
 
+  const searchData = (e) => {
+    if (searchTerm === "") {
+      return;
+    }
+  };
+
   useEffect(() => {
     loadData();
   }, [currentPage, loadDataState]);
@@ -246,7 +252,7 @@ export default function OverallSales() {
                 </div>
               </div>
 
-              <div>
+              <div className={osCss.searchParent}>
                 {/* Search */}
                 <div className={osCss.search}>
                   <input
@@ -255,6 +261,9 @@ export default function OverallSales() {
                     placeholder="Search order"
                     onChange={filterData}
                   />
+                  <div className={osCss.searchBtn} onClick={searchData}>
+                    Search
+                  </div>
                 </div>
 
                 {/* Reset */}
