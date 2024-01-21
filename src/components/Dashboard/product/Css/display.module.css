@@ -329,6 +329,21 @@
   }
 }
 
+@media only screen and (max-width: 450px) {
+  .top {
+    flex-wrap: wrap;
+    gap: 30px 10px;
+  }
+
+  .search {
+    width: 100%;
+  }
+
+  .search input {
+    width: 80%;
+  }
+}
+
 @media (max-width: 380px) {
   .button button {
     padding: 6px 17px;
