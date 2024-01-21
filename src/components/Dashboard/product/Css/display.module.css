@@ -5,15 +5,19 @@
   border-radius: 15px;
   margin-bottom: 40px;
 }
+
 .top {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  padding: 10px;
+  gap: 0px 10px;
   border-bottom: 1px solid #ddd;
 }
-.hideFilter{
+
+.hideFilter {
   display: none;
 }
+
 .search input {
   background-color: transparent;
   border: none;
@@ -29,6 +33,11 @@
   color: #ddd;
 }
 
+.resetFilBtn {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
 .button button {
   border: none;
   border-radius: 5px;
@@ -42,42 +51,12 @@
   letter-spacing: 0.12px;
   padding: 6px 25px;
   cursor: pointer;
-  
 }
-@media (max-width:380px ) {
-  .button button {
-    padding: 6px 17px;
-  }
-}
-
-@media (max-width: 650px) {
-  .hideFilter{
-    display: block;
-  }
-  .top{
-    /* padding:20px 10px; */
-    padding: 0px 10px 15px 10px;
-  }
-}
-
-@media (width>950px) {
-  .button button::after {
-    content: '+ Add Product';
-  }
-}
-
-@media (max-width: 950px) {
-  .button button:after{
-    content: '+';
-  }
-}
-
 
 .table table {
   width: 100%;
   overflow-x: scroll;
 }
-
 
 ::-webkit-scrollbar {
   display: none;
@@ -99,23 +78,20 @@
   z-index: 300;
 }
 
-
 .table th {
-  /* color: #555; */
-  color:black;
+  color: black;
   font-size: 20 px;
   font-weight: 700;
   border: 2px solid white;
 }
-.table tr:hover{
+
+.table tr:hover {
   background-color: #ebefff;
 }
-.table tr{
+
+.table tr {
   transition: background-color 150ms ease;
 }
-
-
-
 
 .imgTag {
   width: 100%;
@@ -127,7 +103,6 @@
 }
 
 .row {
-  /* padding: 17px 0px 17px 15px; */
   padding: 7px 10px;
   border-bottom: 1px solid #ddd;
   position: relative;
@@ -152,25 +127,20 @@
 .image {
   height: 50px;
   width: 50px;
-  /* padding-left: 10px; */
 }
 
 .col1Text {
   padding-left: 10px;
-
- 
 }
 
 .textTop {
   color: #000;
   font-size: 16px;
-
 }
 
 .textBottom {
   color: #aaa;
   font-size: 14px;
-
 }
 
 #price,
@@ -297,6 +267,40 @@
 
 @media (max-width: 1100px) {
   .table table {
-   display: none;
+    display: none;
+  }
+}
+
+@media (width>950px) {
+  .button button::after {
+    content: "+ Add Product";
+  }
+}
+
+@media (max-width: 950px) {
+  .button button:after {
+    content: "+";
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .resetFilBtn {
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 650px) {
+  .hideFilter {
+    display: block;
+  }
+
+  .top {
+    padding: 0px 10px 15px 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  .button button {
+    padding: 6px 17px;
   }
 }
