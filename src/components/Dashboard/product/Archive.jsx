@@ -46,8 +46,6 @@ export default function Archive() {
         }
       );
 
-      console.log(response.data);
-
       if (response.data.success) {
         setfilteredlist({
           ...filteredlist,
