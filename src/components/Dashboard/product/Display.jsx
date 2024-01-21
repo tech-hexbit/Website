@@ -23,7 +23,6 @@ export default function Display({ load, filteredlist, setfilteredlist }) {
   const [orderDel, setOrderDel] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [allProducts, setAllProducts] = useState([]);
-  const [prodcutsCount, setProdcutsCount] = useState(0);
   const [showProductDel, setProductDel] = useState({ state: false, id: "" });
 
   const authCtx = useContext(AuthContext);
@@ -62,8 +61,8 @@ export default function Display({ load, filteredlist, setfilteredlist }) {
   };
 
   const maxPage = () => {
-    if (prodcutsCount > 0) {
-      if (currentPage === Math.ceil(prodcutsCount / 10)) {
+    if (filteredlist.prodcutsCount > 0) {
+      if (currentPage === Math.ceil(filteredlist.prodcutsCount / 10)) {
         setmax(true);
       } else {
         setmax(false);
@@ -75,7 +74,7 @@ export default function Display({ load, filteredlist, setfilteredlist }) {
 
   useEffect(() => {
     maxPage();
-  }, [prodcutsCount, currentPage]);
+  }, [filteredlist.prodcutsCount, currentPage]);
 
   return (
     <>
@@ -310,12 +309,12 @@ export default function Display({ load, filteredlist, setfilteredlist }) {
               {/* Show Label */}
               <p className={DCss.showingPTag}>
                 Showing{" "}
-                {filteredlist?.length <= 10 ? (
-                  <b>{10 * (currentPage - 1) + filteredlist?.length} </b>
+                {filteredlist.prodcutsCount <= 10 ? (
+                  <b>{10 * (currentPage - 1) + filteredlist.prodcutsCount} </b>
                 ) : (
-                  <b>5</b>
+                  <b>10</b>
                 )}{" "}
-                of <b>{prodcutsCount}</b> results
+                of <b>{filteredlist.prodcutsCount}</b> results
               </p>
             </div>
           )}
