@@ -12,7 +12,6 @@ import FCss from "./Css/filter.module.css";
 export default function Filter({
   load,
   allcategory,
-  filteredlist,
   filterData,
   setfilterData,
 }) {
