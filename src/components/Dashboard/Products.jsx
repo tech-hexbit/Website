@@ -91,26 +91,28 @@ export default function Products() {
       {archive ? (
         <Archive />
       ) : (
-        <div className={pdtCSS.mdiv}>
-          <div className={pdtCSS.filterVis}>
-            <Filter
+        <div>
+          <div className={pdtCSS.mdiv}>
+            <div className={pdtCSS.filterVis}>
+              <Filter
+                load={load}
+                filteredlist={filteredlist}
+                allcategory={allcategory}
+                setfilterData={setfilterData}
+                filterData={filterData}
+                setfilteredlist={setfilteredlist}
+              />
+            </div>
+            <Display
               load={load}
-              filteredlist={filteredlist}
-              allcategory={allcategory}
-              setfilterData={setfilterData}
               filterData={filterData}
+              currentPage={currentPage}
+              filteredlist={filteredlist}
+              setfilterData={setfilterData}
+              setCurrentPage={setCurrentPage}
               setfilteredlist={setfilteredlist}
             />
           </div>
-          <Display
-            load={load}
-            filterData={filterData}
-            currentPage={currentPage}
-            filteredlist={filteredlist}
-            setfilterData={setfilterData}
-            setCurrentPage={setCurrentPage}
-            setfilteredlist={setfilteredlist}
-          />
 
           <div className={pdtCSS.archiveIcon}>
             <svg
