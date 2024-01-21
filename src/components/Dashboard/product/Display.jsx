@@ -53,7 +53,12 @@ export default function Display({
     setSearchTerm(event.target.value.toLowerCase());
   };
 
-  const searchData = (e) => {};
+  const searchData = (e) => {
+    setfilterData({
+      ...filterData,
+      search: searchTerm,
+    });
+  };
 
   const maxPage = () => {
     if (filteredlist.prodcutsCount > 0) {
