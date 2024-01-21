@@ -28,8 +28,7 @@ export default function Display({
   setfilteredlist,
 }) {
   const [max, setmax] = useState(false);
-  const [orderDel, setOrderDel] = useState([]);
-  const [allProducts, setAllProducts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState(false);
   const [showProductDel, setProductDel] = useState({ state: false, id: "" });
 
   const authCtx = useContext(AuthContext);
@@ -51,21 +50,10 @@ export default function Display({
   };
 
   const filter = (event) => {
-    const searchTerm = event.target.value.toLowerCase();
-    console.log("Search Term:", searchTerm);
-
-    const updatedProducts = allProducts.filter((product) =>
-      product?.descriptor?.name.toLowerCase().includes(searchTerm)
-    );
-
-    console.log("Filtered Products:", updatedProducts);
-
-    if (searchTerm === "") {
-      setfilteredlist(orderDel);
-    } else {
-      setfilteredlist(updatedProducts);
-    }
+    setSearchTerm(event.target.value.toLowerCase());
   };
+
+  const searchData = (e) => {};
 
   const maxPage = () => {
     if (filteredlist.prodcutsCount > 0) {
@@ -96,7 +84,9 @@ export default function Display({
               placeholder="Search your product here..."
               onChange={filter}
             />
-            <div className={DCss.searchBtn}>Search</div>
+            <div className={DCss.searchBtn} onClick={searchData}>
+              Search
+            </div>
           </div>
           <div className={DCss.button}>
             <Link to="/me/addProduct" className={DCss.LinkStyle}>
