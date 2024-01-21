@@ -20,10 +20,12 @@ import cardDisplay from "./Css/cardDisplay.module.css";
 
 export default function Display({
   load,
-  filteredlist,
-  setfilteredlist,
+  filterData,
   currentPage,
+  filteredlist,
+  setfilterData,
   setCurrentPage,
+  setfilteredlist,
 }) {
   const [max, setmax] = useState(false);
   const [orderDel, setOrderDel] = useState([]);
@@ -100,6 +102,25 @@ export default function Display({
               <button></button>
             </Link>
           </div>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-filter-x"
+            className={DCss.resetFilBtn}
+            onClick={() => {}}
+          >
+            <path d="M13.013 3H2l8 9.46V19l4 2v-8.54l.9-1.055" />
+            <path d="m22 3-5 5" />
+            <path d="m17 3 5 5" />
+          </svg>
         </div>
         <div className={DCss.hideFilter}>
           <Filter
