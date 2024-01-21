@@ -49,6 +49,7 @@ export default function Filter({
             <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
           </svg>
         </div>
+
         {filterData ? (
           <div className={FCss.tags}>
             {filterData.category.length > 0 ? (
@@ -65,61 +66,63 @@ export default function Filter({
           ""
         )}
       </div>
-      <div className={FCss.div1} id={onFil ? "Div1Cat" : ""}>
-        <div className={FCss.heading}>Category</div>
-        <div>
-          {unique?.map((val, key) => {
-            return (
-              <div className={FCss.categoryOption} key={key}>
-                {val}
-                <input
-                  type="checkbox"
-                  name="category"
-                  onChange={(e) => {
-                    const isChecked = e.target.checked;
+      <>
+        <div className={FCss.div1} id={onFil ? "Div1Cat" : ""}>
+          <div className={FCss.heading}>Category</div>
+          <div>
+            {unique?.map((val, key) => {
+              return (
+                <div className={FCss.categoryOption} key={key}>
+                  {val}
+                  <input
+                    type="checkbox"
+                    name="category"
+                    onChange={(e) => {
+                      const isChecked = e.target.checked;
 
-                    setfilterData((prevFilterData) => ({
-                      ...prevFilterData,
-                      category: isChecked
-                        ? Array.isArray(prevFilterData.category)
-                          ? [...prevFilterData.category, e.target.value]
-                          : [e.target.value]
-                        : prevFilterData.category.filter(
-                            (category) => category !== e.target.value
-                          ),
-                    }));
-                  }}
-                  value={val}
-                />
-              </div>
-            );
-          })}
+                      setfilterData((prevFilterData) => ({
+                        ...prevFilterData,
+                        category: isChecked
+                          ? Array.isArray(prevFilterData.category)
+                            ? [...prevFilterData.category, e.target.value]
+                            : [e.target.value]
+                          : prevFilterData.category.filter(
+                              (category) => category !== e.target.value
+                            ),
+                      }));
+                    }}
+                    value={val}
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
-      </div>
 
-      {/* <div className={FCss.div1}>
+        {/* <div className={FCss.div1}>
         <select className={FCss.select}>
           <option hidden>Brands</option>
         </select>
       </div> */}
 
-      {/* <div className={FCss.div1}>
+        {/* <div className={FCss.div1}>
         <select className={FCss.select}>
           <option hidden>Price</option>
         </select>
       </div> */}
 
-      {/* <div className={FCss.div1}>
+        {/* <div className={FCss.div1}>
         <select className={FCss.select}>
           <option hidden>Discounts</option>
         </select>
       </div> */}
 
-      {/* <div className={FCss.div1} id={FCss.rate}>
+        {/* <div className={FCss.div1} id={FCss.rate}>
         <select className={FCss.select}>
           <option hidden>Rating</option>
         </select> 
       </div>*/}
+      </>
     </div>
   );
 }
