@@ -116,7 +116,7 @@ export default function Display({ load, filteredlist, setfilteredlist }) {
                 className={DCss.tableTag}
                 style={{ borderCollapse: "collapse" }}
               >
-                {orderDel?.length > 0 ? (
+                {filteredlist.productList.length > 0 ? (
                   <>
                     <tr>
                       <th>Product</th>
@@ -126,7 +126,7 @@ export default function Display({ load, filteredlist, setfilteredlist }) {
                       <th id={DCss.published}>Published on</th>
                       <th>Action</th>
                     </tr>
-                    {filteredlist.map((val, key) => {
+                    {filteredlist.productList.map((val, key) => {
                       return (
                         <>
                           <tr key={key}>
