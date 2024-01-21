@@ -27,6 +27,7 @@
   justify-content: flex-start;
   align-items: center;
   border-radius: 5px;
+  padding: 0px 5px;
   border: 1px solid #ddd;
 }
 
@@ -37,7 +38,7 @@
   padding: 8px;
   font-size: 15px;
   outline: none;
-  width: 30vw;
+  width: 25vw;
 }
 
 .search input::placeholder {
@@ -45,9 +46,14 @@
 }
 
 .searchBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   border-style: solid;
   border-color: #ddd;
   border-width: 0px 0px 0px 1px;
+  padding: 0px 20px 0px 20px;
 }
 
 .resetFilBtn {
