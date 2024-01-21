@@ -96,6 +96,7 @@ export default function Display({
               placeholder="Search your product here..."
               onChange={filter}
             />
+            <div className={DCss.searchBtn}>Search</div>
           </div>
           <div className={DCss.button}>
             <Link to="/me/addProduct" className={DCss.LinkStyle}>
