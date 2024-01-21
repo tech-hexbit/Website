@@ -18,10 +18,15 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 import DCss from "./Css/display.module.css";
 import cardDisplay from "./Css/cardDisplay.module.css";
 
-export default function Display({ load, filteredlist, setfilteredlist }) {
+export default function Display({
+  load,
+  filteredlist,
+  setfilteredlist,
+  currentPage,
+  setCurrentPage,
+}) {
   const [max, setmax] = useState(false);
   const [orderDel, setOrderDel] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
   const [allProducts, setAllProducts] = useState([]);
   const [showProductDel, setProductDel] = useState({ state: false, id: "" });
 
