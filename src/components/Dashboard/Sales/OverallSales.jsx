@@ -246,15 +246,18 @@ export default function OverallSales() {
                 </div>
               </div>
 
-              {/* Search */}
-              <div className={osCss.search}>
-                <input
-                  type="text"
-                  value={search}
-                  placeholder="Search order"
-                  onChange={filterData}
-                />
+              <div>
+                {/* Search */}
+                <div className={osCss.search}>
+                  <input
+                    type="text"
+                    value={search}
+                    placeholder="Search order"
+                    onChange={filterData}
+                  />
+                </div>
 
+                {/* Reset */}
                 {search !== "" ||
                 filters.buyer !== "" ||
                 filters.status !== "" ? (
