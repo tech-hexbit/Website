@@ -24,7 +24,7 @@ export default function Products() {
   });
   const [filteredlist, setfilteredlist] = useState({
     productList: [],
-    length: 0,
+    prodcutsCount: 0,
   });
   const [variants, setError] = useState({
     mainColor: "",
@@ -53,7 +53,7 @@ export default function Products() {
         setfilteredlist({
           ...filteredlist,
           productList: response.data.orderList,
-          length: response.data.length,
+          prodcutsCount: response.data.prodcutsCount,
         });
 
         response?.data?.orderList?.forEach((order) => {
