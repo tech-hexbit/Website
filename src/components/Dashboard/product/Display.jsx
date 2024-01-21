@@ -28,7 +28,7 @@ export default function Display({
   setfilteredlist,
 }) {
   const [max, setmax] = useState(false);
-  const [searchTerm, setSearchTerm] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
   const [showProductDel, setProductDel] = useState({ state: false, id: "" });
   const [variants, setError] = useState({
     mainColor: "",
@@ -62,11 +62,7 @@ export default function Display({
   };
 
   const searchData = (e) => {
-    console.log("searchTerm -> " + searchTerm);
-
     if (searchTerm === "") {
-      console.log("Empty");
-
       return;
     }
     setfilterData({
