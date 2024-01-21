@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 
+// components
+import Header from "./../MainParts/Header";
+
 // axios
 import axios from "axios";
 
@@ -71,8 +74,9 @@ export default function Archive() {
 
   return (
     <div>
-      Archive
-      <div>
+      <Header name="Archive" />
+
+      <div className={DCss.arcMain}>
         {load ? (
           <div className="loadCenterDiv">
             <Load />
