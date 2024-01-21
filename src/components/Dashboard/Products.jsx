@@ -24,6 +24,7 @@ export default function Products() {
   const [allcategory, setallcategory] = useState([]);
   const [filterData, setfilterData] = useState({
     category: [],
+    search: "",
   });
   const [filteredlist, setfilteredlist] = useState({
     productList: [],
@@ -96,10 +97,10 @@ export default function Products() {
             <div className={pdtCSS.filterVis}>
               <Filter
                 load={load}
-                filteredlist={filteredlist}
-                allcategory={allcategory}
-                setfilterData={setfilterData}
                 filterData={filterData}
+                allcategory={allcategory}
+                filteredlist={filteredlist}
+                setfilterData={setfilterData}
                 setfilteredlist={setfilteredlist}
               />
             </div>
@@ -107,6 +108,7 @@ export default function Products() {
               load={load}
               filterData={filterData}
               currentPage={currentPage}
+              allcategory={allcategory}
               filteredlist={filteredlist}
               setfilterData={setfilterData}
               setCurrentPage={setCurrentPage}
