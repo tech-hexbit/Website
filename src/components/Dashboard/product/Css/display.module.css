@@ -28,13 +28,12 @@
   align-items: center;
   border-radius: 5px;
   padding: 0px 5px;
-  border: 1px solid #ddd;
 }
 
 .search input {
   background-color: transparent;
-  border: none;
-  border-radius: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px 0px 0px 5px;
   padding: 8px;
   font-size: 15px;
   outline: none;
@@ -51,9 +50,15 @@
   align-items: center;
   height: 100%;
   border-style: solid;
-  border-color: #ddd;
-  border-width: 0px 0px 0px 1px;
+  border-color: transparent transparent transparent #ddd;
+  border-width: 1px;
   padding: 0px 20px 0px 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.searchBtn:hover {
+  border-color: #6c117c;
 }
 
 .resetFilBtn {
