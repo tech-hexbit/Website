@@ -13,43 +13,11 @@ export default function Filter({
   load,
   allcategory,
   filteredlist,
-  setfilteredlist,
+  filterData,
+  setfilterData,
 }) {
   const [onFil, offFil] = useState(false);
   const [unique, setunique] = useState([]);
-  const [orderDel, setOrderDel] = useState([]);
-  const [category, setcategory] = useState([]);
-
-  const handlechange = (e) => {
-    if (e.target.checked) {
-      setcategory((prevState) => [...prevState, e.target.value]);
-    } else {
-      const arr = category.filter((c) => c !== e.target.value);
-      setcategory(arr);
-    }
-  };
-
-  useEffect(() => {
-    let newFIltered = [];
-
-    if (category.length > 0) {
-      filteredlist.forEach((orderDel) => {
-        category.forEach((e) => {
-          if (orderDel.category_id === e) {
-            console.log("Match");
-            console.log(orderDel.category_id === e);
-            console.log(`Match ${orderDel.category_id} === ${e}`);
-
-            newFIltered.push(orderDel);
-          }
-        });
-      });
-
-      setfilteredlist(newFIltered);
-    } else {
-      setfilteredlist(orderDel);
-    }
-  }, [category]);
 
   useEffect(() => {
     const u = (allcategory) => [...new Set(allcategory)];
@@ -81,17 +49,21 @@ export default function Filter({
             <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
           </svg>
         </div>
-        <div className={FCss.tags}>
-          {category.length > 0 ? (
-            <>
-              {category?.map((val, key) => {
-                return <Tags key={key} text={val} />;
-              })}
-            </>
-          ) : (
-            <></>
-          )}
-        </div>
+        {filterData ? (
+          <div className={FCss.tags}>
+            {filterData.category.length > 0 ? (
+              <>
+                {filterData.category.map((val, key) => {
+                  return <Tags key={key} text={val} />;
+                })}
+              </>
+            ) : (
+              <></>
+            )}
+          </div>
+        ) : (
+          ""
+        )}
       </div>
       <div className={FCss.div1} id={onFil ? "Div1Cat" : ""}>
         <div className={FCss.heading}>Category</div>
@@ -102,7 +74,21 @@ export default function Filter({
                 {val}
                 <input
                   type="checkbox"
-                  onChange={(val) => handlechange(val)}
+                  name="category"
+                  onChange={(e) => {
+                    const isChecked = e.target.checked;
+
+                    setfilterData((prevFilterData) => ({
+                      ...prevFilterData,
+                      category: isChecked
+                        ? Array.isArray(prevFilterData.category)
+                          ? [...prevFilterData.category, e.target.value]
+                          : [e.target.value]
+                        : prevFilterData.category.filter(
+                            (category) => category !== e.target.value
+                          ),
+                    }));
+                  }}
                   value={val}
                 />
               </div>
