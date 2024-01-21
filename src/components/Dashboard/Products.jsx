@@ -18,6 +18,7 @@ import pdtCSS from "./Css/products.module.css";
 
 export default function Products() {
   const [load, setLoad] = useState(false);
+  const [allcategory, setallcategory] = useState([]);
   const [filterData, setfilterData] = useState({
     category: [],
   });
@@ -55,6 +56,10 @@ export default function Products() {
           length: response.data.length,
         });
 
+        response?.data?.orderList?.forEach((order) => {
+          setallcategory((prevState) => [...prevState, order.category_id]);
+        });
+
         setLoad(false);
       } else {
         setLoad(false);
@@ -77,6 +82,7 @@ export default function Products() {
           <Filter
             load={load}
             filteredlist={filteredlist}
+            allcategory={allcategory}
             setfilteredlist={setfilteredlist}
           />
         </div>
