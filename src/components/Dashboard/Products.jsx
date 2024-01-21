@@ -77,8 +77,6 @@ export default function Products() {
 
   useEffect(() => {
     loadData();
-
-    console.log(filterData);
   }, [filterData]);
 
   return (
