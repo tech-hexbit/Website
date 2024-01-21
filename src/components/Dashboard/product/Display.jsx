@@ -22,6 +22,7 @@ export default function Display({
   load,
   filterData,
   currentPage,
+  allcategory,
   filteredlist,
   setfilterData,
   setCurrentPage,
