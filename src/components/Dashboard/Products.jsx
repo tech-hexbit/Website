@@ -75,6 +75,10 @@ export default function Products() {
     loadData();
   }, []);
 
+  useEffect(() => {
+    console.log(filterData);
+  }, [filterData]);
+
   return (
     <>
       <div className={pdtCSS.mdiv}>
@@ -83,6 +87,8 @@ export default function Products() {
             load={load}
             filteredlist={filteredlist}
             allcategory={allcategory}
+            setfilterData={setfilterData}
+            filterData={filterData}
             setfilteredlist={setfilteredlist}
           />
         </div>
