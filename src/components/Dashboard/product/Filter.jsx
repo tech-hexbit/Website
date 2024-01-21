@@ -1,89 +1,22 @@
-import React, { useState, useEffect, useContext } from "react";
-
-// axios
-import axios from "axios";
+import React, { useState, useEffect } from "react";
 
 // components
 import Tags from "./Tags";
 
+// MicroInteraction
+import Load from "./../../../MicroInteraction/LoadBlack";
+
 // css
 import FCss from "./Css/filter.module.css";
 
-// state
-import AuthContext from "./../../../store/auth-context";
-
-export default function Filter({ filteredlist, setfilteredlist }) {
-  const [load, setLoad] = useState(false);
+export default function Filter({
+  load,
+  allcategory,
+  filterData,
+  setfilterData,
+}) {
   const [onFil, offFil] = useState(false);
   const [unique, setunique] = useState([]);
-  const [orderDel, setOrderDel] = useState([]);
-  const [category, setcategory] = useState([]);
-  const [allcategory, setallcategory] = useState([]);
-
-  const authCtx = useContext(AuthContext);
-
-  useEffect(() => {
-    loadData();
-  }, []);
-
-  const loadData = async () => {
-    setLoad(true);
-
-    try {
-      const response = await axios.get("/api/common/product/all/false", {
-        headers: { Authorization: `${authCtx.token}` },
-      });
-
-      if (response.data.success) {
-        setOrderDel(response?.data?.orderList);
-
-        response?.data?.orderList?.forEach((order) => {
-          setallcategory((prevState) => [...prevState, order.category_id]);
-        });
-
-        setLoad(false);
-      } else {
-        setLoad(false);
-
-        console.log(e);
-      }
-    } catch (e) {
-      setLoad(false);
-
-      console.log(e);
-    }
-  };
-
-  const handlechange = (e) => {
-    if (e.target.checked) {
-      setcategory((prevState) => [...prevState, e.target.value]);
-    } else {
-      const arr = category.filter((c) => c !== e.target.value);
-      setcategory(arr);
-    }
-  };
-
-  useEffect(() => {
-    let newFIltered = [];
-
-    if (category.length > 0) {
-      filteredlist.forEach((orderDel) => {
-        category.forEach((e) => {
-          if (orderDel.category_id === e) {
-            console.log("Match");
-            console.log(orderDel.category_id === e);
-            console.log(`Match ${orderDel.category_id} === ${e}`);
-
-            newFIltered.push(orderDel);
-          }
-        });
-      });
-
-      setfilteredlist(newFIltered);
-    } else {
-      setfilteredlist(orderDel);
-    }
-  }, [category]);
 
   useEffect(() => {
     const u = (allcategory) => [...new Set(allcategory)];
@@ -115,59 +48,81 @@ export default function Filter({ filteredlist, setfilteredlist }) {
             <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
           </svg>
         </div>
-        <div className={FCss.tags}>
-          {category.length > 0 ? (
-            <>
-              {category?.map((val, key) => {
-                return <Tags key={key} text={val} />;
-              })}
-            </>
-          ) : (
-            <></>
-          )}
-        </div>
-      </div>
-      <div className={FCss.div1} id={onFil ? "Div1Cat" : ""}>
-        <div className={FCss.heading}>Category</div>
-        <div>
-          {unique?.map((val, key) => {
-            return (
-              <div className={FCss.categoryOption} key={key}>
-                {val}
-                <input
-                  type="checkbox"
-                  onChange={(val) => handlechange(val)}
-                  value={val}
-                />
-              </div>
-            );
-          })}
-        </div>
+
+        {filterData ? (
+          <div className={FCss.tags}>
+            {filterData.category.length > 0 ? (
+              <>
+                {filterData.category.map((val, key) => {
+                  return <Tags key={key} text={val} />;
+                })}
+              </>
+            ) : (
+              <></>
+            )}
+          </div>
+        ) : (
+          ""
+        )}
       </div>
 
-      {/* <div className={FCss.div1}>
-        <select className={FCss.select}>
-          <option hidden>Brands</option>
-        </select>
-      </div> */}
+      <>
+        <div className={FCss.div1} id={onFil ? "Div1Cat" : ""}>
+          <div className={FCss.heading}>Category</div>
+          <div>
+            {unique?.map((val, key) => {
+              return (
+                <div className={FCss.categoryOption} key={key}>
+                  {val}
+                  <input
+                    type="checkbox"
+                    name="category"
+                    onChange={(e) => {
+                      const isChecked = e.target.checked;
 
-      {/* <div className={FCss.div1}>
-        <select className={FCss.select}>
-          <option hidden>Price</option>
-        </select>
-      </div> */}
+                      setfilterData((prevFilterData) => ({
+                        ...prevFilterData,
+                        category: isChecked
+                          ? Array.isArray(prevFilterData.category)
+                            ? [...prevFilterData.category, e.target.value]
+                            : [e.target.value]
+                          : prevFilterData.category.filter(
+                              (category) => category !== e.target.value
+                            ),
+                      }));
+                    }}
+                    value={val}
+                  />
+                </div>
+              );
+            })}
+          </div>
+        </div>
 
-      {/* <div className={FCss.div1}>
-        <select className={FCss.select}>
-          <option hidden>Discounts</option>
-        </select>
-      </div> */}
+        {/* <div className={FCss.div1}>
+            <select className={FCss.select}>
+              <option hidden>Brands</option>
+            </select>
+          </div> */}
 
-      {/* <div className={FCss.div1} id={FCss.rate}>
-        <select className={FCss.select}>
-          <option hidden>Rating</option>
-        </select> 
-      </div>*/}
+        {/* <div className={FCss.div1}>
+            <select className={FCss.select}>
+              <option hidden>Price</option>
+            </select>
+          </div> */}
+
+        {/* <div className={FCss.div1}>
+            <select className={FCss.select}>
+              <option hidden>Discounts</option>
+            </select>
+          </div> */}
+
+        {/* <div className={FCss.div1} id={FCss.rate}>
+            <select className={FCss.select}>
+              <option hidden>Rating</option>
+            </select>
+          </div> */}
+      </>
     </div>
   );
 }
