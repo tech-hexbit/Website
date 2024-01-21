@@ -10,8 +10,9 @@ import { Alert } from "./../../MicroInteraction/Alert";
 import AuthContext from "./../../store/auth-context";
 
 // components
-import Display from "./product/Display";
 import Filter from "./product/Filter";
+import Display from "./product/Display";
+import Archive from "./product/Archive";
 
 // css
 import pdtCSS from "./Css/products.module.css";
@@ -43,7 +44,7 @@ export default function Products() {
 
     try {
       const response = await axios.post(
-        "/api/common/product/all/false",
+        `/api/common/product/all/false?page=${currentPage}`,
         filterData,
         {
           headers: { Authorization: `${authCtx.token}` },
@@ -78,6 +79,10 @@ export default function Products() {
 
   useEffect(() => {
     loadData();
+  }, [filterData, currentPage]);
+
+  useEffect(() => {
+    setCurrentPage(1);
   }, [filterData]);
 
   return (
@@ -101,6 +106,7 @@ export default function Products() {
           setfilteredlist={setfilteredlist}
         />
       </div>
+      <Archive />
 
       <Alert variant={variants} val={setError} />
     </>
