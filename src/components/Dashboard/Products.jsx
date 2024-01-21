@@ -82,9 +82,9 @@ export default function Products() {
     loadData();
   }, [filterData, currentPage]);
 
-  // useEffect(() => {
-  //   setCurrentPage(1);
-  // }, [filterData]);
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [filterData]);
 
   return (
     <>
