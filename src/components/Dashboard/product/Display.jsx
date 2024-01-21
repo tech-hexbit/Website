@@ -105,6 +105,7 @@ export default function Display({
               Search
             </div>
           </div>
+
           <div className={DCss.button}>
             <Link to="/me/addProduct" className={DCss.LinkStyle}>
               <button></button>
