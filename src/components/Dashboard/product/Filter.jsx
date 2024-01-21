@@ -9,12 +9,16 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 // css
 import FCss from "./Css/filter.module.css";
 
-export default function Filter({ load, filteredlist, setfilteredlist }) {
+export default function Filter({
+  load,
+  allcategory,
+  filteredlist,
+  setfilteredlist,
+}) {
   const [onFil, offFil] = useState(false);
   const [unique, setunique] = useState([]);
   const [orderDel, setOrderDel] = useState([]);
   const [category, setcategory] = useState([]);
-  const [allcategory, setallcategory] = useState([]);
 
   const handlechange = (e) => {
     if (e.target.checked) {
