@@ -3,23 +3,29 @@
   justify-content: space-between;
   gap: 0px 20px;
 }
-.filterVis{
+
+.filterVis {
   display: block;
 }
 
-@media (max-width: 655px) {
-  .filterVis{
-  display: none;
+.archiveIcon {
+  float: right;
+}
 
+@media (max-width: 655px) {
+  .filterVis {
+    display: none;
   }
 }
+
 @media (max-width: 600px) {
   .mdiv {
     flex-wrap: wrap;
   }
 }
+
 .mainDiv {
-  padding-right: 10px; 
+  padding-right: 10px;
   display: grid;
   height: fit-content;
   gap: 20px;
