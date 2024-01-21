@@ -18,9 +18,8 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 import DCss from "./Css/display.module.css";
 import cardDisplay from "./Css/cardDisplay.module.css";
 
-export default function Display({ filteredlist, setfilteredlist }) {
+export default function Display({ load, filteredlist, setfilteredlist }) {
   const [max, setmax] = useState(false);
-  const [load, setLoad] = useState(false);
   const [orderDel, setOrderDel] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [allProducts, setAllProducts] = useState([]);
@@ -28,34 +27,6 @@ export default function Display({ filteredlist, setfilteredlist }) {
   const [showProductDel, setProductDel] = useState({ state: false, id: "" });
 
   const authCtx = useContext(AuthContext);
-
-  const loadData = async () => {
-    setLoad(true);
-
-    try {
-      const response = await axios.get(
-        `/api/common/product/all/false?page=${currentPage}`,
-        {
-          headers: { Authorization: `${authCtx.token}` },
-        }
-      );
-
-      if (response.data.success) {
-        setProdcutsCount(response?.data?.length);
-        setOrderDel(response?.data?.orderList);
-        setfilteredlist(response?.data?.orderList);
-        setLoad(false);
-      } else {
-        setLoad(false);
-
-        console.log(e);
-      }
-    } catch (e) {
-      setLoad(false);
-
-      console.log(e);
-    }
-  };
 
   const deleteproduct = async (_id) => {
     try {
@@ -103,17 +74,8 @@ export default function Display({ filteredlist, setfilteredlist }) {
   };
 
   useEffect(() => {
-    loadData();
-  }, [, currentPage]);
-
-  useEffect(() => {
     maxPage();
   }, [prodcutsCount, currentPage]);
-
-  // scroll to top
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [, currentPage]);
 
   return (
     <>
