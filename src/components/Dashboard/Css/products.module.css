@@ -10,6 +10,7 @@
 
 .archiveIcon {
   float: right;
+  cursor: pointer;
 }
 
 @media (max-width: 655px) {
