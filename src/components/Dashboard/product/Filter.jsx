@@ -77,6 +77,7 @@ export default function Filter({
                   <input
                     type="checkbox"
                     name="category"
+                    checked={filterData.category.includes(val)}
                     onChange={(e) => {
                       const isChecked = e.target.checked;
 
