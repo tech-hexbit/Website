@@ -43,6 +43,7 @@ export default function OverallSales() {
   const [filters, setfilters] = useState({
     buyer: "",
     status: "",
+    search: "",
   });
 
   const authCtx = useContext(AuthContext);
@@ -164,9 +165,14 @@ export default function OverallSales() {
   };
 
   const searchData = (e) => {
-    if (searchTerm === "") {
+    if (search === "") {
       return;
     }
+
+    setfilters({
+      ...filters,
+      search,
+    });
   };
 
   useEffect(() => {
@@ -188,12 +194,9 @@ export default function OverallSales() {
   }, [buyer]);
 
   useEffect(() => {
+    console.log(filters);
     loadData();
   }, [filters]);
-
-  useEffect(() => {
-    console.log("Search = " + search);
-  }, [search]);
 
   return (
     <>
