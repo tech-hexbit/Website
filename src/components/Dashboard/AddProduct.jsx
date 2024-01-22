@@ -24,7 +24,7 @@ export default function AddProduct() {
 
   const [showCategory, setCategory] = useState({
     state: userCategory.length > 0,
-    value: authCtx.user.category
+    value: authCtx.user.category,
   });
   console.log(" ~ showCategory:", showCategory.value);
 
@@ -33,7 +33,7 @@ export default function AddProduct() {
 
     setCategory({
       ...showCategory,
-      state: false
+      state: false,
     });
   };
 
@@ -46,7 +46,7 @@ export default function AddProduct() {
     symbol: "",
     title: "",
     text: "",
-    val: false
+    val: false,
   });
 
   useEffect(() => {
@@ -57,7 +57,7 @@ export default function AddProduct() {
         symbol: "",
         title: "",
         text: "",
-        val: false
+        val: false,
       });
     }, 10000);
   }, [variants]);
