@@ -15,6 +15,9 @@ const Terms = React.lazy(() => import("./Pages/Terms"));
 const Error = React.lazy(() => import("./Pages/Error"));
 const Contact = React.lazy(() => import("./Pages/Contact"));
 const Privacy = React.lazy(() => import("./Pages/Privacy"));
+
+// del
+const Return = React.lazy(() => import("./Pages/Return"));
 const ForgotPassword = React.lazy(() => import("./Pages/ForgotPassword"));
 //        || Auth
 const SignIn = React.lazy(() => import("./Pages/SignIn"));
@@ -58,6 +61,16 @@ function App() {
               element={
                 <Suspense fallback={<LoadingPage />}>
                   <About />
+                </Suspense>
+              }
+            />
+
+            {/* del */}
+            <Route
+              path="/Return"
+              element={
+                <Suspense fallback={<LoadingPage />}>
+                  <Return />
                 </Suspense>
               }
             />
