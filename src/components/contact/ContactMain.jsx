@@ -24,7 +24,6 @@ export default function ContactMain() {
             experience for you. unknown printer took a type and scrambled it to
             make a type
           </p>
-
           <div className={styles.conDiv}>
             <div className={styles.MailUs}>
               <div>
@@ -32,7 +31,7 @@ export default function ContactMain() {
                 <p className={styles.mthName}>Mail Us</p>
               </div>
               <div>
-                <p className={styles.del}>tech@hexbit.io</p>
+                <p className={styles.del}>support@hexbit.io</p>
               </div>
             </div>
             <div className={styles.CallUs}>
@@ -45,13 +44,30 @@ export default function ContactMain() {
               </div>
             </div>
           </div>
-
           <div className={styles.pointerDiv}>
             <Pointers label="An overview of the platform and its features" />
             <Pointers label="Consultation on how to leverage the platform for your community" />
             <Pointers label="Share few success stories with you" />
             <Pointers label="Many desktop publishing packages and web page editors now use" />
           </div>
+          <br />
+          <br />
+          <br />
+          Merchant Legal entity name: BTA TECH SOLUTIONS PRIVATE LIMITED
+          <br />
+          Registered Address: G/F, H NO-98-C, M.B ROAD KHANPUR VILLAGE, NEW
+          DELHI, SOUTH DELHI, DELHI, 110080, DELHI, Delhi,
+          <br />
+          PIN: 110080
+          <br />
+          Operational Address: G/F, H NO-98-C, M.B ROAD KHANPUR VILLAGE, NEW
+          DELHI, SOUTH DELHI, DELHI, 110080, DELHI, Delhi,
+          <br />
+          PIN: 110080
+          <br />
+          Telephone No: 9939197376
+          <br />
+          E-Mail ID: support@hexbit.io
         </div>
         <ContactForm />
       </div>
