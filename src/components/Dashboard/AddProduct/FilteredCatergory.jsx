@@ -1,6 +1,12 @@
+import React from "react";
+
+// css
 import fc from "./Css/FilteredCatergory.module.css";
 
-const FilteredCategory = ({ selectedCategories, onCategoryClick }) => {
+export default function FilteredCatergory({
+  selectedCategories,
+  onCategoryClick,
+}) {
   return (
     <>
       <article>
@@ -24,6 +30,4 @@ const FilteredCategory = ({ selectedCategories, onCategoryClick }) => {
       </main>
     </>
   );
-};
-
-export default FilteredCategory;
+}
