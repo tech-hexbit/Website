@@ -5,7 +5,7 @@ import React, { useState, useContext } from 'react'
 import AuthContext from "../../../../../store/auth-context";
 
 // Css
-import SCss from '../CSS/SellerDetail.module.css'
+import SCss from '../CSS/sellerDetail.module.css'
 import SDCss from '../CSS/selectSellerDetail.module.css';
 
 function Alert(props) {

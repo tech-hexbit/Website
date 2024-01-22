@@ -1,7 +1,7 @@
 import React from 'react'
 
 // Css
-import SCss from '../CSS/SellerDetail.module.css'
+import SCss from '../CSS/sellerDetail.module.css'
 
 function DownloadBtn() {
   return (
