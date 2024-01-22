@@ -31,7 +31,7 @@ import SupportAdmin from "./../components/Admin/Support";
 import SellersAdmin from "./../components/Admin/Sellers";
 
 import PaymentTable from "../components/Admin/PayDetails/PaymentTable";
-=======
+
 //          || Super Admin
 import FrontPage from "./../components/MainAdmin/FrontPage";
 import SellerInfo from "./../components/MainAdmin/SellerInfo";
