@@ -80,7 +80,6 @@ const StoreVerifyMain = (props) => {
         longitude: position.coords.longitude,
       },
     });
-    // console.log(position.coords.latitude);
   };
 
   const errorCallback = (error) => {
@@ -371,4 +370,5 @@ const StoreVerifyMain = (props) => {
     </>
   );
 };
+
 export default StoreVerifyMain;
