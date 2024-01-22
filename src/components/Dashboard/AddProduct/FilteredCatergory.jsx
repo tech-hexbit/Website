@@ -15,9 +15,9 @@ export default function FilteredCatergory({
       </article>
 
       <main className={fc.grid}>
-        {selectedCategories.map((category) => (
+        {selectedCategories.map((category, key) => (
           <div
-            key={category._id}
+            key={key}
             className={fc.gridCard}
             onClick={() => onCategoryClick(category)}
           >
