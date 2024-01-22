@@ -52,16 +52,8 @@ export default function ContactMain() {
           </div>
           <br />
           <br />
-          <br />
-          Merchant Legal entity name: BTA TECH SOLUTIONS PRIVATE LIMITED
-          <br />
-          Registered Address: G/F, H NO-98-C, M.B ROAD KHANPUR VILLAGE, NEW
-          DELHI, SOUTH DELHI, DELHI, 110080, DELHI, Delhi,
-          <br />
-          PIN: 110080
-          <br />
-          Operational Address: G/F, H NO-98-C, M.B ROAD KHANPUR VILLAGE, NEW
-          DELHI, SOUTH DELHI, DELHI, 110080, DELHI, Delhi,
+          Address: G/F, H NO-98-C, M.B ROAD KHANPUR VILLAGE, NEW DELHI, SOUTH
+          DELHI, DELHI, 110080, DELHI, Delhi,
           <br />
           PIN: 110080
           <br />
