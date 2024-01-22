@@ -10,7 +10,7 @@ import AuthContext from "../../../../store/auth-context";
 import axios from "axios";
 
 // css
-import SCss from './CSS/SellerDetail.module.css'
+import SCss from './CSS/sellerDetail.module.css'
 import KYCDetails from "./Seller Components/KYCDetails";
 import DownloadBtn from "./Seller Components/DownloadBtn";
 import MandatoryField from "./Seller Components/MandatoryField";
