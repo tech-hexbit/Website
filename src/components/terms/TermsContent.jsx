@@ -1,6 +1,9 @@
+import React from "react";
+
+// css
 import styles from "./TermsContent.module.css";
 
-const TermsContent = () => {
+export default function TermsContent() {
   return (
     <div className={styles.wrapper}>
       <h1>Terms of Service</h1>
@@ -1186,7 +1189,7 @@ const TermsContent = () => {
       </p>
       <p>
         <strong>
-          17.5 Amendment and evolution of Commercial Terms on periodic basis: 
+          17.5 Amendment and evolution of Commercial Terms on periodic basis:
         </strong>
         Service Provider may amend this Agreement, Commercial Terms and Platform
         Policies at any time by posting a revised version on the Platform. All
@@ -1270,10 +1273,16 @@ const TermsContent = () => {
         and obligations hereunder.
       </p>
 
-      <h2>18.	GRIEVANCE OFFICER</h2>
+      <h2>18. GRIEVANCE OFFICER</h2>
 
       <p>
-      In accordance with Information Technology Act, 2000 and the rules made thereunder, the name and contact details of the Grievance Officer currently is ……………….. with address at ………………………………….. with email ID: grievance@.................... Any change shall be communicated on the Platform. Service of notice for Dispute Resolution and for purposes other than those which are required under Information Technology Act, 2000 to be given only to the Grievance Officer shall not be valid.
+        In accordance with Information Technology Act, 2000 and the rules made
+        thereunder, the name and contact details of the Grievance Officer
+        currently is ……………….. with address at ………………………………….. with email ID:
+        grievance@.................... Any change shall be communicated on the
+        Platform. Service of notice for Dispute Resolution and for purposes
+        other than those which are required under Information Technology Act,
+        2000 to be given only to the Grievance Officer shall not be valid.
       </p>
 
       {/* <p>
@@ -1714,6 +1723,4 @@ const TermsContent = () => {
         </p>*/}
     </div>
   );
-};
-
-export default TermsContent; 
+}

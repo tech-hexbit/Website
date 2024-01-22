@@ -11,6 +11,7 @@ import { Helmet } from "react-helmet";
 //          || SideBar
 import UserSideBar from "./../components/Dashboard/UserSideBar";
 //          || User
+import StoreVerify from "./StoreVerify";
 import Sales from "./../components/Dashboard/Sales";
 import Contact from "./../components/Dashboard/Contact";
 import Support from "./../components/Dashboard/Support";
@@ -208,7 +209,16 @@ export default function Profile() {
             </div>
           </>
         ) : (
-          ""
+          <>
+            {/* Users */}
+            {authCtx.user.access === 1 && (
+              <>
+                <Routes>
+                  <Route path="/" element={<StoreVerify />} />
+                </Routes>
+              </>
+            )}
+          </>
         )}
       </div>
 

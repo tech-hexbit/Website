@@ -31,7 +31,6 @@ export default function OverallSales() {
   const [showProductDel, setProductDel] = useState({ state: false, id: "" });
 
   // Add a state variable to track the sort order
-  const [sortOrder, setSortOrder] = useState("asc");
   const [sortDateOrder, setSortDateOrder] = useState("asc");
   const [sortPriceOrder, setSortPriceOrder] = useState("asc");
   const [sortByNameOrder, setSortByNameOrder] = useState("asc");
@@ -43,6 +42,7 @@ export default function OverallSales() {
   const [filters, setfilters] = useState({
     buyer: "",
     status: "",
+    search: "",
   });
 
   const authCtx = useContext(AuthContext);
@@ -154,13 +154,24 @@ export default function OverallSales() {
   };
 
   const filterData = async function (e) {
-    setSearch(e.target.value);
+    setSearch(e.target.value.toLowerCase());
   };
 
   const handleChange1 = (e) => {
     const name = e.target.name;
     const value = e.target.value;
     setfilters({ ...filters, [name]: value });
+  };
+
+  const searchData = (e) => {
+    if (search === "") {
+      return;
+    }
+
+    setfilters({
+      ...filters,
+      search,
+    });
   };
 
   useEffect(() => {
@@ -182,6 +193,7 @@ export default function OverallSales() {
   }, [buyer]);
 
   useEffect(() => {
+    console.log(filters);
     loadData();
   }, [filters]);
 
@@ -242,15 +254,21 @@ export default function OverallSales() {
                 </div>
               </div>
 
-              {/* Search */}
-              <div className={osCss.search}>
-                <input
-                  type="text"
-                  value={search}
-                  placeholder="Search order"
-                  onChange={filterData}
-                />
+              <div className={osCss.searchParent}>
+                {/* Search */}
+                <div className={osCss.search}>
+                  <input
+                    type="text"
+                    value={search}
+                    placeholder="Search order"
+                    onChange={filterData}
+                  />
+                  <div className={osCss.searchBtn} onClick={searchData}>
+                    Search
+                  </div>
+                </div>
 
+                {/* Reset */}
                 {search !== "" ||
                 filters.buyer !== "" ||
                 filters.status !== "" ? (
@@ -273,6 +291,7 @@ export default function OverallSales() {
                           ...prevFilters,
                           buyer: "",
                           status: "",
+                          search: "",
                         }));
                       }}
                     >
@@ -427,22 +446,10 @@ export default function OverallSales() {
                         </tr>
 
                         {/* Maping Data */}
-                        {orderDel
-                          .filter((value) => {
-                            if (search === "") {
-                              return value;
-                            } else if (
-                              value.ONDCBilling.name
-                                .toLowerCase()
-                                .includes(search.toLowerCase())
-                            ) {
-                              return value;
-                            }
-                          })
-                          .map((val, key) => {
-                            return (
-                              <tr key={key}>
-                                <td
+                        {orderDel.map((val, key) => {
+                          return (
+                            <tr key={key}>
+                              <td
                                 onClick={() => {
                                   setProductDel({
                                     state: true,
@@ -450,32 +457,12 @@ export default function OverallSales() {
                                   });
                                   setHideDel(!showDel);
                                 }}
-                                 data-cell="ID"> #{val._id.slice(-4)}</td>
-                                <td
-                                  onClick={() => {
-                                    setProductDel({
-                                      state: true,
-                                      id: val._id,
-                                    });
-                                    setHideDel(!showDel);
-                                  }}
-                                  data-cell="CUSTOMER "
-                                >
-                                  {val.ONDCBilling.name}
-                                </td>
-                                <td
-                                onClick={() => {
-                                  setProductDel({
-                                    state: true,
-                                    id: val._id,
-                                  });
-                                  setHideDel(!showDel);
-                                }} 
-                                data-cell="PRICE">
-                                  {" "}
-                                  ₹ {val.amount.toFixed(2)}
-                                </td>
-                                <td
+                                data-cell="ID"
+                              >
+                                {" "}
+                                #{val._id.slice(-4)}
+                              </td>
+                              <td
                                 onClick={() => {
                                   setProductDel({
                                     state: true,
@@ -483,36 +470,71 @@ export default function OverallSales() {
                                   });
                                   setHideDel(!showDel);
                                 }}
-                                 data-cell="ORDERED ON"> {val.when.date}</td>
-                                <td
+                                data-cell="CUSTOMER "
+                              >
+                                {val.ONDCBilling.name}
+                              </td>
+                              <td
                                 onClick={() => {
-                                    setProductDel({
-                                      state: true,
-                                      id: val._id,
-                                    });
-                                    setHideDel(!showDel);
-                                  }}
-                                 data-cell="PAYMENT METHOD">{val.status}</td>
-                                <td
+                                  setProductDel({
+                                    state: true,
+                                    id: val._id,
+                                  });
+                                  setHideDel(!showDel);
+                                }}
+                                data-cell="PRICE"
+                              >
+                                {" "}
+                                ₹ {val.amount.toFixed(2)}
+                              </td>
+                              <td
                                 onClick={() => {
-                                    setProductDel({
-                                      state: true,
-                                      id: val._id,
-                                    });
-                                    setHideDel(!showDel);
-                                  }}
-                                 data-cell="BUYER ">{val.buyer}</td>
+                                  setProductDel({
+                                    state: true,
+                                    id: val._id,
+                                  });
+                                  setHideDel(!showDel);
+                                }}
+                                data-cell="ORDERED ON"
+                              >
+                                {" "}
+                                {val.when.date}
+                              </td>
+                              <td
+                                onClick={() => {
+                                  setProductDel({
+                                    state: true,
+                                    id: val._id,
+                                  });
+                                  setHideDel(!showDel);
+                                }}
+                                data-cell="PAYMENT METHOD"
+                              >
+                                {val.status}
+                              </td>
+                              <td
+                                onClick={() => {
+                                  setProductDel({
+                                    state: true,
+                                    id: val._id,
+                                  });
+                                  setHideDel(!showDel);
+                                }}
+                                data-cell="BUYER "
+                              >
+                                {val.buyer}
+                              </td>
 
-                                <UpdateState
-                                  state={val.state}
-                                  id={val._id}
-                                  setLoadDataState={setLoadDataState}
-                                  loadDataState={loadDataState}
-                                  dataCell="DELIVERY STATUS"
-                                />
-                              </tr>
-                            );
-                          })}
+                              <UpdateState
+                                state={val.state}
+                                id={val._id}
+                                setLoadDataState={setLoadDataState}
+                                loadDataState={loadDataState}
+                                dataCell="DELIVERY STATUS"
+                              />
+                            </tr>
+                          );
+                        })}
                       </>
                     ) : (
                       <p className="NoOrders">No Orders</p>

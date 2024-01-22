@@ -14,7 +14,7 @@ import AuthContext from "../../../store/auth-context";
 // css
 import pt from "./Css/PaymentTable.module.css";
 
-export default function PaymentTable({ setSel }) {
+export default function PaymentTable({ setSel, loadDataSave }) {
   const [load, setLoad] = useState(false);
   const [showData, setData] = useState([]);
   const [variants, setError] = useState({
@@ -63,7 +63,7 @@ export default function PaymentTable({ setSel }) {
 
   useEffect(() => {
     loadData();
-  }, []);
+  }, [, loadDataSave]);
 
   return (
     <>
@@ -76,7 +76,7 @@ export default function PaymentTable({ setSel }) {
           </div>
         ) : (
           <>
-            {showData ? (
+            {showData.length > 0 ? (
               <>
                 <table className={pt.trans_table}>
                   <tr>
@@ -115,8 +115,6 @@ export default function PaymentTable({ setSel }) {
                               type="checkbox"
                               className={pt.CheckBoxInp}
                               onChange={(e) => {
-                                console.log("first");
-
                                 setSel((prevShowSel) => ({
                                   ...prevShowSel,
                                   total: e.target.checked
@@ -125,6 +123,13 @@ export default function PaymentTable({ setSel }) {
                                   amount: e.target.checked
                                     ? prevShowSel.amount + val.amount
                                     : prevShowSel.amount - val.amount,
+                                  order: e.target.checked
+                                    ? Array.isArray(prevShowSel.order)
+                                      ? [...prevShowSel.order, val._id]
+                                      : [val._id]
+                                    : prevShowSel.order.filter(
+                                        (order) => order !== val._id
+                                      ),
                                 }));
                               }}
                             />
@@ -167,9 +172,5 @@ export default function PaymentTable({ setSel }) {
 }
 
 PaymentTable.propTypes = {
-  showSel: PropTypes.shape({
-    total: PropTypes.number.isRequired,
-    amount: PropTypes.number.isRequired,
-  }).isRequired,
   setSel: PropTypes.func.isRequired,
 };
