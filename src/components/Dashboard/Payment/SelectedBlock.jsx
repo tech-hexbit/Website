@@ -1,9 +1,12 @@
 import PropTypes from "prop-types";
 
+// MicroInteraction
+import Load from "../../../MicroInteraction/Load";
+
 // css
 import pr from "./Css/PaymentRequest.module.css";
 
-export default function SelectedBlock({ total, amount }) {
+export default function SelectedBlock({ total, amount, raiseReq, loadState }) {
   return (
     <>
       <div className={pr.detailsRight}>
@@ -55,20 +58,15 @@ export default function SelectedBlock({ total, amount }) {
                   <path d="M9 13c6.667 0 6.667-10 0-10" />
                 </svg>
               </span>
-              {amount}
+              {amount.toFixed(2)}
             </h1>
           </div>
         </div>
         <div className={pr.flexItem}>
-          {amount > 0 ? (
-            <>
-              <button>Raise Payment Request</button>
-            </>
-          ) : (
-            <>
-              <button>Select Orders</button>
-            </>
-          )}
+          {/* {amount > 0 ? ( */}
+          <button onClick={raiseReq}>
+            {loadState ? <Load /> : "Raise Payment Request"}
+          </button>
         </div>
       </div>
     </>
@@ -78,4 +76,5 @@ export default function SelectedBlock({ total, amount }) {
 SelectedBlock.propTypes = {
   total: PropTypes.number.isRequired,
   amount: PropTypes.number.isRequired,
+  raiseReq: PropTypes.func.isRequired,
 };

@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
+import PropTypes from "prop-types";
 
 // axios
 import axios from "axios";
@@ -15,7 +16,7 @@ import AuthContext from "../../../store/auth-context";
 // css
 import pr from "./Css/PaymentRequest.module.css";
 
-export default function PaymentRequest() {
+export default function PaymentRequest({ showSel, setSel }) {
   const [load, setLoad] = useState(true);
   const [bankDetails, setBankDetails] = useState([]);
 
@@ -46,6 +47,8 @@ export default function PaymentRequest() {
     }
   };
 
+  console.log(bankDetails);
+
   return (
     <>
       <div className={pr.detailsLeft}>
@@ -57,11 +60,16 @@ export default function PaymentRequest() {
           <>
             {bankDetails.map((bank, key) => (
               <BankDel
-                BankName={bank.BankName}
-                AccountNumber={String(bank.AccountNumber).slice(-4)}
-                AccountHolderName={bank.AccountHolderName}
-                IfscCode={bank.IfscCode}
+                BankName={bank.BankDetails[0].BankName}
+                AccountNumber={String(bank.BankDetails[0].AccountNumber).slice(
+                  -4
+                )}
+                AccountHolderName={bank.BankDetails[0].AccountHolderName}
+                IfscCode={bank.BankDetails[0].IfscCode}
+                setSel={setSel}
+                showSel={showSel}
                 key={key}
+                id={bank._id}
               />
             ))}
           </>
@@ -74,3 +82,7 @@ export default function PaymentRequest() {
     </>
   );
 }
+
+PaymentRequest.propTypes = {
+  setSel: PropTypes.func.isRequired,
+};

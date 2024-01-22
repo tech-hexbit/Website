@@ -18,44 +18,29 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 import DCss from "./Css/display.module.css";
 import cardDisplay from "./Css/cardDisplay.module.css";
 
-export default function Display({ filteredlist, setfilteredlist }) {
+export default function Display({
+  load,
+  filterData,
+  currentPage,
+  allcategory,
+  filteredlist,
+  setfilterData,
+  setCurrentPage,
+  setfilteredlist,
+}) {
   const [max, setmax] = useState(false);
-  const [load, setLoad] = useState(false);
-  const [orderDel, setOrderDel] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [allProducts, setAllProducts] = useState([]);
-  const [prodcutsCount, setProdcutsCount] = useState(0);
+  const [searchTerm, setSearchTerm] = useState("");
   const [showProductDel, setProductDel] = useState({ state: false, id: "" });
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
 
   const authCtx = useContext(AuthContext);
-
-  const loadData = async () => {
-    setLoad(true);
-
-    try {
-      const response = await axios.get(
-        `/api/common/product/all/false?page=${currentPage}`,
-        {
-          headers: { Authorization: `${authCtx.token}` },
-        }
-      );
-
-      if (response.data.success) {
-        setProdcutsCount(response?.data?.length);
-        setOrderDel(response?.data?.orderList);
-        setfilteredlist(response?.data?.orderList);
-        setLoad(false);
-      } else {
-        setLoad(false);
-
-        console.log(e);
-      }
-    } catch (e) {
-      setLoad(false);
-
-      console.log(e);
-    }
-  };
 
   const deleteproduct = async (_id) => {
     try {
@@ -74,25 +59,22 @@ export default function Display({ filteredlist, setfilteredlist }) {
   };
 
   const filter = (event) => {
-    const searchTerm = event.target.value.toLowerCase();
-    console.log("Search Term:", searchTerm);
+    setSearchTerm(event.target.value.toLowerCase());
+  };
 
-    const updatedProducts = allProducts.filter((product) =>
-      product?.descriptor?.name.toLowerCase().includes(searchTerm)
-    );
-
-    console.log("Filtered Products:", updatedProducts);
-
+  const searchData = (e) => {
     if (searchTerm === "") {
-      setfilteredlist(orderDel);
-    } else {
-      setfilteredlist(updatedProducts);
+      return;
     }
+    setfilterData({
+      ...filterData,
+      search: searchTerm,
+    });
   };
 
   const maxPage = () => {
-    if (prodcutsCount > 0) {
-      if (currentPage === Math.ceil(prodcutsCount / 10)) {
+    if (filteredlist.prodcutsCount > 0) {
+      if (currentPage === Math.ceil(filteredlist.prodcutsCount / 10)) {
         setmax(true);
       } else {
         setmax(false);
@@ -103,17 +85,8 @@ export default function Display({ filteredlist, setfilteredlist }) {
   };
 
   useEffect(() => {
-    loadData();
-  }, [, currentPage]);
-
-  useEffect(() => {
     maxPage();
-  }, [prodcutsCount, currentPage]);
-
-  // scroll to top
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [, currentPage]);
+  }, [filteredlist.prodcutsCount, currentPage]);
 
   return (
     <>
@@ -128,16 +101,55 @@ export default function Display({ filteredlist, setfilteredlist }) {
               placeholder="Search your product here..."
               onChange={filter}
             />
+            <div className={DCss.searchBtn} onClick={searchData}>
+              Search
+            </div>
           </div>
+
           <div className={DCss.button}>
             <Link to="/me/addProduct" className={DCss.LinkStyle}>
               <button></button>
             </Link>
           </div>
+
+          {filterData.category.length > 0 ||
+            (filterData.search !== "" && (
+              <>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-filter-x"
+                  className={DCss.resetFilBtn}
+                  onClick={() => {
+                    setfilterData({
+                      ...filterData,
+                      category: [],
+                      search: "",
+                    });
+                  }}
+                >
+                  <path d="M13.013 3H2l8 9.46V19l4 2v-8.54l.9-1.055" />
+                  <path d="m22 3-5 5" />
+                  <path d="m17 3 5 5" />
+                </svg>
+              </>
+            ))}
         </div>
+
         <div className={DCss.hideFilter}>
           <Filter
+            load={load}
+            filterData={filterData}
+            allcategory={allcategory}
             filteredlist={filteredlist}
+            setfilterData={setfilterData}
             setfilteredlist={setfilteredlist}
           />
         </div>
@@ -154,7 +166,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
                 className={DCss.tableTag}
                 style={{ borderCollapse: "collapse" }}
               >
-                {orderDel?.length > 0 ? (
+                {filteredlist.productList.length > 0 ? (
                   <>
                     <tr>
                       <th>Product</th>
@@ -164,7 +176,7 @@ export default function Display({ filteredlist, setfilteredlist }) {
                       <th id={DCss.published}>Published on</th>
                       <th>Action</th>
                     </tr>
-                    {filteredlist.map((val, key) => {
+                    {filteredlist.productList.map((val, key) => {
                       return (
                         <>
                           <tr key={key}>
@@ -247,99 +259,113 @@ export default function Display({ filteredlist, setfilteredlist }) {
                 )}
               </table>
 
-              <div>
-                {orderDel?.length > 0 ? (
-                  <>
-                    <div className={cardDisplay.cardMain}>
-                      {filteredlist.map((val, key) => {
-                        return (
-                          <div className={cardDisplay.card}>
-                            <div
-                              onClick={() => {
-                                setProductDel({ state: true, id: val._id });
-                              }}
-                            >
-                              <div className={cardDisplay.imgDiv}>
-                                <img
-                                  src={val.descriptor.images[0]}
-                                  className={cardDisplay.imgTag}
-                                />
+              {filteredlist.productList ? (
+                <>
+                  <div>
+                    {filteredlist.productList.length > 0 ? (
+                      <>
+                        <div className={cardDisplay.cardMain}>
+                          {filteredlist.productList.map((val, key) => {
+                            return (
+                              <div className={cardDisplay.card}>
+                                <div
+                                  onClick={() => {
+                                    setProductDel({ state: true, id: val._id });
+                                  }}
+                                >
+                                  <div className={cardDisplay.imgDiv}>
+                                    <img
+                                      src={val.descriptor.images[0]}
+                                      className={cardDisplay.imgTag}
+                                    />
+                                  </div>
+                                  <div className={cardDisplay.cardcontent}>
+                                    <p className={cardDisplay.cardText}>
+                                      Product:
+                                    </p>
+                                    <p className={cardDisplay.cardTextSecond}>
+                                      {val.descriptor.name}
+                                    </p>
+                                  </div>
+                                  <div className={cardDisplay.cardcontent}>
+                                    <p className={cardDisplay.cardText}>
+                                      Price:
+                                    </p>
+                                    <p className={cardDisplay.cardTextSecond}>
+                                      ₹ {val.price.maximum_value.toFixed(2)}
+                                    </p>
+                                  </div>
+                                  <div className={cardDisplay.cardcontent}>
+                                    <p className={cardDisplay.cardText}>
+                                      Stock:
+                                    </p>
+                                    <p className={cardDisplay.cardTextSecond}>
+                                      {val.quantity.maximum.count}
+                                    </p>
+                                  </div>
+                                  <div className={cardDisplay.cardcontent}>
+                                    <p className={cardDisplay.cardText}>
+                                      Orders:
+                                    </p>
+                                    <p className={cardDisplay.cardTextSecond}>
+                                      {val.fulfillment_id}
+                                    </p>
+                                  </div>
+                                  <div className={cardDisplay.cardcontent}>
+                                    <p className={cardDisplay.cardText}>
+                                      Published on:
+                                    </p>
+                                    <p className={cardDisplay.cardTextSecond}>
+                                      {val.when.date}
+                                    </p>
+                                  </div>
+                                </div>
+                                <div
+                                  className={cardDisplay.deleteBtn}
+                                  onClick={() => deleteproduct(val._id)}
+                                >
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="lucide lucide-trash-2"
+                                  >
+                                    <path d="M3 6h18" />
+                                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+                                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+                                    <line x1="10" x2="10" y1="11" y2="17" />
+                                    <line x1="14" x2="14" y1="11" y2="17" />
+                                  </svg>
+                                </div>
                               </div>
-                              <div className={cardDisplay.cardcontent}>
-                                <p className={cardDisplay.cardText}>Product:</p>
-                                <p className={cardDisplay.cardTextSecond}>
-                                  {val.descriptor.name}
-                                </p>
-                              </div>
-                              <div className={cardDisplay.cardcontent}>
-                                <p className={cardDisplay.cardText}>Price:</p>
-                                <p className={cardDisplay.cardTextSecond}>
-                                  ₹ {val.price.maximum_value.toFixed(2)}
-                                </p>
-                              </div>
-                              <div className={cardDisplay.cardcontent}>
-                                <p className={cardDisplay.cardText}>Stock:</p>
-                                <p className={cardDisplay.cardTextSecond}>
-                                  {val.quantity.maximum.count}
-                                </p>
-                              </div>
-                              <div className={cardDisplay.cardcontent}>
-                                <p className={cardDisplay.cardText}>Orders:</p>
-                                <p className={cardDisplay.cardTextSecond}>
-                                  {val.fulfillment_id}
-                                </p>
-                              </div>
-                              <div className={cardDisplay.cardcontent}>
-                                <p className={cardDisplay.cardText}>
-                                  Published on:
-                                </p>
-                                <p className={cardDisplay.cardTextSecond}>
-                                  {val.when.date}
-                                </p>
-                              </div>
-                            </div>
-                            <div
-                              className={cardDisplay.deleteBtn}
-                              onClick={() => deleteproduct(val._id)}
-                            >
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                class="lucide lucide-trash-2"
-                              >
-                                <path d="M3 6h18" />
-                                <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
-                                <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
-                                <line x1="10" x2="10" y1="11" y2="17" />
-                                <line x1="14" x2="14" y1="11" y2="17" />
-                              </svg>
-                            </div>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </>
-                ) : (
-                  <p className="NoOrders">No Orders</p>
-                )}
-              </div>
+                            );
+                          })}
+                        </div>
+                      </>
+                    ) : (
+                      <p className="NoOrders">No Orders</p>
+                    )}
+                  </div>
+                </>
+              ) : (
+                ""
+              )}
 
               {/* Show Label */}
               <p className={DCss.showingPTag}>
                 Showing{" "}
-                {filteredlist?.length <= 10 ? (
-                  <b>{10 * (currentPage - 1) + filteredlist?.length} </b>
+                {filteredlist.prodcutsCount <= 10 ? (
+                  <b>{10 * (currentPage - 1) + filteredlist.prodcutsCount} </b>
                 ) : (
-                  <b>5</b>
+                  <b>10</b>
                 )}{" "}
-                of <b>{prodcutsCount}</b> results
+                of <b>{filteredlist.prodcutsCount}</b> results
               </p>
             </div>
           )}

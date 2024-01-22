@@ -25,15 +25,18 @@ export default function Categories() {
   const [orderlist, setorderlist] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [prodcutsCount, setProdcutsCount] = useState(0);
-
+  const [filterData, setfilterData] = useState({
+    category: [],
+  });
   const authCtx = useContext(AuthContext);
 
   const loadData = async () => {
     setLoad(true);
 
     try {
-      const response = await axios.get(
+      const response = await axios.post(
         `/api/common/product/all/${showFilter}?page=${currentPage}`,
+        filterData,
         {
           headers: { Authorization: `${authCtx.token}` },
         }

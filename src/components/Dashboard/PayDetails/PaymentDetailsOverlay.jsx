@@ -9,7 +9,7 @@ import gpdo from "./Css/PaymentDetailsOverlay.module.css";
 export default function PaymentDetailsOverlay({ selectedItem }) {
   if (!selectedItem) return null;
 
-  const { refNo, accountHolderName, status, paymentMode } = selectedItem[0];
+  console.log(selectedItem);
 
   return (
     <div className={gpdo.main}>
@@ -17,43 +17,61 @@ export default function PaymentDetailsOverlay({ selectedItem }) {
       <div className={gpdo.wrapper}>
         <div className={gpdo.item}>
           <p> Ref Number</p>
-          <p>{refNo}</p>
+          <p>{selectedItem[0]._id.slice(-4)}</p>
         </div>
         <div className={gpdo.item}>
           <p> Request Date & Time</p>
-          <p>25-02-2023, 13:22:16</p>
+          <p>
+            {selectedItem[0].when.date}, {selectedItem[0].when.time}
+          </p>
         </div>
         <div className={gpdo.item}>
           <p className={gpdo.bold}>Status</p>
-          <p className={gpdo.bold}>{status}</p>
-        </div>
-        <div className={gpdo.item}>
-          <p className={gpdo.bold}>Status Code</p>
-          <p className={gpdo.bold}>{paymentMode}</p>
+          <p className={gpdo.bold}> {selectedItem[0].status}</p>
         </div>
         <div className={gpdo.item}>
           <p>Payment Method</p>
-          <p>NEFT</p>
+          <p>
+            {" "}
+            [{" "}
+            {selectedItem[0].order.map((val, key) => {
+              const lastFourChars = val.orderID.payment.type;
+              return key === selectedItem[0].order.length - 1
+                ? lastFourChars
+                : `${lastFourChars}, `;
+            })}{" "}
+            ]
+          </p>
         </div>
         <div className={gpdo.item}>
           <p> Account Number</p>
-          <p>012345678</p>
+          <p>{selectedItem[0].bank.BankDetails[0].AccountNumber}</p>
         </div>
         <div className={gpdo.item}>
           <p> Account Holder Name</p>
-          <p>{accountHolderName}</p>
+          <p>{selectedItem[0].bank.BankDetails[0].AccountHolderName}</p>
         </div>
         <div className={gpdo.item}>
           <p>Bank Name</p>
-          <p>SBI</p>
+          <p>{selectedItem[0].bank.BankDetails[0].BankName}</p>
         </div>
         <div className={gpdo.item}>
           <p>IFSC Code</p>
-          <p>SBIN0123456</p>
+          <p>{selectedItem[0].bank.BankDetails[0].IfscCode}</p>
         </div>
         <div className={gpdo.item}>
           <p>UTR Number</p>
-          <p>SVIN1234567890</p>
+          <p>
+            {" "}
+            [{" "}
+            {selectedItem[0].order.map((val, key) => {
+              const lastFourChars = val.orderID.payment.uri;
+              return key === selectedItem[0].order.length - 1
+                ? lastFourChars
+                : `${lastFourChars}, `;
+            })}{" "}
+            ]
+          </p>
         </div>
         <div className={gpdo.item}>
           <p>Payment Date & Time</p>
@@ -61,19 +79,19 @@ export default function PaymentDetailsOverlay({ selectedItem }) {
         </div>
         <div className={gpdo.item}>
           <p>Request Amount</p>
-          <p>INR 366.16</p>
+          <p>INR {selectedItem[0].breakUp[0].amount.toFixed(2)}</p>
         </div>
         <div className={gpdo.item}>
           <p>Platform Fee</p>
-          <p>INR 20</p>
+          <p>INR {selectedItem[0].breakUp[0].platformFee.toFixed(2)}</p>
         </div>
         <div className={gpdo.item}>
           <p>Tax</p>
-          <p>INR 16</p>
+          <p>INR {selectedItem[0].breakUp[0].tax.toFixed(2)}</p>
         </div>
         <div className={gpdo.final}>
           <p>Final Transferred Amount (Total)</p>
-          <p>INR 330.16</p>
+          <p>INR {selectedItem[0].totalAmount.toFixed(2)}</p>
         </div>
       </div>
       <GatewayGetinTouch />
