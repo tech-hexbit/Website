@@ -20,13 +20,10 @@ export default function AddProduct() {
 
   const userCategory = authCtx.user.category;
 
-  console.log(" ~ userCategory:", userCategory);
-
   const [showCategory, setCategory] = useState({
     state: userCategory.length > 0,
     value: authCtx.user.category,
   });
-  console.log(" ~ showCategory:", showCategory.value);
 
   const handleCategoryClick = (category) => {
     console.log("Category clicked");
