@@ -3,9 +3,9 @@
     font-family: 'Roboto', sans-serif;  
 }
 .mainSec{
-    margin-top: 2.5rem;
-    margin-left: 5rem;
-    width:  93%;
+    /* margin-top: 2.5rem;
+    margin-left: 5rem; */
+    width:  100%;
 }
 .sidebar{
     background: rgba(251, 251, 251, 1);
@@ -31,7 +31,7 @@
 }
 .slideSec {
     font-size: 17px;
-    width: 25%;
+    width: 20%;
     text-align: center;
     color: initialColor;
     border-bottom: 1.5px solid white;
@@ -43,7 +43,7 @@
 }
 .KYCmain{
     margin-top: 15px ;   
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
     width: 60vw;
     margin-bottom: 20px;
 }
@@ -59,7 +59,10 @@
 }
 @media (max-width: 850px){
     .KYCmain{
-        width: 100vw;
+        width: 100%;
+    }
+    .slideSec{
+        width: 40%;
     }
 }
 
@@ -67,9 +70,17 @@
     .slideSec{
         width: 30%;
     }
+    .KYCmain{
+        width: 85vw;
+    }
 }
-@media (max-width:510px){
+@media (max-width:470px){
     .slideSec{
-        width: 23%;
+        width: 26%;
+    }
+}
+@media (max-width: 374px){
+    .KYCmain{
+        width: 75vw;
     }
 }

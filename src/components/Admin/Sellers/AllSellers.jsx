@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 // components
 import SellersDetails from "./SellersDetails";
-import SellerDetail from "./Seller Components/SellerDetail";
+import SellerDetail from "./Seller Main/SellerDetail";
 
 // MicroInteraction
 import Load from "./../../../MicroInteraction/LoadBlack";
