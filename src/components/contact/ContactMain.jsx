@@ -50,16 +50,19 @@ export default function ContactMain() {
             <Pointers label="Share few success stories with you" />
             <Pointers label="Many desktop publishing packages and web page editors now use" />
           </div>
-          <br />
-          <br />
-          Address: G/F, H NO-98-C, M.B ROAD KHANPUR VILLAGE, NEW DELHI, SOUTH
-          DELHI, DELHI, 110080, DELHI, Delhi,
-          <br />
-          PIN: 110080
-          <br />
-          Telephone No: 9939197376
-          <br />
-          E-Mail ID: support@hexbit.io
+
+          <>
+            <br />
+            <br />
+            Address: G/F, H NO-98-C, M.B ROAD KHANPUR VILLAGE, NEW DELHI, SOUTH
+            DELHI, DELHI, 110080, DELHI, Delhi,
+            <br />
+            PIN: 110080
+            <br />
+            Telephone No: 9939197376
+            <br />
+            E-Mail ID: support@hexbit.io
+          </>
         </div>
         <ContactForm />
       </div>
