@@ -23,7 +23,7 @@ import icon3 from "../../assets/register/icon3.png";
 import icon4 from "../../assets/register/icon4.png";
 
 export default function RegisterMain() {
-  const [count, setCount] = useState(3);
+  const [count, setCount] = useState(1);
   const [load, setLoad] = useState(false);
   const [input, setInput] = useState({
     Phone: 0,
