@@ -1,5 +1,5 @@
-import React, { useContext, useEffect } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 // state
 import AuthContext from "../../store/auth-context";
@@ -12,7 +12,6 @@ import imgLogo from "./../../assets/logo/HexbitLogo.png";
 
 const Header = () => {
   const authCtx = useContext(AuthContext);
-  const redirect = useNavigate();
 
   return (
     <>
