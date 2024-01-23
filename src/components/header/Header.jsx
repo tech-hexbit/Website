@@ -25,6 +25,7 @@ const Header = () => {
             </div>
           </Link>
 
+          {/* Home */}
           <div className={styles.rightDiv}>
             <NavLink to="/" className="LinkStyle">
               <div className={styles.tabsDiv}>
@@ -32,18 +33,24 @@ const Header = () => {
                 <div className={styles.tabLineDiv}></div>
               </div>
             </NavLink>
+
+            {/* About Us */}
             <NavLink to="/AboutUs" className="LinkStyle">
               <div className={styles.tabsDiv}>
                 <p>About Us</p>
                 <div className={styles.tabLineDiv}></div>
               </div>
             </NavLink>
+
+            {/* Contact Us */}
             <NavLink to="/contact" className="LinkStyle">
               <div className={styles.tabsDiv}>
                 <p>Contact Us</p>
                 <div className={styles.tabLineDiv}></div>
               </div>
             </NavLink>
+
+            {/* User */}
             {authCtx.isLoggedIn ? (
               <>
                 <NavLink to="/me" className="LinkStyle">
@@ -56,12 +63,15 @@ const Header = () => {
               </>
             ) : (
               <>
+                {/* Login */}
                 <NavLink to="/signIn" className="LinkStyle">
                   <div className={styles.tabsDiv}>
                     <p>Login</p>
                     <div className={styles.tabLineDiv}></div>
                   </div>
                 </NavLink>
+
+                {/* Register */}
                 <NavLink to="/register" className="LinkStyle">
                   <p className={styles.registerPTag}>
                     <b>Register for free</b>
