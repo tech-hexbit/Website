@@ -42,12 +42,16 @@ const Header = () => {
             </NavLink>
 
             {/* Contact Us */}
-            <NavLink to="/contact" className="LinkStyle">
-              <div className={styles.tabsDiv}>
-                <p>Contact Us</p>
-                <div className={styles.tabLineDiv}></div>
-              </div>
-            </NavLink>
+            {authCtx.isLoggedIn ? (
+              ""
+            ) : (
+              <NavLink to="/contact" className="LinkStyle">
+                <div className={styles.tabsDiv}>
+                  <p>Contact Us</p>
+                  <div className={styles.tabLineDiv}></div>
+                </div>
+              </NavLink>
+            )}
 
             {/* User */}
             {authCtx.isLoggedIn ? (
