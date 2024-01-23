@@ -33,6 +33,7 @@ import SellersAdmin from "./../components/Admin/Sellers";
 //          || Super Admin
 import FrontPage from "./../components/MainAdmin/FrontPage";
 import SellerInfo from "./../components/MainAdmin/SellerInfo";
+import SalesAdmin from "./../components/Dashboard/SalesAdmin";
 
 // state
 import AuthContext from "./../store/auth-context";
@@ -178,6 +179,11 @@ export default function Profile() {
                     <Route
                       path="/admin/super/SellerInfo"
                       element={<SellerInfo />}
+                    />
+                    <Route path="/admin/super/Sales" element={<SalesAdmin />} />
+                    <Route
+                      path="/admin/super/Support"
+                      element={<SupportAdmin />}
                     />
                   </>
                 )}

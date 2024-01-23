@@ -1,5 +1,6 @@
 // import SvCss from "../Css/StoreVerify.module.css";
 import React from "react";
+import { useRef } from "react";
 import PropTypes from "prop-types";
 import SvCss from "../../Pages/Css/StoreVerify.module.css";
 
@@ -49,6 +50,49 @@ const FileInput = (props) => {
     </div>
   );
 };
+const ImgInputList = (props) => {
+  console.log();
+  const fileInp_id = useRef(null);
+  const fileInp_cheque = useRef(null);
+  const fileInp_address = useRef(null);
+  const handleImageCheque = (e) => {
+    props.setImages({ ...props.images, imageUploadCheque: e.target.files[0] });
+  };
+  const handleImageAddress = (e) => {
+    props.setImages({ ...props.images, imageUploadAddress: e.target.files[0] });
+  };
+  const handleImageID = (e) => {
+    props.setImages({ ...props.images, imageUploadID: e.target.files[0] });
+  };
+  return (
+    <>
+      <FileInput
+        label="Upload Cancelled Cheque"
+        placeholder="Cheque "
+        handleImage={handleImageCheque}
+        fileInp={fileInp_cheque}
+        image={props.images.imageUploadCheque}
+        handleClicksValue="cheque"
+      />
+      <FileInput
+        label="Address Proof (GSTIN)"
+        placeholder="Address "
+        handleImage={handleImageAddress}
+        fileInp={fileInp_address}
+        image={props.images.imageUploadAddress}
+        handleClicksValue="address"
+      />
+      <FileInput
+        label="ID Proof (PAN CARD)"
+        placeholder="PAN Card "
+        handleImage={handleImageID}
+        fileInp={fileInp_id}
+        image={props.images.imageUploadID}
+        handleClicksValue="id"
+      />
+    </>
+  );
+};
 FileInput.propTypes = {
   label: PropTypes.string,
   placeholder: PropTypes.string,
@@ -56,4 +100,4 @@ FileInput.propTypes = {
   fileInp: PropTypes.object,
   image: PropTypes.object,
 };
-export default FileInput;
+export default ImgInputList;

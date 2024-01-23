@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 // css
 import SvCss from "../../Pages/Css/StoreVerify.module.css";
 
-export default function VerifiedFields(props) {
+function VerifiedFields(props) {
   return (
     <div className={SvCss.inpDiv}>
       <p className={SvCss.input_label}>{props.label}</p>
@@ -45,7 +45,32 @@ export default function VerifiedFields(props) {
     </div>
   );
 }
-
+const GrpVerifiedFields = (props) => {
+  return (
+    <>
+      <VerifiedFields
+        label="City"
+        disable={props.disable}
+        type="text"
+        name="City"
+        showData={props.showData}
+        setData={props.setData}
+        placeholder="Your City"
+        verifyPin={props.verifyPin}
+      />
+      <VerifiedFields
+        label="State"
+        disable={props.disable}
+        type="text"
+        name="State"
+        showData={props.showData}
+        setData={props.setData}
+        placeholder="Your State"
+        verifyPin={props.verifyPin}
+      />
+    </>
+  );
+};
 VerifiedFields.propTypes = {
   label: PropTypes.string,
   disable: PropTypes.bool,
@@ -55,3 +80,4 @@ VerifiedFields.propTypes = {
   placeholder: PropTypes.string,
   verifyPin: PropTypes.bool,
 };
+export default GrpVerifiedFields;

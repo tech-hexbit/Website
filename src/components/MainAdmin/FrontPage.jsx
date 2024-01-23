@@ -64,9 +64,13 @@ export default function FrontPage() {
         <ListBox
           title="Support & Help Desk"
           label="Support and Help Desk Data"
-          redirect="/me"
+          redirect="/me/admin/super/support"
         />
-        <ListBox title="Inventory Statistics" label="Sales data" />
+        <ListBox
+          title="Inventory Statistics"
+          label="Sales data"
+          redirect="/me/admin/super/sales"
+        />
         <ListBox title="Inventory" label="Our Inventory" />
       </div>
     </>
