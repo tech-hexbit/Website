@@ -3,6 +3,7 @@
   gap: 1rem;
   padding-block-start: 0.5rem;
 }
+
 .gridSpan {
   grid-column: span 2;
 }
@@ -10,10 +11,10 @@
 article h1 {
   font-size: 1.8rem;
 }
+
 .gridCard {
   position: relative;
   overflow: hidden;
-  /* height: 30rem; */
 }
 
 .gridCard .text {
@@ -63,6 +64,7 @@ article h1 {
     grid-column: 3 / -1;
     grid-row: 1 / span 2;
   }
+
   .grid .gridCard:last-child {
     grid-column: span 2;
   }
