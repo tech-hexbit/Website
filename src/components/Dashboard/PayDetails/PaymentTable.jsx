@@ -265,7 +265,7 @@ export default function PaymentTable() {
                                   Action:
                                 </p>
                                 <p className={cardDisplay.cardTextSecond}
-                                onClick={() => handleOverlay(item.refNo)}
+                               onClick={() => handleOverlay(item.refNo)}
                                 >
                                   {item.action}
                                 </p>
