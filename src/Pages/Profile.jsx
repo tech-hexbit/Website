@@ -35,7 +35,7 @@ import PaymentTable from "../components/Admin/PayDetails/PaymentTable";
 
 //          || Super Admin
 import FrontPage from "./../components/MainAdmin/FrontPage";
-import SellerInfo from "./../components/MainAdmin/SellerInfo";
+import SelectSellerDetail from "../components/Admin/Sellers/Seller Main/SelectSellerDetail";
 
 
 // state
@@ -184,7 +184,7 @@ export default function Profile() {
                     />
                     <Route
                       path="/admin/super/SellerInfo"
-                      element={<SellerInfo />}
+                      element={<SelectSellerDetail />}
                     />
                   </>
                 )}
