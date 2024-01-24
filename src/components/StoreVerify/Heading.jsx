@@ -1,4 +1,3 @@
-// import SvCss from "../Css/StoreVerify.module.css";
 import React from "react";
 import SvCss from "../../Pages/Css/StoreVerify.module.css";
 const Heading = () => {
