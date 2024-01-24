@@ -23,7 +23,7 @@ import TimingField from "./TimingField";
 import PincodeField from "./PincodeField";
 import VerifiedFields from "./VerifiedFields";
 
-const StoreVerifyMain = (props) => {
+export default function StoreVerifyMain(props) {
   const [load, setLoad] = useState(false);
   const [disable, setDisable] = useState(false);
   const [verifyPin, setVerify] = useState(false);
@@ -352,6 +352,4 @@ const StoreVerifyMain = (props) => {
       </div>
     </>
   );
-};
-
-export default StoreVerifyMain;
+}
