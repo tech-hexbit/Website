@@ -96,6 +96,5 @@ export default function PaymentDetailsOverlay({ selectedItem }) {
       </div>
       <GatewayGetinTouch />
     </div>
-
   );
 }
