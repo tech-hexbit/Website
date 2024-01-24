@@ -6,6 +6,7 @@ import PaymentList from "./PaymentList";
 
 // css
 import Gptable from "./Css/PaymentTable.module.css";
+import cardDisplay from "./Css/PaymentCard.module.css";
 
 export default function PaymentTable() {
   const [showOverlay, setShowOverlay] = useState(false);
@@ -113,6 +114,7 @@ export default function PaymentTable() {
       <PaymentList/>
       <h4>Transactions</h4>
       {showOverlay ? (
+        <>
         <table className={Gptable.trans_table}>
           <tr>
             <th>Ref. No.</th>
@@ -152,8 +154,100 @@ export default function PaymentTable() {
             </tr>
           ))}
         </table>
+        <>
+              <div className={cardDisplay.cardMain}>
+                      {filteredRowItem.map((item, index) => {
+                        return (
+                          <div className={cardDisplay.card}>
+                            <div
+                            >
+                              <div className={cardDisplay.cardcontent}>
+                                <p className={cardDisplay.cardText}>Ref.No:</p>
+                                <p className={cardDisplay.cardTextSecond}>
+                                {item._id.slice(-4)}
+                                </p>
+                              </div>
+                              <div className={cardDisplay.cardcontent}>
+                                <p className={cardDisplay.cardText}>Order Id:</p>
+                                <p className={cardDisplay.cardTextSecond}>
+                                [{" "}
+                                  {item.order.map((val, key) => {
+                                    const lastFourChars = val.orderID.payment.status;
+                                    return key === item.order.length - 1
+                                      ? lastFourChars
+                                      : `${lastFourChars}, `;
+                                  })}{" "}
+                                  ]
+                                </p>
+                              </div>
+                              <div className={cardDisplay.cardcontent}>
+                                <p className={cardDisplay.cardText}>A/c Holder Name:</p>
+                                <p className={cardDisplay.cardTextSecond}>
+                                {item.bank.BankDetails[0].AccountHolderName}
+                                </p>
+                              </div>
+                              <div className={cardDisplay.cardcontent}>
+                                <p className={cardDisplay.cardText}>Date:</p>
+                                <p className={cardDisplay.cardTextSecond}>
+                                  {item.date}
+                                </p>
+                              </div>
+                              <div className={cardDisplay.cardcontent}>
+                                <p className={cardDisplay.cardText}>
+                                  Amount:
+                                </p>
+                                <p className={cardDisplay.cardTextSecond}>
+                                ₹ {item.totalAmount.toFixed(2)}
+                                </p>
+                              </div>
+                              <div className={cardDisplay.cardcontent}>
+                                <p className={cardDisplay.cardText}>
+                                  Payment Mode:
+                                </p>
+                                <p className={cardDisplay.cardTextSecond}>
+                                  {item.paymentMode}
+                                </p>
+                              </div>
+                              <div 
+                              className={`${cardDisplay.cardcontent} ${
+                                item.status === "Payment Processed"
+                                  ? Gptable.processed
+                                  : item.status === "Payment Pending"
+                                  ? Gptable.pending
+                                  : Gptable.rejected
+                            }`}
+                              >
+                                <p 
+                                className={cardDisplay.cardText}
+                                >
+                                  Status:
+                                </p>
+                                <p 
+                                className={cardDisplay.cardTextSecond}
+                                >
+                                  {item.status}
+                                </p>
+                              </div>
+                              <div className={cardDisplay.cardcontent}>
+                                <p className={cardDisplay.cardText}>
+                                  Action:
+                                </p>
+                                <p className={cardDisplay.cardTextSecond}
+                                   onClick={() => handleOverlay(item.refNo)}
+                                >
+                                  Close Details
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+              </>
+        </>
       ) : (
         // entire table data
+        <>
         <table className={Gptable.trans_table}>
           <tr>
             <th>Ref. No.</th>
@@ -192,6 +286,90 @@ export default function PaymentTable() {
             </tr>
           ))}
         </table>
+        <>
+              <div className={cardDisplay.cardMain}>
+                {data.map((item, index) => {
+                  return (
+                    <div className={cardDisplay.card}>
+                      <div
+                      >
+                        <div className={cardDisplay.cardcontent}>
+                          <p className={cardDisplay.cardText}>Ref.No:</p>
+                          <p className={cardDisplay.cardTextSecond}>
+                          {item.refNo}
+                          </p>
+                        </div>
+                        <div className={cardDisplay.cardcontent}>
+                          <p className={cardDisplay.cardText}>Order Id:</p>
+                          <p className={cardDisplay.cardTextSecond}>
+                          {item.orderId}
+                          </p>
+                        </div>
+                        <div className={cardDisplay.cardcontent}>
+                          <p className={cardDisplay.cardText}>A/c Holder Name:</p>
+                          <p className={cardDisplay.cardTextSecond}>
+                          {item.accountHolderName}
+                          </p>
+                        </div>
+                        <div className={cardDisplay.cardcontent}>
+                          <p className={cardDisplay.cardText}>Date:</p>
+                          <p className={cardDisplay.cardTextSecond}>
+                            {item.date}
+                          </p>
+                        </div>
+                        <div className={cardDisplay.cardcontent}>
+                          <p className={cardDisplay.cardText}>
+                            Amount:
+                          </p>
+                          <p className={cardDisplay.cardTextSecond}>
+                          ₹ {item.amount}
+                          </p>
+                        </div>
+                        <div className={cardDisplay.cardcontent}>
+                          <p className={cardDisplay.cardText}>
+                            Payment Mode:
+                          </p>
+                          <p className={cardDisplay.cardTextSecond}>
+                            {item.paymentMode}
+                          </p>
+                        </div>
+                        <div 
+                        className={`${cardDisplay.cardcontent} ${
+                          item.status === "Payment Processed"
+                          ? Gptable.processed
+                          : item.status === "Payment Pending"
+                          ? Gptable.pending
+                          : Gptable.rejected
+                      }`}
+                        >
+                          <p 
+                          className={cardDisplay.cardText}
+                          >
+                            Status:
+                          </p>
+                          <p 
+                          className={cardDisplay.cardTextSecond}
+                          >
+                            {item.status}
+                          </p>
+                        </div>
+                        <div className={cardDisplay.cardcontent}>
+                          <p className={cardDisplay.cardText}>
+                            Action:
+                          </p>
+                          <p className={cardDisplay.cardTextSecond}
+                              onClick={() => handleOverlay(item.refNo)}
+                          >
+                            View Details
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </>
+        </>
       )}
 
       {/* Payment overlay */}
