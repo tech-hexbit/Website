@@ -2,17 +2,16 @@
   width: 100%;
   display: flex;
   justify-content: space-around;
-  /* flex-direction: row; */
 }
+
 .box_div {
   padding: 25px 0px;
   flex-basis: 70%;
-  /* width: 70%; */
 }
+
 @media screen and (max-width: 400px) {
   .box_div {
     width: 80%;
-    /* width: 70%; */
   }
 }
 
@@ -21,6 +20,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
 }
+
 @media screen and (max-width: 600px) {
   .heading {
     justify-content: center;
@@ -55,6 +55,7 @@
   border-radius: 10px;
   background: #350b5e;
 }
+
 .save_button_2 {
   display: flex;
   max-width: 174px;
@@ -79,23 +80,27 @@
   display: flex;
   justify-content: center;
 }
+
 .sub_headline {
   color: var(--Grey_line, #737b7d);
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 160%; /* 32px */
+  line-height: 160%;
   letter-spacing: 0.3px;
 }
+
 @media screen and (max-width: 600px) {
   .sub_headline {
     text-align: center;
   }
 }
+
 .progress_bar {
   padding-top: 10px;
   padding-bottom: 30px;
 }
+
 .createYourStore {
   color: #383c3e;
   font-size: 40px;
@@ -118,12 +123,12 @@ button {
   font-size: 17px;
   font-style: normal;
   font-weight: 600;
-
   margin: 30px 0px;
   display: flex;
   justify-content: space-between;
   gap: 0px 45px;
 }
+
 @media screen and (max-width: 400px) {
   .inpDiv {
     flex-direction: column;
@@ -134,16 +139,17 @@ button {
 .inpDiv input,
 select {
   flex-basis: 70%;
-  /* flex-basis: 75%; */
   height: 42px;
   padding: 8px;
 }
+
 @media screen and (max-width: 600px) {
   .inpDiv input,
   select {
     flex-basis: 60%;
   }
 }
+
 @media screen and (max-width: 400px) {
   .inpDiv input,
   select {
@@ -158,10 +164,11 @@ input[type="number"]::-webkit-outer-spin-button {
   appearance: none;
   margin: 0;
 }
+
 .input_label {
   flex-basis: 30%;
-  /* width: 10%; */
 }
+
 @media screen and (max-width: 600px) {
   .input_label {
     width: 15%;
@@ -177,18 +184,17 @@ input[type="number"]::-webkit-outer-spin-button {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  /* flex-wrap: wrap; */
 }
+
 @media screen and (max-width: 600px) {
   .nested_field_large_div {
     flex-direction: column;
   }
 }
+
 .nested_field_small_div {
   display: flex;
   flex-direction: column;
-
-  /* flex-basis: 75%; */
   flex-basis: 65%;
 }
 
@@ -201,40 +207,38 @@ input[type="number"]::-webkit-outer-spin-button {
 .input_div_verified {
   position: relative;
   flex-basis: 70%;
-  /* flex-basis: 75%; */
 }
+
 .input_div_pincode {
   flex-basis: 70%;
-  /* flex-basis: 75%; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   gap: 1rem;
-  /* flex-wrap: wrap; */
 }
+
 .input_div_pincode input {
   flex-basis: 100%;
 }
+
 .input_div_verified input {
   width: 100%;
 }
+
 .prevImg {
   width: 100px;
   height: 100px;
 }
+
 .addImgDiv {
   width: 70px;
   height: 70px;
-
-  /* width: 50px;
-  height: 50px; */
   background-color: #dbdbdb;
   border-radius: 3px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #777;
-  font-family: "Merriweather", serif;
   font-size: 30px;
   font-style: normal;
   font-weight: 900;
@@ -243,32 +247,33 @@ input[type="number"]::-webkit-outer-spin-button {
   margin-bottom: 30px;
   cursor: pointer;
 }
+
 .input_file {
   display: none;
 }
+
 .input_div_file {
   flex-basis: 70%;
-  /* flex-basis: 75%; */
   display: flex;
   flex-direction: row;
-  /* justify-content: flex-end; */
   gap: 1rem;
-  /* flex-wrap: wrap; */
 }
+
 @media screen and (max-width: 600px) {
   .input_div_verified,
   .input_div_pincode,
   .input_div_file {
     flex-basis: 60%;
   }
+
   .input_div_pincode {
     flex-direction: column;
   }
 }
+
 @media screen and (max-width: 400px) {
   .input_div_file {
     flex-direction: row;
-    /* justify-content: flex-end; */
   }
 }
 
@@ -300,27 +305,26 @@ input[type="number"]::-webkit-outer-spin-button {
   gap: 0px 30px;
   flex-wrap: wrap;
 }
+
 .timing_small_div {
   display: flex;
   flex-direction: row;
-  /* flex-wrap: wrap; */
   gap: 30px;
 }
+
 @media screen and (max-width: 400px) {
   .timing_small_div {
     flex-wrap: wrap;
   }
 }
+
 .timing_small_div input {
-  /* flex-basis: 80%; */
   height: 42px;
   padding: 8px;
 }
+
 .submitBtn {
   border: none;
-  /* margin-block-start: 1rem;
-  border-radius: 10px; */
-  /* cursor: pointer; */
 
   display: flex;
   width: 338.52px;
@@ -330,10 +334,8 @@ input[type="number"]::-webkit-outer-spin-button {
   align-items: center;
   gap: 10.747px;
 
-  /* //text */
   color: var(--Light_text, #fff);
   text-align: center;
-  /* font-family: Poppins; */
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
@@ -341,6 +343,7 @@ input[type="number"]::-webkit-outer-spin-button {
   border-radius: 32.24px;
   background: var(--Green, linear-gradient(90deg, #47b357 0%, #50ca70 100%));
 }
+
 a {
   text-decoration: none;
   color: #595959;
