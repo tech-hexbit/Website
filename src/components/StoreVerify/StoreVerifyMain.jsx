@@ -96,10 +96,7 @@ const StoreVerifyMain = (props) => {
       showData.FirstName == "" ||
       showData.LastName == "" ||
       showData.EmailID == "" ||
-      // showData.Password == "" ||
-      // showData.DOB == "" ||
       showData.LegalName == "" ||
-      // Description: "",
       showData.Address == "" ||
       showData.City == "" ||
       showData.State == "" ||
@@ -113,22 +110,11 @@ const StoreVerifyMain = (props) => {
       showData.GstNo == "" ||
       showData.FssaiLicence == "" ||
       showData.PanNo == "" ||
-      // showData.LocationAvailabilityMode== ""||
       showData.Cancellable == "" ||
       showData.Returnable == "" ||
-      // showData.ContactDetailsForConsumerCare == "" ||
-      // DefaultCategoryId: "",
-      // showData.StoreTimingStart == "" ||
-      // showData.StoreTimingEnd == "" ||
-      // showData.gps == "" ||
       showData.imageUploadCheque == "" ||
       showData.imageUploadAddress == "" ||
       showData.imageUploadID == ""
-      // showData.phone == "" ||
-      // showData.email == "" ||
-      // showData.holidays == "" ||
-      // showData.percentage == "" ||
-      // showData.radiusValue == ""
     ) {
       setLoad(false);
       props.setError({
@@ -153,18 +139,10 @@ const StoreVerifyMain = (props) => {
       try {
         let data = {
           gps: showData.gps,
-          // days: showData.days,
-          // times: [],
-          // phone: showData.phone,
-          // email: showData.email,
-          // holidays: [],
-          // percentage: showData.percentage,
-          // radiusValue: showData.radiusValue,
-          // amountValue: showData.amountValue,
         };
         data.times.push(String(showData.StoreTimingStart));
         data.times.push(String(showData.StoreTimingEnd));
-        // data.holidays = showData.holidays.split(",");
+
         const response = await axios.post(
           "/api/common/Store/CreateStore",
           data,
@@ -172,6 +150,7 @@ const StoreVerifyMain = (props) => {
             headers: { Authorization: `${authCtx.token}` },
           }
         );
+
         if (response.data.success) {
           props.setError({
             mainColor: "#EDFEEE",
@@ -181,7 +160,9 @@ const StoreVerifyMain = (props) => {
             text: response.data.msg,
             val: true,
           });
+
           await authCtx.updateStore(response.data.upData[0].Store);
+
           redirect("/me");
           setLoad(false);
         } else {
@@ -205,9 +186,11 @@ const StoreVerifyMain = (props) => {
   const handleImageCheque = (e) => {
     setImages({ ...images, imageUploadCheque: e.target.files[0] });
   };
+
   const handleImageAddress = (e) => {
     setImages({ ...images, imageUploadAddress: e.target.files[0] });
   };
+
   const handleImageID = (e) => {
     setImages({ ...images, imageUploadID: e.target.files[0] });
   };
