@@ -1,0 +1,63 @@
+.main{
+ display: flex ;
+ gap: 20px;
+ height: 100%;
+}
+.prodText{
+    font-size: 20px;
+    font-weight: 600;
+    padding-left: 20px;
+    padding-top: 5px;
+}
+.below{
+    margin : 10px 0px;
+}
+
+.left{
+    width: 30%;
+    height: 100vh;
+}
+.right{
+    width: 70%;
+    /* height: 100vh; */
+}
+.name{
+    font-size: 28px;
+    font-weight: 500;
+    padding-top: 5px;
+}
+.prodId{
+    font-size: 18px;
+    color: rgba(112, 112, 112, 1);
+    padding-top: 5px;
+}
+.prodSeller{
+    font-size: 18px;
+    color: rgba(112, 112, 112, 1);
+    padding-top: 5px;
+}
+.prodMRP{
+    font-size: 18px;
+    color: rgba(112, 112, 112, 1);
+    font-weight: 700;
+    padding-top: 5px;
+}
+.prodBox{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 10px;
+    padding-top: 15px;
+
+}
+.prodColor{
+ padding-top: 10px;
+}
+.prodColor:hover {
+    border-color: #56117c;
+  }
+.color{
+    padding-top: 15px;
+    padding-left: 15px;
+    font-weight: 500;
+}

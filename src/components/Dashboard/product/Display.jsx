@@ -17,6 +17,7 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 // css
 import DCss from "./Css/display.module.css";
 import cardDisplay from "./Css/cardDisplay.module.css";
+import ProductPageNew from "../../ProductsPage/ProductPageNew";
 
 export default function Display({
   load,
@@ -423,7 +424,8 @@ export default function Display({
       <div
         className={showProductDel.state ? "yesProductsPage" : "noProductsPage"}
       >
-        <ProductsPage id={showProductDel.id} setProductDel={setProductDel} />
+        {/* <ProductsPage id={showProductDel.id} setProductDel={setProductDel} /> */}
+        <ProductPageNew id={showProductDel.id} setProductDel={setProductDel}/>
       </div>
     </>
   );

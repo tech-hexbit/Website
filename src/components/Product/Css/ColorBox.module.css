@@ -4,6 +4,7 @@
   border-color: #ddd;
   padding: 5px 12px;
   transition: all 0.3s;
+  border-radius: 5px;
 }
 
 .Midv:hover {
@@ -24,6 +25,7 @@
   justify-content: flex-start;
   align-items: center;
   gap: 0px 20px;
+  margin: 10px 0px;
 }
 
 .imgProCo {

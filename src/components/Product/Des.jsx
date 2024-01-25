@@ -176,7 +176,7 @@ export default function Des(props) {
         </p>
       </div> */}
 
-      <div className={DCss.mDiv}>
+      {/* <div className={DCss.mDiv}>
         <p className={DCss.subTitlePTag}>Product description :</p>
         <table>
           <tr>
@@ -286,7 +286,7 @@ export default function Des(props) {
             />
           </tr>
         </table>
-      </div>
+      </div> */}
 
       <Alert variant={variants} val={setError} />
     </>
