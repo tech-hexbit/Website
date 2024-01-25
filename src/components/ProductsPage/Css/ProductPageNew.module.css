@@ -61,3 +61,16 @@
     padding-left: 15px;
     font-weight: 500;
 }
+@media (max-width:600px){
+    .main{
+        flex-direction: column;
+    }
+    .left{
+        width: 70vw;
+        height: auto;
+        margin: 0px auto;
+    }
+    .right{
+        width: 100%;
+    }
+}

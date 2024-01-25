@@ -10,6 +10,7 @@ import axios from "axios";
 // components
 import Filter from "./Filter";
 import ProductsPage from "./../../ProductsPage/ProductsPage";
+import ProductPageNew from "../../ProductsPage/ProductPageNew";
 
 // MicroInteraction
 import Load from "./../../../MicroInteraction/LoadBlack";
@@ -17,7 +18,6 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 // css
 import DCss from "./Css/display.module.css";
 import cardDisplay from "./Css/cardDisplay.module.css";
-import ProductPageNew from "../../ProductsPage/ProductPageNew";
 
 export default function Display({
   load,
@@ -425,7 +425,8 @@ export default function Display({
         className={showProductDel.state ? "yesProductsPage" : "noProductsPage"}
       >
         {/* <ProductsPage id={showProductDel.id} setProductDel={setProductDel} /> */}
-        <ProductPageNew id={showProductDel.id} setProductDel={setProductDel}/>
+        <ProductPageNew id={showProductDel.id} setProductDel={setProductDel} />
+        
       </div>
     </>
   );
