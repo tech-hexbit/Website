@@ -164,32 +164,25 @@ export default function PaymentTable() {
                               <div className={cardDisplay.cardcontent}>
                                 <p className={cardDisplay.cardText}>Ref.No:</p>
                                 <p className={cardDisplay.cardTextSecond}>
-                                {item._id.slice(-4)}
+                                {item.refNo}
                                 </p>
                               </div>
                               <div className={cardDisplay.cardcontent}>
                                 <p className={cardDisplay.cardText}>Order Id:</p>
                                 <p className={cardDisplay.cardTextSecond}>
-                                [{" "}
-                                  {item.order.map((val, key) => {
-                                    const lastFourChars = val.orderID.payment.status;
-                                    return key === item.order.length - 1
-                                      ? lastFourChars
-                                      : `${lastFourChars}, `;
-                                  })}{" "}
-                                  ]
+                                {item.orderId}
                                 </p>
                               </div>
                               <div className={cardDisplay.cardcontent}>
                                 <p className={cardDisplay.cardText}>A/c Holder Name:</p>
                                 <p className={cardDisplay.cardTextSecond}>
-                                {item.bank.BankDetails[0].AccountHolderName}
+                                {item.accountHolderName}
                                 </p>
                               </div>
                               <div className={cardDisplay.cardcontent}>
                                 <p className={cardDisplay.cardText}>Date:</p>
                                 <p className={cardDisplay.cardTextSecond}>
-                                  {item.date}
+                                {item.date}
                                 </p>
                               </div>
                               <div className={cardDisplay.cardcontent}>
@@ -197,7 +190,7 @@ export default function PaymentTable() {
                                   Amount:
                                 </p>
                                 <p className={cardDisplay.cardTextSecond}>
-                                ₹ {item.totalAmount.toFixed(2)}
+                                ₹ {item.amount}
                                 </p>
                               </div>
                               <div className={cardDisplay.cardcontent}>

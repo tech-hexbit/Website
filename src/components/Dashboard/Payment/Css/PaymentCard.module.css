@@ -15,6 +15,7 @@
 .cardcontent{
     display: flex;
     align-items: baseline;
+    flex-wrap: wrap;
 }
 
 .cardText{
@@ -40,7 +41,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    /* -top: 10px; */
+
 }
 .actionMain{
     display: flex;
