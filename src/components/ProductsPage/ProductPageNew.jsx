@@ -18,6 +18,8 @@ import Load from "../../MicroInteraction/LoadBlack";
 // Css
 import PPN from './Css/ProductPageNew.module.css'
 import PPCss from "./Css/ProductPage.module.css";
+import UpdateLabel from "../Product/UpdateLabel";
+import Rating from "../Product/Rating";
 
 
 function ProductPageNew(props) {
@@ -87,11 +89,47 @@ function ProductPageNew(props) {
             res ? (
                 < div className={PPN.main}>
                 <div className={PPN.left}>
-                    <img
-                    src={res.descriptor.images[0]}
-                    alt=""
-                    className={PPCss.productImg}
-                    />
+                  <div className={PPN.pics}>
+                    <>
+                      <img
+                      src={res.descriptor.images[0]}
+                      alt=""
+                      className={PPCss.productImg}
+                      />
+                    </>
+                    <div className={PPN.secPic}>
+                      <div>
+                        <img
+                        src={res.descriptor.images[0]}
+                        alt=""
+                        className={PPN.productImg}
+                        />
+                      </div>
+                      <div>
+                        <img
+                        src={res.descriptor.images[0]}
+                        alt=""
+                        className={PPN.productImg}
+                        />
+                      </div>
+                      <div>
+                        <img
+                        src={res.descriptor.images[0]}
+                        alt=""
+                        className={PPN.productImg}
+                        />
+                      </div>
+                      <div>
+                        <img
+                        src={res.descriptor.images[0]}
+                        alt=""
+                        className={PPN.productImg}
+                        />
+                      </div>
+                     
+                    </div>
+
+                  </div>
                     
                 </div>
                 <div className={PPN.right}>
@@ -158,6 +196,15 @@ function ProductPageNew(props) {
                         </div>
                         <div className={PPN.Desc} >
                             <Des res={res} id={res._id} setChange={setChange} />
+                        </div>
+                        <div className={PPN.prodCom} >
+                         <p className={PPN.prodComText}>
+                         Ratings & Reviews:
+                         </p>
+                            <Rating />
+                            <Rating/>
+                            <Rating/>
+                            <Rating/>
                         </div>
                          
                     </div>

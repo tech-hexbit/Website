@@ -14,7 +14,6 @@ export default function Filter({
   allcategory,
   filterData,
   setfilterData,
-  // showProductDel,
   prod,
 }) {
   const [onFil, offFil] = useState(false);
@@ -24,7 +23,6 @@ export default function Filter({
     const u = (allcategory) => [...new Set(allcategory)];
     setunique(u(allcategory));
   }, [allcategory]);
-
   return (
     <div 
       // id={showProductDel.state ? "yesProductsPage" : "noProductsPage"}
