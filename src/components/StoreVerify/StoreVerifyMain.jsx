@@ -17,18 +17,24 @@ import axios from "axios";
 import Heading from "./Heading";
 import TextInput from "./TextInput";
 import FileInput from "./FileInput";
-import BankFields from "./BankFields";
+import BankFields from "./BankField/BankFields";
 import Ondc_Details from "./OndcField";
 import TimingField from "./TimingField";
 import PincodeField from "./PincodeField";
-import GrpVerifiedFields from "./VerifiedFields";
+import GrpVerifiedFields from "./VerifiedField/VerifiedFields";
 import { GrpTextInput, FssaiField } from "./TextInput";
 import SelectInput from "./SelectInput";
 import getLocation from "./getLocation";
+import { VerifiedPan, VerifiedGstin } from "./VerifiedField/VerifiedPanGst";
 const StoreVerifyMain = (props) => {
   // states
   const [load, setLoad] = useState(false);
-  const [disable, setDisable] = useState(false);
+  const [disable, setDisable] = useState({
+    Pincode: false,
+    Pan: false,
+    Gstin: false,
+    Bank: false,
+  });
   const [verifyPin, setVerify] = useState(false);
   const [showData, setData] = useState({
     FirstName: "",
@@ -49,6 +55,7 @@ const StoreVerifyMain = (props) => {
     BankName: "",
     BranchName: "",
     GstNo: "",
+    Gstin: "",
     FssaiLicence: "",
     PanNo: "",
     LocationAvailabilityMode: "",
@@ -69,8 +76,7 @@ const StoreVerifyMain = (props) => {
 
   const authCtx = useContext(AuthContext);
   const redirect = useNavigate();
-
-  getLocation(showData, setData);
+  // getLocation(showData, setData);
   const onSubmit = async () => {
     setLoad(true);
 
@@ -91,6 +97,7 @@ const StoreVerifyMain = (props) => {
       showData.IfscCode == "" ||
       showData.BankName == "" ||
       showData.BranchName == "" ||
+      showData.Gstin == "" ||
       showData.GstNo == "" ||
       showData.FssaiLicence == "" ||
       showData.PanNo == "" ||
@@ -116,6 +123,36 @@ const StoreVerifyMain = (props) => {
         symbol: "pets",
         title: "Check it out",
         text: "Invalid pincode",
+        val: true,
+      });
+      window.scrollTo(0, 0);
+    } else if (!disable.Bank) {
+      props.setError({
+        mainColor: "#FFC0CB",
+        secondaryColor: "#FF69B4",
+        symbol: "pets",
+        title: "Check it out",
+        text: "Invalid Bank Details",
+        val: true,
+      });
+      window.scrollTo(0, 0);
+    } else if (!disable.Gstin) {
+      props.setError({
+        mainColor: "#FFC0CB",
+        secondaryColor: "#FF69B4",
+        symbol: "pets",
+        title: "Check it out",
+        text: "Invalid GSTIN",
+        val: true,
+      });
+      window.scrollTo(0, 0);
+    } else if (!disable.Pan) {
+      props.setError({
+        mainColor: "#FFC0CB",
+        secondaryColor: "#FF69B4",
+        symbol: "pets",
+        title: "Check it out",
+        text: "Invalid Pan",
         val: true,
       });
       window.scrollTo(0, 0);
@@ -170,11 +207,11 @@ const StoreVerifyMain = (props) => {
   return (
     <>
       <Heading />
-      <div className={SvCss.sub_headline}>
+      <div className={SvCss.subHeadline}>
         Please allow us 2-3 business days to review your KYC and approve your
         account.
       </div>
-      <div className={SvCss.progress_bar}>ICONS</div>
+      <div className={SvCss.progressBar}>ICONS</div>
       <GrpTextInput showData={showData} setData={setData} />
       <PincodeField
         showData={showData}
@@ -211,7 +248,8 @@ const StoreVerifyMain = (props) => {
         setData={setData}
         showData={showData}
         disable={disable}
-        verifyPin={verifyPin}
+        setDisable={setDisable}
+        setError={props.setError}
       />
       <TextInput
         type="number"
@@ -219,22 +257,28 @@ const StoreVerifyMain = (props) => {
         showData={showData}
         setData={setData}
         field="GstNo"
-        placeholder="Enter GST number"
-      />
-      <FssaiField showData={showData} setData={setData} />
-      <TextInput
-        type="number"
-        Label="PAN NO."
+        placeholder="Enter GST no"
+      />{" "}
+      <VerifiedGstin
         showData={showData}
         setData={setData}
-        field="PanNo"
-        placeholder="10-digit PAN Number"
+        disable={disable}
+        setDisable={setDisable}
+        setError={props.setError}
       />
+      <VerifiedPan
+        showData={showData}
+        setData={setData}
+        disable={disable}
+        setDisable={setDisable}
+        setError={props.setError}
+      />
+      <FssaiField showData={showData} setData={setData} />
       <FileInput images={images} setImages={setImages} />
       <SelectInput />
       <Ondc_Details setData={setData} showData={showData} />
       <TimingField showData={showData} setData={setData} />
-      <div className={SvCss.submit_div}>
+      <div className={SvCss.submitDiv}>
         <button className={SvCss.submitBtn} onClick={onSubmit}>
           {load ? <Load /> : "SUBMIT KYC"}
         </button>

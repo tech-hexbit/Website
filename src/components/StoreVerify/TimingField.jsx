@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 import SvCss from "../../Pages/Css/StoreVerify.module.css";
 const TimingField = (props) => {
   return (
-    <div className={SvCss.timing_large_div}>
-      <p className={SvCss.input_label}>Store Timing</p>
-      <div className={SvCss.timing_small_div}>
+    <div className={SvCss.timingLargeDiv}>
+      <p className={SvCss.inputLabel}>Store Timing</p>
+      <div className={SvCss.timingSmallDiv}>
         <input
           type="time"
           name="Store_Timing"
@@ -38,6 +38,8 @@ const TimingField = (props) => {
   );
 };
 TimingField.propTypes = {
-  showData: PropTypes.object,
+  props: PropTypes.shape({
+    showData: PropTypes.object,
+  }),
 };
 export default TimingField;

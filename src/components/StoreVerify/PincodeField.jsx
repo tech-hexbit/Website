@@ -7,6 +7,7 @@ import PropTypes from "prop-types";
 const pincodeVerify = async ({
   setData,
   showData,
+  disable,
   setDisable,
   setVerify,
   setError,
@@ -18,7 +19,7 @@ const pincodeVerify = async ({
         State: response.data[0].PostOffice[0].State,
         City: response.data[0].PostOffice[0].Name,
       });
-      setDisable(true);
+      setDisable({ ...disable, Pincode: true });
       setVerify(true);
     };
     const invalidPin = () => {
@@ -53,10 +54,10 @@ const PincodeField = ({
     <div>
       {showData.Pincode.length >= 6 ? (
         <div className={SvCss.inpDiv}>
-          <p className={SvCss.input_label}>Pincode</p>
-          <div className={SvCss.input_div_pincode}>
+          <p className={SvCss.inputLabel}>Pincode</p>
+          <div className={SvCss.inputDivPincode}>
             <input
-              disabled={disable}
+              disabled={disable.Pincode}
               type="number"
               name="Pincode"
               value={showData.Pincode}
@@ -66,13 +67,14 @@ const PincodeField = ({
                 setData({ ...showData, Pincode: e.target.value });
               }}
             />
-            <div className={SvCss.verify_button_div}>
+            <div>
               <button
-                className={SvCss.verify_button}
+                className={SvCss.verifyButton}
                 onClick={() => {
                   pincodeVerify({
                     setData,
                     showData,
+                    disable,
                     setDisable,
                     setVerify,
                     setError,
@@ -105,10 +107,10 @@ const PincodeField = ({
         </div>
       ) : (
         <div className={SvCss.inpDiv}>
-          <p className={SvCss.input_label}>Pincode</p>
-          <div className={SvCss.input_div_pincode}>
+          <p className={SvCss.inputLabel}>Pincode</p>
+          <div className={SvCss.inputDivPincode}>
             <input
-              disabled={disable}
+              disabled={disable.Pincode}
               type="number"
               name="Pincode"
               value={showData.Pincode}
@@ -125,8 +127,10 @@ const PincodeField = ({
   );
 };
 PincodeField.propTypes = {
+  // props: PropTypes.shape({
   showData: PropTypes.object,
   verifyPin: PropTypes.bool,
-  disable: PropTypes.bool,
+  disable: PropTypes.object,
+  // }),
 };
 export default PincodeField;

@@ -16,11 +16,11 @@ const FileInput = (props) => {
   };
 
   return (
-    <div className={SvCss.input_ldiv_file}>
-      <p className={SvCss.input_label}>{props.label}</p>
-      <div className={SvCss.input_div_file}>
+    <div className={SvCss.inputLdivFile}>
+      <p className={SvCss.inputLabel}>{props.label}</p>
+      <div className={SvCss.inputDivFile}>
         <input
-          className={SvCss.input_file}
+          className={SvCss.inputFile}
           type="file"
           name="file"
           placeholder={props.placeholder}
@@ -94,10 +94,12 @@ const ImgInputList = (props) => {
   );
 };
 FileInput.propTypes = {
-  label: PropTypes.string,
-  placeholder: PropTypes.string,
-  type1: PropTypes.string,
-  fileInp: PropTypes.object,
-  image: PropTypes.object,
+  props: PropTypes.shape({
+    label: PropTypes.string,
+    placeholder: PropTypes.string,
+    type1: PropTypes.string,
+    fileInp: PropTypes.object,
+    image: PropTypes.object,
+  }),
 };
 export default ImgInputList;

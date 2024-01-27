@@ -38,7 +38,7 @@ export const GrpTextInput = (props) => {
         showData={props.showData}
         setData={props.setData}
         field="FirstName"
-        placeholder="john"
+        placeholder="John"
       />{" "}
       <TextInput
         type="text"
@@ -46,7 +46,7 @@ export const GrpTextInput = (props) => {
         showData={props.showData}
         setData={props.setData}
         field="LastName"
-        placeholder="david"
+        placeholder="David"
       />{" "}
       <TextInput
         type="text"
@@ -54,7 +54,7 @@ export const GrpTextInput = (props) => {
         showData={props.showData}
         setData={props.setData}
         field="LegalName"
-        placeholder="john david"
+        placeholder="John David"
       />
       <TextInput
         type="email"
@@ -77,7 +77,7 @@ export const GrpTextInput = (props) => {
 const TextInput = (props) => {
   return (
     <div className={SvCss.inpDiv}>
-      <p className={SvCss.input_label}>{props.Label}</p>
+      <p className={SvCss.inputLabel}>{props.Label}</p>
       <input
         type={props.type}
         name="days"
@@ -92,10 +92,12 @@ const TextInput = (props) => {
   );
 };
 TextInput.propTypes = {
-  Label: PropTypes.string,
-  type: PropTypes.string,
-  field: PropTypes.string,
-  placeholder: PropTypes.string,
-  showData: PropTypes.object,
+  props: PropTypes.shape({
+    Label: PropTypes.string,
+    type: PropTypes.string,
+    field: PropTypes.string,
+    placeholder: PropTypes.string,
+    showData: PropTypes.object,
+  }),
 };
 export default TextInput;

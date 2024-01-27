@@ -2,15 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 
 // css
-import SvCss from "../../Pages/Css/StoreVerify.module.css";
+import SvCss from "../../../Pages/Css/StoreVerify.module.css";
 
 function VerifiedFields(props) {
   return (
     <div className={SvCss.inpDiv}>
-      <p className={SvCss.input_label}>{props.label}</p>
-      <div className={SvCss.input_div_verified}>
+      <p className={SvCss.inputLabel}>{props.label}</p>
+      <div className={SvCss.inputDivVerified}>
         <input
-          disabled={props.disable}
+          disabled={props.disable.Pincode}
           type={props.type}
           name={props.name}
           value={props.showData[props.name]}
@@ -33,7 +33,7 @@ function VerifiedFields(props) {
             stroke-linecap="round"
             stroke-linejoin="round"
             class="lucide lucide-badge-check"
-            className={SvCss.badge_icon}
+            className={SvCss.badgeIcon}
           >
             <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
             <path d="m9 12 2 2 4-4" />
@@ -72,12 +72,14 @@ const GrpVerifiedFields = (props) => {
   );
 };
 VerifiedFields.propTypes = {
-  label: PropTypes.string,
-  disable: PropTypes.bool,
-  type: PropTypes.string,
-  name: PropTypes.string,
-  showData: PropTypes.object,
-  placeholder: PropTypes.string,
-  verifyPin: PropTypes.bool,
+  props: PropTypes.shape({
+    label: PropTypes.string,
+    disable: PropTypes.object,
+    type: PropTypes.string,
+    name: PropTypes.string,
+    showData: PropTypes.object,
+    placeholder: PropTypes.string,
+    verifyPin: PropTypes.bool,
+  }),
 };
 export default GrpVerifiedFields;

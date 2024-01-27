@@ -20,11 +20,11 @@ const Ondc_Details = (props) => {
   };
 
   return (
-    <div className={SvCss.nested_field_large_div}>
+    <div className={SvCss.nestedFieldLargeDiv}>
       <div>ONDC DETAILS</div>
-      <div className={SvCss.nested_field_small_div}>
+      <div className={SvCss.nestedFieldSmallDiv}>
         <div className={SvCss.inpDiv}>
-          <div className={SvCss.input_label}>Time to ship</div>
+          <div className={SvCss.inputLabel}>Time to ship</div>
           <select name="languages" id="lang">
             <option value="select">Select Shipping Time</option>
             <option>8 AM - 12 PM</option>
@@ -33,7 +33,7 @@ const Ondc_Details = (props) => {
           </select>
         </div>
         <div className={SvCss.inpDiv}>
-          <div className={SvCss.input_label}>Cancellable</div>
+          <div className={SvCss.inputLabel}>Cancellable</div>
           <select
             name="languages"
             id="lang"
@@ -45,7 +45,7 @@ const Ondc_Details = (props) => {
           </select>
         </div>
         <div className={SvCss.inpDiv}>
-          <div className={SvCss.input_label}>Returnable</div>
+          <div className={SvCss.inputLabel}>Returnable</div>
           <select
             name="languages"
             id="lang"
@@ -57,7 +57,7 @@ const Ondc_Details = (props) => {
           </select>
         </div>
         <div className={SvCss.inpDiv}>
-          <p className={SvCss.input_label}>Contact Details For Consumer Care</p>
+          <p className={SvCss.inputLabel}>Contact Details For Consumer Care</p>
           <input
             type="number"
             name="Contact Details For Customer Care"
@@ -77,6 +77,8 @@ const Ondc_Details = (props) => {
   );
 };
 Ondc_Details.propTypes = {
-  showData: PropTypes.object,
+  props: PropTypes.shape({
+    showData: PropTypes.object,
+  }),
 };
 export default Ondc_Details;
