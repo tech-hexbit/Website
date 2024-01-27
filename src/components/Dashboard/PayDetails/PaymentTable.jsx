@@ -8,6 +8,7 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 
 // css
 import Gptable from "./Css/PaymentTable.module.css";
+// import cardDisplay from "./Css/PaymentCard.module.css";
 
 export default function PaymentTable({ load, showData }) {
   const [showOverlay, setShowOverlay] = useState(false);
@@ -52,7 +53,7 @@ export default function PaymentTable({ load, showData }) {
 
                 {/* display selected row */}
                 {filteredRowItem.map((item, index) => (
-                  <tr key={index}>
+                   <tr key={index} className={Gptable.payres}>
                     <td data-cell="ref no">{item._id.slice(-4)}</td>
                     <td data-cell="name">
                       {item.bank.BankDetails[0].AccountHolderName}
@@ -100,6 +101,7 @@ export default function PaymentTable({ load, showData }) {
                   </tr>
                 ))}
               </table>
+
             </>
           ) : (
             // entire table data
@@ -118,7 +120,7 @@ export default function PaymentTable({ load, showData }) {
               {showData.length > 0 ? (
                 <>
                   {showData.map((item, index) => (
-                    <tr key={index}>
+                     <tr key={index} className={Gptable.payRes}>
                       <td data-cell="ref no">{item._id.slice(-4)}</td>
                       <td data-cell="name">
                         {item.bank.BankDetails[0].AccountHolderName}
@@ -174,6 +176,7 @@ export default function PaymentTable({ load, showData }) {
                 </div>
               )}
             </table>
+
           )}
         </>
       )}
