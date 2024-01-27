@@ -119,6 +119,14 @@ export default function HelpDeskFormTable() {
                       >
                         {tableData.Status}
                       </td>
+                      <td>
+                      <div className={hdftable.Button}>
+
+                      <button  onClick={() => {
+                                tableVal(val);
+                              }}>Close Details</button>
+                      </div>
+                       </td>
                     </tr>
                   </table>
                 </div>
@@ -172,6 +180,13 @@ export default function HelpDeskFormTable() {
                                 data-cell="status"
                               >
                                 {val.Status}
+                              </td>
+                              <td><div className={hdftable.Button}>
+
+                              <button  onClick={() => {
+                                        tableVal(val);
+                                      }}>View Detail</button>
+                              </div>
                               </td>
                             </tr>
                           </>

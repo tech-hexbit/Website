@@ -60,14 +60,7 @@ export default function HelpDeskFormTableDetail({ tableData }) {
       {/* Message */}
       <div className={tableDetailStyle.msgMDiv}>
         <label className={tableDetailStyle.message}>Message*</label>
-        <textarea
-          name=""
-          id=""
-          cols="30"
-          rows="10"
-          className={tableDetailStyle.messageInput}
-          placeholder="Brief description of the query min 120 characters."
-        ></textarea>
+        <p>{tableData.message}</p>
       </div>
 
       {/* Resolve Button */}

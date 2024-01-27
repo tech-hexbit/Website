@@ -40,7 +40,7 @@ export default function HelpDeskForm(props) {
   let menu = useRef();
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
+    event.preventDefault();t
 
     setLoad(true);
 
@@ -99,7 +99,7 @@ export default function HelpDeskForm(props) {
 
       if (response.data.success) {
         setLoadMIStore(false);
-
+console.log(response.data.stoeList);
         setloadStore(response.data.stoeList);
       } else {
         setLoadMIStore(false);
