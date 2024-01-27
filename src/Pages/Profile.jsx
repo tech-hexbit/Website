@@ -37,8 +37,6 @@ import PaymentTable from "../components/Admin/PayDetails/PaymentTable";
 import FrontPage from "./../components/MainAdmin/FrontPage";
 import SelectSellerDetail from "../components/Admin/Sellers/Seller Main/SelectSellerDetail";
 
-
-
 // state
 import AuthContext from "./../store/auth-context";
 
@@ -48,8 +46,6 @@ import { Alert } from "./../MicroInteraction/Alert";
 
 // Css
 import PCss from "./Css/Profile.module.css";
-
-
 
 export default function Profile() {
   const [load, setLoad] = useState(false);
@@ -171,7 +167,10 @@ export default function Profile() {
                     <Route path="/admin/tickets" element={<TicketAdmin />} />
                     <Route path="/admin/support" element={<SupportAdmin />} />
                     <Route path="/admin/sellers" element={<SellersAdmin />} />
-                    <Route path="/admin/paymentdetails" element={<PaymentTable />} />
+                    <Route
+                      path="/admin/paymentdetails"
+                      element={<PaymentTable />}
+                    />
                   </>
                 )}
 
