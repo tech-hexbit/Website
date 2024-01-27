@@ -5,16 +5,18 @@
 .card{
     margin-top: 2rem;
     border:rgb(174, 162, 162) solid 0.5px;
-    width: 21rem;
+    width: 19rem;
     border-radius: 5px;
     padding: 15px;
     padding: 1rem;
     position: relative;
+
 }
 
 .cardcontent{
     display: flex;
     align-items: baseline;
+    flex-wrap: wrap;
 }
 
 .cardText{
@@ -34,7 +36,7 @@
 @media (max-width:390px){
     .card{
         width: 70vw;
-        padding: 10px 10px 40px 10px;
+        padding: 10px 10px 10px 10px;
     }
     .cardText{
         font-size: 15px;
