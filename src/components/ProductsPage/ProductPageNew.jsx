@@ -20,6 +20,7 @@ import PPN from './Css/ProductPageNew.module.css'
 import PPCss from "./Css/ProductPage.module.css";
 import UpdateLabel from "../Product/UpdateLabel";
 import Rating from "../Product/Rating";
+import { Link } from "react-router-dom";
 
 
 function ProductPageNew(props) {
@@ -130,7 +131,17 @@ function ProductPageNew(props) {
                     </div>
 
                   </div>
-                    
+                  <div className={PPN.btns}>
+                    <div className={PPN.goToInv}  >
+                      <Link to="/me/inventory"  className={PPN.goToInvText} >
+
+                    Go to Inventory
+                      </Link>
+                    </div>
+                    <div className={PPN.del}>
+                      Delete
+                    </div>
+                  </div>
                 </div>
                 <div className={PPN.right}>
                     <div className={PPN.prodDet}>
