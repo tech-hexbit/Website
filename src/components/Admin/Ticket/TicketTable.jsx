@@ -2,7 +2,7 @@ import React, { useState,useEffect, useContext } from "react";
 
 //components
 import TicketDetailsOverlay from "../PayDetails/TicketDetailsOverlay";
-import Load from "../../../MicroInteraction/Load";
+import Load from "../../../MicroInteraction/LoadBlack";
 import { Alert } from "../../../MicroInteraction/Alert";
 
 //state
@@ -101,7 +101,7 @@ const authCtx = useContext(AuthContext);
                 <th>Status</th>
                 <th>Action</th>
               </tr>
-              {data.map((item, index) => (
+              {filteredRowItem.map((item, index) => (
                 <tr key={index}>
                   <td data-cell="ref no">#HX{item._id.slice(-5)}</td>
                   <td data-cell="order id">{item.StoreID}</td>
@@ -122,17 +122,13 @@ const authCtx = useContext(AuthContext);
                   </td>
                   <td
                     data-cell="action"
-                    onClick={
-                            item._id === selectedItem
-                              ? () => closeOverlay()
-                              : () => handleOverlay(item._id)
-                          }
+                    onClick= {() => closeOverlay()}
                   >
-                    {item._id === selectedItem? <div className={Gptable.close_detail}>Close details</div> : "View details"}
+                   Close details
                   </td>
-                </tr>
-              ))}
-            </table>
+                  </tr>
+                ))}
+              </table>
             
         <TicketDetailsOverlay selectedItem={filteredRowItem} />
             </>

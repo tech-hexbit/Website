@@ -48,7 +48,6 @@ export default function HelpDeskFormTable() {
 
       if (response.data.success) {
         setLoad(false);
-
         setloadStore(response.data.qnaEntries);
       } else {
         setLoad(false);
@@ -119,13 +118,10 @@ export default function HelpDeskFormTable() {
                       >
                         {tableData.Status}
                       </td>
-                      <td>
-                      <div className={hdftable.Button}>
-
-                      <button  onClick={() => {
+                      <td data-cell="action" onClick={() => {
                                 tableVal(val);
-                              }}>Close Details</button>
-                      </div>
+                              }}>Close Details
+                      
                        </td>
                     </tr>
                   </table>
@@ -181,13 +177,11 @@ export default function HelpDeskFormTable() {
                               >
                                 {val.Status}
                               </td>
-                              <td><div className={hdftable.Button}>
-
-                              <button  onClick={() => {
-                                        tableVal(val);
-                                      }}>View Detail</button>
-                              </div>
-                              </td>
+                              <td data-cell="action" onClick={() => {
+                                tableVal(val);
+                              }}>View Details
+                      
+                       </td>
                             </tr>
                           </>
                         ))}

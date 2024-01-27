@@ -4,7 +4,6 @@ import React,{useState,useContext} from "react";
 import AuthContext from "./../../../store/auth-context";
 
 // components
-import GatewayGetinTouch from "./GetinTouch";
 import Load from "../../../MicroInteraction/Load";
 import { Alert } from "../../../MicroInteraction/Alert";
 
@@ -19,6 +18,9 @@ export default function TicketDetailsOverlay({ selectedItem }) {
 
   const [replyMessage, setReplyMessage] = useState("");
   const [load, setLoad] = useState(false); 
+  const [fetchedData , setFetchedData]= useState({
+ replyMessage : ""
+  })
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -52,7 +54,7 @@ export default function TicketDetailsOverlay({ selectedItem }) {
       );
 
       if (response.data.success) {
-        
+        setFetchedData((prevData) => ({ ...prevData, replyMessage: response.data.replyMessage }));
      setReplyMessage("");
         setLoad(false);
       } else {
@@ -116,8 +118,10 @@ export default function TicketDetailsOverlay({ selectedItem }) {
       <p>{message}</p>
       </div>
       <div className={gpdo.msgMDiv}>
-        <label className={gpdo.message}>Reply*</label>
-        <textarea
+        <label className={gpdo.message}>{!fetchedData.replyMessage ?"Reply*" : "Replied"}</label>
+       { !fetchedData.replyMessage ?
+        (<>
+         <textarea
           name=""
           id=""
           cols="30"
@@ -131,9 +135,12 @@ export default function TicketDetailsOverlay({ selectedItem }) {
         <div>
          <button onClick={handleSubmit} className={gpdo.btn}>{load ? <Load /> : "Send"}</button>
         </div>
+        </>) : (<>
+          <p>{fetchedData.replyMessage}</p>
+        </>)
+        }
       </div>
     
-      <GatewayGetinTouch />
       <Alert variant={variants} val={setError} />
     </div>
   );

@@ -40,7 +40,9 @@ export default function HelpDeskForm(props) {
   let menu = useRef();
 
   const handleSubmit = async (event) => {
-    event.preventDefault();t
+console.log("submiting........");
+
+    event.preventDefault();
 
     setLoad(true);
 

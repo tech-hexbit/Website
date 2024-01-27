@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 // css
 import tableDetailStyle from "./Css/HelpDeskFormTableDetail.module.css";
 
-export default function HelpDeskFormTableDetail({ tableData }) {
+export default function HelpDeskFormTableDetail({ tableData, replierEmail }) {
   return (
     <div>
       <div>
@@ -61,6 +61,12 @@ export default function HelpDeskFormTableDetail({ tableData }) {
       <div className={tableDetailStyle.msgMDiv}>
         <label className={tableDetailStyle.message}>Message*</label>
         <p>{tableData.message}</p>
+        {tableData.replyMessage &&
+        <div className={tableDetailStyle.replyMessage}>
+        <h4>Replied by : {tableData.replierEmail}</h4>
+          <p>{tableData.replyMessage}</p>
+          </div>
+        }
       </div>
 
       {/* Resolve Button */}

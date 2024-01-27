@@ -67,6 +67,7 @@
 
 .msgMDiv {
 display: flex;
+gap: 5px;
 align-items: flex-start;
 flex-direction: column;
 justify-content: center;
