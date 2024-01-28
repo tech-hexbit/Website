@@ -219,7 +219,6 @@ export default function ProductsPage() {
               <div className={PPCss.rightDiv}>
                 <p className={PPCss.titleName}>{res.descriptor.name}</p>
                 <p className={PPCss.pID}>Product id: {res._id}</p>
-                {/* <p className={PPCss.pSeller}>seller</p> */}
                 <p className={PPCss.pPublished}>Seller:seller</p>
                 <p className={PPCss.pPublished}>
                   {" "}
@@ -251,7 +250,7 @@ export default function ProductsPage() {
                     placeholderLabel="Updated Stock"
                   />
                   <Box
-                    title="Tax%"
+                    title="Tax %"
                     value={`₹ ${res.price.maximum_value}`}
                     up="price.maximum_value"
                     id={res._id}
@@ -259,7 +258,7 @@ export default function ProductsPage() {
                     placeholderLabel="Updated Tax"
                   />
                   <Box
-                    title="Discount%"
+                    title="Discount %"
                     value={`₹ ${res.price.maximum_value}`}
                     up="price.maximum_value"
                     id={res._id}
