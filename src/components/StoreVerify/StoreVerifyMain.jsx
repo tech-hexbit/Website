@@ -16,16 +16,25 @@ import axios from "axios";
 // components
 import Heading from "./Heading";
 import TextInput from "./TextInput";
+import { GrpTextInput, FssaiField } from "./TextInput";
 import FileInput from "./FileInput";
-import BankFields from "./BankFields";
+import BankFields from "./BankField/BankFields";
 import Ondc_Details from "./OndcField";
 import TimingField from "./TimingField";
 import PincodeField from "./PincodeField";
-import VerifiedFields from "./VerifiedFields";
-
-export default function StoreVerifyMain(props) {
+import GrpVerifiedFields from "./VerifiedField/VerifiedFields";
+import SelectInput from "./SelectInput";
+import getLocation from "./getLocation";
+import { VerifiedPan, VerifiedGstin } from "./VerifiedField/VerifiedPanGst";
+const StoreVerifyMain = (props) => {
+  // states
   const [load, setLoad] = useState(false);
-  const [disable, setDisable] = useState(false);
+  const [disable, setDisable] = useState({
+    Pincode: false,
+    Pan: false,
+    Gstin: false,
+    Bank: false,
+  });
   const [verifyPin, setVerify] = useState(false);
   const [showData, setData] = useState({
     FirstName: "",
@@ -46,6 +55,7 @@ export default function StoreVerifyMain(props) {
     BankName: "",
     BranchName: "",
     GstNo: "",
+    Gstin: "",
     FssaiLicence: "",
     PanNo: "",
     LocationAvailabilityMode: "",
@@ -64,29 +74,9 @@ export default function StoreVerifyMain(props) {
     imageUploadID: "",
   });
 
-  const fileInp_id = useRef(null);
-  const fileInp_cheque = useRef(null);
-  const fileInp_address = useRef(null);
-
   const authCtx = useContext(AuthContext);
-
   const redirect = useNavigate();
-
-  const successCallback = (position) => {
-    setData({
-      ...showData,
-      gps: {
-        latitude: position.coords.latitude,
-        longitude: position.coords.longitude,
-      },
-    });
-  };
-
-  const errorCallback = (error) => {
-    console.log(error);
-  };
-
-  navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+  // getLocation(showData, setData);
   const onSubmit = async () => {
     setLoad(true);
 
@@ -107,6 +97,7 @@ export default function StoreVerifyMain(props) {
       showData.IfscCode == "" ||
       showData.BankName == "" ||
       showData.BranchName == "" ||
+      showData.Gstin == "" ||
       showData.GstNo == "" ||
       showData.FssaiLicence == "" ||
       showData.PanNo == "" ||
@@ -125,13 +116,19 @@ export default function StoreVerifyMain(props) {
         text: "Please Fill All The Details",
         val: true,
       });
-    } else if (!verifyPin) {
+    } else if (!verifyPin || !disable.Bank || !disable.Gstin || disable.Pan) {
       props.setError({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
         symbol: "pets",
         title: "Check it out",
-        text: "Invalid pincode",
+        text: !verifyPin
+          ? "Invalid pincode"
+          : !disable.Bank
+          ? "Invalid Bank Details"
+          : !disable.Gstin
+          ? "Invalid GSTIN"
+          : "Invalid Pan",
         val: true,
       });
       window.scrollTo(0, 0);
@@ -139,10 +136,13 @@ export default function StoreVerifyMain(props) {
       try {
         let data = {
           gps: showData.gps,
+          days: showData.days,
+          times: [],
+          phone: showData.phone,
+          email: showData.email,
         };
         data.times.push(String(showData.StoreTimingStart));
         data.times.push(String(showData.StoreTimingEnd));
-
         const response = await axios.post(
           "/api/common/Store/CreateStore",
           data,
@@ -150,7 +150,6 @@ export default function StoreVerifyMain(props) {
             headers: { Authorization: `${authCtx.token}` },
           }
         );
-
         if (response.data.success) {
           props.setError({
             mainColor: "#EDFEEE",
@@ -160,9 +159,7 @@ export default function StoreVerifyMain(props) {
             text: response.data.msg,
             val: true,
           });
-
           await authCtx.updateStore(response.data.upData[0].Store);
-
           redirect("/me");
           setLoad(false);
         } else {
@@ -183,64 +180,15 @@ export default function StoreVerifyMain(props) {
     }
   };
 
-  const handleImageCheque = (e) => {
-    setImages({ ...images, imageUploadCheque: e.target.files[0] });
-  };
-
-  const handleImageAddress = (e) => {
-    setImages({ ...images, imageUploadAddress: e.target.files[0] });
-  };
-
-  const handleImageID = (e) => {
-    setImages({ ...images, imageUploadID: e.target.files[0] });
-  };
   return (
     <>
       <Heading />
-      <div className={SvCss.sub_headline}>
+      <div className={SvCss.subHeadline}>
         Please allow us 2-3 business days to review your KYC and approve your
         account.
       </div>
-      <div className={SvCss.progress_bar}>ICONS</div>
-      <TextInput
-        type="text"
-        Label="First Name"
-        showData={showData}
-        setData={setData}
-        field="FirstName"
-        placeholder="john"
-      />{" "}
-      <TextInput
-        type="text"
-        Label="Last Name"
-        showData={showData}
-        setData={setData}
-        field="LastName"
-        placeholder="david"
-      />{" "}
-      <TextInput
-        type="text"
-        Label="Legal Name"
-        showData={showData}
-        setData={setData}
-        field="LegalName"
-        placeholder="john david"
-      />
-      <TextInput
-        type="email"
-        Label="Email ID"
-        showData={showData}
-        setData={setData}
-        field="EmailID"
-        placeholder="Enter your email"
-      />{" "}
-      <TextInput
-        type="date"
-        Label="DOB"
-        showData={showData}
-        setData={setData}
-        field="DOB"
-      />
+      <div className={SvCss.progressBar}>ICONS</div>
+      <GrpTextInput showData={showData} setData={setData} />
       <PincodeField
         showData={showData}
         setData={setData}
@@ -258,24 +206,10 @@ export default function StoreVerifyMain(props) {
         field="Address"
         placeholder="Your address"
       />
-      <VerifiedFields
-        label="City"
+      <GrpVerifiedFields
         disable={disable}
-        type="text"
-        name="City"
         showData={showData}
         setData={setData}
-        placeholder="Your City"
-        verifyPin={verifyPin}
-      />
-      <VerifiedFields
-        label="State"
-        disable={disable}
-        type="text"
-        name="State"
-        showData={showData}
-        setData={setData}
-        placeholder="Your State"
         verifyPin={verifyPin}
       />
       <TextInput
@@ -286,70 +220,39 @@ export default function StoreVerifyMain(props) {
         field="StoreLocation"
         placeholder="Enter Store Location"
       />
-      <BankFields setData={setData} showData={showData} />
-      <TextInput
-        type="number"
-        Label="GST No."
+      <BankFields
+        setData={setData}
+        showData={showData}
+        disable={disable}
+        setDisable={setDisable}
+        setError={props.setError}
+      />
+      <VerifiedGstin
         showData={showData}
         setData={setData}
-        field="GstNo"
-        placeholder="Enter GST number"
+        disable={disable}
+        setDisable={setDisable}
+        setError={props.setError}
       />
-      <TextInput
-        type="number"
-        Label="FSSAI Licence NO"
+      <VerifiedPan
         showData={showData}
         setData={setData}
-        field="FssaiLicence"
-        placeholder="14-digit FSSAI Licence Number"
+        disable={disable}
+        setDisable={setDisable}
+        setError={props.setError}
       />
-      <TextInput
-        type="number"
-        Label="PAN NO."
-        showData={showData}
-        setData={setData}
-        field="PanNo"
-        placeholder="10-digit PAN Number"
-      />
-      <FileInput
-        label="Upload Cancelled Cheque"
-        placeholder="Cheque "
-        handleImage={handleImageCheque}
-        fileInp={fileInp_cheque}
-        image={images.imageUploadCheque}
-        handleClicksValue="cheque"
-      />
-      <FileInput
-        label="Address Proof (GSTIN)"
-        placeholder="Address "
-        handleImage={handleImageAddress}
-        fileInp={fileInp_address}
-        image={images.imageUploadAddress}
-        handleClicksValue="address"
-      />
-      <FileInput
-        label="ID Proof (PAN CARD)"
-        placeholder="PAN Card "
-        handleImage={handleImageID}
-        fileInp={fileInp_id}
-        image={images.imageUploadID}
-        handleClicksValue="id"
-      />
-      <div className={SvCss.inpDiv}>
-        <div className={SvCss.input_label}>LOCATION AVAILABILITY MODE</div>
-        <select name="languages" id="lang">
-          <option value="select">Select Availability</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-        </select>
-      </div>
+      <FssaiField showData={showData} setData={setData} />
+      <FileInput images={images} setImages={setImages} />
+      <SelectInput showData={showData} setData={setData} />
       <Ondc_Details setData={setData} showData={showData} />
       <TimingField showData={showData} setData={setData} />
-      <div className={SvCss.submit_div}>
+      <div className={SvCss.submitDiv}>
         <button className={SvCss.submitBtn} onClick={onSubmit}>
           {load ? <Load /> : "SUBMIT KYC"}
         </button>
       </div>
     </>
   );
-}
+};
+
+export default StoreVerifyMain;
