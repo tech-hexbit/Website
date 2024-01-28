@@ -1,9 +1,7 @@
 import React from "react";
-
-//proptypes
 import PropTypes from "prop-types";
 
-//css
+// css
 import SvCss from "../../Pages/Css/StoreVerify.module.css";
 
 export default function Ondc_Details(props) {
@@ -23,20 +21,20 @@ export default function Ondc_Details(props) {
   };
 
   return (
-    <div className={SvCss.nestedFieldLargeDiv}>
+    <div className={SvCss.nested_field_large_div}>
       <div>ONDC DETAILS</div>
-      <div className={SvCss.nestedFieldSmallDiv}>
+      <div className={SvCss.nested_field_small_div}>
         <div className={SvCss.inpDiv}>
-          <div className={SvCss.inputLabel}>Time to ship</div>
+          <div className={SvCss.input_label}>Time to ship</div>
           <select name="languages" id="lang">
-            <option value="select">Shipping Time</option>
+            <option value="select">Select Shipping Time</option>
             <option>8 AM - 12 PM</option>
             <option>12 PM - 4 PM</option>
             <option>4 PM - 8 PM</option>
           </select>
         </div>
         <div className={SvCss.inpDiv}>
-          <div className={SvCss.inputLabel}>Cancellable</div>
+          <div className={SvCss.input_label}>Cancellable</div>
           <select
             name="languages"
             id="lang"
@@ -48,7 +46,7 @@ export default function Ondc_Details(props) {
           </select>
         </div>
         <div className={SvCss.inpDiv}>
-          <div className={SvCss.inputLabel}>Returnable</div>
+          <div className={SvCss.input_label}>Returnable</div>
           <select
             name="languages"
             id="lang"
@@ -60,13 +58,13 @@ export default function Ondc_Details(props) {
           </select>
         </div>
         <div className={SvCss.inpDiv}>
-          <p className={SvCss.inputLabel}>Contact Details For Consumer Care</p>
+          <p className={SvCss.input_label}>Contact Details For Consumer Care</p>
           <input
             type="number"
             name="Contact Details For Customer Care"
             value={props.showData.ContactDetailsForConsumerCare}
             id=""
-            placeholder="Contact Details"
+            placeholder="Consumer Care Contact Details"
             onChange={(e) => {
               props.setData({
                 ...props.showData,
@@ -81,7 +79,5 @@ export default function Ondc_Details(props) {
 }
 
 Ondc_Details.propTypes = {
-  props: PropTypes.shape({
-    showData: PropTypes.object,
-  }),
+  showData: PropTypes.object,
 };
