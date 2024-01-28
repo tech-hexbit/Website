@@ -1,0 +1,19 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: 400;
+}
+
+.outer{
+    background-color:#F6F6F6;
+    height: 6px;
+    border-radius: 10px;
+}
+
+.inner{
+    background-color: #3F81E0;
+    height: 6px;
+    border-radius: 10px;
+    width:80%;
+}
