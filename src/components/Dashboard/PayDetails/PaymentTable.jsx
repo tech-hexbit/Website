@@ -38,7 +38,6 @@ export default function PaymentTable({ load, showData }) {
       ) : (
         <>
           {showOverlay ? (
-            <>
               <table className={Gptable.trans_table}>
                 <tr>
                   <th>Ref. No.</th>
@@ -101,8 +100,6 @@ export default function PaymentTable({ load, showData }) {
                   </tr>
                 ))}
               </table>
-
-            </>
           ) : (
             // entire table data
             <>
@@ -177,6 +174,7 @@ export default function PaymentTable({ load, showData }) {
                 </div>
               )}
             </table>
+            </>
 
           )}
         </>
