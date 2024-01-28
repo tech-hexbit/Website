@@ -1,9 +1,10 @@
-// import SvCss from "../Css/StoreVerify.module.css";
 import React from "react";
 import PropTypes from "prop-types";
+
+// css
 import SvCss from "../../Pages/Css/StoreVerify.module.css";
 
-const BankFields = (props) => {
+export default function BankFields(props) {
   return (
     <div className={SvCss.nested_field_large_div}>
       <div>Bank Details</div>
@@ -77,8 +78,8 @@ const BankFields = (props) => {
       </div>
     </div>
   );
-};
+}
+
 BankFields.propTypes = {
   showData: PropTypes.object,
 };
-export default BankFields;

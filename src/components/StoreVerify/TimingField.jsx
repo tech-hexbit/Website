@@ -1,8 +1,10 @@
-// import SvCss from "../Css/StoreVerify.module.css";
 import React from "react";
 import PropTypes from "prop-types";
+
+// css
 import SvCss from "../../Pages/Css/StoreVerify.module.css";
-const TimingField = (props) => {
+
+export default function TimingField(props) {
   return (
     <div className={SvCss.timing_large_div}>
       <p className={SvCss.input_label}>Store Timing</p>
@@ -36,8 +38,8 @@ const TimingField = (props) => {
       </div>
     </div>
   );
-};
+}
+
 TimingField.propTypes = {
   showData: PropTypes.object,
 };
-export default TimingField;

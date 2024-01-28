@@ -83,36 +83,7 @@
 
 /* media queries */
 @media (max-width: 1050px) {
-  .main {
-    justify-content: start;
-  }
-
-  .trans_table th {
+  .trans_table{
     display: none;
-  }
-
-  .trans_table td {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .trans_table td:before {
-    content: attr(data-cell) " :";
-    font-weight: 600;
-    text-transform: capitalize;
-    padding-right: 0.5em;
-  }
-
-  .trans_table td:first-child {
-    padding-block-start: 1rem;
-  }
-
-  .trans_table td[data-cell="action"] {
-    display: none;
-  }
-
-  .trans_table td[data-cell="status"] {
-    text-align: left;
-    margin-block-end: 1rem;
   }
 }

@@ -55,8 +55,9 @@
 }
 
 /* media queries */
-@media (max-width: 1050px) {
-  .main {
+/* @media (max-width: 1050px) {
+ 
+  .main  {
     justify-content: start;
   }
 
@@ -87,5 +88,11 @@
   .trans_table td[data-cell="status"] {
     text-align: left;
     margin-block-end: 1rem;
+  }
+} */
+
+@media (max-width:1050px){
+  .trans_table{
+    display: none;
   }
 }
