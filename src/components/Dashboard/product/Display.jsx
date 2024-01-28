@@ -99,7 +99,7 @@ export default function Display({
               showProductDel.state ? "yesProductsPage" : "noProductsPage"
             }
           >
-            <ProductsPage
+            <ProductPageNew
               id={showProductDel.id}
               setProductDel={setProductDel}
             />
