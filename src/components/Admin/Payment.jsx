@@ -36,19 +36,19 @@ export default function Payment() {
       });
 
       if (response.data.success) {
-        console.log(response.data);
-
         setData(response.data.reqList);
         setList(response.data.listData);
 
         setLoad(false);
       } else {
-        setLoad(false);
-
         console.log(e);
+
+        setLoad(false);
       }
     } catch (e) {
       setLoad(false);
+
+      console.log(e);
 
       setError({
         mainColor: "#FDEDED",
@@ -58,8 +58,6 @@ export default function Payment() {
         text: "An unexpected error occurred",
         val: true,
       });
-
-      console.log(e);
     }
   };
 
