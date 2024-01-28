@@ -2,12 +2,10 @@
   width: 100%;
   display: flex;
   justify-content: space-around;
-  /* flex-direction: row; */
 }
 .boxDiv {
   padding: 25px 0px;
   flex-basis: 70%;
-  /* width: 70%; */
 }
 
 .heading {
@@ -78,6 +76,7 @@
   padding-top: 10px;
   padding-bottom: 30px;
 }
+
 .createYourStore {
   color: #383c3e;
   font-size: 40px;
@@ -109,7 +108,6 @@ button {
 .inpDiv input,
 select {
   flex-basis: 70%;
-  /* flex-basis: 75%; */
   height: 42px;
   padding: 8px;
 }
@@ -123,7 +121,6 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 .inputLabel {
   flex-basis: 30%;
-  /* width: 10%; */
 }
 
 .nestedFieldLargeDiv {
@@ -134,30 +131,24 @@ input[type="number"]::-webkit-outer-spin-button {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  /* flex-wrap: wrap; */
 }
 
 .nestedFieldSmallDiv {
   display: flex;
   flex-direction: column;
-
-  /* flex-basis: 75%; */
   flex-basis: 65%;
 }
 
 .inputDivVerified {
   position: relative;
   flex-basis: 70%;
-  /* flex-basis: 75%; */
 }
 .inputDivPincode {
   flex-basis: 70%;
-  /* flex-basis: 75%; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   gap: 1rem;
-  /* flex-wrap: wrap; */
 }
 .inputDivPincode input {
   flex-basis: 100%;
@@ -177,16 +168,15 @@ input[type="number"]::-webkit-outer-spin-button {
 .inputDivVerified input {
   width: 100%;
 }
+
 .prevImg {
   width: 100px;
   height: 100px;
 }
+
 .addImgDiv {
   width: 70px;
   height: 70px;
-
-  /* width: 50px;
-  height: 50px; */
   background-color: #dbdbdb;
   border-radius: 3px;
   display: flex;
@@ -207,10 +197,8 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 .inputDivFile {
   flex-basis: 70%;
-  /* flex-basis: 75%; */
   display: flex;
   flex-direction: row;
-  /* justify-content: flex-end; */
   gap: 1rem;
   /* flex-wrap: wrap; */
 }
@@ -244,7 +232,6 @@ input[type="number"]::-webkit-outer-spin-button {
 .timingSmallDiv {
   display: flex;
   flex-direction: row;
-  /* flex-wrap: wrap; */
   gap: 30px;
 }
 
@@ -253,12 +240,9 @@ input[type="number"]::-webkit-outer-spin-button {
   height: 42px;
   padding: 8px;
 }
+
 .submitBtn {
   border: none;
-  /* margin-block-start: 1rem;
-  border-radius: 10px; */
-  /* cursor: pointer; */
-
   display: flex;
   width: 338.52px;
   height: 53.733px;
@@ -266,17 +250,12 @@ input[type="number"]::-webkit-outer-spin-button {
   justify-content: center;
   align-items: center;
   gap: 10.747px;
-
-  /* //text */
   color: #fff;
   text-align: center;
-  /* font-family: Poppins; */
   font-size: 20px;
-  /* font-style: normal; */
   font-weight: 700;
-  /* line-height: normal; */
   border-radius: 32.24px;
-  background: var(--Green, linear-gradient(90deg, #47b357 0%, #50ca70 100%));
+  background: linear-gradient(90deg, #47b357 0%, #50ca70 100%);
 }
 @media screen and (max-width: 768px) {
   .inputDivBank {

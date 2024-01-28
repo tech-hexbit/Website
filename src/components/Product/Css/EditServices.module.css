@@ -1,0 +1,50 @@
+.mDiv {
+    border-radius: 10px;
+    border-style: dashed;
+    border-width: 1px;
+    border-color: #ddd;
+    padding: 5px 24px;
+    transition: all 0.3s;
+    margin: 20px 0px;
+    width:auto;
+  }
+  
+  .mDiv:hover {
+    border-color: #56117c;
+  }
+  
+  .editHead{
+    font-size: 16px;
+    font-weight: 400;
+    color:darkgrey;
+    text-decoration: underline;
+    text-transform: uppercase;
+  }
+
+  .subTitlePTag {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0.16px;
+    text-transform: capitalize;
+    margin: 15px 0px;
+  }
+  
+  .listDiv {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    margin-left:10px;
+    background-color: transparent;
+  }
+  
+  .liBlock {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0.16px;
+    /* padding: 5px 25px; */
+  }
+  

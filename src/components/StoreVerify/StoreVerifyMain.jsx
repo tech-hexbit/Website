@@ -16,13 +16,13 @@ import axios from "axios";
 // components
 import Heading from "./Heading";
 import TextInput from "./TextInput";
+import { GrpTextInput, FssaiField } from "./TextInput";
 import FileInput from "./FileInput";
 import BankFields from "./BankField/BankFields";
 import Ondc_Details from "./OndcField";
 import TimingField from "./TimingField";
 import PincodeField from "./PincodeField";
 import GrpVerifiedFields from "./VerifiedField/VerifiedFields";
-import { GrpTextInput, FssaiField } from "./TextInput";
 import SelectInput from "./SelectInput";
 import getLocation from "./getLocation";
 import { VerifiedPan, VerifiedGstin } from "./VerifiedField/VerifiedPanGst";

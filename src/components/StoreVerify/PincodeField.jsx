@@ -46,7 +46,8 @@ const pincodeVerify = async ({
     // console.log(e);
   }
 };
-const PincodeField = ({
+
+export default function PincodeField({
   showData,
   setData,
   verifyPin,
@@ -54,7 +55,7 @@ const PincodeField = ({
   setDisable,
   setVerify,
   setError,
-}) => {
+}) {
   return (
     <div>
       {showData.Pincode.length >= 6 ? (
@@ -88,7 +89,6 @@ const PincodeField = ({
               >
                 {verifyPin ? (
                   <svg
-                    // className={SvCss.badge_icon}
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
                     height="24"
@@ -130,7 +130,8 @@ const PincodeField = ({
       )}
     </div>
   );
-};
+}
+
 PincodeField.propTypes = {
   // props: PropTypes.shape({
   showData: PropTypes.object,
@@ -138,4 +139,3 @@ PincodeField.propTypes = {
   disable: PropTypes.object,
   // }),
 };
-export default PincodeField;

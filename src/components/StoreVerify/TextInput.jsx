@@ -91,6 +91,7 @@ const TextInput = (props) => {
     </div>
   );
 };
+
 TextInput.propTypes = {
   props: PropTypes.shape({
     Label: PropTypes.string,

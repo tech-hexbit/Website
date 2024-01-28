@@ -37,7 +37,6 @@ export default function PaymentTable({ load, showData }) {
       ) : (
         <>
           {showOverlay ? (
-            <>
               <table className={Gptable.trans_table}>
                 <tr>
                   <th>Ref. No.</th>
@@ -52,7 +51,7 @@ export default function PaymentTable({ load, showData }) {
 
                 {/* display selected row */}
                 {filteredRowItem.map((item, index) => (
-                  <tr key={index}>
+                   <tr key={index} className={Gptable.payRes}>
                     <td data-cell="ref no">{item._id.slice(-4)}</td>
                     <td data-cell="name">
                       {item.bank.BankDetails[0].AccountHolderName}
@@ -100,25 +99,25 @@ export default function PaymentTable({ load, showData }) {
                   </tr>
                 ))}
               </table>
-            </>
           ) : (
             // entire table data
-            <table className={Gptable.trans_table}>
-              <tr>
-                <th>Ref. No.</th>
-                <th>A/c Holder Name</th>
-                <th>Date</th>
-                <th>Amount</th>
-                <th>Order Id</th>
-                <th>Payment Mode</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
+            <>
+              <table className={Gptable.trans_table}>
+                <tr>
+                  <th>Ref. No.</th>
+                  <th>A/c Holder Name</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Order Id</th>
+                  <th>Payment Mode</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
 
               {showData.length > 0 ? (
                 <>
                   {showData.map((item, index) => (
-                    <tr key={index}>
+                     <tr key={index} className={Gptable.payRes}>
                       <td data-cell="ref no">{item._id.slice(-4)}</td>
                       <td data-cell="name">
                         {item.bank.BankDetails[0].AccountHolderName}
@@ -174,6 +173,8 @@ export default function PaymentTable({ load, showData }) {
                 </div>
               )}
             </table>
+            </>
+
           )}
         </>
       )}

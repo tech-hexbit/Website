@@ -24,19 +24,21 @@ import Categories from "./../components/Dashboard/Categories";
 import AddProduct from "./../components/Dashboard/AddProduct";
 import Dashboard from "./../components/Dashboard/DashboardMain";
 import Orderdetails from "./../components/Dashboard/Orderdetails";
+import ProductsPage from "./../components/ProductsPage/ProductsPage";
 import VerifyEmail from "../components/Dashboard/MainParts/VerifyEmail";
 import HelpDeskTable from "./../components/Dashboard/HelpDesk/HelpDeskFormTable";
 //          || Admin
+import Payment from "../components/Admin/Payment";
 import TicketAdmin from "./../components/Admin/Ticket";
 import SupportAdmin from "./../components/Admin/Support";
 import SellersAdmin from "./../components/Admin/Sellers";
-
-import PaymentTable from "../components/Admin/PayDetails/PaymentTable";
 
 //          || Super Admin
 import FrontPage from "./../components/MainAdmin/FrontPage";
 import SellerInfo from "./../components/MainAdmin/SellerInfo";
 import SalesAdmin from "./../components/Dashboard/SalesAdmin";
+import SelectSellerDetail from "../components/Admin/Sellers/Seller Main/SelectSellerDetail";
+
 // state
 import AuthContext from "./../store/auth-context";
 
@@ -171,6 +173,7 @@ export default function Profile() {
                       path="/admin/paymentdetails"
                       element={<PaymentTable />}
                     />
+                    <Route path="/admin/paymentdetails" element={<Payment />} />
                   </>
                 )}
 
@@ -184,13 +187,14 @@ export default function Profile() {
                     />
                     <Route
                       path="/admin/super/SellerInfo"
-                      element={<SellerInfo />}
+                      element={<SelectSellerDetail />}
                     />
                     <Route path="/admin/super/Sales" element={<SalesAdmin />} />
                     <Route
                       path="/admin/super/Support"
                       element={<SupportAdmin />}
                     />
+                    <Route path="/products/:id" element={<ProductsPage />} />
                   </>
                 )}
 
@@ -205,6 +209,7 @@ export default function Profile() {
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/Inventory" element={<Categories />} />
                     <Route path="/addProduct" element={<AddProduct />} />
+                    <Route path="/products/:id" element={<ProductsPage />} />
                     <Route path="/Payment/Details" element={<PayDetails />} />
                     <Route path="/Payment/Request" element={<PayRequest />} />
                     <Route

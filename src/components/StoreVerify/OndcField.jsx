@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 //css
 import SvCss from "../../Pages/Css/StoreVerify.module.css";
 
-const Ondc_Details = (props) => {
+export default function Ondc_Details(props) {
   const handleSelectChangeReturn = (event) => {
     const selectedValue = event.target.value;
     props.setData({
@@ -78,10 +78,10 @@ const Ondc_Details = (props) => {
       </div>
     </div>
   );
-};
+}
+
 Ondc_Details.propTypes = {
   props: PropTypes.shape({
     showData: PropTypes.object,
   }),
 };
-export default Ondc_Details;
