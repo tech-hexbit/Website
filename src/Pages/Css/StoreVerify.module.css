@@ -183,9 +183,7 @@ input[type="number"]::-webkit-outer-spin-button {
   justify-content: center;
   align-items: center;
   color: #777;
-  /* font-family: "Merriweather", serif; */
   font-size: 30px;
-  /* font-style: normal; */
   font-weight: 900;
   /* line-height: 40.811px;
   letter-spacing: 0.653px; */
@@ -221,7 +219,6 @@ input[type="number"]::-webkit-outer-spin-button {
 .timingLargeDiv {
   color: #606060;
   font-size: 17px;
-  /* font-style: normal; */
   font-weight: 600;
   margin: 30px 0px;
   display: flex;
