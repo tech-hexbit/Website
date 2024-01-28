@@ -37,7 +37,6 @@ export default function Payment() {
 
       if (response.data.success) {
         setData(response.data.reqList);
-        setList(response.data.listData);
 
         setLoad(false);
       } else {
