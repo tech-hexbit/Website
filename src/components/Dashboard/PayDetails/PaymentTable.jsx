@@ -8,7 +8,6 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 
 // css
 import Gptable from "./Css/PaymentTable.module.css";
-// import cardDisplay from "./Css/PaymentCard.module.css";
 
 export default function PaymentTable({ load, showData }) {
   const [showOverlay, setShowOverlay] = useState(false);
