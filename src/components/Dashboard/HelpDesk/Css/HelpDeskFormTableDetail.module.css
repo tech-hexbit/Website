@@ -127,6 +127,12 @@
   justify-content: center;
 }
 
+.loading{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media screen and (max-width: 720px) {
   .timeDate {
     display: flex;

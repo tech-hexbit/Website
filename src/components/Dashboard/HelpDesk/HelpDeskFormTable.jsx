@@ -122,13 +122,13 @@ export default function HelpDeskFormTable() {
                                 tableVal(val);
                               }}>Close Details
                       
-                       </td>
+                       </td>  
                     </tr>
                   </table>
                 </div>
               </div>
             </div>
-            <HelpDeskFormTableDetail tableData={tableData} />
+            <HelpDeskFormTableDetail tableVal={tableVal} tableData={tableData} data ={data} />
           </div>
         ) : (
           <div className={hdftable.main}>

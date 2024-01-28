@@ -25,6 +25,7 @@ export default function HelpDeskForm(props) {
     StoreID: "",
     subject: "",
     message: "",
+    resolveQuery : false
   });
   const [variants, setError] = useState({
     mainColor: "",
@@ -40,7 +41,6 @@ export default function HelpDeskForm(props) {
   let menu = useRef();
 
   const handleSubmit = async (event) => {
-console.log("submiting........");
 
     event.preventDefault();
 
@@ -57,7 +57,7 @@ console.log("submiting........");
 
       if (response.data.success) {
         setLoad(false);
-
+        console.log("data ==== ", data);
         setData({
           name: "",
           emailID: "",
@@ -65,6 +65,7 @@ console.log("submiting........");
           StoreID: "",
           subject: "",
           message: "",
+          resolveQuery : "true"
         });
 
         props.setSubmitted(true);

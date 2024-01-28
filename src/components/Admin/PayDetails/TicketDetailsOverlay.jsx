@@ -1,4 +1,4 @@
-import React,{useState,useContext} from "react";
+import React,{useState,useEffect,useContext} from "react";
 
 // state
 import AuthContext from "./../../../store/auth-context";
@@ -18,6 +18,7 @@ export default function TicketDetailsOverlay({ selectedItem }) {
 
   const [replyMessage, setReplyMessage] = useState("");
   const [load, setLoad] = useState(false); 
+  const [data, setloadStore] = useState([]);
   const [fetchedData , setFetchedData]= useState({
  replyMessage : ""
   })
@@ -83,7 +84,45 @@ export default function TicketDetailsOverlay({ selectedItem }) {
         val: true,
       });
     }
-  };
+
+    
+  }
+  const loadStore = async () => {
+      setLoad(true);
+  
+      try {
+        const response = await axios.get(
+          `/api/website/ContactUs/user/post/reply/${StoreID}`,
+          {
+            headers: { Authorization: `${authCtx.token}` },
+          }
+        );
+  
+        if (response.data.success) {
+          setLoad(false);
+          console.log("response.data =555555555=343424242 == ", response);
+          setFetchedData((prevData) => ({ ...prevData, replyMessage: response.data.replyMessage }));
+        } else {
+          console.log("errrr");
+          setLoad(false);
+        }
+      } catch (e) {
+        console.log(e);
+        setLoad(false);
+  
+        setError({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "An unexpected error occurred",
+          val: true,
+        });
+      }
+    }
+      useEffect(() => {
+        loadStore();
+      }, []);
 
   return (
     <div className={gpdo.main}>
