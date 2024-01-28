@@ -1,0 +1,88 @@
+.mDiv {
+    border-radius: 10px;
+    border-style: dashed;
+    border-width: 1px;
+    border-color: #ddd;
+    padding: 5px 24px;
+    transition: all 0.3s;
+    margin: 20px 0px;
+    width: 100%;
+  }
+  
+  .mDiv:hover {
+    border-color: #56117c;
+  }
+  
+  .editHead{
+    font-size: 16px;
+    font-weight: 400;
+    color:darkgrey;
+    text-decoration: underline;
+    text-transform: uppercase;
+  }
+
+  .subTitlePTag {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0.16px;
+    text-transform: capitalize;
+    margin: 15px 0px;
+  }
+
+  .list{
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    gap:12rem;
+  }
+
+  .list li{
+    list-style: none;
+  }
+
+  .types{
+    font-weight: 700;
+  }
+
+  .ans{
+    font-weight: 400;
+    padding-left:10px;
+  }
+
+  @media (max-width: 768px) {
+    .list {
+        flex-direction: row;
+        justify-content: space-between;
+        gap:4rem;
+    }
+    .mDiv{
+      padding: 2px;
+    }
+    .types{
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .ans{
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width:480px){
+    .mdiv{
+      padding: 2px 2px;
+    }
+    .list {
+      flex-direction: row;
+      justify-content: space-between;
+      gap:2rem;
+    }
+    .types{
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .ans{
+      font-size: 14px;
+    }
+  }
