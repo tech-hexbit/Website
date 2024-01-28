@@ -47,6 +47,9 @@ import { Alert } from "./../MicroInteraction/Alert";
 
 // Css
 import PCss from "./Css/Profile.module.css";
+import SupportNew from "../components/Dashboard/SupportNew";
+import SellerInfo from "../components/MainAdmin/SellerInfo";
+import HelpDeskNew from "../components/Dashboard/HelpDeskNew";
 
 export default function Profile() {
   const [load, setLoad] = useState(false);
@@ -183,9 +186,11 @@ export default function Profile() {
                       path="/admin/super/SellerKYC"
                       element={<SellersAdmin />}
                     />
+                    <Route path="/admin/super/Support" element={<SupportNew/>} />
+                    <Route path="/admin/super/HelpDesk" element={<HelpDeskNew/>} />
                     <Route
                       path="/admin/super/SellerInfo"
-                      element={<SelectSellerDetail />}
+                      element={<SellerInfo />}
                     />
                     <Route path="/products/:id" element={<ProductsPage />} />
                   </>
