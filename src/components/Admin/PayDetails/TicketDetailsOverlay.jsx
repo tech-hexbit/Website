@@ -1,4 +1,5 @@
 import React,{useState,useEffect,useContext} from "react";
+import PropTypes from "prop-types";
 
 // state
 import AuthContext from "./../../../store/auth-context";
@@ -7,11 +8,11 @@ import AuthContext from "./../../../store/auth-context";
 import Load from "../../../MicroInteraction/Load";
 import { Alert } from "../../../MicroInteraction/Alert";
 
-// css
-import gpdo from "./Css/TicketDetailsOverlay.module.css";
-
 // axios
 import axios from "axios";
+
+// css
+import gpdo from "./Css/TicketDetailsOverlay.module.css";
 
 export default function TicketDetailsOverlay({ selectedItem }) {
   if (!selectedItem) return null;
@@ -56,10 +57,9 @@ export default function TicketDetailsOverlay({ selectedItem }) {
 
       if (response.data.success) {
         setFetchedData((prevData) => ({ ...prevData, replyMessage: response.data.replyMessage }));
-     setReplyMessage("");
+         setReplyMessage("");
         setLoad(false);
       } else {
-        console.log(e);
         setLoad(false);
         setError({
           mainColor: "#FDEDED",
@@ -71,10 +71,7 @@ export default function TicketDetailsOverlay({ selectedItem }) {
         });
       }
     } catch (e) {
-      
-      console.log(e);
       setLoad(false);
-
       setError({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
@@ -92,7 +89,7 @@ export default function TicketDetailsOverlay({ selectedItem }) {
   
       try {
         const response = await axios.get(
-          `/api/website/ContactUs/user/post/reply/${StoreID}`,
+          `/api/website/ContactUs/user/post/reply/${emailID}`,
           {
             headers: { Authorization: `${authCtx.token}` },
           }
@@ -100,14 +97,11 @@ export default function TicketDetailsOverlay({ selectedItem }) {
   
         if (response.data.success) {
           setLoad(false);
-          console.log("response.data =555555555=343424242 == ", response);
           setFetchedData((prevData) => ({ ...prevData, replyMessage: response.data.replyMessage }));
         } else {
-          console.log("errrr");
           setLoad(false);
         }
       } catch (e) {
-        console.log(e);
         setLoad(false);
   
         setError({
@@ -183,4 +177,9 @@ export default function TicketDetailsOverlay({ selectedItem }) {
       <Alert variant={variants} val={setError} />
     </div>
   );
+
 }
+TicketDetailsOverlay.propTypes = {
+  selectedItems: PropTypes.object.isRequired,
+};
+

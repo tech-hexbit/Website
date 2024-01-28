@@ -13,9 +13,7 @@ import tableDetailStyle from "./Css/HelpDeskFormTableDetail.module.css";
 //components
 import Load from "../../../MicroInteraction/Load";
 
-export default function HelpDeskFormTableDetail({ tableData, tableVal }) {
-  
-    console.log("Updated tableData:", tableData);
+export default function HelpDeskFormTableDetail({ tableData }) {
   
     const [querySolved , setQuerySolved] = useState(false);
     const [load, setLoad] = useState(false);
@@ -39,8 +37,6 @@ export default function HelpDeskFormTableDetail({ tableData, tableVal }) {
       resolveQuery: true,
     };
   
-
-    console.log("resolving.......");
     try {
       const response = await axios.post(
         "/api/website/ContactUs/user/post/resolveQuery",
@@ -53,8 +49,6 @@ export default function HelpDeskFormTableDetail({ tableData, tableVal }) {
       if (response.data.success) {
         
         setLoad(false);
-        console.log("response.data  =====  ", response.data);
-        console.log(response.data.resolvedQuery);
         if (response.data.resolvedQuery === true) {
           setQuerySolved(true);
         } else {
@@ -137,7 +131,7 @@ export default function HelpDeskFormTableDetail({ tableData, tableVal }) {
         <p>{tableData.message}</p>
         {tableData.replyMessage && (
           <div className={tableDetailStyle.replyMessage}>
-            <h4>Replied by : {tableData.replierEmail}</h4>
+          <label className={tableDetailStyle.message}>Reply*</label>
             <p>{tableData.replyMessage}</p>
           </div>
         )}

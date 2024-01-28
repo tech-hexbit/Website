@@ -66,8 +66,6 @@ const authCtx = useContext(AuthContext);
         });
       }
     } catch (e) {
-
-      console.log(e);
       setError({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
