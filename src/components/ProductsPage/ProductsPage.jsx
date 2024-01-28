@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 // axios
 import axios from "axios";
@@ -26,15 +26,13 @@ export default function ProductsPage() {
 
   const { id } = useParams();
 
-  useEffect(() => {
-    loadProducts();
-
-    window.scrollTo(0, 0);
-
-    setChange(false);
-  }, [, change]);
-
   const authCtx = useContext(AuthContext);
+
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1); // history.goBack();
+  };
 
   const loadProducts = async () => {
     if (id !== "") {
@@ -62,32 +60,36 @@ export default function ProductsPage() {
     }
   };
 
+  useEffect(() => {
+    loadProducts();
+
+    window.scrollTo(0, 0);
+
+    setChange(false);
+  }, [, change]);
+
   return (
     <div className={PPCss.mDiv}>
       <p className={PPCss.AddHPTag}>
-        <Link to="/me/products">
-          <span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-move-left"
-              className={PPCss.leftArrow}
-              // onClick={() => {
-              //   props.setProductDel(false);
-              // }}
-            >
-              <path d="M6 8L2 12L6 16" />
-              <path d="M2 12H22" />
-            </svg>
-          </span>
-        </Link>
+        <span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-move-left"
+            className={PPCss.leftArrow}
+            onClick={goBack}
+          >
+            <path d="M6 8L2 12L6 16" />
+            <path d="M2 12H22" />
+          </svg>
+        </span>
         Product Details
       </p>
 
