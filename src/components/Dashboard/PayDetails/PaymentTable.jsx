@@ -53,7 +53,7 @@ export default function PaymentTable({ load, showData }) {
 
                 {/* display selected row */}
                 {filteredRowItem.map((item, index) => (
-                   <tr key={index} className={Gptable.payres}>
+                   <tr key={index} className={Gptable.payRes}>
                     <td data-cell="ref no">{item._id.slice(-4)}</td>
                     <td data-cell="name">
                       {item.bank.BankDetails[0].AccountHolderName}

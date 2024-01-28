@@ -127,7 +127,7 @@ export default function PaymentTable() {
 
           {/* display selected row */}
           {filteredRowItem.map((item, index) => (
-            <tr key={index}>
+            <tr key={index} className={Gptable.payRes}>
               <td data-cell="ref no">{item.refNo}</td>
               <td data-cell="order id">{item.orderId}</td>
               <td data-cell="name">{item.accountHolderName}</td>
@@ -167,7 +167,7 @@ export default function PaymentTable() {
           </tr>
 
           {data.map((item, index) => (
-            <tr key={index}>
+            <tr key={index} className={Gptable.payRes}>
               <td data-cell="ref no">{item.refNo}</td>
               <td data-cell="order id">{item.orderId}</td>
               <td data-cell="name">{item.accountHolderName}</td>
