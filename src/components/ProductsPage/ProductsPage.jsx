@@ -1,4 +1,5 @@
 import React, { useEffect, useContext, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 
 // axios
 import axios from "axios";
@@ -18,22 +19,24 @@ import Load from "../../MicroInteraction/LoadBlack";
 // css
 import PPCss from "./Css/ProductPage.module.css";
 
-export default function ProductsPage(props) {
+export default function ProductsPage() {
   const [res, setres] = useState();
   const [load, setLoad] = useState(false);
   const [change, setChange] = useState(false);
 
+  const { id } = useParams();
+
   useEffect(() => {
-    loadProducts(props.id);
+    loadProducts();
 
     window.scrollTo(0, 0);
 
     setChange(false);
-  }, [, props.id, change]);
+  }, [, change]);
 
   const authCtx = useContext(AuthContext);
 
-  const loadProducts = async (id) => {
+  const loadProducts = async () => {
     if (id !== "") {
       setLoad(true);
 
@@ -62,27 +65,29 @@ export default function ProductsPage(props) {
   return (
     <div className={PPCss.mDiv}>
       <p className={PPCss.AddHPTag}>
-        <span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-move-left"
-            className={PPCss.leftArrow}
-            onClick={() => {
-              props.setProductDel(false);
-            }}
-          >
-            <path d="M6 8L2 12L6 16" />
-            <path d="M2 12H22" />
-          </svg>
-        </span>
+        <Link to="/me/products">
+          <span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-move-left"
+              className={PPCss.leftArrow}
+              // onClick={() => {
+              //   props.setProductDel(false);
+              // }}
+            >
+              <path d="M6 8L2 12L6 16" />
+              <path d="M2 12H22" />
+            </svg>
+          </span>
+        </Link>
         Product Details
       </p>
 
