@@ -10,21 +10,20 @@ import AuthContext from "../../store/auth-context";
 // components
 import Box from "../Product/Box";
 import Des from "../Product/Des";
+import Offers from "../Product/Offers";
 import SizeBox from "../Product/SizeBox";
 import ColorBox from "../Product/ColorBox";
+import UpdateLabel from "../Product/UpdateLabel";
+import EditFeatures from "../Product/EditFeatures";
+import EditServices from "../Product/EditServices";
+import RatingndReview from "../Product/RatingndReview";
+import ProductDescription from "../Product/ProductDescription";
 
 // MicroInteraction
 import Load from "../../MicroInteraction/LoadBlack";
 
 // css
 import PPCss from "./Css/ProductPage.module.css";
-
-import UpdateLabel from "../Product/UpdateLabel";
-import EditFeatures from "../Product/EditFeatures";
-import EditServices from "../Product/EditServices";
-import Offers from "../Product/Offers";
-import ProductDescription from "../Product/ProductDescription";
-import RatingndReview from "../Product/RatingndReview";
 
 export default function ProductsPage() {
   const [res, setres] = useState();
