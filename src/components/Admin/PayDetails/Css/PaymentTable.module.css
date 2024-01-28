@@ -55,8 +55,65 @@
   }
   
   /* media queries */
-  @media (max-width: 1050px) {
-    .trans_table{
-      display: none;
-    }
+@media (max-width: 1050px) {
+
+  .main {
+    width: auto;
   }
+
+  .trans_table td {
+    padding-block: 0.5rem;
+  }
+
+  .trans_table th {
+    display: none;
+  }
+ .payRes{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 60%;
+  margin: 1rem auto ;
+  padding-inline: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #d5dce8;  
+ }
+
+
+  .trans_table tr {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .trans_table td:before {
+    content: attr(data-cell) " :";
+    font-weight: 600;
+    text-transform: capitalize;
+    padding-right: 0.5em;
+  }
+
+  .trans_table td:first-child {
+    padding-block-start: 1rem;
+  }
+
+  .trans_table td[data-cell="action"] {
+    text-decoration: none;
+    padding: 13px 0;
+    margin-block-end: 0.5rem;
+  }
+
+  .trans_table td[data-cell="status"] {
+    text-align: left;
+  }
+}
+
+@media(max-width: 605px){
+  .payRes{
+    width: 90%;
+   }
+}
+@media  (max-width: 500px){
+  .payRes{
+    width: 100%;
+   }
+}

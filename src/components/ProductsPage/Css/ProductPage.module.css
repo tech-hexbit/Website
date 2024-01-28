@@ -1,4 +1,5 @@
 .mDiv {
+  /* height:100vh; */
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
@@ -23,6 +24,12 @@
   width: 30%;
 }
 
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+
 .productImg {
   width: 100%;
   border-radius: 5px;
@@ -32,6 +39,11 @@
   width: 65%;
 }
 
+.upper {
+  display: flex;
+  flex-direction: row;
+}
+
 .titleName {
   font-size: 20px;
   font-style: normal;
@@ -39,6 +51,7 @@
   line-height: 27px;
   letter-spacing: 0.2px;
   margin-bottom: 7px;
+  padding-top: 10px;
 }
 
 .pID,
@@ -57,9 +70,126 @@
   display: flex;
   justify-content: space-evenly;
   margin: 30px 0px;
+  gap: 20px;
 }
 
 .leftArrow {
   margin-right: 7px;
   cursor: pointer;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.imageContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  padding-top: 20px;
+  cursor: pointer;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 4rem;
+  gap: 10px;
+}
+
+.button1 {
+  padding: 20px;
+  width: 100%;
+  background-color: #4a246f;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button2 {
+  padding: 20px;
+  width: 100%;
+  background-color: #b82a2a;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button3 {
+  background-color: #882828;
+  padding: 20px;
+  width: 100%;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.imgs {
+  width: 2rem;
+}
+
+.arrow {
+  background: linear-gradient(to right, #3f81e0, #3f81e0);
+  border-radius: 50px;
+  border: none;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  margin-top: 40%;
+}
+
+@media (max-width: 768px) {
+  .divDiv {
+    flex-direction: column;
+  }
+
+  .leftDiv {
+    width: 100%;
+  }
+
+  .container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .rightDiv {
+    width: 100%;
+  }
+
+  .boxmDiv {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .imgs {
+    width: 2rem;
+  }
+
+  .arrow {
+    margin-top: 60%;
+  }
+}
+
+@media (max-width: 480px) {
+  .imgs {
+    width: 2rem;
+  }
 }

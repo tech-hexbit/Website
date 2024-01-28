@@ -1,0 +1,87 @@
+.mDiv {
+    border-radius: 10px;
+    border-style: dashed;
+    border-width: 1px;
+    border-color: #ddd;
+    padding: 5px 24px;
+    transition: all 0.3s;
+    margin: 20px 0px;
+  }
+  
+  .mDiv:hover {
+    border-color: #56117c;
+  }
+  
+  .subTitlePTag {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0.16px;
+    text-transform: capitalize;
+    margin: 15px 0px;
+  }
+
+  .stars{
+    display: flex;
+    flex-direction: row;
+    gap:0.5rem;
+    background-color:#F6F6F6;
+    padding: 1rem;
+  }
+
+  .stars p{
+    font-weight: 400;
+    font-size: 18px;
+    color:#777777;
+    padding-left: 1rem;
+  }
+
+  .review{
+    font-weight: 400;
+    color:#777777;
+    text-align: center;
+    padding-bottom: 1rem;
+  }
+
+  .left{
+    width: 40%;
+  }
+
+  .right{
+    width: 55%;
+  }
+
+  .starCount{
+    padding-top: 24px;
+    font-size: 18px;
+    gap:2px;
+    padding-bottom: 10px;
+  }
+
+  .leftright{
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+  }
+
+  @media (max-width:1062px){
+    .leftright{
+      display: flex;
+      flex-direction: column;
+      gap: 5%;
+    }
+    .left{
+      width: 100%;
+    }
+    .right{
+      width: 100%;
+    }
+  }
+
+  @media (max-width:768px){
+    .stars img{
+      width:32px;
+      height:16px;
+    }
+  }

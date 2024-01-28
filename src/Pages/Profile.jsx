@@ -24,6 +24,7 @@ import Categories from "./../components/Dashboard/Categories";
 import AddProduct from "./../components/Dashboard/AddProduct";
 import Dashboard from "./../components/Dashboard/DashboardMain";
 import Orderdetails from "./../components/Dashboard/Orderdetails";
+import ProductsPage from "./../components/ProductsPage/ProductsPage";
 import VerifyEmail from "../components/Dashboard/MainParts/VerifyEmail";
 import HelpDeskTable from "./../components/Dashboard/HelpDesk/HelpDeskFormTable";
 //          || Admin
@@ -186,6 +187,7 @@ export default function Profile() {
                       path="/admin/super/SellerInfo"
                       element={<SelectSellerDetail />}
                     />
+                    <Route path="/products/:id" element={<ProductsPage />} />
                   </>
                 )}
 
@@ -200,6 +202,7 @@ export default function Profile() {
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/Inventory" element={<Categories />} />
                     <Route path="/addProduct" element={<AddProduct />} />
+                    <Route path="/products/:id" element={<ProductsPage />} />
                     <Route path="/Payment/Details" element={<PayDetails />} />
                     <Route path="/Payment/Request" element={<PayRequest />} />
                     <Route
