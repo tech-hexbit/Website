@@ -1,6 +1,6 @@
-// import SvCss from "../Css/StoreVerify.module.css";
 import React from "react";
 import PropTypes from "prop-types";
+//css
 import SvCss from "../../Pages/Css/StoreVerify.module.css";
 const TimingField = (props) => {
   return (

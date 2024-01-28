@@ -2,6 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import AuthContext from "../../../store/auth-context";
 
+//axios
 import axios from "axios";
 
 const BankVerify = async (
@@ -15,14 +16,15 @@ const BankVerify = async (
   //   const authCtx = useContext(AuthContext);
   try {
     const validBank = (response) => {
+      // console.log(response);
       setData({
         ...showData,
-        AcHolderName: response.nameAtBank,
-        BankName: response.bankName,
-        BranchName: response.branch,
+        AcHolderName: response.data.nameAtBank,
+        BankName: response.data.bankName,
+        BranchName: response.data.branch,
       });
       setDisable({ ...disable, Bank: true });
-      console.log(disable);
+      // console.log(showData.BankName);
     };
     const invalidBank = () => {
       setError({
@@ -35,49 +37,47 @@ const BankVerify = async (
       });
     };
     const bankDetails = {
-      phone: authCtx.user.Phone,
+      // phone: authCtx.user.Phone,
       name: showData.AcHolderName,
       bankAccount: showData.AccountNo,
       ifsc: showData.IfscCode,
     };
-    console.log(bankDetails);
+    // console.log(bankDetails);
     if (
       !(
-        bankDetails.phone &&
-        bankDetails.name &&
-        bankDetails.bankAccount &&
-        bankDetails.ifsc
+        // bankDetails.phone &&
+        (
+          bankDetails.name &&
+          bankDetails.bankAccount &&
+          bankDetails.ifsc &&
+          showData.BankName &&
+          showData.BranchName
+        )
       )
     ) {
       setError({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
-        symbol: "pets",
+        symbol: "error",
         title: "Check it out",
         text: "Please Fill All The Details",
         val: true,
       });
     } else {
-      const response = await axios.post(
-        "/api/verification/bank",
-        bankDetails,
-        {}
-      );
-      console.log(response.data);
-      response.data.status === "SUCCESS"
-        ? validBank(response.data.data)
-        : invalidBank();
+      const response = await axios.post("/api/verification/bank", bankDetails);
+      // console.log(response.data);
+      response.data.success ? validBank(response.data.response) : invalidBank();
     }
   } catch (e) {
     console.log(e);
-    // setError({
-    //   mainColor: "#FFC0CB",
-    //   secondaryColor: "#FF69B4",
-    //   symbol: "pets",
-    //   title: "Check it out",
-    //   text: "Invalid Bank Details",
-    //   val: true,
-    // });
+    setError({
+      mainColor: "#FDEDED",
+      secondaryColor: "#F16360",
+      symbol: "error",
+      title: "Error",
+      text: "An unexpected error occurred",
+      val: true,
+    });
   }
 };
 export default BankVerify;

@@ -1,7 +1,10 @@
-// import SvCss from "../Css/StoreVerify.module.css";
 import React from "react";
 import { useRef } from "react";
+
+//proptypes
 import PropTypes from "prop-types";
+
+//css
 import SvCss from "../../Pages/Css/StoreVerify.module.css";
 
 const FileInput = (props) => {
@@ -51,7 +54,6 @@ const FileInput = (props) => {
   );
 };
 const ImgInputList = (props) => {
-  console.log();
   const fileInp_id = useRef(null);
   const fileInp_cheque = useRef(null);
   const fileInp_address = useRef(null);

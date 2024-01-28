@@ -116,43 +116,19 @@ const StoreVerifyMain = (props) => {
         text: "Please Fill All The Details",
         val: true,
       });
-    } else if (!verifyPin) {
+    } else if (!verifyPin || !disable.Bank || !disable.Gstin || disable.Pan) {
       props.setError({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
         symbol: "pets",
         title: "Check it out",
-        text: "Invalid pincode",
-        val: true,
-      });
-      window.scrollTo(0, 0);
-    } else if (!disable.Bank) {
-      props.setError({
-        mainColor: "#FFC0CB",
-        secondaryColor: "#FF69B4",
-        symbol: "pets",
-        title: "Check it out",
-        text: "Invalid Bank Details",
-        val: true,
-      });
-      window.scrollTo(0, 0);
-    } else if (!disable.Gstin) {
-      props.setError({
-        mainColor: "#FFC0CB",
-        secondaryColor: "#FF69B4",
-        symbol: "pets",
-        title: "Check it out",
-        text: "Invalid GSTIN",
-        val: true,
-      });
-      window.scrollTo(0, 0);
-    } else if (!disable.Pan) {
-      props.setError({
-        mainColor: "#FFC0CB",
-        secondaryColor: "#FF69B4",
-        symbol: "pets",
-        title: "Check it out",
-        text: "Invalid Pan",
+        text: !verifyPin
+          ? "Invalid pincode"
+          : !disable.Bank
+          ? "Invalid Bank Details"
+          : !disable.Gstin
+          ? "Invalid GSTIN"
+          : "Invalid Pan",
         val: true,
       });
       window.scrollTo(0, 0);
@@ -160,10 +136,10 @@ const StoreVerifyMain = (props) => {
       try {
         let data = {
           gps: showData.gps,
-          // days: showData.days,
-          // times: [],
-          // phone: showData.phone,
-          // email: showData.email,
+          days: showData.days,
+          times: [],
+          phone: showData.phone,
+          email: showData.email,
         };
         data.times.push(String(showData.StoreTimingStart));
         data.times.push(String(showData.StoreTimingEnd));
@@ -251,14 +227,6 @@ const StoreVerifyMain = (props) => {
         setDisable={setDisable}
         setError={props.setError}
       />
-      <TextInput
-        type="number"
-        Label="GST No."
-        showData={showData}
-        setData={setData}
-        field="GstNo"
-        placeholder="Enter GST no"
-      />{" "}
       <VerifiedGstin
         showData={showData}
         setData={setData}
@@ -275,7 +243,7 @@ const StoreVerifyMain = (props) => {
       />
       <FssaiField showData={showData} setData={setData} />
       <FileInput images={images} setImages={setImages} />
-      <SelectInput />
+      <SelectInput showData={showData} setData={setData} />
       <Ondc_Details setData={setData} showData={showData} />
       <TimingField showData={showData} setData={setData} />
       <div className={SvCss.submitDiv}>

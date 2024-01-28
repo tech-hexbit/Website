@@ -1,4 +1,3 @@
-// import SvCss from "../Css/StoreVerify.module.css";
 import React from "react";
 import { useContext } from "react";
 import PropTypes from "prop-types";
@@ -7,6 +6,7 @@ import AuthContext from "../../store/auth-context";
 
 // css
 import SvCss from "../../Pages/Css/StoreVerify.module.css";
+
 export const FssaiField = (props) => {
   const authCtx = useContext(AuthContext);
   return (

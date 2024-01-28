@@ -1,8 +1,13 @@
-// import SvCss from "../Css/StoreVerify.module.css";
 import React from "react";
-import SvCss from "../../Pages/Css/StoreVerify.module.css";
-import axios from "axios";
+
+//Proptypes
 import PropTypes from "prop-types";
+
+//axios
+import axios from "axios";
+
+//css
+import SvCss from "../../Pages/Css/StoreVerify.module.css";
 
 const pincodeVerify = async ({
   setData,
@@ -26,7 +31,7 @@ const pincodeVerify = async ({
       setError({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
-        symbol: "pets",
+        symbol: "error",
         title: "Check it out",
         text: "Invalid pincode",
         val: true,

@@ -1,6 +1,9 @@
-// import SvCss from "../Css/StoreVerify.module.css";
 import React from "react";
+
+//proptypes
 import PropTypes from "prop-types";
+
+//css
 import SvCss from "../../Pages/Css/StoreVerify.module.css";
 
 const Ondc_Details = (props) => {
@@ -26,7 +29,7 @@ const Ondc_Details = (props) => {
         <div className={SvCss.inpDiv}>
           <div className={SvCss.inputLabel}>Time to ship</div>
           <select name="languages" id="lang">
-            <option value="select">Select Shipping Time</option>
+            <option value="select">Shipping Time</option>
             <option>8 AM - 12 PM</option>
             <option>12 PM - 4 PM</option>
             <option>4 PM - 8 PM</option>
@@ -63,7 +66,7 @@ const Ondc_Details = (props) => {
             name="Contact Details For Customer Care"
             value={props.showData.ContactDetailsForConsumerCare}
             id=""
-            placeholder="Consumer Care Contact Details"
+            placeholder="Contact Details"
             onChange={(e) => {
               props.setData({
                 ...props.showData,

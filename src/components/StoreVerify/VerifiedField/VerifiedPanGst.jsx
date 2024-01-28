@@ -1,57 +1,17 @@
 import React from "react";
-import SvCss from "../../../Pages/Css/StoreVerify.module.css";
-import axios from "axios";
-import PropTypes from "prop-types";
-const GstinVerify = async ({
-  setData,
-  showData,
-  disable,
-  setDisable,
-  setError,
-}) => {
-  try {
-    const validGstin = ({ response }) => {
-      setData({
-        ...showData,
-        Gstin: response.data.GSTIN,
-      });
-      setDisable({ ...disable, Gstin: true });
-      console.log(disable);
-    };
-    const invalidGstin = () => {
-      setError({
-        mainColor: "#FFC0CB",
-        secondaryColor: "#FF69B4",
-        symbol: "pets",
-        title: "Check it out",
-        text: "Invalid Gstin No",
-        val: true,
-      });
-    };
-    const GstinDetails = {
-      GSTIN: showData.Gstin,
-    };
-    const response = await axios.post(
-      "/api/verification/gstin",
-      GstinDetails,
-      {}
-    );
-    console.log(response.data.valid);
-    console.log(response);
 
-    response.data.valid ? validGstin({ response }) : invalidGstin();
-  } catch (e) {
-    console.log(e);
-    setError({
-      mainColor: "#FFC0CB",
-      secondaryColor: "#FF69B4",
-      symbol: "pets",
-      title: "Check it out",
-      text: "Invalid Gstin No",
-      val: true,
-    });
-  }
-};
+//axios
+import axios from "axios";
+
+//proptypes
+import PropTypes from "prop-types";
+
+//css
+import SvCss from "../../../Pages/Css/StoreVerify.module.css";
+
+//components
+import { GstinVerify, PanVerify } from "./VerifyPanGst";
+
 export const VerifiedGstin = ({
   showData,
   setData,
@@ -71,7 +31,7 @@ export const VerifiedGstin = ({
               name="GstinNumber"
               value={showData.Gstin}
               id=""
-              placeholder="Enter 15-digit GST Identification Number"
+              placeholder="Enter GST Number"
               onChange={(e) => {
                 setData({ ...showData, Gstin: e.target.value });
               }}
@@ -122,7 +82,7 @@ export const VerifiedGstin = ({
               name="GstinNumber"
               value={showData.Gstin}
               id=""
-              placeholder="Enter 15-digit GST Identification Number"
+              placeholder="Enter GST Number"
               onChange={(e) => {
                 setData({ ...showData, Gstin: e.target.value });
               }}
@@ -132,53 +92,6 @@ export const VerifiedGstin = ({
       )}
     </div>
   );
-};
-const PanVerify = async ({
-  setData,
-  showData,
-  disable,
-  setDisable,
-  setError,
-}) => {
-  try {
-    const validPan = ({ response }) => {
-      setData({
-        ...showData,
-        PanNo: response.data.pan,
-      });
-      setDisable({ ...disable, Pan: true });
-      console.log(disable);
-    };
-    const invalidPan = () => {
-      setError({
-        mainColor: "#FFC0CB",
-        secondaryColor: "#FF69B4",
-        symbol: "pets",
-        title: "Check it out",
-        text: "Invalid Pan No",
-        val: true,
-      });
-    };
-    const panDetails = {
-      pan: showData.PanNo,
-      name: showData.FirstName,
-    };
-    const response = await axios.post("/api/verification/pan", panDetails, {});
-    console.log(response.data.valid);
-    console.log(response);
-
-    response.data.valid ? validPan({ response }) : invalidPan();
-  } catch (e) {
-    console.log(e);
-    setError({
-      mainColor: "#FFC0CB",
-      secondaryColor: "#FF69B4",
-      symbol: "pets",
-      title: "Check it out",
-      text: "Invalid Pan No",
-      val: true,
-    });
-  }
 };
 export const VerifiedPan = ({
   showData,

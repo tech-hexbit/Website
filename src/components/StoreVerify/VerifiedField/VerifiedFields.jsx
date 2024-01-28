@@ -1,4 +1,6 @@
 import React from "react";
+
+//proptypes
 import PropTypes from "prop-types";
 
 // css
