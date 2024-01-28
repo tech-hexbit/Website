@@ -1,9 +1,10 @@
-// import SvCss from "../Css/StoreVerify.module.css";
 import React from "react";
 import PropTypes from "prop-types";
+
+// css
 import SvCss from "../../Pages/Css/StoreVerify.module.css";
 
-const TextInput = (props) => {
+export default function TextInput(props) {
   return (
     <div className={SvCss.inpDiv}>
       <p className={SvCss.input_label}>{props.Label}</p>
@@ -19,7 +20,8 @@ const TextInput = (props) => {
       />
     </div>
   );
-};
+}
+
 TextInput.propTypes = {
   Label: PropTypes.string,
   type: PropTypes.string,
@@ -27,4 +29,3 @@ TextInput.propTypes = {
   placeholder: PropTypes.string,
   showData: PropTypes.object,
 };
-export default TextInput;

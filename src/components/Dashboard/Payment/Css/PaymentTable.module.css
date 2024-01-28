@@ -126,11 +126,6 @@
     align-items: center;
     gap: 8px;
   }
-
-  .trans_table td[data-cell="status"] {
-    text-align: left;
-    margin-block-end: 1rem;
-  }
 }
 @media(max-width: 605px){
   .payRes{

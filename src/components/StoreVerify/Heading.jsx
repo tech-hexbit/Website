@@ -1,7 +1,9 @@
-// import SvCss from "../Css/StoreVerify.module.css";
 import React from "react";
+
+// css
 import SvCss from "../../Pages/Css/StoreVerify.module.css";
-const Heading = () => {
+
+export default function Heading() {
   return (
     <div className={SvCss.heading}>
       <p className={SvCss.createYourStore}>KYC DATA</p>
@@ -11,5 +13,4 @@ const Heading = () => {
       </div>
     </div>
   );
-};
-export default Heading;
+}

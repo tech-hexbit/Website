@@ -1,9 +1,10 @@
-// import SvCss from "../Css/StoreVerify.module.css";
 import React from "react";
 import PropTypes from "prop-types";
+
+// css
 import SvCss from "../../Pages/Css/StoreVerify.module.css";
 
-const FileInput = (props) => {
+export default function FileInput(props) {
   const handleClicks = (val) => {
     if (val === "cheque") {
       props.fileInp.current.click();
@@ -48,7 +49,8 @@ const FileInput = (props) => {
       </div>
     </div>
   );
-};
+}
+
 FileInput.propTypes = {
   label: PropTypes.string,
   placeholder: PropTypes.string,
@@ -56,4 +58,3 @@ FileInput.propTypes = {
   fileInp: PropTypes.object,
   image: PropTypes.object,
 };
-export default FileInput;

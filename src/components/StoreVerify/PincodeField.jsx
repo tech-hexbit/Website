@@ -1,8 +1,11 @@
-// import SvCss from "../Css/StoreVerify.module.css";
 import React from "react";
-import SvCss from "../../Pages/Css/StoreVerify.module.css";
-import axios from "axios";
 import PropTypes from "prop-types";
+
+// axios
+import axios from "axios";
+
+// css
+import SvCss from "../../Pages/Css/StoreVerify.module.css";
 
 const pincodeVerify = async ({
   setData,
@@ -40,7 +43,8 @@ const pincodeVerify = async ({
     // console.log(e);
   }
 };
-const PincodeField = ({
+
+export default function PincodeField({
   showData,
   setData,
   verifyPin,
@@ -48,7 +52,7 @@ const PincodeField = ({
   setDisable,
   setVerify,
   setError,
-}) => {
+}) {
   return (
     <div>
       {showData.Pincode.length >= 6 ? (
@@ -81,7 +85,6 @@ const PincodeField = ({
               >
                 {verifyPin ? (
                   <svg
-                    // className={SvCss.badge_icon}
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
                     height="24"
@@ -123,10 +126,10 @@ const PincodeField = ({
       )}
     </div>
   );
-};
+}
+
 PincodeField.propTypes = {
   showData: PropTypes.object,
   verifyPin: PropTypes.bool,
   disable: PropTypes.bool,
 };
-export default PincodeField;

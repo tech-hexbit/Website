@@ -140,7 +140,7 @@ export default function UserSideBar() {
                 >
                   <div className={sidebarCSS.navElement}>
                     <div className={sidebarCSS.icons}>
-                    <svg
+                      <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
                         height="24"
@@ -163,7 +163,6 @@ export default function UserSideBar() {
                     </div>
                   </div>
                 </NavLink>
-
               </>
             )}
 

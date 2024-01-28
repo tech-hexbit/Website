@@ -105,17 +105,18 @@ export default function PaymentTable({ load, showData }) {
             </>
           ) : (
             // entire table data
-            <table className={Gptable.trans_table}>
-              <tr>
-                <th>Ref. No.</th>
-                <th>A/c Holder Name</th>
-                <th>Date</th>
-                <th>Amount</th>
-                <th>Order Id</th>
-                <th>Payment Mode</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
+            <>
+              <table className={Gptable.trans_table}>
+                <tr>
+                  <th>Ref. No.</th>
+                  <th>A/c Holder Name</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Order Id</th>
+                  <th>Payment Mode</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
 
               {showData.length > 0 ? (
                 <>
