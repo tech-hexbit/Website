@@ -31,7 +31,7 @@ export default function ProductsPage() {
   const navigate = useNavigate();
 
   const goBack = () => {
-    navigate(-1); // history.goBack();
+    navigate(-1);
   };
 
   const loadProducts = async () => {
