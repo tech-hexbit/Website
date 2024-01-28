@@ -35,8 +35,6 @@ import SellersAdmin from "./../components/Admin/Sellers";
 
 //          || Super Admin
 import FrontPage from "./../components/MainAdmin/FrontPage";
-import SellerInfo from "./../components/MainAdmin/SellerInfo";
-import SalesAdmin from "./../components/Dashboard/SalesAdmin";
 import SelectSellerDetail from "../components/Admin/Sellers/Seller Main/SelectSellerDetail";
 
 // state
@@ -169,10 +167,6 @@ export default function Profile() {
                     <Route path="/admin/tickets" element={<TicketAdmin />} />
                     <Route path="/admin/support" element={<SupportAdmin />} />
                     <Route path="/admin/sellers" element={<SellersAdmin />} />
-                    <Route
-                      path="/admin/paymentdetails"
-                      element={<PaymentTable />}
-                    />
                     <Route path="/admin/paymentdetails" element={<Payment />} />
                   </>
                 )}
@@ -188,11 +182,6 @@ export default function Profile() {
                     <Route
                       path="/admin/super/SellerInfo"
                       element={<SelectSellerDetail />}
-                    />
-                    <Route path="/admin/super/Sales" element={<SalesAdmin />} />
-                    <Route
-                      path="/admin/super/Support"
-                      element={<SupportAdmin />}
                     />
                     <Route path="/products/:id" element={<ProductsPage />} />
                   </>
