@@ -31,12 +31,9 @@ export default function Payment() {
     setLoad(true);
 
     try {
-      const response = await axios.get(
-        "/api/common/Payment/Order/Request/List",
-        {
-          headers: { Authorization: `${authCtx.token}` },
-        }
-      );
+      const response = await axios.get("/api/website/admin/Payment/look", {
+        headers: { Authorization: `${authCtx.token}` },
+      });
 
       if (response.data.success) {
         console.log(response.data);
