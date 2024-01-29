@@ -7,7 +7,7 @@ import axios from "axios";
 import PropTypes from "prop-types";
 
 //css
-import SvCss from "../../../Pages/Css/StoreVerify.module.css";
+import SvCss from "./../../Pages/Css/StoreVerify.module.css";
 
 //components
 import { GstinVerify, PanVerify } from "./VerifyPanGst";
