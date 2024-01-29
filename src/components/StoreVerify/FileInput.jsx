@@ -1,7 +1,4 @@
-import React from "react";
-import { useRef } from "react";
-
-//proptypes
+import React, { useRef } from "react";
 import PropTypes from "prop-types";
 
 //css
@@ -53,6 +50,7 @@ const FileInput = (props) => {
     </div>
   );
 };
+
 const ImgInputList = (props) => {
   const fileInp_id = useRef(null);
   const fileInp_cheque = useRef(null);
