@@ -103,4 +103,5 @@ const ImgInputList = ({ images, setImages }) => {
 ImgInputList.propTypes = {
   images: PropTypes.object,
 };
+
 export default ImgInputList;

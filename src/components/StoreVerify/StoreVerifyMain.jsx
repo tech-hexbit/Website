@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef } from "react";
+import React, { useContext, useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 // css
@@ -29,7 +29,6 @@ import GetLocation from "./GetLocation";
 import VerifiedPanGst from "./VerifiedField/VerifiedPanGst";
 
 const StoreVerifyMain = (props) => {
-  // states
   const [load, setLoad] = useState(false);
   const [disable, setDisable] = useState({
     Pincode: false,
@@ -56,7 +55,6 @@ const StoreVerifyMain = (props) => {
     IfscCode: "",
     BankName: "",
     BranchName: "",
-    GstNo: "",
     Gstin: "",
     FssaiLicence: "",
     PanNo: "",
@@ -77,6 +75,7 @@ const StoreVerifyMain = (props) => {
   });
 
   const authCtx = useContext(AuthContext);
+
   const redirect = useNavigate();
   if (!showData.gps) {
     GetLocation(showData, setData);
@@ -135,7 +134,6 @@ const StoreVerifyMain = (props) => {
           : "Invalid Pan",
         val: true,
       });
-      window.scrollTo(0, 0);
     } else {
       try {
         let data = {
@@ -184,6 +182,10 @@ const StoreVerifyMain = (props) => {
     }
   };
 
+  useEffect(() => {
+    console.table(showData);
+  }, [showData]);
+
   return (
     <>
       <Heading />
@@ -217,7 +219,7 @@ const StoreVerifyMain = (props) => {
         verifyPin={verifyPin}
       />
       <TextInput
-        type="number"
+        type="text"
         Label="Store Location"
         showData={showData}
         setData={setData}

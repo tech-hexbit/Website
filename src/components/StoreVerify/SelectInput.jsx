@@ -13,6 +13,7 @@ const SelectInput = ({ setData, showData }) => {
       LocationAvailabilityMode: selectedValue,
     });
   };
+
   return (
     <div className={OfCss.inpDiv}>
       <div className={OfCss.inputLabel}>LOCATION AVAILABILITY MODE</div>
