@@ -1,6 +1,4 @@
 import React from "react";
-
-//Proptypes
 import PropTypes from "prop-types";
 
 //axios
@@ -27,6 +25,7 @@ const pincodeVerify = async ({
       setDisable({ ...disable, Pincode: true });
       setVerify(true);
     };
+
     const invalidPin = () => {
       setError({
         mainColor: "#FFC0CB",
@@ -38,12 +37,13 @@ const pincodeVerify = async ({
       });
       setVerify(false);
     };
+
     const response = await axios.get(
       `https://api.postalpincode.in/pincode/${showData.Pincode}`
     );
     response.data[0].PostOffice ? validPin({ response }) : invalidPin();
   } catch (e) {
-    // console.log(e);
+    console.log(e);
   }
 };
 
@@ -133,9 +133,7 @@ export default function PincodeField({
 }
 
 PincodeField.propTypes = {
-  // props: PropTypes.shape({
   showData: PropTypes.object,
   verifyPin: PropTypes.bool,
   disable: PropTypes.object,
-  // }),
 };
