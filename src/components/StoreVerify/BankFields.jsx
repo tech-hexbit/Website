@@ -1,8 +1,8 @@
-import React from "react";
-import { useContext } from "react";
-
-//proptypes
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
+
+//component
+import BankVerify from "./BankVerify";
 
 import AuthContext from "./../../store/auth-context";
 
@@ -11,9 +11,6 @@ import axios from "axios";
 
 //css
 import SvCss from "./../../Pages/Css/StoreVerify.module.css";
-
-//component
-import BankVerify from "./BankVerify";
 
 const BankFields = (props) => {
   const authCtx = useContext(AuthContext);
@@ -209,87 +206,7 @@ const BankFields = (props) => {
             )}
           </div>
         </div>
-        {
-          //Below is Branch Name field - with verify button
-        }
-        {/* <div>
-          {props.showData.BranchName.length >= 4 ? (
-            <div className={SvCss.inpDiv}>
-              <p className={SvCss.inputLabel}>Branch Name</p>
-              <div className={SvCss.inputDivBank}>
-                <input
-                  disabled={props.disable.Bank}
-                  type="text"
-                  name="Branch Name"
-                  value={props.showData.BranchName}
-                  id=""
-                  placeholder="Branch Name"
-                  onChange={(e) => {
-                    props.setData({
-                      ...props.showData,
-                      BranchName: e.target.value,
-                    });
-                  }}
-                />
-                <div>
-                  <button
-                    className={SvCss.verifyButton}
-                    onClick={() => {
-                      BankVerify(
-                        authCtx,
-                        props.setData,
-                        props.showData,
-                        props.disable,
-                        props.setDisable,
-                        props.setError
-                      );
-                    }}
-                  >
-                    {props.disable.Bank ? (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="lucide lucide-badge-check"
-                      >
-                        <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
-                        <path d="m9 12 2 2 4-4" />
-                      </svg>
-                    ) : (
-                      "Verify"
-                    )}
-                  </button>
-                </div>
-              </div>
-            </div>
-          ) : (
-            <div className={SvCss.inpDiv}>
-              <p className={SvCss.inputLabel}>Branch Name</p>
-              <div className={SvCss.inputDivBank}>
-                <input
-                  disabled={props.disable.Bank}
-                  type="text"
-                  name="Branch Name"
-                  value={props.showData.BranchName}
-                  id=""
-                  placeholder="Branch Name"
-                  onChange={(e) => {
-                    props.setData({
-                      ...props.showData,
-                      BranchName: e.target.value,
-                    });
-                  }}
-                />
-              </div>
-            </div>
-          )}
-        </div> */}
+
         <div className={SvCss.inpDiv}>
           <p className={SvCss.inputLabel}></p>
           <div className={SvCss.inputDivFile}>
@@ -332,6 +249,7 @@ const BankFields = (props) => {
     </div>
   );
 };
+
 BankFields.propTypes = {
   props: PropTypes.shape({
     disable: PropTypes.shape({
@@ -343,4 +261,5 @@ BankFields.propTypes = {
     showData: PropTypes.object,
   }),
 };
+
 export default BankFields;
