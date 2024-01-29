@@ -3,7 +3,6 @@
   display: flex;
   justify-content: space-around;
 }
-
 .boxDiv {
   padding: 25px 0px;
   flex-basis: 70%;
@@ -27,6 +26,7 @@
   color: var(--Primeraly-White, #fff);
   text-align: center;
   font-size: 22px;
+  /* font-style: normal; */
   font-weight: 700;
   text-transform: capitalize;
   border: none;
@@ -41,7 +41,6 @@
   border-radius: 10px;
   background: #350b5e;
 }
-
 .saveButtonGreen {
   display: flex;
   max-width: 174px;
@@ -56,6 +55,7 @@
   color: #fff;
   text-align: center;
   font-size: 22px;
+  /* font-style: normal; */
   font-weight: 700;
   text-transform: capitalize;
 }
@@ -64,7 +64,6 @@
   display: flex;
   justify-content: center;
 }
-
 .subHeadline {
   color: #737b7d;
   font-size: 16px;
@@ -87,6 +86,7 @@
 input,
 select,
 button {
+  /* outline: none; */
   border: 1px solid #909090;
   background: #fff;
   border-radius: 5px;
@@ -96,6 +96,7 @@ button {
 .inputLdivFile {
   color: #606060;
   font-size: 17px;
+  /* font-style: normal; */
   font-weight: 600;
   margin: 30px 0px;
   display: flex;
@@ -118,13 +119,13 @@ input[type="number"]::-webkit-outer-spin-button {
   appearance: none;
   margin: 0;
 }
-
 .inputLabel {
   flex-basis: 30%;
 }
 
 .nestedFieldLargeDiv {
   color: #606060;
+
   font-size: 17px;
   font-weight: 600;
   display: flex;
@@ -142,7 +143,6 @@ input[type="number"]::-webkit-outer-spin-button {
   position: relative;
   flex-basis: 70%;
 }
-
 .inputDivPincode {
   flex-basis: 70%;
   display: flex;
@@ -150,23 +150,21 @@ input[type="number"]::-webkit-outer-spin-button {
   justify-content: space-between;
   gap: 1rem;
 }
-
 .inputDivPincode input {
   flex-basis: 100%;
 }
-
 .inputDivBank {
   flex-basis: 70%;
+  /* flex-basis: 75%; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   gap: 1rem;
+  /* flex-wrap: wrap; */
 }
-
 .inputDivBank input {
   flex-basis: 100%;
 }
-
 .inputDivVerified input {
   width: 100%;
 }
@@ -187,19 +185,20 @@ input[type="number"]::-webkit-outer-spin-button {
   color: #777;
   font-size: 30px;
   font-weight: 900;
+  /* line-height: 40.811px;
+  letter-spacing: 0.653px; */
   margin-bottom: 30px;
   cursor: pointer;
 }
-
 .inputFile {
   display: none;
 }
-
 .inputDivFile {
   flex-basis: 70%;
   display: flex;
   flex-direction: row;
   gap: 1rem;
+  /* flex-wrap: wrap; */
 }
 
 .verifyButton {
@@ -227,7 +226,6 @@ input[type="number"]::-webkit-outer-spin-button {
   gap: 0px 30px;
   flex-wrap: wrap;
 }
-
 .timingSmallDiv {
   display: flex;
   flex-direction: row;
@@ -235,6 +233,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .timingSmallDiv input {
+  /* flex-basis: 80%; */
   height: 42px;
   padding: 8px;
 }
@@ -255,76 +254,63 @@ input[type="number"]::-webkit-outer-spin-button {
   border-radius: 32.24px;
   background: linear-gradient(90deg, #47b357 0%, #50ca70 100%);
 }
-
-@media screen and (min-width: 1024px) {
-  .nestedFieldSmallDiv {
-    flex-basis: 67%;
-  }
-}
-
 @media screen and (max-width: 768px) {
   .inputDivBank {
     flex-basis: 60%;
     flex-direction: column;
   }
 }
-
+@media screen and (min-width: 1024px) {
+  .nestedFieldSmallDiv {
+    flex-basis: 67%;
+  }
+}
 @media screen and (max-width: 600px) {
   .inputDivVerified,
   .inputDivPincode,
   .inputDivFile {
     flex-basis: 60%;
   }
-
   .inputDivPincode {
     flex-direction: column;
   }
-
   .nestedFieldLargeDiv {
     flex-direction: column;
   }
-
   .inputLabel {
     width: 15%;
   }
-
   .inpDiv input,
   select {
     flex-basis: 60%;
   }
-
   .subHeadline {
     text-align: center;
   }
-
   .heading {
     justify-content: center;
   }
 }
-
 @media screen and (max-width: 400px) {
   .timingSmallDiv {
     flex-wrap: wrap;
   }
-
   .inputDivFile {
     flex-direction: row;
+    /* justify-content: flex-end; */
   }
-
   .inputLabel {
     width: 100%;
   }
-
   .inpDiv input,
   select {
     min-height: 42px;
   }
-
   .inpDiv {
     flex-direction: column;
   }
-
   .boxDiv {
     width: 80%;
+    /* width: 70%; */
   }
 }
