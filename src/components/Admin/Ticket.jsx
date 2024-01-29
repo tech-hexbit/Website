@@ -1,17 +1,14 @@
 import React from "react";
 
-
 // components
-import TicketTable from "./Ticket/TicketTable";
+import Table from "./Ticket/Table";
 import Header from "./Ticket/Header";
 
 export default function Contact() {
-
-
   return (
     <div>
       <Header title="Tickets: All" />
-      <TicketTable />
+      <Table />
     </div>
   );
 }
