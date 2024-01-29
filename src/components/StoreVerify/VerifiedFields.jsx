@@ -1,6 +1,4 @@
 import React from "react";
-
-//proptypes
 import PropTypes from "prop-types";
 
 // css
@@ -47,6 +45,7 @@ function VerifiedFields(props) {
     </div>
   );
 }
+
 const GrpVerifiedFields = (props) => {
   return (
     <>
@@ -73,6 +72,7 @@ const GrpVerifiedFields = (props) => {
     </>
   );
 };
+
 VerifiedFields.propTypes = {
   props: PropTypes.shape({
     label: PropTypes.string,
@@ -84,4 +84,5 @@ VerifiedFields.propTypes = {
     verifyPin: PropTypes.bool,
   }),
 };
+
 export default GrpVerifiedFields;
