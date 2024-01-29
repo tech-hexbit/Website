@@ -11,6 +11,7 @@ const SelectInput = (props) => {
       LocationAvailabilityMode: selectedValue,
     });
   };
+
   return (
     <div className={SvCss.inpDiv}>
       <div className={SvCss.inputLabel}>LOCATION AVAILABILITY MODE</div>
