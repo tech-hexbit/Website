@@ -267,16 +267,16 @@ input[type="number"]::-webkit-outer-spin-button {
   background: linear-gradient(90deg, #47b357 0%, #50ca70 100%);
 }
 
+@media screen and (min-width: 1024px) {
+  .nestedFieldSmallDiv {
+    flex-basis: 67%;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .inputDivBank {
     flex-basis: 60%;
     flex-direction: column;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .nestedFieldSmallDiv {
-    flex-basis: 67%;
   }
 }
 
