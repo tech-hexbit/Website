@@ -41,8 +41,10 @@ export default function TicketDetailsOverlay({ selectedItem }) {
 
     setLoad(true);
 
+    console.log(_id , " id printing");
+
     const data = {
-     emailID,
+     id : _id,
      replyMessage,
     }
 
@@ -89,7 +91,7 @@ export default function TicketDetailsOverlay({ selectedItem }) {
   
       try {
         const response = await axios.get(
-          `/api/website/ContactUs/user/post/reply/${emailID}`,
+          `/api/website/ContactUs/user/post/reply/${_id}`,
           {
             headers: { Authorization: `${authCtx.token}` },
           }

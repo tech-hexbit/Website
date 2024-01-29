@@ -34,6 +34,7 @@ export default function HelpDeskFormTableDetail({ tableData }) {
     setLoad(true);
 
     const resolveQueryData = {
+      query_id: tableData._id,
       resolveQuery: true,
     };
   
