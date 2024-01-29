@@ -95,6 +95,7 @@ const ImgInputList = (props) => {
     </>
   );
 };
+
 FileInput.propTypes = {
   props: PropTypes.shape({
     label: PropTypes.string,
@@ -104,4 +105,5 @@ FileInput.propTypes = {
     image: PropTypes.object,
   }),
 };
+
 export default ImgInputList;
