@@ -4,13 +4,13 @@ import { useContext } from "react";
 //proptypes
 import PropTypes from "prop-types";
 
-import AuthContext from "./../../store/auth-context";
+import AuthContext from "../../../store/auth-context";
 
 //axios
 import axios from "axios";
 
 //css
-import SvCss from "./../../Pages/Css/StoreVerify.module.css";
+import SvCss from "../../../Pages/Css/StoreVerify.module.css";
 
 //component
 import BankVerify from "./BankVerify";
