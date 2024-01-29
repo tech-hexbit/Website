@@ -1,78 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 
-//axios
-import axios from "axios";
-
-//state
-import AuthContext from "../../../store/auth-context";
-
-//css
+// css
 import tableDetailStyle from "./Css/HelpDeskFormTableDetail.module.css";
 
-//components
-import Load from "../../../MicroInteraction/Load";
-
 export default function HelpDeskFormTableDetail({ tableData }) {
-  
-    const [querySolved , setQuerySolved] = useState(false);
-    const [load, setLoad] = useState(false);
-
-  const authCtx = useContext(AuthContext);
-
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
-
-  const resolveQueryHandler = async (event) => {
-    event.preventDefault();
-    setLoad(true);
-
-    const resolveQueryData = {
-      resolveQuery: true,
-    };
-  
-    try {
-      const response = await axios.post(
-        "/api/website/ContactUs/user/post/resolveQuery",
-        resolveQueryData,
-        {
-          headers: { Authorization: `${authCtx.token}` },
-        }
-      );
-
-      if (response.data.success) {
-        
-        setLoad(false);
-        if (response.data.resolvedQuery === true) {
-          setQuerySolved(true);
-        } else {
-          throw new Error("Could not resolve query");
-        }
-        // tableVal([...tableData, { resolveQuery: response.data.resolvedQuery }]);
-
-      } else {
-        setLoad(false);
-      }
-    } catch (e) {
-      setLoad(false);
-
-      setError({
-        mainColor: "#FDEDED",
-        secondaryColor: "#F16360",
-        symbol: "error",
-        title: "Error",
-        text: "Invalid Credentials",
-        val: true,
-      });
-    }
-  };
-
   return (
     <div>
       <div>
@@ -128,26 +60,20 @@ export default function HelpDeskFormTableDetail({ tableData }) {
       {/* Message */}
       <div className={tableDetailStyle.msgMDiv}>
         <label className={tableDetailStyle.message}>Message*</label>
-        <p>{tableData.message}</p>
-        {tableData.replyMessage && (
-          <div className={tableDetailStyle.replyMessage}>
-          <label className={tableDetailStyle.message}>Reply*</label>
-            <p>{tableData.replyMessage}</p>
-          </div>
-        )}
+        <textarea
+          name=""
+          id=""
+          cols="30"
+          rows="10"
+          className={tableDetailStyle.messageInput}
+          placeholder="Brief description of the query min 120 characters."
+        ></textarea>
       </div>
 
       {/* Resolve Button */}
-      
-        <div className={tableDetailStyle.resolveButton}>
-        { load ? <div className={tableDetailStyle.loading}>
-          <Load/> 
-        </div> : <p onClick={resolveQueryHandler} className={tableDetailStyle.resolveButtonText}>
-  {(!tableData.resolvedQuery && !querySolved ) ? "Resolve Query" : "Query resolved"}
-</p>}
-
-        </div>
-      
+      <div className={tableDetailStyle.resolveButton}>
+        <p className={tableDetailStyle.resolveButtonText}>Resolve Query</p>
+      </div>
     </div>
   );
 }

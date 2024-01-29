@@ -147,7 +147,7 @@ export default function PaymentTable() {
                 {item.status}
               </td>
               <td data-cell="action" onClick={() => handleOverlay(item.refNo)}>
-                Close details
+                {item.action}
               </td>
             </tr>
           ))}
@@ -187,7 +187,7 @@ export default function PaymentTable() {
                 {item.status}
               </td>
               <td data-cell="action" onClick={() => handleOverlay(item.refNo)}>
-                View Details
+                {item.action}
               </td>
             </tr>
           ))}
