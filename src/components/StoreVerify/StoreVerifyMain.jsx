@@ -28,7 +28,6 @@ import { GrpTextInput, FssaiField } from "./TextInput";
 import { VerifiedPan, VerifiedGstin } from "./VerifiedPanGst";
 
 const StoreVerifyMain = (props) => {
-  // states
   const [load, setLoad] = useState(false);
   const [disable, setDisable] = useState({
     Pincode: false,
@@ -76,8 +75,11 @@ const StoreVerifyMain = (props) => {
   });
 
   const authCtx = useContext(AuthContext);
+
   const redirect = useNavigate();
+
   // getLocation(showData, setData);
+
   const onSubmit = async () => {
     setLoad(true);
 
