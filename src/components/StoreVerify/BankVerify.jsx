@@ -1,30 +1,19 @@
 import React from "react";
-import { useContext } from "react";
-import AuthContext from "./../../store/auth-context";
 
 //axios
 import axios from "axios";
 
-const BankVerify = async (
-  authCtx,
-  setData,
-  showData,
-  disable,
-  setDisable,
-  setError
-) => {
-  //   const authCtx = useContext(AuthContext);
+const BankVerify = async (setData, showData, disable, setDisable, setError) => {
   try {
     const validBank = (response) => {
-      // console.log(response);
       setData({
         ...showData,
         AcHolderName: response.data.nameAtBank,
         BankName: response.data.bankName,
         BranchName: response.data.branch,
       });
+
       setDisable({ ...disable, Bank: true });
-      // console.log(showData.BankName);
     };
     const invalidBank = () => {
       setError({
