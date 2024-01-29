@@ -21,7 +21,6 @@ import BankFields from "./BankFields";
 import Ondc_Details from "./OndcField";
 import TimingField from "./TimingField";
 import SelectInput from "./SelectInput";
-import GeoLocation from "./GeoLocation";
 import PincodeField from "./PincodeField";
 import GrpVerifiedFields from "./VerifiedFields";
 import { GrpTextInput, FssaiField } from "./TextInput";
@@ -54,7 +53,6 @@ const StoreVerifyMain = (props) => {
     IfscCode: "",
     BankName: "",
     BranchName: "",
-    GstNo: "",
     Gstin: "",
     FssaiLicence: "",
     PanNo: "",
@@ -219,7 +217,7 @@ const StoreVerifyMain = (props) => {
         verifyPin={verifyPin}
       />
       <TextInput
-        type="number"
+        type="text"
         Label="Store Location"
         showData={showData}
         setData={setData}
