@@ -50,6 +50,12 @@
 .trans_table td {
   padding-block: 1rem;
 }
+.trans_table td:last-child {
+  color: #595959;
+  text-decoration: underline;
+  font-weight: 700;
+  cursor: pointer;
+}
 
 .trans_table tr:hover {
   background-color: #ebefff;
@@ -117,6 +123,12 @@
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 8px;
+}
+.Button {
+  border: none;
+  padding: 10px 20px; 
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 /* media queries */
