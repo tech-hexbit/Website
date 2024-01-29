@@ -183,7 +183,7 @@ const StoreVerifyMain = (props) => {
   };
 
   useEffect(() => {
-    console.log(showData);
+    console.table(showData);
   }, [showData]);
 
   return (
