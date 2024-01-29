@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef } from "react";
+import React, { useContext, useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 // css
@@ -134,7 +134,6 @@ const StoreVerifyMain = (props) => {
           : "Invalid Pan",
         val: true,
       });
-      window.scrollTo(0, 0);
     } else {
       try {
         let data = {
@@ -182,6 +181,10 @@ const StoreVerifyMain = (props) => {
       }
     }
   };
+
+  useEffect(() => {
+    console.log(showData);
+  }, [showData]);
 
   return (
     <>
