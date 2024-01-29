@@ -1,18 +1,11 @@
-.l_div {
+.Ldiv {
   width: 100%;
   display: flex;
   justify-content: space-around;
 }
-
-.box_div {
+.boxDiv {
   padding: 25px 0px;
   flex-basis: 70%;
-}
-
-@media screen and (max-width: 400px) {
-  .box_div {
-    width: 80%;
-  }
 }
 
 .heading {
@@ -21,13 +14,7 @@
   flex-wrap: wrap;
 }
 
-@media screen and (max-width: 600px) {
-  .heading {
-    justify-content: center;
-  }
-}
-
-.save_buttons {
+.saveButtons {
   align-items: center;
   display: flex;
   flex-direction: row;
@@ -35,12 +22,11 @@
   gap: 8px;
 }
 
-.save_button_1 {
+.saveButtonPurple {
   color: var(--Primeraly-White, #fff);
   text-align: center;
-  font-family: Open Sans;
   font-size: 22px;
-  font-style: normal;
+  /* font-style: normal; */
   font-weight: 700;
   text-transform: capitalize;
   border: none;
@@ -55,8 +41,7 @@
   border-radius: 10px;
   background: #350b5e;
 }
-
-.save_button_2 {
+.saveButtonGreen {
   display: flex;
   max-width: 174px;
   height: 43px;
@@ -67,36 +52,27 @@
   border-radius: 10px;
   background: #2b5e0b;
   border: none;
-  color: var(--Primeraly-White, #fff);
+  color: #fff;
   text-align: center;
-  font-family: Open Sans;
   font-size: 22px;
-  font-style: normal;
+  /* font-style: normal; */
   font-weight: 700;
   text-transform: capitalize;
 }
 
-.submit_div {
+.submitDiv {
   display: flex;
   justify-content: center;
 }
-
-.sub_headline {
-  color: var(--Grey_line, #737b7d);
+.subHeadline {
+  color: #737b7d;
   font-size: 16px;
-  font-style: normal;
   font-weight: 400;
   line-height: 160%;
   letter-spacing: 0.3px;
 }
 
-@media screen and (max-width: 600px) {
-  .sub_headline {
-    text-align: center;
-  }
-}
-
-.progress_bar {
+.progressBar {
   padding-top: 10px;
   padding-bottom: 30px;
 }
@@ -110,18 +86,17 @@
 input,
 select,
 button {
-  outline: none;
+  /* outline: none; */
   border: 1px solid #909090;
   background: #fff;
   border-radius: 5px;
 }
 
 .inpDiv,
-.input_ldiv_file {
+.inputLdivFile {
   color: #606060;
-  font-family: Open Sans;
   font-size: 17px;
-  font-style: normal;
+  /* font-style: normal; */
   font-weight: 600;
   margin: 30px 0px;
   display: flex;
@@ -129,32 +104,12 @@ button {
   gap: 0px 45px;
 }
 
-@media screen and (max-width: 400px) {
-  .inpDiv {
-    flex-direction: column;
-  }
-}
-
-.input_ldiv_file input,
+.inputLdivFile input,
 .inpDiv input,
 select {
   flex-basis: 70%;
   height: 42px;
   padding: 8px;
-}
-
-@media screen and (max-width: 600px) {
-  .inpDiv input,
-  select {
-    flex-basis: 60%;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .inpDiv input,
-  select {
-    min-height: 42px;
-  }
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -164,64 +119,53 @@ input[type="number"]::-webkit-outer-spin-button {
   appearance: none;
   margin: 0;
 }
-
-.input_label {
+.inputLabel {
   flex-basis: 30%;
 }
 
-@media screen and (max-width: 600px) {
-  .input_label {
-    width: 15%;
-  }
-}
-
-.nested_field_large_div {
+.nestedFieldLargeDiv {
   color: #606060;
-  font-family: Open Sans;
+
   font-size: 17px;
-  font-style: normal;
   font-weight: 600;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
 }
 
-@media screen and (max-width: 600px) {
-  .nested_field_large_div {
-    flex-direction: column;
-  }
-}
-
-.nested_field_small_div {
+.nestedFieldSmallDiv {
   display: flex;
   flex-direction: column;
   flex-basis: 65%;
 }
 
-@media screen and (min-width: 1024px) {
-  .nested_field_small_div {
-    flex-basis: 67%;
-  }
-}
-
-.input_div_verified {
+.inputDivVerified {
   position: relative;
   flex-basis: 70%;
 }
-
-.input_div_pincode {
+.inputDivPincode {
   flex-basis: 70%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   gap: 1rem;
 }
-
-.input_div_pincode input {
+.inputDivPincode input {
   flex-basis: 100%;
 }
-
-.input_div_verified input {
+.inputDivBank {
+  flex-basis: 70%;
+  /* flex-basis: 75%; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+  /* flex-wrap: wrap; */
+}
+.inputDivBank input {
+  flex-basis: 100%;
+}
+.inputDivVerified input {
   width: 100%;
 }
 
@@ -240,33 +184,31 @@ input[type="number"]::-webkit-outer-spin-button {
   align-items: center;
   color: #777;
   font-size: 30px;
-  font-style: normal;
   font-weight: 900;
-  line-height: 40.811px;
-  letter-spacing: 0.653px;
+  /* line-height: 40.811px;
+  letter-spacing: 0.653px; */
   margin-bottom: 30px;
   cursor: pointer;
 }
-
-.input_file {
+.inputFile {
   display: none;
 }
-
-.input_div_file {
+.inputDivFile {
   flex-basis: 70%;
   display: flex;
   flex-direction: row;
   gap: 1rem;
+  /* flex-wrap: wrap; */
 }
 
-.verify_button {
+.verifyButton {
   width: 100%;
   padding-right: 1rem;
   padding-left: 1rem;
   min-height: 42px;
 }
 
-.badge_icon {
+.badgeIcon {
   position: absolute;
   right: 10px;
   top: 8px;
@@ -274,10 +216,9 @@ input[type="number"]::-webkit-outer-spin-button {
   font-size: 0;
 }
 
-.timing_large_div {
+.timingLargeDiv {
   color: #606060;
   font-size: 17px;
-  font-style: normal;
   font-weight: 600;
   margin: 30px 0px;
   display: flex;
@@ -285,14 +226,14 @@ input[type="number"]::-webkit-outer-spin-button {
   gap: 0px 30px;
   flex-wrap: wrap;
 }
-
-.timing_small_div {
+.timingSmallDiv {
   display: flex;
   flex-direction: row;
   gap: 30px;
 }
 
-.timing_small_div input {
+.timingSmallDiv input {
+  /* flex-basis: 80%; */
   height: 42px;
   padding: 8px;
 }
@@ -313,25 +254,61 @@ input[type="number"]::-webkit-outer-spin-button {
   border-radius: 32.24px;
   background: linear-gradient(90deg, #47b357 0%, #50ca70 100%);
 }
-
-@media screen and (max-width: 600px) {
-  .input_div_verified,
-  .input_div_pincode,
-  .input_div_file {
+@media screen and (max-width: 768px) {
+  .inputDivBank {
     flex-basis: 60%;
-  }
-
-  .input_div_pincode {
     flex-direction: column;
   }
 }
-
+@media screen and (min-width: 1024px) {
+  .nestedFieldSmallDiv {
+    flex-basis: 67%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .inputDivVerified,
+  .inputDivPincode,
+  .inputDivFile {
+    flex-basis: 60%;
+  }
+  .inputDivPincode {
+    flex-direction: column;
+  }
+  .nestedFieldLargeDiv {
+    flex-direction: column;
+  }
+  .inputLabel {
+    width: 15%;
+  }
+  .inpDiv input,
+  select {
+    flex-basis: 60%;
+  }
+  .subHeadline {
+    text-align: center;
+  }
+  .heading {
+    justify-content: center;
+  }
+}
 @media screen and (max-width: 400px) {
-  .timing_small_div {
+  .timingSmallDiv {
     flex-wrap: wrap;
   }
-
-  .input_div_file {
+  .inputDivFile {
     flex-direction: row;
+  }
+  .inputLabel {
+    width: 100%;
+  }
+  .inpDiv input,
+  select {
+    min-height: 42px;
+  }
+  .inpDiv {
+    flex-direction: column;
+  }
+  .boxDiv {
+    width: 80%;
   }
 }
