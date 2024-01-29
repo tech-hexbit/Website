@@ -113,7 +113,7 @@ export default function Profile() {
       <div className={PCss.mDiv}>
         <UserSideBar />
 
-        {authCtx.user.Store[0].StoreID.validation ? (
+        {!authCtx.user.Store[0].StoreID.validation ? (
           <>
             <div className={PCss.CDiv}>
               {/* email verification */}
@@ -182,8 +182,14 @@ export default function Profile() {
                       path="/admin/super/SellerKYC"
                       element={<SellersAdmin />}
                     />
-                    <Route path="/admin/super/Support" element={<SupportNew/>} />
-                    <Route path="/admin/super/HelpDesk" element={<HelpDeskNew/>} />
+                    <Route
+                      path="/admin/super/Support"
+                      element={<SupportNew />}
+                    />
+                    <Route
+                      path="/admin/super/HelpDesk"
+                      element={<HelpDeskNew />}
+                    />
                     <Route
                       path="/admin/super/SellerInfo"
                       element={<SellerInfo />}
