@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
+import { useContext } from "react";
 import PropTypes from "prop-types";
 
-// store
-import AuthContext from "./../../store/auth-context";
+import AuthContext from "../../store/auth-context";
 
 // css
 import SvCss from "../../Pages/Css/StoreVerify.module.css";
@@ -29,7 +29,6 @@ export const FssaiField = (props) => {
     </>
   );
 };
-
 export const GrpTextInput = (props) => {
   return (
     <>
@@ -75,7 +74,6 @@ export const GrpTextInput = (props) => {
     </>
   );
 };
-
 const TextInput = (props) => {
   return (
     <div className={SvCss.inpDiv}>
@@ -103,5 +101,4 @@ TextInput.propTypes = {
     showData: PropTypes.object,
   }),
 };
-
 export default TextInput;
