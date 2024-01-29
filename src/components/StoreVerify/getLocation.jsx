@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function geolocation(showData, setData) {
+export default function Getlocation(showData, setData) {
   const successCallback = (position) => {
     setData({
       ...showData,
@@ -14,6 +14,5 @@ export default function geolocation(showData, setData) {
   const errorCallback = (error) => {
     console.log(error);
   };
-
   navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 }

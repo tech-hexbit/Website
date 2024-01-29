@@ -1,13 +1,13 @@
 import React from "react";
 
-//Proptypes
 import PropTypes from "prop-types";
 
 //axios
 import axios from "axios";
 
 //css
-import SvCss from "../../Pages/Css/StoreVerify.module.css";
+import VfCss from "./Css/VerifiedFields.module.css";
+import PfCss from "./Css/PincodeField.module.css";
 
 const pincodeVerify = async ({
   setData,
@@ -59,9 +59,9 @@ export default function PincodeField({
   return (
     <div>
       {showData.Pincode.length >= 6 ? (
-        <div className={SvCss.inpDiv}>
-          <p className={SvCss.inputLabel}>Pincode</p>
-          <div className={SvCss.inputDivPincode}>
+        <div className={VfCss.inpDiv}>
+          <p className={VfCss.inputLabel}>Pincode</p>
+          <div className={PfCss.inputDivPincode}>
             <input
               disabled={disable.Pincode}
               type="number"
@@ -75,7 +75,7 @@ export default function PincodeField({
             />
             <div>
               <button
-                className={SvCss.verifyButton}
+                className={PfCss.verifyButton}
                 onClick={() => {
                   pincodeVerify({
                     setData,
@@ -111,9 +111,9 @@ export default function PincodeField({
           </div>
         </div>
       ) : (
-        <div className={SvCss.inpDiv}>
-          <p className={SvCss.inputLabel}>Pincode</p>
-          <div className={SvCss.inputDivPincode}>
+        <div className={VfCss.inpDiv}>
+          <p className={VfCss.inputLabel}>Pincode</p>
+          <div className={PfCss.inputDivPincode}>
             <input
               disabled={disable.Pincode}
               type="number"
@@ -133,9 +133,7 @@ export default function PincodeField({
 }
 
 PincodeField.propTypes = {
-  // props: PropTypes.shape({
   showData: PropTypes.object,
   verifyPin: PropTypes.bool,
   disable: PropTypes.object,
-  // }),
 };

@@ -2,7 +2,7 @@ import React, { useContext, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 // css
-import SvCss from "../../Pages/Css/StoreVerify.module.css";
+import SvCss from "./Css/StoreVerifyMain.module.css";
 
 // MicroInteraction
 import Load from "../../MicroInteraction/Load";
@@ -15,17 +15,19 @@ import axios from "axios";
 
 // components
 import Heading from "./Heading";
-import TextInput from "./TextInput";
-import { GrpTextInput, FssaiField } from "./TextInput";
+import TextInput from "./TextInputs/TextInput";
+import GrpTextInput from "./TextInputs/GrpTextInput";
+import FssaiField from "./TextInputs/FssaiField";
 import FileInput from "./FileInput";
-import BankFields from "./BankField/BankFields";
-import Ondc_Details from "./OndcField";
+import BankFields from "./BankFields";
+import OndcField from "./OndcField";
 import TimingField from "./TimingField";
-import PincodeField from "./PincodeField";
+import PincodeField from "./VerifiedField/PincodeField";
 import GrpVerifiedFields from "./VerifiedField/VerifiedFields";
 import SelectInput from "./SelectInput";
-import getLocation from "./getLocation";
-import { VerifiedPan, VerifiedGstin } from "./VerifiedField/VerifiedPanGst";
+import GetLocation from "./GetLocation";
+import VerifiedPanGst from "./VerifiedField/VerifiedPanGst";
+
 const StoreVerifyMain = (props) => {
   // states
   const [load, setLoad] = useState(false);
@@ -76,7 +78,9 @@ const StoreVerifyMain = (props) => {
 
   const authCtx = useContext(AuthContext);
   const redirect = useNavigate();
-  // getLocation(showData, setData);
+  if (!showData.gps) {
+    GetLocation(showData, setData);
+  }
   const onSubmit = async () => {
     setLoad(true);
 
@@ -227,14 +231,7 @@ const StoreVerifyMain = (props) => {
         setDisable={setDisable}
         setError={props.setError}
       />
-      <VerifiedGstin
-        showData={showData}
-        setData={setData}
-        disable={disable}
-        setDisable={setDisable}
-        setError={props.setError}
-      />
-      <VerifiedPan
+      <VerifiedPanGst
         showData={showData}
         setData={setData}
         disable={disable}
@@ -244,7 +241,7 @@ const StoreVerifyMain = (props) => {
       <FssaiField showData={showData} setData={setData} />
       <FileInput images={images} setImages={setImages} />
       <SelectInput showData={showData} setData={setData} />
-      <Ondc_Details setData={setData} showData={showData} />
+      <OndcField setData={setData} showData={showData} />
       <TimingField showData={showData} setData={setData} />
       <div className={SvCss.submitDiv}>
         <button className={SvCss.submitBtn} onClick={onSubmit}>

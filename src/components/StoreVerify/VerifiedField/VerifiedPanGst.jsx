@@ -1,18 +1,105 @@
 import React from "react";
 
+import PropTypes from "prop-types";
+
 //axios
 import axios from "axios";
 
-//proptypes
-import PropTypes from "prop-types";
-
 //css
-import SvCss from "../../../Pages/Css/StoreVerify.module.css";
+import VfCss from "./Css/VerifiedFields.module.css";
+import PfCss from "./Css/PincodeField.module.css";
 
-//components
-import { GstinVerify, PanVerify } from "./VerifyPanGst";
+const GstinVerify = async ({
+  setData,
+  showData,
+  disable,
+  setDisable,
+  setError,
+}) => {
+  try {
+    const validGstin = ({ response }) => {
+      setData({
+        ...showData,
+        Gstin: response.data.response.GSTIN,
+      });
+      setDisable({ ...disable, Gstin: true });
+    };
+    const invalidGstin = () => {
+      setError({
+        mainColor: "#FFC0CB",
+        secondaryColor: "#FF69B4",
+        symbol: "error",
+        title: "Check it out",
+        text: "Invalid Gstin No",
+        val: true,
+      });
+    };
+    const GstinDetails = {
+      GSTIN: showData.Gstin,
+    };
+    const response = await axios.post("/api/verification/gstin", GstinDetails);
 
-export const VerifiedGstin = ({
+    response.data.success ? validGstin({ response }) : invalidGstin();
+  } catch (e) {
+    // console.log(e);
+    setError({
+      mainColor: "#FDEDED",
+      secondaryColor: "#F16360",
+      symbol: "error",
+      title: "Error",
+      text: "An unexpected error occurred",
+      val: true,
+    });
+  }
+};
+const PanVerify = async ({
+  setData,
+  showData,
+  disable,
+  setDisable,
+  setError,
+}) => {
+  try {
+    const validPan = ({ response }) => {
+      setData({
+        ...showData,
+        PanNo: response.data.response.pan,
+      });
+      setDisable({ ...disable, Pan: true });
+      // console.log(disable);
+    };
+    const invalidPan = () => {
+      setError({
+        mainColor: "#FFC0CB",
+        secondaryColor: "#FF69B4",
+        symbol: "error",
+        title: "Check it out",
+        text: "Invalid Pan No",
+        val: true,
+      });
+    };
+    const panDetails = {
+      pan: showData.PanNo,
+      name: showData.FirstName,
+    };
+    const response = await axios.post("/api/verification/pan", panDetails);
+    // console.log(response.data);
+
+    response.data.success ? validPan({ response }) : invalidPan();
+  } catch (e) {
+    console.log(e);
+    setError({
+      mainColor: "#FDEDED",
+      secondaryColor: "#F16360",
+      symbol: "error",
+      title: "Error",
+      text: "An unexpected error occurred",
+      val: true,
+    });
+  }
+};
+
+const VerifiedGstin = ({
   showData,
   setData,
   disable,
@@ -22,9 +109,9 @@ export const VerifiedGstin = ({
   return (
     <div>
       {showData.Gstin.length >= 15 ? (
-        <div className={SvCss.inpDiv}>
-          <p className={SvCss.inputLabel}>GSTIN NO.</p>
-          <div className={SvCss.inputDivPincode}>
+        <div className={VfCss.inpDiv}>
+          <p className={VfCss.inputLabel}>GSTIN NO.</p>
+          <div className={PfCss.inputDivPincode}>
             <input
               disabled={disable.Gstin}
               type="text"
@@ -38,7 +125,7 @@ export const VerifiedGstin = ({
             />
             <div>
               <button
-                className={SvCss.verifyButton}
+                className={PfCss.verifyButton}
                 onClick={() => {
                   GstinVerify({
                     setData,
@@ -73,9 +160,9 @@ export const VerifiedGstin = ({
           </div>
         </div>
       ) : (
-        <div className={SvCss.inpDiv}>
-          <p className={SvCss.inputLabel}>GSTIN NO.</p>
-          <div className={SvCss.inputDivPincode}>
+        <div className={VfCss.inpDiv}>
+          <p className={VfCss.inputLabel}>GSTIN NO.</p>
+          <div className={PfCss.inputDivPincode}>
             <input
               disabled={disable.Gstin}
               type="text"
@@ -93,19 +180,13 @@ export const VerifiedGstin = ({
     </div>
   );
 };
-export const VerifiedPan = ({
-  showData,
-  setData,
-  disable,
-  setDisable,
-  setError,
-}) => {
+const VerifiedPan = ({ showData, setData, disable, setDisable, setError }) => {
   return (
     <div>
       {showData.PanNo.length >= 10 ? (
-        <div className={SvCss.inpDiv}>
-          <p className={SvCss.inputLabel}>PAN NO.</p>
-          <div className={SvCss.inputDivPincode}>
+        <div className={VfCss.inpDiv}>
+          <p className={VfCss.inputLabel}>PAN NO.</p>
+          <div className={PfCss.inputDivPincode}>
             <input
               disabled={disable.Pan}
               type="text"
@@ -119,7 +200,7 @@ export const VerifiedPan = ({
             />
             <div>
               <button
-                className={SvCss.verifyButton}
+                className={PfCss.verifyButton}
                 onClick={() => {
                   PanVerify({
                     setData,
@@ -155,9 +236,9 @@ export const VerifiedPan = ({
           </div>
         </div>
       ) : (
-        <div className={SvCss.inpDiv}>
-          <p className={SvCss.inputLabel}>PAN NO.</p>
-          <div className={SvCss.inputDivPincode}>
+        <div className={VfCss.inpDiv}>
+          <p className={VfCss.inputLabel}>PAN NO.</p>
+          <div className={PfCss.inputDivPincode}>
             <input
               disabled={disable.Pan}
               type="text"
@@ -175,18 +256,34 @@ export const VerifiedPan = ({
     </div>
   );
 };
-VerifiedGstin.propTypes = {
-  props: PropTypes.shape({
-    showData: PropTypes.object,
-    verifyPin: PropTypes.bool,
-    disable: PropTypes.object,
-  }),
+const VerifiedPanGst = ({
+  showData,
+  setData,
+  disable,
+  setDisable,
+  setError,
+}) => {
+  return (
+    <>
+      <VerifiedGstin
+        showData={showData}
+        setData={setData}
+        disable={disable}
+        setDisable={setDisable}
+        setError={setError}
+      />
+      <VerifiedPan
+        showData={showData}
+        setData={setData}
+        disable={disable}
+        setDisable={setDisable}
+        setError={setError}
+      />
+    </>
+  );
 };
-VerifiedPan.propTypes = {
-  props: PropTypes.shape({
-    showData: PropTypes.object,
-    verifyPin: PropTypes.bool,
-    disable: PropTypes.object,
-  }),
+VerifiedPanGst.propTypes = {
+  showData: PropTypes.object,
+  disable: PropTypes.object,
 };
-// export default VerifiedPanGst;
+export default VerifiedPanGst;
