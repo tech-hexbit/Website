@@ -1,8 +1,5 @@
 import React from "react";
 
-//axios
-import axios from "axios";
-
 //proptypes
 import PropTypes from "prop-types";
 
