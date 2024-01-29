@@ -48,6 +48,59 @@
   .bold {
     font-weight: 700 !important;
   }
+  .btn {
+    background: #3498db;
+    background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+    background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+    background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+    background-image: -o-linear-gradient(top, #3498db, #2980b9);
+    background-image: linear-gradient(to bottom, #3498db, #2980b9);
+    -webkit-border-radius: 14;
+    -moz-border-radius: 14;
+    border-radius: 14px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 21px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+  }
+  
+  .btn:hover {
+    background: #3cb0fd;
+    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+    text-decoration: none;
+  }
+  
+.msgMDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.message {
+  width: 100%;
+  text-align: left;
+  color: rgba(96, 96, 96, 1);
+  padding: 20px 0px 0px 20px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+}
+.messageInput {
+  font-size: 20px;
+  outline: none;
+  width: 100%;
+  margin: 15px 0px 0px 0px;
+  padding: 20px 30px;
+  border: 1px solid rgba(211, 211, 211, 1);
+  resize: none;
+  overflow: scroll;
+}
+
   
   @media (width<=40em) {
     .item p:first-child,
