@@ -15,17 +15,19 @@ import axios from "axios";
 
 // components
 import Heading from "./Heading";
-import TextInput from "./TextInputs/TextInput";
-import GrpTextInput from "./TextInputs/GrpTextInput";
-import FssaiField from "./TextInputs/FssaiField";
+
 import FileInput from "./FileInput";
 import BankFields from "./BankFields";
 import OndcField from "./OndcField";
 import TimingField from "./TimingField";
-import PincodeField from "./VerifiedField/PincodeField";
-import GrpVerifiedFields from "./VerifiedField/VerifiedFields";
 import SelectInput from "./SelectInput";
 import GetLocation from "./GetLocation";
+import TextInput from "./TextInputs/TextInput";
+import GrpTextInput from "./TextInputs/GrpTextInput";
+import FssaiField from "./TextInputs/FssaiField";
+import PincodeField from "./VerifiedField/PincodeField";
+import GrpVerifiedFields from "./VerifiedField/VerifiedFields";
+
 import VerifiedPanGst from "./VerifiedField/VerifiedPanGst";
 
 const StoreVerifyMain = (props) => {

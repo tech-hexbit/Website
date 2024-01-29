@@ -86,4 +86,5 @@ GrpVerifiedFields.propTypes = {
   showData: PropTypes.object,
   verifyPin: PropTypes.bool,
 };
+
 export default GrpVerifiedFields;
