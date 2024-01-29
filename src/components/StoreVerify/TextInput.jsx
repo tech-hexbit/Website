@@ -29,6 +29,7 @@ export const FssaiField = (props) => {
     </>
   );
 };
+
 export const GrpTextInput = (props) => {
   return (
     <>
@@ -74,6 +75,7 @@ export const GrpTextInput = (props) => {
     </>
   );
 };
+
 const TextInput = (props) => {
   return (
     <div className={SvCss.inpDiv}>
@@ -101,4 +103,5 @@ TextInput.propTypes = {
     showData: PropTypes.object,
   }),
 };
+
 export default TextInput;
