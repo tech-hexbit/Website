@@ -1,7 +1,9 @@
-import React, { useState,useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 //components
 import TicketDetailsOverlay from "../PayDetails/TicketDetailsOverlay";
+
+// MicroInteraction
 import Load from "../../../MicroInteraction/LoadBlack";
 import { Alert } from "../../../MicroInteraction/Alert";
 
@@ -15,7 +17,7 @@ import axios from "axios";
 import Gptable from "./Css/Ticket.module.css";
 
 export default function Table() {
-const authCtx = useContext(AuthContext);
+  const authCtx = useContext(AuthContext);
 
   const [showOverlay, setShowOverlay] = useState(false);
 
@@ -39,21 +41,17 @@ const authCtx = useContext(AuthContext);
     setSelectedItem(null);
     setShowOverlay(false);
   };
-  const [data, setData] = useState([])
+  const [data, setData] = useState([]);
 
   const filteredRowItem = data.filter((item) => item._id === selectedItem);
 
   const loadStore = async () => {
-
     try {
-      const response = await axios.get(
-        "/api/website/admin/Ticket/List",
-        {
-          headers: { Authorization: `${authCtx.token}` },
-        }
-      );
+      const response = await axios.get("/api/website/admin/Ticket/List", {
+        headers: { Authorization: `${authCtx.token}` },
+      });
 
-      if ( response.data.success) {
+      if (response.data.success) {
         setData(response.data.qnaEntries);
       } else {
         setError({
@@ -76,11 +74,10 @@ const authCtx = useContext(AuthContext);
       });
     }
   };
-  
+
   useEffect(() => {
     loadStore();
   }, []);
-
 
   return (
     <>
@@ -88,49 +85,42 @@ const authCtx = useContext(AuthContext);
         {data.length > 0 ? (
           showOverlay ? (
             <>
-
-            <table className={Gptable.trans_table}>
-              <tr>
-                <th>Ticket ID</th>
-                <th>Store ID</th>
-                <th>Store Name</th>
-                <th>Subject</th>
-                <th>Date</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-              {filteredRowItem.map((item, index) => (
-                <tr key={index}>
-                  <td data-cell="ref no">#HX{item._id.slice(-5)}</td>
-                  <td data-cell="order id">{item.StoreID}</td>
-                  <td data-cell="name">{item.StoreName}</td>
-                  <td data-cell="date">{item.subject}</td>
-                  <td data-cell="amount">{item.when.date}</td>
-                  <td
-                    className={
-                      item.Status === "Payment Processed"
-                        ? Gptable.processed
-                        : item.Status === "Payment Pending"
-                        ? Gptable.pending
-                        : Gptable.rejected
-                    }
-                    data-cell="status"
-                  >
-                    {item.Status}
-                  </td>
-                  <td
-                    data-cell="action"
-                    onClick= {() => closeOverlay()}
-                  >
-                   Close details
-                  </td>
+              <table className={Gptable.trans_table}>
+                <tr>
+                  <th>Ticket ID</th>
+                  <th>Store ID</th>
+                  <th>Store Name</th>
+                  <th>Subject</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+                {filteredRowItem.map((item, index) => (
+                  <tr key={index}>
+                    <td data-cell="ref no">#HX{item._id.slice(-5)}</td>
+                    <td data-cell="order id">{item.StoreID}</td>
+                    <td data-cell="name">{item.StoreName}</td>
+                    <td data-cell="date">{item.subject}</td>
+                    <td data-cell="amount">{item.when.date}</td>
+                    <td
+                      className={
+                        item.Status === "Solved"
+                          ? Gptable.processed
+                          : Gptable.rejected
+                      }
+                      data-cell="status"
+                    >
+                      {item.Status}
+                    </td>
+                    <td data-cell="action" onClick={() => closeOverlay()}>
+                      Close details
+                    </td>
                   </tr>
                 ))}
               </table>
-            
-        <TicketDetailsOverlay selectedItem={filteredRowItem} />
+
+              <TicketDetailsOverlay selectedItem={filteredRowItem} />
             </>
-            
           ) : (
             <table className={Gptable.trans_table}>
               <tr>
@@ -151,10 +141,8 @@ const authCtx = useContext(AuthContext);
                   <td data-cell="amount">{item.when.date}</td>
                   <td
                     className={
-                      item.Status === "Payment Processed"
+                      item.Status === "Solved"
                         ? Gptable.processed
-                        : item.Status === "Payment Pending"
-                        ? Gptable.pending
                         : Gptable.rejected
                     }
                     data-cell="status"
@@ -170,21 +158,14 @@ const authCtx = useContext(AuthContext);
                 </tr>
               ))}
             </table>
-            
           )
         ) : (
-          
-            <div className={Gptable.loading}>
-
-            <Load/>
-            </div>
-              
+          <div className={Gptable.loading}>
+            <Load />
+          </div>
         )}
-          
       </div>
       <Alert variant={variants} val={setError} />
-
     </>
   );
-  
 }
