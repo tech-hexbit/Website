@@ -20,8 +20,8 @@ export default function StoreVerify() {
   });
   return (
     <>
-      <div className={SvCss.l_div}>
-        <div className={SvCss.box_div}>
+      <div className={SvCss.Ldiv}>
+        <div className={SvCss.boxDiv}>
           <StoreVerifyMain setError={setError} />
         </div>
       </div>

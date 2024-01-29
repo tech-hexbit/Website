@@ -28,11 +28,10 @@ import ProductsPage from "./../components/ProductsPage/ProductsPage";
 import VerifyEmail from "../components/Dashboard/MainParts/VerifyEmail";
 import HelpDeskTable from "./../components/Dashboard/HelpDesk/HelpDeskFormTable";
 //          || Admin
+import Payment from "../components/Admin/Payment";
 import TicketAdmin from "./../components/Admin/Ticket";
 import SupportAdmin from "./../components/Admin/Support";
 import SellersAdmin from "./../components/Admin/Sellers";
-
-import PaymentTable from "../components/Admin/PayDetails/PaymentTable";
 
 //          || Super Admin
 import FrontPage from "./../components/MainAdmin/FrontPage";
@@ -171,10 +170,7 @@ export default function Profile() {
                     <Route path="/admin/tickets" element={<TicketAdmin />} />
                     <Route path="/admin/support" element={<SupportAdmin />} />
                     <Route path="/admin/sellers" element={<SellersAdmin />} />
-                    <Route
-                      path="/admin/paymentdetails"
-                      element={<PaymentTable />}
-                    />
+                    <Route path="/admin/paymentdetails" element={<Payment />} />
                   </>
                 )}
 
@@ -186,9 +182,14 @@ export default function Profile() {
                       path="/admin/super/SellerKYC"
                       element={<SellersAdmin />}
                     />
-                    {/* <Route path="/admin/super/Support" element={<SupportNew/>} /> */}
-                    <Route path="/admin/super/Support" element={<SupportAdmin/>} />
-                    <Route path="/admin/super/HelpDesk" element={<HelpDeskNew/>} />
+                    <Route
+                      path="/admin/super/Support"
+                      element={<SupportNew />}
+                    />
+                    <Route
+                      path="/admin/super/HelpDesk"
+                      element={<HelpDeskNew />}
+                    />
                     <Route
                       path="/admin/super/SellerInfo"
                       element={<SellerInfo />}

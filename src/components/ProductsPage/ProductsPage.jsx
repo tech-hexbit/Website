@@ -155,11 +155,6 @@ export default function ProductsPage() {
           {res ? (
             <div className={PPCss.divDiv}>
               <div className={PPCss.leftDiv}>
-                {/* <img
-                  src='https://rukminim2.flixcart.com/image/832/832/kq18n0w0/mobile/u/w/b/narzo-30-rmx2156-realme-original-imag45ymfpry9ecq.jpeg?q=70&crop=false'
-                  alt=""
-                  className={PPCss.productImg}
-                /> */}
                 <div className={PPCss.upper}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -218,14 +213,12 @@ export default function ProductsPage() {
                 </div>
                 <div className={PPCss.buttons}>
                   <button className={PPCss.button1}>GO TO INVENTORY</button>
-                  <button className={PPCss.button2}>HIDE PRODUCT</button>
                   <button className={PPCss.button3}>DELETE</button>
                 </div>
               </div>
               <div className={PPCss.rightDiv}>
                 <p className={PPCss.titleName}>{res.descriptor.name}</p>
                 <p className={PPCss.pID}>Product id: {res._id}</p>
-                {/* <p className={PPCss.pSeller}>seller</p> */}
                 <p className={PPCss.pPublished}>Seller:seller</p>
                 <p className={PPCss.pPublished}>
                   {" "}
@@ -257,7 +250,7 @@ export default function ProductsPage() {
                     placeholderLabel="Updated Stock"
                   />
                   <Box
-                    title="Tax%"
+                    title="Tax %"
                     value={`₹ ${res.price.maximum_value}`}
                     up="price.maximum_value"
                     id={res._id}
@@ -265,7 +258,7 @@ export default function ProductsPage() {
                     placeholderLabel="Updated Tax"
                   />
                   <Box
-                    title="Discount%"
+                    title="Discount %"
                     value={`₹ ${res.price.maximum_value}`}
                     up="price.maximum_value"
                     id={res._id}
