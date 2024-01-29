@@ -27,7 +27,6 @@
   color: var(--Primeraly-White, #fff);
   text-align: center;
   font-size: 22px;
-  /* font-style: normal; */
   font-weight: 700;
   text-transform: capitalize;
   border: none;
@@ -57,7 +56,6 @@
   color: #fff;
   text-align: center;
   font-size: 22px;
-  /* font-style: normal; */
   font-weight: 700;
   text-transform: capitalize;
 }
@@ -89,7 +87,6 @@
 input,
 select,
 button {
-  /* outline: none; */
   border: 1px solid #909090;
   background: #fff;
   border-radius: 5px;
@@ -99,7 +96,6 @@ button {
 .inputLdivFile {
   color: #606060;
   font-size: 17px;
-  /* font-style: normal; */
   font-weight: 600;
   margin: 30px 0px;
   display: flex;
@@ -129,7 +125,6 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .nestedFieldLargeDiv {
   color: #606060;
-
   font-size: 17px;
   font-weight: 600;
   display: flex;
@@ -162,12 +157,10 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .inputDivBank {
   flex-basis: 70%;
-  /* flex-basis: 75%; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   gap: 1rem;
-  /* flex-wrap: wrap; */
 }
 
 .inputDivBank input {
@@ -194,8 +187,6 @@ input[type="number"]::-webkit-outer-spin-button {
   color: #777;
   font-size: 30px;
   font-weight: 900;
-  /* line-height: 40.811px;
-  letter-spacing: 0.653px; */
   margin-bottom: 30px;
   cursor: pointer;
 }
@@ -209,7 +200,6 @@ input[type="number"]::-webkit-outer-spin-button {
   display: flex;
   flex-direction: row;
   gap: 1rem;
-  /* flex-wrap: wrap; */
 }
 
 .verifyButton {
@@ -245,7 +235,6 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .timingSmallDiv input {
-  /* flex-basis: 80%; */
   height: 42px;
   padding: 8px;
 }
