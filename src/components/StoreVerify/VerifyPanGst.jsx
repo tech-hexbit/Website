@@ -17,7 +17,6 @@ export const GstinVerify = async ({
         Gstin: response.data.response.GSTIN,
       });
       setDisable({ ...disable, Gstin: true });
-      // console.log(disable);
     };
     const invalidGstin = () => {
       setError({
@@ -36,7 +35,6 @@ export const GstinVerify = async ({
 
     response.data.success ? validGstin({ response }) : invalidGstin();
   } catch (e) {
-    // console.log(e);
     setError({
       mainColor: "#FDEDED",
       secondaryColor: "#F16360",
@@ -47,6 +45,7 @@ export const GstinVerify = async ({
     });
   }
 };
+
 export const PanVerify = async ({
   setData,
   showData,
@@ -61,7 +60,6 @@ export const PanVerify = async ({
         PanNo: response.data.response.pan,
       });
       setDisable({ ...disable, Pan: true });
-      // console.log(disable);
     };
     const invalidPan = () => {
       setError({
@@ -78,7 +76,6 @@ export const PanVerify = async ({
       name: showData.FirstName,
     };
     const response = await axios.post("/api/verification/pan", panDetails);
-    // console.log(response.data);
 
     response.data.success ? validPan({ response }) : invalidPan();
   } catch (e) {
