@@ -76,8 +76,6 @@ const StoreVerifyMain = (props) => {
 
   const redirect = useNavigate();
 
-  // getLocation(showData, setData);
-
   const onSubmit = async () => {
     setLoad(true);
 
