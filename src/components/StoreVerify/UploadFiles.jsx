@@ -14,6 +14,7 @@ export default function UploadFiles({
   val,
   setImageUpload,
   imageUpload,
+  onSubmitFun,
 }) {
   const [imageUploadPart, setImageUploadPart] = useState();
 
@@ -42,6 +43,8 @@ export default function UploadFiles({
       val,
       img: imageUploadPart,
     });
+
+    onSubmitFun();
   };
 
   return (
