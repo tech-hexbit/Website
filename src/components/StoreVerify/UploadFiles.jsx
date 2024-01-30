@@ -2,8 +2,8 @@ import React, { useContext, useRef, useState } from "react";
 import PropTypes from "prop-types";
 
 // MicroInteraction
-import { Alert } from "./../../../MicroInteraction/Alert";
-import Load from "./../../../MicroInteraction/Load";
+import Load from "./../../MicroInteraction/Load";
+import { Alert } from "./../../MicroInteraction/Alert";
 
 //css
 import FiCss from "./Css/FileInput.module.css";
@@ -11,7 +11,7 @@ import FiCss from "./Css/FileInput.module.css";
 export default function UploadFiles({
   label,
   placeholder,
-  handleImage,
+  //   handleImage,
   image,
   handleClicksValue,
 }) {
@@ -40,14 +40,11 @@ export default function UploadFiles({
       <p className={FiCss.inputLabel}>{label}</p>
       <div className={FiCss.inputDivFile}>
         <input
-          className={FiCss.inputFile}
           type="file"
           name="file"
-          placeholder={placeholder}
-          onChange={(e) => {
-            handleImage(e);
-          }}
-          //   ref={fileInp}
+          onChange={handleImage}
+          style={{ display: "none" }}
+          ref={fileInp}
         />
         {image ? (
           <img
