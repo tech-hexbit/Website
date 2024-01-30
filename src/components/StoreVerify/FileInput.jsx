@@ -116,7 +116,7 @@ import PropTypes from "prop-types";
 import UploadFiles from "./UploadFiles";
 
 export default function FileInput({ images, setImages }) {
-  const [imageUpload, setImageUpload] = useState();
+  const [imageUpload, setImageUpload] = useState({ val: "", img: "" });
 
   const handleImage = (e) => {
     setImageUpload(e.target.files[0]);
