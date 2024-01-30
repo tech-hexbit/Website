@@ -58,16 +58,20 @@ const FileInput = ({
     </div>
   );
 };
+
 const ImgInputList = ({ images, setImages }) => {
   const fileInp_id = useRef(null);
   const fileInp_cheque = useRef(null);
   const fileInp_address = useRef(null);
+
   const handleImageCheque = (e) => {
     setImages({ ...images, imageUploadCheque: e.target.files[0] });
   };
+
   const handleImageAddress = (e) => {
     setImages({ ...images, imageUploadAddress: e.target.files[0] });
   };
+
   const handleImageID = (e) => {
     setImages({ ...images, imageUploadID: e.target.files[0] });
   };
@@ -100,6 +104,7 @@ const ImgInputList = ({ images, setImages }) => {
     </>
   );
 };
+
 ImgInputList.propTypes = {
   images: PropTypes.object,
 };
