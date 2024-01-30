@@ -103,6 +103,7 @@ export default function FileInput({ images, setImages }) {
         setImageUpload={setImageUpload}
         imageUpload={imageUpload}
         onSubmitFun={onSubmit}
+        load={load}
       />
       <UploadFiles
         label="Address Proof (GSTIN)"
@@ -112,6 +113,7 @@ export default function FileInput({ images, setImages }) {
         setImageUpload={setImageUpload}
         imageUpload={imageUpload}
         onSubmitFun={onSubmit}
+        load={load}
       />
       <UploadFiles
         label="ID Proof (PAN CARD)"
@@ -121,6 +123,7 @@ export default function FileInput({ images, setImages }) {
         setImageUpload={setImageUpload}
         imageUpload={imageUpload}
         onSubmitFun={onSubmit}
+        load={load}
       />
 
       <Alert variant={variants} val={setError} />
