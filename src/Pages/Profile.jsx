@@ -58,7 +58,7 @@ export default function Profile() {
     text: "",
     val: false,
   });
-  
+
   // scroll to top
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -110,7 +110,7 @@ export default function Profile() {
       <div className={PCss.mDiv}>
         <UserSideBar />
 
-        {!authCtx.user.Store[0].StoreID.validation ? (
+        {authCtx.user.Store[0].StoreID.validation ? (
           <>
             <div className={PCss.CDiv}>
               {/* email verification */}
@@ -175,10 +175,22 @@ export default function Profile() {
                 {authCtx.user.access === 2 && (
                   <>
                     <Route path="/admin/super/List" element={<FrontPage />} />
-                    <Route path="/admin/super/SellerKYC" element={<SellersAdmin />} />
-                    <Route path="/admin/super/Support" element={<SupportAdmin />} />
-                    <Route path="/admin/super/Ticket" element={<TicketAdmin/>} />
-                    <Route path="/admin/super/SellerInfo" element={<SelectSellerDetail/>} />
+                    <Route
+                      path="/admin/super/SellerKYC"
+                      element={<SellersAdmin />}
+                    />
+                    <Route
+                      path="/admin/super/Support"
+                      element={<SupportAdmin />}
+                    />
+                    <Route
+                      path="/admin/super/Ticket"
+                      element={<TicketAdmin />}
+                    />
+                    <Route
+                      path="/admin/super/SellerInfo"
+                      element={<SelectSellerDetail />}
+                    />
                     <Route path="/products/:id" element={<ProductsPage />} />
                   </>
                 )}
