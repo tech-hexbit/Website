@@ -1,5 +1,8 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
+
+// MicroInteraction
+import Load from "./../../MicroInteraction/LoadBlack";
 
 //css
 import FiCss from "./Css/FileInput.module.css";
@@ -45,6 +48,7 @@ export default function UploadFiles({
           style={{ display: "none" }}
           ref={fileInp}
         />
+
         <div className={imageUploadPart ? "showPrev" : "hidePrev"}>
           {imageUploadPart ? (
             <>
