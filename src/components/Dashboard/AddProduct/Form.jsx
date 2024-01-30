@@ -20,7 +20,6 @@ export default function Form() {
   const [tags, settags] = useState([]);
   const [load, setLoad] = useState(false);
   const [tagvalue, settagvalue] = useState("");
-  ``;
   const [imageUpload, setImageUpload] = useState();
   const [multipleImageUpload, setMultipleImageUpload] = useState([]);
   const [PublishOpen, setPublishOpen] = useState(true);
