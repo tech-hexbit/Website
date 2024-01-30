@@ -6,6 +6,14 @@ import UploadFiles from "./UploadFiles";
 
 export default function FileInput({ images, setImages }) {
   const [imageUpload, setImageUpload] = useState({ val: "", img: "" });
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
 
   const onSubmit = async () => {};
 
