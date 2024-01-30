@@ -7,14 +7,19 @@ import { Alert } from "./../../MicroInteraction/Alert";
 
 //css
 import FiCss from "./Css/FileInput.module.css";
+import EtCss from "./../Dashboard/Profile/Css/EditProfile.module.css";
 
 export default function UploadFiles({
   label,
   placeholder,
   //   handleImage,
   image,
+  setImageUpload,
+  imageUpload,
   handleClicksValue,
 }) {
+  const [imageUploadPart, setImageUploadPart] = useState();
+
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -27,8 +32,7 @@ export default function UploadFiles({
   const fileInp = useRef(null);
 
   const handleImage = (e) => {
-    console.log(e.target.files[0]);
-    setImageUpload(e.target.files[0]);
+    setImageUploadPart(e.target.files[0]);
   };
 
   const handleClick = () => {
@@ -46,17 +50,23 @@ export default function UploadFiles({
           style={{ display: "none" }}
           ref={fileInp}
         />
-        {image ? (
-          <img
-            src={URL.createObjectURL(image)}
-            alt=""
-            className={FiCss.prevImg}
-          />
-        ) : (
-          ""
-        )}
-        <div className={FiCss.addImgDiv} onClick={() => handleClick}>
-          <div className={FiCss["text-center"]}>
+        <div className={imageUploadPart ? "showPrev" : "hidePrev"}>
+          {imageUploadPart ? (
+            <div className={EtCss.prevImgDiv}>
+              <p className={EtCss.PreviewPTag}>Preview</p>
+              <img
+                src={URL.createObjectURL(imageUploadPart)}
+                alt=""
+                className={EtCss.prevImg}
+              />
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
+
+        <div className={FiCss.addImgDiv} onClick={handleClick}>
+          <div className={FiCss.textCenter}>
             <p>+</p>
           </div>
         </div>
