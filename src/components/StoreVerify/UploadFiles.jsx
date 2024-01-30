@@ -1,10 +1,6 @@
 import React, { useContext, useRef, useState } from "react";
 import PropTypes from "prop-types";
 
-// MicroInteraction
-import Load from "./../../MicroInteraction/Load";
-import { Alert } from "./../../MicroInteraction/Alert";
-
 //css
 import FiCss from "./Css/FileInput.module.css";
 import EtCss from "./../Dashboard/Profile/Css/EditProfile.module.css";
