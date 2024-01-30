@@ -16,7 +16,6 @@ export default function FileInput({ images, setImages }) {
       <UploadFiles
         label="Upload Cancelled Cheque"
         val="cancelledCheques"
-        // handleImage={handleImage}
         image={images.imageUploadCheque}
         handleClicksValue="cheque"
         setImageUpload={setImageUpload}
@@ -25,7 +24,6 @@ export default function FileInput({ images, setImages }) {
       <UploadFiles
         label="Address Proof (GSTIN)"
         val="addressProof"
-        // handleImage={handleImage}
         image={images.imageUploadAddress}
         handleClicksValue="address"
         setImageUpload={setImageUpload}
@@ -34,7 +32,6 @@ export default function FileInput({ images, setImages }) {
       <UploadFiles
         label="ID Proof (PAN CARD)"
         val="idProof"
-        // handleImage={handleImage}
         image={images.imageUploadID}
         handleClicksValue="id"
         setImageUpload={setImageUpload}
