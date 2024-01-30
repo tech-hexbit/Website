@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 //component
@@ -7,9 +7,7 @@ import UploadFiles from "./UploadFiles";
 export default function FileInput({ images, setImages }) {
   const [imageUpload, setImageUpload] = useState({ val: "", img: "" });
 
-  const handleImage = (e) => {
-    setImageUpload(e.target.files[0]);
-  };
+  const onSubmit = async () => {};
 
   return (
     <>
@@ -20,6 +18,7 @@ export default function FileInput({ images, setImages }) {
         handleClicksValue="cheque"
         setImageUpload={setImageUpload}
         imageUpload={imageUpload}
+        onSubmitFun={onSubmit}
       />
       <UploadFiles
         label="Address Proof (GSTIN)"
@@ -28,6 +27,7 @@ export default function FileInput({ images, setImages }) {
         handleClicksValue="address"
         setImageUpload={setImageUpload}
         imageUpload={imageUpload}
+        onSubmitFun={onSubmit}
       />
       <UploadFiles
         label="ID Proof (PAN CARD)"
@@ -36,6 +36,7 @@ export default function FileInput({ images, setImages }) {
         handleClicksValue="id"
         setImageUpload={setImageUpload}
         imageUpload={imageUpload}
+        onSubmitFun={onSubmit}
       />
     </>
   );
