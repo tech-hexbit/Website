@@ -25,7 +25,9 @@ const SelectInput = ({ setData, showData }) => {
     </div>
   );
 };
+
 SelectInput.propTypes = {
   showData: PropTypes.object,
 };
+
 export default SelectInput;
