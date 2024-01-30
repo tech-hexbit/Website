@@ -5,13 +5,13 @@
 .inputLdivFile {
   color: #606060;
   font-size: 17px;
-  /* font-style: normal; */
   font-weight: 600;
   margin: 30px 0px;
   display: flex;
   justify-content: space-between;
   gap: 0px 45px;
 }
+
 .inputLdivFile input {
   flex-basis: 70%;
   height: 42px;
@@ -27,15 +27,17 @@
   display: flex;
   flex-direction: row;
   gap: 1rem;
-  /* flex-wrap: wrap; */
 }
+
 .inputFile {
   display: none;
 }
+
 .prevImg {
   width: 100px;
   height: 100px;
 }
+
 .addImgDiv {
   width: 70px;
   height: 70px;
@@ -47,25 +49,26 @@
   color: #777;
   font-size: 30px;
   font-weight: 900;
-  /* line-height: 40.811px;
-    letter-spacing: 0.653px; */
   margin-bottom: 30px;
   cursor: pointer;
 }
-@media screen and (max-width: 400px) {
-  .inputLabel {
-    width: 100%;
-  }
-  .inputDivFile {
-    flex-direction: row;
-    /* justify-content: flex-end; */
-  }
-}
+
 @media screen and (max-width: 600px) {
   .inputLabel {
     width: 15%;
   }
+
   .inputDivFile {
     flex-basis: 60%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .inputLabel {
+    width: 100%;
+  }
+
+  .inputDivFile {
+    flex-direction: row;
   }
 }

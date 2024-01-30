@@ -1,108 +1,129 @@
-import React, { useRef } from "react";
-
+import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 
-//css
-import FiCss from "./Css/FileInput.module.css";
+// axios
+import axios from "axios";
 
-const FileInput = ({
-  fileInp,
-  label,
-  placeholder,
-  handleImage,
-  image,
-  handleClicksValue,
-}) => {
-  const handleClicks = (val) => {
-    if (val === "cheque") {
-      fileInp.current.click();
-    } else if (val === "address") {
-      fileInp.current.click();
-    } else if (val === "id") {
-      fileInp.current.click();
+// state
+import AuthContext from "./../../store/auth-context";
+import { Alert } from "./../../MicroInteraction/Alert";
+
+//component
+import UploadFiles from "./UploadFiles";
+
+export default function FileInput() {
+  const [load, setLoad] = useState(false);
+  const [imageUpload, setImageUpload] = useState({ val: "", img: "" });
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
+
+  const authCtx = useContext(AuthContext);
+
+  const onSubmit = async () => {
+    setLoad(true);
+
+    console.log(imageUpload.img);
+
+    if (imageUpload) {
+      const formData = new FormData();
+      formData.append("value", JSON.stringify(imageUpload.val));
+      formData.append("file", imageUpload.img);
+
+      try {
+        const response = await axios.post(
+          "/api/website/auth/kyc/files/Upload",
+          formData,
+          {
+            headers: { Authorization: `${authCtx.token}` },
+          }
+        );
+
+        if (response.data.success) {
+          setLoad(false);
+
+          setError({
+            mainColor: "#EDFEEE",
+            secondaryColor: "#5CB660",
+            symbol: "check_circle",
+            title: "Success",
+            text: "Updated !!",
+            val: true,
+          });
+        } else {
+          setLoad(false);
+
+          setError({
+            mainColor: "#FDEDED",
+            secondaryColor: "#F16360",
+            symbol: "error",
+            title: "Error",
+            text: "An Unexpected Error Occured",
+            val: true,
+          });
+        }
+      } catch (error) {
+        setLoad(false);
+
+        setError({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "An Unexpected Error Occured",
+          val: true,
+        });
+
+        console.log(error);
+      }
+    } else {
+      setLoad(false);
+
+      setError({
+        mainColor: "#FFC0CB",
+        secondaryColor: "#FF69B4",
+        symbol: "pets",
+        title: "Check it out",
+        text: "Please Select your Logo",
+        val: true,
+      });
     }
   };
 
-  return (
-    <div className={FiCss.inputLdivFile}>
-      <p className={FiCss.inputLabel}>{label}</p>
-      <div className={FiCss.inputDivFile}>
-        <input
-          className={FiCss.inputFile}
-          type="file"
-          name="file"
-          placeholder={placeholder}
-          onChange={(e) => {
-            handleImage(e);
-          }}
-          ref={fileInp}
-        />
-        {image ? (
-          <img
-            src={URL.createObjectURL(image)}
-            alt=""
-            className={FiCss.prevImg}
-          />
-        ) : (
-          ""
-        )}
-        <div
-          className={FiCss.addImgDiv}
-          onClick={() => handleClicks(handleClicksValue)}
-        >
-          <div className={FiCss.addImage}>
-            <p>+</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-const ImgInputList = ({ images, setImages }) => {
-  const fileInp_id = useRef(null);
-  const fileInp_cheque = useRef(null);
-  const fileInp_address = useRef(null);
-  const handleImageCheque = (e) => {
-    setImages({ ...images, imageUploadCheque: e.target.files[0] });
-  };
-  const handleImageAddress = (e) => {
-    setImages({ ...images, imageUploadAddress: e.target.files[0] });
-  };
-  const handleImageID = (e) => {
-    setImages({ ...images, imageUploadID: e.target.files[0] });
-  };
+  useEffect(() => {
+    console.log(imageUpload);
+  }, [imageUpload]);
+
   return (
     <>
-      <FileInput
+      <UploadFiles
         label="Upload Cancelled Cheque"
-        placeholder="Cheque "
-        handleImage={handleImageCheque}
-        fileInp={fileInp_cheque}
-        image={images.imageUploadCheque}
-        handleClicksValue="cheque"
+        val="cancelledCheques"
+        setImageUpload={setImageUpload}
+        imageUpload={imageUpload}
+        onSubmitFun={onSubmit}
       />
-      <FileInput
+      <UploadFiles
         label="Address Proof (GSTIN)"
-        placeholder="Address "
-        handleImage={handleImageAddress}
-        fileInp={fileInp_address}
-        image={images.imageUploadAddress}
-        handleClicksValue="address"
+        val="addressProof"
+        setImageUpload={setImageUpload}
+        imageUpload={imageUpload}
+        onSubmitFun={onSubmit}
       />
-      <FileInput
+      <UploadFiles
         label="ID Proof (PAN CARD)"
-        placeholder="PAN Card "
-        handleImage={handleImageID}
-        fileInp={fileInp_id}
-        image={images.imageUploadID}
-        handleClicksValue="id"
+        val="idProof"
+        setImageUpload={setImageUpload}
+        imageUpload={imageUpload}
+        onSubmitFun={onSubmit}
       />
+
+      <Alert variant={variants} val={setError} />
     </>
   );
-};
-ImgInputList.propTypes = {
-  images: PropTypes.object.isRequired,
-  setImages: PropTypes.func.isRequired,
-};
-
-export default ImgInputList;
+}

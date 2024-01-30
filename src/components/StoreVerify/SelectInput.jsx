@@ -25,8 +25,10 @@ const SelectInput = ({ setData, showData }) => {
     </div>
   );
 };
+
 SelectInput.propTypes = {
   showData: PropTypes.object.isRequired,
   setData: PropTypes.func.isRequired,
 };
+
 export default SelectInput;

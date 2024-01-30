@@ -46,9 +46,6 @@ import { Alert } from "./../MicroInteraction/Alert";
 
 // Css
 import PCss from "./Css/Profile.module.css";
-import SupportNew from "../components/Dashboard/SupportNew";
-import SellerInfo from "../components/MainAdmin/SellerInfo";
-import HelpDeskNew from "../components/Dashboard/HelpDeskNew";
 
 export default function Profile() {
   const [load, setLoad] = useState(false);
@@ -113,7 +110,7 @@ export default function Profile() {
       <div className={PCss.mDiv}>
         <UserSideBar />
 
-        {!authCtx.user.Store[0].StoreID.validation ? (
+        {authCtx.user.Store[0].StoreID.validation ? (
           <>
             <div className={PCss.CDiv}>
               {/* email verification */}
@@ -184,15 +181,15 @@ export default function Profile() {
                     />
                     <Route
                       path="/admin/super/Support"
-                      element={<SupportNew />}
+                      element={<SupportAdmin />}
                     />
                     <Route
-                      path="/admin/super/HelpDesk"
-                      element={<HelpDeskNew />}
+                      path="/admin/super/Ticket"
+                      element={<TicketAdmin />}
                     />
                     <Route
                       path="/admin/super/SellerInfo"
-                      element={<SellerInfo />}
+                      element={<SelectSellerDetail />}
                     />
                     <Route path="/products/:id" element={<ProductsPage />} />
                   </>

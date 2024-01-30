@@ -283,7 +283,10 @@ const VerifiedPanGst = ({
   );
 };
 VerifiedPanGst.propTypes = {
-  showData: PropTypes.object,
-  disable: PropTypes.object,
+  showData: PropTypes.object.isRequired,
+  setData: PropTypes.func.isRequired,
+  disable: PropTypes.object.isRequired,
+  setDisable: PropTypes.func.isRequired,
+  setError: PropTypes.func.isRequired,
 };
 export default VerifiedPanGst;

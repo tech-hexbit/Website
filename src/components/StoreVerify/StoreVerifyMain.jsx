@@ -20,7 +20,7 @@ import BankFields from "./BankFields";
 import OndcField from "./OndcField";
 import TimingField from "./TimingField";
 import SelectInput from "./SelectInput";
-import GetLocation from "./GetLocation";
+// import GetLocation from "./GetLocation";
 import TextInput from "./TextInputs/TextInput";
 import GrpTextInput from "./TextInputs/GrpTextInput";
 import FssaiField from "./TextInputs/FssaiField";
@@ -78,9 +78,7 @@ const StoreVerifyMain = (props) => {
   const authCtx = useContext(AuthContext);
 
   const redirect = useNavigate();
-  if (!showData.gps) {
-    GetLocation(showData, setData);
-  }
+
   const onSubmit = async () => {
     setLoad(true);
 
@@ -183,6 +181,25 @@ const StoreVerifyMain = (props) => {
     }
   };
 
+  function getLocation(showData, setData) {
+    const successCallback = (position) => {
+      setData({
+        ...showData,
+        gps: {
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+        },
+      });
+    };
+
+    const errorCallback = (error) => {
+      console.log(error);
+    };
+    navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+  }
+  if (!showData.gps) {
+    getLocation(showData, setData);
+  }
   useEffect(() => {
     console.table(showData);
   }, [showData]);

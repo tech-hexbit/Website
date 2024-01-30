@@ -1,5 +1,7 @@
 import React from "react";
 
+import PropTypes from "prop-types";
+
 //component
 import TextInput from "./TextInput";
 
@@ -44,9 +46,13 @@ const GrpTextInput = ({ showData, setData }) => {
         showData={showData}
         setData={setData}
         field="DOB"
+        placeholder=""
       />
     </>
   );
 };
-
+GrpTextInput.propTypes = {
+  showData: PropTypes.object.isRequired,
+  setData: PropTypes.func.isRequired,
+};
 export default GrpTextInput;
