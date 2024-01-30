@@ -28,6 +28,8 @@ export default function FileInput({ images, setImages }) {
   const onSubmit = async () => {
     setLoad(true);
 
+    console.log(imageUpload.img);
+
     if (imageUpload) {
       const formData = new FormData();
       formData.append("value", JSON.stringify(imageUpload.val));
@@ -93,37 +95,38 @@ export default function FileInput({ images, setImages }) {
     }
   };
 
+  useEffect(() => {
+    console.log(imageUpload);
+  }, [imageUpload]);
+
   return (
     <>
       <UploadFiles
         label="Upload Cancelled Cheque"
         val="cancelledCheques"
         image={images.imageUploadCheque}
-        handleClicksValue="cheque"
+        // handleClicksValue="cheque"
         setImageUpload={setImageUpload}
         imageUpload={imageUpload}
         onSubmitFun={onSubmit}
-        load={load}
       />
       <UploadFiles
         label="Address Proof (GSTIN)"
         val="addressProof"
         image={images.imageUploadAddress}
-        handleClicksValue="address"
+        // handleClicksValue="address"
         setImageUpload={setImageUpload}
         imageUpload={imageUpload}
         onSubmitFun={onSubmit}
-        load={load}
       />
       <UploadFiles
         label="ID Proof (PAN CARD)"
         val="idProof"
         image={images.imageUploadID}
-        handleClicksValue="id"
+        // handleClicksValue="id"
         setImageUpload={setImageUpload}
         imageUpload={imageUpload}
         onSubmitFun={onSubmit}
-        load={load}
       />
 
       <Alert variant={variants} val={setError} />
