@@ -1,5 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
+
+// axios
+import axios from "axios";
+
+// state
+import AuthContext from "./../../store/auth-context";
+import { Alert } from "./../../MicroInteraction/Alert";
 
 //component
 import UploadFiles from "./UploadFiles";
@@ -16,12 +23,15 @@ export default function FileInput({ images, setImages }) {
     val: false,
   });
 
+  const authCtx = useContext(AuthContext);
+
   const onSubmit = async () => {
     setLoad(true);
 
     if (imageUpload) {
       const formData = new FormData();
-      formData.append("images", imageUpload);
+      formData.append("value", JSON.stringify(imageUpload.val));
+      formData.append("file", imageUpload.img);
 
       try {
         const response = await axios.post(
@@ -31,6 +41,8 @@ export default function FileInput({ images, setImages }) {
             headers: { Authorization: `${authCtx.token}` },
           }
         );
+
+        console.log(response);
 
         console.log("first");
       } catch (error) {
@@ -90,6 +102,8 @@ export default function FileInput({ images, setImages }) {
         imageUpload={imageUpload}
         onSubmitFun={onSubmit}
       />
+
+      <Alert variant={variants} val={setError} />
     </>
   );
 }
