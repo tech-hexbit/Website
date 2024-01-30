@@ -7,6 +7,7 @@
   justify-content: space-between;
   gap: 0px 45px;
 }
+
 .inputLdivFile input {
   flex-basis: 70%;
   height: 42px;
@@ -24,13 +25,16 @@
   gap: 1rem;
   /* flex-wrap: wrap; */
 }
+
 .inputFile {
   display: none;
 }
+
 .prevImg {
   width: 100px;
   height: 100px;
 }
+
 .addImgDiv {
   width: 70px;
   height: 70px;
@@ -47,19 +51,23 @@
   margin-bottom: 30px;
   cursor: pointer;
 }
+
 @media screen and (max-width: 400px) {
   .inputLabel {
     width: 100%;
   }
+
   .inputDivFile {
     flex-direction: row;
     /* justify-content: flex-end; */
   }
 }
+
 @media screen and (max-width: 600px) {
   .inputLabel {
     width: 15%;
   }
+
   .inputDivFile {
     flex-basis: 60%;
   }
