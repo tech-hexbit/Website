@@ -1,48 +1,56 @@
 import React, { useRef } from "react";
+
 import PropTypes from "prop-types";
 
 //css
-import SvCss from "../../Pages/Css/StoreVerify.module.css";
+import FiCss from "./Css/FileInput.module.css";
 
-const FileInput = (props) => {
+const FileInput = ({
+  fileInp,
+  label,
+  placeholder,
+  handleImage,
+  image,
+  handleClicksValue,
+}) => {
   const handleClicks = (val) => {
     if (val === "cheque") {
-      props.fileInp.current.click();
+      fileInp.current.click();
     } else if (val === "address") {
-      props.fileInp.current.click();
+      fileInp.current.click();
     } else if (val === "id") {
-      props.fileInp.current.click();
+      fileInp.current.click();
     }
   };
 
   return (
-    <div className={SvCss.inputLdivFile}>
-      <p className={SvCss.inputLabel}>{props.label}</p>
-      <div className={SvCss.inputDivFile}>
+    <div className={FiCss.inputLdivFile}>
+      <p className={FiCss.inputLabel}>{label}</p>
+      <div className={FiCss.inputDivFile}>
         <input
-          className={SvCss.inputFile}
+          className={FiCss.inputFile}
           type="file"
           name="file"
-          placeholder={props.placeholder}
+          placeholder={placeholder}
           onChange={(e) => {
-            props.handleImage(e);
+            handleImage(e);
           }}
-          ref={props.fileInp}
+          ref={fileInp}
         />
-        {props.image ? (
+        {image ? (
           <img
-            src={URL.createObjectURL(props.image)}
+            src={URL.createObjectURL(image)}
             alt=""
-            className={SvCss.prevImg}
+            className={FiCss.prevImg}
           />
         ) : (
           ""
         )}
         <div
-          className={SvCss.addImgDiv}
-          onClick={() => handleClicks(props.handleClicksValue)}
+          className={FiCss.addImgDiv}
+          onClick={() => handleClicks(handleClicksValue)}
         >
-          <div className={SvCss["text-center"]}>
+          <div className={FiCss["text-center"]}>
             <p>+</p>
           </div>
         </div>
@@ -50,19 +58,18 @@ const FileInput = (props) => {
     </div>
   );
 };
-
-const ImgInputList = (props) => {
+const ImgInputList = ({ images, setImages }) => {
   const fileInp_id = useRef(null);
   const fileInp_cheque = useRef(null);
   const fileInp_address = useRef(null);
   const handleImageCheque = (e) => {
-    props.setImages({ ...props.images, imageUploadCheque: e.target.files[0] });
+    setImages({ ...images, imageUploadCheque: e.target.files[0] });
   };
   const handleImageAddress = (e) => {
-    props.setImages({ ...props.images, imageUploadAddress: e.target.files[0] });
+    setImages({ ...images, imageUploadAddress: e.target.files[0] });
   };
   const handleImageID = (e) => {
-    props.setImages({ ...props.images, imageUploadID: e.target.files[0] });
+    setImages({ ...images, imageUploadID: e.target.files[0] });
   };
   return (
     <>
@@ -71,7 +78,7 @@ const ImgInputList = (props) => {
         placeholder="Cheque "
         handleImage={handleImageCheque}
         fileInp={fileInp_cheque}
-        image={props.images.imageUploadCheque}
+        image={images.imageUploadCheque}
         handleClicksValue="cheque"
       />
       <FileInput
@@ -79,7 +86,7 @@ const ImgInputList = (props) => {
         placeholder="Address "
         handleImage={handleImageAddress}
         fileInp={fileInp_address}
-        image={props.images.imageUploadAddress}
+        image={images.imageUploadAddress}
         handleClicksValue="address"
       />
       <FileInput
@@ -87,21 +94,14 @@ const ImgInputList = (props) => {
         placeholder="PAN Card "
         handleImage={handleImageID}
         fileInp={fileInp_id}
-        image={props.images.imageUploadID}
+        image={images.imageUploadID}
         handleClicksValue="id"
       />
     </>
   );
 };
-
-FileInput.propTypes = {
-  props: PropTypes.shape({
-    label: PropTypes.string,
-    placeholder: PropTypes.string,
-    type1: PropTypes.string,
-    fileInp: PropTypes.object,
-    image: PropTypes.object,
-  }),
+ImgInputList.propTypes = {
+  images: PropTypes.object,
 };
 
 export default ImgInputList;

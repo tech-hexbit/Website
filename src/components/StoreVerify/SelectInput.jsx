@@ -1,20 +1,22 @@
 import React from "react";
 
-//css
-import SvCss from "../../Pages/Css/StoreVerify.module.css";
+import PropTypes from "prop-types";
 
-const SelectInput = (props) => {
+//css
+import OfCss from "./Css/OndcField.module.css";
+
+const SelectInput = ({ setData, showData }) => {
   const handleSelectChangeLocation = (event) => {
     const selectedValue = event.target.value;
-    props.setData({
-      ...props.showData,
+    setData({
+      ...showData,
       LocationAvailabilityMode: selectedValue,
     });
   };
 
   return (
-    <div className={SvCss.inpDiv}>
-      <div className={SvCss.inputLabel}>LOCATION AVAILABILITY MODE</div>
+    <div className={OfCss.inpDiv}>
+      <div className={OfCss.inputLabel}>LOCATION AVAILABILITY MODE</div>
       <select name="languages" id="lang" onChange={handleSelectChangeLocation}>
         <option value="select">Select Availability</option>
         <option value="1">1</option>
@@ -22,5 +24,8 @@ const SelectInput = (props) => {
       </select>
     </div>
   );
+};
+SelectInput.propTypes = {
+  showData: PropTypes.object,
 };
 export default SelectInput;

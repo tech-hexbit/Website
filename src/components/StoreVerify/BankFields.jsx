@@ -1,39 +1,112 @@
 import React, { useContext } from "react";
+
 import PropTypes from "prop-types";
 
-//component
-import BankVerify from "./BankVerify";
-
-import AuthContext from "./../../store/auth-context";
+import AuthContext from "../../store/auth-context";
 
 //axios
 import axios from "axios";
 
 //css
-import SvCss from "./../../Pages/Css/StoreVerify.module.css";
+import OfCss from "./Css/OndcField.module.css";
+import BfCss from "./Css/BankFields.module.css";
+import FiCss from "./Css/FileInput.module.css";
 
-const BankFields = (props) => {
+const BankFields = ({ disable, setDisable, showData, setData, setError }) => {
+  const bankVerify = async (
+    authCtx,
+    setData,
+    showData,
+    disable,
+    setDisable,
+    setError
+  ) => {
+    //   const authCtx = useContext(AuthContext);
+    try {
+      const validBank = (response) => {
+        setData({
+          ...showData,
+          AcHolderName: response.data.nameAtBank,
+          BankName: response.data.bankName,
+          BranchName: response.data.branch,
+        });
+        setDisable({ ...disable, Bank: true });
+      };
+      const invalidBank = () => {
+        setError({
+          mainColor: "#FFC0CB",
+          secondaryColor: "#FF69B4",
+          symbol: "pets",
+          title: "Check it out",
+          text: "Invalid Bank Details",
+          val: true,
+        });
+      };
+      const bankDetails = {
+        // phone: authCtx.user.Phone,
+        name: showData.AcHolderName,
+        bankAccount: showData.AccountNo,
+        ifsc: showData.IfscCode,
+      };
+      if (
+        !(
+          bankDetails.name &&
+          bankDetails.bankAccount &&
+          bankDetails.ifsc &&
+          showData.BankName &&
+          showData.BranchName
+        )
+      ) {
+        setError({
+          mainColor: "#FFC0CB",
+          secondaryColor: "#FF69B4",
+          symbol: "error",
+          title: "Check it out",
+          text: "Please Fill All The Details",
+          val: true,
+        });
+      } else {
+        const response = await axios.post(
+          "/api/verification/bank",
+          bankDetails
+        );
+        response.data.success
+          ? validBank(response.data.response)
+          : invalidBank();
+      }
+    } catch (e) {
+      console.log(e);
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "An unexpected error occurred",
+        val: true,
+      });
+    }
+  };
   const authCtx = useContext(AuthContext);
   return (
-    <div className={SvCss.nestedFieldLargeDiv}>
+    <div className={OfCss.nestedFieldLargeDiv}>
       <div>Bank Details</div>
-      <div className={SvCss.nestedFieldSmallDiv}>
-        <div className={SvCss.inpDiv}>
-          <div className={SvCss.inputLabel}>A/c Holder Name.</div>
-          <div className={SvCss.inputDivVerified}>
+      <div className={OfCss.nestedFieldSmallDiv}>
+        <div className={OfCss.inpDiv}>
+          <div className={OfCss.inputLabel}>A/c Holder Name.</div>
+          <div className={BfCss.inputDivVerified}>
             <input
-              disabled={props.disable.Bank}
-              value={props.showData.AcHolderName}
+              disabled={disable.Bank}
+              value={showData.AcHolderName}
               placeholder="Account Holder Name"
               type="text"
               onChange={(e) => {
-                props.setData({
-                  ...props.showData,
+                setData({
+                  ...showData,
                   AcHolderName: e.target.value,
                 });
               }}
             />
-            {props.disable.Bank ? (
+            {disable.Bank ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -45,7 +118,7 @@ const BankFields = (props) => {
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 class="lucide lucide-badge-check"
-                className={SvCss.badgeIcon}
+                className={BfCss.badgeIcon}
               >
                 <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
                 <path d="m9 12 2 2 4-4" />
@@ -55,22 +128,22 @@ const BankFields = (props) => {
             )}
           </div>
         </div>
-        <div className={SvCss.inpDiv}>
-          <div className={SvCss.inputLabel}>IFSC CODE</div>
-          <div className={SvCss.inputDivVerified}>
+        <div className={OfCss.inpDiv}>
+          <div className={OfCss.inputLabel}>IFSC CODE</div>
+          <div className={BfCss.inputDivVerified}>
             <input
-              disabled={props.disable.Bank}
+              disabled={disable.Bank}
               placeholder="11-character IFSC Code"
-              value={props.showData.IfscCode}
+              value={showData.IfscCode}
               type="text"
               onChange={(e) => {
-                props.setData({
-                  ...props.showData,
+                setData({
+                  ...showData,
                   IfscCode: e.target.value,
                 });
               }}
             />
-            {props.disable.Bank ? (
+            {disable.Bank ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -82,7 +155,7 @@ const BankFields = (props) => {
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 class="lucide lucide-badge-check"
-                className={SvCss.badgeIcon}
+                className={BfCss.badgeIcon}
               >
                 <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
                 <path d="m9 12 2 2 4-4" />
@@ -92,21 +165,21 @@ const BankFields = (props) => {
             )}
           </div>
         </div>
-        <div className={SvCss.inpDiv}>
-          <div className={SvCss.inputLabel}>Account No.</div>
-          <div className={SvCss.inputDivVerified}>
+        <div className={OfCss.inpDiv}>
+          <div className={OfCss.inputLabel}>Account No.</div>
+          <div className={BfCss.inputDivVerified}>
             <input
-              disabled={props.disable.Bank}
+              disabled={disable.Bank}
               placeholder="Enter Account Number"
               type="number"
               onChange={(e) => {
-                props.setData({
-                  ...props.showData,
+                setData({
+                  ...showData,
                   AccountNo: e.target.value,
                 });
               }}
             />
-            {props.disable.Bank ? (
+            {disable.Bank ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -118,7 +191,7 @@ const BankFields = (props) => {
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 class="lucide lucide-badge-check"
-                className={SvCss.badgeIcon}
+                className={BfCss.badgeIcon}
               >
                 <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
                 <path d="m9 12 2 2 4-4" />
@@ -129,22 +202,22 @@ const BankFields = (props) => {
           </div>
         </div>
 
-        <div className={SvCss.inpDiv}>
-          <div className={SvCss.inputLabel}>Bank Name</div>
-          <div className={SvCss.inputDivVerified}>
+        <div className={OfCss.inpDiv}>
+          <div className={OfCss.inputLabel}>Bank Name</div>
+          <div className={BfCss.inputDivVerified}>
             <input
-              disabled={props.disable.Bank}
+              disabled={disable.Bank}
               placeholder="Name of Bank"
-              value={props.showData.BankName}
+              value={showData.BankName}
               type="text"
               onChange={(e) => {
-                props.setData({
-                  ...props.showData,
+                setData({
+                  ...showData,
                   BankName: e.target.value,
                 });
               }}
             />
-            {props.disable.Bank ? (
+            {disable.Bank ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -156,7 +229,7 @@ const BankFields = (props) => {
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 class="lucide lucide-badge-check"
-                className={SvCss.badgeIcon}
+                className={BfCss.badgeIcon}
               >
                 <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
                 <path d="m9 12 2 2 4-4" />
@@ -166,25 +239,22 @@ const BankFields = (props) => {
             )}
           </div>
         </div>
-        {
-          //Below is Branch Name field - with without verify button
-        }
-        <div className={SvCss.inpDiv}>
-          <div className={SvCss.inputLabel}>Branch Name</div>
-          <div className={SvCss.inputDivVerified}>
+        <div className={OfCss.inpDiv}>
+          <div className={OfCss.inputLabel}>Branch Name</div>
+          <div className={BfCss.inputDivVerified}>
             <input
-              disabled={props.disable.Bank}
+              disabled={disable.Bank}
               placeholder="Account Branch Name"
-              value={props.showData.BranchName}
+              value={showData.BranchName}
               type="text"
               onChange={(e) => {
-                props.setData({
-                  ...props.showData,
+                setData({
+                  ...showData,
                   BranchName: e.target.value,
                 });
               }}
             />
-            {props.disable.Bank ? (
+            {disable.Bank ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -196,7 +266,7 @@ const BankFields = (props) => {
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 class="lucide lucide-badge-check"
-                className={SvCss.badgeIcon}
+                className={BfCss.badgeIcon}
               >
                 <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
                 <path d="m9 12 2 2 4-4" />
@@ -206,24 +276,23 @@ const BankFields = (props) => {
             )}
           </div>
         </div>
-
-        <div className={SvCss.inpDiv}>
-          <p className={SvCss.inputLabel}></p>
-          <div className={SvCss.inputDivFile}>
+        <div className={OfCss.inpDiv}>
+          <p className={OfCss.inputLabel}></p>
+          <div className={FiCss.inputDivFile}>
             <button
-              className={SvCss.verifyButton}
+              className={BfCss.verifyButton}
               onClick={() => {
-                BankVerify(
+                bankVerify(
                   authCtx,
-                  props.setData,
-                  props.showData,
-                  props.disable,
-                  props.setDisable,
-                  props.setError
+                  setData,
+                  showData,
+                  disable,
+                  setDisable,
+                  setError
                 );
               }}
             >
-              {props.disable.Bank ? (
+              {disable.Bank ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -249,17 +318,8 @@ const BankFields = (props) => {
     </div>
   );
 };
-
 BankFields.propTypes = {
-  props: PropTypes.shape({
-    disable: PropTypes.shape({
-      Pincode: PropTypes.bool,
-      Pan: PropTypes.bool,
-      Gstin: PropTypes.bool,
-      Bank: PropTypes.bool,
-    }),
-    showData: PropTypes.object,
-  }),
+  disable: PropTypes.object,
+  showData: PropTypes.object,
 };
-
 export default BankFields;

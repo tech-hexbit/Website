@@ -1,27 +1,37 @@
 import React from "react";
+
 import PropTypes from "prop-types";
 
 // css
-import SvCss from "./../../Pages/Css/StoreVerify.module.css";
+import VfCss from "./Css/VerifiedFields.module.css";
 
-function VerifiedFields(props) {
+function VerifiedFields({
+  label,
+  disable,
+  type,
+  name,
+  showData,
+  setData,
+  placeholder,
+  verifyPin,
+}) {
   return (
-    <div className={SvCss.inpDiv}>
-      <p className={SvCss.inputLabel}>{props.label}</p>
-      <div className={SvCss.inputDivVerified}>
+    <div className={VfCss.inpDiv}>
+      <p className={VfCss.inputLabel}>{label}</p>
+      <div className={VfCss.inputDivVerified}>
         <input
-          disabled={props.disable.Pincode}
-          type={props.type}
-          name={props.name}
-          value={props.showData[props.name]}
+          disabled={disable.Pincode}
+          type={type}
+          name={name}
+          value={showData[name]}
           id=""
-          placeholder={props.placeholder}
+          placeholder={placeholder}
           onChange={(e) => {
-            props.setData({ ...props.showData, [props.name]: e.target.value });
+            setData({ ...showData, name: e.target.value });
           }}
         />
 
-        {props.verifyPin ? (
+        {verifyPin ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -33,7 +43,7 @@ function VerifiedFields(props) {
             stroke-linecap="round"
             stroke-linejoin="round"
             class="lucide lucide-badge-check"
-            className={SvCss.badgeIcon}
+            className={VfCss.badgeIcon}
           >
             <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
             <path d="m9 12 2 2 4-4" />
@@ -45,44 +55,36 @@ function VerifiedFields(props) {
     </div>
   );
 }
-
-const GrpVerifiedFields = (props) => {
+const GrpVerifiedFields = ({ disable, showData, setData, verifyPin }) => {
   return (
     <>
       <VerifiedFields
         label="City"
-        disable={props.disable}
+        disable={disable}
         type="text"
         name="City"
-        showData={props.showData}
-        setData={props.setData}
+        showData={showData}
+        setData={setData}
         placeholder="Your City"
-        verifyPin={props.verifyPin}
+        verifyPin={verifyPin}
       />
       <VerifiedFields
         label="State"
-        disable={props.disable}
+        disable={disable}
         type="text"
         name="State"
-        showData={props.showData}
-        setData={props.setData}
+        showData={showData}
+        setData={setData}
         placeholder="Your State"
-        verifyPin={props.verifyPin}
+        verifyPin={verifyPin}
       />
     </>
   );
 };
-
-VerifiedFields.propTypes = {
-  props: PropTypes.shape({
-    label: PropTypes.string,
-    disable: PropTypes.object,
-    type: PropTypes.string,
-    name: PropTypes.string,
-    showData: PropTypes.object,
-    placeholder: PropTypes.string,
-    verifyPin: PropTypes.bool,
-  }),
+GrpVerifiedFields.propTypes = {
+  disable: PropTypes.object,
+  showData: PropTypes.object,
+  verifyPin: PropTypes.bool,
 };
 
 export default GrpVerifiedFields;

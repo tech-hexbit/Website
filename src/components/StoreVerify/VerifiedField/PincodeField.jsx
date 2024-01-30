@@ -1,11 +1,13 @@
 import React from "react";
+
 import PropTypes from "prop-types";
 
 //axios
 import axios from "axios";
 
 //css
-import SvCss from "../../Pages/Css/StoreVerify.module.css";
+import VfCss from "./Css/VerifiedFields.module.css";
+import PfCss from "./Css/PincodeField.module.css";
 
 const pincodeVerify = async ({
   setData,
@@ -25,7 +27,6 @@ const pincodeVerify = async ({
       setDisable({ ...disable, Pincode: true });
       setVerify(true);
     };
-
     const invalidPin = () => {
       setError({
         mainColor: "#FFC0CB",
@@ -37,13 +38,12 @@ const pincodeVerify = async ({
       });
       setVerify(false);
     };
-
     const response = await axios.get(
       `https://api.postalpincode.in/pincode/${showData.Pincode}`
     );
     response.data[0].PostOffice ? validPin({ response }) : invalidPin();
   } catch (e) {
-    console.log(e);
+    // console.log(e);
   }
 };
 
@@ -59,9 +59,9 @@ export default function PincodeField({
   return (
     <div>
       {showData.Pincode.length >= 6 ? (
-        <div className={SvCss.inpDiv}>
-          <p className={SvCss.inputLabel}>Pincode</p>
-          <div className={SvCss.inputDivPincode}>
+        <div className={VfCss.inpDiv}>
+          <p className={VfCss.inputLabel}>Pincode</p>
+          <div className={PfCss.inputDivPincode}>
             <input
               disabled={disable.Pincode}
               type="number"
@@ -75,7 +75,7 @@ export default function PincodeField({
             />
             <div>
               <button
-                className={SvCss.verifyButton}
+                className={PfCss.verifyButton}
                 onClick={() => {
                   pincodeVerify({
                     setData,
@@ -111,9 +111,9 @@ export default function PincodeField({
           </div>
         </div>
       ) : (
-        <div className={SvCss.inpDiv}>
-          <p className={SvCss.inputLabel}>Pincode</p>
-          <div className={SvCss.inputDivPincode}>
+        <div className={VfCss.inpDiv}>
+          <p className={VfCss.inputLabel}>Pincode</p>
+          <div className={PfCss.inputDivPincode}>
             <input
               disabled={disable.Pincode}
               type="number"
