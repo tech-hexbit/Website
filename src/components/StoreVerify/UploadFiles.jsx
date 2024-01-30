@@ -11,13 +11,9 @@ import EtCss from "./../Dashboard/Profile/Css/EditProfile.module.css";
 
 export default function UploadFiles({
   label,
-  placeholder,
-  //   handleImage,
   val,
-  image,
   setImageUpload,
   imageUpload,
-  handleClicksValue,
 }) {
   const [imageUploadPart, setImageUploadPart] = useState();
 
