@@ -24,19 +24,18 @@ import Categories from "./../components/Dashboard/Categories";
 import AddProduct from "./../components/Dashboard/AddProduct";
 import Dashboard from "./../components/Dashboard/DashboardMain";
 import Orderdetails from "./../components/Dashboard/Orderdetails";
+import ProductsPage from "./../components/ProductsPage/ProductsPage";
 import VerifyEmail from "../components/Dashboard/MainParts/VerifyEmail";
 import HelpDeskTable from "./../components/Dashboard/HelpDesk/HelpDeskFormTable";
 //          || Admin
+import Payment from "../components/Admin/Payment";
 import TicketAdmin from "./../components/Admin/Ticket";
 import SupportAdmin from "./../components/Admin/Support";
 import SellersAdmin from "./../components/Admin/Sellers";
 
-import PaymentTable from "../components/Admin/PayDetails/PaymentTable";
-
 //          || Super Admin
 import FrontPage from "./../components/MainAdmin/FrontPage";
-import SellerInfo from "./../components/MainAdmin/SellerInfo";
-
+import SelectSellerDetail from "../components/Admin/Sellers/Seller Main/SelectSellerDetail";
 
 // state
 import AuthContext from "./../store/auth-context";
@@ -47,8 +46,9 @@ import { Alert } from "./../MicroInteraction/Alert";
 
 // Css
 import PCss from "./Css/Profile.module.css";
-
-
+import SupportNew from "../components/Dashboard/SupportNew";
+import SellerInfo from "../components/MainAdmin/SellerInfo";
+import HelpDeskNew from "../components/Dashboard/HelpDeskNew";
 
 export default function Profile() {
   const [load, setLoad] = useState(false);
@@ -113,7 +113,7 @@ export default function Profile() {
       <div className={PCss.mDiv}>
         <UserSideBar />
 
-        {authCtx.user.Store[0].StoreID.validation ? (
+        {!authCtx.user.Store[0].StoreID.validation ? (
           <>
             <div className={PCss.CDiv}>
               {/* email verification */}
@@ -170,7 +170,7 @@ export default function Profile() {
                     <Route path="/admin/tickets" element={<TicketAdmin />} />
                     <Route path="/admin/support" element={<SupportAdmin />} />
                     <Route path="/admin/sellers" element={<SellersAdmin />} />
-                    <Route path="/admin/paymentdetails" element={<PaymentTable />} />
+                    <Route path="/admin/paymentdetails" element={<Payment />} />
                   </>
                 )}
 
@@ -183,9 +183,18 @@ export default function Profile() {
                       element={<SellersAdmin />}
                     />
                     <Route
+                      path="/admin/super/Support"
+                      element={<SupportNew />}
+                    />
+                    <Route
+                      path="/admin/super/HelpDesk"
+                      element={<HelpDeskNew />}
+                    />
+                    <Route
                       path="/admin/super/SellerInfo"
                       element={<SellerInfo />}
                     />
+                    <Route path="/products/:id" element={<ProductsPage />} />
                   </>
                 )}
 
@@ -200,6 +209,7 @@ export default function Profile() {
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/Inventory" element={<Categories />} />
                     <Route path="/addProduct" element={<AddProduct />} />
+                    <Route path="/products/:id" element={<ProductsPage />} />
                     <Route path="/Payment/Details" element={<PayDetails />} />
                     <Route path="/Payment/Request" element={<PayRequest />} />
                     <Route

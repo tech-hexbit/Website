@@ -1,21 +1,24 @@
-// import SvCss from "../Css/StoreVerify.module.css";
 import React from "react";
 import PropTypes from "prop-types";
-import SvCss from "../../Pages/Css/StoreVerify.module.css";
-const TimingField = (props) => {
+
+//css
+import OfCss from "./Css/OndcField.module.css";
+import TfCss from "./Css/TimingField.module.css";
+
+export default function TimingField({ showData, setData }) {
   return (
-    <div className={SvCss.timing_large_div}>
-      <p className={SvCss.input_label}>Store Timing</p>
-      <div className={SvCss.timing_small_div}>
+    <div className={TfCss.timingLargeDiv}>
+      <p className={OfCss.inputLabel}>Store Timing</p>
+      <div className={TfCss.timingSmallDiv}>
         <input
           type="time"
-          name="Store_Timing"
-          value={props.showData.StoreTimingStart}
+          name="StoreTiming"
+          value={showData.StoreTimingStart}
           id=""
           placeholder="0900"
           onChange={(e) => {
-            props.setData({
-              ...props.showData,
+            setData({
+              ...showData,
               StoreTimingStart: e.target.value,
             });
           }}
@@ -23,12 +26,12 @@ const TimingField = (props) => {
         <input
           type="time"
           name="days"
-          value={props.showData.StoreTimingEnd}
+          value={showData.StoreTimingEnd}
           id=""
           placeholder="1800"
           onChange={(e) => {
-            props.setData({
-              ...props.showData,
+            setData({
+              ...showData,
               StoreTimingEnd: e.target.value,
             });
           }}
@@ -36,8 +39,8 @@ const TimingField = (props) => {
       </div>
     </div>
   );
-};
+}
+
 TimingField.propTypes = {
   showData: PropTypes.object,
 };
-export default TimingField;

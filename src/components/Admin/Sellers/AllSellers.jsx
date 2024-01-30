@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 
 // components
 import SellersDetails from "./SellersDetails";
+import SellerDetail from "./Seller Main/SellerDetail";
 
 // MicroInteraction
 import Load from "./../../../MicroInteraction/LoadBlack";
 
 // css
 import SelCss from "./../Css/Sellers.module.css";
+
 
 export default function AllSellers(props) {
   const [show, hide] = useState({ state: false, val: "" });
@@ -97,7 +99,8 @@ export default function AllSellers(props) {
 
       <div className={show.state ? "yesProductsPage" : "noProductsPage"}>
         {show ? (
-          <SellersDetails hide={hide} show={show} setLoad={props.setLoad} />
+          // <SellersDetails hide={hide} show={show} setLoad={props.setLoad} />
+          <SellerDetail hide={hide} show={show} setLoad={props.setLoad} />
         ) : (
           ""
         )}

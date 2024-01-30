@@ -1,12 +1,18 @@
-// import SvCss from "../Css/StoreVerify.module.css";
 import React from "react";
-import SvCss from "../../Pages/Css/StoreVerify.module.css";
-import axios from "axios";
+
 import PropTypes from "prop-types";
+
+//axios
+import axios from "axios";
+
+//css
+import VfCss from "./Css/VerifiedFields.module.css";
+import PfCss from "./Css/PincodeField.module.css";
 
 const pincodeVerify = async ({
   setData,
   showData,
+  disable,
   setDisable,
   setVerify,
   setError,
@@ -18,14 +24,14 @@ const pincodeVerify = async ({
         State: response.data[0].PostOffice[0].State,
         City: response.data[0].PostOffice[0].Name,
       });
-      setDisable(true);
+      setDisable({ ...disable, Pincode: true });
       setVerify(true);
     };
     const invalidPin = () => {
       setError({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
-        symbol: "pets",
+        symbol: "error",
         title: "Check it out",
         text: "Invalid pincode",
         val: true,
@@ -40,7 +46,8 @@ const pincodeVerify = async ({
     // console.log(e);
   }
 };
-const PincodeField = ({
+
+export default function PincodeField({
   showData,
   setData,
   verifyPin,
@@ -48,15 +55,15 @@ const PincodeField = ({
   setDisable,
   setVerify,
   setError,
-}) => {
+}) {
   return (
     <div>
       {showData.Pincode.length >= 6 ? (
-        <div className={SvCss.inpDiv}>
-          <p className={SvCss.input_label}>Pincode</p>
-          <div className={SvCss.input_div_pincode}>
+        <div className={VfCss.inpDiv}>
+          <p className={VfCss.inputLabel}>Pincode</p>
+          <div className={PfCss.inputDivPincode}>
             <input
-              disabled={disable}
+              disabled={disable.Pincode}
               type="number"
               name="Pincode"
               value={showData.Pincode}
@@ -66,13 +73,14 @@ const PincodeField = ({
                 setData({ ...showData, Pincode: e.target.value });
               }}
             />
-            <div className={SvCss.verify_button_div}>
+            <div>
               <button
-                className={SvCss.verify_button}
+                className={PfCss.verifyButton}
                 onClick={() => {
                   pincodeVerify({
                     setData,
                     showData,
+                    disable,
                     setDisable,
                     setVerify,
                     setError,
@@ -81,7 +89,6 @@ const PincodeField = ({
               >
                 {verifyPin ? (
                   <svg
-                    // className={SvCss.badge_icon}
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
                     height="24"
@@ -104,11 +111,11 @@ const PincodeField = ({
           </div>
         </div>
       ) : (
-        <div className={SvCss.inpDiv}>
-          <p className={SvCss.input_label}>Pincode</p>
-          <div className={SvCss.input_div_pincode}>
+        <div className={VfCss.inpDiv}>
+          <p className={VfCss.inputLabel}>Pincode</p>
+          <div className={PfCss.inputDivPincode}>
             <input
-              disabled={disable}
+              disabled={disable.Pincode}
               type="number"
               name="Pincode"
               value={showData.Pincode}
@@ -123,10 +130,10 @@ const PincodeField = ({
       )}
     </div>
   );
-};
+}
+
 PincodeField.propTypes = {
   showData: PropTypes.object,
   verifyPin: PropTypes.bool,
-  disable: PropTypes.bool,
+  disable: PropTypes.object,
 };
-export default PincodeField;

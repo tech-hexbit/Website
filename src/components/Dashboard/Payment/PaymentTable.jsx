@@ -75,6 +75,7 @@ export default function PaymentTable({ setSel, loadDataSave }) {
             <Load />
           </div>
         ) : (
+          
           <>
             {showData.length > 0 ? (
               <>
@@ -90,7 +91,7 @@ export default function PaymentTable({ setSel, loadDataSave }) {
                   </tr>
 
                   {showData.map((val, key) => (
-                    <tr key={key}>
+                    <tr key={key} className={pt.payRes}>
                       <td data-cell="tracking Id">#{val._id.slice(-4)}</td>
                       <td data-cell="name">{val.ONDCBilling.name}</td>
                       <td data-cell="date">{val.when.date}</td>
@@ -156,6 +157,7 @@ export default function PaymentTable({ setSel, loadDataSave }) {
                     </tr>
                   ))}
                 </table>
+              
               </>
             ) : (
               <div className="loadCenterDiv" id="loadPadding">

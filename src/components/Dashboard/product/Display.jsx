@@ -90,6 +90,20 @@ export default function Display({
 
   return (
     <>
+      {/* {showProductDel.state ? (
+        <>
+          <div
+            className={
+              showProductDel.state ? "yesProductsPage" : "noProductsPage"
+            }
+          >
+            <ProductsPage
+              id={showProductDel.id}
+              setProductDel={setProductDel}
+            />
+          </div>
+        </>
+      ) : ( */}
       <div
         className={DCss.mainDiv}
         id={showProductDel.state ? "yesProductsPage" : "noProductsPage"}
@@ -181,27 +195,32 @@ export default function Display({
                         <>
                           <tr key={key}>
                             <td className={DCss.row} id={DCss.col1}>
-                              <div
-                                className={DCss.col1}
-                                onClick={() => {
-                                  setProductDel({ state: true, id: val._id });
-                                }}
+                              <Link
+                                to={`/me/products/${val._id}`}
+                                className="LinkStyle"
                               >
-                                <div className={DCss.image}>
-                                  <img
-                                    src={val.descriptor.images[0]}
-                                    className={DCss.imgTag}
-                                  />
-                                </div>
-                                <div className={DCss.col1Text}>
-                                  <div className={DCss.textTop}>
-                                    {val.descriptor.name}
+                                <div
+                                  className={DCss.col1}
+                                  // onClick={() => {
+                                  //   setProductDel({ state: true, id: val._id });
+                                  // }}
+                                >
+                                  <div className={DCss.image}>
+                                    <img
+                                      src={val.descriptor.images[0]}
+                                      className={DCss.imgTag}
+                                    />
                                   </div>
-                                  <div className={DCss.textBottom}>
-                                    Category : {val.category_id}
+                                  <div className={DCss.col1Text}>
+                                    <div className={DCss.textTop}>
+                                      {val.descriptor.name}
+                                    </div>
+                                    <div className={DCss.textBottom}>
+                                      Category : {val.category_id}
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
+                              </Link>
                             </td>
                             <td className={DCss.row} id={DCss.price}>
                               ₹ {val.price.maximum_value.toFixed(2)}
@@ -269,9 +288,12 @@ export default function Display({
                             return (
                               <div className={cardDisplay.card}>
                                 <div
-                                  onClick={() => {
-                                    setProductDel({ state: true, id: val._id });
-                                  }}
+                                // onClick={() => {
+                                // setProductDel({
+                                //   state: true,
+                                //   id: val._id,
+                                // });
+                                // }}
                                 >
                                   <div className={cardDisplay.imgDiv}>
                                     <img
@@ -418,13 +440,7 @@ export default function Display({
           </button>
         </div>
       </div>
-
-      {/* Product Details */}
-      <div
-        className={showProductDel.state ? "yesProductsPage" : "noProductsPage"}
-      >
-        <ProductsPage id={showProductDel.id} setProductDel={setProductDel} />
-      </div>
+      {/* )} */}
     </>
   );
 }

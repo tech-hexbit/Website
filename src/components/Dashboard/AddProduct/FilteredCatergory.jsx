@@ -7,7 +7,6 @@ export default function FilteredCatergory({
   selectedCategories,
   onCategoryClick,
 }) {
-  console.log(selectedCategories);
   return (
     <>
       <article>

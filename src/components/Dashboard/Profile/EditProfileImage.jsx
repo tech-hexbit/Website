@@ -41,8 +41,6 @@ export default function EditProfileImage(props) {
   const onSubmit = async () => {
     setLoad(true);
 
-    console.log("first");
-
     if (imageUpload) {
       const formData = new FormData();
       formData.append("images", imageUpload);
