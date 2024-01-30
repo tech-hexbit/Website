@@ -96,7 +96,7 @@ export default function Table() {
                   <th>Action</th>
                 </tr>
                 {filteredRowItem.map((item, index) => (
-                  <tr key={index}>
+                  <tr key={index} className={Gptable.payRes}>
                     <td data-cell="ref no">#HX{item._id.slice(-5)}</td>
                     <td data-cell="order id">{item.StoreID}</td>
                     <td data-cell="name">{item.StoreName}</td>
@@ -133,7 +133,7 @@ export default function Table() {
                 <th>Status</th>
               </tr>
               {data.map((item, index) => (
-                <tr key={index}>
+                <tr key={index} className={Gptable.payRes}>
                   <td data-cell="ref no">#HX{item._id.slice(-5)}</td>
                   <td data-cell="order id">{item.StoreID}</td>
                   <td data-cell="name">{item.StoreName}</td>
