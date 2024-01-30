@@ -1,5 +1,4 @@
 // import React, { useRef } from "react";
-// import PropTypes from "prop-types";
 
 // //css
 // import FiCss from "./Css/FileInput.module.css";
@@ -111,9 +110,32 @@
 // export default ImgInputList;
 
 import React from "react";
+import PropTypes from "prop-types";
+
+//component
+import UploadFiles from "./UploadFiles";
 
 export default function FileInput({ images, setImages }) {
-  return <div>FileInput</div>;
+  const [imageUpload, setImageUpload] = useState();
+
+  const handleImageCheque = (e) => {
+    setImages({ ...images, imageUploadCheque: e.target.files[0] });
+  };
+
+  return (
+    <>
+      <UploadFiles
+        label="Upload Cancelled Cheque"
+        placeholder="Cheque"
+        handleImage={handleImageCheque}
+        fileInp={fileInp_cheque}
+        image={images.imageUploadCheque}
+        handleClicksValue="cheque"
+      />
+      <UploadFiles />
+      <UploadFiles />
+    </>
+  );
 }
 
 FileInput.propTypes = {
