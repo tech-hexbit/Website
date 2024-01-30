@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import UploadFiles from "./UploadFiles";
 
 export default function FileInput({ images, setImages }) {
+  const [load, setLoad] = useState(false);
   const [imageUpload, setImageUpload] = useState({ val: "", img: "" });
   const [variants, setError] = useState({
     mainColor: "",
@@ -15,7 +16,50 @@ export default function FileInput({ images, setImages }) {
     val: false,
   });
 
-  const onSubmit = async () => {};
+  const onSubmit = async () => {
+    setLoad(true);
+
+    if (imageUpload) {
+      const formData = new FormData();
+      formData.append("images", imageUpload);
+
+      try {
+        const response = await axios.post(
+          "/api/website/auth/kyc/files/Upload",
+          formData,
+          {
+            headers: { Authorization: `${authCtx.token}` },
+          }
+        );
+
+        console.log("first");
+      } catch (error) {
+        setLoad(false);
+
+        setError({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "An Unexpected Error Occured",
+          val: true,
+        });
+
+        console.log(error);
+      }
+    } else {
+      setLoad(false);
+
+      setError({
+        mainColor: "#FFC0CB",
+        secondaryColor: "#FF69B4",
+        symbol: "pets",
+        title: "Check it out",
+        text: "Please Select your Logo",
+        val: true,
+      });
+    }
+  };
 
   return (
     <>
