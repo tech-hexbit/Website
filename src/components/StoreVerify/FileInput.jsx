@@ -42,9 +42,29 @@ export default function FileInput({ images, setImages }) {
           }
         );
 
-        console.log(response);
+        if (response.data.success) {
+          setLoad(false);
 
-        console.log("first");
+          setError({
+            mainColor: "#EDFEEE",
+            secondaryColor: "#5CB660",
+            symbol: "check_circle",
+            title: "Success",
+            text: "Updated !!",
+            val: true,
+          });
+        } else {
+          setLoad(false);
+
+          setError({
+            mainColor: "#FDEDED",
+            secondaryColor: "#F16360",
+            symbol: "error",
+            title: "Error",
+            text: "An Unexpected Error Occured",
+            val: true,
+          });
+        }
       } catch (error) {
         setLoad(false);
 
