@@ -50,7 +50,7 @@ const FileInput = ({
           className={FiCss.addImgDiv}
           onClick={() => handleClicks(handleClicksValue)}
         >
-          <div className={FiCss["text-center"]}>
+          <div className={FiCss.addImage}>
             <p>+</p>
           </div>
         </div>
@@ -101,7 +101,8 @@ const ImgInputList = ({ images, setImages }) => {
   );
 };
 ImgInputList.propTypes = {
-  images: PropTypes.object,
+  images: PropTypes.object.isRequired,
+  setImages: PropTypes.func.isRequired,
 };
 
 export default ImgInputList;

@@ -43,5 +43,6 @@ export default function TimingField({ showData, setData }) {
 }
 
 TimingField.propTypes = {
-  showData: PropTypes.object,
+  showData: PropTypes.object.isRequired,
+  setData: PropTypes.func.isRequired,
 };
