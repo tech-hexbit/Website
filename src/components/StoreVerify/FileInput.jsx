@@ -109,7 +109,7 @@
 
 // export default ImgInputList;
 
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 //component
@@ -118,8 +118,8 @@ import UploadFiles from "./UploadFiles";
 export default function FileInput({ images, setImages }) {
   const [imageUpload, setImageUpload] = useState();
 
-  const handleImageCheque = (e) => {
-    setImages({ ...images, imageUploadCheque: e.target.files[0] });
+  const handleImage = (e) => {
+    setImageUpload(e.target.files[0]);
   };
 
   return (
@@ -127,13 +127,30 @@ export default function FileInput({ images, setImages }) {
       <UploadFiles
         label="Upload Cancelled Cheque"
         placeholder="Cheque"
-        handleImage={handleImageCheque}
-        fileInp={fileInp_cheque}
+        handleImage={handleImage}
         image={images.imageUploadCheque}
         handleClicksValue="cheque"
+        setImageUpload={setImageUpload}
+        imageUpload={imageUpload}
       />
-      <UploadFiles />
-      <UploadFiles />
+      <UploadFiles
+        label="Address Proof (GSTIN)"
+        placeholder="Address"
+        handleImage={handleImage}
+        image={images.imageUploadAddress}
+        handleClicksValue="address"
+        setImageUpload={setImageUpload}
+        imageUpload={imageUpload}
+      />
+      <UploadFiles
+        label="ID Proof (PAN CARD)"
+        placeholder="PAN Card"
+        handleImage={handleImage}
+        image={images.imageUploadID}
+        handleClicksValue="id"
+        setImageUpload={setImageUpload}
+        imageUpload={imageUpload}
+      />
     </>
   );
 }
