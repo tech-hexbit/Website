@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-
 import PropTypes from "prop-types";
 
+// store
 import AuthContext from "../../store/auth-context";
 
 //axios
