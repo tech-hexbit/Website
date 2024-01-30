@@ -1,5 +1,4 @@
 import React from "react";
-
 import PropTypes from "prop-types";
 
 //css
@@ -13,6 +12,7 @@ export default function OndcField({ showData, setData }) {
       Returnable: selectedValue,
     });
   };
+
   const handleSelectChangeCancel = (event) => {
     const selectedValue = event.target.value;
     setData({
