@@ -46,9 +46,6 @@ import { Alert } from "./../MicroInteraction/Alert";
 
 // Css
 import PCss from "./Css/Profile.module.css";
-import SupportNew from "../components/Dashboard/SupportNew";
-import SellerInfo from "../components/MainAdmin/SellerInfo";
-import HelpDeskNew from "../components/Dashboard/HelpDeskNew";
 
 export default function Profile() {
   const [load, setLoad] = useState(false);
@@ -61,7 +58,7 @@ export default function Profile() {
     text: "",
     val: false,
   });
-
+  
   // scroll to top
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -178,22 +175,10 @@ export default function Profile() {
                 {authCtx.user.access === 2 && (
                   <>
                     <Route path="/admin/super/List" element={<FrontPage />} />
-                    <Route
-                      path="/admin/super/SellerKYC"
-                      element={<SellersAdmin />}
-                    />
-                    <Route
-                      path="/admin/super/Support"
-                      element={<SupportNew />}
-                    />
-                    <Route
-                      path="/admin/super/HelpDesk"
-                      element={<HelpDeskNew />}
-                    />
-                    <Route
-                      path="/admin/super/SellerInfo"
-                      element={<SellerInfo />}
-                    />
+                    <Route path="/admin/super/SellerKYC" element={<SellersAdmin />} />
+                    <Route path="/admin/super/Support" element={<SupportAdmin />} />
+                    <Route path="/admin/super/Ticket" element={<TicketAdmin/>} />
+                    <Route path="/admin/super/SellerInfo" element={<SelectSellerDetail/>} />
                     <Route path="/products/:id" element={<ProductsPage />} />
                   </>
                 )}
