@@ -1,17 +1,40 @@
-import React from "react";
+import React, { useContext, useRef, useState } from "react";
 import PropTypes from "prop-types";
+
+// MicroInteraction
+import { Alert } from "./../../../MicroInteraction/Alert";
+import Load from "./../../../MicroInteraction/Load";
 
 //css
 import FiCss from "./Css/FileInput.module.css";
 
 export default function UploadFiles({
-  fileInp,
   label,
   placeholder,
   handleImage,
   image,
   handleClicksValue,
 }) {
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
+
+  const fileInp = useRef(null);
+
+  const handleImage = (e) => {
+    console.log(e.target.files[0]);
+    setImageUpload(e.target.files[0]);
+  };
+
+  const handleClick = () => {
+    fileInp.current.click();
+  };
+
   return (
     <div className={FiCss.inputLdivFile}>
       <p className={FiCss.inputLabel}>{label}</p>
@@ -24,7 +47,7 @@ export default function UploadFiles({
           onChange={(e) => {
             handleImage(e);
           }}
-          ref={fileInp}
+          //   ref={fileInp}
         />
         {image ? (
           <img
@@ -35,10 +58,7 @@ export default function UploadFiles({
         ) : (
           ""
         )}
-        <div
-          className={FiCss.addImgDiv}
-          onClick={() => handleClicks(handleClicksValue)}
-        >
+        <div className={FiCss.addImgDiv} onClick={() => handleClick}>
           <div className={FiCss["text-center"]}>
             <p>+</p>
           </div>
