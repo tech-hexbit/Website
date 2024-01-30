@@ -18,15 +18,6 @@ export default function UploadFiles({
 }) {
   const [imageUploadPart, setImageUploadPart] = useState();
 
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
-
   const fileInp = useRef(null);
 
   const handleImage = (e) => {
