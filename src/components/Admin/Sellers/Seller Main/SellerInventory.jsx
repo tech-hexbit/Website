@@ -21,6 +21,7 @@ export default function SellerInventory() {
   const [orderlist, setorderlist] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [prodcutsCount, setProdcutsCount] = useState(0);
+  const [searchInput, setSearchInput] = useState()
 
   const authCtx = useContext(AuthContext);
 
@@ -38,7 +39,7 @@ export default function SellerInventory() {
       if (response.data.success) {
         console.log(response.data);
         setorderlist(response?.data.products)
-        setProdcutsCount(response?.data?.length);
+        setProdcutsCount(response?.data?.prodcutsCount);
 
         setLoad(false);
       } else {
@@ -67,7 +68,7 @@ export default function SellerInventory() {
 
   useEffect(() => {
     loadData();
-  }, [, currentPage, showFilter]);
+  }, [currentPage, showFilter]);
 
   useEffect(() => {
     maxPage();
@@ -76,6 +77,13 @@ export default function SellerInventory() {
   return (
     <div className={Ccss.mDiv}>
     <div className={Ccss.headerFlex}>
+    <div  className={Ccss.search_btn}>
+    {/* label>Search page</label> */}
+   
+    <input value={searchInput} placeholder="Search page" onChange={(e) => setSearchInput(e.target.value)}/>
+    <button onClick={() => setCurrentPage(searchInput)} > search</button>
+
+    </div>
         <div className={Ccss.addCsv}>
           <button onClick={() => setFilter(!showFilter)}>
             <p>

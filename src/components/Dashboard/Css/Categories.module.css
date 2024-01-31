@@ -148,7 +148,17 @@
   width: 220px;
   cursor: pointer;
 }
-
+.search_btn{
+  display: grid;
+  gap: 10px;
+}
+.search_btn input{
+  width: 100px;
+}
+.search_btn button{
+padding: 3px;
+width: 49px;
+}
 @media only screen and (max-width: 950px) {
   .tableCat th {
     display: none;
