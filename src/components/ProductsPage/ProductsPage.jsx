@@ -69,7 +69,6 @@ export default function ProductsPage() {
   };
 
   const handleClick = (index) => {
-    console.log(index);
     setSliderData(res.descriptor.images[index]);
   };
 
