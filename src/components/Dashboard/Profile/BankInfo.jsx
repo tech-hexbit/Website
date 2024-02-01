@@ -46,7 +46,7 @@ export default function BankInfo() {
   return (
     <div className={PICss.personalinfotab}>
       <div className={PICss.headingDiv}>
-        <div className={PICss.heading}>Bank info</div>
+        <div className={PICss.heading}>Bank info ({bankDetails.length})</div>
         <div className={PICss.headPlus}>+</div>
       </div>
 
