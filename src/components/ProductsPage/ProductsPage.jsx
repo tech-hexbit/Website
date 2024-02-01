@@ -15,6 +15,7 @@ import SizeBox from "../Product/SizeBox";
 import ColorBox from "../Product/ColorBox";
 import EditFeatures from "../Product/EditFeatures";
 import EditServices from "../Product/EditServices";
+import Header from "./../Dashboard/MainParts/Header";
 import RatingndReview from "../Product/RatingndReview";
 import ProductDescription from "../Product/ProductDescription";
 
@@ -23,6 +24,7 @@ import Load from "../../MicroInteraction/LoadBlack";
 
 // css
 import PPCss from "./Css/ProductPage.module.css";
+import odcss from "./../Dashboard/Css/Orderdetails.module.css";
 
 export default function ProductsPage() {
   const [res, setres] = useState();
@@ -105,28 +107,31 @@ export default function ProductsPage() {
 
   return (
     <div className={PPCss.mDiv}>
-      <p className={PPCss.AddHPTag}>
-        <span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-move-left"
-            className={PPCss.leftArrow}
-            onClick={goBack}
-          >
-            <path d="M6 8L2 12L6 16" />
-            <path d="M2 12H22" />
-          </svg>
-        </span>
-        Product Details
-      </p>
+      {/* Header */}
+      <div className={odcss.header}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="52"
+          height="52"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-chevron-left"
+          className={odcss.leftArrow}
+          onClick={goBack}
+        >
+          <path d="m15 18-6-6 6-6" />
+        </svg>
+
+        {res && (
+          <>
+            <Header name={`Product ID : #${res._id.slice(-4)}`} />
+          </>
+        )}
+      </div>
 
       {load ? (
         <div className="loadCenterDiv">
