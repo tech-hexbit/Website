@@ -20,8 +20,6 @@ export default function Revenue() {
   });
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-
     loadData();
   }, []);
 

@@ -120,11 +120,6 @@ export default function PayRequest() {
     }
   };
 
-  // scroll to top
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <>
       <div className={Payt.main}>

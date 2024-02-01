@@ -87,8 +87,6 @@ export default function Form2(props) {
         text: "Please Fill All The Details",
         val: true,
       });
-
-      window.scrollTo(0, 0);
     } else if (!verifyPin) {
       setError({
         mainColor: "#FFC0CB",
@@ -98,8 +96,6 @@ export default function Form2(props) {
         text: "Invalid pincode",
         val: true,
       });
-
-      window.scrollTo(0, 0);
     } else {
       setError({
         mainColor: "",
@@ -111,8 +107,6 @@ export default function Form2(props) {
       });
 
       props.setCount(3);
-
-      window.scrollTo(0, 0);
     }
   };
 

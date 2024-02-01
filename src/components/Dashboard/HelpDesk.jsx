@@ -13,11 +13,6 @@ import hd from "./HelpDesk/Css/HelpDesk.module.css";
 export default function HelpDesk() {
   const [submitted, setSubmitted] = useState(false);
 
-  // scroll to top
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [, submitted]);
-
   return (
     <>
       <Header name="Contact Us" />

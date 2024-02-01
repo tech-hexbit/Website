@@ -1,10 +1,9 @@
-
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
 // components
 import UpdateState from "../../../Dashboard/Sales/UpdateState";
-import Orderdetails from "../../../Dashboard/Orderdetails"
+import Orderdetails from "../../../Dashboard/Orderdetails";
 
 // state
 import AuthContext from "../../../../store/auth-context";
@@ -167,11 +166,6 @@ export default function SellerOrder() {
     loadData();
   }, [currentPage, loadDataState]);
 
-  // scroll to top
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [, currentPage]);
-
   useEffect(() => {
     maxPage();
   }, [prodcutsCount, currentPage]);
@@ -201,8 +195,6 @@ export default function SellerOrder() {
           className={osCss.mainDiv}
           id={showProductDel.state ? "yesProductsPage" : "noProductsPage"}
         >
-          
-
           <div className={osCss.middle}>
             <div className={osCss.table}>
               <table
@@ -358,14 +350,18 @@ export default function SellerOrder() {
                             return (
                               <tr key={key}>
                                 <td
-                                onClick={() => {
-                                  setProductDel({
-                                    state: true,
-                                    id: val._id,
-                                  });
-                                  setHideDel(!showDel);
-                                }}
-                                 data-cell="ID"> #{val._id.slice(-4)}</td>
+                                  onClick={() => {
+                                    setProductDel({
+                                      state: true,
+                                      id: val._id,
+                                    });
+                                    setHideDel(!showDel);
+                                  }}
+                                  data-cell="ID"
+                                >
+                                  {" "}
+                                  #{val._id.slice(-4)}
+                                </td>
                                 <td
                                   onClick={() => {
                                     setProductDel({
@@ -379,44 +375,55 @@ export default function SellerOrder() {
                                   {val.ONDCBilling.name}
                                 </td>
                                 <td
-                                onClick={() => {
-                                  setProductDel({
-                                    state: true,
-                                    id: val._id,
-                                  });
-                                  setHideDel(!showDel);
-                                }} 
-                                data-cell="PRICE">
+                                  onClick={() => {
+                                    setProductDel({
+                                      state: true,
+                                      id: val._id,
+                                    });
+                                    setHideDel(!showDel);
+                                  }}
+                                  data-cell="PRICE"
+                                >
                                   {" "}
                                   ₹ {val.amount.toFixed(2)}
                                 </td>
                                 <td
-                                onClick={() => {
-                                  setProductDel({
-                                    state: true,
-                                    id: val._id,
-                                  });
-                                  setHideDel(!showDel);
-                                }}
-                                 data-cell="ORDERED ON"> {val.when.date}</td>
-                                <td
-                                onClick={() => {
+                                  onClick={() => {
                                     setProductDel({
                                       state: true,
                                       id: val._id,
                                     });
                                     setHideDel(!showDel);
                                   }}
-                                 data-cell="PAYMENT METHOD">{val.status}</td>
+                                  data-cell="ORDERED ON"
+                                >
+                                  {" "}
+                                  {val.when.date}
+                                </td>
                                 <td
-                                onClick={() => {
+                                  onClick={() => {
                                     setProductDel({
                                       state: true,
                                       id: val._id,
                                     });
                                     setHideDel(!showDel);
                                   }}
-                                 data-cell="BUYER ">{val.buyer}</td>
+                                  data-cell="PAYMENT METHOD"
+                                >
+                                  {val.status}
+                                </td>
+                                <td
+                                  onClick={() => {
+                                    setProductDel({
+                                      state: true,
+                                      id: val._id,
+                                    });
+                                    setHideDel(!showDel);
+                                  }}
+                                  data-cell="BUYER "
+                                >
+                                  {val.buyer}
+                                </td>
 
                                 <UpdateState
                                   state={val.state}
