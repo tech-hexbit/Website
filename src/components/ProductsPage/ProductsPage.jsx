@@ -157,12 +157,7 @@ export default function ProductsPage() {
                   </svg>
 
                   <div className={PPCss.center}>
-                    <img
-                      src={sliderData}
-                      height={300}
-                      width={200}
-                      className={PPCss.image}
-                    />
+                    <img src={sliderData} className={PPCss.image} />
                   </div>
 
                   <svg
