@@ -113,3 +113,18 @@
     top: 0px;
   }
 }
+
+@media only screen and (max-width: 500px) {
+  .mDiv {
+    flex-direction: column;
+    gap: 10px 0px;
+  }
+
+  .LinkDiv {
+    width: 100%;
+  }
+
+  .aTag {
+    float: right;
+  }
+}
