@@ -70,23 +70,27 @@ export default function ProductsPage() {
 
   const handleClick = (index) => {
     console.log(index);
-    setSliderData(images[index]);
+    setSliderData(res.descriptor.images[index]);
   };
 
   const handleLeft = () => {
-    const currentIndex = images.findIndex((img) => img.id === sliderData.id);
+    const currentIndex = res.descriptor.images.findIndex(
+      (img) => img.id === sliderData.id
+    );
     if (currentIndex === -1) {
       return;
     }
-    const previousIndex = (currentIndex - 1 + images.length) % images.length;
-    setSliderData(images[previousIndex]);
+    const previousIndex =
+      (currentIndex - 1 + res.descriptor.images.length) %
+      res.descriptor.images.length;
+    setSliderData(res.descriptor.images[previousIndex]);
   };
 
   const handleNext = () => {
-    if (sliderData.id === images.length - 1) {
-      setSliderData(images[0]);
+    if (sliderData.id === res.descriptor.images.length - 1) {
+      setSliderData(res.descriptor.images[0]);
     } else {
-      setSliderData(images[sliderData.id + 1]);
+      setSliderData(res.descriptor.images[sliderData.id + 1]);
     }
   };
 
@@ -95,6 +99,10 @@ export default function ProductsPage() {
 
     setChange(false);
   }, [, change]);
+
+  useEffect(() => {
+    console.log(sliderData);
+  }, [sliderData]);
 
   return (
     <div className={PPCss.mDiv}>
@@ -181,7 +189,7 @@ export default function ProductsPage() {
                     <img
                       src={data}
                       key={key}
-                      onClick={() => handleClick(i)}
+                      onClick={() => handleClick(key)}
                       className={PPCss.imgs}
                     />
                   ))}
