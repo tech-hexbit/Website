@@ -52,7 +52,7 @@ export default function ProductsPage() {
         if (response.data.success) {
           setLoad(false);
 
-          console.log(response.data.ProductDetail);
+          console.log(response.data.ProductDetail.descriptor.images);
 
           setres(response?.data?.ProductDetail);
         } else {
@@ -177,7 +177,7 @@ export default function ProductsPage() {
                   </svg>
                 </div>
                 <div className={PPCss.imageContainer}>
-                  {images.map((data, i) => (
+                  {res.descriptor.images.map((data, i) => (
                     <img
                       src={data.value}
                       key={data.id}
