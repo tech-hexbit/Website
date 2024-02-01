@@ -43,10 +43,6 @@ export default function BankInfo() {
     loadBankDetails();
   }, []);
 
-  useEffect(() => {
-    console.log(bankDetails);
-  }, [bankDetails]);
-
   return (
     <div className={PICss.personalinfotab}>
       <div className={PICss.heading}>Bank info</div>
@@ -97,6 +93,28 @@ export default function BankInfo() {
                     </div>
                   </div>
                 </div>
+
+                <div className={PICss.row1} id={PICss.mrow1} key={key}>
+                  {/* Branch Name */}
+                  <div className={PICss.col1}>
+                    <div className={PICss.inputheading}>Branch Name</div>
+                    <div className={PICss.infodiv}>
+                      {bank.BankDetails[0].Branch}
+                    </div>
+                  </div>
+
+                  {/* City */}
+                  <div className={PICss.col1}>
+                    <div className={PICss.inputheading}>City</div>
+                    <div className={PICss.infodiv}>
+                      {bank.BankDetails[0].City}
+                    </div>
+                  </div>
+                </div>
+
+                {key !== bankDetails.length - 1 && (
+                  <div className={PICss.Line1}></div>
+                )}
               </>
             ))}
           </>
