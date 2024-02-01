@@ -13,7 +13,6 @@ import Des from "../Product/Des";
 import Offers from "../Product/Offers";
 import SizeBox from "../Product/SizeBox";
 import ColorBox from "../Product/ColorBox";
-import UpdateLabel from "../Product/UpdateLabel";
 import EditFeatures from "../Product/EditFeatures";
 import EditServices from "../Product/EditServices";
 import RatingndReview from "../Product/RatingndReview";
@@ -29,6 +28,7 @@ export default function ProductsPage() {
   const [res, setres] = useState();
   const [load, setLoad] = useState(false);
   const [change, setChange] = useState(false);
+  const [sliderData, setSliderData] = useState([]);
 
   const { id } = useParams();
 
@@ -66,39 +66,6 @@ export default function ProductsPage() {
     }
   };
 
-  useEffect(() => {
-    loadProducts();
-
-    window.scrollTo(0, 0);
-
-    setChange(false);
-  }, [, change]);
-
-  const images = [
-    {
-      id: 0,
-      value:
-        "https://rukminim2.flixcart.com/image/832/832/kq18n0w0/mobile/u/w/b/narzo-30-rmx2156-realme-original-imag45ymfpry9ecq.jpeg?q=70&crop=false",
-    },
-    {
-      id: 1,
-      value:
-        "https://rukminim2.flixcart.com/image/832/832/kq18n0w0/mobile/7/y/i/narzo-30-rmx2156-realme-original-imag45ymgsgjtqux.jpeg?q=70&crop=false",
-    },
-    {
-      id: 3,
-      value:
-        "https://rukminim2.flixcart.com/image/832/832/kq18n0w0/mobile/7/q/e/narzo-30-rmx2156-realme-original-imag45ymbhypjf8e.jpeg?q=70&crop=false",
-    },
-    {
-      id: 4,
-      value:
-        "https://rukminim2.flixcart.com/image/832/832/kq18n0w0/mobile/z/x/f/narzo-30-rmx2156-realme-original-imag45ymjupkgkaq.jpeg?q=70&crop=false",
-    },
-  ];
-
-  const [sliderData, setSliderData] = useState(images[0]);
-
   const handleClick = (index) => {
     console.log(index);
     setSliderData(images[index]);
@@ -120,6 +87,12 @@ export default function ProductsPage() {
       setSliderData(images[sliderData.id + 1]);
     }
   };
+
+  useEffect(() => {
+    loadProducts();
+
+    setChange(false);
+  }, [, change]);
 
   return (
     <div className={PPCss.mDiv}>
