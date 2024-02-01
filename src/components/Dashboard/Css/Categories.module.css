@@ -149,15 +149,19 @@
   cursor: pointer;
 }
 .search_btn{
-  display: grid;
-  gap: 10px;
+  display: flex;
+  gap: 8px;
 }
 .search_btn input{
-  width: 100px;
+  width: 58%;
+  padding: 6px;
+  display: grid;
+  align-items: center;
 }
 .search_btn button{
-padding: 3px;
-width: 49px;
+    cursor: pointer;
+    height: 100%;
+    width: 24%;
 }
 @media only screen and (max-width: 950px) {
   .tableCat th {
@@ -219,6 +223,9 @@ width: 49px;
     padding: 12px;
     width: 50px;
     font-weight: bold;
+  }
+  .search_btn {
+    display: grid;
   }
 }
 
