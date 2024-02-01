@@ -64,38 +64,57 @@ export default function Header() {
     <>
       <div className={HPCss.background}>
         <div className={HPCss.mDiv}>
-          <div className={HPCss.ImgmDiv}>
-            <img src={authCtx.user.image} alt="" className={HPCss.imgHeaderP} />
+          <div className={HPCss.contentDivHead}>
+            <div className={HPCss.ImgmDiv}>
+              <img
+                src={authCtx.user.image}
+                alt=""
+                className={HPCss.imgHeaderP}
+              />
 
-            {load ? (
-              ""
-            ) : (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-pencil"
-                className={HPCss.editIcon}
-                onClick={() => {
-                  setEdit(!showEdit);
-                }}
-              >
-                <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
-                <path d="m15 5 4 4" />
-              </svg>
-            )}
+              {load ? (
+                ""
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-pencil"
+                  className={HPCss.editIcon}
+                  onClick={() => {
+                    setEdit(!showEdit);
+                  }}
+                >
+                  <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+                  <path d="m15 5 4 4" />
+                </svg>
+              )}
+            </div>
+            <div className={HPCss.delHeader}>
+              <p className={HPCss.delPName}>
+                <b>{authCtx.user.BusinessName}</b>
+              </p>
+              <p className={HPCss.delDes}>{authCtx.user.GSTIN}</p>
+            </div>
           </div>
-          <div className={HPCss.delHeader}>
-            <p className={HPCss.delPName}>
-              <b>{authCtx.user.BusinessName}</b>
-            </p>
-            <p className={HPCss.delDes}>{authCtx.user.GSTIN}</p>
+          <div className={HPCss.LinkDiv}>
+            <a
+              href="https://youtu.be/ZRwQDJPVwqI?si=qhwgMVUzL63W6N30"
+              target="_blank"
+              className={HPCss.aTag}
+            >
+              <img
+                src="https://merchant.cashfree.com/merchants/44383a761979b571cb9b.svg"
+                alt="ytIcon"
+              />
+              <p className={HPCss.LinkLabel}>Working</p>
+            </a>
           </div>
         </div>
 
