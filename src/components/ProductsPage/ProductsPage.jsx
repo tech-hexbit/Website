@@ -52,7 +52,7 @@ export default function ProductsPage() {
         if (response.data.success) {
           setLoad(false);
 
-          console.log(response.data.ProductDetail.descriptor.images);
+          setSliderData(response.data.ProductDetail.descriptor.images);
 
           setres(response?.data?.ProductDetail);
         } else {
