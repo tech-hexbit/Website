@@ -1,5 +1,5 @@
-import React, { useState, useContext } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
 
 // css
 import style from "./Css/MobileHeader.module.css";
@@ -12,12 +12,19 @@ const MobileHeader = () => {
   const [count, setCount] = useState(false);
 
   const authCtx = useContext(AuthContext);
+
   const redirect = useNavigate();
+
+  let location = useLocation();
 
   const logout = async () => {
     redirect("/signIn");
     authCtx.logout();
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   return (
     <div className={style.mobileNav}>

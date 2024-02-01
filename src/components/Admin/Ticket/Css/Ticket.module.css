@@ -53,8 +53,14 @@
     font-weight: 700;
     font-size: 12px;
   }
-  
+  .loading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+ 
   /* media queries */
+ /* media queries */
 @media (max-width: 1050px) {
 
   .main {

@@ -127,6 +127,8 @@ export default function OverallSales() {
     const newSortOrder = sortDateOrder === "asc" ? "desc" : "asc";
     setSortDateOrder(newSortOrder);
 
+    console.log(newSortOrder);
+
     const sortedOrderDel = [...orderDel].sort((a, b) => {
       if (newSortOrder === "asc") {
         return new Date(a.when.date) - new Date(b.when.date);
@@ -178,11 +180,6 @@ export default function OverallSales() {
     loadData();
   }, [currentPage, loadDataState]);
 
-  // scroll to top
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [, currentPage]);
-
   useEffect(() => {
     maxPage();
   }, [prodcutsCount, currentPage]);
@@ -193,7 +190,6 @@ export default function OverallSales() {
   }, [buyer]);
 
   useEffect(() => {
-    console.log(filters);
     loadData();
   }, [filters]);
 

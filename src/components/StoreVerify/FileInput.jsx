@@ -1,60 +1,139 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 
-// css
-import SvCss from "../../Pages/Css/StoreVerify.module.css";
+// axios
+import axios from "axios";
 
-export default function FileInput(props) {
-  const handleClicks = (val) => {
-    if (val === "cheque") {
-      props.fileInp.current.click();
-    } else if (val === "address") {
-      props.fileInp.current.click();
-    } else if (val === "id") {
-      props.fileInp.current.click();
+// state
+import AuthContext from "./../../store/auth-context";
+import { Alert } from "./../../MicroInteraction/Alert";
+
+//component
+import UploadFiles from "./UploadFiles";
+
+export default function FileInput({ images, setImages }) {
+  const [load, setLoad] = useState(false);
+  const [imageUpload, setImageUpload] = useState({ val: "", img: "" });
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
+
+  const authCtx = useContext(AuthContext);
+
+  const onSubmit = async () => {
+    setLoad(true);
+
+    console.log(imageUpload.img);
+
+    if (imageUpload) {
+      const formData = new FormData();
+      formData.append("value", JSON.stringify(imageUpload.val));
+      formData.append("file", imageUpload.img);
+
+      try {
+        const response = await axios.post(
+          "/api/website/auth/kyc/files/Upload",
+          formData,
+          {
+            headers: { Authorization: `${authCtx.token}` },
+          }
+        );
+
+        if (response.data.success) {
+          setLoad(false);
+
+          setError({
+            mainColor: "#EDFEEE",
+            secondaryColor: "#5CB660",
+            symbol: "check_circle",
+            title: "Success",
+            text: "Updated !!",
+            val: true,
+          });
+        } else {
+          setLoad(false);
+
+          setError({
+            mainColor: "#FDEDED",
+            secondaryColor: "#F16360",
+            symbol: "error",
+            title: "Error",
+            text: "An Unexpected Error Occured",
+            val: true,
+          });
+        }
+      } catch (error) {
+        setLoad(false);
+
+        setError({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "An Unexpected Error Occured",
+          val: true,
+        });
+
+        console.log(error);
+      }
+    } else {
+      setLoad(false);
+
+      setError({
+        mainColor: "#FFC0CB",
+        secondaryColor: "#FF69B4",
+        symbol: "pets",
+        title: "Check it out",
+        text: "Please Select your Logo",
+        val: true,
+      });
     }
   };
 
+  useEffect(() => {
+    console.log(imageUpload);
+  }, [imageUpload]);
+
   return (
-    <div className={SvCss.input_ldiv_file}>
-      <p className={SvCss.input_label}>{props.label}</p>
-      <div className={SvCss.input_div_file}>
-        <input
-          className={SvCss.input_file}
-          type="file"
-          name="file"
-          placeholder={props.placeholder}
-          onChange={(e) => {
-            props.handleImage(e);
-          }}
-          ref={props.fileInp}
-        />
-        {props.image ? (
-          <img
-            src={URL.createObjectURL(props.image)}
-            alt=""
-            className={SvCss.prevImg}
-          />
-        ) : (
-          ""
-        )}
-        <div
-          className={SvCss.addImgDiv}
-          onClick={() => handleClicks(props.handleClicksValue)}
-        >
-          <div className={SvCss["text-center"]}>
-            <p>+</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <>
+      <UploadFiles
+        label="Upload Cancelled Cheque"
+        val="cancelledCheques"
+        image={images.imageUploadCheque}
+        // handleClicksValue="cheque"
+        setImageUpload={setImageUpload}
+        imageUpload={imageUpload}
+        onSubmitFun={onSubmit}
+      />
+      <UploadFiles
+        label="Address Proof (GSTIN)"
+        val="addressProof"
+        image={images.imageUploadAddress}
+        // handleClicksValue="address"
+        setImageUpload={setImageUpload}
+        imageUpload={imageUpload}
+        onSubmitFun={onSubmit}
+      />
+      <UploadFiles
+        label="ID Proof (PAN CARD)"
+        val="idProof"
+        image={images.imageUploadID}
+        // handleClicksValue="id"
+        setImageUpload={setImageUpload}
+        imageUpload={imageUpload}
+        onSubmitFun={onSubmit}
+      />
+
+      <Alert variant={variants} val={setError} />
+    </>
   );
 }
 
 FileInput.propTypes = {
-  label: PropTypes.string,
-  placeholder: PropTypes.string,
-  type1: PropTypes.string,
-  fileInp: PropTypes.object,
-  image: PropTypes.object,
+  images: PropTypes.object.isRequired,
 };

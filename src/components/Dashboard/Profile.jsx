@@ -10,11 +10,6 @@ import AuthContext from "./../../store/auth-context";
 export default function Profile() {
   const authCtx = useContext(AuthContext);
 
-  // scroll to top
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <>
       {authCtx.user.Store[0].StoreID.validation ? <Header /> : <StoreVerify />}

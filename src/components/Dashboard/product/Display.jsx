@@ -9,8 +9,6 @@ import axios from "axios";
 
 // components
 import Filter from "./Filter";
-import ProductsPage from "./../../ProductsPage/ProductsPage";
-import ProductPageNew from "../../ProductsPage/ProductPageNew";
 
 // MicroInteraction
 import Load from "./../../../MicroInteraction/LoadBlack";
@@ -32,14 +30,6 @@ export default function Display({
   const [max, setmax] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [showProductDel, setProductDel] = useState({ state: false, id: "" });
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   const authCtx = useContext(AuthContext);
 
@@ -91,20 +81,6 @@ export default function Display({
 
   return (
     <>
-      {/* {showProductDel.state ? (
-        <>
-          <div
-            className={
-              showProductDel.state ? "yesProductsPage" : "noProductsPage"
-            }
-          >
-            <ProductPageNew
-              id={showProductDel.id}
-              setProductDel={setProductDel}
-            />
-          </div>
-        </>
-      ) : ( */}
       <div
         className={DCss.mainDiv}
         id={showProductDel.state ? "yesProductsPage" : "noProductsPage"}
@@ -288,14 +264,7 @@ export default function Display({
                           {filteredlist.productList.map((val, key) => {
                             return (
                               <div className={cardDisplay.card}>
-                                <div
-                                // onClick={() => {
-                                // setProductDel({
-                                //   state: true,
-                                //   id: val._id,
-                                // });
-                                // }}
-                                >
+                                <div>
                                   <div className={cardDisplay.imgDiv}>
                                     <img
                                       src={val.descriptor.images[0]}
@@ -441,7 +410,6 @@ export default function Display({
           </button>
         </div>
       </div>
-      {/* )} */}
     </>
   );
 }

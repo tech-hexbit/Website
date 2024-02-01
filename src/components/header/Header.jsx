@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useEffect, useContext } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 // state
 import AuthContext from "../../store/auth-context";
@@ -12,6 +12,12 @@ import imgLogo from "./../../assets/logo/HexbitLogo.png";
 
 const Header = () => {
   const authCtx = useContext(AuthContext);
+
+  let location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   return (
     <>

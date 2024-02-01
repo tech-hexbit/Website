@@ -15,9 +15,9 @@ import Offers from "../Product/Offers";
 import SizeBox from "../Product/SizeBox";
 import Rating from "../Product/Rating";
 import ColorBox from "../Product/ColorBox";
-import UpdateLabel from "../Product/UpdateLabel";
 import EditFeatures from "../Product/EditFeatures";
 import EditServices from "../Product/EditServices";
+import Header from "./../Dashboard/MainParts/Header";
 import RatingndReview from "../Product/RatingndReview";
 import ProductDescription from "../Product/ProductDescription";
 
@@ -26,12 +26,13 @@ import Load from "../../MicroInteraction/LoadBlack";
 
 // css
 import PPCss from "./Css/ProductPage.module.css";
-import PPN from "./Css/ProductPageNew.module.css";
+import odcss from "./../Dashboard/Css/Orderdetails.module.css";
 
 export default function ProductsPage() {
   const [res, setres] = useState();
   const [load, setLoad] = useState(false);
   const [change, setChange] = useState(false);
+  const [sliderData, setSliderData] = useState([]);
 
   const { id } = useParams();
 
@@ -55,6 +56,8 @@ export default function ProductsPage() {
         if (response.data.success) {
           setLoad(false);
 
+          setSliderData(response.data.ProductDetail.descriptor.images[0]);
+
           setres(response?.data?.ProductDetail);
         } else {
           setLoad(false);
@@ -69,221 +72,198 @@ export default function ProductsPage() {
     }
   };
 
+  const handleClick = (index) => {
+    setSliderData(res.descriptor.images[index]);
+  };
+
+  const handleLeft = () => {
+    const currentIndex = res.descriptor.images.findIndex(
+      (img) => img.id === sliderData.id
+    );
+    if (currentIndex === -1) {
+      return;
+    }
+    const previousIndex =
+      (currentIndex - 1 + res.descriptor.images.length) %
+      res.descriptor.images.length;
+    setSliderData(res.descriptor.images[previousIndex]);
+  };
+
+  const handleNext = () => {
+    if (sliderData.id === res.descriptor.images.length - 1) {
+      setSliderData(res.descriptor.images[0]);
+    } else {
+      setSliderData(res.descriptor.images[sliderData.id + 1]);
+    }
+  };
+
   useEffect(() => {
     loadProducts();
-
-    window.scrollTo(0, 0);
 
     setChange(false);
   }, [, change]);
 
-  const images = [
-    {
-      id: 0,
-      value:
-        "https://rukminim2.flixcart.com/image/832/832/kq18n0w0/mobile/u/w/b/narzo-30-rmx2156-realme-original-imag45ymfpry9ecq.jpeg?q=70&crop=false",
-    },
-    {
-      id: 1,
-      value:
-        "https://rukminim2.flixcart.com/image/832/832/kq18n0w0/mobile/7/y/i/narzo-30-rmx2156-realme-original-imag45ymgsgjtqux.jpeg?q=70&crop=false",
-    },
-    {
-      id: 3,
-      value:
-        "https://rukminim2.flixcart.com/image/832/832/kq18n0w0/mobile/7/q/e/narzo-30-rmx2156-realme-original-imag45ymbhypjf8e.jpeg?q=70&crop=false",
-    },
-    {
-      id: 4,
-      value:
-        "https://rukminim2.flixcart.com/image/832/832/kq18n0w0/mobile/z/x/f/narzo-30-rmx2156-realme-original-imag45ymjupkgkaq.jpeg?q=70&crop=false",
-    },
-  ];
-
-  const [sliderData, setSliderData] = useState(images[0]);
-
-  const handleClick = (index) => {
-    console.log(index);
-    setSliderData(images[index]);
-  };
-
-  const handleLeft = () => {
-    const currentIndex = images.findIndex((img) => img.id === sliderData.id);
-    if (currentIndex === -1) {
-      return;
-    }
-    const previousIndex = (currentIndex - 1 + images.length) % images.length;
-    setSliderData(images[previousIndex]);
-  };
-
-  const handleNext = () => {
-    if (sliderData.id === images.length - 1) {
-      setSliderData(images[0]);
-    } else {
-      setSliderData(images[sliderData.id + 1]);
-    }
-  };
-
   return (
-    <div>
-    <div className={PPN.prodDetailMain}>
-         <div  onClick={goBack} >
-              <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6"/></svg>
-         </div>
-         <p className={PPN.prodText}>
-             Product Details
-         </p>
+    <div className={PPCss.mDiv}>
+      {/* Header */}
+      <div className={odcss.header}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="52"
+          height="52"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-chevron-left"
+          className={odcss.leftArrow}
+          onClick={goBack}
+        >
+          <path d="m15 18-6-6 6-6" />
+        </svg>
+
+        {res && (
+          <>
+            <Header name={`Product ID : #${res._id.slice(-4)}`} />
+          </>
+        )}
+      </div>
+
+      {load ? (
+        <div className="loadCenterDiv">
+          <Load />
+        </div>
+      ) : (
+        <>
+          {res ? (
+            <div className={PPCss.divDiv}>
+              <div className={PPCss.leftDiv}>
+                <div className={PPCss.upper}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="black"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-arrow-left"
+                    className={PPCss.arrow}
+                    onClick={handleLeft}
+                  >
+                    <path d="m12 19-7-7 7-7" />
+                    <path d="M19 12H5" />
+                  </svg>
+
+                  <div className={PPCss.center}>
+                    <img src={sliderData} className={PPCss.image} />
+                  </div>
+
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="black"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-arrow-right"
+                    className={PPCss.arrow}
+                    onClick={handleNext}
+                  >
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </div>
+                <div className={PPCss.imageContainer}>
+                  {res.descriptor.images.map((data, key) => (
+                    <img
+                      src={data}
+                      key={key}
+                      onClick={() => handleClick(key)}
+                      className={PPCss.imgs}
+                    />
+                  ))}
+                </div>
+                <div className={PPCss.buttons}>
+                  <button className={PPCss.button1}>GO TO INVENTORY</button>
+                  <button className={PPCss.button3}>DELETE</button>
+                </div>
+              </div>
+              <div className={PPCss.rightDiv}>
+                <p className={PPCss.titleName}>{res.descriptor.name}</p>
+                <p className={PPCss.pID}>Product id: {res._id}</p>
+                <p className={PPCss.pPublished}>Seller:seller</p>
+                <p className={PPCss.pPublished}>
+                  {" "}
+                  Published on: {res.when.date}
+                </p>
+                <div className={PPCss.boxmDiv}>
+                  <Box
+                    title="Price"
+                    value={`₹ ${res.price.maximum_value}`}
+                    up="price.maximum_value"
+                    id={res._id}
+                    setChange={setChange}
+                    placeholderLabel="Updated Price"
+                  />
+                  <Box
+                    title="Orders"
+                    value={`₹ ${res.price.maximum_value}`}
+                    up="price.maximum_value"
+                    id={res._id}
+                    setChange={setChange}
+                    placeholderLabel="Updated Orders"
+                  />
+                  <Box
+                    title="Stock"
+                    value={res.quantity.maximum.count}
+                    up="quantity.maximum.count"
+                    id={res._id}
+                    setChange={setChange}
+                    placeholderLabel="Updated Stock"
+                  />
+                  <Box
+                    title="Tax %"
+                    value={`₹ ${res.price.maximum_value}`}
+                    up="price.maximum_value"
+                    id={res._id}
+                    setChange={setChange}
+                    placeholderLabel="Updated Tax"
+                  />
+                  <Box
+                    title="Discount %"
+                    value={`₹ ${res.price.maximum_value}`}
+                    up="price.maximum_value"
+                    id={res._id}
+                    setChange={setChange}
+                    placeholderLabel="Updated Discount"
+                  />
+                </div>
+
+                <ColorBox />
+                <SizeBox />
+                <Des res={res} id={res._id} setChange={setChange} />
+                <div className={PPCss.container}>
+                  <EditFeatures label={"features"} />
+                  <EditServices label={"services"} />
+                </div>
+                <Offers />
+                <ProductDescription />
+                <RatingndReview />
+              </div>
+            </div>
+          ) : (
+            <p>No Orders</p>
+          )}
+        </>
+      )}
     </div>
-    <hr className={PPN.below} />
-
-    <div className={PPN.main}>
-    {load ? (
-     <div className="loadCenterDiv">
-       <Load />
-     </div>
-   ) : (
-   <>
-     {
-         res ? (
-             < div className={PPN.main}>
-             <div className={PPN.left}>
-               <div className={PPN.pics}>
-                 <>
-                   <img
-                   src={res.descriptor.images[0]}
-                   alt=""
-                   className={PPCss.productImg}
-                   />
-                 </>
-                 <div className={PPN.secPic}>
-                   <div>
-                     <img
-                     src={res.descriptor.images[0]}
-                     alt=""
-                     className={PPN.productImg}
-                     />
-                   </div>
-                   <div>
-                     <img
-                     src={res.descriptor.images[0]}
-                     alt=""
-                     className={PPN.productImg}
-                     />
-                   </div>
-                   <div>
-                     <img
-                     src={res.descriptor.images[0]}
-                     alt=""
-                     className={PPN.productImg}
-                     />
-                   </div>
-                   <div>
-                     <img
-                     src={res.descriptor.images[0]}
-                     alt=""
-                     className={PPN.productImg}
-                     />
-                   </div>
-                  
-                 </div>
-
-               </div>
-               <div className={PPN.btns}>
-                 <div className={PPN.goToInv}  >
-                   <Link to="/me/inventory"  className={PPN.goToInvText} >
-
-                 Go to Inventory
-                   </Link>
-                 </div>
-                 <div className={PPN.del}>
-                   Delete
-                 </div>
-               </div>
-             </div>
-             <div className={PPN.right}>
-                 <div className={PPN.prodDet}>
-                     <p className={PPN.name}>{res.descriptor.name}</p>
-                     <p className={PPN.prodId}>Product Id: {res._id} </p>
-                     <p className={PPN.prodSeller}>Seller: Adidias </p>
-                     <p className={PPN.prodMRP}>MRP: ₹ 200 </p>
-                     <p className={PPN.prodId}>Published On: {res.when.date} </p>
-                     <div className={PPN.prodBox}>
-                     <Box
-                         title="Selling Price"
-                         value={`₹ ${res.price.maximum_value}`}
-                         up="price.maximum_value"
-                         id={res._id}
-                         setChange={setChange}
-                         placeholderLabel="Updated Price"
-                     />
-                     <Box
-                         title="Orders"
-                         value={res.quantity.maximum.count}
-                         up="quantity.maximum.count"
-                         id={res._id}
-                         setChange={setChange}
-                         placeholderLabel="Updated Stock"
-                     />
-                     <Box
-                         title="Stock"
-                         value={res.quantity.maximum.count}
-                         up="quantity.maximum.count"
-                         id={res._id}
-                         setChange={setChange}
-                         placeholderLabel="Updated Stock"
-                     />
-                     <Box
-                         title="Tax %"
-                         value={res.quantity.maximum.count}
-                         up="quantity.maximum.count"
-                         id={res._id}
-                         setChange={setChange}
-                         placeholderLabel="Updated Stock"
-                     />
-                     <Box
-                         title="Discount %"
-                         value={res.quantity.maximum.count}
-                         up="quantity.maximum.count"
-                         id={res._id}
-                         setChange={setChange}
-                         placeholderLabel="Updated Stock"
-                     />
-
-                     </div>
-                     <div className={PPN.prodColor}>
-                         <ColorBox
-                             imgSrc="https://images.unsplash.com/photo-1523206489230-c012c64b2b48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80"
-                             label="Navel Blue"
-                             code="#00007c"
-                         />
-                     </div>
-                     <div className={PPN.prodSize}>
-                         <SizeBox
-                             label="S"
-                         />
-                     </div>
-                     <div className={PPN.Desc} >
-                         <Des res={res} id={res._id} setChange={setChange} />
-                     </div>
-                     <div className={PPN.prodCom} >
-                      <p className={PPN.prodComText}>
-                      Ratings & Reviews:
-                      </p>
-                         <Rating />
-                         <Rating/>
-                         <Rating/>
-                         <Rating/>
-                     </div>
-                      
-                 </div>
-             </div>
-             </div>
-         ): (
-             <p>No Orders</p>
-     )}
-   </>
-     )}
-    </div>
- </div>
   );
 }
