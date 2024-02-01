@@ -124,10 +124,10 @@ export default function OverallSales() {
   };
 
   const sortByDate = () => {
-    console.log("Sort By Date");
-
     const newSortOrder = sortDateOrder === "asc" ? "desc" : "asc";
     setSortDateOrder(newSortOrder);
+
+    console.log(newSortOrder);
 
     const sortedOrderDel = [...orderDel].sort((a, b) => {
       if (newSortOrder === "asc") {
