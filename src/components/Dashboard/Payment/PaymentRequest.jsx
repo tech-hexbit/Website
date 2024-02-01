@@ -20,10 +20,6 @@ export default function PaymentRequest({ showSel, setSel }) {
   const [load, setLoad] = useState(true);
   const [bankDetails, setBankDetails] = useState([]);
 
-  useEffect(() => {
-    loadBankDetails();
-  }, []);
-
   const authCtx = useContext(AuthContext);
 
   const loadBankDetails = async () => {
@@ -47,7 +43,9 @@ export default function PaymentRequest({ showSel, setSel }) {
     }
   };
 
-  console.log(bankDetails);
+  useEffect(() => {
+    loadBankDetails();
+  }, []);
 
   return (
     <>
