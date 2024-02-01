@@ -22,6 +22,10 @@
   border: 1px dashed #56117c;
 }
 
+#mrow1 {
+  margin-bottom: 20px;
+}
+
 .infodivPerfix {
   color: #717171;
 }
