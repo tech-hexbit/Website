@@ -151,7 +151,7 @@ export default function ProductsPage() {
 
                   <div className={PPCss.center}>
                     <img
-                      src={sliderData.value}
+                      src={sliderData}
                       height={300}
                       width={200}
                       className={PPCss.image}
@@ -177,10 +177,10 @@ export default function ProductsPage() {
                   </svg>
                 </div>
                 <div className={PPCss.imageContainer}>
-                  {res.descriptor.images.map((data, i) => (
+                  {res.descriptor.images.map((data, key) => (
                     <img
-                      src={data.value}
-                      key={data.id}
+                      src={data}
+                      key={key}
                       onClick={() => handleClick(i)}
                       className={PPCss.imgs}
                     />
