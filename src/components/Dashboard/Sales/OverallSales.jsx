@@ -126,14 +126,11 @@ export default function OverallSales() {
   const sortByDate = () => {
     const newSortOrder = sortDateOrder === "asc" ? "desc" : "asc";
     setSortDateOrder(newSortOrder);
-
-    console.log(newSortOrder);
-
     const sortedOrderDel = [...orderDel].sort((a, b) => {
       if (newSortOrder === "asc") {
-        return new Date(a.when.date) - new Date(b.when.date);
+        return a.when.date.localeCompare(b.when.date);
       } else {
-        return new Date(b.when.date) - new Date(a.when.date);
+        return b.when.date.localeCompare(a.when.date);
       }
     });
 
