@@ -101,10 +101,6 @@ export default function ProductsPage() {
     setChange(false);
   }, [, change]);
 
-  useEffect(() => {
-    console.log(sliderData);
-  }, [sliderData]);
-
   return (
     <div className={PPCss.mDiv}>
       {/* Header */}
