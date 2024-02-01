@@ -124,8 +124,6 @@ export default function OverallSales() {
   };
 
   const sortByDate = () => {
-    console.log("sortByDate");
-
     const newSortOrder = sortDateOrder === "asc" ? "desc" : "asc";
     setSortDateOrder(newSortOrder);
 
@@ -411,7 +409,10 @@ export default function OverallSales() {
                               />
                             </svg>
                           </th>
-                          <th className={osCss.payment} onClick={sortByDate}>
+                          <th
+                            className={osCss.payment}
+                            onClick={sortPaymentMethods}
+                          >
                             Payment method
                             <svg
                               className={osCss.svgTag}
