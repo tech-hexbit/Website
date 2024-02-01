@@ -149,7 +149,11 @@
 }
 
 .imgs {
-  width: 2rem;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+  border-radius: 5px;
 }
 
 .arrow {
