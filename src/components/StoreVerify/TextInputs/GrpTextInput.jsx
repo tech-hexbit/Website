@@ -48,6 +48,14 @@ const GrpTextInput = ({ showData, setData }) => {
         field="DOB"
         placeholder=""
       />
+      <TextInput
+        type="text"
+        Label="Description about your enterprise"
+        showData={showData}
+        setData={setData}
+        field="DescEnterprise"
+        placeholder="Share your vision"
+      />
     </>
   );
 };

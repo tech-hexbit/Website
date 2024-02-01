@@ -9,7 +9,7 @@ export default function OndcField({ showData, setData }) {
     const selectedValue = event.target.value;
     setData({
       ...showData,
-      Returnable: selectedValue,
+      Returnable: selectedValue === "True" ? true : false,
     });
   };
 
@@ -17,7 +17,7 @@ export default function OndcField({ showData, setData }) {
     const selectedValue = event.target.value;
     setData({
       ...showData,
-      Cancellable: selectedValue,
+      Cancellable: selectedValue === "True" ? true : false,
     });
   };
 
@@ -58,21 +58,39 @@ export default function OndcField({ showData, setData }) {
             <option>False</option>
           </select>
         </div>
-        <div className={OfCss.inpDiv}>
-          <p className={OfCss.inputLabel}>Contact Details For Consumer Care</p>
-          <input
-            type="number"
-            name="Contact Details For Customer Care"
-            value={showData.ContactDetailsForConsumerCare}
-            id=""
-            placeholder="Contact Details"
-            onChange={(e) => {
-              setData({
-                ...showData,
-                ContactDetailsForConsumerCare: e.target.value,
-              });
-            }}
-          />
+        <div className={`${OfCss.inpDiv} ${OfCss.ContactLdiv}`}>
+          <div className={OfCss.ContactDiv}>
+            <p className={OfCss.inputLabel}>Contact Details</p>
+            <input
+              type="number"
+              name="Contact Details"
+              value={showData.ContactDetails}
+              id=""
+              placeholder="Contact Details"
+              onChange={(e) => {
+                setData({
+                  ...showData,
+                  ContactDetails: e.target.value,
+                });
+              }}
+            />
+          </div>
+          <div className={OfCss.ContactDiv}>
+            <p className={OfCss.inputLabel}>Support Email</p>
+            <input
+              type="text"
+              name="Support Email"
+              value={showData.SupportEmail}
+              id=""
+              placeholder="Contact Email"
+              onChange={(e) => {
+                setData({
+                  ...showData,
+                  SupportEmail: e.target.value,
+                });
+              }}
+            />
+          </div>
         </div>
       </div>
     </div>

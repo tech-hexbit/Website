@@ -29,6 +29,7 @@ const BankFields = ({ disable, setDisable, showData, setData, setError }) => {
           AcHolderName: response.data.nameAtBank,
           BankName: response.data.bankName,
           BranchName: response.data.branch,
+          BankCity: response.data.city,
         });
         setDisable({ ...disable, Bank: true });
       };

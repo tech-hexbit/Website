@@ -6,7 +6,6 @@ import Load from "./../../MicroInteraction/LoadBlack";
 
 //css
 import FiCss from "./Css/FileInput.module.css";
-import EtCss from "./../Dashboard/Profile/Css/EditProfile.module.css";
 
 export default function UploadFiles({
   label,
@@ -52,22 +51,26 @@ export default function UploadFiles({
         <div className={imageUploadPart ? "showPrev" : "hidePrev"}>
           {imageUploadPart ? (
             <>
-              <div className={EtCss.prevImgDiv}>
-                <p className={EtCss.PreviewPTag}>Preview</p>
+              <div className={FiCss.prevImgDiv}>
+                <p className={FiCss.PreviewPTag}>Preview</p>
                 <img
                   src={URL.createObjectURL(imageUploadPart)}
                   alt=""
-                  className={EtCss.prevImg}
+                  className={FiCss.prevImg}
                 />
               </div>
             </>
           ) : (
-            ""
+            <Load />
           )}
         </div>
 
         <div className={FiCss.addImgDiv} onClick={handleClick}>
-          <div className={FiCss.textCenter}>
+          <div
+            className={`${FiCss.textCenter} ${
+              imageUploadPart ? FiCss.textCenterM : ""
+            }`}
+          >
             <p>+</p>
           </div>
         </div>
@@ -75,6 +78,7 @@ export default function UploadFiles({
         {imageUploadPart ? (
           <>
             <svg
+              // className={FiCss.uploadIcon}
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
@@ -84,7 +88,7 @@ export default function UploadFiles({
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
-              class="lucide lucide-upload"
+              class={`lucide lucide-upload ${FiCss.uploadIcon}`}
               onClick={onSubmit}
             >
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
