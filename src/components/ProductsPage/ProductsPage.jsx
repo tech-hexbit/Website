@@ -52,6 +52,8 @@ export default function ProductsPage() {
         if (response.data.success) {
           setLoad(false);
 
+          console.log(response.data.ProductDetail);
+
           setres(response?.data?.ProductDetail);
         } else {
           setLoad(false);
