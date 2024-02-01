@@ -21,16 +21,15 @@ export default function SellerInventory() {
   const [orderlist, setorderlist] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [prodcutsCount, setProdcutsCount] = useState(0);
-  const [searchInput, setSearchInput] = useState()
+  const [productName, setProductName] = useState('');
 
   const authCtx = useContext(AuthContext);
 
   const loadData = async () => {
     setLoad(true);
-    setSearchInput('');
     try {
       const response = await axios.get(
-        `/api/common/product/allproducts/${showFilter}?page=${currentPage}`,
+        `/api/common/product/allproducts/${showFilter}?page=${currentPage}&productName=${productName}`,
         {
           headers: { Authorization: `${authCtx.token}` },
         }
@@ -39,7 +38,7 @@ export default function SellerInventory() {
       if (response.data.success) {
         console.log(response.data);
         setorderlist(response?.data.products)
-        setProdcutsCount(response?.data?.prodcutsCount);
+        setProdcutsCount(response?.data?.prodcutsCount)
 
         setLoad(false);
       } else {
@@ -57,7 +56,6 @@ export default function SellerInventory() {
   const maxPage = () => {
     if (prodcutsCount > 0) {
       if (currentPage >= Math.ceil(prodcutsCount / 10)) {
-        setCurrentPage(Math.ceil(prodcutsCount / 10));
         setmax(true);
       } else {
         setmax(false);
@@ -66,8 +64,6 @@ export default function SellerInventory() {
       setmax(true);
     }
   };
-
-
 
   useEffect(() => {
     loadData();
@@ -86,13 +82,11 @@ export default function SellerInventory() {
      <div className={Ccss.search}>
                   <input
                     type="text"
-                    value={searchInput}
+                    value={productName}
                     placeholder="Search page"
-                    onChange={(e) => setSearchInput(e.target.value)}
+                    onChange={(e) => setProductName(e.target.value)}
                   />
-                  <div className={Ccss.searchBtn} onClick={() => (searchInput - 1) * 10 >= prodcutsCount  ? 
-                  setCurrentPage(Math.ceil(prodcutsCount / 10)) 
-                  : setCurrentPage(searchInput)}>
+                  <div className={Ccss.searchBtn} onClick={() => loadData()}>
                     Search
                   </div>
                 </div>

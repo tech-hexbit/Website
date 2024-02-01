@@ -309,3 +309,12 @@
     width: 47%;
   }
 }
+@media screen and (max-width : 400px){
+  .headerFlex{
+    display: grid;
+  }
+  .addCsv{
+    display: flex;
+    justify-content: center;
+  }
+}
