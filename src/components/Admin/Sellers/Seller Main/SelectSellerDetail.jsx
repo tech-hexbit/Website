@@ -1,9 +1,9 @@
 import { React, useState } from "react";
 
 // components
-import SellerInventory from "./SellerInventory";
-import SellerOrder from "./SellerOrder";
 import Sellers from "../../Sellers";
+import SellerOrder from "./SellerOrder";
+import SellerInventory from "./SellerInventory";
 
 // css
 import SSDCss from "./CSS/selectSellerDetail.module.css";
