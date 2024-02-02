@@ -100,3 +100,21 @@
     justify-content: space-evenly;
   }
 }
+
+@media only screen and (max-width : 500px){
+  .mapMDiv{
+    display: block;
+  }
+  .conDel{
+    /* position: absolute; */
+  }
+}
+@media only screen and (max-width : 400px){
+  .conDelT{
+    font-size: 11px;
+  }
+  .conDel{
+    text-align: left;
+    display: grid;
+  }
+}
