@@ -172,7 +172,7 @@ export default function Profile() {
                     <Route path="/admin/super/List" element={<FrontPage />} />
                     <Route
                       path="/admin/super/SellerKYC"
-                      element={<SellersAdmin />}
+                      element={<SellersAdmin head={true} />}
                     />
                     <Route
                       path="/admin/super/Support"
