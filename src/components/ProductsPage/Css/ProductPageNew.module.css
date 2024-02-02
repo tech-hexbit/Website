@@ -114,9 +114,10 @@
     background-color: rgb(10, 10, 172);
     text-align: center;
     padding: 10px 0px;
-   
-  }
-  .goToInvText{
+    border-radius: 5px;
+}
+.goToInvText{
+      text-decoration: none;
     color: white;
     font-size: larger;
     font-weight: 500;
@@ -129,6 +130,7 @@
     color: white;
     font-size: larger;
     font-weight: 500;
+    border-radius: 5px;
   }
 @media (max-width: 985px){
     .secPic{

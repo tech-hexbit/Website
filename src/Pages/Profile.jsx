@@ -203,6 +203,7 @@ export default function Profile() {
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/Inventory" element={<Categories />} />
                     <Route path="/addProduct" element={<AddProduct />} />
+                    {/* <Route path="/products/:id" element={<ProductsPage/>} /> */}
                     <Route path="/products/:id" element={<ProductPageNew/>} />
                     <Route path="/Payment/Details" element={<PayDetails />} />
                     <Route path="/Payment/Request" element={<PayRequest />} />

@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from "react";
-
+import { useParams, useNavigate } from "react-router-dom";
 // axios
 import axios from "axios";
 
@@ -25,21 +25,23 @@ import { Link } from "react-router-dom";
 
 function ProductPageNew(props) {
 
-    const [res, setres] = useState();
+  const [res, setres] = useState();
   const [load, setLoad] = useState(false);
   const [change, setChange] = useState(false);
+  const [sliderData, setSliderData] = useState([]);
 
-  useEffect(() => {
-    loadProducts(props.id);
-
-    window.scrollTo(0, 0);
-
-    setChange(false);
-  }, [, props.id, change]);
+  const { id } = useParams();
 
   const authCtx = useContext(AuthContext);
 
-  const loadProducts = async (id) => {
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  };
+
+
+  const loadProducts = async () => {
     if (id !== "") {
       setLoad(true);
 
@@ -50,6 +52,8 @@ function ProductPageNew(props) {
 
         if (response.data.success) {
           setLoad(false);
+
+          setSliderData(response.data.ProductDetail.descriptor.images[0]);
 
           setres(response?.data?.ProductDetail);
         } else {
@@ -64,14 +68,61 @@ function ProductPageNew(props) {
       }
     }
   };
+  const handleClick = (index) => {
+    setSliderData(res.descriptor.images[index]);
+  };
+
+  const handleLeft = () => {
+    const currentIndex = res.descriptor.images.findIndex(
+      (img) => img.id === sliderData.id
+    );
+    if (currentIndex === -1) {
+      return;
+    }
+    const previousIndex =
+      (currentIndex - 1 + res.descriptor.images.length) %
+      res.descriptor.images.length;
+    setSliderData(res.descriptor.images[previousIndex]);
+  };
+
+  const handleNext = () => {
+    if (sliderData.id === res.descriptor.images.length - 1) {
+      setSliderData(res.descriptor.images[0]);
+    } else {
+      setSliderData(res.descriptor.images[sliderData.id + 1]);
+    }
+  };
+
+  useEffect(() => {
+    loadProducts();
+
+    setChange(false);
+  }, [, change]);
+
+  const deleteproduct = async (_id) => {
+    try {
+      const response = await axios.delete(`/api/common/product/delete/${_id}`, {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+
+      if (response.status === 200) {
+        loadData();
+      } else {
+        console.log("error");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+    navigate("/me/products");
+  };
 
   return (
     <div>
        <div className={PPN.prodDetailMain}>
-            <div  onClick={() => {
-              props.setProductDel(false);
-            }} >
-                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6"/></svg>
+            <div>
+                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left"
+                 onClick={goBack}
+                 ><path d="m15 18-6-6 6-6"/></svg>
             </div>
             <p className={PPN.prodText}>
                 Product Details
@@ -138,7 +189,7 @@ function ProductPageNew(props) {
                     Go to Inventory
                       </Link>
                     </div>
-                    <div className={PPN.del}>
+                    <div className={PPN.del} onClick={() => deleteproduct(res._id)}>
                       Delete
                     </div>
                   </div>
