@@ -21,23 +21,24 @@ export default function SellerInventory() {
   const [orderlist, setorderlist] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [prodcutsCount, setProdcutsCount] = useState(0);
+  const [productName, setProductName] = useState('');
 
   const authCtx = useContext(AuthContext);
 
   const loadData = async () => {
     setLoad(true);
-
     try {
       const response = await axios.get(
-        `/api/common/product/all/${showFilter}?page=${currentPage}`,
+        `/api/common/product/allproducts/${showFilter}?page=${currentPage}&productName=${productName}`,
         {
           headers: { Authorization: `${authCtx.token}` },
         }
       );
 
       if (response.data.success) {
-        setorderlist(response?.data?.orderList);
-        setProdcutsCount(response?.data?.length);
+        console.log(response.data);
+        setorderlist(response?.data.products)
+        setProdcutsCount(response?.data?.prodcutsCount)
 
         setLoad(false);
       } else {
@@ -54,7 +55,7 @@ export default function SellerInventory() {
 
   const maxPage = () => {
     if (prodcutsCount > 0) {
-      if (currentPage === Math.ceil(prodcutsCount / 10)) {
+      if (currentPage >= Math.ceil(prodcutsCount / 10)) {
         setmax(true);
       } else {
         setmax(false);
@@ -66,7 +67,7 @@ export default function SellerInventory() {
 
   useEffect(() => {
     loadData();
-  }, [, currentPage, showFilter]);
+  }, [currentPage, showFilter])
 
   useEffect(() => {
     maxPage();
@@ -74,6 +75,48 @@ export default function SellerInventory() {
 
   return (
     <div className={Ccss.mDiv}>
+    <div className={Ccss.headerFlex}>
+    {/* label>Search page</label> */}
+    <div className={osCss.searchParent}>
+
+     <div className={Ccss.search}>
+                  <input
+                    type="text"
+                    value={productName}
+                    placeholder="Search page"
+                    onChange={(e) => setProductName(e.target.value)}
+                  />
+                  <div className={Ccss.searchBtn} onClick={() => loadData()}>
+                    Search
+                  </div>
+                </div>
+    </div>
+
+        <div className={Ccss.addCsv}>
+          <button onClick={() => setFilter(!showFilter)}>
+            <p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-arrow-down-up"
+              >
+                <path d="m3 16 4 4 4-4" />
+                <path d="M7 20V4" />
+                <path d="m21 8-4-4-4 4" />
+                <path d="M17 4v16" />
+              </svg>
+            </p>
+            <p className={Ccss.hideTxt}>Low Inventory</p>
+          </button>
+        </div>
+      </div>
       <div className={Ccss.middlecontent}>
         <div className={Ccss.middle}></div>
         <div id="wrap" className={Ccss.tableCat}>
@@ -190,7 +233,7 @@ export default function SellerInventory() {
         </button>
         <span>{currentPage}</span>
         <button
-          onClick={() => setCurrentPage(currentPage + 1)}
+          onClick={() => setCurrentPage(parseInt(currentPage) + 1)}
           disabled={max}
           className={osCss.btnnb}
         >
