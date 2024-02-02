@@ -9,6 +9,8 @@ import axios from "axios";
 
 // components
 import Filter from "./Filter";
+import ProductsPage from "./../../ProductsPage/ProductsPage";
+import ProductPageNew from "../../ProductsPage/ProductPageNew";
 
 // MicroInteraction
 import Load from "./../../../MicroInteraction/LoadBlack";
