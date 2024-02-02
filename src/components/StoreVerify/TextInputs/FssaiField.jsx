@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 
+import PropTypes from "prop-types";
+
 import AuthContext from "../../../store/auth-context";
 
 //component
@@ -27,5 +29,8 @@ const FssaiField = ({ showData, setData }) => {
     </>
   );
 };
-
+FssaiField.propTypes = {
+  showData: PropTypes.object.isRequired,
+  setData: PropTypes.func.isRequired,
+};
 export default FssaiField;

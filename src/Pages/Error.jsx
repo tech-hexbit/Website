@@ -7,11 +7,6 @@ import EC from "./Css/Error.module.css";
 import Svg from "./../assets/error/barista_at0v.svg";
 
 const Error = () => {
-  // scroll to top
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <div className={EC.mDiv}>
       <img src={Svg} alt="" srcset="" className={EC.imgDiv} />

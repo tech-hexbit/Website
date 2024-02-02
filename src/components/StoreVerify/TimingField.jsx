@@ -13,26 +13,28 @@ export default function TimingField({ showData, setData }) {
         <input
           type="time"
           name="StoreTiming"
-          value={showData.StoreTimingStart}
           id=""
           placeholder="0900"
           onChange={(e) => {
+            const timing = e.target.value;
+            const militaryTiming = timing.replace(":", "");
             setData({
               ...showData,
-              StoreTimingStart: e.target.value,
+              times: [militaryTiming, showData.times[1]],
             });
           }}
         />
         <input
           type="time"
           name="days"
-          value={showData.StoreTimingEnd}
           id=""
           placeholder="1800"
           onChange={(e) => {
+            const timing = e.target.value;
+            const militaryTiming = timing.replace(":", "");
             setData({
               ...showData,
-              StoreTimingEnd: e.target.value,
+              times: [showData.times[0], militaryTiming],
             });
           }}
         />
@@ -42,5 +44,6 @@ export default function TimingField({ showData, setData }) {
 }
 
 TimingField.propTypes = {
-  showData: PropTypes.object,
+  showData: PropTypes.object.isRequired,
+  setData: PropTypes.func.isRequired,
 };

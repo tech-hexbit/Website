@@ -1,10 +1,8 @@
-
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
 
 // components
 import UpdateState from "../../../Dashboard/Sales/UpdateState";
-import Orderdetails from "../../../Dashboard/Orderdetails"
+import Orderdetails from "../../../Dashboard/Orderdetails";
 
 // state
 import AuthContext from "../../../../store/auth-context";
@@ -48,17 +46,18 @@ export default function SellerOrder() {
   const authCtx = useContext(AuthContext);
 
   const loadData = async () => {
+    console.log("Filters in loadData:", filters);
     setLoad(true);
 
     try {
       const response = await axios.post(
-        `/api/common/Order/all?page=${currentPage}`,
+        `/api/website/admin/sellerorders?page=${currentPage}`,
         filters,
         {
           headers: { Authorization: `${authCtx.token}` },
         }
       );
-
+      console.log("API Response:", response.data);
       if (response.data.success) {
         setProdcutsCount(response?.data?.length);
         setOrderDel(response.data.orderList);
@@ -71,12 +70,12 @@ export default function SellerOrder() {
         setLoad(false);
       } else {
         setLoad(false);
-
+        console.log("API Error:", response.data.message);
         console.log(e);
       }
     } catch (e) {
       setLoad(false);
-
+      console.log("API Error:", e);
       console.log(e);
     }
   };
@@ -154,13 +153,26 @@ export default function SellerOrder() {
   };
 
   const filterData = async function (e) {
+    console.log("Search:", e.target.value);
     setSearch(e.target.value);
   };
 
   const handleChange1 = (e) => {
     const name = e.target.name;
     const value = e.target.value;
+    console.log(`Filter Change - ${name}:`, value);
     setfilters({ ...filters, [name]: value });
+  };
+
+  const searchData = (e) => {
+    if (search === "") {
+      return;
+    }
+
+    setfilters({
+      ...filters,
+      search,
+    });
   };
 
   useEffect(() => {
@@ -201,7 +213,97 @@ export default function SellerOrder() {
           className={osCss.mainDiv}
           id={showProductDel.state ? "yesProductsPage" : "noProductsPage"}
         >
-          
+          <div className={osCss.top}>
+            <div className={osCss.filters}>
+              {/* Filters */}
+              <div className={osCss.select}>
+                {/* Buyers */}
+                <div className={osCss.selectInner}>
+                  <select
+                    onChange={handleChange1}
+                    name="buyer"
+                    value={filters.buyer}
+                  >
+                    <option value="Buyer" hidden selected>
+                      Buyer
+                    </option>
+                    {unique.map((buyer) => (
+                      <option value={buyer}>{buyer}</option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Status */}
+                <div className={osCss.selectInner}>
+                  <select
+                    onChange={handleChange1}
+                    name="status"
+                    value={filters.status}
+                  >
+                    <option value="Status" hidden selected>
+                      Status
+                    </option>
+                    <option value="Created">Created</option>
+                    <option value="Accepted">Accepted</option>
+                    <option value="In-progress">In-progress</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Cancelled">Cancelled</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className={osCss.searchParent}>
+                {/* Search */}
+                <div className={osCss.search}>
+                  <input
+                    type="text"
+                    value={search}
+                    placeholder="Search order"
+                    onChange={filterData}
+                  />
+                  <div className={osCss.searchBtn} onClick={searchData}>
+                    Search
+                  </div>
+                </div>
+
+                {/* Reset */}
+                {search !== "" ||
+                filters.buyer !== "" ||
+                filters.status !== "" ? (
+                  <>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-filter-x"
+                      className={osCss.resetFilBtn}
+                      onClick={() => {
+                        setSearch("");
+                        setfilters((prevFilters) => ({
+                          ...prevFilters,
+                          buyer: "",
+                          status: "",
+                          search: "",
+                        }));
+                      }}
+                    >
+                      <path d="M13.013 3H2l8 9.46V19l4 2v-8.54l.9-1.055" />
+                      <path d="m22 3-5 5" />
+                      <path d="m17 3 5 5" />
+                    </svg>
+                  </>
+                ) : (
+                  ""
+                )}
+              </div>
+            </div>
+          </div>
 
           <div className={osCss.middle}>
             <div className={osCss.table}>
@@ -358,14 +460,18 @@ export default function SellerOrder() {
                             return (
                               <tr key={key}>
                                 <td
-                                onClick={() => {
-                                  setProductDel({
-                                    state: true,
-                                    id: val._id,
-                                  });
-                                  setHideDel(!showDel);
-                                }}
-                                 data-cell="ID"> #{val._id.slice(-4)}</td>
+                                  onClick={() => {
+                                    setProductDel({
+                                      state: true,
+                                      id: val._id,
+                                    });
+                                    setHideDel(!showDel);
+                                  }}
+                                  data-cell="ID"
+                                >
+                                  {" "}
+                                  #{val._id.slice(-4)}
+                                </td>
                                 <td
                                   onClick={() => {
                                     setProductDel({
@@ -379,44 +485,55 @@ export default function SellerOrder() {
                                   {val.ONDCBilling.name}
                                 </td>
                                 <td
-                                onClick={() => {
-                                  setProductDel({
-                                    state: true,
-                                    id: val._id,
-                                  });
-                                  setHideDel(!showDel);
-                                }} 
-                                data-cell="PRICE">
+                                  onClick={() => {
+                                    setProductDel({
+                                      state: true,
+                                      id: val._id,
+                                    });
+                                    setHideDel(!showDel);
+                                  }}
+                                  data-cell="PRICE"
+                                >
                                   {" "}
                                   ₹ {val.amount.toFixed(2)}
                                 </td>
                                 <td
-                                onClick={() => {
-                                  setProductDel({
-                                    state: true,
-                                    id: val._id,
-                                  });
-                                  setHideDel(!showDel);
-                                }}
-                                 data-cell="ORDERED ON"> {val.when.date}</td>
-                                <td
-                                onClick={() => {
+                                  onClick={() => {
                                     setProductDel({
                                       state: true,
                                       id: val._id,
                                     });
                                     setHideDel(!showDel);
                                   }}
-                                 data-cell="PAYMENT METHOD">{val.status}</td>
+                                  data-cell="ORDERED ON"
+                                >
+                                  {" "}
+                                  {val.when.date}
+                                </td>
                                 <td
-                                onClick={() => {
+                                  onClick={() => {
                                     setProductDel({
                                       state: true,
                                       id: val._id,
                                     });
                                     setHideDel(!showDel);
                                   }}
-                                 data-cell="BUYER ">{val.buyer}</td>
+                                  data-cell="PAYMENT METHOD"
+                                >
+                                  {val.status}
+                                </td>
+                                <td
+                                  onClick={() => {
+                                    setProductDel({
+                                      state: true,
+                                      id: val._id,
+                                    });
+                                    setHideDel(!showDel);
+                                  }}
+                                  data-cell="BUYER "
+                                >
+                                  {val.buyer}
+                                </td>
 
                                 <UpdateState
                                   state={val.state}

@@ -24,10 +24,11 @@ const TextInput = ({ Label, type, field, placeholder, showData, setData }) => {
 };
 
 TextInput.propTypes = {
-  Label: PropTypes.string,
-  type: PropTypes.string,
-  field: PropTypes.string,
-  placeholder: PropTypes.string,
-  showData: PropTypes.object,
+  Label: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  field: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
+  showData: PropTypes.object.isRequired,
+  setData: PropTypes.func.isRequired,
 };
 export default TextInput;

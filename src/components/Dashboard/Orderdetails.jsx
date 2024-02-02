@@ -30,11 +30,6 @@ const Orderdetails = (props) => {
     loadOrderdel(props.id);
   }, [props.id, loadData]);
 
-  // scroll to top
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [, loadData]);
-
   const authCtx = useContext(AuthContext);
 
   const loadOrderdel = async (id) => {

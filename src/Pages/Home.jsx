@@ -11,11 +11,6 @@ import WhoAreWe from "../components/Home/WhoAreWe";
 import RegisterFooter from "./../components/Home/RegisterFooter";
 
 export default function Home() {
-  // scroll to top
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <>
       <Helmet>

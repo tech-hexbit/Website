@@ -11,7 +11,7 @@ import { Alert } from "./../../MicroInteraction/Alert";
 //component
 import UploadFiles from "./UploadFiles";
 
-export default function FileInput({ images, setImages }) {
+export default function FileInput() {
   const [load, setLoad] = useState(false);
   const [imageUpload, setImageUpload] = useState({ val: "", img: "" });
   const [variants, setError] = useState({
@@ -104,8 +104,6 @@ export default function FileInput({ images, setImages }) {
       <UploadFiles
         label="Upload Cancelled Cheque"
         val="cancelledCheques"
-        image={images.imageUploadCheque}
-        // handleClicksValue="cheque"
         setImageUpload={setImageUpload}
         imageUpload={imageUpload}
         onSubmitFun={onSubmit}
@@ -113,8 +111,6 @@ export default function FileInput({ images, setImages }) {
       <UploadFiles
         label="Address Proof (GSTIN)"
         val="addressProof"
-        image={images.imageUploadAddress}
-        // handleClicksValue="address"
         setImageUpload={setImageUpload}
         imageUpload={imageUpload}
         onSubmitFun={onSubmit}
@@ -122,8 +118,6 @@ export default function FileInput({ images, setImages }) {
       <UploadFiles
         label="ID Proof (PAN CARD)"
         val="idProof"
-        image={images.imageUploadID}
-        // handleClicksValue="id"
         setImageUpload={setImageUpload}
         imageUpload={imageUpload}
         onSubmitFun={onSubmit}
@@ -133,7 +127,3 @@ export default function FileInput({ images, setImages }) {
     </>
   );
 }
-
-FileInput.propTypes = {
-  images: PropTypes.object.isRequired,
-};

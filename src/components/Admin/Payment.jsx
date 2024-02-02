@@ -63,8 +63,6 @@ export default function Payment() {
   // scroll to top
   useEffect(() => {
     loadData();
-
-    window.scrollTo(0, 0);
   }, []);
   return (
     <>
