@@ -10,7 +10,6 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 // css
 import SelCss from "./../Css/Sellers.module.css";
 
-
 export default function AllSellers(props) {
   const [show, hide] = useState({ state: false, val: "" });
 
