@@ -51,7 +51,8 @@ export default function Cashfree() {
 
   return (
     <>
-      <button onClick={getSessionId}>Cashfree</button>
+      <button>Cashfree</button>
+      {/* <button onClick={getSessionId}>Cashfree</button> */}
     </>
   );
 }
