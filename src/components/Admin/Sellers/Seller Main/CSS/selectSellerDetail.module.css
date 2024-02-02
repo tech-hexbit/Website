@@ -27,7 +27,6 @@
 }
 
 .slide {
-  margin-top: 2rem;
   display: flex;
   justify-content: space-around;
   padding: 5px 0px;
