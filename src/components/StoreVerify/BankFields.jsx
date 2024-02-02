@@ -29,6 +29,7 @@ const BankFields = ({ disable, setDisable, showData, setData, setError }) => {
           AcHolderName: response.data.nameAtBank,
           BankName: response.data.bankName,
           BranchName: response.data.branch,
+          BankCity: response.data.city,
         });
         setDisable({ ...disable, Bank: true });
       };
@@ -319,7 +320,10 @@ const BankFields = ({ disable, setDisable, showData, setData, setError }) => {
   );
 };
 BankFields.propTypes = {
-  disable: PropTypes.object,
-  showData: PropTypes.object,
+  disable: PropTypes.object.isRequired,
+  setDisable: PropTypes.func.isRequired,
+  showData: PropTypes.object.isRequired,
+  setData: PropTypes.func.isRequired,
+  setError: PropTypes.func.isRequired,
 };
 export default BankFields;

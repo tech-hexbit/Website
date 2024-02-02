@@ -82,9 +82,10 @@ const GrpVerifiedFields = ({ disable, showData, setData, verifyPin }) => {
   );
 };
 GrpVerifiedFields.propTypes = {
-  disable: PropTypes.object,
-  showData: PropTypes.object,
-  verifyPin: PropTypes.bool,
+  disable: PropTypes.object.isRequired,
+  showData: PropTypes.object.isRequired,
+  setData: PropTypes.func.isRequired,
+  verifyPin: PropTypes.bool.isRequired,
 };
 
 export default GrpVerifiedFields;

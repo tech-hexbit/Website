@@ -20,13 +20,12 @@ import BankFields from "./BankFields";
 import OndcField from "./OndcField";
 import TimingField from "./TimingField";
 import SelectInput from "./SelectInput";
-import GetLocation from "./GetLocation";
+import DaysField from "./DaysField";
 import TextInput from "./TextInputs/TextInput";
 import GrpTextInput from "./TextInputs/GrpTextInput";
 import FssaiField from "./TextInputs/FssaiField";
 import PincodeField from "./VerifiedField/PincodeField";
 import GrpVerifiedFields from "./VerifiedField/VerifiedFields";
-
 import VerifiedPanGst from "./VerifiedField/VerifiedPanGst";
 
 const StoreVerifyMain = (props) => {
@@ -45,7 +44,6 @@ const StoreVerifyMain = (props) => {
     Password: "",
     DOB: "",
     LegalName: "",
-    Description: "",
     Address: "",
     City: "",
     State: "",
@@ -55,38 +53,33 @@ const StoreVerifyMain = (props) => {
     AccountNo: "",
     IfscCode: "",
     BankName: "",
+    BankCity: "",
     BranchName: "",
     Gstin: "",
     FssaiLicence: "",
     PanNo: "",
     LocationAvailabilityMode: "",
     TimeToShip: "",
-    Cancellable: "",
-    Returnable: "",
-    ContactDetailsForConsumerCare: "",
+    Cancellable: false,
+    Returnable: false,
+    ContactDetails: "",
+    SupportEmail: "",
     DefaultCategoryId: "",
-    StoreTimingStart: "",
-    StoreTimingEnd: "",
+    Days: "",
+    times: [],
+    Radius: "",
     gps: "",
-  });
-  const [images, setImages] = useState({
-    imageUploadCheque: "",
-    imageUploadAddress: "",
-    imageUploadID: "",
+    DescEnterprise: "",
   });
 
   const authCtx = useContext(AuthContext);
 
   const redirect = useNavigate();
-  if (!showData.gps) {
-    GetLocation(showData, setData);
-  }
+
   const onSubmit = async () => {
     setLoad(true);
 
     if (
-      showData.StoreTimingStart == "" ||
-      showData.StoreTimingEnd == "" ||
       showData.FirstName == "" ||
       showData.LastName == "" ||
       showData.EmailID == "" ||
@@ -102,14 +95,8 @@ const StoreVerifyMain = (props) => {
       showData.BankName == "" ||
       showData.BranchName == "" ||
       showData.Gstin == "" ||
-      showData.GstNo == "" ||
       showData.FssaiLicence == "" ||
-      showData.PanNo == "" ||
-      showData.Cancellable == "" ||
-      showData.Returnable == "" ||
-      showData.imageUploadCheque == "" ||
-      showData.imageUploadAddress == "" ||
-      showData.imageUploadID == ""
+      showData.PanNo == ""
     ) {
       setLoad(false);
       props.setError({
@@ -120,7 +107,8 @@ const StoreVerifyMain = (props) => {
         text: "Please Fill All The Details",
         val: true,
       });
-    } else if (!verifyPin || !disable.Bank || !disable.Gstin || disable.Pan) {
+    } else if (!verifyPin || !disable.Bank || !disable.Gstin || !disable.Pan) {
+      console.log(verifyPin, `inverse ${!verifyPin}`);
       props.setError({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
@@ -144,8 +132,9 @@ const StoreVerifyMain = (props) => {
           phone: showData.phone,
           email: showData.email,
         };
-        data.times.push(String(showData.StoreTimingStart));
-        data.times.push(String(showData.StoreTimingEnd));
+        data = showData;
+        // data.times.push(String(showData.StoreTimingStart));
+        // data.times.push(String(showData.StoreTimingEnd));
         const response = await axios.post(
           "/api/common/Store/CreateStore",
           data,
@@ -183,6 +172,22 @@ const StoreVerifyMain = (props) => {
     }
   };
 
+  function getLocation(showData, setData) {
+    const successCallback = (position) => {
+      setData({
+        ...showData,
+        gps: `${position.coords.latitude},${position.coords.longitude}`,
+      });
+    };
+
+    const errorCallback = (error) => {
+      console.log(error);
+    };
+    navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+  }
+  if (!showData.gps) {
+    getLocation(showData, setData);
+  }
   useEffect(() => {
     console.table(showData);
   }, [showData]);
@@ -242,10 +247,11 @@ const StoreVerifyMain = (props) => {
         setError={props.setError}
       />
       <FssaiField showData={showData} setData={setData} />
-      <FileInput images={images} setImages={setImages} />
+      <FileInput />
       <SelectInput showData={showData} setData={setData} />
       <OndcField setData={setData} showData={showData} />
       <TimingField showData={showData} setData={setData} />
+      <DaysField showData={showData} setData={setData} />
       <div className={SvCss.submitDiv}>
         <button className={SvCss.submitBtn} onClick={onSubmit}>
           {load ? <Load /> : "SUBMIT KYC"}
