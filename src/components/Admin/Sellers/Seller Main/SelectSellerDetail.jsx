@@ -17,7 +17,6 @@ function SelectSellerDetail() {
   return (
     <div className={SSDCss.main}>
       <div className={SSDCss.mainSec}>
-        <p className={SSDCss.topText}>DETAILS OF STORE A</p>
         <div className={SSDCss.slide}>
           <div
             className={`${SSDCss.slideSec} ${
@@ -44,7 +43,7 @@ function SelectSellerDetail() {
             <p>Seller Orders</p>
           </div>
         </div>
-        {activeTab === "Seller Details" ? <Sellers /> : ""}
+        {activeTab === "Seller Details" ? <Sellers head={false} /> : ""}
         {activeTab === "Seller Inventory" ? <SellerInventory /> : ""}
         {activeTab === "Seller Orders" ? <SellerOrder /> : ""}
       </div>
