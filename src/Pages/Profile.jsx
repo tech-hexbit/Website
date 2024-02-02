@@ -171,9 +171,10 @@ export default function Profile() {
                 {authCtx.user.access === 2 && (
                   <>
                     <Route path="/admin/super/List" element={<FrontPage />} />
+                    <Route path="/admin/paymentdetails" element={<Payment />} />
                     <Route
                       path="/admin/super/SellerKYC"
-                      element={<SellersAdmin />}
+                      element={<SellersAdmin head={true} />}
                     />
                     <Route
                       path="/admin/super/Support"

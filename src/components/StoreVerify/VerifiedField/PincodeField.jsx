@@ -133,7 +133,11 @@ export default function PincodeField({
 }
 
 PincodeField.propTypes = {
-  showData: PropTypes.object,
-  verifyPin: PropTypes.bool,
-  disable: PropTypes.object,
+  showData: PropTypes.object.isRequired,
+  setData: PropTypes.func.isRequired,
+  verifyPin: PropTypes.bool.isRequired,
+  disable: PropTypes.object.isRequired,
+  setDisable: PropTypes.func.isRequired,
+  setVerify: PropTypes.func.isRequired,
+  setError: PropTypes.func.isRequired,
 };
