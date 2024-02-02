@@ -18,7 +18,6 @@ function SelectSellerDetail() {
   return (
     <div className={SSDCss.main}>
       <div className={SSDCss.mainSec}>
-        <p className={SSDCss.topText}>DETAILS OF STORE A</p>
         <div className={SSDCss.slide}>
           <div
             className={`${SSDCss.slideSec} ${
