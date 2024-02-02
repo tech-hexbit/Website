@@ -83,10 +83,10 @@ export default function SellerInventory() {
                   <input
                     type="text"
                     value={productName}
-                    placeholder="Search page"
+                    placeholder="Search Product Name"
                     onChange={(e) => setProductName(e.target.value)}
                   />
-                  <div className={Ccss.searchBtn} onClick={() => loadData()}>
+                  <div className={Ccss.searchBtn} onClick={() => { loadData(); setCurrentPage(1); }}>
                     Search
                   </div>
                 </div>
