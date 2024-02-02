@@ -4,8 +4,6 @@
 }
 
 .mainSec {
-  /* margin-top: 2.5rem;
-    margin-left: 5rem; */
   width: 100%;
 }
 
@@ -30,6 +28,7 @@
   display: flex;
   justify-content: space-around;
   padding: 5px 0px;
+  background-color: red;
 }
 
 .slideSec {
