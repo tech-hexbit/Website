@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 
+
 // components
 import Header from "./../MainParts/Header";
 
@@ -12,6 +13,7 @@ import { Alert } from "./../../../MicroInteraction/Alert";
 
 // state
 import AuthContext from "./../../../store/auth-context";
+
 
 // css
 import DCss from "./Css/display.module.css";
@@ -72,6 +74,23 @@ export default function Archive() {
 
   return (
     <div>
+       <div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="60"
+            height="60"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-chevron-left"
+            // onClick={goBack}
+          >
+            <path d="m15 18-6-6 6-6" />
+          </svg>
+        </div>
       <Header name="Archive" />
 
       <div className={DCss.arcMain}>

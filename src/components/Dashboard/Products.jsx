@@ -90,7 +90,7 @@ export default function Products() {
   return (
     <>
       {archive ? (
-        <Archive />
+        <Archive/>
       ) : (
         <div>
           <div className={pdtCSS.mdiv}>

@@ -68,6 +68,7 @@
     justify-content: start;
     gap: 20px;
     padding-top: 15px;
+    position: relative;
 }
 .productImg{
     width: 5rem;
@@ -81,7 +82,7 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
-    gap: 5px;
+    gap: 15px;
     flex-wrap: wrap;
    
 }
@@ -95,6 +96,25 @@
     border-radius: 5px;
     padding-bottom: 10px;
   }
+  .rightLeft{
+    display: flex;
+    justify-content: space-between;
+    position: absolute ;
+    width: 100%;
+    top: 30%;
+  }
+  .sliderSvg{
+    background-color: #ffffff;
+    border-radius: 100%;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+     align-items: center;
+    cursor: pointer;
+    margin: 4px;
+
+  }
   
   .prodCom:hover {
     border-color: #56117c;
@@ -106,8 +126,6 @@
     
   }
   .btns{
-    /* display: flex; */
-    /* justify-content: space-between; */
     margin-top: 20px;
   }
   .goToInv{
@@ -115,6 +133,7 @@
     text-align: center;
     padding: 10px 0px;
     border-radius: 5px;
+    cursor: pointer;
 }
 .goToInvText{
       text-decoration: none;
@@ -131,15 +150,29 @@
     font-size: larger;
     font-weight: 500;
     border-radius: 5px;
+    cursor: pointer;
   }
+
+  @media (max-width: 1260px){
+    .rightLeft{
+        top: 25%;
+    }
+    }
+    
 @media (max-width: 985px){
     .secPic{
         justify-content: space-evenly;
+    }
+    .rightLeft{
+        top: 20%;
     }
 }
 @media (max-width:750px){
     .main{
         flex-direction: column;
+    }
+    .rightLeft{
+        top: 30%;
     }
     .left{
         width: 70vw;
@@ -157,6 +190,17 @@
         width: 7rem;
         height: 7rem;
         
+    }
+}
+@media (max-width: 560px){
+    .rightLeft{
+        top: 25%;
+    }
+   
+}
+@media (max-width: 450px){
+    .rightLeft{
+        top: 20%;
     }
 }
 @media (max-width:335px){
