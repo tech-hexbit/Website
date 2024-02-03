@@ -149,12 +149,12 @@ function ProductPageNew(props) {
               <div className={PPN.main}>
                 <div className={PPN.left}>
                   <div className={PPN.pics}>
-                    <>
+                    <div className={PPN.productImgMain}>
                       <img
                         src={sliderData}
                         className={PPCss.productImg}
                       />
-                    </>
+                    </div>
                     {
                       sliderImages.length > 1 && (
                         <div className={PPN.rightLeft}>

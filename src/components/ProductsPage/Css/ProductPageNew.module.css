@@ -69,14 +69,25 @@
     gap: 20px;
     padding-top: 15px;
     position: relative;
+    object-fit: cover;
+
 }
+ 
 .productImg{
     width: 5rem;
     height: 5rem;
     object-fit: cover;
     border-radius: 3px;
     border: 1px solid #d3d3d3;
-    
+}
+.productImgMain{
+    width: auto;
+    height: 14rem;
+    object-fit: cover;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .secPic {
     display: flex;
