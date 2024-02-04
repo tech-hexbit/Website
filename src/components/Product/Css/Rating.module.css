@@ -1,0 +1,29 @@
+  .user{
+    display: flex;
+    gap:5px;
+
+  }
+  .firstLetter{
+    background-color: rgb(68, 68, 185);
+    color: white;
+    font-size: small;
+    display: flex;
+    justify-content: center;
+    width: 24px;
+    align-items: center;
+    border-radius: 100%;
+    font-weight: 500;
+  }
+  .userTop{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .userComment{
+    margin-left: 30px;
+    padding: 15px 0px;
+  }
+  .comments{
+    margin-top: 15px;
+    border-bottom: 1px solid #ddd;
+  }
