@@ -15,18 +15,18 @@ import axios from "axios";
 
 // components
 import Heading from "./Heading";
+import DaysField from "./DaysField";
 import FileInput from "./FileInput";
-import BankFields from "./BankFields";
 import OndcField from "./OndcField";
+import BankFields from "./BankFields";
 import TimingField from "./TimingField";
 import SelectInput from "./SelectInput";
-import DaysField from "./DaysField";
 import TextInput from "./TextInputs/TextInput";
-import GrpTextInput from "./TextInputs/GrpTextInput";
 import FssaiField from "./TextInputs/FssaiField";
+import GrpTextInput from "./TextInputs/GrpTextInput";
 import PincodeField from "./VerifiedField/PincodeField";
-import GrpVerifiedFields from "./VerifiedField/VerifiedFields";
 import VerifiedPanGst from "./VerifiedField/VerifiedPanGst";
+import GrpVerifiedFields from "./VerifiedField/VerifiedFields";
 
 const StoreVerifyMain = (props) => {
   const [load, setLoad] = useState(false);
