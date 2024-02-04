@@ -141,7 +141,7 @@ export default function OrderLayUpdate(props) {
                       {res.Items?.map((val, key) => {
                         return (
                           <>
-                            <tr key={key}>
+                            <tr key={key} className={OLCss.saleRes}>
                               <td data-cell="Name">
                                 <div className={OLCss.titleItemDiv}>
                                   <img
