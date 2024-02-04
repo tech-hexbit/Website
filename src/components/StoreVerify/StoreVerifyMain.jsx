@@ -194,9 +194,11 @@ const StoreVerifyMain = () => {
     };
     navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
   }
+
   if (!showData.gps) {
     getLocation(showData, setData);
   }
+
   useEffect(() => {
     console.table(showData);
   }, [showData]);
