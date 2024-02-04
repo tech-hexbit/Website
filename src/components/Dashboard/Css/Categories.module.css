@@ -281,8 +281,8 @@
 
   .addCsv button {
     justify-content: center;
-    padding: 12px;
-    width: 50px;
+    padding: 3px;
+    width: 40px;
     font-weight: bold;
   }
   .search_btn {

@@ -7,7 +7,7 @@
 }
 
 .mapMDiv {
-  display: flex;
+  /* display: flex; */
   justify-content: space-between;
   padding: 15px 20px;
   border-style: dashed;
@@ -18,7 +18,13 @@
   transition: all 0.3s;
   cursor: pointer;
 }
-
+.icons{
+  text-align: right;
+}
+.Datas{
+  display: flex;
+  justify-content: space-between;
+}
 .mapMDiv:hover {
   border-color: #c27aff;
 }
@@ -102,19 +108,17 @@
 }
 
 @media only screen and (max-width : 500px){
-  .mapMDiv{
-    display: block;
+  .Datas{
+    display: grid;
   }
   .conDel{
-    /* position: absolute; */
+    text-align: left;
+    display: grid;
   }
 }
 @media only screen and (max-width : 400px){
   .conDelT{
     font-size: 11px;
   }
-  .conDel{
-    text-align: left;
-    display: grid;
-  }
+  
 }

@@ -75,16 +75,9 @@ export default function ContionalSellers(props) {
                         hide({ state: true, val: val });
                       }}
                     >
-                      <div className={SelCss.conDelT}>
-                        <p>
-                          <strong>StoreID :{val.Store[0]?.StoreID} </strong>
-                        </p>
-                        <p>{val.BusinessName}</p>
-                        <p>{val.GSTIN}</p>
-                      </div>
+                    <div className={SelCss.statusIcon}>
 
-                      <div className={SelCss.conDel}>
-                        <p>
+                    <p>
                           {val.accountVerified ? (
                             <div className={SelCss.statusIcons}>
                               <svg
@@ -123,11 +116,22 @@ export default function ContionalSellers(props) {
                             </div>
                           )}
                         </p>
+                    </div>
+                      <div className={SelCss.conDelT}>
+                        <p>
+                          <strong>StoreID :{val.Store[0]?.StoreID} </strong>
+                        </p>
+                        <p>{val.BusinessName}</p>
+                        <p>{val.GSTIN}</p>
+                      </div>
+
+                      <div className={SelCss.conDel}>
+                        
                         <div className={SelCss.Left_data}>
                           <p>{val.Phone}</p>
                           <p>{val.Email}</p>
                           <p>{val.Phone}</p>
-                          {/* <p>Seller since : </p> */}
+                          <p>Seller since : </p>
                         </div>
                       </div>
                     </div>
