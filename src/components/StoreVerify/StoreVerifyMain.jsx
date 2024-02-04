@@ -40,6 +40,12 @@ const StoreVerifyMain = () => {
     text: "",
     val: false,
   });
+  const [conditionLoading, setConditionLoading] = useState({
+    Pincode: false,
+    Pan: false,
+    Gstin: false,
+    Bank: false,
+  });
   const [disable, setDisable] = useState({
     Pincode: false,
     Pan: false,
@@ -108,6 +114,7 @@ const StoreVerifyMain = () => {
       showData.PanNo == ""
     ) {
       setLoad(false);
+
       setError({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
@@ -117,7 +124,8 @@ const StoreVerifyMain = () => {
         val: true,
       });
     } else if (!verifyPin || !disable.Bank || !disable.Gstin || !disable.Pan) {
-      console.log(verifyPin, `inverse ${!verifyPin}`);
+      setLoad(false);
+
       setError({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
