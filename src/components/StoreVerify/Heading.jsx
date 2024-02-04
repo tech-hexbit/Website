@@ -3,7 +3,7 @@ import React from "react";
 // css
 import HCss from "./Css/Heading.module.css";
 
-export default function Heading() {
+export default function Heading({ load, onSubmit }) {
   return (
     <div className={HCss.heading}>
       <p className={HCss.createYourStore}>KYC DATA</p>
