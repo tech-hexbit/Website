@@ -83,8 +83,6 @@ export default function PayDetails() {
   // scroll to top
   useEffect(() => {
     loadData();
-
-    window.scrollTo(0, 0);
   }, []);
 
   return (

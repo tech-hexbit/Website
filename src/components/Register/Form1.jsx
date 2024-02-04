@@ -39,8 +39,6 @@ export default function Form1(props) {
         text: "Please Fill All The Details",
         val: true,
       });
-
-      window.scrollTo(0, 0);
     } else {
       if (props.input.Phone.length != 10) {
         setError({
@@ -54,7 +52,6 @@ export default function Form1(props) {
       } else {
         setError("");
         props.setCount(2);
-        window.scrollTo(0, 0);
       }
     }
   };

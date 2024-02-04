@@ -79,11 +79,6 @@ export default function HelpDeskFormTable() {
     loadStore();
   }, []);
 
-  // scroll to top
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [, hideTabel]);
-
   return (
     <>
       <div>
@@ -118,17 +113,24 @@ export default function HelpDeskFormTable() {
                       >
                         {tableData.Status}
                       </td>
-                      <td data-cell="action" onClick={() => {
-                                tableVal(val);
-                              }}>Close Details
-                      
-                       </td>  
+                      <td
+                        data-cell="action"
+                        onClick={() => {
+                          tableVal(val);
+                        }}
+                      >
+                        Close Details
+                      </td>
                     </tr>
                   </table>
                 </div>
               </div>
             </div>
-            <HelpDeskFormTableDetail tableVal={tableVal} tableData={tableData} data ={data} />
+            <HelpDeskFormTableDetail
+              tableVal={tableVal}
+              tableData={tableData}
+              data={data}
+            />
           </div>
         ) : (
           <div className={hdftable.main}>
@@ -177,11 +179,14 @@ export default function HelpDeskFormTable() {
                               >
                                 {val.Status}
                               </td>
-                              <td data-cell="action" onClick={() => {
-                                tableVal(val);
-                              }}>View Details
-                      
-                       </td>
+                              <td
+                                data-cell="action"
+                                onClick={() => {
+                                  tableVal(val);
+                                }}
+                              >
+                                View Details
+                              </td>
                             </tr>
                           </>
                         ))}

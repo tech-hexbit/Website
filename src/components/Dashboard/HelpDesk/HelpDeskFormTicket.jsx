@@ -5,11 +5,6 @@ import { Link } from "react-router-dom";
 import hdft from "./Css/HelpDeskFormTicket.module.css";
 
 export default function HelpDeskFormTicket(props) {
-  // scroll to top
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <>
       <div className={hdft.main}>

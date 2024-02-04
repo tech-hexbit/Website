@@ -1,8 +1,6 @@
 import React, { useContext, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-// import { Helmet } from "react-helmet";
-
 // components
 import Nav from "./components/header/Header";
 import Footer from "./components/footer/Footer";
@@ -18,6 +16,7 @@ const Privacy = React.lazy(() => import("./Pages/Privacy"));
 
 // del
 const Return = React.lazy(() => import("./Pages/Return"));
+
 const ForgotPassword = React.lazy(() => import("./Pages/ForgotPassword"));
 //        || Auth
 const SignIn = React.lazy(() => import("./Pages/SignIn"));

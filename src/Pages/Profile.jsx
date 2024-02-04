@@ -59,11 +59,6 @@ export default function Profile() {
     val: false,
   });
 
-  // scroll to top
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const authCtx = useContext(AuthContext);
 
   const resendMail = async () => {

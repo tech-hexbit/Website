@@ -5,11 +5,6 @@ import TermsContent from "../components/terms/TermsContent";
 import RegisterFooter from "../components/Home/RegisterFooter";
 
 const Terms = () => {
-  // scroll to top
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <div>
       <TermsContent />
