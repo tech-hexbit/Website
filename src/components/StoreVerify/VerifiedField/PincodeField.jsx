@@ -90,19 +90,7 @@ export default function PincodeField({
               }}
             />
             <div>
-              <button
-                className={PfCss.verifyButton}
-                onClick={() => {
-                  pincodeVerify({
-                    setData,
-                    showData,
-                    disable,
-                    setDisable,
-                    setVerify,
-                    setError,
-                  });
-                }}
-              >
+              <button className={PfCss.verifyButton} onClick={pincodeVerify}>
                 {verifyPin ? (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
