@@ -14,7 +14,6 @@ export default function Heading({ load, onSubmit }) {
         <button className={HCss.saveButtonPurple} onClick={onSubmit}>
           {load ? <Load /> : "Save"}
         </button>
-        {/* <button className={HCss.saveButtonGreen}>Save & Next</button> */}
       </div>
     </div>
   );
