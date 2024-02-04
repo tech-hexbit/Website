@@ -208,6 +208,7 @@ const StoreVerifyMain = () => {
         Please allow us 2-3 business days to review your KYC and approve your
         account.
       </div>
+
       <GrpTextInput showData={showData} setData={setData} />
       <PincodeField
         showData={showData}
