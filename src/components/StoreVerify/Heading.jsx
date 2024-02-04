@@ -5,14 +5,13 @@ import Load from "./../../MicroInteraction/Load";
 
 // css
 import HCss from "./Css/Heading.module.css";
-import SvCss from "./Css/StoreVerifyMain.module.css";
 
 export default function Heading({ load, onSubmit }) {
   return (
     <div className={HCss.heading}>
       <p className={HCss.createYourStore}>KYC DATA</p>
       <div className={HCss.saveButtons}>
-        <button className={HCss.saveButtonPurple}>
+        <button className={HCss.saveButtonPurple} onClick={onSubmit}>
           {load ? <Load /> : "Save"}
         </button>
         {/* <button className={HCss.saveButtonGreen}>Save & Next</button> */}
