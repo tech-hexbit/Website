@@ -1,5 +1,6 @@
 import React, { useEffect, useContext, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // axios
 import axios from "axios";
@@ -12,6 +13,7 @@ import Box from "../Product/Box";
 import Des from "../Product/Des";
 import Offers from "../Product/Offers";
 import SizeBox from "../Product/SizeBox";
+import Rating from "../Product/Rating";
 import ColorBox from "../Product/ColorBox";
 import EditFeatures from "../Product/EditFeatures";
 import EditServices from "../Product/EditServices";
@@ -153,6 +155,7 @@ export default function ProductsPage() {
                     className={PPCss.arrow}
                     onClick={handleLeft}
                   >
+                    
                     <path d="m12 19-7-7 7-7" />
                     <path d="M19 12H5" />
                   </svg>
@@ -160,6 +163,7 @@ export default function ProductsPage() {
                   <div className={PPCss.center}>
                     <img src={sliderData} className={PPCss.image} />
                   </div>
+                  
 
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
