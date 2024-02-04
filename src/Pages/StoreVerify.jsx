@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 
-// MicroInteraction
-import { Alert } from "./../MicroInteraction/Alert";
-
 // components
 import StoreVerifyMain from "../components/StoreVerify/StoreVerifyMain";
 
@@ -10,23 +7,13 @@ import StoreVerifyMain from "../components/StoreVerify/StoreVerifyMain";
 import SvCss from "./Css/StoreVerify.module.css";
 
 export default function StoreVerify() {
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
   return (
     <>
       <div className={SvCss.Ldiv}>
         <div className={SvCss.boxDiv}>
-          <StoreVerifyMain setError={setError} />
+          <StoreVerifyMain />
         </div>
       </div>
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }
