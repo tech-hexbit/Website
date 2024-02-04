@@ -114,7 +114,7 @@
     width: 100%;
     top: 30%;
   }
-  .sliderSvg{
+  .sliderSvgRight{
     background-color: #ffffff;
     border-radius: 100%;
     width: 1.5rem;
@@ -122,9 +122,23 @@
     display: flex;
     justify-content: center;
      align-items: center;
+     padding-bottom: 3px;
+     padding-left: 2px;
     cursor: pointer;
     margin: 4px;
-
+  }
+  .sliderSvgLeft{
+    background-color: #ffffff;
+    border-radius: 100%;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding-bottom: 3px;
+    padding-right: 2px;
+    display: flex;
+    justify-content: center;
+     align-items: center;
+    cursor: pointer;
+    margin: 4px;
   }
   
   .prodCom:hover {

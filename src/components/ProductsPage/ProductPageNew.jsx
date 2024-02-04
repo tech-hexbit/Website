@@ -158,7 +158,7 @@ function ProductPageNew(props) {
                     {
                       sliderImages.length > 1 && (
                         <div className={PPN.rightLeft}>
-                      <div className={PPN.sliderSvg}>
+                      <div className={PPN.sliderSvgLeft}>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="22"
@@ -175,7 +175,7 @@ function ProductPageNew(props) {
                           <path d="m15 18-6-6 6-6" />
                         </svg>
                       </div>
-                      <div className={PPN.sliderSvg}>
+                      <div className={PPN.sliderSvgRight}>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="22"
