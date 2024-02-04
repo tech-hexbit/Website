@@ -15,7 +15,7 @@ const GrpTextInput = ({ showData, setData }) => {
         setData={setData}
         field="FirstName"
         placeholder="John"
-      />{" "}
+      />
       <TextInput
         type="text"
         Label="Last Name"
@@ -23,7 +23,7 @@ const GrpTextInput = ({ showData, setData }) => {
         setData={setData}
         field="LastName"
         placeholder="David"
-      />{" "}
+      />
       <TextInput
         type="text"
         Label="Legal Name"
@@ -39,7 +39,7 @@ const GrpTextInput = ({ showData, setData }) => {
         setData={setData}
         field="EmailID"
         placeholder="Enter your email"
-      />{" "}
+      />
       <TextInput
         type="date"
         Label="DOB"
