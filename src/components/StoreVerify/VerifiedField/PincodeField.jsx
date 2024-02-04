@@ -1,13 +1,12 @@
 import React from "react";
-
 import PropTypes from "prop-types";
 
 //axios
 import axios from "axios";
 
 //css
-import VfCss from "./Css/VerifiedFields.module.css";
 import PfCss from "./Css/PincodeField.module.css";
+import VfCss from "./Css/VerifiedFields.module.css";
 
 const pincodeVerify = async ({
   setData,
@@ -36,6 +35,7 @@ const pincodeVerify = async ({
         text: "Invalid pincode",
         val: true,
       });
+
       setVerify(false);
     };
     const response = await axios.get(
@@ -43,7 +43,7 @@ const pincodeVerify = async ({
     );
     response.data[0].PostOffice ? validPin({ response }) : invalidPin();
   } catch (e) {
-    // console.log(e);
+    console.log(e);
   }
 };
 
