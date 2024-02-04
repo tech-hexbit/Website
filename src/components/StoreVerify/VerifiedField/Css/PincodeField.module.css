@@ -10,6 +10,13 @@
   flex-basis: 100%;
 }
 
+.verifyButton {
+  width: 100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  min-height: 42px;
+}
+
 @media screen and (max-width: 600px) {
   .inputDivPincode {
     flex-basis: 60%;
@@ -18,11 +25,4 @@
   .inputDivPincode {
     flex-direction: column;
   }
-}
-
-.verifyButton {
-  width: 100%;
-  padding-right: 1rem;
-  padding-left: 1rem;
-  min-height: 42px;
 }
