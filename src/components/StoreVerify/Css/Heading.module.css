@@ -32,7 +32,8 @@
   align-items: center;
   gap: 10px;
   border-radius: 10px;
-  background: #350b5e;
+  background-color: #350b5e;
+  cursor: pointer;
 }
 
 .saveButtonGreen {
