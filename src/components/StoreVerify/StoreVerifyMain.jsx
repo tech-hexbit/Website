@@ -203,7 +203,7 @@ const StoreVerifyMain = () => {
 
   return (
     <>
-      <Heading />
+      <Heading load={load} onSubmit={onSubmit} />
       <div className={SvCss.subHeadline}>
         Please allow us 2-3 business days to review your KYC and approve your
         account.
