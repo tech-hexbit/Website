@@ -1,9 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 
-// components
-import VerifiedFeilds from "./Input/VerifiedFeilds";
-
 // MicroInteraction
 import Load from "./../../MicroInteraction/LoadBlack";
 import { Alert } from "./../../MicroInteraction/Alert";
