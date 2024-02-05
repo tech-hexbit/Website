@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 // import StoreVerifyMain from "../components/StoreVerify/StoreVerifyMain";
 import Header from "./../components/StoreDetails/Header";
 import Particulars from "./../components/StoreDetails/Particulars";
+import Address from "./../components/StoreDetails/Address";
 
 // MicroInteraction
 import { Alert } from "./../MicroInteraction/Alert";
@@ -79,6 +80,7 @@ export default function StoreVerify() {
           {/* <StoreVerifyMain /> */}
           <Header load={load} onSubmit={onSubmit} />
           <Particulars showData={showData} setData={setData} />
+          <Address showData={showData} setData={setData} />
 
           <div onClick={scrollToTop} className={SvCss.scrollToTop}>
             <svg
