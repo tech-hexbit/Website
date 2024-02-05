@@ -25,6 +25,23 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
+.scrollToTop {
+  padding: 12px 7px;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  box-shadow: 1px 1px 5px transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: 0.2;
+  transition: all 0.3s;
+}
+
+.scrollToTop:hover {
+  opacity: 1;
+  box-shadow: 1px 1px 5px #717171;
+}
+
 @media screen and (max-width: 400px) {
   .boxDiv {
     width: 80%;
