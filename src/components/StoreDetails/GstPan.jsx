@@ -248,14 +248,18 @@ export default function GstPan({ showData, setData }) {
         </div>
 
         {/* FSSAI */}
-        <InputType1
-          type="text"
-          Label="FSSAI Licence NO"
-          showData={showData}
-          setData={setData}
-          field="FssaiLicence"
-          placeholder="10022XXX000000"
-        />
+        {authCtx.user.category.find(
+          (val) => val.name === "Food & Beverage" || val.name === "Grocery"
+        ) && (
+          <InputType1
+            type="text"
+            Label="FSSAI Licence NO"
+            showData={showData}
+            setData={setData}
+            field="FssaiLicence"
+            placeholder="10022XXX000000"
+          />
+        )}
       </div>
 
       <Alert variant={variants} val={setError} />
