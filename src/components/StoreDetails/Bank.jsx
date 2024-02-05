@@ -22,9 +22,44 @@ export default function Bank({ showData, setData }) {
   const [verifyPin, setVerifyPin] = useState(false);
 
   return (
-    <div className={PrCss.mDiv}>
-      <p className={PrCss.AboutYou}>Bank Info</p>
-    </div>
+    <>
+      <div className={PrCss.mDiv}>
+        <p className={PrCss.AboutYou}>Bank Info</p>
+
+        {/* Account Holder Name */}
+        <VerifiedFeilds
+          type="text"
+          Label="Account Holder Name"
+          disabled={verifyPin}
+          showData={showData}
+          setData={setData}
+          field="AcHolderName"
+          placeholder="Jhon James David"
+        />
+
+        {/* Bank Name */}
+        <VerifiedFeilds
+          type="text"
+          Label="Bank Name"
+          disabled={verifyPin}
+          showData={showData}
+          setData={setData}
+          field="BankName"
+          placeholder="State Bank of India"
+        />
+
+        {/* Branch Name */}
+        <VerifiedFeilds
+          type="text"
+          Label="Branch Name"
+          disabled={verifyPin}
+          showData={showData}
+          setData={setData}
+          field="BranchName"
+          placeholder="Mihijam Bazar"
+        />
+      </div>
+    </>
   );
 }
 
