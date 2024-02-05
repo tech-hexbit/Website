@@ -16,7 +16,7 @@ export default function Particulars({ showData, setData }) {
         showData={showData}
         setData={setData}
         field="FirstName"
-        placeholder="John"
+        placeholder="Jhon"
       />
     </div>
   );
