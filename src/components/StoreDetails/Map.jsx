@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 
+// css
+import MapCss from "./Css/Map.module.css";
+
 export default function Map() {
   const [position, setPosition] = useState([23.219255, 77.3983159]);
   const [isInitialLoad, setIsInitialLoad] = useState(true);
@@ -47,6 +50,7 @@ export default function Map() {
     setPosition(newPosition);
   };
 
+  // Event handler for map click
   const handleMapClick = (event) => {
     const { lat, lng } = event.lngLat || event.latlng;
     if (lat && lng) {
@@ -105,6 +109,7 @@ export default function Map() {
 
   return (
     <div>
+      <p className={MapCss.inputLabel}>Store Location</p>
       <div
         id="map"
         style={{ width: "100%", height: "80vh", margin: "10px 0", padding: 0 }}
