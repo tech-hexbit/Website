@@ -17,6 +17,42 @@ import SvCss from "./Css/StoreVerify.module.css";
 
 export default function StoreVerify() {
   const [load, setLoad] = useState(false);
+  const [showData, setData] = useState({
+    FirstName: "",
+    LastName: "",
+    EmailID: "",
+    Password: "",
+    DOB: "",
+    LegalName: "",
+    Description: "",
+    Address: "",
+    City: "",
+    State: "",
+    Pincode: "",
+    StoreLocation: "",
+    AcHolderName: "",
+    AccountNo: "",
+    IfscCode: "",
+    BankName: "",
+    BranchName: "",
+    Gstin: "",
+    FssaiLicence: "",
+    PanNo: "",
+    LocationAvailabilityMode: "",
+    TimeToShip: "",
+    Cancellable: "",
+    Returnable: "",
+    ContactDetailsForConsumerCare: "",
+    DefaultCategoryId: "",
+    StoreTimingStart: "",
+    StoreTimingEnd: "",
+    gps: "",
+  });
+  const [images, setImages] = useState({
+    imageUploadCheque: "",
+    imageUploadAddress: "",
+    imageUploadID: "",
+  });
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -42,7 +78,7 @@ export default function StoreVerify() {
         <div className={SvCss.boxDiv}>
           {/* <StoreVerifyMain /> */}
           <Header load={load} onSubmit={onSubmit} />
-          <Particulars />
+          <Particulars showData={showData} setData={setData} />
 
           <div onClick={scrollToTop} className={SvCss.scrollToTop}>
             <svg
