@@ -2,8 +2,9 @@ import React, { useContext, useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 // components
-import StoreVerifyMain from "../components/StoreVerify/StoreVerifyMain";
+// import StoreVerifyMain from "../components/StoreVerify/StoreVerifyMain";
 import Header from "./../components/StoreDetails/Header";
+import Particulars from "./../components/StoreDetails/Particulars";
 
 // MicroInteraction
 import { Alert } from "./../MicroInteraction/Alert";
@@ -41,6 +42,7 @@ export default function StoreVerify() {
         <div className={SvCss.boxDiv}>
           {/* <StoreVerifyMain /> */}
           <Header load={load} onSubmit={onSubmit} />
+          <Particulars />
 
           <div onClick={scrollToTop} className={SvCss.scrollToTop}>
             <svg
@@ -61,6 +63,8 @@ export default function StoreVerify() {
           </div>
         </div>
       </div>
+
+      <Alert variant={variants} val={setError} />
     </>
   );
 }
