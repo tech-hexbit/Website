@@ -4,3 +4,10 @@
   font-weight: 600;
   margin-bottom: 20px;
 }
+
+.titleDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
