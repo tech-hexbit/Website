@@ -62,6 +62,8 @@ export default function GstPan({ showData, setData }) {
       const response = await axios.post("/api/verification/gstin", data);
 
       if (response.data.success) {
+        setVerifyPin(true);
+
         setLoad(false);
       } else {
         setLoad(false);
