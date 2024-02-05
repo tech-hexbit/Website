@@ -77,7 +77,7 @@ export default function Address({ showData, setData }) {
           <p className={AdCss.inputLabel}>Pincode</p>
           <div className={AdCss.inputDivPincode}>
             <input
-              // disabled={disable.Pincode}
+              disabled={verifyPin}
               type="number"
               name="Pincode"
               value={showData.Pincode}
@@ -88,7 +88,7 @@ export default function Address({ showData, setData }) {
               }}
             />
             {showData.Pincode.length >= 6 && (
-              <div onClick={verifyPincode}>
+              <div onClick={verifyPincode} className={AdCss.btnVer}>
                 {verifyPin ? (
                   <>
                     <svg
@@ -108,7 +108,7 @@ export default function Address({ showData, setData }) {
                     </svg>
                   </>
                 ) : (
-                  "Verify"
+                  <>Verify</>
                 )}
               </div>
             )}
