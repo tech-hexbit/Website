@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
+//
+import InputType1 from "./Input/InputType1";
+
 // MicroInteraction
 import Load from "./../../MicroInteraction/LoadBlack";
 import { Alert } from "./../../MicroInteraction/Alert";
@@ -78,6 +81,8 @@ export default function Address({ showData, setData }) {
     <>
       <div className={PrCss.mDiv}>
         <p className={PrCss.AboutYou}>Address</p>
+
+        {/* Pincode */}
         <div className={AdCss.inpDiv}>
           <p className={AdCss.inputLabel}>Pincode</p>
           <div className={AdCss.inputDivPincode}>
@@ -119,6 +124,26 @@ export default function Address({ showData, setData }) {
             )}
           </div>
         </div>
+
+        {/* Address */}
+        <InputType1
+          type="text"
+          Label="Address"
+          showData={showData}
+          setData={setData}
+          field="Address"
+          placeholder="St. - 70, Qt. - 2A"
+        />
+
+        {/* City */}
+        <InputType1
+          type="text"
+          Label="Address"
+          showData={showData}
+          setData={setData}
+          field="Address"
+          placeholder="St. - 70, Qt. - 2A"
+        />
       </div>
 
       <Alert variant={variants} val={setError} />
