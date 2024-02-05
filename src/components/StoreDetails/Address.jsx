@@ -23,6 +23,7 @@ export default function Address({ showData, setData }) {
               setData({ ...showData, Pincode: e.target.value });
             }}
           />
+          {showData.Pincode.length >= 6 && <div>HEllo</div>}
         </div>
       </div>
     </div>
