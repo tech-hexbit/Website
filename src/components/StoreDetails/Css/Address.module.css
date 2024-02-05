@@ -43,3 +43,7 @@
 .btnVer {
   cursor: pointer;
 }
+
+#inpTag {
+  cursor: not-allowed;
+}
