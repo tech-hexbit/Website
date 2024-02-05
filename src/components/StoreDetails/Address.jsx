@@ -138,11 +138,11 @@ export default function Address({ showData, setData }) {
         {/* City */}
         <InputType1
           type="text"
-          Label="Address"
+          Label="City"
           showData={showData}
           setData={setData}
-          field="Address"
-          placeholder="St. - 70, Qt. - 2A"
+          field="City"
+          placeholder="Chittranjan"
         />
       </div>
 
