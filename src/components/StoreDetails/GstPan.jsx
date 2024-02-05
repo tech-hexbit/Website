@@ -32,55 +32,81 @@ export default function GstPan({ showData, setData }) {
 
   const authCtx = useContext(AuthContext);
 
-  const verifyGST = async () => {};
+  const verifyGST = async () => {
+    setLoad(true);
+
+    if (verifyPin) {
+      return;
+    }
+
+    try {
+    } catch (error) {
+      console.log(error);
+
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "An unexpected error occurred",
+        val: true,
+      });
+
+      setLoad(false);
+    }
+  };
 
   return (
-    <div className={PrCss.mDiv}>
-      <p className={PrCss.AboutYou}>Documents</p>
+    <>
+      <div className={PrCss.mDiv}>
+        <p className={PrCss.AboutYou}>Documents</p>
 
-      {/* Pincode */}
-      <div className={AdCss.inpDiv}>
-        <p className={AdCss.inputLabel}>GSTIN No.</p>
-        <div className={AdCss.inputDivPincode}>
-          <input
-            disabled={verifyPin}
-            type="text"
-            name="GstinNumber"
-            value={showData.Gstin}
-            id={verifyPin ? `${AdCss.inpTag}` : ""}
-            placeholder="Enter GST Number"
-            onChange={(e) => {
-              setData({ ...showData, Gstin: e.target.value });
-            }}
-          />
-          {showData.Gstin.length >= 15 && (
-            <div onClick={verifyGST} className={AdCss.btnVer}>
-              {verifyPin ? (
-                <>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="lucide lucide-badge-check"
-                  >
-                    <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
-                    <path d="m9 12 2 2 4-4" />
-                  </svg>
-                </>
-              ) : (
-                <>{load ? <Load /> : <>Verify</>}</>
-              )}
-            </div>
-          )}
+        {/* Pincode */}
+        <div className={AdCss.inpDiv}>
+          <p className={AdCss.inputLabel}>GSTIN No.</p>
+          <div className={AdCss.inputDivPincode}>
+            <input
+              disabled={verifyPin}
+              type="text"
+              name="GstinNumber"
+              value={showData.Gstin}
+              id={verifyPin ? `${AdCss.inpTag}` : ""}
+              placeholder="29XXXXXXXXXR1ZR"
+              onChange={(e) => {
+                setData({ ...showData, Gstin: e.target.value });
+              }}
+            />
+            {showData.Gstin.length >= 15 && (
+              <div onClick={verifyGST} className={AdCss.btnVer}>
+                {verifyPin ? (
+                  <>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-badge-check"
+                    >
+                      <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
+                      <path d="m9 12 2 2 4-4" />
+                    </svg>
+                  </>
+                ) : (
+                  <>{load ? <Load /> : <>Verify</>}</>
+                )}
+              </div>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+
+      <Alert variant={variants} val={setError} />
+    </>
   );
 }
 
