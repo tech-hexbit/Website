@@ -265,17 +265,13 @@ const StoreVerifyMain = () => {
         setDisable={setDisable}
         setError={setError}
       />
+
       <FssaiField showData={showData} setData={setData} />
       <FileInput />
       <SelectInput showData={showData} setData={setData} />
       <OndcField setData={setData} showData={showData} />
       <TimingField showData={showData} setData={setData} />
       <DaysField showData={showData} setData={setData} />
-      <div className={SvCss.submitDiv}>
-        <button className={SvCss.submitBtn} onClick={onSubmit}>
-          {load ? <Load /> : "SUBMIT KYC"}
-        </button>
-      </div>
 
       <Alert variant={variants} val={setError} />
     </>
