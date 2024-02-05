@@ -12,7 +12,21 @@ export default function InputType1({
   showData,
   setData,
 }) {
-  return <div>InputType1</div>;
+  return (
+    <div className={PrCss.inpDiv}>
+      <p className={PrCss.inputLabel}>{Label}</p>
+      <input
+        type={type}
+        name="days"
+        value={showData[field]}
+        id=""
+        placeholder={placeholder}
+        onChange={(e) => {
+          setData({ ...showData, [field]: e.target.value });
+        }}
+      />
+    </div>
+  );
 }
 
 InputType1.propTypes = {
