@@ -74,6 +74,10 @@ export default function StoreVerify() {
     window.scrollTo(0, 0);
   };
 
+  useEffect(() => {
+    console.log(showData);
+  }, [showData]);
+
   return (
     <>
       <div className={SvCss.Ldiv}>
