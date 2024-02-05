@@ -108,6 +108,9 @@ export default function EditQuestion(props) {
       return;
     }
   };
+  const handleSelectChange = (event) => {
+    setData({ ...showData, tag: event.target.value });
+  };
 
   return (
     <>
@@ -136,6 +139,21 @@ export default function EditQuestion(props) {
           </svg>
         </div>
         <div className={AQCss.inpmDiv}>
+        <select
+            id="dropdown"
+            value={showData.tag}
+            onChange={handleSelectChange}
+            className={AQCss.inpTag}
+          >
+            <option value="">Select tag</option>
+            <option value="mail">Mail</option>
+            <option value="query">Query</option>
+            <option value="cancel">Cancellation</option>
+            <option value="refund">Refund</option>
+            <option value="order">Order</option>
+            <option value="approved">Important Bulletin</option>
+          </select>
+
           <input
             type="text"
             name="question"
