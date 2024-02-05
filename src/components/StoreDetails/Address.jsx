@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
-//
+// components
+import VerifiedFeilds from "./Input/VerifiedFeilds";
 import InputType1 from "./Input/InputType1";
 
 // MicroInteraction
@@ -136,13 +137,25 @@ export default function Address({ showData, setData }) {
         />
 
         {/* City */}
-        <InputType1
+        <VerifiedFeilds
           type="text"
           Label="City"
+          disabled={verifyPin}
           showData={showData}
           setData={setData}
           field="City"
           placeholder="Chittranjan"
+        />
+
+        {/* State */}
+        <VerifiedFeilds
+          type="text"
+          Label="State"
+          disabled={verifyPin}
+          showData={showData}
+          setData={setData}
+          field="State"
+          placeholder="West Bengal"
         />
       </div>
 
