@@ -9,6 +9,7 @@ import Address from "./../components/StoreDetails/Address";
 import Bank from "./../components/StoreDetails/Bank";
 import GstPan from "./../components/StoreDetails/GstPan";
 import UploadFiles from "./../components/StoreDetails/UploadFiles";
+import StoreDetails from "./../components/StoreDetails/StoreDetails";
 
 // MicroInteraction
 import { Alert } from "./../MicroInteraction/Alert";
@@ -91,6 +92,7 @@ export default function StoreVerify() {
           <Bank showData={showData} setData={setData} />
           <GstPan showData={showData} setData={setData} />
           <UploadFiles images={images} setImages={setImages} />
+          <StoreDetails showData={showData} setData={setData} />
 
           <div onClick={scrollToTop} className={SvCss.scrollToTop}>
             <svg
