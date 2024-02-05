@@ -26,6 +26,16 @@
   padding: 8px;
 }
 
+/* #allWidth input,
+#allWidth select {
+  width: 70%;
+}
+
+#ageNow input,
+#ageNow select {
+  width: 50%;
+} */
+
 .inpDiv input[type="number"]::-webkit-inner-spin-button,
 .inpDiv input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
