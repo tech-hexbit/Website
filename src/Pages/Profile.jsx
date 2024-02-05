@@ -27,6 +27,7 @@ import Orderdetails from "./../components/Dashboard/Orderdetails";
 import ProductsPage from "./../components/ProductsPage/ProductsPage";
 import VerifyEmail from "../components/Dashboard/MainParts/VerifyEmail";
 import HelpDeskTable from "./../components/Dashboard/HelpDesk/HelpDeskFormTable";
+import ProductPageNew from "../components/ProductsPage/ProductPageNew";
 //          || Admin
 import Payment from "../components/Admin/Payment";
 import TicketAdmin from "./../components/Admin/Ticket";
@@ -46,9 +47,6 @@ import { Alert } from "./../MicroInteraction/Alert";
 
 // Css
 import PCss from "./Css/Profile.module.css";
-import SupportNew from "../components/Dashboard/SupportNew";
-import SellerInfo from "../components/MainAdmin/SellerInfo";
-import HelpDeskNew from "../components/Dashboard/HelpDeskNew";
 
 export default function Profile() {
   const [load, setLoad] = useState(false);
@@ -61,11 +59,6 @@ export default function Profile() {
     text: "",
     val: false,
   });
-
-  // scroll to top
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   const authCtx = useContext(AuthContext);
 
@@ -178,15 +171,22 @@ export default function Profile() {
                 {authCtx.user.access === 2 && (
                   <>
                     <Route path="/admin/super/List" element={<FrontPage />} />
+                    <Route path="/admin/paymentdetails" element={<Payment />} />
                     <Route
                       path="/admin/super/SellerKYC"
-                      element={<SellersAdmin />}
+                      element={<SellersAdmin head={true} />}
                     />
-                    <Route path="/admin/super/Support" element={<SupportNew/>} />
-                    <Route path="/admin/super/HelpDesk" element={<HelpDeskNew/>} />
+                    <Route
+                      path="/admin/super/Support"
+                      element={<SupportAdmin />}
+                    />
+                    <Route
+                      path="/admin/super/Ticket"
+                      element={<TicketAdmin />}
+                    />
                     <Route
                       path="/admin/super/SellerInfo"
-                      element={<SellerInfo />}
+                      element={<SelectSellerDetail />}
                     />
                     <Route path="/products/:id" element={<ProductsPage />} />
                   </>
@@ -203,7 +203,8 @@ export default function Profile() {
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/Inventory" element={<Categories />} />
                     <Route path="/addProduct" element={<AddProduct />} />
-                    <Route path="/products/:id" element={<ProductsPage />} />
+                    {/* <Route path="/products/:id" element={<ProductsPage/>} /> */}
+                    <Route path="/products/:id" element={<ProductPageNew />} />
                     <Route path="/Payment/Details" element={<PayDetails />} />
                     <Route path="/Payment/Request" element={<PayRequest />} />
                     <Route

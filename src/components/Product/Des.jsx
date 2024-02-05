@@ -86,7 +86,7 @@ export default function Des(props) {
 
   return (
     <>
-      <div className={DCss.mDiv}>
+      {/* <div className={DCss.mDiv}>
         <p className={DCss.subTitlePTag}>
           Description :
           <span
@@ -144,9 +144,9 @@ export default function Des(props) {
             />
           )}
         </p>
-      </div>
+      </div> */}
 
-      {/* <div className={DCss.desDiv2}>
+      <div className={DCss.desDiv2}>
         <div className={DCss.mDiv}>
           <p className={DCss.subTitlePTag}>Features :</p>
           <p className={DCss.desDPTag}>
@@ -174,7 +174,7 @@ export default function Des(props) {
           Cushionig And Super Plush Feel. Outsole :- The Rubber Outsole With
           Perfect Grip And Durability.
         </p>
-      </div> */}
+      </div>
 
       <div className={DCss.mDiv}>
         <p className={DCss.subTitlePTag}>Product description :</p>

@@ -1,40 +1,41 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-// css
-import SvCss from "../../Pages/Css/StoreVerify.module.css";
+//css
+import OfCss from "./Css/OndcField.module.css";
 
-export default function Ondc_Details(props) {
+export default function OndcField({ showData, setData }) {
   const handleSelectChangeReturn = (event) => {
     const selectedValue = event.target.value;
-    props.setData({
-      ...props.showData,
-      Returnable: selectedValue,
+    setData({
+      ...showData,
+      Returnable: selectedValue === "True" ? true : false,
     });
   };
+
   const handleSelectChangeCancel = (event) => {
     const selectedValue = event.target.value;
-    props.setData({
-      ...props.showData,
-      Cancellable: selectedValue,
+    setData({
+      ...showData,
+      Cancellable: selectedValue === "True" ? true : false,
     });
   };
 
   return (
-    <div className={SvCss.nested_field_large_div}>
+    <div className={OfCss.nestedFieldLargeDiv}>
       <div>ONDC DETAILS</div>
-      <div className={SvCss.nested_field_small_div}>
-        <div className={SvCss.inpDiv}>
-          <div className={SvCss.input_label}>Time to ship</div>
+      <div className={OfCss.nestedFieldSmallDiv}>
+        <div className={OfCss.inpDiv}>
+          <div className={OfCss.inputLabel}>Time to ship</div>
           <select name="languages" id="lang">
-            <option value="select">Select Shipping Time</option>
+            <option value="select">Shipping Time</option>
             <option>8 AM - 12 PM</option>
             <option>12 PM - 4 PM</option>
             <option>4 PM - 8 PM</option>
           </select>
         </div>
-        <div className={SvCss.inpDiv}>
-          <div className={SvCss.input_label}>Cancellable</div>
+        <div className={OfCss.inpDiv}>
+          <div className={OfCss.inputLabel}>Cancellable</div>
           <select
             name="languages"
             id="lang"
@@ -45,8 +46,8 @@ export default function Ondc_Details(props) {
             <option>False</option>
           </select>
         </div>
-        <div className={SvCss.inpDiv}>
-          <div className={SvCss.input_label}>Returnable</div>
+        <div className={OfCss.inpDiv}>
+          <div className={OfCss.inputLabel}>Returnable</div>
           <select
             name="languages"
             id="lang"
@@ -57,27 +58,46 @@ export default function Ondc_Details(props) {
             <option>False</option>
           </select>
         </div>
-        <div className={SvCss.inpDiv}>
-          <p className={SvCss.input_label}>Contact Details For Consumer Care</p>
-          <input
-            type="number"
-            name="Contact Details For Customer Care"
-            value={props.showData.ContactDetailsForConsumerCare}
-            id=""
-            placeholder="Consumer Care Contact Details"
-            onChange={(e) => {
-              props.setData({
-                ...props.showData,
-                ContactDetailsForConsumerCare: e.target.value,
-              });
-            }}
-          />
+        <div className={`${OfCss.inpDiv} ${OfCss.ContactLdiv}`}>
+          <div className={OfCss.ContactDiv}>
+            <p className={OfCss.inputLabel}>Contact Details</p>
+            <input
+              type="number"
+              name="Contact Details"
+              value={showData.ContactDetails}
+              id=""
+              placeholder="Contact Details"
+              onChange={(e) => {
+                setData({
+                  ...showData,
+                  ContactDetails: e.target.value,
+                });
+              }}
+            />
+          </div>
+          <div className={OfCss.ContactDiv}>
+            <p className={OfCss.inputLabel}>Support Email</p>
+            <input
+              type="text"
+              name="Support Email"
+              value={showData.SupportEmail}
+              id=""
+              placeholder="Contact Email"
+              onChange={(e) => {
+                setData({
+                  ...showData,
+                  SupportEmail: e.target.value,
+                });
+              }}
+            />
+          </div>
         </div>
       </div>
     </div>
   );
 }
 
-Ondc_Details.propTypes = {
-  showData: PropTypes.object,
+OndcField.propTypes = {
+  showData: PropTypes.object.isRequired,
+  setData: PropTypes.func.isRequired,
 };

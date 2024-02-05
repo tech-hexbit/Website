@@ -3,7 +3,8 @@
   border-width: 1px;
   border-color: #ddd;
   padding: 5px 12px;
-  width: 220px;
+  /* width: 220px; */
+  width: 140px;
   transition: all 0.3s;
   border-radius: 5px;
 }
@@ -16,7 +17,7 @@
   color: #222;
   font-size: 14px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 19px;
   letter-spacing: 0.14px;
 }
@@ -25,9 +26,10 @@
   color: #000;
   font-size: 16px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 22px;
   letter-spacing: 0.16px;
+  margin-top: 5px;
 }
 
 .editBtn {

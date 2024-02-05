@@ -1,37 +1,40 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-// css
-import SvCss from "../../Pages/Css/StoreVerify.module.css";
+//css
+import OfCss from "./Css/OndcField.module.css";
+import TfCss from "./Css/TimingField.module.css";
 
-export default function TimingField(props) {
+export default function TimingField({ showData, setData }) {
   return (
-    <div className={SvCss.timing_large_div}>
-      <p className={SvCss.input_label}>Store Timing</p>
-      <div className={SvCss.timing_small_div}>
+    <div className={TfCss.timingLargeDiv}>
+      <p className={OfCss.inputLabel}>Store Timing</p>
+      <div className={TfCss.timingSmallDiv}>
         <input
           type="time"
-          name="Store_Timing"
-          value={props.showData.StoreTimingStart}
+          name="StoreTiming"
           id=""
           placeholder="0900"
           onChange={(e) => {
-            props.setData({
-              ...props.showData,
-              StoreTimingStart: e.target.value,
+            const timing = e.target.value;
+            const militaryTiming = timing.replace(":", "");
+            setData({
+              ...showData,
+              times: [militaryTiming, showData.times[1]],
             });
           }}
         />
         <input
           type="time"
           name="days"
-          value={props.showData.StoreTimingEnd}
           id=""
           placeholder="1800"
           onChange={(e) => {
-            props.setData({
-              ...props.showData,
-              StoreTimingEnd: e.target.value,
+            const timing = e.target.value;
+            const militaryTiming = timing.replace(":", "");
+            setData({
+              ...showData,
+              times: [showData.times[0], militaryTiming],
             });
           }}
         />
@@ -41,5 +44,6 @@ export default function TimingField(props) {
 }
 
 TimingField.propTypes = {
-  showData: PropTypes.object,
+  showData: PropTypes.object.isRequired,
+  setData: PropTypes.func.isRequired,
 };

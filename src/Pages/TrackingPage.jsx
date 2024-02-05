@@ -17,7 +17,6 @@ export default function TrackingPage() {
   const { id } = useParams();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
     loadData();
   }, []);
 

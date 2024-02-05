@@ -129,9 +129,9 @@ export default function OverallSales() {
 
     const sortedOrderDel = [...orderDel].sort((a, b) => {
       if (newSortOrder === "asc") {
-        return new Date(a.when.date) - new Date(b.when.date);
+        return a.when.date.localeCompare(b.when.date);
       } else {
-        return new Date(b.when.date) - new Date(a.when.date);
+        return b.when.date.localeCompare(a.when.date);
       }
     });
 
@@ -178,11 +178,6 @@ export default function OverallSales() {
     loadData();
   }, [currentPage, loadDataState]);
 
-  // scroll to top
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [, currentPage]);
-
   useEffect(() => {
     maxPage();
   }, [prodcutsCount, currentPage]);
@@ -193,7 +188,6 @@ export default function OverallSales() {
   }, [buyer]);
 
   useEffect(() => {
-    console.log(filters);
     loadData();
   }, [filters]);
 

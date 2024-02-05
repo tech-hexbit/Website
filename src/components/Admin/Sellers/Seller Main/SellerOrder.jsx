@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
 
 // components
 import UpdateState from "../../../Dashboard/Sales/UpdateState";
 import Orderdetails from "../../../Dashboard/Orderdetails";
+
 import Header from "../../../Dashboard/MainParts/Header";
+
 // state
 import AuthContext from "../../../../store/auth-context";
 
@@ -54,7 +55,9 @@ export default function SellerOrder() {
    
       const response = await axios.post(
         `/api/website/admin/sellerorders?page=${currentPage}`,
-       filters, 
+
+        filters,
+
         {
           headers: { Authorization: `${authCtx.token}` },
         }
@@ -216,8 +219,8 @@ export default function SellerOrder() {
           id={showProductDel.state ? "yesProductsPage" : "noProductsPage"}
         >
           <div className={osCss.top}>
-            <Header name="Overall Sales" />
 
+            <Header name="Overall Sales" />
             <div className={osCss.filters}>
               {/* Filters */}
               <div className={osCss.select}>

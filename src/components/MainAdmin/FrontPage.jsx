@@ -39,7 +39,7 @@ export default function FrontPage() {
         <ListBox
           title="Payments & payouts"
           label="Review payments, payouts, Invoices"
-          redirect="/me"
+          redirect="/me/admin/paymentdetails"
         />
         <ListBox
           title="Taxes"
@@ -69,7 +69,7 @@ export default function FrontPage() {
         <ListBox
           title="Help Desk"
           label="Help Desk Data"
-          redirect="/me/admin/super/HelpDesk"
+          redirect="/me/admin/super/Ticket"
         />
         <ListBox title="Inventory Statistics" label="Sales data" />
         <ListBox title="Inventory" label="Our Inventory" />

@@ -1,5 +1,6 @@
 import React, { useEffect, useContext, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // axios
 import axios from "axios";
@@ -12,10 +13,11 @@ import Box from "../Product/Box";
 import Des from "../Product/Des";
 import Offers from "../Product/Offers";
 import SizeBox from "../Product/SizeBox";
+import Rating from "../Product/Rating";
 import ColorBox from "../Product/ColorBox";
-import UpdateLabel from "../Product/UpdateLabel";
 import EditFeatures from "../Product/EditFeatures";
 import EditServices from "../Product/EditServices";
+import Header from "./../Dashboard/MainParts/Header";
 import RatingndReview from "../Product/RatingndReview";
 import ProductDescription from "../Product/ProductDescription";
 
@@ -24,11 +26,13 @@ import Load from "../../MicroInteraction/LoadBlack";
 
 // css
 import PPCss from "./Css/ProductPage.module.css";
+import odcss from "./../Dashboard/Css/Orderdetails.module.css";
 
 export default function ProductsPage() {
   const [res, setres] = useState();
   const [load, setLoad] = useState(false);
   const [change, setChange] = useState(false);
+  const [sliderData, setSliderData] = useState([]);
 
   const { id } = useParams();
 
@@ -52,6 +56,8 @@ export default function ProductsPage() {
         if (response.data.success) {
           setLoad(false);
 
+          setSliderData(response.data.ProductDetail.descriptor.images[0]);
+
           setres(response?.data?.ProductDetail);
         } else {
           setLoad(false);
@@ -66,85 +72,64 @@ export default function ProductsPage() {
     }
   };
 
+  const handleClick = (index) => {
+    setSliderData(res.descriptor.images[index]);
+  };
+
+  const handleLeft = () => {
+    const currentIndex = res.descriptor.images.findIndex(
+      (img) => img.id === sliderData.id
+    );
+    if (currentIndex === -1) {
+      return;
+    }
+    const previousIndex =
+      (currentIndex - 1 + res.descriptor.images.length) %
+      res.descriptor.images.length;
+    setSliderData(res.descriptor.images[previousIndex]);
+  };
+
+  const handleNext = () => {
+    if (sliderData.id === res.descriptor.images.length - 1) {
+      setSliderData(res.descriptor.images[0]);
+    } else {
+      setSliderData(res.descriptor.images[sliderData.id + 1]);
+    }
+  };
+
   useEffect(() => {
     loadProducts();
-
-    window.scrollTo(0, 0);
 
     setChange(false);
   }, [, change]);
 
-  const images = [
-    {
-      id: 0,
-      value:
-        "https://rukminim2.flixcart.com/image/832/832/kq18n0w0/mobile/u/w/b/narzo-30-rmx2156-realme-original-imag45ymfpry9ecq.jpeg?q=70&crop=false",
-    },
-    {
-      id: 1,
-      value:
-        "https://rukminim2.flixcart.com/image/832/832/kq18n0w0/mobile/7/y/i/narzo-30-rmx2156-realme-original-imag45ymgsgjtqux.jpeg?q=70&crop=false",
-    },
-    {
-      id: 3,
-      value:
-        "https://rukminim2.flixcart.com/image/832/832/kq18n0w0/mobile/7/q/e/narzo-30-rmx2156-realme-original-imag45ymbhypjf8e.jpeg?q=70&crop=false",
-    },
-    {
-      id: 4,
-      value:
-        "https://rukminim2.flixcart.com/image/832/832/kq18n0w0/mobile/z/x/f/narzo-30-rmx2156-realme-original-imag45ymjupkgkaq.jpeg?q=70&crop=false",
-    },
-  ];
-
-  const [sliderData, setSliderData] = useState(images[0]);
-
-  const handleClick = (index) => {
-    console.log(index);
-    setSliderData(images[index]);
-  };
-
-  const handleLeft = () => {
-    const currentIndex = images.findIndex((img) => img.id === sliderData.id);
-    if (currentIndex === -1) {
-      return;
-    }
-    const previousIndex = (currentIndex - 1 + images.length) % images.length;
-    setSliderData(images[previousIndex]);
-  };
-
-  const handleNext = () => {
-    if (sliderData.id === images.length - 1) {
-      setSliderData(images[0]);
-    } else {
-      setSliderData(images[sliderData.id + 1]);
-    }
-  };
-
   return (
     <div className={PPCss.mDiv}>
-      <p className={PPCss.AddHPTag}>
-        <span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-move-left"
-            className={PPCss.leftArrow}
-            onClick={goBack}
-          >
-            <path d="M6 8L2 12L6 16" />
-            <path d="M2 12H22" />
-          </svg>
-        </span>
-        Product Details
-      </p>
+      {/* Header */}
+      <div className={odcss.header}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="52"
+          height="52"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-chevron-left"
+          className={odcss.leftArrow}
+          onClick={goBack}
+        >
+          <path d="m15 18-6-6 6-6" />
+        </svg>
+
+        {res && (
+          <>
+            <Header name={`Product ID : #${res._id.slice(-4)}`} />
+          </>
+        )}
+      </div>
 
       {load ? (
         <div className="loadCenterDiv">
@@ -170,18 +155,15 @@ export default function ProductsPage() {
                     className={PPCss.arrow}
                     onClick={handleLeft}
                   >
+                    
                     <path d="m12 19-7-7 7-7" />
                     <path d="M19 12H5" />
                   </svg>
 
                   <div className={PPCss.center}>
-                    <img
-                      src={sliderData.value}
-                      height={300}
-                      width={200}
-                      className={PPCss.image}
-                    />
+                    <img src={sliderData} className={PPCss.image} />
                   </div>
+                  
 
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -202,11 +184,11 @@ export default function ProductsPage() {
                   </svg>
                 </div>
                 <div className={PPCss.imageContainer}>
-                  {images.map((data, i) => (
+                  {res.descriptor.images.map((data, key) => (
                     <img
-                      src={data.value}
-                      key={data.id}
-                      onClick={() => handleClick(i)}
+                      src={data}
+                      key={key}
+                      onClick={() => handleClick(key)}
                       className={PPCss.imgs}
                     />
                   ))}
