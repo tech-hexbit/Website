@@ -1,6 +1,7 @@
 import React from "react";
 
 // css
+import AdCss from "./Css/Address.module.css";
 import PrCss from "./Css/Particulars.module.css";
 
 export default function Address() {
