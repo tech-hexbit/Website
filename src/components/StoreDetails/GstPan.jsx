@@ -200,6 +200,7 @@ export default function GstPan({ showData, setData }) {
             )}
           </div>
         </div>
+
         {/* PAN */}
         <div className={AdCss.inpDiv}>
           <p className={AdCss.inputLabel}>PAN No.</p>
@@ -241,7 +242,7 @@ export default function GstPan({ showData, setData }) {
               </div>
             )}
           </div>
-        </div>{" "}
+        </div>
       </div>
 
       <Alert variant={variants} val={setError} />
