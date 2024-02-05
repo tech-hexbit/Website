@@ -59,7 +59,7 @@ export default function Address({ showData, setData }) {
           secondaryColor: "#FFA117",
           symbol: "warning",
           title: "Warning",
-          text: "Pin not found. Kindly try again",
+          text: "Pin not found. Kindly try again.",
           val: true,
         });
       }
