@@ -9,6 +9,7 @@ export default function Address({ showData, setData }) {
   const verifyPincode = () => {
     console.log("verifyPincode");
   };
+
   return (
     <div className={PrCss.mDiv}>
       <p className={PrCss.AboutYou}>Address</p>
