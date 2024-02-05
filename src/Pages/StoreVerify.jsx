@@ -95,6 +95,7 @@ export default function StoreVerify() {
           <GstPan showData={showData} setData={setData} />
           <UploadFiles images={images} setImages={setImages} />
           <StoreDetails showData={showData} setData={setData} />
+          {/* Scroll to top */}
           <div onClick={scrollToTop} className={SvCss.scrollToTop}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
