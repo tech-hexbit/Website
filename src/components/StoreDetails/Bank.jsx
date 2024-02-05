@@ -71,6 +71,8 @@ export default function Bank({ showData, setData }) {
           BranchName: response.data.response.data.branch,
         });
 
+        setVerifyPin(true);
+
         setLoad(false);
       } else {
         setLoad(false);
