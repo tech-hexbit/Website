@@ -14,3 +14,25 @@
   justify-content: space-between;
   gap: 0px 45px;
 }
+
+.inputDivPincode {
+  width: 70%;
+}
+
+.inputDivPincode input {
+  width: 100%;
+  outline: none;
+  border: 1px solid #909090;
+  background: #fff;
+  border-radius: 5px;
+  height: 42px;
+  padding: 8px;
+}
+
+.inputDivPincode input[type="number"]::-webkit-inner-spin-button,
+.inputDivPincode input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
