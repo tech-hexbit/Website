@@ -7,6 +7,10 @@ import StoreVerifyMain from "../components/StoreVerify/StoreVerifyMain";
 import SvCss from "./Css/StoreVerify.module.css";
 
 export default function StoreVerify() {
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <>
       <div className={SvCss.Ldiv}>
