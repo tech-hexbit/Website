@@ -63,16 +63,12 @@ export default function Bank({ showData, setData }) {
       const response = await axios.post("/api/verification/bank", data);
 
       if (response.data.success) {
-        console.log(response.data);
-
-        console.log(showData.AcHolderName);
-
-        // setData({
-        //   ...showData,
-        //   AcHolderName: response.data.nameAtBank,
-        //   BankName: response.data.bankName,
-        //   BranchName: response.data.branch,
-        // });
+        setData({
+          ...showData,
+          AcHolderName: response.data.response.data.nameAtBank,
+          BankName: response.data.response.data.bankName,
+          BranchName: response.data.response.data.branch,
+        });
 
         setLoad(false);
       } else {
