@@ -96,7 +96,7 @@ export default function GstPan({ showData, setData }) {
   };
 
   const verifyPAN = async () => {
-    setLoad(true);
+    setLoadPan(true);
 
     if (verifyPan) {
       return;
@@ -113,7 +113,7 @@ export default function GstPan({ showData, setData }) {
           val: true,
         });
 
-        setLoad(false);
+        setLoadPan(false);
 
         return;
       }
@@ -126,13 +126,11 @@ export default function GstPan({ showData, setData }) {
       const response = await axios.post("/api/verification/pan", data);
 
       if (response.data.success) {
-        console.log(response.data);
+        setVerifyPan(true);
 
-        setVerifyPin(true);
-
-        setLoad(false);
+        setLoadPan(false);
       } else {
-        setLoad(false);
+        setLoadPan(false);
 
         setError({
           mainColor: "#FFF4E5",
@@ -155,7 +153,7 @@ export default function GstPan({ showData, setData }) {
         val: true,
       });
 
-      setLoad(false);
+      setLoadPan(false);
     }
   };
 
@@ -210,11 +208,11 @@ export default function GstPan({ showData, setData }) {
           <p className={AdCss.inputLabel}>PAN No.</p>
           <div className={AdCss.inputDivPincode}>
             <input
-              disabled={verifyPin}
+              disabled={verifyPan}
               type="text"
               name="PanNumber"
               value={showData.PanNo}
-              id={verifyPin ? `${AdCss.inpTag}` : ""}
+              id={verifyPan ? `${AdCss.inpTag}` : ""}
               placeholder="29XXXXXXXXXR1ZR"
               onChange={(e) => {
                 setData({ ...showData, PanNo: e.target.value });
