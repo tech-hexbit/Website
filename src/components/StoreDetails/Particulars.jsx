@@ -39,6 +39,25 @@ export default function Particulars({ showData, setData }) {
         field="LegalName"
         placeholder="Jhon David"
       />
+
+      {/* Email */}
+      <InputType1
+        type="email"
+        Label="Email ID"
+        showData={showData}
+        setData={setData}
+        field="EmailID"
+        placeholder="Enter your email"
+      />
+
+      {/* DOB */}
+      <InputType1
+        type="date"
+        Label="DOB"
+        showData={showData}
+        setData={setData}
+        field="DOB"
+      />
     </div>
   );
 }
