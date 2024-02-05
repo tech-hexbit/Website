@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 
 // css
 import PrCss from "./Css/InputType1.module.css";
-import VrCss from "./Css/VerifiedFeilds.module.css";
 
 export default function VerifiedFeilds({
   Label,
   type,
   field,
+  disabled,
   placeholder,
   showData,
   setData,
@@ -18,9 +18,10 @@ export default function VerifiedFeilds({
       <p className={PrCss.inputLabel}>{Label}</p>
       <input
         type={type}
+        disabled={disabled}
         name="days"
         value={showData[field]}
-        id=""
+        id={disabled ? `${PrCss.inpTag}` : ""}
         placeholder={placeholder}
         onChange={(e) => {
           setData({ ...showData, [field]: e.target.value });
