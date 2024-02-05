@@ -5,5 +5,5 @@ import PropTypes from "prop-types";
 import PrCss from "./Css/Particulars.module.css";
 
 export default function Particulars({}) {
-  return <div>Particulars</div>;
+  return <div className={PrCss.mDiv}>Particulars</div>;
 }
