@@ -1,0 +1,73 @@
+.heading {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.createYourStore {
+  color: #383c3e;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.saveButtons {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.saveButtonPurple {
+  color: #fff;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  border: none;
+  display: flex;
+  max-width: 139px;
+  height: 43px;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  background-color: #350b5e;
+  cursor: pointer;
+}
+
+.saveButtonGreen {
+  display: flex;
+  max-width: 174px;
+  height: 43px;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  background: #2b5e0b;
+  border: none;
+  color: #fff;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.subHeadline {
+  color: #737b7d;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 160%;
+  letter-spacing: 0.3px;
+}
+
+@media screen and (max-width: 600px) {
+  .heading {
+    justify-content: center;
+  }
+
+  .subHeadline {
+    text-align: center;
+  }
+}
