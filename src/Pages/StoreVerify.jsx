@@ -22,10 +22,10 @@ export default function StoreVerify() {
   const [showData, setData] = useState({
     FirstName: "",
     LastName: "",
-    EmailID: "",
-    Password: "",
-    DOB: "",
     LegalName: "",
+    EmailID: "",
+    // Password: "",
+    DOB: "",
     Description: "",
     Address: "",
     City: "",
