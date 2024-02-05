@@ -75,7 +75,7 @@ export default function StoreVerify() {
   };
 
   useEffect(() => {
-    console.log(showData);
+    console.table(showData);
   }, [showData]);
 
   return (
