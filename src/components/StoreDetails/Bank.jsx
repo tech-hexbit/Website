@@ -35,6 +35,8 @@ export default function Bank({ showData, setData }) {
     setLoad(true);
 
     if (verifyPin) {
+      setLoad(false);
+
       return;
     }
 
@@ -49,6 +51,8 @@ export default function Bank({ showData, setData }) {
           val: true,
         });
 
+        setLoad(false);
+
         return;
       }
 
@@ -56,8 +60,6 @@ export default function Bank({ showData, setData }) {
         bankAccount: showData.AccountNo,
         ifsc: showData.IfscCode,
       };
-
-      console.log(data);
 
       const response = await axios.post("/api/verification/bank", data);
 
