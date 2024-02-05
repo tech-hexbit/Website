@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 // components
 import VerifiedFeilds from "./Input/VerifiedFeilds";
 import InputType1 from "./Input/InputType1";
+import Map from "./Map";
 
 // MicroInteraction
 import Load from "./../../MicroInteraction/LoadBlack";
@@ -157,6 +158,8 @@ export default function Address({ showData, setData }) {
           field="State"
           placeholder="West Bengal"
         />
+
+        <Map />
       </div>
 
       <Alert variant={variants} val={setError} />
