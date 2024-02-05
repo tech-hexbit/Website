@@ -65,12 +65,14 @@ export default function Bank({ showData, setData }) {
       if (response.data.success) {
         console.log(response.data);
 
-        setData({
-          ...showData,
-          AcHolderName: response.data.nameAtBank,
-          BankName: response.data.bankName,
-          BranchName: response.data.branch,
-        });
+        console.log(showData.AcHolderName);
+
+        // setData({
+        //   ...showData,
+        //   AcHolderName: response.data.nameAtBank,
+        //   BankName: response.data.bankName,
+        //   BranchName: response.data.branch,
+        // });
 
         setLoad(false);
       } else {
@@ -100,6 +102,8 @@ export default function Bank({ showData, setData }) {
       setLoad(false);
     }
   };
+
+  console.log(showData);
 
   return (
     <>
@@ -162,7 +166,7 @@ export default function Bank({ showData, setData }) {
         />
 
         {!verifyPin && showData.AccountNo !== "" && showData.IfscCode !== "" ? (
-          <div onClick={bankVerify}>Verify</div>
+          <div onClick={bankVerify}>{load ? <Load /> : "Verify"}</div>
         ) : (
           ""
         )}
