@@ -137,7 +137,7 @@ export default function GstPan({ showData, setData }) {
           secondaryColor: "#FFA117",
           symbol: "warning",
           title: "Warning",
-          text: "Invalid GST No.",
+          text: "Invalid PAN No.",
           val: true,
         });
       }
