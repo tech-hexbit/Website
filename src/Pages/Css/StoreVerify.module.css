@@ -5,8 +5,7 @@
 }
 
 .boxDiv {
-  padding: 25px 0px;
-  flex-basis: 70%;
+  width: 80%;
 }
 
 input,
