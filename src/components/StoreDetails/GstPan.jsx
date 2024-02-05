@@ -40,20 +40,20 @@ export default function GstPan({ showData, setData }) {
 
       {/* Pincode */}
       <div className={AdCss.inpDiv}>
-        <p className={AdCss.inputLabel}>Pincode</p>
+        <p className={AdCss.inputLabel}>GSTIN No.</p>
         <div className={AdCss.inputDivPincode}>
           <input
             disabled={verifyPin}
-            type="number"
-            name="Pincode"
-            value={showData.Pincode}
+            type="text"
+            name="GstinNumber"
+            value={showData.Gstin}
             id={verifyPin ? `${AdCss.inpTag}` : ""}
-            placeholder="Your Pincode"
+            placeholder="Enter GST Number"
             onChange={(e) => {
-              setData({ ...showData, Pincode: e.target.value });
+              setData({ ...showData, Gstin: e.target.value });
             }}
           />
-          {showData.Pincode.length >= 6 && (
+          {showData.Gstin.length >= 15 && (
             <div onClick={verifyGST} className={AdCss.btnVer}>
               {verifyPin ? (
                 <>
