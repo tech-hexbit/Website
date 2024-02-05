@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 // axios
@@ -31,6 +31,7 @@ export default function UploadFiles({ images, setImages }) {
   const onSubmit = async () => {
     setLoad(true);
 
+    console.log(imageUpload);
     console.log(imageUpload.img);
 
     if (imageUpload) {
