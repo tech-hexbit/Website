@@ -44,9 +44,9 @@
   margin: 0;
 }
 
-.inputLabel {
+/* .inputLabel {
   flex-basis: 30%;
-}
+} */
 
 @media screen and (max-width: 600px) {
   .inpDiv input,
