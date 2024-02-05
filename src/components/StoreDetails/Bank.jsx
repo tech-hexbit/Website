@@ -63,6 +63,8 @@ export default function Bank({ showData, setData }) {
       const response = await axios.post("/api/verification/bank", data);
 
       if (response.data.success) {
+        console.log(response.data);
+
         setData({
           ...showData,
           AcHolderName: response.data.nameAtBank,
@@ -73,6 +75,15 @@ export default function Bank({ showData, setData }) {
         setLoad(false);
       } else {
         setLoad(false);
+
+        setError({
+          mainColor: "#FFF4E5",
+          secondaryColor: "#FFA117",
+          symbol: "warning",
+          title: "Warning",
+          text: "Invalid Bank Info",
+          val: true,
+        });
       }
     } catch (error) {
       console.log(error);
