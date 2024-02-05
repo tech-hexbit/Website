@@ -102,8 +102,6 @@ export default function Bank({ showData, setData }) {
     }
   };
 
-  console.log(showData);
-
   return (
     <>
       <div className={PrCss.mDiv}>
