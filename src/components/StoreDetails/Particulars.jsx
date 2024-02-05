@@ -10,6 +10,8 @@ import PrCss from "./Css/Particulars.module.css";
 export default function Particulars({ showData, setData }) {
   return (
     <div className={PrCss.mDiv}>
+      <p className={PrCss.AboutYou}>About You</p>
+
       {/* First Name */}
       <InputType1
         type="text"
@@ -57,6 +59,7 @@ export default function Particulars({ showData, setData }) {
         showData={showData}
         setData={setData}
         field="DOB"
+        placeholder="Enter your DOB"
       />
     </div>
   );
