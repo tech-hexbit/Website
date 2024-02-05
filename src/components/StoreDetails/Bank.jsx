@@ -16,7 +16,6 @@ import AuthContext from "./../../store/auth-context";
 
 // css
 import PrCss from "./Css/Particulars.module.css";
-import ItCss from "./Input/Css/InputType1.module.css";
 
 export default function Bank({ showData, setData }) {
   const [load, setLoad] = useState(false);
