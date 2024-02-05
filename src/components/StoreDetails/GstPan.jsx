@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 
+//component
+import InputType1 from "./Input/InputType1";
+
 // MicroInteraction
 import Load from "./../../MicroInteraction/LoadBlack";
 import { Alert } from "./../../MicroInteraction/Alert";
@@ -243,6 +246,16 @@ export default function GstPan({ showData, setData }) {
             )}
           </div>
         </div>
+
+        {/* FSSAI */}
+        <InputType1
+          type="text"
+          Label="FSSAI Licence NO"
+          showData={showData}
+          setData={setData}
+          field="FssaiLicence"
+          placeholder="10022XXX000000"
+        />
       </div>
 
       <Alert variant={variants} val={setError} />
