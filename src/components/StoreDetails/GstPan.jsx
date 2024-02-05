@@ -40,6 +40,41 @@ export default function GstPan({ showData, setData }) {
     }
 
     try {
+      if (showData.Gstin === "") {
+        setError({
+          mainColor: "#FFC0CB",
+          secondaryColor: "#FF69B4",
+          symbol: "error",
+          title: "Check it out",
+          text: "Please Fill The Details",
+          val: true,
+        });
+
+        setLoad(false);
+
+        return;
+      }
+
+      let data = {
+        GSTIN: showData.Gstin,
+      };
+
+      const response = await axios.post("/api/verification/gstin", data);
+
+      if (response.data.success) {
+        setLoad(false);
+      } else {
+        setLoad(false);
+
+        setError({
+          mainColor: "#FFF4E5",
+          secondaryColor: "#FFA117",
+          symbol: "warning",
+          title: "Warning",
+          text: "Invalid GST No.",
+          val: true,
+        });
+      }
     } catch (error) {
       console.log(error);
 
