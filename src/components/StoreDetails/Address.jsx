@@ -26,6 +26,11 @@ export default function Address({ showData, setData }) {
 
   const verifyPincode = async () => {
     setLoad(true);
+
+    if (verifyPin) {
+      return;
+    }
+
     try {
       const response = await axios.get(
         `https://api.postalpincode.in/pincode/${showData.Pincode}`
@@ -81,7 +86,7 @@ export default function Address({ showData, setData }) {
               type="number"
               name="Pincode"
               value={showData.Pincode}
-              id=""
+              id={verifyPin ? `${AdCss.inpTag}` : ""}
               placeholder="Your Pincode"
               onChange={(e) => {
                 setData({ ...showData, Pincode: e.target.value });
@@ -108,7 +113,7 @@ export default function Address({ showData, setData }) {
                     </svg>
                   </>
                 ) : (
-                  <>Verify</>
+                  <>{load ? <Load /> : <>Verify</>}</>
                 )}
               </div>
             )}
