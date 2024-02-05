@@ -13,6 +13,6 @@ export default function UploadFiles({ images, setImages }) {
 }
 
 UploadFiles.propTypes = {
-  showData: PropTypes.object.isRequired,
-  setData: PropTypes.func.isRequired,
+  images: PropTypes.object.isRequired,
+  setImages: PropTypes.func.isRequired,
 };
