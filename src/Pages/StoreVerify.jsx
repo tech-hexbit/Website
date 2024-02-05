@@ -15,7 +15,7 @@ export default function StoreVerify() {
     <>
       <div className={SvCss.Ldiv}>
         <div className={SvCss.boxDiv}>
-          <StoreVerifyMain />
+          {/* <StoreVerifyMain /> */}
 
           <div onClick={scrollToTop} className={SvCss.scrollToTop}>
             <svg
