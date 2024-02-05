@@ -63,10 +63,6 @@
 }
 
 @media screen and (max-width: 600px) {
-  .heading {
-    justify-content: center;
-  }
-
   .subHeadline {
     text-align: center;
   }
