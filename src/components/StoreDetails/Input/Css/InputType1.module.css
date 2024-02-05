@@ -17,11 +17,11 @@
 
 .inpDiv input,
 .inpDiv select {
+  width: 70%;
   outline: none;
   border: 1px solid #909090;
   background: #fff;
   border-radius: 5px;
-  flex-basis: 70%;
   height: 42px;
   padding: 8px;
 }
