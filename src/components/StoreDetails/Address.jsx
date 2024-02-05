@@ -67,7 +67,6 @@ export default function Address({ showData, setData }) {
 
       setLoad(false);
     }
-    console.log("verifyPincode");
   };
 
   return (
