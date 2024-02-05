@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 import SvCss from "./Css/StoreVerifyMain.module.css";
 
 // MicroInteraction
-import Load from "../../MicroInteraction/Load";
+import Load from "./../../MicroInteraction/Load";
+import { Alert } from "./../../MicroInteraction/Alert";
 
 // store
 import AuthContext from "../../store/auth-context";
@@ -15,28 +16,42 @@ import axios from "axios";
 
 // components
 import Heading from "./Heading";
+import DaysField from "./DaysField";
 import FileInput from "./FileInput";
-import BankFields from "./BankFields";
 import OndcField from "./OndcField";
+import BankFields from "./BankFields";
 import TimingField from "./TimingField";
 import SelectInput from "./SelectInput";
-import DaysField from "./DaysField";
 import TextInput from "./TextInputs/TextInput";
-import GrpTextInput from "./TextInputs/GrpTextInput";
 import FssaiField from "./TextInputs/FssaiField";
+import GrpTextInput from "./TextInputs/GrpTextInput";
 import PincodeField from "./VerifiedField/PincodeField";
-import GrpVerifiedFields from "./VerifiedField/VerifiedFields";
 import VerifiedPanGst from "./VerifiedField/VerifiedPanGst";
+import GrpVerifiedFields from "./VerifiedField/VerifiedFields";
 
-const StoreVerifyMain = (props) => {
+const StoreVerifyMain = () => {
   const [load, setLoad] = useState(false);
+  const [verifyPin, setVerify] = useState(false);
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
+  const [conditionLoading, setConditionLoading] = useState({
+    Pincode: false,
+    Pan: false,
+    Gstin: false,
+    Bank: false,
+  });
   const [disable, setDisable] = useState({
     Pincode: false,
     Pan: false,
     Gstin: false,
     Bank: false,
   });
-  const [verifyPin, setVerify] = useState(false);
   const [showData, setData] = useState({
     FirstName: "",
     LastName: "",
@@ -99,7 +114,8 @@ const StoreVerifyMain = (props) => {
       showData.PanNo == ""
     ) {
       setLoad(false);
-      props.setError({
+
+      setError({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
         symbol: "pets",
@@ -108,8 +124,9 @@ const StoreVerifyMain = (props) => {
         val: true,
       });
     } else if (!verifyPin || !disable.Bank || !disable.Gstin || !disable.Pan) {
-      console.log(verifyPin, `inverse ${!verifyPin}`);
-      props.setError({
+      setLoad(false);
+
+      setError({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
         symbol: "pets",
@@ -133,8 +150,7 @@ const StoreVerifyMain = (props) => {
           email: showData.email,
         };
         data = showData;
-        // data.times.push(String(showData.StoreTimingStart));
-        // data.times.push(String(showData.StoreTimingEnd));
+
         const response = await axios.post(
           "/api/common/Store/CreateStore",
           data,
@@ -142,8 +158,9 @@ const StoreVerifyMain = (props) => {
             headers: { Authorization: `${authCtx.token}` },
           }
         );
+
         if (response.data.success) {
-          props.setError({
+          setError({
             mainColor: "#EDFEEE",
             secondaryColor: "#5CB660",
             symbol: "check_circle",
@@ -160,7 +177,7 @@ const StoreVerifyMain = (props) => {
         }
       } catch (e) {
         setLoad(false);
-        props.setError({
+        setError({
           mainColor: "#FDEDED",
           secondaryColor: "#F16360",
           symbol: "error",
@@ -185,21 +202,23 @@ const StoreVerifyMain = (props) => {
     };
     navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
   }
+
   if (!showData.gps) {
     getLocation(showData, setData);
   }
+
   useEffect(() => {
     console.table(showData);
   }, [showData]);
 
   return (
     <>
-      <Heading />
+      <Heading load={load} onSubmit={onSubmit} />
       <div className={SvCss.subHeadline}>
         Please allow us 2-3 business days to review your KYC and approve your
         account.
       </div>
-      <div className={SvCss.progressBar}>ICONS</div>
+
       <GrpTextInput showData={showData} setData={setData} />
       <PincodeField
         showData={showData}
@@ -208,7 +227,7 @@ const StoreVerifyMain = (props) => {
         disable={disable}
         setDisable={setDisable}
         setVerify={setVerify}
-        setError={props.setError}
+        setError={setError}
       />
       <TextInput
         type="text"
@@ -237,26 +256,24 @@ const StoreVerifyMain = (props) => {
         showData={showData}
         disable={disable}
         setDisable={setDisable}
-        setError={props.setError}
+        setError={setError}
       />
       <VerifiedPanGst
         showData={showData}
         setData={setData}
         disable={disable}
         setDisable={setDisable}
-        setError={props.setError}
+        setError={setError}
       />
+
       <FssaiField showData={showData} setData={setData} />
       <FileInput />
       <SelectInput showData={showData} setData={setData} />
       <OndcField setData={setData} showData={showData} />
       <TimingField showData={showData} setData={setData} />
       <DaysField showData={showData} setData={setData} />
-      <div className={SvCss.submitDiv}>
-        <button className={SvCss.submitBtn} onClick={onSubmit}>
-          {load ? <Load /> : "SUBMIT KYC"}
-        </button>
-      </div>
+
+      <Alert variant={variants} val={setError} />
     </>
   );
 };

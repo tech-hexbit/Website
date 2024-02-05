@@ -27,6 +27,7 @@ import Orderdetails from "./../components/Dashboard/Orderdetails";
 import ProductsPage from "./../components/ProductsPage/ProductsPage";
 import VerifyEmail from "../components/Dashboard/MainParts/VerifyEmail";
 import HelpDeskTable from "./../components/Dashboard/HelpDesk/HelpDeskFormTable";
+import ProductPageNew from "../components/ProductsPage/ProductPageNew";
 //          || Admin
 import Payment from "../components/Admin/Payment";
 import TicketAdmin from "./../components/Admin/Ticket";
@@ -170,9 +171,10 @@ export default function Profile() {
                 {authCtx.user.access === 2 && (
                   <>
                     <Route path="/admin/super/List" element={<FrontPage />} />
+                    <Route path="/admin/paymentdetails" element={<Payment />} />
                     <Route
                       path="/admin/super/SellerKYC"
-                      element={<SellersAdmin />}
+                      element={<SellersAdmin head={true} />}
                     />
                     <Route
                       path="/admin/super/Support"
@@ -201,7 +203,8 @@ export default function Profile() {
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/Inventory" element={<Categories />} />
                     <Route path="/addProduct" element={<AddProduct />} />
-                    <Route path="/products/:id" element={<ProductsPage />} />
+                    {/* <Route path="/products/:id" element={<ProductsPage/>} /> */}
+                    <Route path="/products/:id" element={<ProductPageNew />} />
                     <Route path="/Payment/Details" element={<PayDetails />} />
                     <Route path="/Payment/Request" element={<PayRequest />} />
                     <Route

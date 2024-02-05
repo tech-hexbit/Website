@@ -1,51 +1,15 @@
-import React from "react";
-
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 //axios
 import axios from "axios";
 
-//css
-import VfCss from "./Css/VerifiedFields.module.css";
-import PfCss from "./Css/PincodeField.module.css";
+// MicroInteraction
+import Load from "./../../../MicroInteraction/LoadBlack";
 
-const pincodeVerify = async ({
-  setData,
-  showData,
-  disable,
-  setDisable,
-  setVerify,
-  setError,
-}) => {
-  try {
-    const validPin = ({ response }) => {
-      setData({
-        ...showData,
-        State: response.data[0].PostOffice[0].State,
-        City: response.data[0].PostOffice[0].Name,
-      });
-      setDisable({ ...disable, Pincode: true });
-      setVerify(true);
-    };
-    const invalidPin = () => {
-      setError({
-        mainColor: "#FFC0CB",
-        secondaryColor: "#FF69B4",
-        symbol: "error",
-        title: "Check it out",
-        text: "Invalid pincode",
-        val: true,
-      });
-      setVerify(false);
-    };
-    const response = await axios.get(
-      `https://api.postalpincode.in/pincode/${showData.Pincode}`
-    );
-    response.data[0].PostOffice ? validPin({ response }) : invalidPin();
-  } catch (e) {
-    // console.log(e);
-  }
-};
+//css
+import PfCss from "./Css/PincodeField.module.css";
+import VfCss from "./Css/VerifiedFields.module.css";
 
 export default function PincodeField({
   showData,
@@ -56,6 +20,58 @@ export default function PincodeField({
   setVerify,
   setError,
 }) {
+  const [load, setLoad] = useState(false);
+
+  const pincodeVerify = async () => {
+    setLoad(true);
+
+    try {
+      const response = await axios.get(
+        `https://api.postalpincode.in/pincode/${showData.Pincode}`
+      );
+
+      if (response.data[0].PostOffice) {
+        setData({
+          ...showData,
+          State: response.data[0].PostOffice[0].State,
+          City: response.data[0].PostOffice[0].Name,
+        });
+
+        setDisable({ ...disable, Pincode: true });
+
+        setVerify(true);
+
+        setLoad(false);
+      } else {
+        setLoad(false);
+
+        setError({
+          mainColor: "#FFC0CB",
+          secondaryColor: "#FF69B4",
+          symbol: "error",
+          title: "Check it out",
+          text: "Invalid pincode",
+          val: true,
+        });
+
+        setVerify(false);
+      }
+    } catch (e) {
+      console.log(e);
+
+      setLoad(false);
+
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "An unexpected error occurred",
+        val: true,
+      });
+    }
+  };
+
   return (
     <div>
       {showData.Pincode.length >= 6 ? (
@@ -74,19 +90,7 @@ export default function PincodeField({
               }}
             />
             <div>
-              <button
-                className={PfCss.verifyButton}
-                onClick={() => {
-                  pincodeVerify({
-                    setData,
-                    showData,
-                    disable,
-                    setDisable,
-                    setVerify,
-                    setError,
-                  });
-                }}
-              >
+              <button className={PfCss.verifyButton} onClick={pincodeVerify}>
                 {verifyPin ? (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -104,7 +108,7 @@ export default function PincodeField({
                     <path d="m9 12 2 2 4-4" />
                   </svg>
                 ) : (
-                  "Verify"
+                  <>{load ? <Load /> : "Verify"}</>
                 )}
               </button>
             </div>

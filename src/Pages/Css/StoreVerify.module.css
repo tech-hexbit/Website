@@ -3,31 +3,47 @@
   display: flex;
   justify-content: space-around;
 }
+
 .boxDiv {
-  padding: 25px 0px;
-  flex-basis: 70%;
+  margin: 30px 0px;
+  width: 80%;
 }
 
-input,
+/* input,
 select,
 button {
-  /* outline: none; */
   border: 1px solid #909090;
   background: #fff;
   border-radius: 5px;
-}
+} */
 
-input[type="number"]::-webkit-inner-spin-button,
+/* input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   margin: 0;
+} */
+
+.scrollToTop {
+  padding: 12px 7px;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  box-shadow: 1px 1px 5px transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: 0.2;
+  transition: all 0.3s;
 }
 
-@media screen and (max-width: 400px) {
+.scrollToTop:hover {
+  opacity: 1;
+  box-shadow: 1px 1px 5px #717171;
+}
+
+/* @media screen and (max-width: 400px) {
   .boxDiv {
     width: 80%;
-    /* width: 70%; */
   }
-}
+} */

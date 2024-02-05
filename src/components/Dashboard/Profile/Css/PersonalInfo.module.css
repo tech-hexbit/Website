@@ -6,6 +6,22 @@
   font-size: 26px;
 }
 
+.headPlus {
+  font-size: 32px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.headPlus:hover {
+  color: #c076ff;
+}
+
+.headingDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .box {
   margin-top: 10px;
   padding: 22px 30px;
@@ -22,6 +38,10 @@
   border: 1px dashed #56117c;
 }
 
+#mrow1 {
+  margin-bottom: 20px;
+}
+
 .infodivPerfix {
   color: #717171;
 }
@@ -32,6 +52,21 @@
   justify-content: space-between;
   align-items: center;
   gap: 0px 20px;
+}
+
+.Line1 {
+  width: 100%;
+  height: 2px;
+  border-style: dashed;
+  border-width: 0px 0px 1px 0px;
+  border-color: rgba(170, 170, 170, 1);
+  margin-bottom: 20px;
+  transform: all 0.3s;
+}
+
+.Line1:hover {
+  border-style: solid;
+  border-color: #c076ff;
 }
 
 .inputheading {

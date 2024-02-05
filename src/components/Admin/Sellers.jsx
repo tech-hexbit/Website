@@ -11,7 +11,7 @@ import AuthContext from "./.././../store/auth-context";
 // axios
 import axios from "axios";
 
-export default function Sellers() {
+export default function Sellers({ head }) {
   const [data, setData] = useState([]);
   const [load, setLoad] = useState(false);
   const [loadNow, setloadNow] = useState(false);
@@ -51,7 +51,9 @@ export default function Sellers() {
 
   return (
     <div>
-      <HeaderTabs setSellerType={setSellerType} SellerType={SellerType} />
+      {head && (
+        <HeaderTabs setSellerType={setSellerType} SellerType={SellerType} />
+      )}
 
       <div>
         {SellerType === "all" ? (

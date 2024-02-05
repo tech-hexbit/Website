@@ -5,14 +5,17 @@
   line-height: 160%;
   letter-spacing: 0.3px;
 }
+
 .progressBar {
   padding-top: 10px;
   padding-bottom: 30px;
 }
+
 .submitDiv {
   display: flex;
   justify-content: center;
 }
+
 .submitBtn {
   border: none;
   display: flex;
@@ -29,6 +32,7 @@
   border-radius: 32.24px;
   background: linear-gradient(90deg, #47b357 0%, #50ca70 100%);
 }
+
 @media screen and (max-width: 600px) {
   .subHeadline {
     text-align: center;
