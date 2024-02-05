@@ -2,13 +2,13 @@ import React, { useContext, useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 // components
-// import StoreVerifyMain from "../components/StoreVerify/StoreVerifyMain";
-import Header from "./../components/StoreDetails/Header";
-import Particulars from "./../components/StoreDetails/Particulars";
-import Address from "./../components/StoreDetails/Address";
+import StoreVerifyMain from "../components/StoreVerify/StoreVerifyMain";
 import Bank from "./../components/StoreDetails/Bank";
+import Header from "./../components/StoreDetails/Header";
 import GstPan from "./../components/StoreDetails/GstPan";
+import Address from "./../components/StoreDetails/Address";
 import UploadFiles from "./../components/StoreDetails/UploadFiles";
+import Particulars from "./../components/StoreDetails/Particulars";
 import StoreDetails from "./../components/StoreDetails/StoreDetails";
 
 // MicroInteraction
@@ -85,7 +85,9 @@ export default function StoreVerify() {
     <>
       <div className={SvCss.Ldiv}>
         <div className={SvCss.boxDiv}>
-          {/* <StoreVerifyMain /> */}
+          <StoreVerifyMain />
+          {/* ----- */}
+          ----------------------
           <Header load={load} onSubmit={onSubmit} />
           <Particulars showData={showData} setData={setData} />
           <Address showData={showData} setData={setData} />
@@ -93,7 +95,6 @@ export default function StoreVerify() {
           <GstPan showData={showData} setData={setData} />
           <UploadFiles images={images} setImages={setImages} />
           <StoreDetails showData={showData} setData={setData} />
-
           <div onClick={scrollToTop} className={SvCss.scrollToTop}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
