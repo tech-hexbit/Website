@@ -39,3 +39,7 @@
   appearance: none;
   margin: 0;
 }
+
+.btnVer {
+  cursor: pointer;
+}
