@@ -19,6 +19,7 @@ export default function DaysField({ showData, setData }) {
     }, []);
     setData({ ...showData, Days: selectedDays.join(",") });
   };
+
   return (
     <div className={OfCss.inpDiv}>
       <p className={OfCss.inputLabel}>Working Days:</p>
@@ -101,6 +102,7 @@ export default function DaysField({ showData, setData }) {
     </div>
   );
 }
+
 DaysField.propTypes = {
   showData: PropTypes.object.isRequired,
   setData: PropTypes.func.isRequired,
