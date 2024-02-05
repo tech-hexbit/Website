@@ -1,12 +1,36 @@
-import React, { useState } from "react";
+import React, { useContext, useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 // components
 import StoreVerifyMain from "../components/StoreVerify/StoreVerifyMain";
+import Header from "./../components/StoreDetails/Header";
+
+// MicroInteraction
+import { Alert } from "./../MicroInteraction/Alert";
+
+// store
+import AuthContext from "./../store/auth-context";
 
 // css
 import SvCss from "./Css/StoreVerify.module.css";
 
 export default function StoreVerify() {
+  const [load, setLoad] = useState(false);
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
+
+  const authCtx = useContext(AuthContext);
+
+  const redirect = useNavigate();
+
+  const onSubmit = async () => {};
+
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
@@ -16,6 +40,7 @@ export default function StoreVerify() {
       <div className={SvCss.Ldiv}>
         <div className={SvCss.boxDiv}>
           {/* <StoreVerifyMain /> */}
+          <Header load={load} onSubmit={onSubmit} />
 
           <div onClick={scrollToTop} className={SvCss.scrollToTop}>
             <svg
