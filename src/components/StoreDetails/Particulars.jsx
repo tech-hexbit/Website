@@ -29,6 +29,16 @@ export default function Particulars({ showData, setData }) {
         field="LastName"
         placeholder="David"
       />
+
+      {/* Legal Name */}
+      <InputType1
+        type="text"
+        Label="Legal Name"
+        showData={showData}
+        setData={setData}
+        field="LegalName"
+        placeholder="Jhon David"
+      />
     </div>
   );
 }
