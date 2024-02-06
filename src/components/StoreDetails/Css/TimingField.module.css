@@ -8,16 +8,20 @@
   gap: 0px 30px;
   flex-wrap: wrap;
 }
+
 .timingSmallDiv {
   display: flex;
   flex-direction: row;
   gap: 30px;
 }
+
 .timingSmallDiv input {
-  /* flex-basis: 80%; */
   height: 42px;
   padding: 8px;
+  border-radius: 5px;
+  border: solid 1px #000;
 }
+
 @media screen and (max-width: 400px) {
   .timingSmallDiv {
     flex-wrap: wrap;

@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 // components
-import VerifiedFeilds from "./Input/VerifiedFeilds";
-import InputType1 from "./Input/InputType1";
 import Map from "./Map";
+import InputType1 from "./Input/InputType1";
+import VerifiedFeilds from "./Input/VerifiedFeilds";
 
 // MicroInteraction
 import Load from "./../../MicroInteraction/LoadBlack";
@@ -59,7 +59,7 @@ export default function Address({ showData, setData }) {
           secondaryColor: "#FFA117",
           symbol: "warning",
           title: "Warning",
-          text: "Pin not found. Kindly try again",
+          text: "Pin not found. Kindly try again.",
           val: true,
         });
       }
@@ -102,7 +102,7 @@ export default function Address({ showData, setData }) {
             {showData.Pincode.length >= 6 && (
               <div onClick={verifyPincode} className={AdCss.btnVer}>
                 {verifyPin ? (
-                  <>
+                  <button className={AdCss.verifyButton}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
@@ -118,9 +118,15 @@ export default function Address({ showData, setData }) {
                       <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
                       <path d="m9 12 2 2 4-4" />
                     </svg>
-                  </>
+                  </button>
                 ) : (
-                  <>{load ? <Load /> : <>Verify</>}</>
+                  <>
+                    {load ? (
+                      <Load />
+                    ) : (
+                      <button className={AdCss.verifyButton}>Verify</button>
+                    )}
+                  </>
                 )}
               </div>
             )}
@@ -159,7 +165,7 @@ export default function Address({ showData, setData }) {
           placeholder="West Bengal"
         />
 
-        <Map />
+        <Map showData={showData} setData={setData} />
       </div>
 
       <Alert variant={variants} val={setError} />

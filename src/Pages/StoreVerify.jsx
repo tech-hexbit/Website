@@ -2,11 +2,13 @@ import React, { useContext, useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 // components
-import StoreVerifyMain from "../components/StoreVerify/StoreVerifyMain";
-import Header from "./../components/StoreDetails/Header";
-import Particulars from "./../components/StoreDetails/Particulars";
-import Address from "./../components/StoreDetails/Address";
 import Bank from "./../components/StoreDetails/Bank";
+import Header from "./../components/StoreDetails/Header";
+import GstPan from "./../components/StoreDetails/GstPan";
+import Address from "./../components/StoreDetails/Address";
+import UploadFiles from "./../components/StoreDetails/UploadFiles";
+import Particulars from "./../components/StoreDetails/Particulars";
+import StoreDetails from "./../components/StoreDetails/StoreDetails";
 
 // MicroInteraction
 import { Alert } from "./../MicroInteraction/Alert";
@@ -22,19 +24,19 @@ export default function StoreVerify() {
   const [showData, setData] = useState({
     FirstName: "",
     LastName: "",
-    EmailID: "",
-    Password: "",
-    DOB: "",
     LegalName: "",
+    EmailID: "",
+    // Password: "",
+    DOB: "",
     Description: "",
+    Pincode: "",
     Address: "",
     City: "",
     State: "",
-    Pincode: "",
     StoreLocation: "",
-    AcHolderName: "",
     AccountNo: "",
     IfscCode: "",
+    AcHolderName: "",
     BankName: "",
     BranchName: "",
     Gstin: "",
@@ -48,7 +50,8 @@ export default function StoreVerify() {
     DefaultCategoryId: "",
     StoreTimingStart: "",
     StoreTimingEnd: "",
-    gps: "",
+    // gps: "",
+    radius: "",
   });
   const [images, setImages] = useState({
     imageUploadCheque: "",
@@ -74,16 +77,22 @@ export default function StoreVerify() {
     window.scrollTo(0, 0);
   };
 
+  useEffect(() => {
+    console.table(showData);
+  }, [showData]);
+
   return (
     <>
       <div className={SvCss.Ldiv}>
         <div className={SvCss.boxDiv}>
-          {/* <StoreVerifyMain /> */}
           <Header load={load} onSubmit={onSubmit} />
           <Particulars showData={showData} setData={setData} />
           <Address showData={showData} setData={setData} />
           <Bank showData={showData} setData={setData} />
-
+          <GstPan showData={showData} setData={setData} />
+          <UploadFiles images={images} setImages={setImages} />
+          <StoreDetails showData={showData} setData={setData} />
+          {/* Scroll to top */}
           <div onClick={scrollToTop} className={SvCss.scrollToTop}>
             <svg
               xmlns="http://www.w3.org/2000/svg"

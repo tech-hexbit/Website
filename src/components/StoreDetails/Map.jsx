@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
 // css
 import MapCss from "./Css/Map.module.css";
 
-export default function Map() {
-  const [position, setPosition] = useState([23.219255, 77.3983159]);
+export default function Map({ showData, setData }) {
   const [isInitialLoad, setIsInitialLoad] = useState(true);
+  const [position, setPosition] = useState([23.219255, 77.3983159]);
 
   let map, marker;
 
@@ -46,11 +47,9 @@ export default function Map() {
       icon: "https://apis.mapmyindia.com/map_v3/1.png",
     });
 
-    // Update the state with the new position
     setPosition(newPosition);
   };
 
-  // Event handler for map click
   const handleMapClick = (event) => {
     const { lat, lng } = event.lngLat || event.latlng;
     if (lat && lng) {
@@ -107,6 +106,12 @@ export default function Map() {
     };
   }, [loadMapScript, initMap, isInitialLoad]);
 
+  useEffect(() => {
+    if (position) {
+      setData({ ...showData, StoreLocation: position.join(", ") });
+    }
+  }, [position]);
+
   return (
     <div>
       <div className={MapCss.titleDiv}>
@@ -144,3 +149,8 @@ export default function Map() {
     </div>
   );
 }
+
+Map.propTypes = {
+  showData: PropTypes.object.isRequired,
+  setData: PropTypes.func.isRequired,
+};
