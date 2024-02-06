@@ -27,7 +27,9 @@ export default function SelectFeilds({ showData, setData }) {
       <div className={OfCss.inpDiv}>
         <div className={OfCss.inputLabel}>Time to ship</div>
         <select name="languages" id="lang">
-          <option value="select">Shipping Time</option>
+          <option disabled hidden selected>
+            Choose option
+          </option>
           <option value="P1D">1 Days</option>
           <option value="P4D">4 Days</option>
           <option value="P7D">7 Days</option>
@@ -38,7 +40,7 @@ export default function SelectFeilds({ showData, setData }) {
       <div className={OfCss.inpDiv}>
         <div className={OfCss.inputLabel}>Cancellable</div>
         <select name="languages" id="lang" onChange={handleSelectChangeCancel}>
-          <option disabled hidden>
+          <option disabled hidden selected>
             Choose option
           </option>
           <option value={true}>True</option>
@@ -50,7 +52,7 @@ export default function SelectFeilds({ showData, setData }) {
       <div className={OfCss.inpDiv}>
         <div className={OfCss.inputLabel}>Returnable</div>
         <select name="languages" id="lang" onChange={handleSelectChangeReturn}>
-          <option disabled hidden>
+          <option disabled hidden selected>
             Choose option
           </option>
           <option value={true}>True</option>
