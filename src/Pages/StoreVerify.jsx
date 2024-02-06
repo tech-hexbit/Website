@@ -50,7 +50,7 @@ export default function StoreVerify() {
     DefaultCategoryId: "",
     StoreTimingStart: "",
     StoreTimingEnd: "",
-    gps: "",
+    // gps: "",
     radius: "",
   });
   const [images, setImages] = useState({
