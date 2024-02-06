@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
 // css
 import MapCss from "./Css/Map.module.css";
@@ -107,8 +108,7 @@ export default function Map({ showData, setData }) {
 
   useEffect(() => {
     if (position) {
-      setData({ ...showData });
-      console.log(position);
+      setData({ ...showData, StoreLocation: position.join(", ") });
     }
   }, [position]);
 
