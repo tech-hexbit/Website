@@ -2,7 +2,6 @@ import React, { useContext, useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 // components
-import StoreVerifyMain from "../components/StoreVerify/StoreVerifyMain";
 import Bank from "./../components/StoreDetails/Bank";
 import Header from "./../components/StoreDetails/Header";
 import GstPan from "./../components/StoreDetails/GstPan";
