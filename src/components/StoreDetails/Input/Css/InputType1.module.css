@@ -19,8 +19,8 @@
 
 .inpDiv input,
 .inpDiv select {
-  flex-basis: 67.5%;
-  /* width: 70%; */
+  /* flex-basis: 70%; */
+  width: 67.5%;
   outline: none;
   border: 1px solid #909090;
   background: #fff;
@@ -40,7 +40,21 @@
 #inpTag {
   cursor: not-allowed;
 }
-
+.badgeIcon {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  color: black;
+  font-size: 0;
+}
+.inputDivVerified {
+  position: relative;
+  width: 67.5%;
+  /* flex-basis: 70%; */
+}
+.inputDivVerified input {
+  width: 100%;
+}
 /* @media screen and (max-width: 600px) {
   .inpDiv input,
   select {
@@ -70,7 +84,8 @@
   .inpDiv {
     flex-direction: column;
   }
-  .inpDiv input {
+  .inpDiv input,
+  .inputDivVerified {
     width: 100%;
   }
   .inputLabel {

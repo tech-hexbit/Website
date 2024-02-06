@@ -17,7 +17,7 @@ import axios from "axios";
 import AdCss from "./Css/Address.module.css";
 import PrCss from "./Css/Particulars.module.css";
 
-export default function Address({ showData, setData }) {
+export default function Address({ disable, setDisable, showData, setData }) {
   const [load, setLoad] = useState(false);
   const [verifyPin, setVerifyPin] = useState(false);
   const [variants, setError] = useState({
@@ -51,6 +51,8 @@ export default function Address({ showData, setData }) {
         });
 
         setVerifyPin(true);
+
+        setDisable({ ...disable, Pincode: true });
       } else {
         setLoad(false);
 
@@ -176,4 +178,6 @@ export default function Address({ showData, setData }) {
 Address.propTypes = {
   showData: PropTypes.object.isRequired,
   setData: PropTypes.func.isRequired,
+  disable: PropTypes.object.isRequired,
+  setDisable: PropTypes.func.isRequired,
 };
