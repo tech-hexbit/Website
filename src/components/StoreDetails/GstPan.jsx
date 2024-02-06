@@ -214,7 +214,7 @@ export default function GstPan({ showData, setData }) {
               name="PanNumber"
               value={showData.PanNo}
               id={verifyPan ? `${AdCss.inpTag}` : ""}
-              placeholder="29XXXXXXXXXR1ZR"
+              placeholder="AMJXXXXX1N"
               onChange={(e) => {
                 setData({ ...showData, PanNo: e.target.value });
               }}
