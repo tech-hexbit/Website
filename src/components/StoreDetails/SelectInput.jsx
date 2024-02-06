@@ -15,7 +15,7 @@ const SelectInput = ({ setData, showData }) => {
 
   return (
     <div className={OfCss.inpDiv}>
-      <div className={OfCss.inputLabel}>LOCATION AVAILABILITY MODE</div>
+      <div className={OfCss.inputLabel}>Location Availability Mode</div>
       <select name="languages" id="lang" onChange={handleSelectChangeLocation}>
         <option value="select">Select Availability</option>
         <option value="1">1</option>
