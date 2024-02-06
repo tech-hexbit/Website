@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 // components
-import VerifiedFeilds from "./Input/VerifiedFeilds";
-import InputType1 from "./Input/InputType1";
 import Map from "./Map";
+import InputType1 from "./Input/InputType1";
+import VerifiedFeilds from "./Input/VerifiedFeilds";
 
 // MicroInteraction
 import Load from "./../../MicroInteraction/LoadBlack";
