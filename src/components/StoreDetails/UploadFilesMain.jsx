@@ -67,11 +67,7 @@ export default function UploadFilesMain({
         </div>
 
         <div className={FiCss.addImgDiv} onClick={handleClick}>
-          <div
-            className={`${FiCss.textCenter} ${
-              imageUploadPart ? FiCss.textCenterM : ""
-            }`}
-          >
+          <div className={FiCss.textCenter}>
             <p>+</p>
           </div>
         </div>

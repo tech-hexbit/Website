@@ -26,7 +26,6 @@ export default function StoreVerify() {
     LastName: "",
     LegalName: "",
     EmailID: "",
-    // Password: "",
     DOB: "",
     Description: "",
     Pincode: "",
@@ -46,11 +45,7 @@ export default function StoreVerify() {
     TimeToShip: "",
     Cancellable: "",
     Returnable: "",
-    ContactDetailsForConsumerCare: "",
-    DefaultCategoryId: "",
-    StoreTimingStart: "",
-    StoreTimingEnd: "",
-    // gps: "",
+    times: ["0000", "0000"],
     radius: "",
   });
   const [images, setImages] = useState({

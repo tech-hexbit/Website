@@ -24,12 +24,20 @@ export default function SelectFeilds({ showData, setData }) {
     });
   };
 
+  const handleChangeTTS = (event) => {
+    const selectedValue = event.target.value;
+    setData({
+      ...showData,
+      TimeToShip: selectedValue,
+    });
+  };
+
   return (
     <>
       {/* Time to ship */}
       <div className={OfCss.inpDiv}>
         <div className={OfCss.inputLabel}>Time to ship</div>
-        <select name="languages" id="lang">
+        <select name="languages" id="lang" onChange={handleChangeTTS}>
           <option disabled hidden selected>
             Choose option
           </option>
