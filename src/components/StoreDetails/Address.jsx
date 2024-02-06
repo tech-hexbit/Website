@@ -159,7 +159,7 @@ export default function Address({ showData, setData }) {
           placeholder="West Bengal"
         />
 
-        <Map />
+        <Map showData={showData} setData={setData} />
       </div>
 
       <Alert variant={variants} val={setError} />
