@@ -87,7 +87,6 @@ export default function StoreVerify() {
         <div className={SvCss.boxDiv}>
           {/* <StoreVerifyMain /> */}
           {/* ----- */}
-          ----------------------
           <Header load={load} onSubmit={onSubmit} />
           <Particulars showData={showData} setData={setData} />
           <Address showData={showData} setData={setData} />
