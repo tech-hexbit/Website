@@ -6,6 +6,24 @@ import OfCss from "./Css/OndcField.module.css";
 import TfCss from "./Css/TimingField.module.css";
 
 export default function TimingField({ showData, setData }) {
+  const handleStartTimeChange = (e) => {
+    const timing = e.target.value;
+    const militaryTiming = timing.replace(":", "");
+    setData((prevData) => ({
+      ...prevData,
+      times: [militaryTiming, prevData.times[1]],
+    }));
+  };
+
+  const handleEndTimeChange = (e) => {
+    const timing = e.target.value;
+    const militaryTiming = timing.replace(":", "");
+    setData((prevData) => ({
+      ...prevData,
+      times: [prevData.times[0], militaryTiming],
+    }));
+  };
+
   return (
     <div className={TfCss.timingLargeDiv}>
       <p className={OfCss.inputLabel}>Store Timing</p>
@@ -18,6 +36,8 @@ export default function TimingField({ showData, setData }) {
           onChange={(e) => {
             const timing = e.target.value;
             const militaryTiming = timing.replace(":", "");
+
+            console.log(militaryTiming);
             setData({
               ...showData,
               times: [militaryTiming, showData.times[1]],
