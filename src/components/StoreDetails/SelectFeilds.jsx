@@ -59,41 +59,6 @@ export default function SelectFeilds({ showData, setData }) {
           <option value={false}>False</option>
         </select>
       </div>
-
-      <div className={`${OfCss.inpDiv} ${OfCss.ContactLdiv}`}>
-        <div className={OfCss.ContactDiv}>
-          <p className={OfCss.inputLabel}>Contact Details</p>
-          <input
-            type="number"
-            name="Contact Details"
-            value={showData.ContactDetails}
-            id=""
-            placeholder="Contact Details"
-            onChange={(e) => {
-              setData({
-                ...showData,
-                ContactDetails: e.target.value,
-              });
-            }}
-          />
-        </div>
-        <div className={OfCss.ContactDiv}>
-          <p className={OfCss.inputLabel}>Support Email</p>
-          <input
-            type="text"
-            name="Support Email"
-            value={showData.SupportEmail}
-            id=""
-            placeholder="Contact Email"
-            onChange={(e) => {
-              setData({
-                ...showData,
-                SupportEmail: e.target.value,
-              });
-            }}
-          />
-        </div>
-      </div>
     </>
   );
 }
