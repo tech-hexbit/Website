@@ -1,4 +1,5 @@
 .inputDivPincode {
+  /* border-style: dashed; */
   flex-basis: 70%;
   display: flex;
   flex-direction: row;

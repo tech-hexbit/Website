@@ -15,9 +15,9 @@ button {
   border: 1px solid #909090;
   background: #fff;
   border-radius: 5px;
-} */
+}
 
-/* input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   -moz-appearance: none;

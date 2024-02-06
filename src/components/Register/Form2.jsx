@@ -162,7 +162,7 @@ export default function Form2(props) {
                     });
                   }}
                 />
-                <div className={verifyPin ? FCss.otpButtonT : FCss.otpButtonF}>
+                <div className={verifyPin ? FCss.pinButtonT : FCss.pinButtonF}>
                   <button
                     className={FCss.otpBtn}
                     onClick={() => {
@@ -200,7 +200,7 @@ export default function Form2(props) {
               </div>
             ) : (
               <div>
-                <div className={FCss.formInputNumber}>
+                <div className={FCss.formInputNumberPin}>
                   <input
                     disabled={disable}
                     type="number"

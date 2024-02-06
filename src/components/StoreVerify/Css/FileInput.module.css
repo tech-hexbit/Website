@@ -8,6 +8,7 @@
   font-weight: 600;
   margin: 30px 0px;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   gap: 0px 45px;
 }
@@ -88,6 +89,13 @@
 
   .inputDivFile {
     flex-direction: column;
-    /* flex-direction: row; */
+  }
+}
+@media screen and (max-width: 1024px) {
+  .inputLdivFile {
+    flex-direction: column;
+  }
+  .inputLabel {
+    text-wrap: nowrap;
   }
 }

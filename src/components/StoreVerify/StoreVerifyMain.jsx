@@ -111,7 +111,20 @@ const StoreVerifyMain = () => {
       showData.BranchName == "" ||
       showData.Gstin == "" ||
       showData.FssaiLicence == "" ||
-      showData.PanNo == ""
+      showData.PanNo == "" ||
+      showData.DOB === "" ||
+      showData.BankCity === "" ||
+      showData.LocationAvailabilityMode === "" ||
+      showData.TimeToShip === "" ||
+      showData.Cancellable === false ||
+      showData.Returnable === false ||
+      showData.ContactDetails === "" ||
+      showData.SupportEmail === "" ||
+      showData.Days === "" ||
+      showData.times == [] ||
+      showData.Radius === "" ||
+      showData.gps === "" ||
+      showData.DescEnterprise === ""
     ) {
       setLoad(false);
 
@@ -190,22 +203,22 @@ const StoreVerifyMain = () => {
   };
 
   function getLocation(showData, setData) {
-    const successCallback = (position) => {
-      setData({
-        ...showData,
-        gps: `${position.coords.latitude},${position.coords.longitude}`,
-      });
-    };
+    if (!showData.gps) {
+      const successCallback = (position) => {
+        setData({
+          ...showData,
+          gps: `${position.coords.latitude},${position.coords.longitude}`,
+        });
+      };
 
-    const errorCallback = (error) => {
-      console.log(error);
-    };
-    navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+      const errorCallback = (error) => {
+        console.log(error);
+      };
+      navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+    }
   }
 
-  if (!showData.gps) {
-    getLocation(showData, setData);
-  }
+  getLocation(showData, setData);
 
   useEffect(() => {
     console.table(showData);

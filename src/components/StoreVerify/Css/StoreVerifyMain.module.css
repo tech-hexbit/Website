@@ -1,3 +1,19 @@
+input,
+select,
+button {
+  border: 1px solid #909090;
+  background: #fff;
+  border-radius: 5px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
 .subHeadline {
   color: #737b7d;
   font-size: 16px;

@@ -32,10 +32,18 @@ select {
   select {
     min-height: 42px;
   }
+  /* .inpDiv {
+    flex-direction: column;
+  } */
+  .inputLabel {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1200px) {
   .inpDiv {
     flex-direction: column;
   }
   .inputLabel {
-    width: 100%;
+    text-wrap: nowrap;
   }
 }

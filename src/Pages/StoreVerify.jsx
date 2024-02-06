@@ -2,7 +2,7 @@ import React, { useContext, useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 // components
-// import StoreVerifyMain from "../components/StoreVerify/StoreVerifyMain";
+import StoreVerifyMain from "../components/StoreVerify/StoreVerifyMain";
 import Header from "./../components/StoreDetails/Header";
 import Particulars from "./../components/StoreDetails/Particulars";
 import Address from "./../components/StoreDetails/Address";

@@ -56,3 +56,11 @@ select {
     width: 100%;
   }
 }
+@media screen and (max-width: 1200px) {
+  .inpDiv {
+    flex-direction: column;
+  }
+  .inputLabel {
+    text-wrap: nowrap;
+  }
+}

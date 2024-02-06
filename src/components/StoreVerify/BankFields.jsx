@@ -93,7 +93,7 @@ const BankFields = ({ disable, setDisable, showData, setData, setError }) => {
       <div>Bank Details</div>
       <div className={OfCss.nestedFieldSmallDiv}>
         <div className={OfCss.inpDiv}>
-          <div className={OfCss.inputLabel}>A/c Holder Name.</div>
+          <div className={OfCss.inputLabel}>A/c Holder Name</div>
           <div className={BfCss.inputDivVerified}>
             <input
               disabled={disable.Bank}
@@ -167,7 +167,7 @@ const BankFields = ({ disable, setDisable, showData, setData, setError }) => {
           </div>
         </div>
         <div className={OfCss.inpDiv}>
-          <div className={OfCss.inputLabel}>Account No.</div>
+          <div className={OfCss.inputLabel}>Account No</div>
           <div className={BfCss.inputDivVerified}>
             <input
               disabled={disable.Bank}
