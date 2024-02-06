@@ -51,6 +51,7 @@ export default function StoreVerify() {
     StoreTimingStart: "",
     StoreTimingEnd: "",
     gps: "",
+    radius: "",
   });
   const [images, setImages] = useState({
     imageUploadCheque: "",
