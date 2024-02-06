@@ -289,6 +289,31 @@
     display: grid;
   }
 }
+.svgContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.helpText {
+  position: absolute;
+  opacity: 0.8;
+  width: 5rem;
+  font-size: 15px;
+  border-radius: 5px;
+  text-align: center;
+  top: -30px; /* Adjust the top position as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 3px;
+  display: none;
+}
+
+.svgContainer:hover .helpText {
+  display: block;
+}
+
 
 @media screen and (max-width: 450px) {
   .mDiv {
