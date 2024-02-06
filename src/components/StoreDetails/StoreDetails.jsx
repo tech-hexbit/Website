@@ -18,9 +18,9 @@ export default function StoreDetails({ showData, setData }) {
       <p className={PrCss.AboutYou}>Store Info</p>
       <SelectInput showData={showData} setData={setData} />
       <SelectFeilds showData={showData} setData={setData} />
-      <SupportDetails showData={showData} setData={setData} />
       <TimingField showData={showData} setData={setData} />
       <DaysField showData={showData} setData={setData} />
+      <SupportDetails showData={showData} setData={setData} />
     </div>
   );
 }
