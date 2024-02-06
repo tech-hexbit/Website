@@ -45,7 +45,7 @@ export default function StoreVerify() {
     TimeToShip: "",
     Cancellable: "",
     Returnable: "",
-    timing: [],
+    times: ["0000", "0000"],
     radius: "",
   });
   const [images, setImages] = useState({
