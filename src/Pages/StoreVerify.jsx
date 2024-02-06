@@ -85,7 +85,7 @@ export default function StoreVerify() {
     <>
       <div className={SvCss.Ldiv}>
         <div className={SvCss.boxDiv}>
-          <StoreVerifyMain />
+          {/* <StoreVerifyMain /> */}
           {/* ----- */}
           ----------------------
           <Header load={load} onSubmit={onSubmit} />
