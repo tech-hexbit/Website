@@ -18,6 +18,8 @@
 .timingSmallDiv input {
   height: 42px;
   padding: 8px;
+  border-radius: 5px;
+  border: solid 1px #000;
 }
 
 @media screen and (max-width: 400px) {
