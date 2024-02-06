@@ -34,6 +34,7 @@ export default function Sellers({ head }) {
       });
 
       if (response.data.success) {
+        console.log(response.data.sellerList);
         setData(response.data.sellerList);
 
         setLoad(false);

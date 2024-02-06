@@ -19,6 +19,9 @@
   cursor: pointer;
 }
 .icons{
+  
+  position: relative;
+  left: 8px;
   text-align: right;
 }
 .Datas{
@@ -29,20 +32,29 @@
   border-color: #c27aff;
 }
 
-.conDel,
 .conDelT {
+  
+  position: relative;
+  bottom: 24px;
+
+  gap: 4px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .conDel {
+  gap: 4px;
+  display: flex;
+  flex-direction: column;
   text-align: right;
-  font-size: 12px;
+  /* font-size: 12px; */
   color: #717171;
   align-items: flex-end;
 }
-
+.labelDiv{
+  display: inline-block;
+  }
 .LeftData {
   margin-top: 12px;
 }
@@ -95,7 +107,14 @@
   color: #69339e;
 }
 
+@media only screen and (min-width: 650px){
+  .labelDiv{
+  display: none;
+  }
+}
+
 @media only screen and (max-width: 650px) {
+
   .IconTextYes,
   .IconTextNo {
     display: none;
@@ -107,18 +126,29 @@
   }
 }
 
-@media only screen and (max-width : 500px){
+@media only screen and (max-width : 650px){
+  
   .Datas{
+    
+    position: relative;
+    right: 15px;
     display: grid;
+    gap: 5px;
   }
   .conDel{
+    
+    position: relative;
+    bottom: 17px;
     text-align: left;
     display: grid;
   }
 }
 @media only screen and (max-width : 400px){
   .conDelT{
-    font-size: 11px;
+    font-size: 12px;
+  }
+  .conDel{
+    font-size: 12px;
   }
   
 }

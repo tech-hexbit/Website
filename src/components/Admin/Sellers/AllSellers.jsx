@@ -75,17 +75,24 @@ export default function AllSellers(props) {
                         <p>
                           StoreID : <strong>{val.Store[0]?.StoreID} </strong>
                         </p>
-                        <p>{val.BusinessName}</p>
-                        <p>{val.GSTIN}</p>
+                        <p> <div className={SelCss.labelDiv}>
+                            <p>Business Name : </p>
+                          </div>  {val.BusinessName}</p>
+                        <p> <div className={SelCss.labelDiv}>
+                            <p>GST : </p>
+                          </div>  {val.GSTIN}</p>
                       </div>
 
                       <div className={SelCss.conDel}>
-                        <div className={SelCss.LeftData}>
-                          <p>{val.Phone}</p>
-                          <p>{val.Email}</p>
-                          <p>{val.Phone}</p>
+                          <p> <div className={SelCss.labelDiv}>
+                            <p>Phone : </p>
+                          </div> {val.Phone}</p>
+                          <p> <div className={SelCss.labelDiv}>
+                            <p>Email : </p>
+                          </div> {val.Email}</p>
+                          {/* <p>  {val.Phone}</p> */}
                           {/* <p>Seller since : </p> */}
-                        </div>
+                        
                       </div>
                     </div>
                     </div>
