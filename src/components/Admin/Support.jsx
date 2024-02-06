@@ -45,6 +45,7 @@ export default function Support() {
       });
 
       if (response.data.success) {
+        console.log(response.data.qnaEntries);
         setData(response.data.qnaEntries);
 
         setLoad(false);
@@ -154,6 +155,7 @@ export default function Support() {
                                       key={key}
                                       answer={val.answer}
                                       question={val.question}
+                                      tag={val.tag}
                                     />
 
                                     <div className={SupCss.icons}>
@@ -179,6 +181,7 @@ export default function Support() {
                                             _id: selectedItem._id,
                                             ques: selectedItem.question,
                                             ans: selectedItem.answer,
+                                            tag : selectedItem.tag
                                           });
                                         }}
                                       >
