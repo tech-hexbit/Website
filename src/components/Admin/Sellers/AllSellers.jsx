@@ -33,7 +33,7 @@ export default function AllSellers(props) {
                         hide({ state: true, val: val });
                       }}
                     >
-                    <div className={SelCss.icons}>
+                    <div className={SelCss.Verifyingicons}>
                     {val.accountVerified ? (
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -90,8 +90,6 @@ export default function AllSellers(props) {
                           <p> <div className={SelCss.labelDiv}>
                             <p>Email : </p>
                           </div> {val.Email}</p>
-                          {/* <p>  {val.Phone}</p> */}
-                          {/* <p>Seller since : </p> */}
                         
                       </div>
                     </div>
