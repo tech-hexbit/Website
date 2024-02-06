@@ -38,8 +38,9 @@
 }
 
 .inpDiv input,
-select,
+.inpDiv select,
 .ContactDiv input {
+  outline: none;
   flex-basis: 70%;
   height: 42px;
   padding: 8px;
