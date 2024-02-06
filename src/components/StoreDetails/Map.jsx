@@ -4,8 +4,8 @@ import React, { useEffect, useState } from "react";
 import MapCss from "./Css/Map.module.css";
 
 export default function Map() {
-  const [position, setPosition] = useState([23.219255, 77.3983159]);
   const [isInitialLoad, setIsInitialLoad] = useState(true);
+  const [position, setPosition] = useState([23.219255, 77.3983159]);
 
   let map, marker;
 
