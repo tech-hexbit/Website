@@ -1,8 +1,5 @@
-.nestedFieldLargeDiv
-
-/* ,.OndcField  */ {
+.nestedFieldLargeDiv {
   color: #606060;
-
   font-size: 17px;
   font-weight: 600;
   display: flex;
@@ -63,15 +60,12 @@
   }
 
   .inputLabel {
-    /* width: 100%; */
     text-wrap: nowrap;
   }
 }
 
 @media screen and (max-width: 600px) {
-  .nestedFieldLargeDiv
-
-    /* ,.OndcField  */ {
+  .nestedFieldLargeDiv {
     flex-direction: column;
   }
 
@@ -93,15 +87,10 @@
 }
 
 @media screen and (max-width: 1368px) {
-  /* .OndcField {
-    flex-direction: column;
-  } */
   .ContactLdiv {
     flex-direction: column;
   }
-}
 
-@media screen and (min-width: 1368px) {
   .inputLabel {
     text-wrap: nowrap;
   }
