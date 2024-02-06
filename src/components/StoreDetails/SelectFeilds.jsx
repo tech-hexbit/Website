@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 
 //css
 import OfCss from "./Css/OndcField.module.css";
-import PrCss from "./Css/Particulars.module.css";
 
 export default function SelectFeilds({ showData, setData }) {
   const handleSelectChangeReturn = (event) => {
@@ -24,15 +23,18 @@ export default function SelectFeilds({ showData, setData }) {
 
   return (
     <>
+      {/* Time to ship */}
       <div className={OfCss.inpDiv}>
         <div className={OfCss.inputLabel}>Time to ship</div>
         <select name="languages" id="lang">
           <option value="select">Shipping Time</option>
-          <option>8 AM - 12 PM</option>
-          <option>12 PM - 4 PM</option>
-          <option>4 PM - 8 PM</option>
+          <option value="P1D">1 Days</option>
+          <option value="P4D">4 Days</option>
+          <option value="P7D">7 Days</option>
         </select>
       </div>
+
+      {/* Cancellable */}
       <div className={OfCss.inpDiv}>
         <div className={OfCss.inputLabel}>Cancellable</div>
         <select name="languages" id="lang" onChange={handleSelectChangeCancel}>
@@ -41,6 +43,8 @@ export default function SelectFeilds({ showData, setData }) {
           <option>False</option>
         </select>
       </div>
+
+      {/* Returnable */}
       <div className={OfCss.inpDiv}>
         <div className={OfCss.inputLabel}>Returnable</div>
         <select name="languages" id="lang" onChange={handleSelectChangeReturn}>
@@ -49,6 +53,7 @@ export default function SelectFeilds({ showData, setData }) {
           <option>False</option>
         </select>
       </div>
+
       <div className={`${OfCss.inpDiv} ${OfCss.ContactLdiv}`}>
         <div className={OfCss.ContactDiv}>
           <p className={OfCss.inputLabel}>Contact Details</p>
