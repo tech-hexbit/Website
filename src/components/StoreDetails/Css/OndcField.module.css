@@ -38,7 +38,8 @@
 .inpDiv select,
 .ContactDiv input {
   outline: none;
-  flex-basis: 82.5%;
+  /* width: 70%; */
+  flex-basis: 70%;
   height: 42px;
   padding: 8px;
   border-radius: 5px;
@@ -91,8 +92,19 @@
   }
 }
 
-@media screen and (min-width: 1024px) {
+/* @media screen and (min-width: 1024px) {
   .nestedFieldSmallDiv {
     flex-basis: 67%;
+  } 
+} */
+@media screen and (max-width: 1024px) {
+  .inpDiv {
+    flex-direction: column;
+  }
+  .inpDiv input {
+    width: 100%;
+  }
+  .inputLabel {
+    text-wrap: nowrap;
   }
 }

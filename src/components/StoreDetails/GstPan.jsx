@@ -18,7 +18,7 @@ import AuthContext from "./../../store/auth-context";
 import AdCss from "./Css/Address.module.css";
 import PrCss from "./Css/Particulars.module.css";
 
-export default function GstPan({ showData, setData }) {
+export default function GstPan({ disable, setDisable, showData, setData }) {
   const [load, setLoad] = useState(false);
   const [loadPan, setLoadPan] = useState(false);
   const [verifyPin, setVerifyPin] = useState(false);
@@ -65,6 +65,8 @@ export default function GstPan({ showData, setData }) {
 
       if (response.data.success) {
         setVerifyPin(true);
+
+        setDisable({ ...disable, Gstin: true });
 
         setLoad(false);
       } else {
@@ -128,6 +130,8 @@ export default function GstPan({ showData, setData }) {
       if (response.data.success) {
         setVerifyPan(true);
 
+        setDisable({ ...disable, Pan: true });
+
         setLoadPan(false);
       } else {
         setLoadPan(false);
@@ -179,7 +183,7 @@ export default function GstPan({ showData, setData }) {
             {showData.Gstin.length >= 15 && (
               <div onClick={verifyGST} className={AdCss.btnVer}>
                 {verifyPin ? (
-                  <>
+                  <button className={AdCss.verifyButton}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
@@ -195,9 +199,15 @@ export default function GstPan({ showData, setData }) {
                       <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
                       <path d="m9 12 2 2 4-4" />
                     </svg>
-                  </>
+                  </button>
                 ) : (
-                  <>{load ? <Load /> : <>Verify</>}</>
+                  <>
+                    {load ? (
+                      <Load />
+                    ) : (
+                      <button className={AdCss.verifyButton}>Verify</button>
+                    )}
+                  </>
                 )}
               </div>
             )}
@@ -222,7 +232,7 @@ export default function GstPan({ showData, setData }) {
             {showData.PanNo.length >= 10 && (
               <div onClick={verifyPAN} className={AdCss.btnVer}>
                 {verifyPan ? (
-                  <>
+                  <button className={AdCss.verifyButton}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
@@ -238,9 +248,15 @@ export default function GstPan({ showData, setData }) {
                       <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
                       <path d="m9 12 2 2 4-4" />
                     </svg>
-                  </>
+                  </button>
                 ) : (
-                  <>{loadPan ? <Load /> : <>Verify</>}</>
+                  <>
+                    {loadPan ? (
+                      <Load />
+                    ) : (
+                      <button className={AdCss.verifyButton}>Verify</button>
+                    )}
+                  </>
                 )}
               </div>
             )}
@@ -270,4 +286,6 @@ export default function GstPan({ showData, setData }) {
 GstPan.propTypes = {
   showData: PropTypes.object.isRequired,
   setData: PropTypes.func.isRequired,
+  disable: PropTypes.object.isRequired,
+  setDisable: PropTypes.func.isRequired,
 };

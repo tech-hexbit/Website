@@ -9,7 +9,8 @@
 }
 
 .inputLdivFile input {
-  flex-basis: 70%;
+  /* flex-basis: 70%; */
+  width: 70%;
   height: 42px;
   padding: 8px;
 }
@@ -23,6 +24,7 @@
   display: flex;
   flex-direction: row;
   gap: 1rem;
+  align-items: center;
 }
 
 .inputFile {
@@ -35,6 +37,19 @@
 }
 
 .addImgDiv {
+  /* width: 70px;
+  height: 70px;
+  background-color: #dbdbdb;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #777;
+  font-size: 30px;
+  font-weight: 900; */
+  cursor: pointer;
+}
+.textCenter {
   width: 70px;
   height: 70px;
   background-color: #dbdbdb;
@@ -45,10 +60,17 @@
   color: #777;
   font-size: 30px;
   font-weight: 900;
-  margin-bottom: 30px;
-  cursor: pointer;
 }
-
+.textCenterM {
+  width: 100px;
+  height: 100px;
+  margin-top: 23px;
+}
+.uploadIcon {
+  cursor: pointer;
+  margin-bottom: 54px;
+  /* display: none; */
+}
 @media screen and (max-width: 600px) {
   .inputLabel {
     width: 15%;
@@ -66,5 +88,16 @@
 
   .inputDivFile {
     flex-direction: row;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .inputLdivFile {
+    flex-direction: column;
+  }
+  .inputLdivFile input {
+    width: 100%;
+  }
+  .inputLabel {
+    text-wrap: nowrap;
   }
 }

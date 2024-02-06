@@ -67,7 +67,11 @@ export default function UploadFilesMain({
         </div>
 
         <div className={FiCss.addImgDiv} onClick={handleClick}>
-          <div className={FiCss.textCenter}>
+          <div
+            className={`${FiCss.textCenter} ${
+              imageUploadPart ? FiCss.textCenterM : ""
+            }`}
+          >
             <p>+</p>
           </div>
         </div>
@@ -84,7 +88,7 @@ export default function UploadFilesMain({
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
-              class="lucide lucide-upload"
+              class={`lucide lucide-upload ${FiCss.uploadIcon} `}
               onClick={onSubmit}
             >
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />

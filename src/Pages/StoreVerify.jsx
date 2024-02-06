@@ -1,6 +1,8 @@
 import React, { useContext, useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+import axios from "axios";
+
 // components
 import Bank from "./../components/StoreDetails/Bank";
 import Header from "./../components/StoreDetails/Header";
@@ -9,6 +11,7 @@ import Address from "./../components/StoreDetails/Address";
 import UploadFiles from "./../components/StoreDetails/UploadFiles";
 import Particulars from "./../components/StoreDetails/Particulars";
 import StoreDetails from "./../components/StoreDetails/StoreDetails";
+import Load from "../MicroInteraction/Load";
 
 // MicroInteraction
 import { Alert } from "./../MicroInteraction/Alert";
@@ -47,6 +50,9 @@ export default function StoreVerify() {
     Returnable: "",
     times: ["0000", "0000"],
     radius: "",
+    Days: "",
+    ContactDetails: "",
+    SupportEmail: "",
   });
   const [images, setImages] = useState({
     imageUploadCheque: "",
@@ -61,12 +67,119 @@ export default function StoreVerify() {
     text: "",
     val: false,
   });
+  const [disable, setDisable] = useState({
+    Pincode: false,
+    Pan: false,
+    Gstin: false,
+    Bank: false,
+  });
 
   const authCtx = useContext(AuthContext);
 
   const redirect = useNavigate();
 
-  const onSubmit = async () => {};
+  const onSubmit = async () => {
+    setLoad(true);
+    console.log(disable);
+    if (
+      showData.FirstName === "" ||
+      showData.LastName === "" ||
+      showData.LegalName === "" ||
+      showData.EmailID === "" ||
+      showData.DOB === "" ||
+      showData.Description === "" ||
+      showData.Pincode === "" ||
+      showData.Address === "" ||
+      showData.City === "" ||
+      showData.State === "" ||
+      showData.StoreLocation === "" ||
+      showData.AccountNo === "" ||
+      showData.IfscCode === "" ||
+      showData.AcHolderName === "" ||
+      showData.BankName === "" ||
+      showData.BranchName === "" ||
+      showData.Gstin === "" ||
+      showData.FssaiLicence === "" ||
+      showData.PanNo === "" ||
+      showData.LocationAvailabilityMode === "" ||
+      showData.TimeToShip === "" ||
+      showData.Cancellable === "" ||
+      showData.Returnable === "" ||
+      showData.times == [] ||
+      showData.Days === "" ||
+      showData.ContactDetails === "" ||
+      showData.SupportEmail === ""
+    ) {
+      setLoad(false);
+      setError({
+        mainColor: "#FFC0CB",
+        secondaryColor: "#FF69B4",
+        symbol: "pets",
+        title: "Check it out",
+        text: "Please Fill All The Details",
+        val: true,
+      });
+    } else if (!verifyPin || !disable.Bank || !disable.Gstin || disable.Pan) {
+      setError({
+        mainColor: "#FFC0CB",
+        secondaryColor: "#FF69B4",
+        symbol: "pets",
+        title: "Check it out",
+        text: !verifyPin
+          ? "Invalid pincode"
+          : !disable.Bank
+          ? "Invalid Bank Details"
+          : !disable.Gstin
+          ? "Invalid GSTIN"
+          : "Invalid Pan",
+        val: true,
+      });
+    } else {
+      try {
+        let data = {
+          days: showData.days,
+          times: [],
+        };
+        data = showData;
+        // data.times.push(String(showData.StoreTimingStart));
+        // data.times.push(String(showData.StoreTimingEnd));
+        const response = await axios.post(
+          "/api/common/Store/CreateStore",
+          data,
+          {
+            headers: { Authorization: `${authCtx.token}` },
+          }
+        );
+        if (response.data.success) {
+          setError({
+            mainColor: "#EDFEEE",
+            secondaryColor: "#5CB660",
+            symbol: "check_circle",
+            title: "Success",
+            text: response.data.msg,
+            val: true,
+          });
+          await authCtx.updateStore(response.data.upData[0].Store);
+          redirect("/me");
+          setLoad(false);
+        } else {
+          setLoad(false);
+          console.log(e);
+        }
+      } catch (e) {
+        console.log(e);
+        setLoad(false);
+        setError({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "An unexpected error occurred",
+          val: true,
+        });
+      }
+    }
+  };
 
   const scrollToTop = () => {
     window.scrollTo(0, 0);
@@ -82,9 +195,24 @@ export default function StoreVerify() {
         <div className={SvCss.boxDiv}>
           <Header load={load} onSubmit={onSubmit} />
           <Particulars showData={showData} setData={setData} />
-          <Address showData={showData} setData={setData} />
-          <Bank showData={showData} setData={setData} />
-          <GstPan showData={showData} setData={setData} />
+          <Address
+            disable={disable}
+            setDisable={setDisable}
+            showData={showData}
+            setData={setData}
+          />
+          <Bank
+            disable={disable}
+            setDisable={setDisable}
+            showData={showData}
+            setData={setData}
+          />
+          <GstPan
+            disable={disable}
+            setDisable={setDisable}
+            showData={showData}
+            setData={setData}
+          />
           <UploadFiles images={images} setImages={setImages} />
           <StoreDetails showData={showData} setData={setData} />
           {/* Scroll to top */}
@@ -107,7 +235,11 @@ export default function StoreVerify() {
           </div>
         </div>
       </div>
-
+      <div className={SvCss.submitDiv}>
+        <button className={SvCss.submitBtn} onClick={onSubmit}>
+          {load ? <Load /> : "SUBMIT KYC"}
+        </button>
+      </div>
       <Alert variant={variants} val={setError} />
     </>
   );
