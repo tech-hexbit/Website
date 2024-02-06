@@ -23,60 +23,67 @@ export default function SelectFeilds({ showData, setData }) {
   };
 
   return (
-    <div className={OfCss.nestedFieldLargeDiv}>
-      <div>ONDC DETAILS</div>
-      <div className={OfCss.nestedFieldSmallDiv}>
-        <div className={OfCss.inpDiv}>
-          <div className={OfCss.inputLabel}>Time to ship</div>
-          <select name="languages" id="lang">
-            <option value="select">Shipping Time</option>
-            <option>8 AM - 12 PM</option>
-            <option>12 PM - 4 PM</option>
-            <option>4 PM - 8 PM</option>
-          </select>
-        </div>
-        <div className={OfCss.inpDiv}>
-          <div className={OfCss.inputLabel}>Cancellable</div>
-          <select
-            name="languages"
-            id="lang"
-            onChange={handleSelectChangeCancel}
-          >
-            <option>Choose option</option>
-            <option>True</option>
-            <option>False</option>
-          </select>
-        </div>
-        <div className={OfCss.inpDiv}>
-          <div className={OfCss.inputLabel}>Returnable</div>
-          <select
-            name="languages"
-            id="lang"
-            onChange={handleSelectChangeReturn}
-          >
-            <option>Choose option</option>
-            <option>True</option>
-            <option>False</option>
-          </select>
-        </div>
-        <div className={OfCss.inpDiv}>
-          <p className={OfCss.inputLabel}>Contact Details For Consumer Care</p>
+    <>
+      <div className={OfCss.inpDiv}>
+        <div className={OfCss.inputLabel}>Time to ship</div>
+        <select name="languages" id="lang">
+          <option value="select">Shipping Time</option>
+          <option>8 AM - 12 PM</option>
+          <option>12 PM - 4 PM</option>
+          <option>4 PM - 8 PM</option>
+        </select>
+      </div>
+      <div className={OfCss.inpDiv}>
+        <div className={OfCss.inputLabel}>Cancellable</div>
+        <select name="languages" id="lang" onChange={handleSelectChangeCancel}>
+          <option>Choose option</option>
+          <option>True</option>
+          <option>False</option>
+        </select>
+      </div>
+      <div className={OfCss.inpDiv}>
+        <div className={OfCss.inputLabel}>Returnable</div>
+        <select name="languages" id="lang" onChange={handleSelectChangeReturn}>
+          <option>Choose option</option>
+          <option>True</option>
+          <option>False</option>
+        </select>
+      </div>
+      <div className={`${OfCss.inpDiv} ${OfCss.ContactLdiv}`}>
+        <div className={OfCss.ContactDiv}>
+          <p className={OfCss.inputLabel}>Contact Details</p>
           <input
             type="number"
-            name="Contact Details For Customer Care"
-            value={showData.ContactDetailsForConsumerCare}
+            name="Contact Details"
+            value={showData.ContactDetails}
             id=""
             placeholder="Contact Details"
             onChange={(e) => {
               setData({
                 ...showData,
-                ContactDetailsForConsumerCare: e.target.value,
+                ContactDetails: e.target.value,
+              });
+            }}
+          />
+        </div>
+        <div className={OfCss.ContactDiv}>
+          <p className={OfCss.inputLabel}>Support Email</p>
+          <input
+            type="text"
+            name="Support Email"
+            value={showData.SupportEmail}
+            id=""
+            placeholder="Contact Email"
+            onChange={(e) => {
+              setData({
+                ...showData,
+                SupportEmail: e.target.value,
               });
             }}
           />
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
