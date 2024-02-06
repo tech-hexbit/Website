@@ -41,6 +41,7 @@
   flex-basis: 70%;
   height: 42px;
   padding: 8px;
+  border-radius: 5px;
 }
 
 .inputLabel {
@@ -49,7 +50,7 @@
 
 @media screen and (max-width: 400px) {
   .inpDiv input,
-  select,
+  .inpDiv select,
   .ContactDiv input {
     min-height: 42px;
   }
@@ -70,19 +71,13 @@
   }
 
   .inpDiv input,
-  select,
+  .inpDiv select,
   .ContactDiv input {
     flex-basis: 60%;
   }
 
   .inputLabel {
     width: 15%;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .nestedFieldSmallDiv {
-    flex-basis: 67%;
   }
 }
 
@@ -93,5 +88,11 @@
 
   .inputLabel {
     text-wrap: nowrap;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .nestedFieldSmallDiv {
+    flex-basis: 67%;
   }
 }
