@@ -25,25 +25,25 @@ import SvCss from "./Css/StoreVerify.module.css";
 export default function StoreVerify() {
   const [load, setLoad] = useState(false);
   const [showData, setData] = useState({
-    FirstName: "",
-    LastName: "",
-    LegalName: "",
-    EmailID: "",
     DOB: "",
-    Description: "",
-    Pincode: "",
-    Address: "",
     City: "",
     State: "",
-    StoreLocation: "",
-    AccountNo: "",
-    IfscCode: "",
-    AcHolderName: "",
-    BankName: "",
-    BranchName: "",
     Gstin: "",
-    FssaiLicence: "",
     PanNo: "",
+    EmailID: "",
+    Pincode: "",
+    Address: "",
+    IfscCode: "",
+    LastName: "",
+    BankName: "",
+    FirstName: "",
+    LegalName: "",
+    AccountNo: "",
+    BranchName: "",
+    Description: "",
+    AcHolderName: "",
+    StoreLocation: "",
+    FssaiLicence: "",
     LocationAvailabilityMode: "",
     TimeToShip: "",
     Cancellable: "",
@@ -51,6 +51,7 @@ export default function StoreVerify() {
     times: ["0000", "0000"],
     radius: "",
     Days: "",
+    Percentage: "",
     ContactDetails: "",
     SupportEmail: "",
   });
@@ -66,6 +67,12 @@ export default function StoreVerify() {
     title: "",
     text: "",
     val: false,
+  });
+  const [disable, setDisable] = useState({
+    Pincode: false,
+    Pan: false,
+    Gstin: false,
+    Bank: false,
   });
 
   const authCtx = useContext(AuthContext);
@@ -95,6 +102,7 @@ export default function StoreVerify() {
       showData.PanNo === "" ||
       showData.LocationAvailabilityMode === "" ||
       showData.TimeToShip === "" ||
+      showData.radius === "" ||
       showData.Cancellable === "" ||
       showData.Returnable === "" ||
       showData.times == [] ||
@@ -144,7 +152,7 @@ export default function StoreVerify() {
 
           setLoad(false);
         } else {
-          console.log(e);
+          console.log(response.data);
 
           setLoad(false);
         }
