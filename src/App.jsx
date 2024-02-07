@@ -13,6 +13,8 @@ const Terms = React.lazy(() => import("./Pages/Terms"));
 const Error = React.lazy(() => import("./Pages/Error"));
 const Contact = React.lazy(() => import("./Pages/Contact"));
 const Privacy = React.lazy(() => import("./Pages/Privacy"));
+// test
+const Cashfree = React.lazy(() => import("./cashfree/Cashfree"));
 
 // del
 const Return = React.lazy(() => import("./Pages/Return"));
@@ -70,6 +72,15 @@ function App() {
               element={
                 <Suspense fallback={<LoadingPage />}>
                   <Return />
+                </Suspense>
+              }
+            />
+
+            <Route
+              path="/Cashfree"
+              element={
+                <Suspense fallback={<LoadingPage />}>
+                  <Cashfree />
                 </Suspense>
               }
             />

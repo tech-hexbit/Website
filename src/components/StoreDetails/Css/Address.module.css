@@ -1,0 +1,88 @@
+input,
+select,
+button {
+  border: 1px solid #909090;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.inpDiv {
+  width: 100%;
+  display: flex;
+}
+
+.inpDiv,
+.inputLdivFile {
+  color: #606060;
+  font-size: 17px;
+  font-weight: 600;
+  margin: 30px 0px;
+  display: flex;
+  justify-content: space-between;
+  gap: 0px 45px;
+}
+
+.inputDivPincode {
+  display: flex;
+  align-items: center;
+  gap: 0px 10px;
+  /* width: 70%; */
+  width: 67.5%;
+}
+
+.inputDivPincode input {
+  width: 100%;
+  outline: none;
+  border: 1px solid #909090;
+  background: #fff;
+  border-radius: 5px;
+  height: 42px;
+  padding: 8px;
+}
+
+.inputDivPincode input[type="number"]::-webkit-inner-spin-button,
+.inputDivPincode input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.btnVer {
+  cursor: pointer;
+}
+.verifyButton {
+  width: 100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  min-height: 42px;
+}
+#inpTag {
+  cursor: not-allowed;
+}
+@media screen and (max-width: 320px) {
+  /* .inputDivPincode {
+    flex-basis: 60%;
+  } */
+
+  .inputDivPincode {
+    flex-direction: column;
+  }
+  .btnVer {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .inpDiv {
+    flex-direction: column;
+  }
+  .inputDivPincode {
+    width: 100%;
+  }
+  .inputDivPincode input {
+    flex-basis: 100%;
+  }
+  .inputLabel {
+    text-wrap: nowrap;
+  }
+}

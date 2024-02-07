@@ -39,8 +39,9 @@ export default function BarChart() {
         // console.log(daysdata);
 
         console.log(res.data.days);
-
-        setDays(res.data.days);
+        const updatedDays = res.data.days;
+        delete updatedDays[0]["_id"]
+        setDays(updatedDays);
       }
     } catch (e) {
       console.log("error in fetching data", e.message);
