@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 // components
@@ -22,6 +23,7 @@ export default function Archive({ setArchive }) {
   const [load, setLoad] = useState(false);
   const [loadDel, setLoadDel] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [showProductDel, setProductDel] = useState({ state: false, id: "" });
   const [filteredlist, setfilteredlist] = useState({
     productList: [],
     prodcutsCount: 0,
@@ -176,27 +178,27 @@ export default function Archive({ setArchive }) {
                         <>
                           <tr key={key}>
                             <td className={DCss.row} id={DCss.col1}>
-                              <div
-                                className={DCss.col1}
-                                onClick={() => {
-                                  setProductDel({ state: true, id: val._id });
-                                }}
+                              <Link
+                                to={`/me/products/${val._id}`}
+                                className="LinkStyle"
                               >
-                                <div className={DCss.image}>
-                                  <img
-                                    src={val.descriptor.images[0]}
-                                    className={DCss.imgTag}
-                                  />
-                                </div>
-                                <div className={DCss.col1Text}>
-                                  <div className={DCss.textTop}>
-                                    {val.descriptor.name}
+                                <div className={DCss.col1}>
+                                  <div className={DCss.image}>
+                                    <img
+                                      src={val.descriptor.images[0]}
+                                      className={DCss.imgTag}
+                                    />
                                   </div>
-                                  <div className={DCss.textBottom}>
-                                    Category : {val.category_id}
+                                  <div className={DCss.col1Text}>
+                                    <div className={DCss.textTop}>
+                                      {val.descriptor.name}
+                                    </div>
+                                    <div className={DCss.textBottom}>
+                                      Category : {val.category_id}
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
+                              </Link>
                             </td>
                             <td className={DCss.row} id={DCss.price}>
                               ₹ {val.price.maximum_value.toFixed(2)}
