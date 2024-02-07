@@ -1,3 +1,136 @@
+/* OfCss */
+.nestedFieldLargeDiv /* ,.OndcField  */ {
+  color: #606060;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.nestedFieldSmallDiv {
+  border: 1px dashed rgba(170, 170, 170, 1);
+  border-radius: 15px;
+  margin-top: 10px;
+  padding: 22px 30px;
+  transition: all 0.3s;
+}
+
+.inpDiv {
+  color: #606060;
+  font-size: 17px;
+  font-weight: 600;
+  margin: 30px 0px;
+  display: flex;
+  justify-content: space-between;
+  gap: 0px 45px;
+}
+
+.inpDiv input {
+  flex-basis: 70%;
+  height: 42px;
+  padding: 8px;
+}
+
+.inputLabel {
+  flex-basis: 30%;
+}
+
+@media screen and (max-width: 400px) {
+  .inpDiv input {
+    min-height: 42px;
+  }
+  .inpDiv {
+    flex-direction: column;
+  }
+  .inputLabel {
+    text-wrap: nowrap;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .nestedFieldLargeDiv /* ,.OndcField  */ {
+    flex-direction: column;
+  }
+  .inpDiv input {
+    flex-basis: 60%;
+  }
+  .inputLabel {
+    width: 15%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .nestedFieldSmallDiv {
+    flex-basis: 67%;
+  }
+}
+
+@media screen and (min-width: 1368px) {
+  .inputLabel {
+    text-wrap: nowrap;
+  }
+}
+
+/* BfCss */
+.inputDivVerified {
+  position: relative;
+  flex-basis: 70%;
+}
+
+.inputDivVerified input {
+  width: 100%;
+}
+
+.badgeIcon {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  color: black;
+  font-size: 0;
+}
+
+.verifyButton {
+  width: 50%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  min-height: 42px;
+}
+
+.inputDivFile {
+  flex-basis: 70%;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+  .inputDivVerified {
+    flex-basis: 60%;
+  }
+}
+
+/* FiCss */
+.inputDivFile {
+  flex-basis: 70%;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+  .inputDivFile {
+    flex-basis: 60%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .inputDivFile {
+    flex-direction: column;
+  }
+}
+
+/* General styles */
 .personalinfotab {
   padding-top: 30px;
 }
