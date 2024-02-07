@@ -123,6 +123,21 @@ export default function StoreVerify() {
         text: "Please Fill All The Details",
         val: true,
       });
+    } else if (!verifyPin || !disable.Bank || !disable.Gstin || disable.Pan) {
+      setError({
+        mainColor: "#FFC0CB",
+        secondaryColor: "#FF69B4",
+        symbol: "pets",
+        title: "Check it out",
+        text: !verifyPin
+          ? "Invalid pincode"
+          : !disable.Bank
+          ? "Invalid Bank Details"
+          : !disable.Gstin
+          ? "Invalid GSTIN"
+          : "Invalid Pan",
+        val: true,
+      });
     } else {
       try {
         let data = {
@@ -190,9 +205,24 @@ export default function StoreVerify() {
         <div className={SvCss.boxDiv}>
           <Header load={load} onSubmit={onSubmit} />
           <Particulars showData={showData} setData={setData} />
-          <Address showData={showData} setData={setData} />
-          <Bank showData={showData} setData={setData} />
-          <GstPan showData={showData} setData={setData} />
+          <Address
+            disable={disable}
+            setDisable={setDisable}
+            showData={showData}
+            setData={setData}
+          />
+          <Bank
+            disable={disable}
+            setDisable={setDisable}
+            showData={showData}
+            setData={setData}
+          />
+          <GstPan
+            disable={disable}
+            setDisable={setDisable}
+            showData={showData}
+            setData={setData}
+          />
           <UploadFiles images={images} setImages={setImages} />
           <StoreDetails showData={showData} setData={setData} />
 
