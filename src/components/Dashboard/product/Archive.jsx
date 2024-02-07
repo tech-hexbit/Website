@@ -77,6 +77,7 @@ export default function Archive({ setArchive }) {
 
   const deleteproduct = async (_id) => {
     setLoadDel(true);
+
     try {
       const response = await axios.delete(
         `/api/common/product/delete/undo/${_id}`,
