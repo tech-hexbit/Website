@@ -188,7 +188,7 @@ export default function Profile() {
                       path="/admin/super/SellerInfo"
                       element={<SelectSellerDetail />}
                     />
-                    <Route path="/products/:id" element={<ProductsPage />} />
+                    <Route path="/products/:id" element={<ProductPageNew />} />
                   </>
                 )}
 
