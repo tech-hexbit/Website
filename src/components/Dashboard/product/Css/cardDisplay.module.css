@@ -46,6 +46,7 @@
   bottom: 13px;
   right: 15px;
   z-index: 1;
+  cursor: pointer;
 }
 
 @media (max-width: 390px) {

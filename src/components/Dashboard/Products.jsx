@@ -90,7 +90,7 @@ export default function Products() {
   return (
     <>
       {archive ? (
-        <Archive/>
+        <Archive setArchive={setArchive} />
       ) : (
         <div>
           <div className={pdtCSS.mdiv}>
@@ -106,6 +106,7 @@ export default function Products() {
             </div>
             <Display
               load={load}
+              loadData={loadData}
               filterData={filterData}
               currentPage={currentPage}
               allcategory={allcategory}

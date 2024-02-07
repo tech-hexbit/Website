@@ -6,7 +6,7 @@ import ProductColor from "./ProductColor";
 // css
 import CBss from "./Css/ColorBox.module.css";
 
-export default function Box(props) {
+export default function Box({ imgSrc, label, code }) {
   return (
     <div className={CBss.Midv}>
       <p className={CBss.subTitlePTag}>Color:</p>
