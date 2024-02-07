@@ -235,11 +235,13 @@ export default function StoreVerify() {
           </div>
         </div>
       </div>
+
       <div className={SvCss.submitDiv}>
         <button className={SvCss.submitBtn} onClick={onSubmit}>
           {load ? <Load /> : "SUBMIT KYC"}
         </button>
       </div>
+
       <Alert variant={variants} val={setError} />
     </>
   );
