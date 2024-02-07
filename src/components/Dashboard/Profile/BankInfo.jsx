@@ -80,25 +80,57 @@ export default function BankInfo() {
   };
 
   const handleVerify = async () => {
+    setLoad(true);
+
     try {
-      const response = await axios.post(`/api/common/bank/BankInfo`, formData, {
+      let data = {
+        bankAccount: formData.AccountNumber,
+        ifsc: formData.IfscCode,
+      };
+
+      const response = await axios.post("/api/common/verification/bank", data, {
         headers: { Authorization: `${authCtx.token}` },
       });
 
       if (response.data.success) {
-        console.log("Bank info saved successfully");
+        setLoad(false);
+
         loadBankDetails();
       } else {
-        console.log("Error saving bank info");
+        setLoad(false);
+
+        setError({
+          mainColor: "#FFF4E5",
+          secondaryColor: "#FFA117",
+          symbol: "warning",
+          title: "Warning",
+          text: "Invalid Bank Info",
+          val: true,
+        });
       }
     } catch (error) {
       console.error("Error saving bank info", error);
+
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "An unexpected error occurred",
+        val: true,
+      });
+
+      setLoad(false);
     }
   };
 
   useEffect(() => {
     loadBankDetails();
   }, []);
+
+  useEffect(() => {
+    console.log(formData);
+  }, [formData]);
 
   return (
     <>
