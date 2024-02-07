@@ -114,7 +114,7 @@ function ProductPageNew(props) {
     }
     navigate("/me/products");
   };
-  console.log(sliderImages.length);
+
   return (
     <div>
       <div className={PPN.prodDetailMain}>
