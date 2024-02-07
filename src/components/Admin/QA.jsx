@@ -12,6 +12,7 @@ export default function QA(props) {
         hide(!show);
       }}
     >
+    <div>
       {/* Question */}
       <p className={SupCss.qptag}>
         <>{props.question}</>
@@ -27,6 +28,12 @@ export default function QA(props) {
           />
         </i>
       </p>
+    </div>
+      <div>
+      <p className={SupCss.tag}>
+        <>Tag : {props.tag}</>
+      </p>
+      </div>
     </div>
   );
 }
