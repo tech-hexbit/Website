@@ -1,0 +1,240 @@
+.main{
+ display: flex ;
+ gap: 20px;
+ height: 100%;
+}
+
+.prodText{
+    font-size: 20px;
+    font-weight: 600;
+    padding-left: 20px;
+    padding-top: 5px;
+}
+.below{
+    margin : 10px 0px;
+}
+
+.left{
+    width: 30%;
+    height: 100vh;
+}
+.right{
+    width: 70%;
+    /* height: 100vh; */
+}
+.name{
+    font-size: 28px;
+    font-weight: 500;
+    padding-top: 5px;
+}
+.prodId{
+    font-size: 18px;
+    color: rgba(112, 112, 112, 1);
+    padding-top: 5px;
+}
+.prodSeller{
+    font-size: 18px;
+    color: rgba(112, 112, 112, 1);
+    padding-top: 5px;
+}
+.prodMRP{
+    font-size: 18px;
+    color: rgba(112, 112, 112, 1);
+    font-weight: 700;
+    padding-top: 5px;
+}
+.prodBox{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 10px;
+    padding-top: 15px;
+
+}
+.prodColor{
+ padding-top: 10px;
+}
+.prodColor:hover {
+    border-color: #56117c;
+  }
+.color{
+    padding-top: 15px;
+    padding-left: 15px;
+    font-weight: 500;
+}
+.pics{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 20px;
+    padding-top: 15px;
+    position: relative;
+    object-fit: cover;
+
+}
+ 
+.productImg{
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+    border-radius: 3px;
+    border: 1px solid #d3d3d3;
+}
+.productImgMain{
+    width: auto;
+    height: 14rem;
+    object-fit: cover;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.secPic {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+   
+}
+.prodCom {
+    border-style: dashed;
+    border-width: 1px;
+    border-color: #ddd;
+    padding: 5px 12px;
+    margin: 15px 0px;
+    transition: all 0.3s;
+    border-radius: 5px;
+    padding-bottom: 10px;
+  }
+  .rightLeft{
+    display: flex;
+    justify-content: space-between;
+    position: absolute ;
+    width: 100%;
+    top: 30%;
+  }
+  .sliderSvgRight{
+    background-color: #ffffff;
+    border-radius: 100%;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+     align-items: center;
+     padding-bottom: 3px;
+     padding-left: 2px;
+    cursor: pointer;
+    margin: 4px;
+  }
+  .sliderSvgLeft{
+    background-color: #ffffff;
+    border-radius: 100%;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding-bottom: 3px;
+    padding-right: 2px;
+    display: flex;
+    justify-content: center;
+     align-items: center;
+    cursor: pointer;
+    margin: 4px;
+  }
+  
+  .prodCom:hover {
+    border-color: #56117c;
+  }
+  .prodComText{
+        font-size: 16px;
+        font-weight: 500;
+        padding-top: 10px;
+    
+  }
+  .btns{
+    margin-top: 20px;
+  }
+  .goToInv{
+    background-color: rgb(10, 10, 172);
+    text-align: center;
+    padding: 10px 0px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.goToInvText{
+      text-decoration: none;
+    color: white;
+    font-size: larger;
+    font-weight: 500;
+  }
+  .del{
+    background-color:rgb(154, 10, 10);
+    margin-top: 10px;
+    text-align: center;
+    padding: 10px 0px;
+    color: white;
+    font-size: larger;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 1260px){
+    .rightLeft{
+        top: 25%;
+    }
+    }
+    
+@media (max-width: 985px){
+    .secPic{
+        justify-content: space-evenly;
+    }
+    .rightLeft{
+        top: 20%;
+    }
+}
+@media (max-width:750px){
+    .main{
+        flex-direction: column;
+    }
+    .rightLeft{
+        top: 30%;
+    }
+    .left{
+        width: 70vw;
+        height: auto;
+        margin: 0px auto;
+    }
+    .right{
+        width: 100%;
+        padding-left: 15px;
+    }
+    .secPic{
+        justify-content: space-between;
+    }
+    .productImg{
+        width: 7rem;
+        height: 7rem;
+        
+    }
+}
+@media (max-width: 560px){
+    .rightLeft{
+        top: 25%;
+    }
+   
+}
+@media (max-width: 450px){
+    .rightLeft{
+        top: 20%;
+    }
+}
+@media (max-width:335px){
+    .productImg{
+        width: 5rem;
+        height: 5rem;
+        
+    }
+    .secPic{
+        justify-content: space-evenly;
+    }
+}

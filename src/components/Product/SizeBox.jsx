@@ -13,6 +13,8 @@ export default function SizeBox() {
         <p className={SBCss.sizeBlock}>7 UK</p>
         <p className={SBCss.sizeBlock}>8 UK</p>
         <p className={SBCss.sizeBlock}>9 UK</p>
+        <p className={SBCss.sizeBlock}>10 UK</p>
+        <p className={SBCss.sizeBlock}>11 UK</p>
       </div>
     </div>
   );

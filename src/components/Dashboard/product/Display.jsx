@@ -9,6 +9,8 @@ import axios from "axios";
 
 // components
 import Filter from "./Filter";
+import ProductsPage from "./../../ProductsPage/ProductsPage";
+import ProductPageNew from "../../ProductsPage/ProductPageNew";
 
 // MicroInteraction
 import Load from "./../../../MicroInteraction/LoadBlack";
@@ -260,10 +262,15 @@ export default function Display({
                   <div>
                     {filteredlist.productList.length > 0 ? (
                       <>
-                        <div className={cardDisplay.cardMain}>
+                        <div className={cardDisplay.cardMain}
+                        >
                           {filteredlist.productList.map((val, key) => {
                             return (
-                              <div className={cardDisplay.card}>
+                              <div className={cardDisplay.card} >
+                                <Link
+                                  to={`/me/products/${val._id}`}
+                                  className="LinkStyle"
+                                >
                                 <div>
                                   <div className={cardDisplay.imgDiv}>
                                     <img
@@ -312,6 +319,7 @@ export default function Display({
                                     </p>
                                   </div>
                                 </div>
+                                </Link>
                                 <div
                                   className={cardDisplay.deleteBtn}
                                   onClick={() => deleteproduct(val._id)}
@@ -336,6 +344,7 @@ export default function Display({
                                   </svg>
                                 </div>
                               </div>
+                            
                             );
                           })}
                         </div>

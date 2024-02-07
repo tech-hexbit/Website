@@ -1,4 +1,4 @@
-import React,{useState,useEffect,useContext} from "react";
+import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 
 // state
@@ -18,11 +18,11 @@ export default function TicketDetailsOverlay({ selectedItem }) {
   if (!selectedItem) return null;
 
   const [replyMessage, setReplyMessage] = useState("");
-  const [load, setLoad] = useState(false); 
+  const [load, setLoad] = useState(false);
   const [data, setloadStore] = useState([]);
-  const [fetchedData , setFetchedData]= useState({
- replyMessage : ""
-  })
+  const [fetchedData, setFetchedData] = useState({
+    replyMessage: "",
+  });
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -32,7 +32,8 @@ export default function TicketDetailsOverlay({ selectedItem }) {
     val: false,
   });
 
-  const { StoreName, subject, StoreID, emailID, name, message, when, _id } = selectedItem[0];
+  const { StoreName, subject, StoreID, emailID, name, message, when, _id } =
+    selectedItem[0];
 
   const authCtx = useContext(AuthContext);
 
@@ -41,12 +42,12 @@ export default function TicketDetailsOverlay({ selectedItem }) {
 
     setLoad(true);
 
-    console.log(_id , " id printing");
+    console.log(_id, " id printing");
 
     const data = {
-     id : _id,
-     replyMessage,
-    }
+      id: _id,
+      replyMessage,
+    };
 
     try {
       const response = await axios.post(
@@ -58,8 +59,11 @@ export default function TicketDetailsOverlay({ selectedItem }) {
       );
 
       if (response.data.success) {
-        setFetchedData((prevData) => ({ ...prevData, replyMessage: response.data.replyMessage }));
-         setReplyMessage("");
+        setFetchedData((prevData) => ({
+          ...prevData,
+          replyMessage: response.data.replyMessage,
+        }));
+        setReplyMessage("");
         setLoad(false);
       } else {
         setLoad(false);
@@ -83,48 +87,49 @@ export default function TicketDetailsOverlay({ selectedItem }) {
         val: true,
       });
     }
-
-    
-  }
+  };
   const loadStore = async () => {
-      setLoad(true);
-  
-      try {
-        const response = await axios.get(
-          `/api/website/ContactUs/user/post/reply/${_id}`,
-          {
-            headers: { Authorization: `${authCtx.token}` },
-          }
-        );
-  
-        if (response.data.success) {
-          setLoad(false);
-          setFetchedData((prevData) => ({ ...prevData, replyMessage: response.data.replyMessage }));
-        } else {
-          setLoad(false);
+    setLoad(true);
+
+    try {
+      const response = await axios.get(
+        `/api/website/ContactUs/user/post/reply/${_id}`,
+        {
+          headers: { Authorization: `${authCtx.token}` },
         }
-      } catch (e) {
+      );
+
+      if (response.data.success) {
         setLoad(false);
-  
-        setError({
-          mainColor: "#FDEDED",
-          secondaryColor: "#F16360",
-          symbol: "error",
-          title: "Error",
-          text: "An unexpected error occurred",
-          val: true,
-        });
+        setFetchedData((prevData) => ({
+          ...prevData,
+          replyMessage: response.data.replyMessage,
+        }));
+      } else {
+        setLoad(false);
       }
+    } catch (e) {
+      setLoad(false);
+
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "An unexpected error occurred",
+        val: true,
+      });
     }
-      useEffect(() => {
-        loadStore();
-      }, []);
+  };
+  useEffect(() => {
+    loadStore();
+  }, []);
 
   return (
     <div className={gpdo.main}>
-    <div className={gpdo.item}>
-      <h2>Ticket ID : HX#{_id.slice(-5)}</h2>
-      <h2>Subject : {subject}</h2>
+      <div className={gpdo.item}>
+        <h2>Ticket ID : HX#{_id.slice(-5)}</h2>
+        <h2>Subject : {subject}</h2>
       </div>
       <div className={gpdo.wrapper}>
         <div className={gpdo.item}>
@@ -150,38 +155,41 @@ export default function TicketDetailsOverlay({ selectedItem }) {
       </div>
       <div className={gpdo.msgMDiv}>
         <label className={gpdo.message}>Message*</label>
-      <p>{message}</p>
+        <p>{message}</p>
       </div>
       <div className={gpdo.msgMDiv}>
-        <label className={gpdo.message}>{!fetchedData.replyMessage ?"Reply*" : "Replied"}</label>
-       { !fetchedData.replyMessage ?
-        (<>
-         <textarea
-          name=""
-          id=""
-          cols="30"
-          rows="10"
-          className={gpdo.messageInput}
-          placeholder="Type..."
-          onChange={(e) => setReplyMessage(e.target.value)}
-          value = {replyMessage}
-        >
-        </textarea>
-        <div>
-         <button onClick={handleSubmit} className={gpdo.btn}>{load ? <Load /> : "Send"}</button>
-        </div>
-        </>) : (<>
-          <p>{fetchedData.replyMessage}</p>
-        </>)
-        }
+        <label className={gpdo.message}>
+          {!fetchedData.replyMessage ? "Reply*" : "Replied"}
+        </label>
+        {!fetchedData.replyMessage ? (
+          <>
+            <textarea
+              name=""
+              id=""
+              cols="30"
+              rows="10"
+              className={gpdo.messageInput}
+              placeholder="Type..."
+              onChange={(e) => setReplyMessage(e.target.value)}
+              value={replyMessage}
+            ></textarea>
+            <div>
+              <button onClick={handleSubmit} className={gpdo.btn}>
+                {load ? <Load /> : "Send"}
+              </button>
+            </div>
+          </>
+        ) : (
+          <>
+            <p>{fetchedData.replyMessage}</p>
+          </>
+        )}
       </div>
-    
+
       <Alert variant={variants} val={setError} />
     </div>
   );
-
 }
 TicketDetailsOverlay.propTypes = {
   selectedItems: PropTypes.object.isRequired,
 };
-

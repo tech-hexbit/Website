@@ -1,86 +1,97 @@
-.main{
-    display: flex;
-    font-family: 'Roboto', sans-serif;  
-}
-.mainSec{
-    /* margin-top: 2.5rem;
-    margin-left: 5rem; */
-    width:  100%;
-}
-.sidebar{
-    background: rgba(251, 251, 251, 1);
-    width: 3.5rem;
-    height: 100vh;
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding-top: 5rem;
+.main {
+  display: flex;
+  font-family: "Roboto", sans-serif;
 }
 
-.topText{
-    font-weight: 600;
-    font-size: 17px;
+.mainSec {
+  width: 100%;
 }
-.slide{
-    margin-top: 2rem;
-    display: flex;
-    justify-content: space-around;
-    padding: 5px 0px; 
+
+.sidebar {
+  background: rgba(251, 251, 251, 1);
+  width: 3.5rem;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding-top: 5rem;
 }
+
+.topText {
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.slide {
+  display: flex;
+  justify-content: space-around;
+  padding: 5px 0px;
+  margin-bottom: 30px;
+}
+
 .slideSec {
-    font-size: 17px;
-    width: 20%;
-    text-align: center;
-    color: initialColor;
-    border-bottom: 1.5px solid white;
-    transition: color 0.1s, border-bottom 0.1s;
-    cursor: pointer;
-}
-.slideSec p{
-    padding-bottom: 10px;
-}
-.KYCmain{
-    margin-top: 15px ;   
-    padding: 1rem 1rem;
-    width: 60vw;
-    margin-bottom: 20px;
-}
-.slideSecClicked{
-    font-size: 17px;
-    color: purple;
-    border-bottom: 1.5px solid purple;
-    cursor: pointer;
-}
-.etc{
-    margin-top: 2rem;
-    margin-left: 2rem;
-}
-@media (max-width: 850px){
-    .KYCmain{
-        width: 100%;
-    }
-    .slideSec{
-        width: 40%;
-    }
+  font-size: 17px;
+  width: 20%;
+  text-align: center;
+  color: initialColor;
+  border-bottom: 1.5px solid white;
+  transition: color 0.1s, border-bottom 0.1s;
+  cursor: pointer;
 }
 
-@media (max-width:660px){
-    .slideSec{
-        width: 30%;
-    }
-    .KYCmain{
-        width: 85vw;
-    }
+.slideSec p {
+  padding-bottom: 10px;
 }
-@media (max-width:470px){
-    .slideSec{
-        width: 26%;
-    }
+
+.KYCmain {
+  margin-top: 15px;
+  padding: 1rem 1rem;
+  width: 60vw;
+  margin-bottom: 20px;
 }
-@media (max-width: 374px){
-    .KYCmain{
-        width: 75vw;
-    }
+
+.slideSecClicked {
+  font-size: 17px;
+  color: purple;
+  border-bottom: 1.5px solid purple;
+  cursor: pointer;
+}
+
+.etc {
+  margin-top: 2rem;
+  margin-left: 2rem;
+}
+
+@media (max-width: 850px) {
+  .KYCmain {
+    width: 100%;
+  }
+
+  .slideSec {
+    width: 40%;
+  }
+}
+
+@media (max-width: 660px) {
+  .slideSec {
+    width: 30%;
+  }
+
+  .KYCmain {
+    width: 85vw;
+  }
+}
+
+@media (max-width: 470px) {
+  .slideSec {
+    width: 26%;
+  }
+}
+
+@media (max-width: 374px) {
+  .KYCmain {
+    width: 75vw;
+  }
 }
