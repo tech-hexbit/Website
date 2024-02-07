@@ -5,6 +5,8 @@ import PropTypes from "prop-types";
 import odcss from "./../../Css/Orderdetails.module.css";
 
 export default function TopDetails({ del }) {
+  console.log(del.payment["@ondc/org/settlement_details"]);
+
   return (
     <>
       <div className={odcss.details}>
@@ -109,7 +111,7 @@ export default function TopDetails({ del }) {
           <div className={odcss.SubHeading}>Payment details</div>
           <div className={odcss.ContentDels}>
             <p className={odcss.pl1}>
-              Transaction ID : {del.payment.params.transaction_id}
+              Transaction ID : {del.payment.params?.transaction_id}
             </p>
             <p className={odcss.pl1}>
               Payment method : {del.payment.tl_method}
