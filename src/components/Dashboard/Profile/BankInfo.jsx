@@ -96,9 +96,10 @@ export default function BankInfo() {
       if (response.data.success) {
         setFormData({
           ...formData,
-          AcHolderName: response.data.response.data.nameAtBank,
+          AccountHolderName: response.data.response.data.nameAtBank,
           BankName: response.data.response.data.bankName,
-          BranchName: response.data.response.data.branch,
+          Branch: response.data.response.data.branch,
+          City: response.data.response.data.city,
         });
 
         setLoad(false);
