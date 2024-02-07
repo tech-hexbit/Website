@@ -61,7 +61,9 @@ export default function Bank({ disable, setDisable, showData, setData }) {
         ifsc: showData.IfscCode,
       };
 
-      const response = await axios.post("/api/verification/bank", data);
+      const response = await axios.post("/api/common/verification/bank", data, {
+        headers: { Authorization: `${authCtx.token}` },
+      });
 
       if (response.data.success) {
         setData({
