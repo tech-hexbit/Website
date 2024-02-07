@@ -17,6 +17,7 @@ export default function BankInfo() {
   const [load, setLoad] = useState(true);
   const [bankDetails, setBankDetails] = useState([]);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [valid, setValid] = useState(false);
   const [formData, setFormData] = useState({
     AccountHolderName: "",
     AccountNumber: "",
@@ -45,6 +46,8 @@ export default function BankInfo() {
 
       if (response.data.success) {
         setBankDetails(response.data.bankDetail);
+
+        setValid(true);
 
         setLoad(false);
       } else {
@@ -137,8 +140,8 @@ export default function BankInfo() {
   }, []);
 
   useEffect(() => {
-    console.log(formData);
-  }, [formData]);
+    console.log(bankDetails);
+  }, [bankDetails]);
 
   return (
     <>
@@ -232,12 +235,16 @@ export default function BankInfo() {
                 <div className={PICss.inpDiv}>
                   <p className={PICss.inputLabel}></p>
                   <div className={PICss.inputDivFile}>
-                    <button
-                      className={PICss.verifyButton}
-                      onClick={handleVerify}
-                    >
-                      {load ? <Load /> : "Verify"}
-                    </button>
+                    {valid ? (
+                      <button onClick={handleVerify}>Save Info</button>
+                    ) : (
+                      <button
+                        className={PICss.verifyButton}
+                        onClick={handleVerify}
+                      >
+                        {load ? <Load /> : "Verify"}
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
