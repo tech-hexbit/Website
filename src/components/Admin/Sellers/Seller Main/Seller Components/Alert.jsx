@@ -1,5 +1,7 @@
 import React, { useState, useContext } from 'react'
 
+// axios
+import axios from "axios";
 
 // state
 import AuthContext from "../../../../../store/auth-context";
@@ -8,7 +10,7 @@ import AuthContext from "../../../../../store/auth-context";
 import SCss from '../CSS/sellerDetail.module.css'
 import SDCss from '../CSS/selectSellerDetail.module.css';
 
-function Alert(props) {
+function Alert({props}) {
   const [load, setLoad] = useState(false);
   const [showVer, setVer] = useState(false);
   const [variants, setError] = useState({
@@ -21,8 +23,8 @@ function Alert(props) {
   });
 
   const authCtx = useContext(AuthContext);
-
   const saveVer = async () => {
+    console.log("done")
     let showData = {
       email: props.show.val.Email,
       state: true,
@@ -83,7 +85,7 @@ function Alert(props) {
   };
   return (
     <div className={SCss.alert} >
-    {props.props.show.val.accountVerified ? (
+    {props.show.val.accountVerified ? (
       <>
       <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#15e506" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-badge-check"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg>
       <p className={SCss.ver}>VERIFIED SELLER</p>
