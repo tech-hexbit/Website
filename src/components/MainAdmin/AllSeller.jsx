@@ -78,12 +78,11 @@ export default function AllSellers(props) {
                             </svg>
                           )}
                         </>
-                        <div className={SelCss.LeftData}>
                           <p>{val.Phone}</p>
                           <p>{val.Email}</p>
                           <p>{val.Phone}</p>
                           {/* <p>Seller since : </p> */}
-                        </div>
+                       
                       </div>
                     </div>
                   );
