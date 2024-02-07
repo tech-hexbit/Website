@@ -17,7 +17,7 @@ import AuthContext from "./../../store/auth-context";
 // css
 import PrCss from "./Css/Particulars.module.css";
 
-export default function Bank({ showData, setData }) {
+export default function Bank({ disable, setDisable, showData, setData }) {
   const [load, setLoad] = useState(false);
   const [verifyPin, setVerifyPin] = useState(false);
   const [variants, setError] = useState({
@@ -74,6 +74,9 @@ export default function Bank({ showData, setData }) {
         });
 
         setVerifyPin(true);
+
+        setDisable({ ...disable, Bank: true });
+
         setLoad(false);
       } else {
         setLoad(false);
@@ -178,4 +181,6 @@ export default function Bank({ showData, setData }) {
 Bank.propTypes = {
   showData: PropTypes.object.isRequired,
   setData: PropTypes.func.isRequired,
+  disable: PropTypes.object.isRequired,
+  setDisable: PropTypes.func.isRequired,
 };
