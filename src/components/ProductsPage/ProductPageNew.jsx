@@ -50,6 +50,8 @@ function ProductPageNew(props) {
         });
 
         if (response.data.success) {
+          // console.log(response.data.ProductDetail.descriptor.images[0]);
+
           setLoad(false);
           setSliderImages(response.data.ProductDetail.descriptor.images);
           setSliderData(response.data.ProductDetail.descriptor.images[0]);
@@ -225,7 +227,6 @@ function ProductPageNew(props) {
                   <div className={PPN.prodDet}>
                     <p className={PPN.name}>{res.descriptor.name}</p>
                     <p className={PPN.prodId}>Product Id: {res._id} </p>
-                    <p className={PPN.prodSeller}>Seller: Adidias </p>
                     <p className={PPN.prodId}>Published On: {res.when.date} </p>
                     <div className={PPN.prodBox}>
                       <Box
@@ -269,26 +270,34 @@ function ProductPageNew(props) {
                         placeholderLabel="Updated Stock"
                       />
                     </div>
-                    <div className={PPN.prodColor}>
+
+                    {/* Color Box */}
+                    {/* <div className={PPN.prodColor}>
                       <ColorBox
-                        imgSrc="https://images.unsplash.com/photo-1523206489230-c012c64b2b48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80"
+                        imgSrc={
+                          response.data.ProductDetail.descriptor.images[0]
+                        }
                         label="Navel Blue"
                         code="#00007c"
                       />
-                    </div>
-                    <div className={PPN.prodSize}>
+                    </div> */}
+
+                    {/* Size */}
+                    {/* <div className={PPN.prodSize}>
                       <SizeBox label="S" />
-                    </div>
+                    </div> */}
                     <div className={PPN.Desc}>
                       <Des res={res} id={res._id} setChange={setChange} />
                     </div>
-                    <div className={PPN.prodCom}>
+
+                    {/* Review */}
+                    {/* <div className={PPN.prodCom}>
                       <p className={PPN.prodComText}>Ratings & Reviews:</p>
                       <Rating />
                       <Rating />
                       <Rating />
                       <Rating />
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
