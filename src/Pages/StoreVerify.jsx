@@ -47,6 +47,7 @@ export default function StoreVerify() {
     Returnable: "",
     Description: "",
     Cancellable: "",
+    amountValue: "",
     AcHolderName: "",
     FssaiLicence: "",
     SupportEmail: "",
@@ -106,6 +107,7 @@ export default function StoreVerify() {
       showData.Percentage === "" ||
       showData.Cancellable === "" ||
       showData.Returnable === "" ||
+      showData.amountValue === "" ||
       showData.times == [] ||
       showData.Days === "" ||
       showData.ContactDetails === "" ||
