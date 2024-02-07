@@ -67,12 +67,6 @@ export default function StoreVerify() {
     text: "",
     val: false,
   });
-  const [disable, setDisable] = useState({
-    Pincode: false,
-    Pan: false,
-    Gstin: false,
-    Bank: false,
-  });
 
   const authCtx = useContext(AuthContext);
 
@@ -195,24 +189,9 @@ export default function StoreVerify() {
         <div className={SvCss.boxDiv}>
           <Header load={load} onSubmit={onSubmit} />
           <Particulars showData={showData} setData={setData} />
-          <Address
-            disable={disable}
-            setDisable={setDisable}
-            showData={showData}
-            setData={setData}
-          />
-          <Bank
-            disable={disable}
-            setDisable={setDisable}
-            showData={showData}
-            setData={setData}
-          />
-          <GstPan
-            disable={disable}
-            setDisable={setDisable}
-            showData={showData}
-            setData={setData}
-          />
+          <Address showData={showData} setData={setData} />
+          <Bank showData={showData} setData={setData} />
+          <GstPan showData={showData} setData={setData} />
           <UploadFiles images={images} setImages={setImages} />
           <StoreDetails showData={showData} setData={setData} />
           {/* Scroll to top */}
@@ -234,12 +213,6 @@ export default function StoreVerify() {
             </svg>
           </div>
         </div>
-      </div>
-
-      <div className={SvCss.submitDiv}>
-        <button className={SvCss.submitBtn} onClick={onSubmit}>
-          {load ? <Load /> : "SUBMIT KYC"}
-        </button>
       </div>
 
       <Alert variant={variants} val={setError} />
