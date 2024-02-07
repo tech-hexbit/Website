@@ -90,6 +90,9 @@ export default function AllSellers(props) {
                           <p> <div className={SelCss.labelDiv}>
                             <p>Email : </p>
                           </div> {val.Email}</p>
+                          <p> <div className={SelCss.labelDiv}>
+                            <p>Shop Name : </p>
+                          </div> {val.ShopName}</p>
                         
                       </div>
                     </div>
