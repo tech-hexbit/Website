@@ -104,7 +104,7 @@ export default function BankInfo() {
       </div>
       {isDialogOpen && (
         <div> 
-          {/* dailog box content */}
+          {/*dailog box content*/}
           <div className={PICss.nestedFieldLargeDiv}>
      
       <div className={PICss.nestedFieldSmallDiv}>
