@@ -46,6 +46,15 @@ export default function Display({
         loadData();
       } else {
         console.log("error");
+
+        setError({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "Unable to Delete",
+          val: true,
+        });
       }
     } catch (error) {
       console.log(error);
