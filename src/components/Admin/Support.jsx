@@ -181,7 +181,7 @@ export default function Support() {
                                             _id: selectedItem._id,
                                             ques: selectedItem.question,
                                             ans: selectedItem.answer,
-                                            tag : selectedItem.tag
+                                            tag: selectedItem.tag,
                                           });
                                         }}
                                       >
