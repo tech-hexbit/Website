@@ -21,6 +21,7 @@ import cardDisplay from "./Css/cardDisplay.module.css";
 
 export default function Display({
   load,
+  loadData,
   filterData,
   currentPage,
   allcategory,
@@ -48,6 +49,15 @@ export default function Display({
       }
     } catch (error) {
       console.log(error);
+
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "An unexpected error occurred",
+        val: true,
+      });
     }
   };
 
@@ -262,63 +272,62 @@ export default function Display({
                   <div>
                     {filteredlist.productList.length > 0 ? (
                       <>
-                        <div className={cardDisplay.cardMain}
-                        >
+                        <div className={cardDisplay.cardMain}>
                           {filteredlist.productList.map((val, key) => {
                             return (
-                              <div className={cardDisplay.card} >
+                              <div className={cardDisplay.card}>
                                 <Link
                                   to={`/me/products/${val._id}`}
                                   className="LinkStyle"
                                 >
-                                <div>
-                                  <div className={cardDisplay.imgDiv}>
-                                    <img
-                                      src={val.descriptor.images[0]}
-                                      className={cardDisplay.imgTag}
-                                    />
+                                  <div>
+                                    <div className={cardDisplay.imgDiv}>
+                                      <img
+                                        src={val.descriptor.images[0]}
+                                        className={cardDisplay.imgTag}
+                                      />
+                                    </div>
+                                    <div className={cardDisplay.cardcontent}>
+                                      <p className={cardDisplay.cardText}>
+                                        Product:
+                                      </p>
+                                      <p className={cardDisplay.cardTextSecond}>
+                                        {val.descriptor.name}
+                                      </p>
+                                    </div>
+                                    <div className={cardDisplay.cardcontent}>
+                                      <p className={cardDisplay.cardText}>
+                                        Price:
+                                      </p>
+                                      <p className={cardDisplay.cardTextSecond}>
+                                        ₹ {val.price.maximum_value.toFixed(2)}
+                                      </p>
+                                    </div>
+                                    <div className={cardDisplay.cardcontent}>
+                                      <p className={cardDisplay.cardText}>
+                                        Stock:
+                                      </p>
+                                      <p className={cardDisplay.cardTextSecond}>
+                                        {val.quantity.maximum.count}
+                                      </p>
+                                    </div>
+                                    <div className={cardDisplay.cardcontent}>
+                                      <p className={cardDisplay.cardText}>
+                                        Orders:
+                                      </p>
+                                      <p className={cardDisplay.cardTextSecond}>
+                                        {val.fulfillment_id}
+                                      </p>
+                                    </div>
+                                    <div className={cardDisplay.cardcontent}>
+                                      <p className={cardDisplay.cardText}>
+                                        Published on:
+                                      </p>
+                                      <p className={cardDisplay.cardTextSecond}>
+                                        {val.when.date}
+                                      </p>
+                                    </div>
                                   </div>
-                                  <div className={cardDisplay.cardcontent}>
-                                    <p className={cardDisplay.cardText}>
-                                      Product:
-                                    </p>
-                                    <p className={cardDisplay.cardTextSecond}>
-                                      {val.descriptor.name}
-                                    </p>
-                                  </div>
-                                  <div className={cardDisplay.cardcontent}>
-                                    <p className={cardDisplay.cardText}>
-                                      Price:
-                                    </p>
-                                    <p className={cardDisplay.cardTextSecond}>
-                                      ₹ {val.price.maximum_value.toFixed(2)}
-                                    </p>
-                                  </div>
-                                  <div className={cardDisplay.cardcontent}>
-                                    <p className={cardDisplay.cardText}>
-                                      Stock:
-                                    </p>
-                                    <p className={cardDisplay.cardTextSecond}>
-                                      {val.quantity.maximum.count}
-                                    </p>
-                                  </div>
-                                  <div className={cardDisplay.cardcontent}>
-                                    <p className={cardDisplay.cardText}>
-                                      Orders:
-                                    </p>
-                                    <p className={cardDisplay.cardTextSecond}>
-                                      {val.fulfillment_id}
-                                    </p>
-                                  </div>
-                                  <div className={cardDisplay.cardcontent}>
-                                    <p className={cardDisplay.cardText}>
-                                      Published on:
-                                    </p>
-                                    <p className={cardDisplay.cardTextSecond}>
-                                      {val.when.date}
-                                    </p>
-                                  </div>
-                                </div>
                                 </Link>
                                 <div
                                   className={cardDisplay.deleteBtn}
@@ -344,7 +353,6 @@ export default function Display({
                                   </svg>
                                 </div>
                               </div>
-                            
                             );
                           })}
                         </div>
