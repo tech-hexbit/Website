@@ -17,7 +17,6 @@ export default function BankInfo() {
   const [load, setLoad] = useState(true);
   const [bankDetails, setBankDetails] = useState([]);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [isBoxVisible, setIsBoxVisible] = useState(true);
   const [formData, setFormData] = useState({
     AccountHolderName: "",
     AccountNumber: "",
@@ -61,7 +60,6 @@ export default function BankInfo() {
   const openDialog = () => {
     if (!isDialogOpen) {
       setIsDialogOpen(true);
-      setIsBoxVisible(false);
     } else {
       closeDialog();
     }
@@ -69,7 +67,6 @@ export default function BankInfo() {
 
   const closeDialog = () => {
     setIsDialogOpen(false);
-    setIsBoxVisible(true);
   };
 
   const handleInputChange = (event) => {
@@ -101,6 +98,8 @@ export default function BankInfo() {
           Branch: response.data.response.data.branch,
           City: response.data.response.data.city,
         });
+
+        setIsDialogOpen(!isDialogOpen);
 
         setLoad(false);
 
@@ -246,7 +245,7 @@ export default function BankInfo() {
           </div>
         )}
 
-        {isBoxVisible && (
+        {!isDialogOpen && (
           <div className={PICss.box}>
             {load ? (
               <div className="loadCenterDiv" id="loadPadding">
