@@ -103,6 +103,7 @@ export default function StoreVerify() {
       showData.LocationAvailabilityMode === "" ||
       showData.TimeToShip === "" ||
       showData.radius === "" ||
+      showData.Percentage === "" ||
       showData.Cancellable === "" ||
       showData.Returnable === "" ||
       showData.times == [] ||
@@ -192,6 +193,7 @@ export default function StoreVerify() {
           <GstPan showData={showData} setData={setData} />
           <UploadFiles images={images} setImages={setImages} />
           <StoreDetails showData={showData} setData={setData} />
+
           {/* Scroll to top */}
           <div onClick={scrollToTop} className={SvCss.scrollToTop}>
             <svg
