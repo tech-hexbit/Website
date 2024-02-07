@@ -18,7 +18,6 @@ export default function BankInfo() {
   const [bankDetails, setBankDetails] = useState([]);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isBoxVisible, setIsBoxVisible] = useState(true);
-  const authCtx = useContext(AuthContext);
   const [formData, setFormData] = useState({
     AccountHolderName: "",
     AccountNumber: "",
@@ -35,6 +34,8 @@ export default function BankInfo() {
     text: "",
     val: false,
   });
+
+  const authCtx = useContext(AuthContext);
 
   const loadBankDetails = async () => {
     setLoad(true);
@@ -93,6 +94,13 @@ export default function BankInfo() {
       });
 
       if (response.data.success) {
+        setFormData({
+          ...formData,
+          AcHolderName: response.data.response.data.nameAtBank,
+          BankName: response.data.response.data.bankName,
+          BranchName: response.data.response.data.branch,
+        });
+
         setLoad(false);
 
         loadBankDetails();
@@ -228,7 +236,7 @@ export default function BankInfo() {
                       className={PICss.verifyButton}
                       onClick={handleVerify}
                     >
-                      Verify
+                      {load ? <Load /> : "Verify"}
                     </button>
                   </div>
                 </div>
