@@ -18,7 +18,7 @@ import AuthContext from "./../../store/auth-context";
 import AdCss from "./Css/Address.module.css";
 import PrCss from "./Css/Particulars.module.css";
 
-export default function GstPan({ disable, setDisable, showData, setData }) {
+export default function GstPan({ showData, setData }) {
   const [load, setLoad] = useState(false);
   const [loadPan, setLoadPan] = useState(false);
   const [verifyPin, setVerifyPin] = useState(false);
@@ -58,15 +58,19 @@ export default function GstPan({ disable, setDisable, showData, setData }) {
       }
 
       let data = {
-        GSTIN: showData.Gstin,
+        gstin: showData.Gstin,
       };
 
-      const response = await axios.post("/api/verification/gstin", data);
+      const response = await axios.post(
+        "/api/common/verification/gstin",
+        data,
+        {
+          headers: { Authorization: `${authCtx.token}` },
+        }
+      );
 
       if (response.data.success) {
         setVerifyPin(true);
-
-        setDisable({ ...disable, Gstin: true });
 
         setLoad(false);
       } else {
@@ -129,8 +133,6 @@ export default function GstPan({ disable, setDisable, showData, setData }) {
 
       if (response.data.success) {
         setVerifyPan(true);
-
-        setDisable({ ...disable, Pan: true });
 
         setLoadPan(false);
       } else {
@@ -286,6 +288,4 @@ export default function GstPan({ disable, setDisable, showData, setData }) {
 GstPan.propTypes = {
   showData: PropTypes.object.isRequired,
   setData: PropTypes.func.isRequired,
-  disable: PropTypes.object.isRequired,
-  setDisable: PropTypes.func.isRequired,
 };
