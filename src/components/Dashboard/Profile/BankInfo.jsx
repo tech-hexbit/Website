@@ -66,7 +66,6 @@ export default function BankInfo() {
     setIsBoxVisible(true);
   };
 
-  
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({
