@@ -18,6 +18,8 @@ import Header from "./../Dashboard/MainParts/Header";
 
 // MicroInteraction
 import Load from "../../MicroInteraction/LoadBlack";
+import LoadW from "../../MicroInteraction/Load";
+import { Alert } from "../../MicroInteraction/Alert";
 
 // Css
 import PPCss from "./Css/ProductPage.module.css";
@@ -241,6 +243,7 @@ function ProductPageNew(props) {
                         ))}
                       </div>
                     </div>
+
                     <div className={PPN.btns}>
                       <div className={PPN.goToInv}>
                         <Link to="/me/inventory" className={PPN.goToInvText}>
@@ -252,12 +255,9 @@ function ProductPageNew(props) {
                         onClick={() => deleteproduct(res._id)}
                       >
                         {loadDel ? (
-                          <Load />
+                          <LoadW />
                         ) : (
-                          <>
-                            {console.log(res.deleted)}
-                            {"Delete"}
-                          </>
+                          <>{res.deleted ? "Insert" : "Delete"}</>
                         )}
                       </div>
                     </div>
@@ -351,7 +351,7 @@ function ProductPageNew(props) {
         </div>
       </div>
 
-      {/* <Alert variant={variants} val={setError} /> */}
+      <Alert variant={variants} val={setError} />
     </>
   );
 }
