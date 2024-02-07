@@ -27,6 +27,14 @@ export default function BankInfo() {
     Branch: "",
     IfscCode: "",
   });
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
 
   const loadBankDetails = async () => {
     setLoad(true);
