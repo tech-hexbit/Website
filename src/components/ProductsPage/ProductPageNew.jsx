@@ -108,10 +108,22 @@ function ProductPageNew(props) {
   const deleteproduct = async (_id) => {
     setLoadDel(true);
 
+    console.log(res.deleted);
+
     try {
-      const response = await axios.delete(`/api/common/product/delete/${_id}`, {
-        headers: { Authorization: `${authCtx.token}` },
-      });
+      let response;
+      if (res.deleted) {
+        response = await axios.delete(
+          `/api/common/product/delete/undo/${_id}`,
+          {
+            headers: { Authorization: `${authCtx.token}` },
+          }
+        );
+      } else {
+        response = await axios.delete(`/api/common/product/delete/${_id}`, {
+          headers: { Authorization: `${authCtx.token}` },
+        });
+      }
 
       if (response.status === 200) {
         setLoadDel(false);
