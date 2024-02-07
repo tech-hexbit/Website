@@ -129,7 +129,9 @@ export default function GstPan({ showData, setData }) {
         name: showData.FirstName,
       };
 
-      const response = await axios.post("/api/verification/pan", data);
+      const response = await axios.post("/api/common/verification/pan", data, {
+        headers: { Authorization: `${authCtx.token}` },
+      });
 
       if (response.data.success) {
         setVerifyPan(true);
