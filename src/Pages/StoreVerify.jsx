@@ -166,9 +166,9 @@ export default function StoreVerify() {
 
           await authCtx.updateStore(response.data.upData[0].Store);
 
-          // redirect("/me");
-
           setLoad(false);
+
+          redirect("/me");
         } else {
           console.log(response.data);
 
