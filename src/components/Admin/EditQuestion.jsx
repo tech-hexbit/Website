@@ -17,9 +17,9 @@ export default function EditQuestion(props) {
   const [load, setLoad] = useState(false);
   const [showData, setData] = useState({
     _id: props.data._id,
-    question: "",
-    answer: "",
-    tag : props.data.tag
+    question: props.data.ques,
+    answer: props.data.ans,
+    tag: props.data.tag,
   });
   const [variants, setError] = useState({
     mainColor: "",
@@ -42,7 +42,6 @@ export default function EditQuestion(props) {
   const handleSelectChange = (event) => {
     setData({ ...showData, tag: event.target.value });
   };
-
 
   const onSubmit = async () => {
     setLoad(true);
@@ -120,7 +119,7 @@ export default function EditQuestion(props) {
       <div className={AQCss.mDiv}>
         <div className={AQCss.titleDiv}>
           <p>Edit Question(s)</p>
-          
+
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -142,9 +141,8 @@ export default function EditQuestion(props) {
           </svg>
         </div>
 
-
         <div className={AQCss.inpmDiv}>
-        <select
+          <select
             id="dropdown"
             value={showData.tag}
             onChange={handleSelectChange}
