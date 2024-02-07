@@ -14,6 +14,7 @@ import Rating from "../Product/Rating";
 import SizeBox from "../Product/SizeBox";
 import ColorBox from "../Product/ColorBox";
 import UpdateLabel from "../Product/UpdateLabel";
+import Header from "./../Dashboard/MainParts/Header";
 
 // MicroInteraction
 import Load from "../../MicroInteraction/LoadBlack";
@@ -118,7 +119,7 @@ function ProductPageNew(props) {
   return (
     <div>
       <div className={PPN.prodDetailMain}>
-        <div>
+        <div className={PPN.arcHeaderDiv}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="60"
@@ -133,9 +134,10 @@ function ProductPageNew(props) {
             onClick={goBack}
           >
             <path d="m15 18-6-6 6-6" />
+
+            <Header name="Archive" />
           </svg>
         </div>
-        <p className={PPN.prodText}>Product Details</p>
       </div>
       <hr className={PPN.below} />
 
