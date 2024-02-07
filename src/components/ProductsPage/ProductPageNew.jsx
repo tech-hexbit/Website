@@ -127,6 +127,8 @@ function ProductPageNew(props) {
 
       if (response.status === 200) {
         setLoadDel(false);
+
+        goBack();
       } else {
         console.log("error");
 
