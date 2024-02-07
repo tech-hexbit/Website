@@ -59,7 +59,7 @@ function ProductPageNew(props) {
         });
 
         if (response.data.success) {
-          // console.log(response.data.ProductDetail.descriptor.images[0]);
+          console.log(response.data.ProductDetail.deleted);
 
           setLoad(false);
           setSliderImages(response.data.ProductDetail.descriptor.images);
@@ -104,12 +104,6 @@ function ProductPageNew(props) {
     setSliderData(sliderImages[nextIndex]);
   };
 
-  useEffect(() => {
-    loadProducts();
-
-    setChange(false);
-  }, [, change]);
-
   const deleteproduct = async (_id) => {
     setLoadDel(true);
 
@@ -149,6 +143,12 @@ function ProductPageNew(props) {
       });
     }
   };
+
+  useEffect(() => {
+    loadProducts();
+
+    setChange(false);
+  }, [, change]);
 
   return (
     <>
@@ -344,7 +344,7 @@ function ProductPageNew(props) {
         </div>
       </div>
 
-      <Alert variant={variants} val={setError} />
+      {/* <Alert variant={variants} val={setError} /> */}
     </>
   );
 }
