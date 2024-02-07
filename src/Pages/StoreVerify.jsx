@@ -74,7 +74,6 @@ export default function StoreVerify() {
 
   const onSubmit = async () => {
     setLoad(true);
-    console.log(disable);
     if (
       showData.FirstName === "" ||
       showData.LastName === "" ||
@@ -93,7 +92,6 @@ export default function StoreVerify() {
       showData.BankName === "" ||
       showData.BranchName === "" ||
       showData.Gstin === "" ||
-      showData.FssaiLicence === "" ||
       showData.PanNo === "" ||
       showData.LocationAvailabilityMode === "" ||
       showData.TimeToShip === "" ||
@@ -105,6 +103,7 @@ export default function StoreVerify() {
       showData.SupportEmail === ""
     ) {
       setLoad(false);
+
       setError({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
@@ -113,30 +112,15 @@ export default function StoreVerify() {
         text: "Please Fill All The Details",
         val: true,
       });
-    } else if (!verifyPin || !disable.Bank || !disable.Gstin || disable.Pan) {
-      setError({
-        mainColor: "#FFC0CB",
-        secondaryColor: "#FF69B4",
-        symbol: "pets",
-        title: "Check it out",
-        text: !verifyPin
-          ? "Invalid pincode"
-          : !disable.Bank
-          ? "Invalid Bank Details"
-          : !disable.Gstin
-          ? "Invalid GSTIN"
-          : "Invalid Pan",
-        val: true,
-      });
     } else {
       try {
         let data = {
-          days: showData.days,
+          days: showData.Days,
           times: [],
         };
+
         data = showData;
-        // data.times.push(String(showData.StoreTimingStart));
-        // data.times.push(String(showData.StoreTimingEnd));
+
         const response = await axios.post(
           "/api/common/Store/CreateStore",
           data,
@@ -153,16 +137,22 @@ export default function StoreVerify() {
             text: response.data.msg,
             val: true,
           });
+
           await authCtx.updateStore(response.data.upData[0].Store);
-          redirect("/me");
+
+          // redirect("/me");
+
           setLoad(false);
         } else {
-          setLoad(false);
           console.log(e);
+
+          setLoad(false);
         }
       } catch (e) {
         console.log(e);
+
         setLoad(false);
+
         setError({
           mainColor: "#FDEDED",
           secondaryColor: "#F16360",
