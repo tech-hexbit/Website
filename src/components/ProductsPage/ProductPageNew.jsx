@@ -156,6 +156,7 @@ function ProductPageNew(props) {
                     <div className={PPN.productImgMain}>
                       <img src={sliderData} className={PPCss.productImg} />
                     </div>
+
                     {sliderImages.length > 1 && (
                       <div className={PPN.rightLeft}>
                         <div className={PPN.sliderSvgLeft}>
@@ -219,12 +220,12 @@ function ProductPageNew(props) {
                     </div>
                   </div>
                 </div>
+
                 <div className={PPN.right}>
                   <div className={PPN.prodDet}>
                     <p className={PPN.name}>{res.descriptor.name}</p>
                     <p className={PPN.prodId}>Product Id: {res._id} </p>
                     <p className={PPN.prodSeller}>Seller: Adidias </p>
-                    <p className={PPN.prodMRP}>MRP: ₹ 200 </p>
                     <p className={PPN.prodId}>Published On: {res.when.date} </p>
                     <div className={PPN.prodBox}>
                       <Box
