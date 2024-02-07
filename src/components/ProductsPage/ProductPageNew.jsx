@@ -59,9 +59,8 @@ function ProductPageNew(props) {
         });
 
         if (response.data.success) {
-          console.log(response.data.ProductDetail.deleted);
-
           setLoad(false);
+
           setSliderImages(response.data.ProductDetail.descriptor.images);
           setSliderData(response.data.ProductDetail.descriptor.images[0]);
 
@@ -211,6 +210,7 @@ function ProductPageNew(props) {
                               <path d="m15 18-6-6 6-6" />
                             </svg>
                           </div>
+
                           <div className={PPN.sliderSvgRight}>
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -251,7 +251,14 @@ function ProductPageNew(props) {
                         className={PPN.del}
                         onClick={() => deleteproduct(res._id)}
                       >
-                        {loadDel ? <Load /> : <>{"Delete"}</>}
+                        {loadDel ? (
+                          <Load />
+                        ) : (
+                          <>
+                            {console.log(res.deleted)}
+                            {"Delete"}
+                          </>
+                        )}
                       </div>
                     </div>
                   </div>
