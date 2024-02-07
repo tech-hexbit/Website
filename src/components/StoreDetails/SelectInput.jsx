@@ -38,7 +38,27 @@ const SelectInput = ({ setData, showData }) => {
         setData={setData}
         field="Description"
         placeholder="about the store"
-      />{" "}
+      />
+
+      {/* Cancellation Percentage */}
+      <InputType1
+        type="number"
+        Label="Cancellation Percentage"
+        showData={showData}
+        setData={setData}
+        field="Percentage"
+        placeholder="10%"
+      />
+
+      {/* Cancellation Amount */}
+      <InputType1
+        type="number"
+        Label="Cancellation Amount"
+        showData={showData}
+        setData={setData}
+        field="amountValue"
+        placeholder="INR 50"
+      />
     </>
   );
 };
