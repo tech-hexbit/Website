@@ -1,5 +1,6 @@
 import React, { useEffect, useContext, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
+
 // axios
 import axios from "axios";
 
@@ -9,18 +10,17 @@ import AuthContext from "../../store/auth-context";
 // components
 import Box from "../Product/Box";
 import Des from "../Product/Des";
+import Rating from "../Product/Rating";
 import SizeBox from "../Product/SizeBox";
 import ColorBox from "../Product/ColorBox";
+import UpdateLabel from "../Product/UpdateLabel";
 
 // MicroInteraction
 import Load from "../../MicroInteraction/LoadBlack";
 
 // Css
-import PPN from "./Css/ProductPageNew.module.css";
 import PPCss from "./Css/ProductPage.module.css";
-import UpdateLabel from "../Product/UpdateLabel";
-import Rating from "../Product/Rating";
-import { Link } from "react-router-dom";
+import PPN from "./Css/ProductPageNew.module.css";
 
 function ProductPageNew(props) {
   const [res, setres] = useState();
@@ -66,6 +66,7 @@ function ProductPageNew(props) {
       }
     }
   };
+
   const handleClick = (index) => {
     setSliderData(res.descriptor.images[index]);
   };
@@ -113,7 +114,7 @@ function ProductPageNew(props) {
     }
     navigate("/me/products");
   };
- console.log(sliderImages.length);
+  console.log(sliderImages.length);
   return (
     <div>
       <div className={PPN.prodDetailMain}>
@@ -150,51 +151,46 @@ function ProductPageNew(props) {
                 <div className={PPN.left}>
                   <div className={PPN.pics}>
                     <div className={PPN.productImgMain}>
-                      <img
-                        src={sliderData}
-                        className={PPCss.productImg}
-                      />
+                      <img src={sliderData} className={PPCss.productImg} />
                     </div>
-                    {
-                      sliderImages.length > 1 && (
-                        <div className={PPN.rightLeft}>
-                      <div className={PPN.sliderSvgLeft}>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="22"
-                          height="22"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="black"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          class="lucide lucide-chevron-left"
-                          onClick={handlePrevious}
-                        >
-                          <path d="m15 18-6-6 6-6" />
-                        </svg>
+                    {sliderImages.length > 1 && (
+                      <div className={PPN.rightLeft}>
+                        <div className={PPN.sliderSvgLeft}>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="22"
+                            height="22"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="black"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-chevron-left"
+                            onClick={handlePrevious}
+                          >
+                            <path d="m15 18-6-6 6-6" />
+                          </svg>
+                        </div>
+                        <div className={PPN.sliderSvgRight}>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="22"
+                            height="22"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-chevron-right"
+                            onClick={handleNext}
+                          >
+                            <path d="m9 18 6-6-6-6" />
+                          </svg>
+                        </div>
                       </div>
-                      <div className={PPN.sliderSvgRight}>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="22"
-                          height="22"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          class="lucide lucide-chevron-right"
-                          onClick={handleNext}
-                        >
-                          <path d="m9 18 6-6-6-6" />
-                        </svg>
-                      </div>
-                    </div>
-                      )
-                    }
+                    )}
                     <div className={PPN.secPic}>
                       {sliderImages.map((data, key) => (
                         <img
