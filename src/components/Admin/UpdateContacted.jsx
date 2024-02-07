@@ -5,6 +5,9 @@ import AuthContext from "../../store/auth-context";
 // axios
 import axios from "axios";
 
+// CSS
+import CCss from "./Css/Contacted.module.css";
+
 export default function UpdateContacted(props) {
   const authCtx = useContext(AuthContext);
   const tagValue = props.tag;
@@ -43,9 +46,15 @@ export default function UpdateContacted(props) {
   return (
     <div>
       {tagValue ? (
-        <h4>Contacted</h4>
+        <h4 className={CCss.contacted}>Contacted</h4>
       ) : (
-        <input type="checkbox" value={tagValue} onClick={contactedhandle} />
+       
+        <div class="checkbox-wrapper-3" >
+                  <input type="checkbox" id="cbx-3"  />
+                  <label for="cbx-3" class="toggle" value={tagValue} onClick={contactedhandle}  >
+                    <span> </span>
+                  </label>
+                </div>
       )}
     </div>
   );
