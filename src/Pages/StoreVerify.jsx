@@ -27,6 +27,7 @@ export default function StoreVerify() {
   const [showData, setData] = useState({
     DOB: "",
     City: "",
+    Days: "",
     State: "",
     Gstin: "",
     PanNo: "",
@@ -44,16 +45,15 @@ export default function StoreVerify() {
     AcHolderName: "",
     StoreLocation: "",
     FssaiLicence: "",
-    LocationAvailabilityMode: "",
     TimeToShip: "",
     Cancellable: "",
     Returnable: "",
-    times: ["0000", "0000"],
     radius: "",
-    Days: "",
     Percentage: "",
     ContactDetails: "",
     SupportEmail: "",
+    times: ["0000", "0000"],
+    LocationAvailabilityMode: "",
   });
   const [images, setImages] = useState({
     imageUploadCheque: "",
