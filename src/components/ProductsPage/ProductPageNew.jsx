@@ -131,12 +131,13 @@ function ProductPageNew(props) {
             stroke-linecap="round"
             stroke-linejoin="round"
             class="lucide lucide-chevron-left"
+            className={PPN.arcHeadBackIcon}
             onClick={goBack}
           >
             <path d="m15 18-6-6 6-6" />
-
-            <Header name="Archive" />
           </svg>
+
+          <Header name="Product Details" />
         </div>
       </div>
       <hr className={PPN.below} />
