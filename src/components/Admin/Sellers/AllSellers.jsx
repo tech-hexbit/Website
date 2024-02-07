@@ -33,17 +33,8 @@ export default function AllSellers(props) {
                         hide({ state: true, val: val });
                       }}
                     >
-                      <div className={SelCss.conDelT}>
-                        <p>
-                          StoreID : <strong>{val.Store[0]?.StoreID} </strong>
-                        </p>
-                        <p>{val.BusinessName}</p>
-                        <p>{val.GSTIN}</p>
-                      </div>
-
-                      <div className={SelCss.conDel}>
-                        <>
-                          {val.accountVerified ? (
+                    <div className={SelCss.Verifyingicons}>
+                    {val.accountVerified ? (
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="20"
@@ -77,14 +68,34 @@ export default function AllSellers(props) {
                               <path d="M30 30V18.75M30 38.3386V38.4375M52.5 30C52.5 42.4264 42.4264 52.5 30 52.5C17.5736 52.5 7.5 42.4264 7.5 30C7.5 17.5736 17.5736 7.5 30 7.5C42.4264 7.5 52.5 17.5736 52.5 30Z" />
                             </svg>
                           )}
-                        </>
-                        <div className={SelCss.LeftData}>
-                          <p>{val.Phone}</p>
-                          <p>{val.Email}</p>
-                          <p>{val.Phone}</p>
-                          {/* <p>Seller since : </p> */}
-                        </div>
+                    </div>
+                    <div className={SelCss.Datas}>
+
+                      <div className={SelCss.conDelT}>
+                        <p>
+                          StoreID : <strong>{val.Store[0]?.StoreID} </strong>
+                        </p>
+                        <p> <div className={SelCss.labelDiv}>
+                            <p>Business Name : </p>
+                          </div>  {val.BusinessName}</p>
+                        <p> <div className={SelCss.labelDiv}>
+                            <p>GST : </p>
+                          </div>  {val.GSTIN}</p>
                       </div>
+
+                      <div className={SelCss.conDel}>
+                          <p> <div className={SelCss.labelDiv}>
+                            <p>Phone : </p>
+                          </div> {val.Phone}</p>
+                          <p> <div className={SelCss.labelDiv}>
+                            <p>Email : </p>
+                          </div> {val.Email}</p>
+                          <p> <div className={SelCss.labelDiv}>
+                            <p>Shop Name : </p>
+                          </div> {val.ShopName}</p>
+                        
+                      </div>
+                    </div>
                     </div>
                   );
                 })}
