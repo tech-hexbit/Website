@@ -17,20 +17,20 @@
   transition: all 0.3s;
   cursor: pointer;
 }
+.mapMDiv:hover {
+  border-color: #c27aff;
+}
 .Verifyingicons{
   
   position: relative;
   left: 8px;
   text-align: right;
 }
+
 .Datas{
   display: flex;
   justify-content: space-between;
 }
-.mapMDiv:hover {
-  border-color: #c27aff;
-}
-
 .conDelT {
   position: relative;
   bottom: 24px;
@@ -51,9 +51,6 @@
 .labelDiv{
   display: inline-block;
   }
-.LeftData {
-  margin-top: 12px;
-}
 
 .AllSellersIcon {
   display: flex;
