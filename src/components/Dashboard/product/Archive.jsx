@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 
-
 // components
 import Header from "./../MainParts/Header";
 
@@ -14,13 +13,13 @@ import { Alert } from "./../../../MicroInteraction/Alert";
 // state
 import AuthContext from "./../../../store/auth-context";
 
-
 // css
 import DCss from "./Css/display.module.css";
 import cardDisplay from "./Css/cardDisplay.module.css";
 
 export default function Archive() {
   const [load, setLoad] = useState(false);
+  const [loadDel, setLoadDel] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [filteredlist, setfilteredlist] = useState({
     productList: [],
@@ -62,11 +61,62 @@ export default function Archive() {
     } catch (e) {
       setLoad(false);
 
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "An unexpected error occurred",
+        val: true,
+      });
+
       console.log(e);
     }
   };
 
-  const deleteproduct = async (_id) => {};
+  const deleteproduct = async (_id) => {
+    setLoadDel(true);
+    try {
+      const response = await axios.delete(
+        `/api/common/product/delete/undo/${_id}`,
+        {
+          headers: { Authorization: `${authCtx.token}` },
+        }
+      );
+
+      if (response.status === 200) {
+        setLoadDel(false);
+
+        loadData();
+      } else {
+        setLoadDel(false);
+
+        console.log("error");
+
+        setError({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "Unable to Add",
+          val: true,
+        });
+      }
+    } catch (error) {
+      console.log(error);
+
+      setLoadDel(false);
+
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "An unexpected error occurred",
+        val: true,
+      });
+    }
+  };
 
   useEffect(() => {
     loadData();
@@ -74,23 +124,23 @@ export default function Archive() {
 
   return (
     <div>
-       <div>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="60"
-            height="60"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-chevron-left"
-            // onClick={goBack}
-          >
-            <path d="m15 18-6-6 6-6" />
-          </svg>
-        </div>
+      <div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="60"
+          height="60"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-chevron-left"
+          // onClick={goBack}
+        >
+          <path d="m15 18-6-6 6-6" />
+        </svg>
+      </div>
       <Header name="Archive" />
 
       <div className={DCss.arcMain}>
@@ -166,23 +216,25 @@ export default function Archive() {
                                 className={DCss.deleteDiv}
                                 onClick={() => deleteproduct(val._id)}
                               >
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="24"
-                                  height="24"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  class="lucide lucide-eye-off"
-                                >
-                                  <path d="M9.88 9.88a3 3 0 1 0 4.24 4.24" />
-                                  <path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68" />
-                                  <path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61" />
-                                  <line x1="2" x2="22" y1="2" y2="22" />
-                                </svg>
+                                {loadDel ? (
+                                  <Load />
+                                ) : (
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="lucide lucide-rotate-ccw"
+                                  >
+                                    <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                                    <path d="M3 3v5h5" />
+                                  </svg>
+                                )}
                               </div>
                             </div>
                           </td>
@@ -257,24 +309,25 @@ export default function Archive() {
                                 className={cardDisplay.deleteBtn}
                                 onClick={() => deleteproduct(val._id)}
                               >
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="24"
-                                  height="24"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  class="lucide lucide-trash-2"
-                                >
-                                  <path d="M3 6h18" />
-                                  <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
-                                  <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
-                                  <line x1="10" x2="10" y1="11" y2="17" />
-                                  <line x1="14" x2="14" y1="11" y2="17" />
-                                </svg>
+                                {loadDel ? (
+                                  <Load />
+                                ) : (
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="lucide lucide-rotate-ccw"
+                                  >
+                                    <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                                    <path d="M3 3v5h5" />
+                                  </svg>
+                                )}
                               </div>
                             </div>
                           );
