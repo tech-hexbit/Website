@@ -17,17 +17,15 @@ import Load from "./../../MicroInteraction/LoadBlack";
 
 // css
 import SupCss from "./Css/Support.module.css";
-import { Link } from "react-router-dom";
 
 export default function Support() {
   const [data, setData] = useState([]);
   const [load, setLoad] = useState(false);
   const [showAdd, setAdd] = useState(false);
   const [showRef, setRef] = useState(false);
-  const [showCurr, setCurr] = useState("Support");
-
-  const [showEdit, setShowEdit] = useState(false);
   const [editdata, setEditdata] = useState(null);
+  const [showCurr, setCurr] = useState("Support");
+  const [showEdit, setShowEdit] = useState(false);
 
   const authCtx = useContext(AuthContext);
 
@@ -154,6 +152,7 @@ export default function Support() {
                                       key={key}
                                       answer={val.answer}
                                       question={val.question}
+                                      tag={val.tag}
                                     />
 
                                     <div className={SupCss.icons}>
@@ -179,6 +178,7 @@ export default function Support() {
                                             _id: selectedItem._id,
                                             ques: selectedItem.question,
                                             ans: selectedItem.answer,
+                                            tag: selectedItem.tag,
                                           });
                                         }}
                                       >

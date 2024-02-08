@@ -30,7 +30,15 @@
   /* gap: 10px; */
   margin-bottom: 10px;
 }
-
+.phoneInputs {
+  display: flex;
+  flex-direction: row;
+  /* gap: 0; */
+  width: 80%;
+}
+.phoneInput {
+  flex-basis: 100%;
+}
 .formInput2 {
   display: flex;
   justify-content: space-between;
@@ -55,24 +63,31 @@
   color: #c075ff;
 }
 
-.formInput2 input {
-  margin-right: 0;
+/* .formInput2 input {
+  margin-right: 0; 
+   margin-top: 10px;
+} */
+
+.formInput input {
+  width: 80%;
   margin-top: 10px;
 }
 
-.formInput input {
-  width:80%;
-  margin-top: 10px
+.formInputNumber {
+  display: flex;
+  flex-direction: row;
 }
-
-
 .formInputNumber input {
   width: 100%;
   margin-right: 0;
   margin-bottom: 30px;
   margin-top: 10px;
 }
-
+.formInputNumberPin input {
+  width: 100%;
+  /* margin-right: 0; */
+  /* margin-bottom: 30px; */
+}
 .formInputs {
   display: flex;
   flex-direction: column;
@@ -117,7 +132,6 @@ label {
   width: 80%;
 }
 
-
 .otpTextNumber {
   width: 100%;
 }
@@ -133,14 +147,24 @@ label {
   padding: 9px 15px;
   margin-top: 10px;
 }
-
+.pinButtonT button,
+.pinButtonF button {
+  border: none;
+  border-radius: 5px;
+  background: #5b1d9a;
+  color: #fff;
+  font-size: 16px;
+  padding: 9px 15px;
+}
 
 .otpButtonF button,
-.otpButton button {
+.otpButton button,
+.pinButtonF button {
   cursor: pointer;
 }
 
 .otpButtonT button,
+.pinButtonT button,
 #curNA {
   cursor: not-allowed;
 }
@@ -167,8 +191,6 @@ label {
   cursor: pointer;
   margin-top: 10px;
 }
-
-
 
 .otpButtonVerify button {
   border: none;
@@ -243,36 +265,39 @@ span {
   margin-left: 5px;
 }
 
-@media   (max-width: 1711px) {
-  .formInput input {
+@media (max-width: 1711px) {
+  .formInput input,
+  .phoneInputs {
     width: 75%;
   }
-  .otpText  {
-    width: 75%; 
+  .otpText {
+    width: 75%;
   }
 }
-@media   (max-width: 1400px) {
-  .formInput input {
+@media (max-width: 1400px) {
+  .formInput input,
+  .phoneInputs {
     width: 70%;
   }
-  .otpText  {
+  .otpText {
     width: 70%;
   }
 }
-@media   (max-width: 1230px) {
-  .formInput input {
+@media (max-width: 1230px) {
+  .formInput input,
+  .phoneInputs {
     width: 63%;
   }
   .otpText {
     width: 63%;
   }
 }
-@media   (max-width:1106px ) {
+@media (max-width: 1106px) {
   .otpButtonClicked button {
     padding: 7px 17px;
   }
-  .otpButtonVerify button  {
-   margin-top: 10px;
+  .otpButtonVerify button {
+    margin-top: 10px;
   }
   .otpButtonF button,
   .otpButton button {
@@ -280,16 +305,21 @@ span {
     padding: 10px 16px;
     margin-top: 10px;
   }
-  .formInput  {
+  .pinButtonF button {
+    width: 100%;
+    padding: 10px 16px;
+  }
+  .formInput {
     flex-wrap: wrap;
   }
-  .otp{
+  .otp {
     flex-wrap: wrap;
-  } 
-  .formInput input {
-    width: 100%
   }
-  .otpText  {
+  .formInput input,
+  .phoneInputs {
+    width: 100%;
+  }
+  .otpText {
     width: 100%;
   }
 }
@@ -302,71 +332,68 @@ span {
     padding-left: 0px;
   }
 }
-@media screen and (max-width:700px){
-  .formInput  {
+@media screen and (max-width: 700px) {
+  .formInput {
     flex-wrap: nowrap;
   }
-  
-  .formInput input{
-    width:75%;
+
+  .formInput input,
+  .phoneInputs {
+    width: 75%;
   }
   .otp {
-   flex-wrap: nowrap;
+    flex-wrap: nowrap;
   }
-  .otpText{
-    width:75%;
+  .otpText {
+    width: 75%;
   }
   .otpButtonClicked button {
-    padding: 8px 18px ;
+    padding: 8px 18px;
   }
-  .otpButtonVerify button  {
+  .otpButtonVerify button {
     margin-top: 0px;
     padding: 1px 13px;
-   } 
+  }
 }
 @media screen and (max-width: 574px) {
-  .formInput input {
+  .formInput input,
+  .phoneInputs {
     width: 70%;
   }
-  .otpText{
-    width:70%;
+  .otpText {
+    width: 70%;
   }
-  
 }
 @media screen and (max-width: 510px) {
-  .formInput input {
+  .formInput input,
+  .phoneInputs {
     width: 65%;
   }
-  .otpText{
-    width:65%;
+  .otpText {
+    width: 65%;
   }
 }
-@media (max-width:460px){
-  .formInput{
+@media (max-width: 460px) {
+  .formInput {
     flex-wrap: wrap;
   }
-  .formInput input{
-    width:100%;
+  .formInput input,
+  .phoneInputs {
+    width: 100%;
   }
-  .otp{
+  .otp {
     flex-wrap: wrap;
   }
-  .otpText{
-    width:100%;
+  .otpText {
+    width: 100%;
   }
   .otpButton button {
     padding: 7px 17px;
   }
-  .otpButtonVerify button  {
+  .otpButtonVerify button {
     margin-top: 10px;
-   } 
+  }
   .otpButtonClicked button {
     padding: 7px 17px;
   }
 }
-
-
-
-
-
-

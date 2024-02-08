@@ -85,6 +85,7 @@ export default function BankInfo() {
       );
 
       if (response.data.success) {
+      
         console.log("Bank info saved successfully");
         loadBankDetails(); 
       } else {
@@ -101,7 +102,6 @@ export default function BankInfo() {
         <div className={PICss.heading}>Bank info ({bankDetails.length})</div>
         <div className={PICss.headPlus} onClick={openDialog}>+</div>
       </div>
-      
       {isDialogOpen && (
         <div> 
           {/*dailog box content*/}
