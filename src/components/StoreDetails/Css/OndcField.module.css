@@ -1,7 +1,5 @@
-.nestedFieldLargeDiv
-/* ,.OndcField  */ {
+.nestedFieldLargeDiv {
   color: #606060;
-
   font-size: 17px;
   font-weight: 600;
   display: flex;
@@ -24,6 +22,7 @@
   justify-content: space-between;
   gap: 0px 45px;
 }
+
 .ContactDiv {
   color: #606060;
   font-size: 17px;
@@ -36,11 +35,14 @@
 }
 
 .inpDiv input,
-select,
+.inpDiv select,
 .ContactDiv input {
+  outline: none;
+  /* width: 70%; */
   flex-basis: 70%;
   height: 42px;
   padding: 8px;
+  border-radius: 5px;
 }
 
 .inputLabel {
@@ -49,48 +51,59 @@ select,
 
 @media screen and (max-width: 400px) {
   .inpDiv input,
-  select,
+  .inpDiv select,
   .ContactDiv input {
     min-height: 42px;
   }
+
   .inpDiv,
   .ContactDiv {
     flex-direction: column;
   }
+
   .inputLabel {
-    /* width: 100%; */
     text-wrap: nowrap;
   }
 }
 
 @media screen and (max-width: 600px) {
-  .nestedFieldLargeDiv
-  /* ,.OndcField  */ {
+  .nestedFieldLargeDiv {
     flex-direction: column;
   }
+
   .inpDiv input,
-  select,
+  .inpDiv select,
   .ContactDiv input {
     flex-basis: 60%;
   }
+
   .inputLabel {
     width: 15%;
   }
 }
-@media screen and (min-width: 1024px) {
-  .nestedFieldSmallDiv {
-    flex-basis: 67%;
-  }
-}
+
 @media screen and (max-width: 1368px) {
-  /* .OndcField {
-    flex-direction: column;
-  } */
   .ContactLdiv {
     flex-direction: column;
   }
+
+  .inputLabel {
+    text-wrap: nowrap;
+  }
 }
-@media screen and (min-width: 1368px) {
+
+/* @media screen and (min-width: 1024px) {
+  .nestedFieldSmallDiv {
+    flex-basis: 67%;
+  } 
+} */
+@media screen and (max-width: 1024px) {
+  .inpDiv {
+    flex-direction: column;
+  }
+  .inpDiv input {
+    width: 100%;
+  }
   .inputLabel {
     text-wrap: nowrap;
   }

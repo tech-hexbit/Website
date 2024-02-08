@@ -99,6 +99,7 @@ function SellerDetail( props) {
               }}
             >
             <path d="m15 18-6-6 6-6"/></svg>
+            <p className={SCss.seller}>Seller Details</p>
         </div>
             <div className={SCss.topText}>
                 <p>
@@ -111,7 +112,7 @@ function SellerDetail( props) {
                     Seller Info
                 </p>
             </div>
-            <p className={SCss.seller}>Seller Details</p>
+            
             {/* Alert */}
             <Alert props={props}/>
             {/* KYC INFO */}
@@ -120,8 +121,8 @@ function SellerDetail( props) {
         <div className={SCss.btn}>
         {/* Download Button */}
             <>
-                <DownloadBtn/>
-                <MandatoryField/>
+                <DownloadBtn  props={props} />
+                <MandatoryField props={props} />
             </>
         </div>
     </div>

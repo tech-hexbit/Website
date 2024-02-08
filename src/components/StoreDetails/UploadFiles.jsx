@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
 
 // axios
@@ -9,9 +9,12 @@ import AuthContext from "./../../store/auth-context";
 import { Alert } from "./../../MicroInteraction/Alert";
 
 //component
-import UploadFiles from "./UploadFiles";
+import UploadFilesMain from "./UploadFilesMain";
 
-export default function FileInput() {
+// css
+import PrCss from "./Css/Particulars.module.css";
+
+export default function UploadFiles({ images, setImages }) {
   const [load, setLoad] = useState(false);
   const [imageUpload, setImageUpload] = useState({ val: "", img: "" });
   const [variants, setError] = useState({
@@ -28,6 +31,7 @@ export default function FileInput() {
   const onSubmit = async () => {
     setLoad(true);
 
+    console.log(imageUpload);
     console.log(imageUpload.img);
 
     if (imageUpload) {
@@ -95,29 +99,35 @@ export default function FileInput() {
     }
   };
 
-  useEffect(() => {
-    console.log(imageUpload);
-  }, [imageUpload]);
-
   return (
     <>
-      <UploadFiles
+      <div className={PrCss.mDiv}>
+        <p className={PrCss.AboutYou}>Upload Files</p>
+      </div>
+
+      <UploadFilesMain
         label="Upload Cancelled Cheque"
         val="cancelledCheques"
+        image={images.imageUploadCheque}
+        // handleClicksValue="cheque"
         setImageUpload={setImageUpload}
         imageUpload={imageUpload}
         onSubmitFun={onSubmit}
       />
-      <UploadFiles
+      <UploadFilesMain
         label="Address Proof (GSTIN)"
         val="addressProof"
+        image={images.imageUploadAddress}
+        // handleClicksValue="address"
         setImageUpload={setImageUpload}
         imageUpload={imageUpload}
         onSubmitFun={onSubmit}
       />
-      <UploadFiles
+      <UploadFilesMain
         label="ID Proof (PAN CARD)"
         val="idProof"
+        image={images.imageUploadID}
+        // handleClicksValue="id"
         setImageUpload={setImageUpload}
         imageUpload={imageUpload}
         onSubmitFun={onSubmit}
@@ -127,3 +137,8 @@ export default function FileInput() {
     </>
   );
 }
+
+UploadFiles.propTypes = {
+  images: PropTypes.object.isRequired,
+  setImages: PropTypes.func.isRequired,
+};

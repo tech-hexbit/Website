@@ -6,6 +6,7 @@ import { Alert } from "./../../MicroInteraction/Alert";
 
 // css
 import FCss from "./Css/Form.module.css";
+import style from "../signIn/SignInForm.module.css";
 
 export default function Form1(props) {
   const [sendotp, setSendotp] = useState(false);
@@ -98,15 +99,24 @@ export default function Form1(props) {
             {input.WhatsAppNumber.length === 10 ? (
               <>
                 <div className={FCss.formInput}>
-                  <input
-                    type="text"
-                    id="phone"
-                    placeholder="Enter phone no."
-                    name="Phone"
-                    value={input.WhatsAppNumber}
-                    onInput={handleInputChange}
-                    disabled={disableNoField}
-                  />
+                  <div className={FCss.phoneInputs}>
+                    <input
+                      type="text"
+                      placeholder="+91"
+                      disabled
+                      id={style.countryCode}
+                    />
+                    <input
+                      type="text"
+                      id="phone"
+                      placeholder="Enter phone no."
+                      name="Phone"
+                      value={input.WhatsAppNumber}
+                      onInput={handleInputChange}
+                      disabled={disableNoField}
+                      className={`${style.phone} ${FCss.phoneInput}`}
+                    />
+                  </div>
                   <div
                     className={sendotp ? FCss.otpButtonClicked : FCss.otpButton}
                   >
@@ -174,8 +184,15 @@ export default function Form1(props) {
                 <div className={FCss.formInputNumber}>
                   <input
                     type="text"
+                    placeholder="+91"
+                    disabled
+                    id={style.countryCode}
+                  />
+                  <input
+                    type="text"
                     id="phone"
                     placeholder="Enter phone no."
+                    className={style.phone}
                     name="Phone"
                     value={input.WhatsAppNumber}
                     onInput={handleInputChange}

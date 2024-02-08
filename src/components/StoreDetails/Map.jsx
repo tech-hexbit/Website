@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
 // css
 import MapCss from "./Css/Map.module.css";
 
-export default function Map() {
-  const [position, setPosition] = useState([23.219255, 77.3983159]);
+export default function Map({ showData, setData }) {
   const [isInitialLoad, setIsInitialLoad] = useState(true);
+  const [position, setPosition] = useState([23.219255, 77.3983159]);
 
   let map, marker;
 
@@ -46,11 +47,9 @@ export default function Map() {
       icon: "https://apis.mapmyindia.com/map_v3/1.png",
     });
 
-    // Update the state with the new position
     setPosition(newPosition);
   };
 
-  // Event handler for map click
   const handleMapClick = (event) => {
     const { lat, lng } = event.lngLat || event.latlng;
     if (lat && lng) {
@@ -107,23 +106,51 @@ export default function Map() {
     };
   }, [loadMapScript, initMap, isInitialLoad]);
 
+  useEffect(() => {
+    if (position) {
+      setData({ ...showData, StoreLocation: position.join(", ") });
+    }
+  }, [position]);
+
   return (
     <div>
-      <p className={MapCss.inputLabel}>Store Location</p>
+      <div className={MapCss.titleDiv}>
+        <p className={MapCss.inputLabel}>Store Location</p>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-locate-fixed"
+          onClick={handleRelocateClick}
+        >
+          <line x1="2" x2="5" y1="12" y2="12" />
+          <line x1="19" x2="22" y1="12" y2="12" />
+          <line x1="12" x2="12" y1="2" y2="5" />
+          <line x1="12" x2="12" y1="19" y2="22" />
+          <circle cx="12" cy="12" r="7" />
+          <circle cx="12" cy="12" r="3" />
+        </svg>
+      </div>
       <div
         id="map"
         style={{ width: "100%", height: "80vh", margin: "10px 0", padding: 0 }}
         className=""
       ></div>
 
-      <div>
-        <button onClick={handleRelocateClick}>
-          Relocate to Current Location
-        </button>
-      </div>
-      <div>
+      <div className={MapCss.inputLabel}>
         Latitude: {position[0]}, Longitude: {position[1]}
       </div>
     </div>
   );
 }
+
+Map.propTypes = {
+  showData: PropTypes.object.isRequired,
+  setData: PropTypes.func.isRequired,
+};
