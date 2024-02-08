@@ -158,6 +158,7 @@ export default function EditQuestion(props) {
             <option value="order">Order</option>
             <option value="approved">Important Bulletin</option>
           </select>
+
           <input
             type="text"
             name="question"

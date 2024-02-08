@@ -1,17 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 // MicroInteraction
 import Load from "../../MicroInteraction/Load";
 import { Alert } from "./../../MicroInteraction/Alert";
 
+//state
+import AuthContext from "../../store/auth-context";
+
+//axios
+import axios from "axios";
+
 // css
 import FCss from "./Css/Form.module.css";
 
 export default function Form1(props) {
+
+  const authCtx = useContext(AuthContext);
+
   const [sendotp, setSendotp] = useState(false);
   const [disableNoField, setDisableNoField] = useState(false);
   const [isOtpButtonClicked, setIsOtpButtonClicked] = useState(false);
   const [input, setInput] = useState({ WhatsAppNumber: "", Otp: "" });
+  const [load, setLoad] = useState(false);
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -76,11 +86,48 @@ export default function Form1(props) {
     setIsOtpButtonClicked(!isOtpButtonClicked);
   };
 
-  const handleSendOtpButton = () => {
-    setSendotp(!sendotp);
-    setDisableNoField(true);
-  };
+  const handleSendOtpButton = async() => {
+    setLoad(true);
 
+   try {
+        const response = await axios.post("/api/App/onborading/send_otp",input, {
+          headers: { Authorization: `${authCtx.token}` },
+        });
+
+        if (response.data.success) {
+          setLoad(false);
+           setSendotp(!sendotp);
+          setDisableNoField(true)
+
+
+        } else {
+          setLoad(false);
+
+          setError({
+            mainColor: "#FDEDED",
+            secondaryColor: "#F16360",
+            symbol: "error",
+            title: "Error",
+            text: "Unable to send otp",
+            val: true,
+          });
+        }
+      } catch (error) {
+        console.log(error);
+
+        setLoad(false);
+
+        setError({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "Unable to send otp",
+          val: true,
+        });
+      }
+  }
+  
   return (
     <>
       <div className={FCss.mainDiv}>
@@ -114,7 +161,8 @@ export default function Form1(props) {
                       onClick={handleSendOtpButton}
                       disabled={disableNoField}
                     >
-                      {sendotp ? "OTP Sent" : "Send OTP"}
+                      {sendotp ? "OTP Sent" : (load ? <Load /> : "Send OTP")}
+
                     </button>
                   </div>
                 </div>
