@@ -263,7 +263,6 @@ export default function BankInfo() {
                     </div>
                   </div>
                 </div>
-
                 {key !== bankDetails.length - 1 && (
                   <div className={PICss.Line1}></div>
                 )}
