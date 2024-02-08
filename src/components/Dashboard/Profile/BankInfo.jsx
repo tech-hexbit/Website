@@ -101,6 +101,7 @@ export default function BankInfo() {
         <div className={PICss.heading}>Bank info ({bankDetails.length})</div>
         <div className={PICss.headPlus} onClick={openDialog}>+</div>
       </div>
+      
       {isDialogOpen && (
         <div> 
           {/*dailog box content*/}
