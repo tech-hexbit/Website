@@ -85,7 +85,6 @@ export default function BankInfo() {
       );
 
       if (response.data.success) {
-      
         console.log("Bank info saved successfully");
         loadBankDetails(); 
       } else {
