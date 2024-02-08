@@ -77,7 +77,7 @@ export default function BankInfo() {
   const handleVerify = async () => {
     try {
       const response = await axios.post(
-        `/api/common/bank/BankInfo`,
+        `api/website/auth/BankInfo`,
         formData,
         {
           headers: { Authorization: `${authCtx.token}` },
