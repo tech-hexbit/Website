@@ -126,11 +126,19 @@
 }
 
 .row1 {
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 0px 20px;
+}
+
+.delteIcon {
+  position: absolute;
+  top: -5px;
+  right: 0px;
+  color: rgb(115, 0, 0);
 }
 
 .Line1 {
