@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 
 // components
 import BankData from "./BankData";
+import DeleteBankInfo from "./DeleteBankInfo";
 
 // axios
 import axios from "axios";
@@ -85,6 +86,9 @@ export default function BankInfo() {
               {bankDetails.map((bank, key) => (
                 <>
                   <div className={PICss.row1} id={PICss.mrow1} key={key}>
+                    {/* delete Btn */}
+                    <DeleteBankInfo id={bank._id} />
+
                     {/* Account Number */}
                     <div className={PICss.col1}>
                       <div className={PICss.inputheading}>Account Number</div>
@@ -92,7 +96,6 @@ export default function BankInfo() {
                         {bank.BankDetails[0].AccountNumber}
                       </div>
                     </div>
-
                     {/* IFSC Code */}
                     <div className={PICss.col1}>
                       <div className={PICss.inputheading}>IFSC Code</div>
