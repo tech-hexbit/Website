@@ -203,12 +203,6 @@
   }
 }
 
-@media screen and (max-width: 400px) {
-  .inputDivFile {
-    flex-direction: column;
-  }
-}
-
 @media only screen and (max-width: 650px) {
   .row1 {
     flex-direction: column;
@@ -235,5 +229,9 @@
 
   .inputLabel {
     text-wrap: nowrap;
+  }
+
+  .inputDivFile {
+    flex-direction: column;
   }
 }
