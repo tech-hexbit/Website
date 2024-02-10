@@ -50,7 +50,6 @@ export default function BankInfo() {
   const openDialog = () => {
     if (!isDialogOpen) {
       setIsDialogOpen(true);
-      // setIsBoxVisible(false);
     } else {
       closeDialog();
     }
@@ -58,7 +57,6 @@ export default function BankInfo() {
 
   const closeDialog = () => {
     setIsDialogOpen(false);
-    // setIsBoxVisible(true);
   };
 
   return (
