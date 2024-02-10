@@ -167,7 +167,6 @@ export default function BankData({
     <>
       <div className={PICss.nestedFieldLargeDiv}>
         <div className={PICss.nestedFieldSmallDiv}>
-          <div>Bank Details</div>
           <div className={PICss.inpDiv}>
             <div className={PICss.inputLabel}>A/c Holder Name.</div>
             <div className={PICss.inputDivVerified}>
