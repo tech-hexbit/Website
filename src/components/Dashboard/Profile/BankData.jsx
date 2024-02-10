@@ -72,11 +72,7 @@ export default function BankData({
 
         setVer(true);
 
-        // setIsDialogOpen(!isDialogOpen);
-
         setLoad(false);
-
-        // loadBankDetails();
       } else {
         setLoad(false);
 
