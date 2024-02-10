@@ -13,7 +13,11 @@ import AuthContext from "../../../store/auth-context";
 // css
 import PICss from "./Css/PersonalInfo.module.css";
 
-export default function BankData({ loadBankDetails }) {
+export default function BankData({
+  loadBankDetails,
+  isDialogOpen,
+  setIsDialogOpen,
+}) {
   const [ver, setVer] = useState(false);
   const [load, setLoad] = useState(false);
   const [formData, setFormData] = useState({
@@ -100,7 +104,67 @@ export default function BankData({ loadBankDetails }) {
     }
   };
 
-  const saveData = async () => {};
+  const saveData = async () => {
+    setLoad(true);
+
+    try {
+      let data = {
+        AccountHolderName: formData.AccountHolderName,
+        AccountNumber: formData.AccountNumber,
+        BankName: formData.BankName,
+        City: formData.City,
+        Branch: formData.Branch,
+        IfscCode: formData.IfscCode,
+      };
+
+      console.log(data);
+
+      const response = await axios.post("/api/website/auth/BankInfo", data, {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+
+      if (response.data.success) {
+        setLoad(false);
+
+        setError({
+          mainColor: "#EDFEEE",
+          secondaryColor: "#5CB660",
+          symbol: "check_circle",
+          title: "Success",
+          text: "Successfully Added",
+          val: true,
+        });
+
+        setIsDialogOpen(!isDialogOpen);
+
+        loadBankDetails();
+      } else {
+        setLoad(false);
+
+        setError({
+          mainColor: "#FFF4E5",
+          secondaryColor: "#FFA117",
+          symbol: "warning",
+          title: "Warning",
+          text: "Invalid Bank Info",
+          val: true,
+        });
+      }
+    } catch (error) {
+      console.error(error);
+
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "An unexpected error occurred",
+        val: true,
+      });
+
+      setLoad(false);
+    }
+  };
 
   return (
     <>
