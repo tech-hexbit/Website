@@ -87,7 +87,10 @@ export default function BankInfo() {
                 <>
                   <div className={PICss.row1} id={PICss.mrow1} key={key}>
                     {/* delete Btn */}
-                    <DeleteBankInfo id={bank._id} />
+                    <DeleteBankInfo
+                      id={bank._id}
+                      loadBankDetails={loadBankDetails}
+                    />
 
                     {/* Account Number */}
                     <div className={PICss.col1}>
