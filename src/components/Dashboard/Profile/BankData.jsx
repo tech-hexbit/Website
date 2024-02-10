@@ -14,6 +14,8 @@ import AuthContext from "../../../store/auth-context";
 import PICss from "./Css/PersonalInfo.module.css";
 
 export default function BankData({ loadBankDetails }) {
+  const [ver, setVer] = useState(false);
+  const [load, setLoad] = useState(true);
   const [formData, setFormData] = useState({
     AccountHolderName: "",
     AccountNumber: "",
@@ -63,11 +65,13 @@ export default function BankData({ loadBankDetails }) {
           City: response.data.response.data.city,
         });
 
-        setIsDialogOpen(!isDialogOpen);
+        setVer(true);
+
+        // setIsDialogOpen(!isDialogOpen);
 
         setLoad(false);
 
-        loadBankDetails();
+        // loadBankDetails();
       } else {
         setLoad(false);
 
@@ -177,9 +181,16 @@ export default function BankData({ loadBankDetails }) {
           <div className={PICss.inpDiv}>
             <p className={PICss.inputLabel}></p>
             <div className={PICss.inputDivFile}>
-              <button className={PICss.verifyButton} onClick={handleVerify}>
-                Verify
-              </button>
+              {ver ? (
+                <>
+                  <button
+                    className={PICss.verifyButton}
+                    onClick={handleVerify}
+                  ></button>
+                </>
+              ) : (
+                ""
+              )}
             </div>
           </div>
         </div>
