@@ -11,6 +11,7 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 import SelCss from "./../Css/Sellers.module.css";
 
 export default function AllSellers(props) {
+  console.log("porp",props)
   const [show, hide] = useState({ state: false, val: "" });
 
   return (
