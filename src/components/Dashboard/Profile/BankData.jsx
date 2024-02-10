@@ -185,12 +185,12 @@ export default function BankData({ loadBankDetails }) {
             <div className={PICss.inputDivFile}>
               {ver ? (
                 <button className={PICss.verifyButton} onClick={saveData}>
-                  Save Info
+                  {load ? <Load /> : "Save Info"}
                 </button>
               ) : (
                 <>
                   <button className={PICss.verifyButton} onClick={handleVerify}>
-                    Verify
+                    {load ? <Load /> : "Verify"}
                   </button>
                 </>
               )}
