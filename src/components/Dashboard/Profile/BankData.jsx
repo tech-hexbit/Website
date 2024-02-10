@@ -251,21 +251,18 @@ export default function BankData({
             </div>
           </div>
 
-          <div className={PICss.inpDiv}>
-            <p className={PICss.inputLabel}></p>
-            <div className={PICss.inputDivFile}>
-              {ver ? (
-                <button className={PICss.verifyButton} onClick={saveData}>
-                  {load ? <Load /> : "Save Info"}
+          <div className={PICss.inputDivFile}>
+            {ver ? (
+              <button className={PICss.verifyButton} onClick={saveData}>
+                {load ? <Load /> : "Save Info"}
+              </button>
+            ) : (
+              <>
+                <button className={PICss.verifyButton} onClick={handleVerify}>
+                  {load ? <Load /> : "Verify"}
                 </button>
-              ) : (
-                <>
-                  <button className={PICss.verifyButton} onClick={handleVerify}>
-                    {load ? <Load /> : "Verify"}
-                  </button>
-                </>
-              )}
-            </div>
+              </>
+            )}
           </div>
         </div>
       </div>
