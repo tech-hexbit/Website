@@ -169,6 +169,16 @@
   width: 100%;
 }
 
+.inputDivVerified input[type="number"]::-webkit-outer-spin-button,
+.inputDivVerified input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.inputDivVerified input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 @media screen and (min-width: 1368px) {
   .inputLabel {
     text-wrap: nowrap;
