@@ -100,6 +100,8 @@ export default function BankData({ loadBankDetails }) {
     }
   };
 
+  const saveData = async () => {};
+
   return (
     <>
       <div className={PICss.nestedFieldLargeDiv}>
@@ -182,14 +184,15 @@ export default function BankData({ loadBankDetails }) {
             <p className={PICss.inputLabel}></p>
             <div className={PICss.inputDivFile}>
               {ver ? (
-                <>
-                  <button
-                    className={PICss.verifyButton}
-                    onClick={handleVerify}
-                  ></button>
-                </>
+                <button className={PICss.verifyButton} onClick={saveData}>
+                  Save Info
+                </button>
               ) : (
-                ""
+                <>
+                  <button className={PICss.verifyButton} onClick={handleVerify}>
+                    Verify
+                  </button>
+                </>
               )}
             </div>
           </div>
