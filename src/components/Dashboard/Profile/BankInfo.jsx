@@ -69,7 +69,11 @@ export default function BankInfo() {
       </div>
 
       {isDialogOpen ? (
-        <BankData loadBankDetails={loadBankDetails} />
+        <BankData
+          isDialogOpen={isDialogOpen}
+          loadBankDetails={loadBankDetails}
+          setIsDialogOpen={setIsDialogOpen}
+        />
       ) : (
         <div className={PICss.box}>
           {load ? (
