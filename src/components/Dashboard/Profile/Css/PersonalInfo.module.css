@@ -1,17 +1,3 @@
-.nestedFieldLargeDiv {
-  color: #606060;
-  font-size: 17px;
-  font-weight: 600;
-}
-
-.nestedFieldSmallDiv {
-  border: 1px dashed rgba(170, 170, 170, 1);
-  border-radius: 15px;
-  margin-top: 10px;
-  padding: 22px 30px;
-  transition: all 0.3s;
-}
-
 .inpDiv {
   color: #606060;
   font-size: 17px;
@@ -185,17 +171,7 @@
   }
 }
 
-@media screen and (min-width: 1024px) {
-  .nestedFieldSmallDiv {
-    flex-basis: 67%;
-  }
-}
-
 @media screen and (max-width: 600px) {
-  .nestedFieldLargeDiv {
-    flex-direction: column;
-  }
-
   .inpDiv input {
     flex-basis: 60%;
   }
