@@ -15,7 +15,7 @@ import PICss from "./Css/PersonalInfo.module.css";
 
 export default function BankData({ loadBankDetails }) {
   const [ver, setVer] = useState(false);
-  const [load, setLoad] = useState(true);
+  const [load, setLoad] = useState(false);
   const [formData, setFormData] = useState({
     AccountHolderName: "",
     AccountNumber: "",
