@@ -5,6 +5,7 @@ import axios from "axios";
 
 // MicroInteraction
 import Load from "./../../../MicroInteraction/LoadBlack";
+import { Alert } from "./../../../MicroInteraction/Alert";
 
 // state
 import AuthContext from "../../../store/auth-context";
@@ -21,6 +22,14 @@ export default function BankData({ loadBankDetails }) {
     Branch: "",
     IfscCode: "",
   });
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
 
   const authCtx = useContext(AuthContext);
 
@@ -33,25 +42,62 @@ export default function BankData({ loadBankDetails }) {
   };
 
   const handleVerify = async () => {
+    setLoad(true);
+
     try {
-      const response = await axios.post(`api/website/auth/BankInfo`, formData, {
+      let data = {
+        bankAccount: formData.AccountNumber,
+        ifsc: formData.IfscCode,
+      };
+
+      const response = await axios.post("/api/common/verification/bank", data, {
         headers: { Authorization: `${authCtx.token}` },
       });
 
       if (response.data.success) {
-        console.log("Bank info saved successfully");
+        setFormData({
+          ...formData,
+          AccountHolderName: response.data.response.data.nameAtBank,
+          BankName: response.data.response.data.bankName,
+          Branch: response.data.response.data.branch,
+          City: response.data.response.data.city,
+        });
+
+        setIsDialogOpen(!isDialogOpen);
+
+        setLoad(false);
+
         loadBankDetails();
       } else {
-        console.log("Error saving bank info");
+        setLoad(false);
+
+        setError({
+          mainColor: "#FFF4E5",
+          secondaryColor: "#FFA117",
+          symbol: "warning",
+          title: "Warning",
+          text: "Invalid Bank Info",
+          val: true,
+        });
       }
     } catch (error) {
       console.error("Error saving bank info", error);
+
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "An unexpected error occurred",
+        val: true,
+      });
+
+      setLoad(false);
     }
   };
 
   return (
     <>
-      {/*dailog box content*/}
       <div className={PICss.nestedFieldLargeDiv}>
         <div className={PICss.nestedFieldSmallDiv}>
           <div>Bank Details</div>
@@ -138,6 +184,8 @@ export default function BankData({ loadBankDetails }) {
           </div>
         </div>
       </div>
+
+      <Alert variant={variants} val={setError} />
     </>
   );
 }
