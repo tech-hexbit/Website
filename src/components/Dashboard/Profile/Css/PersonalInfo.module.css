@@ -12,6 +12,10 @@
   transition: all 0.3s;
 }
 
+.nestedFieldSmallDiv:hover {
+  border: 1px dashed #56117c;
+}
+
 .inpDiv {
   color: #606060;
   font-size: 17px;
@@ -31,43 +35,6 @@
 .inputLabel {
   flex-basis: 30%;
 }
-
-@media screen and (max-width: 400px) {
-  .inpDiv input {
-    min-height: 42px;
-  }
-  .inpDiv {
-    flex-direction: column;
-  }
-  .inputLabel {
-    text-wrap: nowrap;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .nestedFieldLargeDiv /* ,.OndcField  */ {
-    flex-direction: column;
-  }
-  .inpDiv input {
-    flex-basis: 60%;
-  }
-  .inputLabel {
-    width: 15%;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .nestedFieldSmallDiv {
-    flex-basis: 67%;
-  }
-}
-
-@media screen and (min-width: 1368px) {
-  .inputLabel {
-    text-wrap: nowrap;
-  }
-}
-
 
 .inputDivVerified {
   position: relative;
@@ -102,30 +69,12 @@
   justify-content: center;
 }
 
-@media screen and (max-width: 600px) {
-  .inputDivVerified {
-    flex-basis: 60%;
-  }
-}
-
 .inputDivFile {
   flex-basis: 70%;
   display: flex;
   flex-direction: row;
   gap: 1rem;
   align-items: center;
-}
-
-@media screen and (max-width: 600px) {
-  .inputDivFile {
-    flex-basis: 60%;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .inputDivFile {
-    flex-direction: column;
-  }
 }
 
 .personalinfotab {
@@ -224,6 +173,50 @@
   width: 100%;
 }
 
+.inputDivVerified input[type="number"]::-webkit-outer-spin-button,
+.inputDivVerified input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.inputDivVerified input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+@media screen and (min-width: 1368px) {
+  .inputLabel {
+    text-wrap: nowrap;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .nestedFieldSmallDiv {
+    flex-basis: 67%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .nestedFieldLargeDiv {
+    flex-direction: column;
+  }
+
+  .inpDiv input {
+    flex-basis: 60%;
+  }
+
+  .inputLabel {
+    width: 15%;
+  }
+
+  .inputDivVerified {
+    flex-basis: 60%;
+  }
+
+  .inputDivFile {
+    flex-basis: 60%;
+  }
+}
+
 @media only screen and (max-width: 650px) {
   .row1 {
     flex-direction: column;
@@ -236,5 +229,23 @@
 
   .box {
     padding: 15px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .inpDiv input {
+    min-height: 42px;
+  }
+
+  .inpDiv {
+    flex-direction: column;
+  }
+
+  .inputLabel {
+    text-wrap: nowrap;
+  }
+
+  .inputDivFile {
+    flex-direction: column;
   }
 }
