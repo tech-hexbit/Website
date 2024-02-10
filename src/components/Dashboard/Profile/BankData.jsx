@@ -12,7 +12,7 @@ import AuthContext from "../../../store/auth-context";
 // css
 import PICss from "./Css/PersonalInfo.module.css";
 
-export default function BankData({}) {
+export default function BankData({ loadBankDetails }) {
   const [formData, setFormData] = useState({
     AccountHolderName: "",
     AccountNumber: "",
@@ -21,6 +21,8 @@ export default function BankData({}) {
     Branch: "",
     IfscCode: "",
   });
+
+  const authCtx = useContext(AuthContext);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
