@@ -187,15 +187,15 @@
   width: 100%;
 }
 
-@media screen and (max-width: 400px) {
-  .inpDiv input {
-    min-height: 42px;
-  }
-  .inpDiv {
-    flex-direction: column;
-  }
+@media screen and (min-width: 1368px) {
   .inputLabel {
     text-wrap: nowrap;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .nestedFieldSmallDiv {
+    flex-basis: 67%;
   }
 }
 
@@ -211,18 +211,6 @@
   }
 }
 
-@media screen and (min-width: 1024px) {
-  .nestedFieldSmallDiv {
-    flex-basis: 67%;
-  }
-}
-
-@media screen and (min-width: 1368px) {
-  .inputLabel {
-    text-wrap: nowrap;
-  }
-}
-
 @media only screen and (max-width: 650px) {
   .row1 {
     flex-direction: column;
@@ -235,5 +223,17 @@
 
   .box {
     padding: 15px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .inpDiv input {
+    min-height: 42px;
+  }
+  .inpDiv {
+    flex-direction: column;
+  }
+  .inputLabel {
+    text-wrap: nowrap;
   }
 }
