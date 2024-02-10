@@ -12,6 +12,10 @@
   transition: all 0.3s;
 }
 
+.nestedFieldSmallDiv:hover {
+  border: 1px dashed #56117c;
+}
+
 .inpDiv {
   color: #606060;
   font-size: 17px;
