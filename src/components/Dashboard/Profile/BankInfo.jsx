@@ -68,9 +68,9 @@ export default function BankInfo() {
         </div>
       </div>
 
-      {isDialogOpen && <BankData loadBankDetails={loadBankDetails} />}
-
-      {!isDialogOpen && (
+      {isDialogOpen ? (
+        <BankData loadBankDetails={loadBankDetails} />
+      ) : (
         <div className={PICss.box}>
           {load ? (
             <div className="loadCenterDiv" id="loadPadding">
