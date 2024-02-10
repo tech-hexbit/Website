@@ -45,7 +45,7 @@
 }
 
 @media screen and (max-width: 600px) {
-  .nestedFieldLargeDiv /* ,.OndcField  */ {
+  .nestedFieldLargeDiv {
     flex-direction: column;
   }
   .inpDiv input {
@@ -67,7 +67,6 @@
     text-wrap: nowrap;
   }
 }
-
 
 .inputDivVerified {
   position: relative;
