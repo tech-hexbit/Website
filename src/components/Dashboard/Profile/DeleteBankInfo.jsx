@@ -13,7 +13,7 @@ import AuthContext from "../../../store/auth-context";
 // css
 import PICss from "./Css/PersonalInfo.module.css";
 
-export default function DeleteBankInfo({ id }) {
+export default function DeleteBankInfo({ id, loadBankDetails }) {
   const [load, setLoad] = useState(false);
   const [variants, setError] = useState({
     mainColor: "",
@@ -48,8 +48,28 @@ export default function DeleteBankInfo({ id }) {
 
       if (response.data.success) {
         setLoad(false);
+
+        loadBankDetails();
+
+        setError({
+          mainColor: "#EDFEEE",
+          secondaryColor: "#5CB660",
+          symbol: "check_circle",
+          title: "Success",
+          text: "Successfully Deleted",
+          val: true,
+        });
       } else {
         setLoad(false);
+
+        setError({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "Unable to delete",
+          val: true,
+        });
       }
     } catch (e) {
       setLoad(false);
