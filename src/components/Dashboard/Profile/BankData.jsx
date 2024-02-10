@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
+import PropTypes from "prop-types";
 
 // axios
 import axios from "axios";
@@ -267,3 +268,9 @@ export default function BankData({
     </>
   );
 }
+
+BankData.propTypes = {
+  loadBankDetails: PropTypes.func.isRequired,
+  isDialogOpen: PropTypes.bool.isRequired,
+  setIsDialogOpen: PropTypes.func.isRequired,
+};
