@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
+import PropTypes from "prop-types";
 
 // axios
 import axios from "axios";
@@ -118,3 +119,8 @@ export default function DeleteBankInfo({ id, loadBankDetails }) {
     </div>
   );
 }
+
+DeleteBankInfo.propTypes = {
+  id: PropTypes.string.isRequired,
+  loadBankDetails: PropTypes.func.isRequired,
+};
