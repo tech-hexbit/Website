@@ -17,7 +17,6 @@ export default function BankInfo() {
   const [bankDetails, setBankDetails] = useState([]);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isBoxVisible, setIsBoxVisible] = useState(true);
-  const authCtx = useContext(AuthContext);
   const [formData, setFormData] = useState({
     AccountHolderName: "",
     AccountNumber: "",
@@ -26,6 +25,8 @@ export default function BankInfo() {
     Branch: "",
     IfscCode: "",
   });
+
+  const authCtx = useContext(AuthContext);
 
   const loadBankDetails = async () => {
     setLoad(true);
