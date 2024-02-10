@@ -68,92 +68,90 @@ export default function BankInfo() {
         </div>
       </div>
 
-      <div className={PICss.box}>
-        {isDialogOpen ? (
-          <BankData
-            isDialogOpen={isDialogOpen}
-            loadBankDetails={loadBankDetails}
-            setIsDialogOpen={setIsDialogOpen}
-          />
-        ) : (
-          <>
-            {load ? (
-              <div className="loadCenterDiv" id="loadPadding">
-                <Load />
-              </div>
-            ) : bankDetails.length > 0 ? (
-              <>
-                {bankDetails.map((bank, key) => (
-                  <>
-                    <div className={PICss.row1} id={PICss.mrow1} key={key}>
-                      {/* Account Number */}
-                      <div className={PICss.col1}>
-                        <div className={PICss.inputheading}>Account Number</div>
-                        <div className={PICss.infodiv}>
-                          {bank.BankDetails[0].AccountNumber}
-                        </div>
-                      </div>
-
-                      {/* IFSC Code */}
-                      <div className={PICss.col1}>
-                        <div className={PICss.inputheading}>IFSC Code</div>
-                        <div className={PICss.infodiv}>
-                          {bank.BankDetails[0].IfscCode}
-                        </div>
+      {isDialogOpen ? (
+        <BankData
+          isDialogOpen={isDialogOpen}
+          loadBankDetails={loadBankDetails}
+          setIsDialogOpen={setIsDialogOpen}
+        />
+      ) : (
+        <div className={PICss.box}>
+          {load ? (
+            <div className="loadCenterDiv" id="loadPadding">
+              <Load />
+            </div>
+          ) : bankDetails.length > 0 ? (
+            <>
+              {bankDetails.map((bank, key) => (
+                <>
+                  <div className={PICss.row1} id={PICss.mrow1} key={key}>
+                    {/* Account Number */}
+                    <div className={PICss.col1}>
+                      <div className={PICss.inputheading}>Account Number</div>
+                      <div className={PICss.infodiv}>
+                        {bank.BankDetails[0].AccountNumber}
                       </div>
                     </div>
 
-                    <div className={PICss.row1} id={PICss.mrow1}>
-                      {/* Account Holder Name */}
-                      <div className={PICss.col1}>
-                        <div className={PICss.inputheading}>
-                          Account Holder Name
-                        </div>
-                        <div className={PICss.infodiv}>
-                          {bank.BankDetails[0].AccountHolderName}
-                        </div>
+                    {/* IFSC Code */}
+                    <div className={PICss.col1}>
+                      <div className={PICss.inputheading}>IFSC Code</div>
+                      <div className={PICss.infodiv}>
+                        {bank.BankDetails[0].IfscCode}
                       </div>
+                    </div>
+                  </div>
 
-                      {/* Bank Name */}
-                      <div className={PICss.col1}>
-                        <div className={PICss.inputheading}>Bank Name</div>
-                        <div className={PICss.infodiv}>
-                          {bank.BankDetails[0].BankName}
-                        </div>
+                  <div className={PICss.row1} id={PICss.mrow1}>
+                    {/* Account Holder Name */}
+                    <div className={PICss.col1}>
+                      <div className={PICss.inputheading}>
+                        Account Holder Name
+                      </div>
+                      <div className={PICss.infodiv}>
+                        {bank.BankDetails[0].AccountHolderName}
                       </div>
                     </div>
 
-                    <div className={PICss.row1} id={PICss.mrow1} key={key}>
-                      {/* Branch Name */}
-                      <div className={PICss.col1}>
-                        <div className={PICss.inputheading}>Branch Name</div>
-                        <div className={PICss.infodiv}>
-                          {bank.BankDetails[0].Branch}
-                        </div>
-                      </div>
-
-                      {/* City */}
-                      <div className={PICss.col1}>
-                        <div className={PICss.inputheading}>City</div>
-                        <div className={PICss.infodiv}>
-                          {bank.BankDetails[0].City}
-                        </div>
+                    {/* Bank Name */}
+                    <div className={PICss.col1}>
+                      <div className={PICss.inputheading}>Bank Name</div>
+                      <div className={PICss.infodiv}>
+                        {bank.BankDetails[0].BankName}
                       </div>
                     </div>
-                    {key !== bankDetails.length - 1 && (
-                      <div className={PICss.Line1}></div>
-                    )}
-                  </>
-                ))}
-              </>
-            ) : (
-              <div className="loadCenterDiv" id="loadPadding">
-                No Bank info available
-              </div>
-            )}
-          </>
-        )}
-      </div>
+                  </div>
+
+                  <div className={PICss.row1} id={PICss.mrow1} key={key}>
+                    {/* Branch Name */}
+                    <div className={PICss.col1}>
+                      <div className={PICss.inputheading}>Branch Name</div>
+                      <div className={PICss.infodiv}>
+                        {bank.BankDetails[0].Branch}
+                      </div>
+                    </div>
+
+                    {/* City */}
+                    <div className={PICss.col1}>
+                      <div className={PICss.inputheading}>City</div>
+                      <div className={PICss.infodiv}>
+                        {bank.BankDetails[0].City}
+                      </div>
+                    </div>
+                  </div>
+                  {key !== bankDetails.length - 1 && (
+                    <div className={PICss.Line1}></div>
+                  )}
+                </>
+              ))}
+            </>
+          ) : (
+            <div className="loadCenterDiv" id="loadPadding">
+              No Bank info available
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }
