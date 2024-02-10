@@ -43,10 +43,6 @@ export default function BankInfo() {
     }
   };
 
-  useEffect(() => {
-    loadBankDetails();
-  }, []);
-
   const openDialog = () => {
     if (!isDialogOpen) {
       setIsDialogOpen(true);
@@ -59,6 +55,10 @@ export default function BankInfo() {
     setIsDialogOpen(false);
   };
 
+  useEffect(() => {
+    loadBankDetails();
+  }, []);
+
   return (
     <div className={PICss.personalinfotab}>
       <div className={PICss.headingDiv}>
@@ -68,7 +68,7 @@ export default function BankInfo() {
         </div>
       </div>
 
-      {isDialogOpen && <BankData />}
+      {isDialogOpen && <BankData loadBankDetails={loadBankDetails} />}
 
       {!isDialogOpen && (
         <div className={PICss.box}>
