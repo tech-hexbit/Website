@@ -91,6 +91,7 @@ export default function BankInfo() {
       console.error("Error saving bank info", error);
     }
   };
+
   return (
     <div className={PICss.personalinfotab}>
       <div className={PICss.headingDiv}>
@@ -99,6 +100,7 @@ export default function BankInfo() {
           +
         </div>
       </div>
+
       {isDialogOpen && (
         <div>
           {/*dailog box content*/}
@@ -190,6 +192,7 @@ export default function BankInfo() {
           </div>
         </div>
       )}
+
       {isBoxVisible && (
         <div className={PICss.box}>
           {load ? (
