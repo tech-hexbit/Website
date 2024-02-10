@@ -65,30 +65,12 @@
   justify-content: center;
 }
 
-@media screen and (max-width: 600px) {
-  .inputDivVerified {
-    flex-basis: 60%;
-  }
-}
-
 .inputDivFile {
   flex-basis: 70%;
   display: flex;
   flex-direction: row;
   gap: 1rem;
   align-items: center;
-}
-
-@media screen and (max-width: 600px) {
-  .inputDivFile {
-    flex-basis: 60%;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .inputDivFile {
-    flex-direction: column;
-  }
 }
 
 .personalinfotab {
@@ -203,11 +185,27 @@
   .nestedFieldLargeDiv {
     flex-direction: column;
   }
+
   .inpDiv input {
     flex-basis: 60%;
   }
+
   .inputLabel {
     width: 15%;
+  }
+
+  .inputDivVerified {
+    flex-basis: 60%;
+  }
+
+  .inputDivFile {
+    flex-basis: 60%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .inputDivFile {
+    flex-direction: column;
   }
 }
 
@@ -230,9 +228,11 @@
   .inpDiv input {
     min-height: 42px;
   }
+
   .inpDiv {
     flex-direction: column;
   }
+
   .inputLabel {
     text-wrap: nowrap;
   }
