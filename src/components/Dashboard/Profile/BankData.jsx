@@ -167,6 +167,7 @@ export default function BankData({
     <>
       <div className={PICss.nestedFieldLargeDiv}>
         <div className={PICss.nestedFieldSmallDiv}>
+          {/* Account Holder Name */}
           <div className={PICss.inpDiv}>
             <div className={PICss.inputLabel}>A/c Holder Name.</div>
             <div className={PICss.inputDivVerified}>
@@ -179,6 +180,8 @@ export default function BankData({
               />
             </div>
           </div>
+
+          {/* Account Holder IFSC CODE */}
           <div className={PICss.inpDiv}>
             <div className={PICss.inputLabel}>IFSC CODE</div>
             <div className={PICss.inputDivVerified}>
@@ -191,6 +194,8 @@ export default function BankData({
               />
             </div>
           </div>
+
+          {/* Account Holder Number */}
           <div className={PICss.inpDiv}>
             <div className={PICss.inputLabel}>Account No.</div>
             <div className={PICss.inputDivVerified}>
@@ -204,6 +209,7 @@ export default function BankData({
             </div>
           </div>
 
+          {/* Bank Name */}
           <div className={PICss.inpDiv}>
             <div className={PICss.inputLabel}>Bank Name</div>
             <div className={PICss.inputDivVerified}>
@@ -216,6 +222,8 @@ export default function BankData({
               />
             </div>
           </div>
+
+          {/* Branch Name */}
           <div className={PICss.inpDiv}>
             <div className={PICss.inputLabel}>Branch Name</div>
             <div className={PICss.inputDivVerified}>
@@ -228,6 +236,8 @@ export default function BankData({
               />
             </div>
           </div>
+
+          {/* City */}
           <div className={PICss.inpDiv}>
             <div className={PICss.inputLabel}>City</div>
             <div className={PICss.inputDivVerified}>
@@ -240,6 +250,7 @@ export default function BankData({
               />
             </div>
           </div>
+
           <div className={PICss.inpDiv}>
             <p className={PICss.inputLabel}></p>
             <div className={PICss.inputDivFile}>
