@@ -13,7 +13,7 @@ export default function InpTp1({
 }) {
   return (
     <div className={ItCss.inpDiv}>
-      <p className={PrCss.inputLabel}>{Label}</p>
+      <p className={ItCss.inputLabel}>{Label}</p>
 
       <input
         type={type}
