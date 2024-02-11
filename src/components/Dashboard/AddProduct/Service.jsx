@@ -10,7 +10,7 @@ import PrCss from "./Css/Lable.module.css";
 export default function Service({ setData, showData }) {
   return (
     <>
-      <p className={PrCss.AboutYou}>Product Service</p>
+      <p className={PrCss.AboutYou}>Product Services</p>
 
       {/* Protuct Title */}
       <InpTp1
