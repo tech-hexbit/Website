@@ -11,13 +11,11 @@ import ItCss from "./Input/Css/InputType1.module.css";
 
 export default function ProductCategory({ setData, showData }) {
   const handleSelectChange = (e) => {
+    const name = e.target.name;
     const value = e.target.value;
 
-    value
-      ? setData({ ...showData, veg: true, non_veg: false })
-      : setData({ ...showData, veg: false, non_veg: true });
+    setData({ ...showData, [name]: value });
   };
-
   return (
     <>
       <p className={PrCss.AboutYou}>Publish Info</p>
@@ -27,7 +25,7 @@ export default function ProductCategory({ setData, showData }) {
         <p className={ItCss.inputLabel}>Category</p>
 
         <select
-          name="Category"
+          name="category_id"
           id=""
           className={ItCss.inp}
           onChange={handleSelectChange}
