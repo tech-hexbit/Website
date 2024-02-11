@@ -350,7 +350,7 @@ export default function Form() {
       {/* Protuct Title */}
       <InpTp1
         type="text"
-        Label="First Name"
+        Label="Title"
         showData={data}
         setData={setData}
         field="FirstName"
