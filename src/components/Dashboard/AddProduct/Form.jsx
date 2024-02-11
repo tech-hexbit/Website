@@ -353,6 +353,7 @@ export default function Form() {
   return (
     <>
       <ProdParticulars showData={data} setData={setData} />
+      <GeneralInfo showData={data} setData={setData} />
 
       <div className={FCss.mDiv}>
         <div className={FCss.right}>
