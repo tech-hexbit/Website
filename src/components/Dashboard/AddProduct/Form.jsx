@@ -1,4 +1,4 @@
-import React, { useState, useContext, useRef } from "react";
+import React, { useState, useContext, useRef, useEffect } from "react";
 
 //component
 import InpTp1 from "./Input/InpTp1";
@@ -345,6 +345,10 @@ export default function Form() {
     }
   };
 
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
+
   return (
     <>
       {/* Protuct Title */}
@@ -353,26 +357,12 @@ export default function Form() {
         Label="Title"
         showData={data}
         setData={setData}
-        field="FirstName"
+        field="name"
         placeholder="Title - XX"
       />
 
       <div className={FCss.mDiv}>
         <div className={FCss.left}>
-          {/* Name */}
-          <div className={FCss.inpDiv}>
-            <p className={FCss.label}>Product title</p>
-            <input
-              type="text"
-              name="name"
-              id=""
-              value={data.name}
-              placeholder="Enter product title"
-              className={FCss.inp}
-              onChange={updateData}
-            />
-          </div>
-
           {/* Short Description */}
           <div className={FCss.inpDiv}>
             <p className={FCss.label}>Product Short Description</p>
