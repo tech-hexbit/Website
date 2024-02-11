@@ -22,10 +22,10 @@ export default function GeneralInfo({ setData, showData }) {
         placeholder="Frito-Lay, INC."
       />
 
-      {/* Manufacturer name */}
+      {/* Brand name */}
       <InpTp1
         type="text"
-        Label="Manufacturer name"
+        Label="Brand name"
         showData={showData}
         setData={setData}
         field="brand_name"
