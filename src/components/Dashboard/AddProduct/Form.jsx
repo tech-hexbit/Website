@@ -368,8 +368,8 @@ export default function Form() {
         Label="Short Description"
         showData={data}
         setData={setData}
-        field="name"
-        placeholder="Title - XX"
+        field="short_desc"
+        placeholder="Write product short description here..."
       />
 
       {/* Long Description */}
