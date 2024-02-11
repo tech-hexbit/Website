@@ -2,7 +2,6 @@ import React, { useState, useContext, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 
 //component
-import InpTp1 from "./Input/InpTp1";
 import TxtArea from "./Input/TxtArea";
 
 // css
@@ -107,8 +106,9 @@ export default function ProductCategory({ setData, showData }) {
         </select>
       </div>
 
+      {/* Tags */}
       <div className={FCss.inpDiv}>
-        <p className={FCss.label}>Enter tags related to your products</p>
+        <p className={FCss.label}>Tags</p>
 
         <div className={FCss.inpTag}>
           {tags.map((tag, index) => (
