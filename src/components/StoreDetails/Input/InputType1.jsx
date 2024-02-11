@@ -15,6 +15,7 @@ export default function InputType1({
   return (
     <div className={PrCss.inpDiv}>
       <p className={PrCss.inputLabel}>{Label}</p>
+
       <input
         type={type}
         name="days"
