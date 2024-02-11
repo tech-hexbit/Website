@@ -6,8 +6,18 @@ import InpTp1 from "./Input/InpTp1";
 
 // css
 import PrCss from "./Css/Lable.module.css";
+import ItCss from "./Input/Css/Lable.module.css";
 
 export default function GeneralInfo({ setData, showData }) {
+  const handleSelectChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    value
+      ? setData({ ...data, veg: true, non_veg: false })
+      : setData({ ...data, veg: false, non_veg: true });
+  };
+
   return (
     <>
       <p className={PrCss.AboutYou}>General Info</p>
@@ -61,6 +71,21 @@ export default function GeneralInfo({ setData, showData }) {
         field="Discounts"
         placeholder="12 %"
       />
+
+      {/* Veg */}
+      <div className={ItCss.inpDiv}>
+        <p className={ItCss.inputLabel}>Veg</p>
+
+        <select
+          name="veg"
+          id=""
+          className={ItCss.inp}
+          onChange={handleSelectChange}
+        >
+          <option value="true">True</option>
+          <option value="false">False</option>
+        </select>
+      </div>
     </>
   );
 }
