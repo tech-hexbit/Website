@@ -348,10 +348,10 @@ export default function Form() {
   return (
     <>
       {/* Protuct Title */}
-      <InputType1
+      <InpTp1
         type="text"
         Label="First Name"
-        showData={showData}
+        showData={data}
         setData={setData}
         field="FirstName"
         placeholder="Title - XX"
