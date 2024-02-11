@@ -4,6 +4,7 @@ import React, { useState, useContext, useRef, useEffect } from "react";
 import GeneralInfo from "./GeneralInfo";
 import ProdParticulars from "./ProdParticulars";
 import ProductCategory from "./ProductCategory";
+import Service from "./Service";
 import MultipleImageHandler from "./MultipleImageHandler";
 
 // MicroInteraction
@@ -356,6 +357,7 @@ export default function Form() {
       <ProdParticulars showData={data} setData={setData} />
       <GeneralInfo showData={data} setData={setData} />
       <ProductCategory showData={data} setData={setData} />
+      <Service showData={data} setData={setData} />
 
       <MultipleImageHandler
         multipleImageUpload={multipleImageUpload}
