@@ -39,17 +39,17 @@ export default function GeneralInfo({ setData, showData }) {
         showData={showData}
         setData={setData}
         field="maximum_value"
-        placeholder="Adidas"
+        placeholder="₹ 121"
       />
 
       {/* Stock */}
       <InpTp1
         type="number"
-        Label="Maximum Retail Price (MRP)"
+        Label="In Stock"
         showData={showData}
         setData={setData}
-        field="maximum_value"
-        placeholder="Adidas"
+        field="maximumCount"
+        placeholder="12"
       />
     </>
   );
