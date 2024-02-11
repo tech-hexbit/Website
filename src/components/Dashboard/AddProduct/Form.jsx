@@ -1,6 +1,7 @@
 import React, { useState, useContext, useRef } from "react";
 
 //component
+import InpTp1 from "./Input/InpTp1";
 import MultipleImageHandler from "./MultipleImageHandler";
 
 // MicroInteraction
@@ -345,6 +346,7 @@ export default function Form() {
 
   return (
     <>
+      <InpTp1 />
       <div className={FCss.mDiv}>
         <div className={FCss.left}>
           {/* Name */}
@@ -831,7 +833,6 @@ export default function Form() {
           </>
         </div>
       </div>
-
       <div className={FCss.inpDiv}>
         <p className={FCss.label}>Product image</p>
 
@@ -860,18 +861,15 @@ export default function Form() {
           </div>
         </div>
       </div>
-
       <MultipleImageHandler
         multipleImageUpload={multipleImageUpload}
         setMultipleImageUpload={setMultipleImageUpload}
       />
-
       <div className={FCss.SubmitBtnDiv}>
         <p className={FCss.SubmitBtn} onClick={onSubmit}>
           {load ? <Load /> : "Submit"}
         </p>
       </div>
-
       <Alert variant={variants} val={setError} />
     </>
   );
