@@ -2,6 +2,7 @@ import React, { useState, useContext, useRef, useEffect } from "react";
 
 //component
 import ProdParticulars from "./ProdParticulars";
+import GeneralInfo from "./GeneralInfo";
 import MultipleImageHandler from "./MultipleImageHandler";
 
 // MicroInteraction
