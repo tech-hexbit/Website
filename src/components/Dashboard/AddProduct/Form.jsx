@@ -89,9 +89,11 @@ export default function Form() {
   const openModal = (msg) => {
     if (msg === "Service") {
       setPublishOpen(!PublishOpen);
+
       setServiceOpen(!ServiceOpen);
     } else if (msg === "Publish") {
       setPublishOpen(!PublishOpen);
+
       setServiceOpen(!ServiceOpen);
     }
   };
@@ -126,6 +128,7 @@ export default function Form() {
 
   const onSubmit = async () => {
     setLoad(true);
+
     console.log(multipleImageUpload);
 
     if (!imageUpload) {
