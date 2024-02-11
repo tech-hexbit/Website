@@ -12,7 +12,7 @@ export default function GeneralInfo({ setData, showData }) {
     <>
       <p className={PrCss.AboutYou}>General Info</p>
 
-      {/* Protuct Title */}
+      {/* Manufacturer name */}
       <InpTp1
         type="text"
         Label="Manufacturer name"
