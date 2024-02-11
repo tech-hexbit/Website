@@ -52,14 +52,14 @@ export default function GeneralInfo({ setData, showData }) {
         placeholder="12"
       />
 
-      {/* Stock */}
+      {/* Discounts */}
       <InpTp1
         type="number"
-        Label="In Stock"
+        Label="Discounts / Offers (in %)"
         showData={showData}
         setData={setData}
-        field="maximumCount"
-        placeholder="12"
+        field="Discounts"
+        placeholder="12 %"
       />
     </>
   );
