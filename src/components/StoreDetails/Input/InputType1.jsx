@@ -31,9 +31,9 @@ export default function InputType1({
 }
 
 InputType1.propTypes = {
-  Label: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
+  Label: PropTypes.string.isRequired,
   field: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired,
   showData: PropTypes.object.isRequired,
+  placeholder: PropTypes.string.isRequired,
 };
