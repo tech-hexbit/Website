@@ -1,8 +1,9 @@
 import React, { useState, useContext, useRef, useEffect } from "react";
 
 //component
-import ProdParticulars from "./ProdParticulars";
 import GeneralInfo from "./GeneralInfo";
+import ProdParticulars from "./ProdParticulars";
+import ProductCategory from "./ProductCategory";
 import MultipleImageHandler from "./MultipleImageHandler";
 
 // MicroInteraction
@@ -354,6 +355,7 @@ export default function Form() {
     <>
       <ProdParticulars showData={data} setData={setData} />
       <GeneralInfo showData={data} setData={setData} />
+      <ProductCategory showData={data} setData={setData} />
 
       <div className={FCss.mDiv}>
         <div className={FCss.right}>
