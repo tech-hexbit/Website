@@ -79,6 +79,7 @@ export default function Form() {
     Status: "",
     non_veg: "",
     Visibility: "",
+    netQuantity: "",
     schedule_Date_and_time: "",
     StoreID: authCtx.user.Store[0].StoreID._id,
   });
