@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useContext, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 
 //component
@@ -6,16 +6,33 @@ import InpTp1 from "./Input/InpTp1";
 import TxtArea from "./Input/TxtArea";
 
 // css
+import FCss from "./Css/Form.module.css";
 import PrCss from "./Css/Lable.module.css";
 import ItCss from "./Input/Css/InputType1.module.css";
 
 export default function ProductCategory({ setData, showData }) {
+  const [tags, settags] = useState([]);
+  const [tagvalue, settagvalue] = useState("");
+
   const handleSelectChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
 
     setData({ ...showData, [name]: value });
   };
+
+  const addtags = (e) => {
+    if ((e.keyCode === 13 && tagvalue) || (e.keyCode === 188 && tagvalue)) {
+      settags([...tags, tagvalue]);
+      settagvalue("");
+    }
+  };
+
+  const deletetag = (val) => {
+    let remaintags = tags.filter((t) => t != val);
+    settags(remaintags);
+  };
+
   return (
     <>
       <p className={PrCss.AboutYou}>Publish Info</p>
@@ -88,6 +105,30 @@ export default function ProductCategory({ setData, showData }) {
           <option value="Baby Care">Baby Care</option>
           <option value="Snacks & Branded Foods">Snacks & Branded Foods</option>
         </select>
+      </div>
+
+      <div className={FCss.inpDiv}>
+        <p className={FCss.label}>Enter tags related to your products</p>
+
+        <div className={FCss.inpTag}>
+          {tags.map((tag, index) => (
+            <div key={index} className={FCss.TagP}>
+              <p>{tag}</p>{" "}
+              <p onClick={() => deletetag(tag)} className={FCss.CloseX}>
+                X
+              </p>
+            </div>
+          ))}
+          <div className={FCss.inputt}>
+            <input
+              value={tagvalue}
+              type="text"
+              placeholder="Press Enter to input"
+              onChange={(e) => settagvalue(e.target.value)}
+              onKeyDown={addtags}
+            />
+          </div>
+        </div>
       </div>
     </>
   );
