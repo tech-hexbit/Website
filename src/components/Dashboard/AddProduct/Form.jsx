@@ -25,19 +25,6 @@ export default function Form() {
   const [PublishOpen, setPublishOpen] = useState(true);
   const [ServiceOpen, setServiceOpen] = useState(false);
   const [multipleImageUpload, setMultipleImageUpload] = useState([]);
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
-
-  const fileInp = useRef(null);
-
-  const authCtx = useContext(AuthContext);
-
   const [data, setData] = useState({
     name: "",
     symbol: "",
@@ -78,6 +65,18 @@ export default function Form() {
     schedule_Date_and_time: "",
     StoreID: authCtx.user.Store[0].StoreID._id,
   });
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
+
+  const fileInp = useRef(null);
+
+  const authCtx = useContext(AuthContext);
 
   const handleClick = () => {
     fileInp.current.click();
@@ -346,7 +345,16 @@ export default function Form() {
 
   return (
     <>
-      <InpTp1 />
+      {/* Protuct Title */}
+      <InputType1
+        type="text"
+        Label="First Name"
+        showData={showData}
+        setData={setData}
+        field="FirstName"
+        placeholder="Jhon"
+      />
+
       <div className={FCss.mDiv}>
         <div className={FCss.left}>
           {/* Name */}
