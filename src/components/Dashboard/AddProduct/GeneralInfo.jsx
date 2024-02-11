@@ -51,6 +51,16 @@ export default function GeneralInfo({ setData, showData }) {
         field="maximumCount"
         placeholder="12"
       />
+
+      {/* Stock */}
+      <InpTp1
+        type="number"
+        Label="In Stock"
+        showData={showData}
+        setData={setData}
+        field="maximumCount"
+        placeholder="12"
+      />
     </>
   );
 }
