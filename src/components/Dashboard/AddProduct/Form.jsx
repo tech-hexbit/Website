@@ -375,30 +375,15 @@ export default function Form() {
       {/* Long Description */}
       <TxtArea
         type="text"
-        Label="Title"
+        Label="Long Description"
         showData={data}
         setData={setData}
-        field="name"
-        placeholder="Title - XX"
+        field="long_desc"
+        placeholder="Write long product description here..."
       />
 
       <div className={FCss.mDiv}>
         <div className={FCss.left}>
-          {/* Short Description */}
-          <div className={FCss.inpDiv}>
-            <p className={FCss.label}>Product Short Description</p>
-            <textarea
-              name="short_desc"
-              id=""
-              cols="30"
-              rows="10"
-              value={data.short_desc}
-              placeholder="Write product description here..."
-              className={FCss.inpTA}
-              onChange={updateData}
-            ></textarea>
-          </div>
-
           {/* Long Description */}
           <div className={FCss.inpDiv}>
             <p className={FCss.label}>Product Long Description</p>
