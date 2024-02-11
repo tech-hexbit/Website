@@ -83,54 +83,6 @@ export default function Form() {
     StoreID: authCtx.user.Store[0].StoreID._id,
   });
 
-  const handleClick = () => {
-    fileInp.current.click();
-  };
-
-  const handleImage = (e) => {
-    setImageUpload(e.target.files[0]);
-  };
-
-  const openModal = (msg) => {
-    if (msg === "Service") {
-      setPublishOpen(!PublishOpen);
-
-      setServiceOpen(!ServiceOpen);
-    } else if (msg === "Publish") {
-      setPublishOpen(!PublishOpen);
-
-      setServiceOpen(!ServiceOpen);
-    }
-  };
-
-  const updateData = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-
-    setData({ ...data, [name]: value });
-  };
-
-  const handleSelectChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-
-    value
-      ? setData({ ...data, veg: true, non_veg: false })
-      : setData({ ...data, veg: false, non_veg: true });
-  };
-
-  const addtags = (e) => {
-    if ((e.keyCode === 13 && tagvalue) || (e.keyCode === 188 && tagvalue)) {
-      settags([...tags, tagvalue]);
-      settagvalue("");
-    }
-  };
-
-  const deletetag = (val) => {
-    let remaintags = tags.filter((t) => t != val);
-    settags(remaintags);
-  };
-
   const onSubmit = async () => {
     setLoad(true);
 
