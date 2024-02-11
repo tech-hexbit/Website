@@ -130,6 +130,15 @@ export default function ProductCategory({ setData, showData }) {
           </div>
         </div>
       </div>
+
+      {/* Long Description */}
+      <TxtArea
+        Label="Additional Info"
+        showData={showData}
+        setData={setData}
+        field="additives_info"
+        placeholder="Preservatives, Artificial Colour, etc"
+      />
     </>
   );
 }
