@@ -19,6 +19,16 @@ export default function GeneralInfo({ setData, showData }) {
         showData={showData}
         setData={setData}
         field="manufacturer_or_packer_name"
+        placeholder="Frito-Lay, INC."
+      />
+
+      {/* Manufacturer name */}
+      <InpTp1
+        type="text"
+        Label="Manufacturer name"
+        showData={showData}
+        setData={setData}
+        field="brand_name"
         placeholder="Adidas"
       />
     </>
