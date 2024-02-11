@@ -8,7 +8,6 @@ import TxtArea from "./Input/TxtArea";
 export default function ProdParticulars({ setData, showData }) {
   return (
     <>
-      {" "}
       {/* Protuct Title */}
       <InpTp1
         type="text"
