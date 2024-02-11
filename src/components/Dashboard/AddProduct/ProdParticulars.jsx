@@ -17,6 +17,7 @@ export default function ProdParticulars({ setData, showData }) {
         field="name"
         placeholder="Title - XX"
       />
+
       {/* Short Description */}
       <InpTp1
         type="text"
@@ -26,6 +27,7 @@ export default function ProdParticulars({ setData, showData }) {
         field="short_desc"
         placeholder="Write product short description here..."
       />
+
       {/* Long Description */}
       <TxtArea
         Label="Long Description"
