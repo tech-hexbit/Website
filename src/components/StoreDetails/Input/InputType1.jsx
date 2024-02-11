@@ -8,9 +8,9 @@ export default function InputType1({
   Label,
   type,
   field,
-  placeholder,
-  showData,
   setData,
+  showData,
+  placeholder,
 }) {
   return (
     <div className={PrCss.inpDiv}>
