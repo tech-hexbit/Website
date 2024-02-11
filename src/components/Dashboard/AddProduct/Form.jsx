@@ -53,7 +53,7 @@ export default function Form() {
     short_desc: "",
     brand_name: "",
     category_id: "",
-    location_id: "",
+    // location_id: "",
     maximumCount: 0,
     net_quantity: "",
     maximum_value: 0,
@@ -61,25 +61,25 @@ export default function Form() {
     additives_info: "",
     nutritional_info: "",
     ondcOrgtime_to_ship: "",
-    ondcOrgreturnable: true,
-    ondcOrgcancellable: true,
-    ondcOrgreturn_window: "",
-    other_FSSAI_license_no: "",
-    importer_FSSAI_license_no: "",
-    ondcOrgavailable_on_cod: false,
+    // ondcOrgreturnable: true,
+    // ondcOrgcancellable: true,
+    // ondcOrgreturn_window: "",
+    // other_FSSAI_license_no: "",
+    // importer_FSSAI_license_no: "",
+    // ondcOrgavailable_on_cod: false,
     manufacturer_or_packer_name: "",
     brand_owner_FSSAI_license_no: "",
-    ondcOrgseller_pickup_return: false,
+    // ondcOrgseller_pickup_return: false,
     manufacturer_or_packer_address: "",
     common_or_generic_name_of_commodity: "",
     ondcOrgcontact_details_consumer_care: "",
     month_year_of_manufacture_packing_import: "",
     net_quantity_or_measure_of_commodity_in_pkg: "",
     veg: "",
-    Status: "",
+    // Status: "",
     non_veg: "",
-    Visibility: "",
-    schedule_Date_and_time: "",
+    // Visibility: "",
+    // schedule_Date_and_time: "",
     StoreID: authCtx.user.Store[0].StoreID._id,
   });
 
@@ -112,14 +112,14 @@ export default function Form() {
       maximum_value,
       category_id,
       fulfillment_id,
-      location_id,
-      ondcOrgreturnable,
-      ondcOrgcancellable,
-      ondcOrgreturn_window,
-      ondcOrgseller_pickup_return,
-      ondcOrgtime_to_ship,
-      ondcOrgavailable_on_cod,
-      ondcOrgcontact_details_consumer_care,
+      // location_id,
+      // ondcOrgreturnable,
+      // ondcOrgcancellable,
+      // ondcOrgreturn_window,
+      // ondcOrgseller_pickup_return,
+      // ondcOrgtime_to_ship,
+      // ondcOrgavailable_on_cod,
+      // ondcOrgcontact_details_consumer_care,
       manufacturer_or_packer_name,
       brand_name,
       Discounts,
@@ -137,7 +137,7 @@ export default function Form() {
       net_quantity,
       veg,
       non_veg,
-      Status,
+      // Status,
       Visibility,
       schedule_Date_and_time,
     } = data;
@@ -152,7 +152,7 @@ export default function Form() {
         maximum_value !== 0 &&
         category_id !== "" &&
         fulfillment_id !== 0 &&
-        location_id !== "" &&
+        // location_id !== "" &&
         ondcOrgreturnable !== "" &&
         ondcOrgcancellable !== "" &&
         ondcOrgreturn_window !== "" &&
@@ -171,15 +171,16 @@ export default function Form() {
         month_year_of_manufacture_packing_import !== "" &&
         nutritional_info !== "" &&
         additives_info !== "" &&
-        brand_owner_FSSAI_license_no !== "" &&
-        other_FSSAI_license_no !== "" &&
-        importer_FSSAI_license_no !== "" &&
+        // brand_owner_FSSAI_license_no !== "" &&
+        // other_FSSAI_license_no !== "" &&
+        // importer_FSSAI_license_no !== "" &&
         net_quantity !== "" &&
         veg !== "" &&
-        non_veg !== "" &&
-        Status !== "" &&
-        Visibility !== "" &&
-        schedule_Date_and_time !== "")
+        non_veg !== "")
+      // &&
+      // Status !== "" &&
+      // Visibility !== "" &&
+      // schedule_Date_and_time !== ""
     ) {
       const formData = new FormData();
       formData.append("data", JSON.stringify(data));
@@ -228,9 +229,9 @@ export default function Form() {
             maximum_value: 0,
             category_id: "",
             fulfillment_id: 1,
-            location_id: "asus-store-location-id-1",
-            ondcOrgreturnable: true,
-            ondcOrgcancellable: true,
+            // location_id: "asus-store-location-id-1",
+            // ondcOrgreturnable: true,
+            // ondcOrgcancellable: true,
             ondcOrgreturn_window: "P7D",
             ondcOrgseller_pickup_return: false,
             ondcOrgtime_to_ship: "PT45M",
