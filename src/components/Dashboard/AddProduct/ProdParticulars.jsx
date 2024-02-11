@@ -5,9 +5,14 @@ import PropTypes from "prop-types";
 import InpTp1 from "./Input/InpTp1";
 import TxtArea from "./Input/TxtArea";
 
+// css
+import PrCss from "./Css/Lable.module.css";
+
 export default function ProdParticulars({ setData, showData }) {
   return (
     <>
+      <p className={PrCss.AboutYou}>About You</p>
+
       {/* Protuct Title */}
       <InpTp1
         type="text"
