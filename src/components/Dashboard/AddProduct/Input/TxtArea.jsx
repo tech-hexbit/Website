@@ -6,7 +6,6 @@ import ItCss from "./Css/InputType1.module.css";
 
 export default function TxtArea({
   Label,
-  //   type,
   field,
   setData,
   showData,
@@ -27,23 +26,11 @@ export default function TxtArea({
           setData({ ...showData, [field]: e.target.value });
         }}
       ></textarea>
-
-      {/* <input
-        type={type}
-        name="days"
-        value={showData[field]}
-        id=""
-        placeholder={placeholder}
-        onChange={(e) => {
-          setData({ ...showData, [field]: e.target.value });
-        }}
-      /> */}
     </div>
   );
 }
 
 TxtArea.propTypes = {
-  //   type: PropTypes.string.isRequired,
   Label: PropTypes.string.isRequired,
   field: PropTypes.string.isRequired,
   showData: PropTypes.object.isRequired,
