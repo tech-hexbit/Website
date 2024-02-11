@@ -31,6 +31,26 @@ export default function GeneralInfo({ setData, showData }) {
         field="brand_name"
         placeholder="Adidas"
       />
+
+      {/* MRP */}
+      <InpTp1
+        type="number"
+        Label="Maximum Retail Price (MRP)"
+        showData={showData}
+        setData={setData}
+        field="maximum_value"
+        placeholder="Adidas"
+      />
+
+      {/* Stock */}
+      <InpTp1
+        type="number"
+        Label="Maximum Retail Price (MRP)"
+        showData={showData}
+        setData={setData}
+        field="maximum_value"
+        placeholder="Adidas"
+      />
     </>
   );
 }
