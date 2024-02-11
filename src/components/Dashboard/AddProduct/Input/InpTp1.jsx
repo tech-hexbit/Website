@@ -28,3 +28,11 @@ export default function InpTp1({
     </div>
   );
 }
+
+InpTp1.propTypes = {
+  type: PropTypes.string.isRequired,
+  Label: PropTypes.string.isRequired,
+  field: PropTypes.string.isRequired,
+  showData: PropTypes.object.isRequired,
+  placeholder: PropTypes.string.isRequired,
+};
