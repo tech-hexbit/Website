@@ -873,6 +873,7 @@ export default function Form() {
           </p>
         </div>
       </div>
+
       <Alert variant={variants} val={setError} />
     </>
   );
