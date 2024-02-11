@@ -374,7 +374,6 @@ export default function Form() {
 
       {/* Long Description */}
       <TxtArea
-        type="text"
         Label="Long Description"
         showData={data}
         setData={setData}
