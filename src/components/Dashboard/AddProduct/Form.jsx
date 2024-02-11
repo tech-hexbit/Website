@@ -2,8 +2,6 @@ import React, { useState, useContext, useRef, useEffect } from "react";
 
 //component
 import ProdParticulars from "./ProdParticulars";
-import InpTp1 from "./Input/InpTp1";
-import TxtArea from "./Input/TxtArea";
 import MultipleImageHandler from "./MultipleImageHandler";
 
 // MicroInteraction
@@ -354,35 +352,6 @@ export default function Form() {
   return (
     <>
       <ProdParticulars showData={data} setData={setData} />
-
-      {/* Protuct Title */}
-      <InpTp1
-        type="text"
-        Label="Title"
-        showData={data}
-        setData={setData}
-        field="name"
-        placeholder="Title - XX"
-      />
-
-      {/* Short Description */}
-      <InpTp1
-        type="text"
-        Label="Short Description"
-        showData={data}
-        setData={setData}
-        field="short_desc"
-        placeholder="Write product short description here..."
-      />
-
-      {/* Long Description */}
-      <TxtArea
-        Label="Long Description"
-        showData={data}
-        setData={setData}
-        field="long_desc"
-        placeholder="Write long product description here..."
-      />
 
       <div className={FCss.mDiv}>
         <div className={FCss.right}>
