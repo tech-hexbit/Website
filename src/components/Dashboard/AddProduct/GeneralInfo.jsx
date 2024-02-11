@@ -10,7 +10,6 @@ import ItCss from "./Input/Css/InputType1.module.css";
 
 export default function GeneralInfo({ setData, showData }) {
   const handleSelectChange = (e) => {
-    const name = e.target.name;
     const value = e.target.value;
 
     value
