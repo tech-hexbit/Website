@@ -6,7 +6,7 @@ import InpTp1 from "./Input/InpTp1";
 
 // css
 import PrCss from "./Css/Lable.module.css";
-import ItCss from "./Input/Css/Lable.module.css";
+import ItCss from "./Input/Css/InputType1.module.css";
 
 export default function GeneralInfo({ setData, showData }) {
   const handleSelectChange = (e) => {
@@ -14,8 +14,8 @@ export default function GeneralInfo({ setData, showData }) {
     const value = e.target.value;
 
     value
-      ? setData({ ...data, veg: true, non_veg: false })
-      : setData({ ...data, veg: false, non_veg: true });
+      ? setData({ ...showData, veg: true, non_veg: false })
+      : setData({ ...showData, veg: false, non_veg: true });
   };
 
   return (
@@ -82,6 +82,9 @@ export default function GeneralInfo({ setData, showData }) {
           className={ItCss.inp}
           onChange={handleSelectChange}
         >
+          <option value="Selected" selected disabled hidden>
+            Select
+          </option>
           <option value="true">True</option>
           <option value="false">False</option>
         </select>
