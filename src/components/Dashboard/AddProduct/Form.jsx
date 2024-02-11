@@ -301,6 +301,14 @@ export default function Form() {
     }
   };
 
+  const handleClick = () => {
+    fileInp.current.click();
+  };
+
+  const handleImage = (e) => {
+    setImageUpload(e.target.files[0]);
+  };
+
   useEffect(() => {
     console.log(data);
   }, [data]);
@@ -308,9 +316,45 @@ export default function Form() {
   return (
     <>
       <ProdParticulars showData={data} setData={setData} />
-      <GeneralInfo showData={data} setData={setData} />
-      <ProductCategory showData={data} setData={setData} />
-      <Service showData={data} setData={setData} />
+      <div className={FCss.rowDIv}>
+        <div className={FCss.rowDIvLeft}>
+          <GeneralInfo showData={data} setData={setData} />
+        </div>
+        <div className={FCss.rowDIvRight}>
+          <ProductCategory showData={data} setData={setData} />
+          <Service showData={data} setData={setData} />
+        </div>
+      </div>
+
+      {/* Image */}
+      <div className={FCss.inpDiv}>
+        <p className={FCss.label}>Product image</p>
+
+        <p className={FCss.labelDes}>Add the product thumbnail</p>
+        <div className={FCss.addimgDivMain}>
+          <input
+            type="file"
+            name="file"
+            onChange={handleImage}
+            style={{ display: "none" }}
+            ref={fileInp}
+          />
+
+          <div className={FCss.addImgDiv} onClick={handleClick}>
+            {imageUpload ? (
+              <img
+                src={URL.createObjectURL(imageUpload)}
+                alt=""
+                className={FCss.prevImg}
+              />
+            ) : (
+              <div className={FCss.textCenter}>
+                <p className={FCss["dropzone-content"]}>+</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
 
       <MultipleImageHandler
         multipleImageUpload={multipleImageUpload}
