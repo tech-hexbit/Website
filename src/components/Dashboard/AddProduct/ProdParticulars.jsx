@@ -11,7 +11,7 @@ import PrCss from "./Css/Lable.module.css";
 export default function ProdParticulars({ setData, showData }) {
   return (
     <>
-      <p className={PrCss.AboutYou}>About You</p>
+      <p className={PrCss.AboutYou}>Product Details</p>
 
       {/* Protuct Title */}
       <InpTp1
