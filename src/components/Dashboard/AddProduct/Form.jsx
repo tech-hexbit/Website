@@ -1,6 +1,7 @@
 import React, { useState, useContext, useRef, useEffect } from "react";
 
 //component
+import ProdParticulars from "./ProdParticulars";
 import InpTp1 from "./Input/InpTp1";
 import TxtArea from "./Input/TxtArea";
 import MultipleImageHandler from "./MultipleImageHandler";
@@ -352,6 +353,8 @@ export default function Form() {
 
   return (
     <>
+      <ProdParticulars showData={data} setData={setData} />
+
       {/* Protuct Title */}
       <InpTp1
         type="text"
@@ -382,138 +385,6 @@ export default function Form() {
       />
 
       <div className={FCss.mDiv}>
-        <div className={FCss.left}>
-          {/* Long Description */}
-          <div className={FCss.inpDiv}>
-            <p className={FCss.label}>Product Long Description</p>
-            <textarea
-              name="long_desc"
-              id=""
-              cols="30"
-              rows="10"
-              value={data.long_desc}
-              placeholder="Write product description here..."
-              className={FCss.inpTA}
-              onChange={updateData}
-            ></textarea>
-          </div>
-
-          <p className={FCss.labelMain}>General info</p>
-
-          {/* Name */}
-          <div className={FCss.inpDiv}>
-            <p className={FCss.label}>Manufacturer name</p>
-            <input
-              type="text"
-              name="manufacturer_or_packer_name"
-              id=""
-              value={data.manufacturer_or_packer_name}
-              placeholder="Enter Manufacturer name"
-              className={FCss.inp}
-              onChange={updateData}
-            />
-          </div>
-
-          {/* Brand */}
-          <div className={FCss.inpDiv}>
-            <p className={FCss.label}>Brand</p>
-            <input
-              type="text"
-              name="brand_name"
-              id=""
-              value={data.brand_name}
-              placeholder="Enter brand name"
-              className={FCss.inp}
-              onChange={updateData}
-            />
-          </div>
-
-          {/* Price */}
-          <div className={FCss.inpDiv}>
-            <p className={FCss.label}>Maximum Retail Price</p>
-            <input
-              type="number"
-              name="maximum_value"
-              id=""
-              value={data.maximum_value}
-              placeholder="Enter price"
-              className={FCss.inp}
-              onChange={updateData}
-            />
-          </div>
-
-          {/* Stock */}
-          <div className={FCss.inpDiv}>
-            <p className={FCss.label}>Stocks</p>
-            <input
-              type="number"
-              name="maximumCount"
-              id=""
-              value={data.maximumCount}
-              onChange={updateData}
-              placeholder="Total Stocks"
-              className={FCss.inp}
-            />
-          </div>
-
-          {/* Discounts */}
-          <div className={FCss.inpDiv}>
-            <p className={FCss.label}>Discounts / Offers (in %)</p>
-            <input
-              type="number"
-              name="Discounts"
-              id=""
-              value={data.Discounts}
-              placeholder="Enter discounts/offers (if any)"
-              className={FCss.inp}
-              onChange={updateData}
-            />
-          </div>
-
-          {/* Sizes */}
-          <div className={FCss.inpDiv}>
-            <p className={FCss.label}>Sizes available</p>
-            <input
-              type="text"
-              name="Sizes"
-              id=""
-              value={data.Sizes}
-              placeholder="Enter the different sizes available"
-              className={FCss.inp}
-              onChange={updateData}
-            />
-          </div>
-
-          {/* Colors */}
-          <div className={FCss.inpDiv}>
-            <p className={FCss.label}>Colors</p>
-            <input
-              type="text"
-              name="Colors"
-              id=""
-              value={data.Colors}
-              placeholder="Enter the different colors available"
-              className={FCss.inp}
-              onChange={updateData}
-            />
-          </div>
-
-          {/* Veg */}
-          <div className={FCss.inpDiv}>
-            <p className={FCss.label}>Veg</p>
-
-            <select
-              name="veg"
-              id=""
-              className={FCss.inp}
-              onChange={handleSelectChange}
-            >
-              <option value="true">True</option>
-              <option value="false">False</option>
-            </select>
-          </div>
-        </div>
-
         <div className={FCss.right}>
           {/* Publish */}
           <>
