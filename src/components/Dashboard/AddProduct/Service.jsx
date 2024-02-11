@@ -12,14 +12,14 @@ export default function Service({ setData, showData }) {
     <>
       <p className={PrCss.AboutYou}>Product Services</p>
 
-      {/* Protuct Title */}
+      {/* Net Quantity/Measure Of Commodity */}
       <InpTp1
         type="text"
-        Label="Title"
+        Label="Net Quantity/Measure Of Commodity (in Kg)"
         showData={showData}
         setData={setData}
-        field="name"
-        placeholder="Title - XX"
+        field="netQuantity"
+        placeholder="121 Kg"
       />
     </>
   );
