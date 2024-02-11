@@ -7,10 +7,25 @@ import InpTp1 from "./Input/InpTp1";
 // css
 import PrCss from "./Css/Lable.module.css";
 
-export default function GeneralInfo() {
+export default function GeneralInfo({ setData, showData }) {
   return (
     <>
       <p className={PrCss.AboutYou}>General Info</p>
+
+      {/* Protuct Title */}
+      <InpTp1
+        type="text"
+        Label="Manufacturer name"
+        showData={showData}
+        setData={setData}
+        field="manufacturer_or_packer_name"
+        placeholder="Adidas"
+      />
     </>
   );
 }
+
+GeneralInfo.propTypes = {
+  showData: PropTypes.object.isRequired,
+  placeholder: PropTypes.string.isRequired,
+};
