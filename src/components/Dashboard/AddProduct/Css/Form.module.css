@@ -5,6 +5,22 @@
   gap: 20px 0px;
 }
 
+.rowDIv {
+  display: flex;
+  justify-content: space-between;
+  gap: 0px 30px;
+}
+
+.rowDIvLeft,
+.rowDIvRight {
+  width: 45%;
+}
+
+.rowDIvLeft {
+}
+.rowDIvRight {
+}
+
 .left,
 .right {
   width: 45%;
