@@ -15,7 +15,16 @@ export default function InpTp1({
     <div className={ItCss.inpDiv}>
       <p className={PrCss.inputLabel}>{Label}</p>
 
-      <input type={type} value={showData[field]} placeholder={placeholder} />
+      <input
+        type={type}
+        name="days"
+        value={showData[field]}
+        id=""
+        placeholder={placeholder}
+        onChange={(e) => {
+          setData({ ...showData, [field]: e.target.value });
+        }}
+      />
     </div>
   );
 }
