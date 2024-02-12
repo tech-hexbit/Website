@@ -231,7 +231,7 @@ export default function FixValues({ setData, showData }) {
                 <p className={ItCss.inputLabel}>Cash On Delivery(COD)</p>
 
                 <select
-                  name="cod"
+                  name="ondcOrgavailable_on_cod"
                   id=""
                   className={ItCss.inp}
                   onChange={handleSelectChange}
