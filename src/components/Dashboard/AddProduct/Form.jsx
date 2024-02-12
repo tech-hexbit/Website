@@ -43,13 +43,13 @@ export default function Form({ domain }) {
   const [data, setData] = useState({
     name: "",
     symbol: "",
+    images: [],
     long_desc: "",
     short_desc: "",
 
     // Sizes: "",
     Colors: "",
     domain: "",
-    images: [],
     Discounts: "",
     brand_name: "",
     category_id: "",
