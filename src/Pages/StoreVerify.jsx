@@ -27,6 +27,7 @@ export default function StoreVerify() {
   const [showData, setData] = useState({
     DOB: "",
     City: "",
+    cod: "",
     Days: "",
     State: "",
     Gstin: "",
@@ -51,6 +52,7 @@ export default function StoreVerify() {
     AcHolderName: "",
     FssaiLicence: "",
     returnWindow: "",
+    PickupReturn: "",
     SupportEmail: "",
     StoreLocation: "",
     ContactDetails: "",
