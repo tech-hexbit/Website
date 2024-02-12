@@ -10,14 +10,19 @@ import OfCss from "./Css/OndcField.module.css";
 export default function SelectFeilds({ showData, setData }) {
   const handleSelectChangeReturn = (event) => {
     const name = event.target.name;
-
-    console.log(name);
-
     const selectedValue = event.target.value;
+
     setData({
       ...showData,
       [name]: selectedValue,
     });
+
+    if (name === "Returnable" && selectedValue === "false") {
+      setData({
+        ...showData,
+        returnWindow: "P0D",
+      });
+    }
   };
 
   return (
@@ -58,6 +63,28 @@ export default function SelectFeilds({ showData, setData }) {
           <option value={false}>False</option>
         </select>
       </div>
+
+      {showData.Returnable ? (
+        <>
+          {/* Return Window */}
+          <div className={OfCss.inpDiv}>
+            <div className={OfCss.inputLabel}>Return Window</div>
+            <select
+              name="returnWindow"
+              id=""
+              onChange={handleSelectChangeReturn}
+            >
+              <option disabled hidden selected>
+                Choose option
+              </option>
+              <option value={true}>True</option>
+              <option value={false}>False</option>
+            </select>
+          </div>
+        </>
+      ) : (
+        ""
+      )}
 
       {/* Radius */}
       <InputType1
