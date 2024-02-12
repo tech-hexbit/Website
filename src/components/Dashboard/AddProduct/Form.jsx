@@ -66,11 +66,11 @@ export default function Form({ domain }) {
     domain: "",
 
     location_id: "hexbit-store-location-id-1",
+    fulfillment_id: 1,
 
     // Sizes: "",
     // Colors: "",
     net_quantity: "",
-    fulfillment_id: 1,
     nutritional_info: "",
     ondcOrgreturn_window: "",
     other_FSSAI_license_no: "",
