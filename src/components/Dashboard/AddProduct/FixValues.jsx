@@ -261,10 +261,10 @@ export default function FixValues({ setData, showData }) {
 
               {/* Pickup Return */}
               <div className={ItCss.inpDiv}>
-                <p className={ItCss.inputLabel}>Cash On Delivery(COD)</p>
+                <p className={ItCss.inputLabel}>Pickup Return</p>
 
                 <select
-                  name="cod"
+                  name="PickupReturn"
                   id=""
                   className={ItCss.inp}
                   onChange={handleSelectChange}
@@ -273,7 +273,7 @@ export default function FixValues({ setData, showData }) {
                     Select
                   </option>
 
-                  {store.cod ? (
+                  {store.PickupReturn ? (
                     <>
                       <option value="true" selected>
                         True
