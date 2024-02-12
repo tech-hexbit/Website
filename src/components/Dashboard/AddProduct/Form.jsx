@@ -65,9 +65,10 @@ export default function Form({ domain }) {
     ondcOrgreturnable: true,
     domain: "",
 
+    location_id: "hexbit-store-location-id-1",
+
     // Sizes: "",
     // Colors: "",
-    location_id: "",
     net_quantity: "",
     fulfillment_id: 1,
     nutritional_info: "",
