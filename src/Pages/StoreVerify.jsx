@@ -129,13 +129,20 @@ export default function StoreVerify() {
         text: "Please Fill All The Details",
         val: true,
       });
-    } else if (!verifyPin || !disable.Bank || !disable.Gstin || disable.Pan) {
+    } else if (
+      !disable.Pincode ||
+      !disable.Bank ||
+      !disable.Gstin ||
+      !disable.Pan
+    ) {
+      console.log(disable.Pincode);
+
       setError({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
         symbol: "pets",
         title: "Check it out",
-        text: !verifyPin
+        text: !disable.Pincode
           ? "Invalid pincode"
           : !disable.Bank
           ? "Invalid Bank Details"
@@ -204,6 +211,10 @@ export default function StoreVerify() {
   useEffect(() => {
     console.table(showData);
   }, [showData]);
+
+  useEffect(() => {
+    console.table(disable);
+  }, [disable]);
 
   return (
     <>
