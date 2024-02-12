@@ -135,8 +135,6 @@ export default function StoreVerify() {
       !disable.Gstin ||
       !disable.Pan
     ) {
-      console.log(disable.Pincode);
-
       setError({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
