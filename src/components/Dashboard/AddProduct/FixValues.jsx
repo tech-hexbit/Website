@@ -11,6 +11,9 @@ import { Alert } from "./../../../MicroInteraction/Alert";
 // state
 import AuthContext from "../../../store/auth-context";
 
+// css
+import PrCss from "./Css/Lable.module.css";
+
 export default function FixValues({ setData, showData }) {
   const [store, setStore] = useState([]);
   const [load, setLoad] = useState(false);
@@ -67,7 +70,13 @@ export default function FixValues({ setData, showData }) {
     loadInfo();
   }, []);
 
-  return <div>FixValues</div>;
+  return (
+    <>
+      <p className={PrCss.AboutYou}>Additional Info</p>
+
+      <Alert variant={variants} val={setError} />
+    </>
+  );
 }
 
 FixValues.propTypes = {
