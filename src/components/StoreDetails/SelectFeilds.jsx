@@ -86,14 +86,39 @@ export default function SelectFeilds({ showData, setData }) {
               <option disabled hidden selected>
                 Choose option
               </option>
-              <option value={true}>True</option>
-              <option value={false}>False</option>
+              <option value="P1D">1 Days</option>
+              <option value="P4D">4 Days</option>
+              <option value="P7D">7 Days</option>
             </select>
           </div>
         </>
       ) : (
         ""
       )}
+
+      {/* Pickup Return */}
+      <div className={OfCss.inpDiv}>
+        <div className={OfCss.inputLabel}>Pickup Return</div>
+        <select name="PickupReturn" id="" onChange={handleSelectChangeReturn}>
+          <option disabled hidden selected>
+            Choose option
+          </option>
+          <option value={true}>True</option>
+          <option value={false}>False</option>
+        </select>
+      </div>
+
+      {/* COD */}
+      <div className={OfCss.inpDiv}>
+        <div className={OfCss.inputLabel}>Cash On Delivery(COD)</div>
+        <select name="cod" id="" onChange={handleSelectChangeReturn}>
+          <option disabled hidden selected>
+            Choose option
+          </option>
+          <option value={true}>True</option>
+          <option value={false}>False</option>
+        </select>
+      </div>
 
       {/* Radius */}
       <InputType1
