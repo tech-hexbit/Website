@@ -50,6 +50,7 @@ export default function StoreVerify() {
     amountValue: "",
     AcHolderName: "",
     FssaiLicence: "",
+    returnWindow: "",
     SupportEmail: "",
     StoreLocation: "",
     ContactDetails: "",
