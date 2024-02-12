@@ -65,8 +65,8 @@ export default function Form({ domain }) {
     ondcOrgreturnable: true,
     domain: "",
 
-    Sizes: "",
-    Colors: "",
+    // Sizes: "",
+    // Colors: "",
     location_id: "",
     net_quantity: "",
     fulfillment_id: 1,
