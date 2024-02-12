@@ -39,6 +39,8 @@ export default function FixValues({ setData, showData }) {
       if (response.data.success) {
         setLoad(false);
 
+        console.log(response.data.StoreID);
+
         setStore(response.data.StoreID);
       } else {
         setLoad(false);
