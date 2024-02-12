@@ -45,9 +45,10 @@ export default function Form() {
 
   const [data, setData] = useState({
     name: "",
-    symbol: "",
     Sizes: "",
+    symbol: "",
     Colors: "",
+    domain: "",
     images: [],
     long_desc: "",
     Discounts: "",
