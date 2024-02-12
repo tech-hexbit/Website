@@ -127,7 +127,6 @@ export default function FixValues({ setData, showData }) {
               )}
             </select>
           </div>
-
           {/* Returnable */}
           <div className={ItCss.inpDiv}>
             <p className={ItCss.inputLabel}>Returnable</p>
@@ -143,6 +142,38 @@ export default function FixValues({ setData, showData }) {
               </option>
 
               {store.returnable ? (
+                <>
+                  <option value="true" selected>
+                    True
+                  </option>
+                  <option value="false">False</option>
+                </>
+              ) : (
+                <>
+                  <option value="true">True</option>
+                  <option value="false" selected>
+                    False
+                  </option>
+                </>
+              )}
+            </select>
+          </div>
+
+          {/* Time To Ship */}
+          <div className={ItCss.inpDiv}>
+            <p className={ItCss.inputLabel}>Time To Ship</p>
+
+            <select
+              name="ondcOrgtime_to_ship"
+              id=""
+              className={ItCss.inp}
+              onChange={handleSelectChange}
+            >
+              <option value="Selected" disabled hidden>
+                Select
+              </option>
+
+              {store.TimeToShip ? (
                 <>
                   <option value="true" selected>
                     True
