@@ -1,10 +1,11 @@
 import React, { useState, useContext, useRef, useEffect } from "react";
 
 //component
+import Service from "./Service";
+import FixValues from "./FixValues";
 import GeneralInfo from "./GeneralInfo";
 import ProdParticulars from "./ProdParticulars";
 import ProductCategory from "./ProductCategory";
-import Service from "./Service";
 import MultipleImageHandler from "./MultipleImageHandler";
 
 // MicroInteraction
@@ -21,12 +22,12 @@ import AuthContext from "../../../store/auth-context";
 import FCss from "./Css/Form.module.css";
 
 export default function Form() {
-  const [tags, settags] = useState([]);
+  // const [tags, settags] = useState([]);
   const [load, setLoad] = useState(false);
   const [tagvalue, settagvalue] = useState("");
   const [imageUpload, setImageUpload] = useState();
-  const [PublishOpen, setPublishOpen] = useState(true);
-  const [ServiceOpen, setServiceOpen] = useState(false);
+  // const [PublishOpen, setPublishOpen] = useState(true);
+  // const [ServiceOpen, setServiceOpen] = useState(false);
   const [multipleImageUpload, setMultipleImageUpload] = useState([]);
 
   const [variants, setError] = useState({
