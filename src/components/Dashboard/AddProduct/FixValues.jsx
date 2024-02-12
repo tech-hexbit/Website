@@ -20,7 +20,7 @@ import PrCss from "./Css/Lable.module.css";
 import ItCss from "./Input/Css/InputType1.module.css";
 
 export default function FixValues({ setData, showData }) {
-  const [store, setStore] = useState([]);
+  const [store, setStore] = useState({});
   const [load, setLoad] = useState(false);
   const [variants, setError] = useState({
     mainColor: "",
@@ -96,7 +96,7 @@ export default function FixValues({ setData, showData }) {
         <Load />
       ) : (
         <>
-          {store.length > 0 ? (
+          {store ? (
             <>
               {/* Cancellable */}
               <div className={ItCss.inpDiv}>
@@ -129,7 +129,6 @@ export default function FixValues({ setData, showData }) {
                   )}
                 </select>
               </div>
-
               {/* Returnable */}
               <div className={ItCss.inpDiv}>
                 <p className={ItCss.inputLabel}>Returnable</p>
@@ -161,9 +160,41 @@ export default function FixValues({ setData, showData }) {
                   )}
                 </select>
               </div>
-
               {/* Return Window  */}
+              {store.returnable ? (
+                <div className={ItCss.inpDiv}>
+                  <p className={ItCss.inputLabel}>Return Window</p>
 
+                  <select
+                    name="returnWindow"
+                    id=""
+                    className={ItCss.inp}
+                    onChange={handleSelectChange}
+                  >
+                    <option value="Selected" disabled hidden>
+                      Select
+                    </option>
+
+                    {store.returnWindow ? (
+                      <>
+                        <option value="true" selected>
+                          True
+                        </option>
+                        <option value="false">False</option>
+                      </>
+                    ) : (
+                      <>
+                        <option value="true">True</option>
+                        <option value="false" selected>
+                          False
+                        </option>
+                      </>
+                    )}
+                  </select>
+                </div>
+              ) : (
+                ""
+              )}
               {/* Time To Ship */}
               <div className={ItCss.inpDiv}>
                 <p className={ItCss.inputLabel}>Time To Ship</p>
@@ -195,8 +226,70 @@ export default function FixValues({ setData, showData }) {
                   )}
                 </select>
               </div>
-              {/* Pickup Return  */}
+
               {/* Cash On Delivery */}
+              <div className={ItCss.inpDiv}>
+                <p className={ItCss.inputLabel}>Cash On Delivery(COD)</p>
+
+                <select
+                  name="cod"
+                  id=""
+                  className={ItCss.inp}
+                  onChange={handleSelectChange}
+                >
+                  <option value="Selected" disabled hidden>
+                    Select
+                  </option>
+
+                  {store.cod ? (
+                    <>
+                      <option value="true" selected>
+                        True
+                      </option>
+                      <option value="false">False</option>
+                    </>
+                  ) : (
+                    <>
+                      <option value="true">True</option>
+                      <option value="false" selected>
+                        False
+                      </option>
+                    </>
+                  )}
+                </select>
+              </div>
+
+              {/* Pickup Return */}
+              <div className={ItCss.inpDiv}>
+                <p className={ItCss.inputLabel}>Cash On Delivery(COD)</p>
+
+                <select
+                  name="cod"
+                  id=""
+                  className={ItCss.inp}
+                  onChange={handleSelectChange}
+                >
+                  <option value="Selected" disabled hidden>
+                    Select
+                  </option>
+
+                  {store.cod ? (
+                    <>
+                      <option value="true" selected>
+                        True
+                      </option>
+                      <option value="false">False</option>
+                    </>
+                  ) : (
+                    <>
+                      <option value="true">True</option>
+                      <option value="false" selected>
+                        False
+                      </option>
+                    </>
+                  )}
+                </select>
+              </div>
             </>
           ) : (
             ""
