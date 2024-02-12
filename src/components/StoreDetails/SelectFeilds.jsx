@@ -34,6 +34,7 @@ export default function SelectFeilds({ showData, setData }) {
           <option value="P7D">7 Days</option>
         </select>
       </div>
+
       {/* Cancellable */}
       <div className={OfCss.inpDiv}>
         <div className={OfCss.inputLabel}>Cancellable</div>
@@ -45,6 +46,7 @@ export default function SelectFeilds({ showData, setData }) {
           <option value={false}>False</option>
         </select>
       </div>
+
       {/* Returnable */}
       <div className={OfCss.inpDiv}>
         <div className={OfCss.inputLabel}>Returnable</div>
@@ -56,6 +58,7 @@ export default function SelectFeilds({ showData, setData }) {
           <option value={false}>False</option>
         </select>
       </div>
+
       {/* Radius */}
       <InputType1
         type="number"
@@ -64,7 +67,7 @@ export default function SelectFeilds({ showData, setData }) {
         setData={setData}
         field="radius"
         placeholder="1500 (Km)"
-      />{" "}
+      />
     </>
   );
 }
