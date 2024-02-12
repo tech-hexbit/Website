@@ -8,7 +8,7 @@ import SelectTp1 from "./Input/SelectTp1";
 import axios from "axios";
 
 // MicroInteraction
-import Load from "./../../../MicroInteraction/Load";
+import Load from "./../../../MicroInteraction/LoadBlack";
 import { Alert } from "./../../../MicroInteraction/Alert";
 
 // state
@@ -84,29 +84,53 @@ export default function FixValues({ setData, showData }) {
     loadInfo();
   }, []);
 
+  useEffect(() => {
+    console.log(store.cancellable);
+  }, [store]);
+
   return (
     <>
       <p className={PrCss.AboutYou}>Additional Info</p>
 
-      {/* Cancellable */}
-      <SelectTp1 name="ondcOrgcancellable" />
+      {load ? (
+        <Load />
+      ) : (
+        <>
+          {/* Cancellable */}
+          {/* <SelectTp1 name="ondcOrgcancellable" /> */}
 
-      {/* Cancellable */}
-      <div className={ItCss.inpDiv}>
-        <p className={ItCss.inputLabel}>Category</p>
-        <select
-          name="ondcOrgcancellable"
-          id=""
-          className={ItCss.inp}
-          onChange={handleSelectChange}
-        >
-          <option value="Selected" selected disabled hidden>
-            Select
-          </option>
-          <option value="true">True</option>
-          <option value="false">False</option>
-        </select>
-      </div>
+          {/* Cancellable */}
+          <div className={ItCss.inpDiv}>
+            {" "}
+            <select
+              name="ondcOrgcancellable"
+              id=""
+              className={ItCss.inp}
+              onChange={handleSelectChange}
+            >
+              <option value="Selected" disabled hidden>
+                Select
+              </option>
+
+              {store.cancellable ? (
+                <>
+                  <option value="true" selected>
+                    True
+                  </option>
+                  <option value="false">False</option>
+                </>
+              ) : (
+                <>
+                  <option value="true">True</option>
+                  <option value="false" selected>
+                    False
+                  </option>
+                </>
+              )}
+            </select>
+          </div>
+        </>
+      )}
 
       <Alert variant={variants} val={setError} />
     </>
