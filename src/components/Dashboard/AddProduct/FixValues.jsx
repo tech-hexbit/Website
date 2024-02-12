@@ -101,7 +101,8 @@ export default function FixValues({ setData, showData }) {
 
           {/* Cancellable */}
           <div className={ItCss.inpDiv}>
-            {" "}
+            <p className={ItCss.inputLabel}>Cancellable</p>
+
             <select
               name="ondcOrgcancellable"
               id=""
