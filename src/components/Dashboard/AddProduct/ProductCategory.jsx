@@ -131,7 +131,7 @@ export default function ProductCategory({ setData, showData }) {
         </div>
       </div>
 
-      {/* Long Description */}
+      {/* Additives Info */}
       <TxtArea
         Label="Additional Info"
         showData={showData}
