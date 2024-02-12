@@ -1,6 +1,9 @@
 import React, { useState, useContext, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 
+//component
+import SelectTp1 from "./Input/SelectTp1";
+
 // axios
 import axios from "axios";
 
@@ -86,19 +89,24 @@ export default function FixValues({ setData, showData }) {
       <p className={PrCss.AboutYou}>Additional Info</p>
 
       {/* Cancellable */}
-      <p className={ItCss.inputLabel}>Category</p>
-      <select
-        name="ondcOrgcancellable"
-        id=""
-        className={ItCss.inp}
-        onChange={handleSelectChange}
-      >
-        <option value="Selected" selected disabled hidden>
-          Select
-        </option>
-        <option value="true">True</option>
-        <option value="false">False</option>
-      </select>
+      <SelectTp1 name="ondcOrgcancellable" />
+
+      {/* Cancellable */}
+      <div className={ItCss.inpDiv}>
+        <p className={ItCss.inputLabel}>Category</p>
+        <select
+          name="ondcOrgcancellable"
+          id=""
+          className={ItCss.inp}
+          onChange={handleSelectChange}
+        >
+          <option value="Selected" selected disabled hidden>
+            Select
+          </option>
+          <option value="true">True</option>
+          <option value="false">False</option>
+        </select>
+      </div>
 
       <Alert variant={variants} val={setError} />
     </>
