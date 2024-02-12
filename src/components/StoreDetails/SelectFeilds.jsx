@@ -9,26 +9,14 @@ import OfCss from "./Css/OndcField.module.css";
 
 export default function SelectFeilds({ showData, setData }) {
   const handleSelectChangeReturn = (event) => {
-    const selectedValue = event.target.value;
-    setData({
-      ...showData,
-      Returnable: selectedValue,
-    });
-  };
+    const name = event.target.name;
 
-  const handleSelectChangeCancel = (event) => {
-    const selectedValue = event.target.value;
-    setData({
-      ...showData,
-      Cancellable: selectedValue,
-    });
-  };
+    console.log(name);
 
-  const handleChangeTTS = (event) => {
     const selectedValue = event.target.value;
     setData({
       ...showData,
-      TimeToShip: selectedValue,
+      [name]: selectedValue,
     });
   };
 
@@ -37,7 +25,7 @@ export default function SelectFeilds({ showData, setData }) {
       {/* Time to ship */}
       <div className={OfCss.inpDiv}>
         <div className={OfCss.inputLabel}>Time to ship</div>
-        <select name="languages" id="lang" onChange={handleChangeTTS}>
+        <select name="TimeToShip" id="lang" onChange={handleSelectChangeReturn}>
           <option disabled hidden selected>
             Choose option
           </option>
@@ -49,7 +37,7 @@ export default function SelectFeilds({ showData, setData }) {
       {/* Cancellable */}
       <div className={OfCss.inpDiv}>
         <div className={OfCss.inputLabel}>Cancellable</div>
-        <select name="languages" id="lang" onChange={handleSelectChangeCancel}>
+        <select name="Cancellable" id="" onChange={handleSelectChangeReturn}>
           <option disabled hidden selected>
             Choose option
           </option>
@@ -60,7 +48,7 @@ export default function SelectFeilds({ showData, setData }) {
       {/* Returnable */}
       <div className={OfCss.inpDiv}>
         <div className={OfCss.inputLabel}>Returnable</div>
-        <select name="languages" id="lang" onChange={handleSelectChangeReturn}>
+        <select name="Returnable" id="" onChange={handleSelectChangeReturn}>
           <option disabled hidden selected>
             Choose option
           </option>
