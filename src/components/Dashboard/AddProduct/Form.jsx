@@ -1,4 +1,5 @@
 import React, { useState, useContext, useRef, useEffect } from "react";
+import PropTypes from "prop-types";
 
 //component
 import Service from "./Service";
@@ -21,7 +22,7 @@ import AuthContext from "../../../store/auth-context";
 // css
 import FCss from "./Css/Form.module.css";
 
-export default function Form() {
+export default function Form({ domain }) {
   // const [tags, settags] = useState([]);
   const [load, setLoad] = useState(false);
   const [tagvalue, settagvalue] = useState("");
@@ -372,7 +373,12 @@ export default function Form() {
           {load ? <Load /> : "Submit"}
         </p>
       </div>
+
       <Alert variant={variants} val={setError} />
     </>
   );
 }
+
+Form.propTypes = {
+  domain: PropTypes.string.isRequired,
+};
