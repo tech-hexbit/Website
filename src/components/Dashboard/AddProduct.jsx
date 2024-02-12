@@ -16,6 +16,16 @@ import ApCss from "./Css/AddProduct.module.css";
 import AuthContext from "../../store/auth-context";
 
 export default function AddProduct() {
+  const [showPopup, setShowPopup] = useState(false);
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
+
   const authCtx = useContext(AuthContext);
 
   const userCategory = authCtx.user.category;
@@ -26,25 +36,13 @@ export default function AddProduct() {
   });
 
   const handleCategoryClick = (category) => {
-    console.log("Category clicked");
+    console.log("Category clicked - ");
 
     setCategory({
       ...showCategory,
       state: false,
     });
   };
-
-  useEffect(() => {}, [showCategory]);
-
-  const [showPopup, setShowPopup] = useState(false);
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   useEffect(() => {
     setTimeout(() => {
