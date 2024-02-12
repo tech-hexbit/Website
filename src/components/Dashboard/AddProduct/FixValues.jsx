@@ -97,9 +97,38 @@ export default function FixValues({ setData, showData }) {
       ) : (
         <>
           {/* Cancellable */}
-          {/* <SelectTp1 name="ondcOrgcancellable" /> */}
+          <div className={ItCss.inpDiv}>
+            <p className={ItCss.inputLabel}>Cancellable</p>
 
-          {/* Cancellable */}
+            <select
+              name="ondcOrgcancellable"
+              id=""
+              className={ItCss.inp}
+              onChange={handleSelectChange}
+            >
+              <option value="Selected" disabled hidden>
+                Select
+              </option>
+
+              {store.cancellable ? (
+                <>
+                  <option value="true" selected>
+                    True
+                  </option>
+                  <option value="false">False</option>
+                </>
+              ) : (
+                <>
+                  <option value="true">True</option>
+                  <option value="false" selected>
+                    False
+                  </option>
+                </>
+              )}
+            </select>
+          </div>
+
+          {/* Returnable */}
           <div className={ItCss.inpDiv}>
             <p className={ItCss.inputLabel}>Cancellable</p>
 
