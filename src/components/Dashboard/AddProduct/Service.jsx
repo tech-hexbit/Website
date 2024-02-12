@@ -20,6 +20,7 @@ export default function Service({ setData, showData }) {
         field="net_quantity_or_measure_of_commodity_in_pkg"
         placeholder="121 Kg"
       />
+
       {/* Month/Year of Manufacture Packing Import */}
       <InpTp1
         type="text"
