@@ -127,6 +127,7 @@ export default function FixValues({ setData, showData }) {
               )}
             </select>
           </div>
+
           {/* Returnable */}
           <div className={ItCss.inpDiv}>
             <p className={ItCss.inputLabel}>Returnable</p>
@@ -158,6 +159,7 @@ export default function FixValues({ setData, showData }) {
               )}
             </select>
           </div>
+
           {/* Time To Ship */}
           <div className={ItCss.inpDiv}>
             <p className={ItCss.inputLabel}>Time To Ship</p>
