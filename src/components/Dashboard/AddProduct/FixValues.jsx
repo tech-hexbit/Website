@@ -84,10 +84,6 @@ export default function FixValues({ setData, showData }) {
     loadInfo();
   }, []);
 
-  useEffect(() => {
-    console.log(store.cancellable);
-  }, [store]);
-
   return (
     <>
       <p className={PrCss.AboutYou}>Additional Info</p>
