@@ -158,7 +158,6 @@ export default function FixValues({ setData, showData }) {
               )}
             </select>
           </div>
-
           {/* Time To Ship */}
           <div className={ItCss.inpDiv}>
             <p className={ItCss.inputLabel}>Time To Ship</p>
@@ -190,6 +189,9 @@ export default function FixValues({ setData, showData }) {
               )}
             </select>
           </div>
+          {/* Return Window  */}
+          {/* Pickup Return  */}
+          {/* Cash On Delivery */}
         </>
       )}
 
