@@ -22,6 +22,15 @@ export default function SelectFeilds({ showData, setData }) {
         ...showData,
         returnWindow: "P0D",
       });
+    } else if (
+      name === "Returnable" &&
+      selectedValue === "true" &&
+      showData.returnWindow === "P0D"
+    ) {
+      setData({
+        ...showData,
+        returnWindow: "",
+      });
     }
   };
 
