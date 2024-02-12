@@ -300,6 +300,26 @@ export default function FixValues({ setData, showData }) {
                 field="location_id"
                 placeholder="Location ID"
               />
+
+              {/* Loaction ID */}
+              <InpTp1
+                type="text"
+                Label="Title"
+                showData={showData}
+                setData={setData}
+                field="location_id"
+                placeholder="Location ID"
+              />
+
+              {/* Fulfillment ID */}
+              <InpTp1
+                type="text"
+                Label="Title"
+                showData={showData}
+                setData={setData}
+                field="fulfillment_id"
+                placeholder="Fulfillment ID"
+              />
             </>
           ) : (
             ""
