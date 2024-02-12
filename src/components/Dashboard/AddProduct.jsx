@@ -16,6 +16,7 @@ import ApCss from "./Css/AddProduct.module.css";
 import AuthContext from "../../store/auth-context";
 
 export default function AddProduct() {
+  const [domain, setDomain] = useState("");
   const [showPopup, setShowPopup] = useState(false);
   const [variants, setError] = useState({
     mainColor: "",
@@ -37,6 +38,8 @@ export default function AddProduct() {
 
   const handleCategoryClick = (category) => {
     console.log("Category clicked - ");
+
+    setDomain(category.code);
 
     setCategory({
       ...showCategory,
@@ -76,7 +79,7 @@ export default function AddProduct() {
             </div>
           </div>
 
-          <Form />
+          <Form domain={domain} />
 
           {showPopup && (
             <UploadCsvPopup setShowPopup={setShowPopup} setError={setError} />
