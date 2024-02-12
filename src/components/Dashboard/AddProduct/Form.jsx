@@ -23,12 +23,9 @@ import AuthContext from "../../../store/auth-context";
 import FCss from "./Css/Form.module.css";
 
 export default function Form({ domain }) {
-  // const [tags, settags] = useState([]);
   const [load, setLoad] = useState(false);
   const [tagvalue, settagvalue] = useState("");
   const [imageUpload, setImageUpload] = useState();
-  // const [PublishOpen, setPublishOpen] = useState(true);
-  // const [ServiceOpen, setServiceOpen] = useState(false);
   const [multipleImageUpload, setMultipleImageUpload] = useState([]);
 
   const [variants, setError] = useState({
