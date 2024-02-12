@@ -12,7 +12,9 @@ import { Alert } from "./../../../MicroInteraction/Alert";
 import AuthContext from "../../../store/auth-context";
 
 // css
+import FCss from "./Css/Form.module.css";
 import PrCss from "./Css/Lable.module.css";
+import ItCss from "./Input/Css/InputType1.module.css";
 
 export default function FixValues({ setData, showData }) {
   const [store, setStore] = useState([]);
@@ -68,6 +70,13 @@ export default function FixValues({ setData, showData }) {
     }
   };
 
+  const handleSelectChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    setData({ ...showData, [name]: value });
+  };
+
   useEffect(() => {
     loadInfo();
   }, []);
@@ -75,6 +84,21 @@ export default function FixValues({ setData, showData }) {
   return (
     <>
       <p className={PrCss.AboutYou}>Additional Info</p>
+
+      {/* Cancellable */}
+      <p className={ItCss.inputLabel}>Category</p>
+      <select
+        name="ondcOrgcancellable"
+        id=""
+        className={ItCss.inp}
+        onChange={handleSelectChange}
+      >
+        <option value="Selected" selected disabled hidden>
+          Select
+        </option>
+        <option value="true">True</option>
+        <option value="false">False</option>
+      </select>
 
       <Alert variant={variants} val={setError} />
     </>
