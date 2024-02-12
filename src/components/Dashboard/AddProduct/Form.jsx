@@ -46,7 +46,6 @@ export default function Form({ domain }) {
     images: [],
     long_desc: "",
     short_desc: "",
-
     veg: "",
     non_veg: "",
     Discounts: "",
@@ -65,10 +64,10 @@ export default function Form({ domain }) {
     ondcOrgtime_to_ship: "",
     ondcOrgcancellable: true,
     ondcOrgreturnable: true,
+    domain: "",
 
     // Sizes: "",
     Colors: "",
-    domain: "",
     location_id: "",
     net_quantity: "",
     fulfillment_id: 1,
