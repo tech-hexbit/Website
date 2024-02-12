@@ -2,6 +2,7 @@ import React, { useState, useContext, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 
 //component
+import InpTp1 from "./Input/InpTp1";
 import SelectTp1 from "./Input/SelectTp1";
 
 // axios
@@ -289,6 +290,16 @@ export default function FixValues({ setData, showData }) {
                   )}
                 </select>
               </div>
+
+              {/* Loaction ID */}
+              <InpTp1
+                type="text"
+                Label="Title"
+                showData={showData}
+                setData={setData}
+                field="location_id"
+                placeholder="Location ID"
+              />
             </>
           ) : (
             ""
