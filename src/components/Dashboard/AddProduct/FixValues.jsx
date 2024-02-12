@@ -130,10 +130,10 @@ export default function FixValues({ setData, showData }) {
 
           {/* Returnable */}
           <div className={ItCss.inpDiv}>
-            <p className={ItCss.inputLabel}>Cancellable</p>
+            <p className={ItCss.inputLabel}>Returnable</p>
 
             <select
-              name="ondcOrgcancellable"
+              name="ondcOrgreturnable"
               id=""
               className={ItCss.inp}
               onChange={handleSelectChange}
@@ -142,7 +142,7 @@ export default function FixValues({ setData, showData }) {
                 Select
               </option>
 
-              {store.cancellable ? (
+              {store.returnable ? (
                 <>
                   <option value="true" selected>
                     True
