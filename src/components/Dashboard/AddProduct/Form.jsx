@@ -26,7 +26,6 @@ export default function Form({ domain }) {
   const [load, setLoad] = useState(false);
   const [imageUpload, setImageUpload] = useState();
   const [multipleImageUpload, setMultipleImageUpload] = useState([]);
-
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
