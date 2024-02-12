@@ -86,35 +86,35 @@ export default function StoreVerify() {
   const onSubmit = async () => {
     setLoad(true);
     if (
-      showData.FirstName === "" ||
-      showData.LastName === "" ||
-      showData.LegalName === "" ||
-      showData.EmailID === "" ||
       showData.DOB === "" ||
-      showData.Description === "" ||
-      showData.Pincode === "" ||
-      showData.Address === "" ||
       showData.City === "" ||
+      showData.times == [] ||
+      showData.Days === "" ||
       showData.State === "" ||
-      showData.StoreLocation === "" ||
-      showData.AccountNo === "" ||
-      showData.IfscCode === "" ||
-      showData.AcHolderName === "" ||
-      showData.BankName === "" ||
-      showData.BranchName === "" ||
       showData.Gstin === "" ||
       showData.PanNo === "" ||
-      showData.LocationAvailabilityMode === "" ||
-      showData.TimeToShip === "" ||
       showData.radius === "" ||
+      showData.EmailID === "" ||
+      showData.Pincode === "" ||
+      showData.Address === "" ||
+      showData.LastName === "" ||
+      showData.IfscCode === "" ||
+      showData.BankName === "" ||
+      showData.FirstName === "" ||
+      showData.LegalName === "" ||
+      showData.AccountNo === "" ||
+      showData.TimeToShip === "" ||
       showData.Percentage === "" ||
+      showData.BranchName === "" ||
+      showData.Description === "" ||
       showData.Cancellable === "" ||
       showData.Returnable === "" ||
       showData.amountValue === "" ||
-      showData.times == [] ||
-      showData.Days === "" ||
+      showData.AcHolderName === "" ||
+      showData.StoreLocation === "" ||
+      showData.SupportEmail === "" ||
       showData.ContactDetails === "" ||
-      showData.SupportEmail === ""
+      showData.LocationAvailabilityMode === ""
     ) {
       setLoad(false);
 
