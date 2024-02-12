@@ -165,7 +165,7 @@ export default function FixValues({ setData, showData }) {
                   <p className={ItCss.inputLabel}>Return Window</p>
 
                   <select
-                    name="returnWindow"
+                    name="ondcOrgreturn_window"
                     id=""
                     className={ItCss.inp}
                     onChange={handleSelectChange}
@@ -173,22 +173,9 @@ export default function FixValues({ setData, showData }) {
                     <option value="Selected" disabled hidden>
                       Select
                     </option>
-
-                    {store.returnWindow ? (
-                      <>
-                        <option value="true" selected>
-                          True
-                        </option>
-                        <option value="false">False</option>
-                      </>
-                    ) : (
-                      <>
-                        <option value="true">True</option>
-                        <option value="false" selected>
-                          False
-                        </option>
-                      </>
-                    )}
+                    <option value="P1D">1 Days</option>
+                    <option value="P4D">4 Days</option>
+                    <option value="P7D">7 Days</option>
                   </select>
                 </div>
               ) : (
@@ -264,7 +251,7 @@ export default function FixValues({ setData, showData }) {
                 <p className={ItCss.inputLabel}>Pickup Return</p>
 
                 <select
-                  name="PickupReturn"
+                  name="ondcOrgseller_pickup_return"
                   id=""
                   className={ItCss.inp}
                   onChange={handleSelectChange}
@@ -294,17 +281,7 @@ export default function FixValues({ setData, showData }) {
               {/* Loaction ID */}
               <InpTp1
                 type="text"
-                Label="Title"
-                showData={showData}
-                setData={setData}
-                field="location_id"
-                placeholder="Location ID"
-              />
-
-              {/* Loaction ID */}
-              <InpTp1
-                type="text"
-                Label="Title"
+                Label="Loaction ID"
                 showData={showData}
                 setData={setData}
                 field="location_id"
@@ -314,7 +291,7 @@ export default function FixValues({ setData, showData }) {
               {/* Fulfillment ID */}
               <InpTp1
                 type="text"
-                Label="Title"
+                Label="Fulfillment ID"
                 showData={showData}
                 setData={setData}
                 field="fulfillment_id"
