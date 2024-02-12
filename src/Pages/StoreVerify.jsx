@@ -87,6 +87,7 @@ export default function StoreVerify() {
     setLoad(true);
     if (
       showData.DOB === "" ||
+      showData.cod === "" ||
       showData.City === "" ||
       showData.times == [] ||
       showData.Days === "" ||
@@ -110,6 +111,8 @@ export default function StoreVerify() {
       showData.Cancellable === "" ||
       showData.Returnable === "" ||
       showData.amountValue === "" ||
+      showData.returnWindow === "" ||
+      showData.PickupReturn === "" ||
       showData.AcHolderName === "" ||
       showData.StoreLocation === "" ||
       showData.SupportEmail === "" ||
