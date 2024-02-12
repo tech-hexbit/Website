@@ -317,6 +317,7 @@ export default function Form() {
   return (
     <>
       <ProdParticulars showData={data} setData={setData} />
+
       <div className={FCss.rowDIv}>
         <div className={FCss.rowDIvLeft}>
           <GeneralInfo showData={data} setData={setData} />
@@ -326,6 +327,8 @@ export default function Form() {
           <Service showData={data} setData={setData} />
         </div>
       </div>
+
+      <FixValues showData={data} setData={setData} />
 
       {/* Image */}
       <div className={FCss.inpDiv}>
