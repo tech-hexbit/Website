@@ -12,15 +12,22 @@ export default function InfoSubjective({ setData, showData }) {
   return (
     <>
       <p className={PrCss.AboutYou}>Subjective Info</p>
-
       {/* Net Quantity */}
       <InpTp1
         type="text"
-        Label="Title"
+        Label="Net Quantity"
         showData={showData}
         setData={setData}
         field="net_quantity"
-        placeholder="Title - XX"
+        placeholder="120 g"
+      />
+      {/* Nutritional Info */}
+      <TxtArea
+        Label="Nutritional Info"
+        showData={showData}
+        setData={setData}
+        field="net_quantity"
+        placeholder="Energy(KCal)-(per 100kg) 420, (per serving 50g)250; Protein(g)-(per 100kg) 12, (per serving 50g) 6"
       />
     </>
   );
