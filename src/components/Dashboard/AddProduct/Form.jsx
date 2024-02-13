@@ -5,8 +5,10 @@ import PropTypes from "prop-types";
 import Service from "./Service";
 import FixValues from "./FixValues";
 import GeneralInfo from "./GeneralInfo";
-import ProdParticulars from "./ProdParticulars";
+// import SubjectiveInfo from "./SubjectiveInfo";
+import InfoSubjective from "./InfoSubjective";
 import ProductCategory from "./ProductCategory";
+import ProdParticulars from "./ProdParticulars";
 import MultipleImageHandler from "./MultipleImageHandler";
 
 // MicroInteraction
@@ -65,7 +67,7 @@ export default function Form({ domain }) {
     ondcOrgreturnable: true,
     domain: "",
 
-    location_id: "hexbit-store-location-id-1",
+    // location_id: "hexbit-store-location-id-1",
     fulfillment_id: 1,
 
     // Sizes: "",
@@ -328,6 +330,7 @@ export default function Form({ domain }) {
       </div>
 
       <FixValues showData={data} setData={setData} />
+      <InfoSubjective showData={data} setData={setData} />
 
       {/* Image */}
       <div className={FCss.inpDiv}>
