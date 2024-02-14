@@ -21,6 +21,7 @@ export default function InfoSubjective({ setData, showData }) {
         field="net_quantity"
         placeholder="120 g"
       />
+
       {/* Nutritional Info */}
       <TxtArea
         Label="Nutritional Info"
