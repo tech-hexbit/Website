@@ -76,13 +76,8 @@ export default function Form({ domain }) {
     brand_owner_FSSAI_license_no: "",
     ondcOrgcontact_details_consumer_care: "",
 
-    // Sizes: "",
-    // Colors: "",
     manufacturer_or_packer_address: "",
     common_or_generic_name_of_commodity: "",
-    // Status: "",
-    // Visibility: "",
-    // schedule_Date_and_time: "",
     StoreID: authCtx.user.Store[0].StoreID._id,
   });
 
