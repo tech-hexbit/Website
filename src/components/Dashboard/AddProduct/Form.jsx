@@ -71,12 +71,12 @@ export default function Form({ domain }) {
     fulfillment_id: 1,
     net_quantity: "",
     nutritional_info: "",
-
-    // Sizes: "",
-    // Colors: "",
     other_FSSAI_license_no: "",
     importer_FSSAI_license_no: "",
     brand_owner_FSSAI_license_no: "",
+
+    // Sizes: "",
+    // Colors: "",
     manufacturer_or_packer_address: "",
     common_or_generic_name_of_commodity: "",
     ondcOrgcontact_details_consumer_care: "",
