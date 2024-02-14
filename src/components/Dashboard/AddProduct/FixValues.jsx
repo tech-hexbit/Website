@@ -298,14 +298,24 @@ export default function FixValues({ setData, showData }) {
                 placeholder="Fulfillment ID"
               />
 
-              {/* Fulfillment ID */}
+              {/* other_FSSAI_license_no */}
               <InpTp1
                 type="text"
-                Label="Fulfillment ID"
+                Label="Other FSSAI License Number"
                 showData={showData}
                 setData={setData}
-                field="fulfillment_id"
-                placeholder="Fulfillment ID"
+                field="other_FSSAI_license_no"
+                placeholder="Other FSSAI License Number"
+              />
+
+              {/* importer_FSSAI_license_no */}
+              <InpTp1
+                type="text"
+                Label="Importer FSSAI License Number"
+                showData={showData}
+                setData={setData}
+                field="importer_FSSAI_license_no"
+                placeholder="Importer FSSAI License Number"
               />
             </>
           ) : (
