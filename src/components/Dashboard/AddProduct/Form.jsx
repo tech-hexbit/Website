@@ -300,8 +300,17 @@ export default function Form({ domain }) {
   };
 
   useEffect(() => {
-    console.log(data);
+    console.table(data);
   }, [data]);
+
+  useEffect(() => {
+    if (domain !== "") {
+      setData({
+        ...data,
+        domain,
+      });
+    }
+  }, []);
 
   return (
     <>
