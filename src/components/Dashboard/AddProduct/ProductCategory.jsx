@@ -32,6 +32,14 @@ export default function ProductCategory({ setData, showData }) {
     settags(remaintags);
   };
 
+  useEffect(() => {
+    setData({
+      ...showData,
+      tags,
+    });
+    console.log(tags);
+  }, [tags]);
+
   return (
     <>
       <p className={PrCss.AboutYou}>Publish Info</p>
