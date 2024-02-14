@@ -41,6 +41,16 @@ export default function GeneralInfo({ setData, showData }) {
         placeholder="123, xyz street, Bengaluru"
       />
 
+      {/* Common or Generic Name of Commodity */}
+      <InpTp1
+        type="text"
+        Label="Common or Generic Name of Commodity"
+        showData={showData}
+        setData={setData}
+        field="common_or_generic_name_of_commodity"
+        placeholder="Shoe"
+      />
+
       {/* Brand name */}
       <InpTp1
         type="text"
