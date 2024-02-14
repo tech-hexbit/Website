@@ -74,12 +74,12 @@ export default function Form({ domain }) {
     other_FSSAI_license_no: "",
     importer_FSSAI_license_no: "",
     brand_owner_FSSAI_license_no: "",
+    ondcOrgcontact_details_consumer_care: "",
 
     // Sizes: "",
     // Colors: "",
     manufacturer_or_packer_address: "",
     common_or_generic_name_of_commodity: "",
-    ondcOrgcontact_details_consumer_care: "",
     // Status: "",
     // Visibility: "",
     // schedule_Date_and_time: "",
