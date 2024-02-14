@@ -66,8 +66,7 @@ export default function Form({ domain }) {
     ondcOrgcancellable: true,
     ondcOrgreturnable: true,
     domain: "",
-
-    // location_id: "hexbit-store-location-id-1",
+    manufacturer_or_packer_address: "",
     net_quantity: "",
     fulfillment_id: 1,
     nutritional_info: "",
@@ -76,7 +75,6 @@ export default function Form({ domain }) {
     brand_owner_FSSAI_license_no: "",
     ondcOrgcontact_details_consumer_care: "",
 
-    manufacturer_or_packer_address: "",
     common_or_generic_name_of_commodity: "",
     StoreID: authCtx.user.Store[0].StoreID._id,
   });
@@ -123,6 +121,7 @@ export default function Form({ domain }) {
       Discounts,
       Sizes,
       Colors,
+      manufacturer_or_packer_address,
       common_or_generic_name_of_commodity,
       net_quantity_or_measure_of_commodity_in_pkg,
       month_year_of_manufacture_packing_import,
