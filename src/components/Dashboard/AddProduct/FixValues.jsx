@@ -46,8 +46,6 @@ export default function FixValues({ setData, showData }) {
       if (response.data.success) {
         setLoad(false);
 
-        console.log(response.data.StoreID);
-
         setStore(response.data.StoreID);
       } else {
         setLoad(false);
@@ -88,7 +86,9 @@ export default function FixValues({ setData, showData }) {
 
   useEffect(() => {
     if (store.length > 0) {
-      console.log(store[0].Fssai);
+      console.log(store[0].ShopName);
+      console.log(store[0].Store[0].StoreID.contact.email);
+      console.log(store[0].Store[0].StoreID.contact.phone);
     }
   }, [store]);
 
@@ -331,11 +331,11 @@ export default function FixValues({ setData, showData }) {
               {/* Contact Details Consumer Care */}
               <InpTy2
                 type="text"
-                Label="Brand Owner FSSAI License No"
+                Label="Contact Details Consumer Care"
                 showData={showData}
                 setData={setData}
-                value={store[0].Fssai}
-                field="brand_owner_FSSAI_license_no"
+                value={`${store[0].ShopName}, ${store[0].Store[0].StoreID.contact.email}, ${store[0].Store[0].StoreID.contact.phone}`}
+                field="ondcOrgcontact_details_consumer_care"
                 placeholder="12345678901234"
               />
             </>
