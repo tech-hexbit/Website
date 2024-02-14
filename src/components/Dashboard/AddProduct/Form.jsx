@@ -74,7 +74,6 @@ export default function Form({ domain }) {
     importer_FSSAI_license_no: "",
     brand_owner_FSSAI_license_no: "",
     ondcOrgcontact_details_consumer_care: "",
-
     common_or_generic_name_of_commodity: "",
     StoreID: authCtx.user.Store[0].StoreID._id,
   });
