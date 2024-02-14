@@ -284,16 +284,6 @@ export default function FixValues({ setData, showData }) {
                 </select>
               </div>
 
-              {/* Loaction ID */}
-              <InpTp1
-                type="text"
-                Label="Loaction ID"
-                showData={showData}
-                setData={setData}
-                field="location_id"
-                placeholder="Location ID"
-              />
-
               {/* Fulfillment ID */}
               <InpTp1
                 type="text"
