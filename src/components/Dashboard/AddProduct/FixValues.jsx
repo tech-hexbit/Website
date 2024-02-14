@@ -295,7 +295,7 @@ export default function FixValues({ setData, showData }) {
                 placeholder="Fulfillment ID"
               />
 
-              {/* other_FSSAI_license_no */}
+              {/* Other FSSAI License No */}
               <InpTy2
                 type="text"
                 Label="Other FSSAI License Number"
@@ -306,7 +306,7 @@ export default function FixValues({ setData, showData }) {
                 placeholder="Other FSSAI License Number"
               />
 
-              {/* importer_FSSAI_license_no */}
+              {/* Importer FSSAI License No */}
               <InpTy2
                 type="text"
                 Label="Importer FSSAI License Number"
@@ -315,6 +315,17 @@ export default function FixValues({ setData, showData }) {
                 value={store[0].Fssai}
                 field="importer_FSSAI_license_no"
                 placeholder="Importer FSSAI License Number"
+              />
+
+              {/* Brand Owner FSSAI License No */}
+              <InpTy2
+                type="text"
+                Label="Brand Owner FSSAI License No"
+                showData={showData}
+                setData={setData}
+                value={store[0].Fssai}
+                field="brand_owner_FSSAI_license_no"
+                placeholder="Brand Owner FSSAI License Number"
               />
             </>
           ) : (
