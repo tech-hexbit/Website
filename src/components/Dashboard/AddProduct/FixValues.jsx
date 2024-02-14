@@ -327,6 +327,17 @@ export default function FixValues({ setData, showData }) {
                 field="brand_owner_FSSAI_license_no"
                 placeholder="12345678901234"
               />
+
+              {/* Contact Details Consumer Care */}
+              <InpTy2
+                type="text"
+                Label="Brand Owner FSSAI License No"
+                showData={showData}
+                setData={setData}
+                value={store[0].Fssai}
+                field="brand_owner_FSSAI_license_no"
+                placeholder="12345678901234"
+              />
             </>
           ) : (
             <></>
