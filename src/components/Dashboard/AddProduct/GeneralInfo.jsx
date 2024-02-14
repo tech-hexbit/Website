@@ -31,6 +31,16 @@ export default function GeneralInfo({ setData, showData }) {
         placeholder="Frito-Lay, INC."
       />
 
+      {/* Manufacturer or Packer Address */}
+      <InpTp1
+        type="text"
+        Label="Manufacturer or Packer Address"
+        showData={showData}
+        setData={setData}
+        field="manufacturer_or_packer_address"
+        placeholder="123, xyz street, Bengaluru"
+      />
+
       {/* Brand name */}
       <InpTp1
         type="text"
