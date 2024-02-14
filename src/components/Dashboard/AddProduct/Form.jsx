@@ -123,7 +123,6 @@ export default function Form({ domain }) {
       Discounts,
       Sizes,
       Colors,
-      manufacturer_or_packer_address,
       common_or_generic_name_of_commodity,
       net_quantity_or_measure_of_commodity_in_pkg,
       month_year_of_manufacture_packing_import,
