@@ -303,7 +303,7 @@ export default function FixValues({ setData, showData }) {
                 setData={setData}
                 value={store[0].Fssai}
                 field="other_FSSAI_license_no"
-                placeholder="Other FSSAI License Number"
+                placeholder="12345678901234"
               />
 
               {/* Importer FSSAI License No */}
@@ -314,7 +314,7 @@ export default function FixValues({ setData, showData }) {
                 setData={setData}
                 value={store[0].Fssai}
                 field="importer_FSSAI_license_no"
-                placeholder="Importer FSSAI License Number"
+                placeholder="12345678901234"
               />
 
               {/* Brand Owner FSSAI License No */}
@@ -325,7 +325,7 @@ export default function FixValues({ setData, showData }) {
                 setData={setData}
                 value={store[0].Fssai}
                 field="brand_owner_FSSAI_license_no"
-                placeholder="Brand Owner FSSAI License Number"
+                placeholder="12345678901234"
               />
             </>
           ) : (
