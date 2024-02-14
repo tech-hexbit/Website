@@ -297,6 +297,16 @@ export default function FixValues({ setData, showData }) {
                 field="fulfillment_id"
                 placeholder="Fulfillment ID"
               />
+
+              {/* Fulfillment ID */}
+              <InpTp1
+                type="text"
+                Label="Fulfillment ID"
+                showData={showData}
+                setData={setData}
+                field="fulfillment_id"
+                placeholder="Fulfillment ID"
+              />
             </>
           ) : (
             ""
