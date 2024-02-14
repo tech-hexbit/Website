@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 //component
 import InpTp1 from "./Input/InpTp1";
+import InpTy2 from "./Input/InpTy2";
 import SelectTp1 from "./Input/SelectTp1";
 
 // axios
@@ -87,7 +88,7 @@ export default function FixValues({ setData, showData }) {
 
   useEffect(() => {
     if (store.length > 0) {
-      console.log(store[0].Store[0].StoreID);
+      console.log(store[0].Fssai);
     }
   }, [store]);
 
@@ -295,21 +296,23 @@ export default function FixValues({ setData, showData }) {
               />
 
               {/* other_FSSAI_license_no */}
-              <InpTp1
+              <InpTy2
                 type="text"
                 Label="Other FSSAI License Number"
                 showData={showData}
                 setData={setData}
+                value={store[0].Fssai}
                 field="other_FSSAI_license_no"
                 placeholder="Other FSSAI License Number"
               />
 
               {/* importer_FSSAI_license_no */}
-              <InpTp1
+              <InpTy2
                 type="text"
                 Label="Importer FSSAI License Number"
                 showData={showData}
                 setData={setData}
+                value={store[0].Fssai}
                 field="importer_FSSAI_license_no"
                 placeholder="Importer FSSAI License Number"
               />
