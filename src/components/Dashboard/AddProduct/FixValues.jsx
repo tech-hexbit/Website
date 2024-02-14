@@ -21,7 +21,7 @@ import PrCss from "./Css/Lable.module.css";
 import ItCss from "./Input/Css/InputType1.module.css";
 
 export default function FixValues({ setData, showData }) {
-  const [store, setStore] = useState({});
+  const [store, setStore] = useState([]);
   const [load, setLoad] = useState(false);
   const [variants, setError] = useState({
     mainColor: "",
@@ -85,6 +85,12 @@ export default function FixValues({ setData, showData }) {
     loadInfo();
   }, []);
 
+  useEffect(() => {
+    if (store.length > 0) {
+      console.log(store[0].Store[0].StoreID);
+    }
+  }, [store]);
+
   return (
     <>
       <p className={PrCss.AboutYou}>Additional Info</p>
@@ -93,7 +99,7 @@ export default function FixValues({ setData, showData }) {
         <Load />
       ) : (
         <>
-          {store ? (
+          {store.length > 0 ? (
             <>
               {/* Cancellable */}
               <div className={ItCss.inpDiv}>
@@ -109,7 +115,7 @@ export default function FixValues({ setData, showData }) {
                     Select
                   </option>
 
-                  {store.cancellable ? (
+                  {store[0].Store[0].StoreID.cancellable ? (
                     <>
                       <option value="true" selected>
                         True
@@ -141,7 +147,7 @@ export default function FixValues({ setData, showData }) {
                     Select
                   </option>
 
-                  {store.returnable ? (
+                  {store[0].Store[0].StoreID.returnable ? (
                     <>
                       <option value="true" selected>
                         True
@@ -160,7 +166,7 @@ export default function FixValues({ setData, showData }) {
               </div>
 
               {/* Return Window  */}
-              {store.returnable ? (
+              {store[0].Store[0].StoreID.returnable ? (
                 <div className={ItCss.inpDiv}>
                   <p className={ItCss.inputLabel}>Return Window</p>
 
@@ -196,7 +202,7 @@ export default function FixValues({ setData, showData }) {
                     Select
                   </option>
 
-                  {store.TimeToShip ? (
+                  {store[0].Store[0].StoreID.TimeToShip ? (
                     <>
                       <option value="true" selected>
                         True
@@ -228,7 +234,7 @@ export default function FixValues({ setData, showData }) {
                     Select
                   </option>
 
-                  {store.cod ? (
+                  {store[0].Store[0].StoreID.cod ? (
                     <>
                       <option value="true" selected>
                         True
@@ -260,7 +266,7 @@ export default function FixValues({ setData, showData }) {
                     Select
                   </option>
 
-                  {store.PickupReturn ? (
+                  {store[0].Store[0].StoreID.PickupReturn ? (
                     <>
                       <option value="true" selected>
                         True
@@ -319,7 +325,7 @@ export default function FixValues({ setData, showData }) {
               />
             </>
           ) : (
-            ""
+            <></>
           )}
         </>
       )}
