@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 
 // components
-// import Form from "./AddProduct/Form";
 import Header from "./MainParts/Header";
 import UploadCsvPopup from "./AddProduct/UploadCsvPopup";
 import AddProdRET10 from "./AddProduct/Domin/AddProdRET10";
