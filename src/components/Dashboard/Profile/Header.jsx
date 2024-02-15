@@ -44,6 +44,8 @@ export default function Header() {
       });
 
       if (response.data.success) {
+        console.log(response.data.user);
+
         setUserData(response.data.user);
 
         setLoad(false);
