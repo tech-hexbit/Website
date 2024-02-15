@@ -19,6 +19,8 @@ export default function InpTy2({
         ...showData,
         [field]: value,
       });
+
+      console.log(field, value);
     }
   }, [value]);
   return (
@@ -27,7 +29,7 @@ export default function InpTy2({
 
       <input
         type={type}
-        name="days"
+        name={field}
         value={showData[field]}
         id=""
         placeholder={placeholder}
