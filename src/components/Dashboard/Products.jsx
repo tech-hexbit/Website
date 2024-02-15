@@ -77,7 +77,7 @@ export default function Products() {
 
   useEffect(() => {
     loadData();
-  }, []);
+  }, [, archive]);
 
   useEffect(() => {
     loadData();

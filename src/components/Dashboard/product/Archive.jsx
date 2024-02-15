@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 // components
+import DeleteFun from "./DeleteFun";
 import Header from "./../MainParts/Header";
 
 // axios
@@ -74,51 +75,6 @@ export default function Archive({ setArchive }) {
       });
 
       console.log(e);
-    }
-  };
-
-  const deleteproduct = async (_id) => {
-    setLoadDel(true);
-
-    try {
-      const response = await axios.delete(
-        `/api/common/product/delete/undo/${_id}`,
-        {
-          headers: { Authorization: `${authCtx.token}` },
-        }
-      );
-
-      if (response.status === 200) {
-        setLoadDel(false);
-
-        loadData();
-      } else {
-        setLoadDel(false);
-
-        console.log("error");
-
-        setError({
-          mainColor: "#FDEDED",
-          secondaryColor: "#F16360",
-          symbol: "error",
-          title: "Error",
-          text: "Unable to Add",
-          val: true,
-        });
-      }
-    } catch (error) {
-      console.log(error);
-
-      setLoadDel(false);
-
-      setError({
-        mainColor: "#FDEDED",
-        secondaryColor: "#F16360",
-        symbol: "error",
-        title: "Error",
-        text: "An unexpected error occurred",
-        val: true,
-      });
     }
   };
 
@@ -220,32 +176,11 @@ export default function Archive({ setArchive }) {
                               </div>
                             </td>
                             <td className={DCss.row} id={DCss.col6}>
-                              <div className={DCss.dots}>
-                                <div
-                                  className={DCss.deleteDiv}
-                                  onClick={() => deleteproduct(val._id)}
-                                >
-                                  {loadDel ? (
-                                    <Load />
-                                  ) : (
-                                    <svg
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      width="24"
-                                      height="24"
-                                      viewBox="0 0 24 24"
-                                      fill="none"
-                                      stroke="currentColor"
-                                      stroke-width="2"
-                                      stroke-linecap="round"
-                                      stroke-linejoin="round"
-                                      class="lucide lucide-rotate-ccw"
-                                    >
-                                      <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
-                                      <path d="M3 3v5h5" />
-                                    </svg>
-                                  )}
-                                </div>
-                              </div>
+                              <DeleteFun
+                                id={val._id}
+                                loadData={loadData}
+                                code={1}
+                              />
                             </td>
                           </tr>
                         </>
@@ -253,7 +188,7 @@ export default function Archive({ setArchive }) {
                     })}
                   </>
                 ) : (
-                  <p className="NoOrders">No Orders</p>
+                  ""
                 )}
               </table>
 
@@ -318,30 +253,12 @@ export default function Archive({ setArchive }) {
                                     </p>
                                   </div>
                                 </div>
-                                <div
-                                  className={cardDisplay.deleteBtn}
-                                  onClick={() => deleteproduct(val._id)}
-                                >
-                                  {loadDel ? (
-                                    <Load />
-                                  ) : (
-                                    <svg
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      width="24"
-                                      height="24"
-                                      viewBox="0 0 24 24"
-                                      fill="none"
-                                      stroke="currentColor"
-                                      stroke-width="2"
-                                      stroke-linecap="round"
-                                      stroke-linejoin="round"
-                                      class="lucide lucide-rotate-ccw"
-                                    >
-                                      <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
-                                      <path d="M3 3v5h5" />
-                                    </svg>
-                                  )}
-                                </div>
+
+                                <DeleteFun
+                                  id={val._id}
+                                  loadData={loadData}
+                                  code={1}
+                                />
                               </div>
                             );
                           })}
