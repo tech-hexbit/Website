@@ -84,14 +84,30 @@ export default function AddProduct() {
           {domain === "ONDC:RET11"
             ? "We currently Do Not Support ONDC:RET11 - Food & Beverage"
             : ""}
-          {domain === "ONDC:RET12" ? "" : ""}
-          {domain === "ONDC:RET13" ? "" : ""}
-          {domain === "ONDC:RET14" ? "" : ""}
-          {domain === "ONDC:RET15" ? "" : ""}
-          {domain === "ONDC:RET16" ? "" : ""}
-          {domain === "ONDC:RET17" ? "" : ""}
-          {domain === "ONDC:RET18" ? "" : ""}
-          {domain === "ONDC:RET19" ? "" : ""}
+          {domain === "ONDC:RET12"
+            ? "We currently Do Not Support ONDC:RET12 - Fashion"
+            : ""}
+          {domain === "ONDC:RET13"
+            ? "We currently Do Not Support ONDC:RET13 - "
+            : ""}
+          {domain === "ONDC:RET14"
+            ? "We currently Do Not Support ONDC:RET14 - "
+            : ""}
+          {domain === "ONDC:RET15"
+            ? "We currently Do Not Support ONDC:RET15 - "
+            : ""}
+          {domain === "ONDC:RET16"
+            ? "We currently Do Not Support ONDC:RET16 - "
+            : ""}
+          {domain === "ONDC:RET17"
+            ? "We currently Do Not Support ONDC:RET17 - "
+            : ""}
+          {domain === "ONDC:RET18"
+            ? "We currently Do Not Support ONDC:RET18 - "
+            : ""}
+          {domain === "ONDC:RET19"
+            ? "We currently Do Not Support ONDC:RET19 - "
+            : ""}
 
           {showPopup && (
             <UploadCsvPopup setShowPopup={setShowPopup} setError={setError} />
