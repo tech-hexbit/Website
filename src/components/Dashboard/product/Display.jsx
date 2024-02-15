@@ -201,7 +201,7 @@ export default function Display({
                               </div>
                             </td>
                             <td className={DCss.row} id={DCss.col6}>
-                              <DeleteFun id={val._id} />
+                              <DeleteFun id={val._id} loadData={loadData} />
                             </td>
                           </tr>
                         </>
