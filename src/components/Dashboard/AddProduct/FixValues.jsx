@@ -90,6 +90,12 @@ export default function FixValues({ setData, showData }) {
         importer_FSSAI_license_no: store[0].Fssai,
         brand_owner_FSSAI_license_no: store[0].Fssai,
         ondcOrgcontact_details_consumer_care: `${store[0].ShopName}, ${store[0].Store[0].StoreID.contact.email}, ${store[0].Store[0].StoreID.contact.phone}`,
+        ondcOrgcancellable: store[0].Store[0].StoreID.cancellable,
+        ondcOrgreturnable: store[0].Store[0].StoreID.returnable,
+        ondcOrgtime_to_ship: store[0].Store[0].StoreID.TimeToShip,
+        ondcOrgseller_pickup_return: store[0].Store[0].StoreID.PickupReturn,
+        ondcOrgreturn_window: store[0].Store[0].StoreID.returnWindow,
+        ondcOrgavailable_on_cod: store[0].Store[0].StoreID.cod,
       });
     }
   }, [store]);
