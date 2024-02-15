@@ -69,10 +69,60 @@ export default function DeleteFun({ id, loadData, code }) {
     }
   };
 
+  const deleteproductUndo = async () => {
+    setLoadDel(true);
+
+    try {
+      const response = await axios.delete(
+        `/api/common/product/delete/undo/${id}`,
+        {
+          headers: { Authorization: `${authCtx.token}` },
+        }
+      );
+
+      if (response.status === 200) {
+        setLoadDel(false);
+
+        loadData();
+      } else {
+        setLoadDel(false);
+
+        console.log("error");
+
+        setError({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "Unable to Add",
+          val: true,
+        });
+      }
+    } catch (error) {
+      console.log(error);
+
+      setLoadDel(false);
+
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "An unexpected error occurred",
+        val: true,
+      });
+    }
+  };
+
   return (
     <>
       <div className={DCss.dots}>
-        <div className={DCss.deleteDiv} onClick={deleteproduct}>
+        <div
+          className={DCss.deleteDiv}
+          onClick={() => {
+            code === 0 ? deleteproduct() : deleteproductUndo();
+          }}
+        >
           {loadDel ? (
             <Load />
           ) : (
