@@ -125,7 +125,7 @@ export default function Form({ domain }) {
       ondcOrgreturnable,
       domain,
       manufacturer_or_packer_address,
-      net_quantity,
+      // net_quantity,
       fulfillment_id,
       nutritional_info,
       other_FSSAI_license_no,
@@ -162,7 +162,7 @@ export default function Form({ domain }) {
       ondcOrgreturnable !== "" &&
       domain !== "" &&
       manufacturer_or_packer_address !== "" &&
-      net_quantity !== "" &&
+      // net_quantity !== "" &&
       fulfillment_id !== "" &&
       nutritional_info !== "" &&
       other_FSSAI_license_no !== "" &&
@@ -233,7 +233,7 @@ export default function Form({ domain }) {
           //   ondcOrgreturnable: "",
           //   domain: "",
           //   manufacturer_or_packer_address: "",
-          //   net_quantity: "",
+          //   //net_quantity: "",
           //   fulfillment_id: 1,
           //   nutritional_info: "",
           //   other_FSSAI_license_no: "",
