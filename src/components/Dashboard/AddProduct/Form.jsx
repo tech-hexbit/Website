@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 import Service from "./Service";
 import FixValues from "./FixValues";
 import GeneralInfo from "./GeneralInfo";
-// import SubjectiveInfo from "./SubjectiveInfo";
 import InfoSubjective from "./InfoSubjective";
 import ProductCategory from "./ProductCategory";
 import ProdParticulars from "./ProdParticulars";
