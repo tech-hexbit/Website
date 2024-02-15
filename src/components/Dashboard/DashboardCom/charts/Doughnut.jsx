@@ -97,7 +97,7 @@ export default function DoughnutChart() {
   }, []);
 
   return (
-    <div className="d-chart">
+    <div className="dChart">
       {load ? (
         <div className="loadCenterDivM">
           <Load />
