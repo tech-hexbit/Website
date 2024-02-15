@@ -84,6 +84,17 @@ export default function FixValues({ setData, showData }) {
     loadInfo();
   }, []);
 
+  useEffect(() => {
+    if (store.length > 0) {
+      setData({
+        ...showData,
+        other_FSSAI_license_no: store[0].Fssai,
+        importer_FSSAI_license_no: store[0].Fssai,
+        brand_owner_FSSAI_license_no: store[0].Fssai,
+      });
+    }
+  }, [store]);
+
   return (
     <>
       <p className={PrCss.AboutYou}>Additional Info</p>
