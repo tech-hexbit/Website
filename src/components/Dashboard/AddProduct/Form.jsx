@@ -43,7 +43,7 @@ export default function Form({ domain }) {
 
   const [data, setData] = useState({
     name: "",
-    symbol: "",
+    // symbol: "",
     images: [],
     long_desc: "",
     short_desc: "",
@@ -101,7 +101,7 @@ export default function Form({ domain }) {
 
     const {
       name,
-      symbol,
+      // symbol,
       images,
       long_desc,
       short_desc,
@@ -138,7 +138,7 @@ export default function Form({ domain }) {
 
     if (
       name !== "" &&
-      symbol !== "" &&
+      // symbol !== "" &&
       images !== "" &&
       long_desc !== "" &&
       short_desc !== "" &&
