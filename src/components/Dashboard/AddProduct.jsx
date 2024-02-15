@@ -81,8 +81,10 @@ export default function AddProduct() {
           </div>
 
           {domain === "ONDC:RET10" ? <AddProdRET10 domain={domain} /> : ""}
-
-          {/* <Form domain={domain} /> */}
+          {domain === "ONDC:RET11" ? "" : ""}
+          {domain === "ONDC:RET12" ? "" : ""}
+          {domain === "ONDC:RET13" ? "" : ""}
+          {domain === "ONDC:RET14" ? "" : ""}
 
           {showPopup && (
             <UploadCsvPopup setShowPopup={setShowPopup} setError={setError} />
