@@ -1,14 +1,21 @@
 import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 
+// state
+import AuthContext from "./../../../store/auth-context";
+
+// axios
+import axios from "axios";
+
 // MicroInteraction
 import Load from "./../../../MicroInteraction/LoadBlack";
+import { Alert } from "./../../../MicroInteraction/Alert";
 
 // css
 import DCss from "./Css/display.module.css";
 import cardDisplay from "./Css/cardDisplay.module.css";
 
-export default function DeleteFun({ id }) {
+export default function DeleteFun({ id, loadData }) {
   const [loadDel, setLoadDel] = useState(false);
   const [variants, setError] = useState({
     mainColor: "",
@@ -19,11 +26,13 @@ export default function DeleteFun({ id }) {
     val: false,
   });
 
+  const authCtx = useContext(AuthContext);
+
   const deleteproduct = async () => {
     setLoadDel(true);
 
     try {
-      const response = await axios.delete(`/api/common/product/delete/${_id}`, {
+      const response = await axios.delete(`/api/common/product/delete/${id}`, {
         headers: { Authorization: `${authCtx.token}` },
       });
 
