@@ -15,7 +15,6 @@ import { Alert } from "./../../../MicroInteraction/Alert";
 import AuthContext from "../../../store/auth-context";
 
 // css
-import FCss from "./Css/Form.module.css";
 import PrCss from "./Css/Lable.module.css";
 import ItCss from "./Input/Css/InputType1.module.css";
 
