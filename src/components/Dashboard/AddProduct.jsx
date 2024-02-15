@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 
 // components
-// import Form from "./AddProduct/Form";
 import Header from "./MainParts/Header";
 import UploadCsvPopup from "./AddProduct/UploadCsvPopup";
 import AddProdRET10 from "./AddProduct/Domin/AddProdRET10";
@@ -81,8 +80,33 @@ export default function AddProduct() {
           </div>
 
           {domain === "ONDC:RET10" ? <AddProdRET10 domain={domain} /> : ""}
-
-          {/* <Form domain={domain} /> */}
+          {domain === "ONDC:RET11"
+            ? "We currently Do Not Support ONDC:RET11 - Food & Beverage"
+            : ""}
+          {domain === "ONDC:RET12"
+            ? "We currently Do Not Support ONDC:RET12 - Fashion"
+            : ""}
+          {domain === "ONDC:RET13"
+            ? "We currently Do Not Support ONDC:RET13 - Beauty and Personal Care"
+            : ""}
+          {domain === "ONDC:RET14"
+            ? "We currently Do Not Support ONDC:RET14 - Electronics"
+            : ""}
+          {domain === "ONDC:RET15"
+            ? "We currently Do Not Support ONDC:RET15 - Appliances"
+            : ""}
+          {domain === "ONDC:RET16"
+            ? "We currently Do Not Support ONDC:RET16 - Home & Decor & Kitchen"
+            : ""}
+          {domain === "ONDC:RET17"
+            ? "We currently Do Not Support ONDC:RET17 - Toy & Games"
+            : ""}
+          {domain === "ONDC:RET18"
+            ? "We currently Do Not Support ONDC:RET18 - Health & Wellness"
+            : ""}
+          {domain === "ONDC:RET19"
+            ? "We currently Do Not Support ONDC:RET19 - Pharma"
+            : ""}
 
           {showPopup && (
             <UploadCsvPopup setShowPopup={setShowPopup} setError={setError} />
