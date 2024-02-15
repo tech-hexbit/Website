@@ -27,7 +27,7 @@ export default function InfoSubjective({ setData, showData }) {
         Label="Nutritional Info"
         showData={showData}
         setData={setData}
-        field="net_quantity"
+        field="nutritional_info"
         placeholder="Energy(KCal)-(per 100kg) 420, (per serving 50g)250; Protein(g)-(per 100kg) 12, (per serving 50g) 6"
       />
     </>
