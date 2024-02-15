@@ -188,7 +188,7 @@ export default function Archive({ setArchive }) {
                     })}
                   </>
                 ) : (
-                  <p className="NoOrders">No Orders</p>
+                  ""
                 )}
               </table>
 
