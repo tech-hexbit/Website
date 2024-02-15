@@ -9,16 +9,16 @@ import EditProfileImage from "./EditProfileImage";
 // axios
 import axios from "axios";
 
-// Css
-import "./Css/Common.css";
-import HPCss from "./Css/Header.module.css";
-
 // state
 import AuthContext from "./../../../store/auth-context";
 
 // MicroInteraction
 import Load from "./../../../MicroInteraction/LoadBlack";
 import { Alert } from "./../../../MicroInteraction/Alert";
+
+// Css
+import "./Css/Common.css";
+import HPCss from "./Css/Header.module.css";
 
 export default function Header() {
   const [load, setLoad] = useState(false);
@@ -44,6 +44,8 @@ export default function Header() {
       });
 
       if (response.data.success) {
+        console.log(response.data.user);
+
         setUserData(response.data.user);
 
         setLoad(false);

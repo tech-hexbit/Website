@@ -96,10 +96,8 @@ export default function DoughnutChart() {
     loadData();
   }, []);
 
-  console.log('graphdata',graphData);
-
   return (
-    <div className="d-chart">
+    <div className="dChart">
       {load ? (
         <div className="loadCenterDivM">
           <Load />

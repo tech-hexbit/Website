@@ -37,8 +37,6 @@ export default function AddProduct() {
   });
 
   const handleCategoryClick = (category) => {
-    console.log("Category clicked - ");
-
     setDomain(category.code);
 
     setCategory({

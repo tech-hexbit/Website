@@ -1,11 +1,9 @@
-.d-chart{
-    width: 400px;
-
+.dChart {
+  max-width: 600px;
 }
 
-@media screen and (max-width: 690px ){
-      .d-chart{
-        width: auto;
-      }
+@media screen and (max-width: 690px) {
+  .dChart {
+    width: auto;
+  }
 }
-    
