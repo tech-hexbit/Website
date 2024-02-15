@@ -1,5 +1,16 @@
 import React from "react";
 
+//component
+import Form from "./Form";
+
 export default function AddProdRET10() {
-  return <div>AddProdRET10</div>;
+  return (
+    <>
+      <Form domain={domain} />
+    </>
+  );
 }
+
+AddProdRET10.propTypes = {
+  domain: PropTypes.string.isRequired,
+};
