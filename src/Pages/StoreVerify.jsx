@@ -27,6 +27,7 @@ export default function StoreVerify() {
   const [showData, setData] = useState({
     DOB: "",
     City: "",
+    cod: "",
     Days: "",
     State: "",
     Gstin: "",
@@ -50,6 +51,8 @@ export default function StoreVerify() {
     amountValue: "",
     AcHolderName: "",
     FssaiLicence: "",
+    returnWindow: "",
+    PickupReturn: "",
     SupportEmail: "",
     StoreLocation: "",
     ContactDetails: "",
@@ -83,35 +86,38 @@ export default function StoreVerify() {
   const onSubmit = async () => {
     setLoad(true);
     if (
-      showData.FirstName === "" ||
-      showData.LastName === "" ||
-      showData.LegalName === "" ||
-      showData.EmailID === "" ||
       showData.DOB === "" ||
-      showData.Description === "" ||
-      showData.Pincode === "" ||
-      showData.Address === "" ||
+      showData.cod === "" ||
       showData.City === "" ||
+      showData.times == [] ||
+      showData.Days === "" ||
       showData.State === "" ||
-      showData.StoreLocation === "" ||
-      showData.AccountNo === "" ||
-      showData.IfscCode === "" ||
-      showData.AcHolderName === "" ||
-      showData.BankName === "" ||
-      showData.BranchName === "" ||
       showData.Gstin === "" ||
       showData.PanNo === "" ||
-      showData.LocationAvailabilityMode === "" ||
-      showData.TimeToShip === "" ||
       showData.radius === "" ||
+      showData.EmailID === "" ||
+      showData.Pincode === "" ||
+      showData.Address === "" ||
+      showData.LastName === "" ||
+      showData.IfscCode === "" ||
+      showData.BankName === "" ||
+      showData.FirstName === "" ||
+      showData.LegalName === "" ||
+      showData.AccountNo === "" ||
+      showData.TimeToShip === "" ||
       showData.Percentage === "" ||
+      showData.BranchName === "" ||
+      showData.Description === "" ||
       showData.Cancellable === "" ||
       showData.Returnable === "" ||
       showData.amountValue === "" ||
-      showData.times == [] ||
-      showData.Days === "" ||
+      showData.returnWindow === "" ||
+      showData.PickupReturn === "" ||
+      showData.AcHolderName === "" ||
+      showData.StoreLocation === "" ||
+      showData.SupportEmail === "" ||
       showData.ContactDetails === "" ||
-      showData.SupportEmail === ""
+      showData.LocationAvailabilityMode === ""
     ) {
       setLoad(false);
 
@@ -123,13 +129,18 @@ export default function StoreVerify() {
         text: "Please Fill All The Details",
         val: true,
       });
-    } else if (!verifyPin || !disable.Bank || !disable.Gstin || disable.Pan) {
+    } else if (
+      !disable.Pincode ||
+      !disable.Bank ||
+      !disable.Gstin ||
+      !disable.Pan
+    ) {
       setError({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
         symbol: "pets",
         title: "Check it out",
-        text: !verifyPin
+        text: !disable.Pincode
           ? "Invalid pincode"
           : !disable.Bank
           ? "Invalid Bank Details"
@@ -198,6 +209,10 @@ export default function StoreVerify() {
   useEffect(() => {
     console.table(showData);
   }, [showData]);
+
+  useEffect(() => {
+    console.table(disable);
+  }, [disable]);
 
   return (
     <>

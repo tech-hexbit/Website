@@ -1,24 +1,35 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 
 // css
-import PrCss from "./Css/InputType1.module.css";
+import ItCss from "./Css/InputType1.module.css";
 
-export default function InputType1({
+export default function InpTy2({
   Label,
   type,
+  value,
   field,
   setData,
   showData,
   placeholder,
 }) {
+  useEffect(() => {
+    if (value !== "") {
+      setData({
+        ...showData,
+        [field]: value,
+      });
+
+      console.log(field, value);
+    }
+  }, [value]);
   return (
-    <div className={PrCss.inpDiv}>
-      <p className={PrCss.inputLabel}>{Label}</p>
+    <div className={ItCss.inpDiv}>
+      <p className={ItCss.inputLabel}>{Label}</p>
 
       <input
         type={type}
-        name="days"
+        name={field}
         value={showData[field]}
         id=""
         placeholder={placeholder}
@@ -30,9 +41,10 @@ export default function InputType1({
   );
 }
 
-InputType1.propTypes = {
+InpTy2.propTypes = {
   type: PropTypes.string.isRequired,
   Label: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
   field: PropTypes.string.isRequired,
   showData: PropTypes.object.isRequired,
   placeholder: PropTypes.string.isRequired,

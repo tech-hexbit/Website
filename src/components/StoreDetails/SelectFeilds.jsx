@@ -9,27 +9,29 @@ import OfCss from "./Css/OndcField.module.css";
 
 export default function SelectFeilds({ showData, setData }) {
   const handleSelectChangeReturn = (event) => {
+    const name = event.target.name;
     const selectedValue = event.target.value;
-    setData({
-      ...showData,
-      Returnable: selectedValue,
-    });
-  };
 
-  const handleSelectChangeCancel = (event) => {
-    const selectedValue = event.target.value;
     setData({
       ...showData,
-      Cancellable: selectedValue,
+      [name]: selectedValue,
     });
-  };
 
-  const handleChangeTTS = (event) => {
-    const selectedValue = event.target.value;
-    setData({
-      ...showData,
-      TimeToShip: selectedValue,
-    });
+    if (name === "Returnable" && selectedValue === "false") {
+      setData({
+        ...showData,
+        returnWindow: "P0D",
+      });
+    } else if (
+      name === "Returnable" &&
+      selectedValue === "true" &&
+      showData.returnWindow === "P0D"
+    ) {
+      setData({
+        ...showData,
+        returnWindow: "",
+      });
+    }
   };
 
   return (
@@ -37,7 +39,7 @@ export default function SelectFeilds({ showData, setData }) {
       {/* Time to ship */}
       <div className={OfCss.inpDiv}>
         <div className={OfCss.inputLabel}>Time to ship</div>
-        <select name="languages" id="lang" onChange={handleChangeTTS}>
+        <select name="TimeToShip" id="lang" onChange={handleSelectChangeReturn}>
           <option disabled hidden selected>
             Choose option
           </option>
@@ -46,10 +48,11 @@ export default function SelectFeilds({ showData, setData }) {
           <option value="P7D">7 Days</option>
         </select>
       </div>
+
       {/* Cancellable */}
       <div className={OfCss.inpDiv}>
         <div className={OfCss.inputLabel}>Cancellable</div>
-        <select name="languages" id="lang" onChange={handleSelectChangeCancel}>
+        <select name="Cancellable" id="" onChange={handleSelectChangeReturn}>
           <option disabled hidden selected>
             Choose option
           </option>
@@ -57,10 +60,11 @@ export default function SelectFeilds({ showData, setData }) {
           <option value={false}>False</option>
         </select>
       </div>
+
       {/* Returnable */}
       <div className={OfCss.inpDiv}>
         <div className={OfCss.inputLabel}>Returnable</div>
-        <select name="languages" id="lang" onChange={handleSelectChangeReturn}>
+        <select name="Returnable" id="" onChange={handleSelectChangeReturn}>
           <option disabled hidden selected>
             Choose option
           </option>
@@ -68,6 +72,54 @@ export default function SelectFeilds({ showData, setData }) {
           <option value={false}>False</option>
         </select>
       </div>
+
+      {showData.Returnable ? (
+        <>
+          {/* Return Window */}
+          <div className={OfCss.inpDiv}>
+            <div className={OfCss.inputLabel}>Return Window</div>
+            <select
+              name="returnWindow"
+              id=""
+              onChange={handleSelectChangeReturn}
+            >
+              <option disabled hidden selected>
+                Choose option
+              </option>
+              <option value="P1D">1 Days</option>
+              <option value="P4D">4 Days</option>
+              <option value="P7D">7 Days</option>
+            </select>
+          </div>
+        </>
+      ) : (
+        ""
+      )}
+
+      {/* Pickup Return */}
+      <div className={OfCss.inpDiv}>
+        <div className={OfCss.inputLabel}>Pickup Return</div>
+        <select name="PickupReturn" id="" onChange={handleSelectChangeReturn}>
+          <option disabled hidden selected>
+            Choose option
+          </option>
+          <option value={true}>True</option>
+          <option value={false}>False</option>
+        </select>
+      </div>
+
+      {/* COD */}
+      <div className={OfCss.inpDiv}>
+        <div className={OfCss.inputLabel}>Cash On Delivery(COD)</div>
+        <select name="cod" id="" onChange={handleSelectChangeReturn}>
+          <option disabled hidden selected>
+            Choose option
+          </option>
+          <option value={true}>True</option>
+          <option value={false}>False</option>
+        </select>
+      </div>
+
       {/* Radius */}
       <InputType1
         type="number"
@@ -76,7 +128,7 @@ export default function SelectFeilds({ showData, setData }) {
         setData={setData}
         field="radius"
         placeholder="1500 (Km)"
-      />{" "}
+      />
     </>
   );
 }

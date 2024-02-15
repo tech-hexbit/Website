@@ -16,6 +16,17 @@ import ApCss from "./Css/AddProduct.module.css";
 import AuthContext from "../../store/auth-context";
 
 export default function AddProduct() {
+  const [domain, setDomain] = useState("");
+  const [showPopup, setShowPopup] = useState(false);
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
+
   const authCtx = useContext(AuthContext);
 
   const userCategory = authCtx.user.category;
@@ -26,25 +37,15 @@ export default function AddProduct() {
   });
 
   const handleCategoryClick = (category) => {
-    console.log("Category clicked");
+    console.log("Category clicked - ");
+
+    setDomain(category.code);
 
     setCategory({
       ...showCategory,
       state: false,
     });
   };
-
-  useEffect(() => {}, [showCategory]);
-
-  const [showPopup, setShowPopup] = useState(false);
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   useEffect(() => {
     setTimeout(() => {
@@ -70,6 +71,7 @@ export default function AddProduct() {
         <div className={ApCss.mDiv}>
           <div className={ApCss.headDiv}>
             <Header name="Add Product" />
+
             <div className={ApCss.addCsv}>
               <button onClick={() => setShowPopup(true)}>
                 + <span className={ApCss.hideTxt}>Add bulk</span>
@@ -77,7 +79,7 @@ export default function AddProduct() {
             </div>
           </div>
 
-          <Form />
+          <Form domain={domain} />
 
           {showPopup && (
             <UploadCsvPopup setShowPopup={setShowPopup} setError={setError} />

@@ -30,6 +30,7 @@ const SelectInput = ({ setData, showData }) => {
           <option value="2">2</option>
         </select>
       </div>
+
       {/* Store Description */}
       <InputType1
         type="text"

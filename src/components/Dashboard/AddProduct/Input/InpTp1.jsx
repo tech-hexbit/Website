@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 // css
-import PrCss from "./Css/InputType1.module.css";
+import ItCss from "./Css/InputType1.module.css";
 
-export default function InputType1({
+export default function InpTp1({
   Label,
   type,
   field,
@@ -13,8 +13,8 @@ export default function InputType1({
   placeholder,
 }) {
   return (
-    <div className={PrCss.inpDiv}>
-      <p className={PrCss.inputLabel}>{Label}</p>
+    <div className={ItCss.inpDiv}>
+      <p className={ItCss.inputLabel}>{Label}</p>
 
       <input
         type={type}
@@ -30,7 +30,7 @@ export default function InputType1({
   );
 }
 
-InputType1.propTypes = {
+InpTp1.propTypes = {
   type: PropTypes.string.isRequired,
   Label: PropTypes.string.isRequired,
   field: PropTypes.string.isRequired,

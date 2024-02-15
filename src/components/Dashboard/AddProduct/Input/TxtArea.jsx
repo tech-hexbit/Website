@@ -1,37 +1,36 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 // css
-import PrCss from "./Css/InputType1.module.css";
+import ItCss from "./Css/InputType1.module.css";
 
-export default function InputType1({
+export default function TxtArea({
   Label,
-  type,
   field,
   setData,
   showData,
   placeholder,
 }) {
   return (
-    <div className={PrCss.inpDiv}>
-      <p className={PrCss.inputLabel}>{Label}</p>
+    <div className={ItCss.inpDiv}>
+      <p className={ItCss.inputLabel}>{Label}</p>
 
-      <input
-        type={type}
+      <textarea
         name="days"
-        value={showData[field]}
         id=""
+        cols="30"
+        rows="10"
+        value={showData[field]}
         placeholder={placeholder}
         onChange={(e) => {
           setData({ ...showData, [field]: e.target.value });
         }}
-      />
+      ></textarea>
     </div>
   );
 }
 
-InputType1.propTypes = {
-  type: PropTypes.string.isRequired,
+TxtArea.propTypes = {
   Label: PropTypes.string.isRequired,
   field: PropTypes.string.isRequired,
   showData: PropTypes.object.isRequired,

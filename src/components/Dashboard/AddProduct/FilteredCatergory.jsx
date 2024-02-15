@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 // css
 import fc from "./Css/FilteredCatergory.module.css";
@@ -28,3 +29,13 @@ export default function FilteredCatergory({
     </>
   );
 }
+
+FilteredCatergory.propTypes = {
+  selectedCategories: PropTypes.arrayOf(
+    PropTypes.shape({
+      img: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  onCategoryClick: PropTypes.func.isRequired,
+};

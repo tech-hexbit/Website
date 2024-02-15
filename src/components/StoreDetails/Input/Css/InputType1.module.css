@@ -1,11 +1,12 @@
 .inpDiv {
   width: 100%;
   display: flex;
-  /* align-items: center; */
 }
+
 .inputLabel {
   text-align: left;
 }
+
 .inpDiv,
 .inputLdivFile {
   color: #606060;
@@ -19,7 +20,6 @@
 
 .inpDiv input,
 .inpDiv select {
-  /* flex-basis: 70%; */
   width: 67.5%;
   outline: none;
   border: 1px solid #909090;
@@ -40,6 +40,7 @@
 #inpTag {
   cursor: not-allowed;
 }
+
 .badgeIcon {
   position: absolute;
   right: 10px;
@@ -47,24 +48,15 @@
   color: black;
   font-size: 0;
 }
+
 .inputDivVerified {
   position: relative;
   width: 67.5%;
-  /* flex-basis: 70%; */
 }
+
 .inputDivVerified input {
   width: 100%;
 }
-/* @media screen and (max-width: 600px) {
-  .inpDiv input,
-  select {
-    flex-basis: 60%;
-  }
-
-  .inputLabel {
-    width: 15%;
-  }
-} */
 
 @media screen and (max-width: 400px) {
   .inpDiv input,
@@ -80,14 +72,17 @@
     width: 100%;
   }
 }
+
 @media screen and (max-width: 1024px) {
   .inpDiv {
     flex-direction: column;
   }
+
   .inpDiv input,
   .inputDivVerified {
     width: 100%;
   }
+
   .inputLabel {
     text-wrap: nowrap;
   }
