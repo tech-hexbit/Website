@@ -8,11 +8,11 @@ import InpTp1 from "./Input/InpTp1";
 import axios from "axios";
 
 // MicroInteraction
-import Load from "./../../../MicroInteraction/LoadBlack";
-import { Alert } from "./../../../MicroInteraction/Alert";
+import Load from "./../../../../MicroInteraction/LoadBlack";
+import { Alert } from "./../../../../MicroInteraction/Alert";
 
 // state
-import AuthContext from "../../../store/auth-context";
+import AuthContext from "../../../../store/auth-context";
 
 // css
 import PrCss from "./Css/Lable.module.css";

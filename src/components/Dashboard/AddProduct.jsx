@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 
 // components
-import Form from "./AddProduct/Form";
+// import Form from "./AddProduct/Form";
 import Header from "./MainParts/Header";
 import UploadCsvPopup from "./AddProduct/UploadCsvPopup";
+import AddProdRET10 from "./AddProduct/Domin/AddProdRET10";
 import FilteredCategory from "./AddProduct/FilteredCatergory";
 
 // MicroInteraction
@@ -79,7 +80,9 @@ export default function AddProduct() {
             </div>
           </div>
 
-          <Form domain={domain} />
+          {domain === "ONDC:RET10" ? <AddProdRET10 domain={domain} /> : ""}
+
+          {/* <Form domain={domain} /> */}
 
           {showPopup && (
             <UploadCsvPopup setShowPopup={setShowPopup} setError={setError} />

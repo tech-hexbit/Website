@@ -5,21 +5,20 @@ import PropTypes from "prop-types";
 import Service from "./Service";
 import FixValues from "./FixValues";
 import GeneralInfo from "./GeneralInfo";
-// import SubjectiveInfo from "./SubjectiveInfo";
 import InfoSubjective from "./InfoSubjective";
 import ProductCategory from "./ProductCategory";
 import ProdParticulars from "./ProdParticulars";
-import MultipleImageHandler from "./MultipleImageHandler";
+import MultipleImageHandler from "./../MultipleImageHandler";
 
 // MicroInteraction
-import Load from "./../../../MicroInteraction/Load";
-import { Alert } from "./../../../MicroInteraction/Alert";
+import Load from "./../../../../MicroInteraction/Load";
+import { Alert } from "./../../../../MicroInteraction/Alert";
 
 // axios
 import axios from "axios";
 
 // state
-import AuthContext from "../../../store/auth-context";
+import AuthContext from "../../../../store/auth-context";
 
 // css
 import FCss from "./Css/Form.module.css";
