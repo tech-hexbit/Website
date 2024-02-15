@@ -85,6 +85,11 @@ export default function AddProduct() {
           {domain === "ONDC:RET12" ? "" : ""}
           {domain === "ONDC:RET13" ? "" : ""}
           {domain === "ONDC:RET14" ? "" : ""}
+          {domain === "ONDC:RET15" ? "" : ""}
+          {domain === "ONDC:RET16" ? "" : ""}
+          {domain === "ONDC:RET17" ? "" : ""}
+          {domain === "ONDC:RET18" ? "" : ""}
+          {domain === "ONDC:RET19" ? "" : ""}
 
           {showPopup && (
             <UploadCsvPopup setShowPopup={setShowPopup} setError={setError} />
