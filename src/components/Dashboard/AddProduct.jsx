@@ -82,7 +82,7 @@ export default function AddProduct() {
 
           {domain === "ONDC:RET10" ? <AddProdRET10 domain={domain} /> : ""}
 
-          <Form domain={domain} />
+          {/* <Form domain={domain} /> */}
 
           {showPopup && (
             <UploadCsvPopup setShowPopup={setShowPopup} setError={setError} />
