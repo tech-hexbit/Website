@@ -144,6 +144,7 @@ export default function Display({
                 className={DCss.tableTag}
                 style={{ borderCollapse: "collapse" }}
               >
+                {/* desktop */}
                 {filteredlist.productList.length > 0 ? (
                   <>
                     <tr>
@@ -217,6 +218,7 @@ export default function Display({
                 )}
               </table>
 
+              {/* mobo */}
               {filteredlist.productList ? (
                 <>
                   <div>
