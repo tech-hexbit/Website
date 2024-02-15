@@ -91,6 +91,7 @@ export default function FixValues({ setData, showData }) {
         other_FSSAI_license_no: store[0].Fssai,
         importer_FSSAI_license_no: store[0].Fssai,
         brand_owner_FSSAI_license_no: store[0].Fssai,
+        ondcOrgcontact_details_consumer_care: `${store[0].ShopName}, ${store[0].Store[0].StoreID.contact.email}, ${store[0].Store[0].StoreID.contact.phone}`,
       });
     }
   }, [store]);
@@ -299,45 +300,41 @@ export default function FixValues({ setData, showData }) {
               />
 
               {/* Other FSSAI License No */}
-              <InpTy2
+              <InpTp1
                 type="text"
                 Label="Other FSSAI License Number"
                 showData={showData}
                 setData={setData}
-                value={store[0].Fssai}
                 field="other_FSSAI_license_no"
                 placeholder="12345678901234"
               />
 
               {/* Importer FSSAI License No */}
-              <InpTy2
+              <InpTp1
                 type="text"
                 Label="Importer FSSAI License Number"
                 showData={showData}
                 setData={setData}
-                value={store[0].Fssai}
                 field="importer_FSSAI_license_no"
                 placeholder="12345678901234"
               />
 
               {/* Brand Owner FSSAI License No */}
-              <InpTy2
+              <InpTp1
                 type="text"
                 Label="Brand Owner FSSAI License No"
                 showData={showData}
                 setData={setData}
-                value={store[0].Fssai}
                 field="brand_owner_FSSAI_license_no"
                 placeholder="12345678901234"
               />
 
               {/* Contact Details Consumer Care */}
-              <InpTy2
+              <InpTp1
                 type="text"
                 Label="Contact Details Consumer Care"
                 showData={showData}
                 setData={setData}
-                value={`${store[0].ShopName}, ${store[0].Store[0].StoreID.contact.email}, ${store[0].Store[0].StoreID.contact.phone}`}
                 field="ondcOrgcontact_details_consumer_care"
                 placeholder="12345678901234"
               />
