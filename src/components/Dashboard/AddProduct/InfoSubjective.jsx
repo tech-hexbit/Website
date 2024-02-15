@@ -12,15 +12,6 @@ export default function InfoSubjective({ setData, showData }) {
   return (
     <>
       <p className={PrCss.AboutYou}>Subjective Info</p>
-      {/* Net Quantity */}
-      <InpTp1
-        type="text"
-        Label="Net Quantity"
-        showData={showData}
-        setData={setData}
-        field="net_quantity"
-        placeholder="120 g"
-      />
 
       {/* Nutritional Info */}
       <TxtArea
