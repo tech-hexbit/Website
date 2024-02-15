@@ -84,14 +84,6 @@ export default function FixValues({ setData, showData }) {
     loadInfo();
   }, []);
 
-  useEffect(() => {
-    if (store.length > 0) {
-      console.log(store[0].ShopName);
-      console.log(store[0].Store[0].StoreID.contact.email);
-      console.log(store[0].Store[0].StoreID.contact.phone);
-    }
-  }, [store]);
-
   return (
     <>
       <p className={PrCss.AboutYou}>Additional Info</p>
