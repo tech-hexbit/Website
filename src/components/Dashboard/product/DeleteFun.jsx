@@ -13,7 +13,6 @@ import { Alert } from "./../../../MicroInteraction/Alert";
 
 // css
 import DCss from "./Css/display.module.css";
-import cardDisplay from "./Css/cardDisplay.module.css";
 
 export default function DeleteFun({ id, loadData }) {
   const [loadDel, setLoadDel] = useState(false);
