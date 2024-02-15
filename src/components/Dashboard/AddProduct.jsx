@@ -88,25 +88,25 @@ export default function AddProduct() {
             ? "We currently Do Not Support ONDC:RET12 - Fashion"
             : ""}
           {domain === "ONDC:RET13"
-            ? "We currently Do Not Support ONDC:RET13 - "
+            ? "We currently Do Not Support ONDC:RET13 - Beauty and Personal Care"
             : ""}
           {domain === "ONDC:RET14"
-            ? "We currently Do Not Support ONDC:RET14 - "
+            ? "We currently Do Not Support ONDC:RET14 - Electronics"
             : ""}
           {domain === "ONDC:RET15"
-            ? "We currently Do Not Support ONDC:RET15 - "
+            ? "We currently Do Not Support ONDC:RET15 - Appliances"
             : ""}
           {domain === "ONDC:RET16"
-            ? "We currently Do Not Support ONDC:RET16 - "
+            ? "We currently Do Not Support ONDC:RET16 - Home & Decor & Kitchen"
             : ""}
           {domain === "ONDC:RET17"
-            ? "We currently Do Not Support ONDC:RET17 - "
+            ? "We currently Do Not Support ONDC:RET17 - Toy & Games"
             : ""}
           {domain === "ONDC:RET18"
-            ? "We currently Do Not Support ONDC:RET18 - "
+            ? "We currently Do Not Support ONDC:RET18 - Health & Wellness"
             : ""}
           {domain === "ONDC:RET19"
-            ? "We currently Do Not Support ONDC:RET19 - "
+            ? "We currently Do Not Support ONDC:RET19 - Pharma"
             : ""}
 
           {showPopup && (
