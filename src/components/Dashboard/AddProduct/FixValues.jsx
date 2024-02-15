@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 
 //component
 import InpTp1 from "./Input/InpTp1";
-import InpTy2 from "./Input/InpTy2";
-import SelectTp1 from "./Input/SelectTp1";
 
 // axios
 import axios from "axios";
