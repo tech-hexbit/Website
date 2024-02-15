@@ -4,6 +4,7 @@ import React, { useContext, useEffect, useState } from "react";
 import Form from "./AddProduct/Form";
 import Header from "./MainParts/Header";
 import UploadCsvPopup from "./AddProduct/UploadCsvPopup";
+import AddProdRET10 from "./AddProduct/Domin/AddProdRET10";
 import FilteredCategory from "./AddProduct/FilteredCatergory";
 
 // MicroInteraction
@@ -78,6 +79,8 @@ export default function AddProduct() {
               </button>
             </div>
           </div>
+
+          {domain === "ONDC:RET10" ? <AddProdRET10 /> : ""}
 
           <Form domain={domain} />
 
