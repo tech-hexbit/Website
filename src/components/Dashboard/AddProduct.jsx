@@ -81,7 +81,9 @@ export default function AddProduct() {
           </div>
 
           {domain === "ONDC:RET10" ? <AddProdRET10 domain={domain} /> : ""}
-          {domain === "ONDC:RET11" ? "" : ""}
+          {domain === "ONDC:RET11"
+            ? "We currently Do Not Support ONDC:RET11 - Food & Beverage"
+            : ""}
           {domain === "ONDC:RET12" ? "" : ""}
           {domain === "ONDC:RET13" ? "" : ""}
           {domain === "ONDC:RET14" ? "" : ""}
