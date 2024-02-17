@@ -17,11 +17,11 @@ import osCss from "../../../Dashboard/Sales/Css/overallSales.module.css";
 export default function SellerInventory() {
   const [max, setmax] = useState(false);
   const [load, setLoad] = useState(false);
-  const [showFilter, setFilter] = useState(false);
   const [orderlist, setorderlist] = useState([]);
+  const [showFilter, setFilter] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [prodcutsCount, setProdcutsCount] = useState(0);
   const [productName, setProductName] = useState("");
+  const [prodcutsCount, setProdcutsCount] = useState(0);
 
   const authCtx = useContext(AuthContext);
 
@@ -63,6 +63,10 @@ export default function SellerInventory() {
     } else {
       setmax(true);
     }
+  };
+
+  const exportExcel = async () => {
+    console.log(first);
   };
 
   useEffect(() => {
@@ -131,7 +135,8 @@ export default function SellerInventory() {
             stroke-linecap="round"
             stroke-linejoin="round"
             class="lucide lucide-file-spreadsheet"
-            className={Ccss.addCsv}
+            className={Ccss.excelIcon}
+            onClick={exportExcel}
           >
             <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
             <path d="M14 2v4a2 2 0 0 0 2 2h4" />
