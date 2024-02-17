@@ -66,7 +66,7 @@ export default function SellerInventory() {
   };
 
   const exportExcel = async () => {
-    console.log(first);
+    console.log("Export");
   };
 
   useEffect(() => {
