@@ -24,9 +24,9 @@ export default function Return() {
         </li>
         <li>
           Refund requests must be made within a specified timeframe, typically
-          within [X] days of the purchase date.
+          within 7 days of the purchase date.
         </li>
-        <li>Approved refunds are processed within [X] business days.</li>
+        <li>Approved refunds are processed within 9 business days.</li>
       </ul>
 
       <br />
