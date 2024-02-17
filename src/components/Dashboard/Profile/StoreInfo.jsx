@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 // css
@@ -9,7 +9,16 @@ export default function StoreInfo({
   supportNumber,
   cancelAmt,
   cancelPer,
+  workingDays,
 }) {
+  const [days, setDays] = useState([]);
+
+  useEffect(() => {
+    const arrayObj = workingDays.split(",").map(Number);
+
+    setDays(arrayObj);
+  }, [workingDays]);
+
   return (
     <div className={PICss.personalinfotab}>
       <div className={PICss.heading}>Store info</div>
@@ -39,10 +48,18 @@ export default function StoreInfo({
           </div>
         </div>
 
-        <div className={PICss.col0}>
-          <div className={PICss.inputheading}>About</div>
-          <div className={PICss.infodiv}>AdditionalInfo</div>
-        </div>
+        {days.length > 0 && (
+          <>
+            <div className={PICss.col0}>
+              <div className={PICss.inputheading}>Working Days</div>
+              <div className={PICss.infodiv}>
+                {days.map((val, key) => {
+                  return <div key={key}></div>;
+                })}
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
