@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 
+// excel
+import * as XLSX from "xlsx";
+
 // axios
 import axios from "axios";
 
@@ -74,7 +77,17 @@ export default function SellerInventory() {
       );
 
       if (response.data.success) {
-        console.log(response.data);
+        console.log(response.data.products);
+
+        const inventoryData = response.data.products;
+
+        const wb = XLSX.utils.book_new();
+
+        const ws = XLSX.utils.json_to_sheet(inventoryData);
+
+        XLSX.utils.book_append_sheet(wb, ws, "Inventory Data");
+
+        XLSX.writeFile(wb, "inventory_data.xlsx");
       } else {
         console.log(e);
       }
