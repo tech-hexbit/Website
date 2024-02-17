@@ -76,7 +76,6 @@ export default function SellerInventory() {
   return (
     <div className={Ccss.mDiv}>
       <div className={Ccss.headerFlex}>
-        {/* label>Search page</label> */}
         <div className={osCss.searchParent}>
           <div className={Ccss.search}>
             <input
@@ -120,6 +119,27 @@ export default function SellerInventory() {
             </p>
             <p className={Ccss.hideTxt}>Low Inventory</p>
           </button>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-file-spreadsheet"
+            className={Ccss.addCsv}
+          >
+            <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+            <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+            <path d="M8 13h2" />
+            <path d="M14 13h2" />
+            <path d="M8 17h2" />
+            <path d="M14 17h2" />
+          </svg>
         </div>
       </div>
       <div className={Ccss.middlecontent}>
