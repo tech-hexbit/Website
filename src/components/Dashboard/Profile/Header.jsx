@@ -154,6 +154,8 @@ export default function Header() {
                   cancelAmt={userData.Store[0].StoreID.Cancellation.amountValue}
                   cancelPer={userData.Store[0].StoreID.Cancellation.percentage}
                   workingDays={userData.Store[0].StoreID.locations.days}
+                  h1={userData.Store[0].StoreID.locations.times[0]}
+                  h2={userData.Store[0].StoreID.locations.times[1]}
                 />
               </>
             )}
