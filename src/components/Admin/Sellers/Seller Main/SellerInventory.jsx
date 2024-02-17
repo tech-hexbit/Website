@@ -11,6 +11,7 @@ import AuthContext from "../../../../store/auth-context";
 
 // MicroInteraction
 import Load from "./../../../../MicroInteraction/LoadBlack";
+import { Alert } from "./../../../../MicroInteraction/Alert";
 
 // css
 import Ccss from "../../../Dashboard/Css/Categories.module.css";
@@ -25,6 +26,14 @@ export default function SellerInventory() {
   const [currentPage, setCurrentPage] = useState(1);
   const [productName, setProductName] = useState("");
   const [prodcutsCount, setProdcutsCount] = useState(0);
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
 
   const authCtx = useContext(AuthContext);
 
@@ -90,9 +99,27 @@ export default function SellerInventory() {
         XLSX.writeFile(wb, "inventory_data.xlsx");
       } else {
         console.log(e);
+
+        setError({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "Export failed",
+          val: true,
+        });
       }
     } catch (e) {
       console.log(e);
+
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "An unexpected error occurred",
+        val: true,
+      });
     }
   };
 
@@ -105,212 +132,221 @@ export default function SellerInventory() {
   }, [prodcutsCount, currentPage]);
 
   return (
-    <div className={Ccss.mDiv}>
-      <div className={Ccss.headerFlex}>
-        <div className={osCss.searchParent}>
-          <div className={Ccss.search}>
-            <input
-              type="text"
-              value={productName}
-              placeholder="Search Product Name"
-              onChange={(e) => setProductName(e.target.value)}
-            />
-            <div
-              className={Ccss.searchBtn}
-              onClick={() => {
-                loadData();
-                setCurrentPage(1);
-              }}
-            >
-              Search
+    <>
+      <div className={Ccss.mDiv}>
+        <div className={Ccss.headerFlex}>
+          <div className={osCss.searchParent}>
+            <div className={Ccss.search}>
+              <input
+                type="text"
+                value={productName}
+                placeholder="Search Product Name"
+                onChange={(e) => setProductName(e.target.value)}
+              />
+              <div
+                className={Ccss.searchBtn}
+                onClick={() => {
+                  loadData();
+                  setCurrentPage(1);
+                }}
+              >
+                Search
+              </div>
             </div>
+          </div>
+
+          <div className={Ccss.addCsv}>
+            <button onClick={() => setFilter(!showFilter)}>
+              <p>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-arrow-down-up"
+                >
+                  <path d="m3 16 4 4 4-4" />
+                  <path d="M7 20V4" />
+                  <path d="m21 8-4-4-4 4" />
+                  <path d="M17 4v16" />
+                </svg>
+              </p>
+              <p className={Ccss.hideTxt}>Low Inventory</p>
+            </button>
+
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-file-spreadsheet"
+              className={Ccss.excelIcon}
+              onClick={exportExcel}
+            >
+              <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+              <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+              <path d="M8 13h2" />
+              <path d="M14 13h2" />
+              <path d="M8 17h2" />
+              <path d="M14 17h2" />
+            </svg>
+          </div>
+        </div>
+        <div className={Ccss.middlecontent}>
+          <div className={Ccss.middle}></div>
+          <div id="wrap" className={Ccss.tableCat}>
+            {load ? (
+              <div className="loadCenterDiv">
+                <Load />
+              </div>
+            ) : (
+              <>
+                <table
+                  className={Ccss.tableCatTTag}
+                  style={{ borderCollapse: "collapse" }}
+                >
+                  {orderlist.length > 0 ? (
+                    <>
+                      <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Available Inventory</th>
+                        <th>Total Orders</th>
+                        <th>Shipping Time</th>
+                        <th>Return Window</th>
+                        <th>Published on</th>
+                      </tr>
+                      {orderlist?.map((val, key) => {
+                        return (
+                          <>
+                            <tr key={key}>
+                              <td data-cell="Name">{val.descriptor.name}</td>
+                              <td data-cell="Price">
+                                ₹ {val.price.value.toFixed(2)}
+                              </td>
+                              <td data-cell="Available Inventory">
+                                {val.quantity.maximum.count}
+                              </td>
+                              <td data-cell="Total Orders">{val.totalSold}</td>
+                              <td data-cell="Shipping Time">
+                                {val["@ondc/org/time_to_ship"]}
+                              </td>
+                              <td data-cell="Return Window">
+                                {val["@ondc/org/return_window"]}
+                              </td>
+                              <td data-cell="Published on">
+                                <div className={Ccss.warnDiv}>
+                                  {val.when.date}
+
+                                  {val.quantity.maximum.count <= 5 ? (
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 24 24"
+                                      fill="none"
+                                      stroke="currentColor"
+                                      stroke-width="2"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      class="lucide lucide-alert-circle"
+                                    >
+                                      <circle cx="12" cy="12" r="10" />
+                                      <line x1="12" x2="12" y1="8" y2="12" />
+                                      <line
+                                        x1="12"
+                                        x2="12.01"
+                                        y1="16"
+                                        y2="16"
+                                      />
+                                    </svg>
+                                  ) : (
+                                    ""
+                                  )}
+                                </div>
+                              </td>
+                            </tr>
+                          </>
+                        );
+                      })}
+                    </>
+                  ) : (
+                    <p className="NoOrders">No Orders</p>
+                  )}
+                </table>
+
+                <p className={DCss.showingPTag}>
+                  Showing{" "}
+                  {orderlist?.length <= 10 ? (
+                    <b>{10 * (currentPage - 1) + orderlist?.length} </b>
+                  ) : (
+                    <b>5</b>
+                  )}
+                  of <b>{prodcutsCount}</b> results
+                </p>
+              </>
+            )}
           </div>
         </div>
 
-        <div className={Ccss.addCsv}>
-          <button onClick={() => setFilter(!showFilter)}>
-            <p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-arrow-down-up"
-              >
-                <path d="m3 16 4 4 4-4" />
-                <path d="M7 20V4" />
-                <path d="m21 8-4-4-4 4" />
-                <path d="M17 4v16" />
-              </svg>
-            </p>
-            <p className={Ccss.hideTxt}>Low Inventory</p>
+        <div className={osCss.cenDiv}>
+          <button
+            onClick={() => setCurrentPage(currentPage - 1)}
+            disabled={currentPage === 1}
+            className={osCss.btnnb}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-chevrons-left"
+            >
+              <path d="m11 17-5-5 5-5" />
+              <path d="m18 17-5-5 5-5" />
+            </svg>
           </button>
-
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="32"
-            height="32"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-file-spreadsheet"
-            className={Ccss.excelIcon}
-            onClick={exportExcel}
+          <span>{currentPage}</span>
+          <button
+            onClick={() => setCurrentPage(parseInt(currentPage) + 1)}
+            disabled={max}
+            className={osCss.btnnb}
           >
-            <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
-            <path d="M14 2v4a2 2 0 0 0 2 2h4" />
-            <path d="M8 13h2" />
-            <path d="M14 13h2" />
-            <path d="M8 17h2" />
-            <path d="M14 17h2" />
-          </svg>
-        </div>
-      </div>
-      <div className={Ccss.middlecontent}>
-        <div className={Ccss.middle}></div>
-        <div id="wrap" className={Ccss.tableCat}>
-          {load ? (
-            <div className="loadCenterDiv">
-              <Load />
-            </div>
-          ) : (
-            <>
-              <table
-                className={Ccss.tableCatTTag}
-                style={{ borderCollapse: "collapse" }}
-              >
-                {orderlist.length > 0 ? (
-                  <>
-                    <tr>
-                      <th>Name</th>
-                      <th>Price</th>
-                      <th>Available Inventory</th>
-                      <th>Total Orders</th>
-                      <th>Shipping Time</th>
-                      <th>Return Window</th>
-                      <th>Published on</th>
-                    </tr>
-                    {orderlist?.map((val, key) => {
-                      return (
-                        <>
-                          <tr key={key}>
-                            <td data-cell="Name">{val.descriptor.name}</td>
-                            <td data-cell="Price">
-                              ₹ {val.price.value.toFixed(2)}
-                            </td>
-                            <td data-cell="Available Inventory">
-                              {val.quantity.maximum.count}
-                            </td>
-                            <td data-cell="Total Orders">{val.totalSold}</td>
-                            <td data-cell="Shipping Time">
-                              {val["@ondc/org/time_to_ship"]}
-                            </td>
-                            <td data-cell="Return Window">
-                              {val["@ondc/org/return_window"]}
-                            </td>
-                            <td data-cell="Published on">
-                              <div className={Ccss.warnDiv}>
-                                {val.when.date}
-
-                                {val.quantity.maximum.count <= 5 ? (
-                                  <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="16"
-                                    height="16"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="lucide lucide-alert-circle"
-                                  >
-                                    <circle cx="12" cy="12" r="10" />
-                                    <line x1="12" x2="12" y1="8" y2="12" />
-                                    <line x1="12" x2="12.01" y1="16" y2="16" />
-                                  </svg>
-                                ) : (
-                                  ""
-                                )}
-                              </div>
-                            </td>
-                          </tr>
-                        </>
-                      );
-                    })}
-                  </>
-                ) : (
-                  <p className="NoOrders">No Orders</p>
-                )}
-              </table>
-
-              <p className={DCss.showingPTag}>
-                Showing{" "}
-                {orderlist?.length <= 10 ? (
-                  <b>{10 * (currentPage - 1) + orderlist?.length} </b>
-                ) : (
-                  <b>5</b>
-                )}
-                of <b>{prodcutsCount}</b> results
-              </p>
-            </>
-          )}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-chevrons-right"
+            >
+              <path d="m6 17 5-5-5-5" />
+              <path d="m13 17 5-5-5-5" />
+            </svg>
+          </button>
         </div>
       </div>
 
-      <div className={osCss.cenDiv}>
-        <button
-          onClick={() => setCurrentPage(currentPage - 1)}
-          disabled={currentPage === 1}
-          className={osCss.btnnb}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-chevrons-left"
-          >
-            <path d="m11 17-5-5 5-5" />
-            <path d="m18 17-5-5 5-5" />
-          </svg>
-        </button>
-        <span>{currentPage}</span>
-        <button
-          onClick={() => setCurrentPage(parseInt(currentPage) + 1)}
-          disabled={max}
-          className={osCss.btnnb}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-chevrons-right"
-          >
-            <path d="m6 17 5-5-5-5" />
-            <path d="m13 17 5-5-5-5" />
-          </svg>
-        </button>
-      </div>
-    </div>
+      <Alert variant={variants} val={setError} />
+    </>
   );
 }
