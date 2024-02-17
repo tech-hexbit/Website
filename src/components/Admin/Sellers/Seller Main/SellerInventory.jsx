@@ -36,7 +36,6 @@ export default function SellerInventory() {
       );
 
       if (response.data.success) {
-        console.log(response.data);
         setorderlist(response?.data.products);
         setProdcutsCount(response?.data?.prodcutsCount);
 
@@ -66,7 +65,22 @@ export default function SellerInventory() {
   };
 
   const exportExcel = async () => {
-    console.log("Export");
+    try {
+      const response = await axios.get(
+        `/api/common/product/exportData/Inventory`,
+        {
+          headers: { Authorization: `${authCtx.token}` },
+        }
+      );
+
+      if (response.data.success) {
+        console.log(response.data);
+      } else {
+        console.log(e);
+      }
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   useEffect(() => {
