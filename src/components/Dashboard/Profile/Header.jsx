@@ -23,8 +23,8 @@ import HPCss from "./Css/Header.module.css";
 
 export default function Header() {
   const [load, setLoad] = useState(false);
-  const [userData, setUserData] = useState({});
   const [showEdit, setEdit] = useState(false);
+  const [userData, setUserData] = useState();
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -63,6 +63,8 @@ export default function Header() {
   useEffect(() => {
     loadData();
   }, []);
+
+  console.log(userData);
 
   return (
     <>
@@ -136,22 +138,27 @@ export default function Header() {
           </div>
         ) : (
           <>
-            <PersonalInfo
-              Email={userData.Email}
-              phone={userData.Phone}
-              Address={userData.Address}
-            />
-            <BusinessInfo
-              ShopName={userData.ShopName}
-              GSTIN={userData.ImporterLicense}
-              AdditionalInfo={userData.AdditionalInfo}
-            />
-            <StoreInfo
-              supportEmail={userData.Store[0].StoreID.support.email}
-              supportNumber={userData.Store[0].StoreID.support.phone}
-              cancelAmt={userData.Store[0].StoreID.support.phone}
-              cancelPer={userData.Store[0].StoreID.support.phone}
-            />
+            {userData && (
+              <>
+                <PersonalInfo
+                  Email={userData.Email}
+                  phone={userData.Phone}
+                  Address={userData.Address}
+                />
+                <BusinessInfo
+                  ShopName={userData.ShopName}
+                  GSTIN={userData.ImporterLicense}
+                  AdditionalInfo={userData.AdditionalInfo}
+                />
+                <StoreInfo
+                  supportEmail={userData.Store[0].StoreID.support.email}
+                  supportNumber={userData.Store[0].StoreID.support.phone}
+                  cancelAmt={userData.Store[0].StoreID.Cancellation.amountValue}
+                  cancelPer={userData.Store[0].StoreID.Cancellation.percentage}
+                />
+              </>
+            )}
+
             <BankInfo />
           </>
         )}
