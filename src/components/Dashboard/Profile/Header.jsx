@@ -64,8 +64,6 @@ export default function Header() {
     loadData();
   }, []);
 
-  console.log(userData);
-
   return (
     <>
       <div className={HPCss.background}>
@@ -155,6 +153,7 @@ export default function Header() {
                   supportNumber={userData.Store[0].StoreID.support.phone}
                   cancelAmt={userData.Store[0].StoreID.Cancellation.amountValue}
                   cancelPer={userData.Store[0].StoreID.Cancellation.percentage}
+                  workingDays={userData.Store[0].StoreID.locations.days}
                 />
               </>
             )}
