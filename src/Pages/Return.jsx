@@ -6,87 +6,87 @@ import styles from "./../components/terms/TermsContent.module.css";
 export default function Return() {
   return (
     <div className={styles.wrapper}>
-      <h1>Cancellation & Refund Policy</h1>
+      <h1>Refund and Cancellation Policy</h1>
+
       <p>
-        At Hexbit.io, we prioritize customer satisfaction and have established a
-        flexible cancellation policy:
+        At Hexbit.io, we strive to ensure a seamless and satisfactory shopping
+        experience for our customers. Our refund and cancellation policy is
+        designed to provide clarity and transparency regarding the processes
+        involved. Please review the following guidelines carefully:
       </p>
-      <p>
-        1. <b>Cancellation Policy:</b>
-      </p>
+
+      <h3>🌟 Refund Eligibility and Timeframes:</h3>
+
       <ul>
         <li>
-          Cancellations are honored if requested immediately after placing an
-          order.
+          Refunds are applicable under specific conditions and are subject to
+          approval by Hexbit.io.
         </li>
         <li>
-          However, cancellation requests may not be entertained once orders are
-          communicated to vendors/merchants, and the shipping process has begun.
+          Refund requests must be made within a specified timeframe, typically
+          within [X] days of the purchase date.
+        </li>
+        <li>Approved refunds are processed within [X] business days.</li>
+      </ul>
+
+      <h3>🔄 Return and Replace Request Process:</h3>
+
+      <ul>
+        <li>
+          Customers requesting a return or replacement must initiate the process
+          through our customer service team.
         </li>
         <li>
-          Perishable items such as flowers and eatables are non-cancellable, but
-          refunds/replacements are possible if the product quality is
-          unsatisfactory.
+          To request a return or replacement, please provide details of the
+          order and reason for the request.
+        </li>
+        <li>
+          Our team will review the request and provide further instructions for
+          the return process.
         </li>
       </ul>
 
-      <br />
-      <br />
+      <h3>🚫 Non-Refundable and Non-Cancellable Products/Services:</h3>
 
-      <p>
-        2. <b>Damaged or Defective Items:</b>
-      </p>
       <ul>
         <li>
-          Report damaged or defective items to our Customer Service team within
-          7 days of receipt.
+          Certain products or services may be designated as non-refundable or
+          non-cancellable.
         </li>
         <li>
-          The request will be processed after verification by the merchant.
+          Examples of non-refundable/non-cancellable items include personalized
+          or customized products, perishable goods, and digital downloads.
         </li>
         <li>
-          Notify us within 7 days if the received product differs from the
-          site's depiction or your expectations.
+          Please review the product/service description carefully before making
+          a purchase to ascertain its refund/cancellation status.
         </li>
       </ul>
 
-      <br />
-      <br />
+      <h3>🛑 Cancellation Procedures, Fees, and Requirements:</h3>
 
-      <p>
-        3. <b>Warranty Claims:</b>
-      </p>
       <ul>
         <li>
-          For products with manufacturer warranties, direct complaints to the
-          respective manufacturers.
+          Cancellation requests are honored if submitted immediately after
+          placing an order, provided the order has not been processed or
+          shipped.
         </li>
-      </ul>
 
-      <br />
-      <br />
-
-      <p>
-        3. <b>Refunds:</b>
-      </p>
-      <ul>
         <li>
-          Refunds approved by BTA TECH SOLUTIONS PRIVATE LIMITED take 9-15 days
-          for processing.
+          Once an order has been communicated to vendors/merchants and the
+          shipping process has commenced, cancellation requests may not be
+          accommodated.
         </li>
         <li>
-          If a refund is applicable, it will be credited to the customer's
-          account.
+          Products/services deemed non-cancellable are exempt from cancellation
+          requests.
+        </li>
+        <li>
+          Hexbit.io reserves the right to impose cancellation fees or
+          requirements, particularly for orders that have already been processed
+          or customized.
         </li>
       </ul>
-
-      <br />
-      <br />
-
-      <p>
-        Our Customer Service Team is dedicated to resolving your concerns. We
-        appreciate your cooperation and understanding.
-      </p>
     </div>
   );
 }
