@@ -12,6 +12,16 @@ export default function StoreInfo({
   workingDays,
 }) {
   const [days, setDays] = useState([]);
+  const dayNames = [
+    "",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
 
   useEffect(() => {
     const arrayObj = workingDays.split(",").map(Number);
@@ -54,7 +64,7 @@ export default function StoreInfo({
               <div className={PICss.inputheading}>Working Days</div>
               <div className={PICss.infodiv}>
                 {days.map((val, key) => {
-                  return <div key={key}></div>;
+                  return <span key={key}> {dayNames[val]},</span>;
                 })}
               </div>
             </div>
