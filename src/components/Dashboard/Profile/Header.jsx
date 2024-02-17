@@ -146,7 +146,12 @@ export default function Header() {
               GSTIN={userData.ImporterLicense}
               AdditionalInfo={userData.AdditionalInfo}
             />
-            <StoreInfo />
+            <StoreInfo
+              supportEmail={userData.Store[0].StoreID.support.email}
+              supportNumber={userData.Store[0].StoreID.support.phone}
+              cancelAmt={userData.Store[0].StoreID.support.phone}
+              cancelPer={userData.Store[0].StoreID.support.phone}
+            />
             <BankInfo />
           </>
         )}
