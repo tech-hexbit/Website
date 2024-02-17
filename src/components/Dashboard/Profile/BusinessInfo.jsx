@@ -19,6 +19,7 @@ export default function BusinessInfo({ ShopName, GSTIN, AdditionalInfo }) {
             <p className={PICss.infodiv}>{GSTIN}</p>
           </div>
         </div>
+
         <div className={PICss.col0}>
           <div className={PICss.inputheading}>About</div>
           <div className={PICss.infodiv}>{AdditionalInfo}</div>
