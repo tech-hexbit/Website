@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 
 // components
 import BankInfo from "./BankInfo";
+import StoreInfo from "./StoreInfo";
 import PersonalInfo from "./PersonalInfo";
 import BusinessInfo from "./BusinessInfo";
 import EditProfileImage from "./EditProfileImage";
@@ -22,8 +23,8 @@ import HPCss from "./Css/Header.module.css";
 
 export default function Header() {
   const [load, setLoad] = useState(false);
-  const [userData, setUserData] = useState({});
   const [showEdit, setEdit] = useState(false);
+  const [userData, setUserData] = useState();
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -135,16 +136,39 @@ export default function Header() {
           </div>
         ) : (
           <>
-            <PersonalInfo
-              Email={userData.Email}
-              phone={userData.Phone}
-              Address={userData.Address}
-            />
-            <BusinessInfo
-              ShopName={userData.ShopName}
-              GSTIN={userData.ImporterLicense}
-              AdditionalInfo={userData.AdditionalInfo}
-            />
+            {userData && (
+              <>
+                <PersonalInfo
+                  Email={authCtx.user.Email}
+                  phone={userData.Phone}
+                  Address={userData.Address}
+                />
+
+                {authCtx.user.access === 0 && (
+                  <>
+                    <BusinessInfo
+                      ShopName={userData.ShopName}
+                      GSTIN={userData.ImporterLicense}
+                      AdditionalInfo={userData.AdditionalInfo}
+                    />
+                    <StoreInfo
+                      supportEmail={userData.Store[0].StoreID.support.email}
+                      supportNumber={userData.Store[0].StoreID.support.phone}
+                      cancelAmt={
+                        userData.Store[0].StoreID.Cancellation.amountValue
+                      }
+                      cancelPer={
+                        userData.Store[0].StoreID.Cancellation.percentage
+                      }
+                      workingDays={userData.Store[0].StoreID.locations.days}
+                      h1={userData.Store[0].StoreID.locations.times[0]}
+                      h2={userData.Store[0].StoreID.locations.times[1]}
+                    />
+                  </>
+                )}
+              </>
+            )}
+
             <BankInfo />
           </>
         )}
