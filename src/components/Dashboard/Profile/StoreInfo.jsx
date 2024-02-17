@@ -10,6 +10,8 @@ export default function StoreInfo({
   cancelAmt,
   cancelPer,
   workingDays,
+  h1,
+  h2,
 }) {
   const [days, setDays] = useState([]);
   const dayNames = [
@@ -70,6 +72,18 @@ export default function StoreInfo({
             </div>
           </>
         )}
+
+        <br />
+
+        <div className={PICss.inputheadingMain}>Working Hours</div>
+        <div className={PICss.row1}>
+          <div className={PICss.col1}>
+            <div className={PICss.infodiv}>{h1}</div>
+          </div>
+          <div className={PICss.col1}>
+            <p className={PICss.infodiv}>{h2}</p>
+          </div>
+        </div>
       </div>
     </div>
   );
