@@ -26,6 +26,14 @@ export default function SellerInventory() {
   const [currentPage, setCurrentPage] = useState(1);
   const [productName, setProductName] = useState("");
   const [prodcutsCount, setProdcutsCount] = useState(0);
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
 
   const authCtx = useContext(AuthContext);
 
@@ -91,9 +99,27 @@ export default function SellerInventory() {
         XLSX.writeFile(wb, "inventory_data.xlsx");
       } else {
         console.log(e);
+
+        setError({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "Export failed",
+          val: true,
+        });
       }
     } catch (e) {
       console.log(e);
+
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "An unexpected error occurred",
+        val: true,
+      });
     }
   };
 
