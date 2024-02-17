@@ -73,16 +73,16 @@ export default function Return() {
         </li>
 
         <li>
-          - Once an order has been communicated to vendors/merchants and the
+          Once an order has been communicated to vendors/merchants and the
           shipping process has commenced, cancellation requests may not be
           accommodated.
         </li>
         <li>
-          - Products/services deemed non-cancellable are exempt from
-          cancellation requests.
+          Products/services deemed non-cancellable are exempt from cancellation
+          requests.
         </li>
         <li>
-          - Hexbit.io reserves the right to impose cancellation fees or
+          Hexbit.io reserves the right to impose cancellation fees or
           requirements, particularly for orders that have already been processed
           or customized.
         </li>
