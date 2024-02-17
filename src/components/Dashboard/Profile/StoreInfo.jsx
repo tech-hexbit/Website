@@ -88,3 +88,13 @@ export default function StoreInfo({
     </div>
   );
 }
+
+StoreInfo.propTypes = {
+  supportEmail: PropTypes.string.isRequired,
+  supportNumber: PropTypes.string.isRequired,
+  cancelAmt: PropTypes.number.isRequired,
+  cancelPer: PropTypes.number.isRequired,
+  workingDays: PropTypes.string.isRequired,
+  h1: PropTypes.string.isRequired,
+  h2: PropTypes.string.isRequired,
+};
