@@ -141,6 +141,8 @@
 }
 
 .excelIcon {
+  color: #00ac47;
+  cursor: pointer;
 }
 
 .addCsv button {
