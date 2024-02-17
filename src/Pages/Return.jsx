@@ -24,10 +24,13 @@ export default function Return() {
         </li>
         <li>
           Refund requests must be made within a specified timeframe, typically
-          within [X] days of the purchase date.
+          within 7 days of the purchase date.
         </li>
-        <li>Approved refunds are processed within [X] business days.</li>
+        <li>Approved refunds are processed within 9 business days.</li>
       </ul>
+
+      <br />
+      <br />
 
       <h3>🔄 Return and Replace Request Process:</h3>
 
@@ -46,6 +49,9 @@ export default function Return() {
         </li>
       </ul>
 
+      <br />
+      <br />
+
       <h3>🚫 Non-Refundable and Non-Cancellable Products/Services:</h3>
 
       <ul>
@@ -62,6 +68,9 @@ export default function Return() {
           a purchase to ascertain its refund/cancellation status.
         </li>
       </ul>
+
+      <br />
+      <br />
 
       <h3>🛑 Cancellation Procedures, Fees, and Requirements:</h3>
 
