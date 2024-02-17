@@ -26,15 +26,22 @@ export default function StoreInfo({
           </div>
         </div>
 
+        <br />
+
         <div className={PICss.row1}>
           <div className={PICss.col1}>
             <div className={PICss.inputheading}>Cancellation Amount</div>
-            <div className={PICss.infodiv}>{supportEmail}</div>
+            <div className={PICss.infodiv}>₹ {cancelAmt}</div>
           </div>
           <div className={PICss.col1}>
             <div className={PICss.inputheading}>Cancellation Percentage</div>
-            <p className={PICss.infodiv}>{supportNumber}</p>
+            <p className={PICss.infodiv}>{cancelPer} %</p>
           </div>
+        </div>
+
+        <div className={PICss.col0}>
+          <div className={PICss.inputheading}>About</div>
+          <div className={PICss.infodiv}>AdditionalInfo</div>
         </div>
       </div>
     </div>
