@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 
 // components
 import BankInfo from "./BankInfo";
+import StoreInfo from "./StoreInfo";
 import PersonalInfo from "./PersonalInfo";
 import BusinessInfo from "./BusinessInfo";
 import EditProfileImage from "./EditProfileImage";
@@ -145,6 +146,7 @@ export default function Header() {
               GSTIN={userData.ImporterLicense}
               AdditionalInfo={userData.AdditionalInfo}
             />
+            <StoreInfo />
             <BankInfo />
           </>
         )}
