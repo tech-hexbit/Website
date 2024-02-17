@@ -133,6 +133,18 @@
   padding-bottom: 7px;
 }
 
+.addCsv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0px 30px;
+}
+
+.excelIcon {
+  color: #00ac47;
+  cursor: pointer;
+}
+
 .addCsv button {
   display: flex;
   justify-content: space-between;
@@ -339,14 +351,13 @@
   }
 }
 
-@media screen and (max-width : 350px){
-  .search{
+@media screen and (max-width: 350px) {
+  .search {
     justify-content: center;
     display: grid;
   }
-  
-  .searchBtn{
+
+  .searchBtn {
     width: 100%;
   }
-
 }

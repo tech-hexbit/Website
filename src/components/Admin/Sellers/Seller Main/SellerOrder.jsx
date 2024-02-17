@@ -48,11 +48,9 @@ export default function SellerOrder() {
   const authCtx = useContext(AuthContext);
 
   const loadData = async () => {
-    console.log("Filters in loadData:", filters);
     setLoad(true);
 
     try {
-   
       const response = await axios.post(
         `/api/website/admin/sellerorders?page=${currentPage}`,
 
@@ -62,7 +60,7 @@ export default function SellerOrder() {
           headers: { Authorization: `${authCtx.token}` },
         }
       );
-      console.log("API Response:", response.data);
+
       if (response.data.success) {
         setProdcutsCount(response?.data?.length);
         setOrderDel(response.data.orderList);
@@ -74,14 +72,14 @@ export default function SellerOrder() {
 
         setLoad(false);
       } else {
-        setLoad(false);
-        console.log("API Error:", response.data.message);
         console.log(e);
+
+        setLoad(false);
       }
     } catch (e) {
-      setLoad(false);
-      console.log("API Error:", e);
       console.log(e);
+
+      setLoad(false);
     }
   };
 
@@ -219,7 +217,6 @@ export default function SellerOrder() {
           id={showProductDel.state ? "yesProductsPage" : "noProductsPage"}
         >
           <div className={osCss.top}>
-
             <Header name="Overall Sales" />
             <div className={osCss.filters}>
               {/* Filters */}

@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 
+// excel
+import * as XLSX from "xlsx";
+
 // axios
 import axios from "axios";
 
@@ -17,11 +20,11 @@ import osCss from "../../../Dashboard/Sales/Css/overallSales.module.css";
 export default function SellerInventory() {
   const [max, setmax] = useState(false);
   const [load, setLoad] = useState(false);
-  const [showFilter, setFilter] = useState(false);
   const [orderlist, setorderlist] = useState([]);
+  const [showFilter, setFilter] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [productName, setProductName] = useState("");
   const [prodcutsCount, setProdcutsCount] = useState(0);
-  const [productName, setProductName] = useState('');
 
   const authCtx = useContext(AuthContext);
 
@@ -36,9 +39,8 @@ export default function SellerInventory() {
       );
 
       if (response.data.success) {
-        console.log(response.data);
-        setorderlist(response?.data.products)
-        setProdcutsCount(response?.data?.prodcutsCount)
+        setorderlist(response?.data.products);
+        setProdcutsCount(response?.data?.prodcutsCount);
 
         setLoad(false);
       } else {
@@ -65,9 +67,38 @@ export default function SellerInventory() {
     }
   };
 
+  const exportExcel = async () => {
+    try {
+      const response = await axios.get(
+        `/api/common/product/exportData/Inventory`,
+        {
+          headers: { Authorization: `${authCtx.token}` },
+        }
+      );
+
+      if (response.data.success) {
+        console.log(response.data.products);
+
+        const inventoryData = response.data.products;
+
+        const wb = XLSX.utils.book_new();
+
+        const ws = XLSX.utils.json_to_sheet(inventoryData);
+
+        XLSX.utils.book_append_sheet(wb, ws, "Inventory Data");
+
+        XLSX.writeFile(wb, "inventory_data.xlsx");
+      } else {
+        console.log(e);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   useEffect(() => {
     loadData();
-  }, [currentPage, showFilter])
+  }, [currentPage, showFilter]);
 
   useEffect(() => {
     maxPage();
@@ -75,22 +106,26 @@ export default function SellerInventory() {
 
   return (
     <div className={Ccss.mDiv}>
-    <div className={Ccss.headerFlex}>
-    {/* label>Search page</label> */}
-    <div className={osCss.searchParent}>
-
-     <div className={Ccss.search}>
-                  <input
-                    type="text"
-                    value={productName}
-                    placeholder="Search Product Name"
-                    onChange={(e) => setProductName(e.target.value)}
-                  />
-                  <div className={Ccss.searchBtn} onClick={() => { loadData(); setCurrentPage(1); }}>
-                    Search
-                  </div>
-                </div>
-    </div>
+      <div className={Ccss.headerFlex}>
+        <div className={osCss.searchParent}>
+          <div className={Ccss.search}>
+            <input
+              type="text"
+              value={productName}
+              placeholder="Search Product Name"
+              onChange={(e) => setProductName(e.target.value)}
+            />
+            <div
+              className={Ccss.searchBtn}
+              onClick={() => {
+                loadData();
+                setCurrentPage(1);
+              }}
+            >
+              Search
+            </div>
+          </div>
+        </div>
 
         <div className={Ccss.addCsv}>
           <button onClick={() => setFilter(!showFilter)}>
@@ -115,6 +150,28 @@ export default function SellerInventory() {
             </p>
             <p className={Ccss.hideTxt}>Low Inventory</p>
           </button>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-file-spreadsheet"
+            className={Ccss.excelIcon}
+            onClick={exportExcel}
+          >
+            <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+            <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+            <path d="M8 13h2" />
+            <path d="M14 13h2" />
+            <path d="M8 17h2" />
+            <path d="M14 17h2" />
+          </svg>
         </div>
       </div>
       <div className={Ccss.middlecontent}>
