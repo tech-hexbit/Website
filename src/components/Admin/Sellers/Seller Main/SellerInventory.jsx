@@ -21,7 +21,7 @@ export default function SellerInventory() {
   const [orderlist, setorderlist] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [prodcutsCount, setProdcutsCount] = useState(0);
-  const [productName, setProductName] = useState('');
+  const [productName, setProductName] = useState("");
 
   const authCtx = useContext(AuthContext);
 
@@ -37,8 +37,8 @@ export default function SellerInventory() {
 
       if (response.data.success) {
         console.log(response.data);
-        setorderlist(response?.data.products)
-        setProdcutsCount(response?.data?.prodcutsCount)
+        setorderlist(response?.data.products);
+        setProdcutsCount(response?.data?.prodcutsCount);
 
         setLoad(false);
       } else {
@@ -67,7 +67,7 @@ export default function SellerInventory() {
 
   useEffect(() => {
     loadData();
-  }, [currentPage, showFilter])
+  }, [currentPage, showFilter]);
 
   useEffect(() => {
     maxPage();
@@ -75,22 +75,27 @@ export default function SellerInventory() {
 
   return (
     <div className={Ccss.mDiv}>
-    <div className={Ccss.headerFlex}>
-    {/* label>Search page</label> */}
-    <div className={osCss.searchParent}>
-
-     <div className={Ccss.search}>
-                  <input
-                    type="text"
-                    value={productName}
-                    placeholder="Search Product Name"
-                    onChange={(e) => setProductName(e.target.value)}
-                  />
-                  <div className={Ccss.searchBtn} onClick={() => { loadData(); setCurrentPage(1); }}>
-                    Search
-                  </div>
-                </div>
-    </div>
+      <div className={Ccss.headerFlex}>
+        {/* label>Search page</label> */}
+        <div className={osCss.searchParent}>
+          <div className={Ccss.search}>
+            <input
+              type="text"
+              value={productName}
+              placeholder="Search Product Name"
+              onChange={(e) => setProductName(e.target.value)}
+            />
+            <div
+              className={Ccss.searchBtn}
+              onClick={() => {
+                loadData();
+                setCurrentPage(1);
+              }}
+            >
+              Search
+            </div>
+          </div>
+        </div>
 
         <div className={Ccss.addCsv}>
           <button onClick={() => setFilter(!showFilter)}>
