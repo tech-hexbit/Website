@@ -48,7 +48,6 @@ export default function SellerOrder() {
   const authCtx = useContext(AuthContext);
 
   const loadData = async () => {
-    console.log("Filters in loadData:", filters);
     setLoad(true);
 
     try {
@@ -61,7 +60,7 @@ export default function SellerOrder() {
           headers: { Authorization: `${authCtx.token}` },
         }
       );
-      console.log("API Response:", response.data);
+
       if (response.data.success) {
         setProdcutsCount(response?.data?.length);
         setOrderDel(response.data.orderList);
@@ -73,14 +72,14 @@ export default function SellerOrder() {
 
         setLoad(false);
       } else {
-        setLoad(false);
-        console.log("API Error:", response.data.message);
         console.log(e);
+
+        setLoad(false);
       }
     } catch (e) {
-      setLoad(false);
-      console.log("API Error:", e);
       console.log(e);
+
+      setLoad(false);
     }
   };
 
