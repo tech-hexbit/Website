@@ -17,6 +17,51 @@ import style from "./SignInForm.module.css";
 
 export default function OTP(props) {
   const [input, setInput] = useState({ phone: "", otp: "" });
+  const [load, setLoad] = useState(false);
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
+
+  const authCtx = useContext(AuthContext);
+
+  const handleSendOtpButton = async() => {
+    setLoad(true);
+
+    try {
+      const response = await axios.post("/api/App/onborading/send_otp",input, {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+
+      if (response.data.success) {
+        setLoad(false);
+
+       
+      } else {
+        setLoad(false);
+
+        
+      }
+    } catch (error) {
+      console.log(error);
+
+      setLoad(false);
+
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "Unable to send otp",
+        val: true,
+      });
+    }
+  }
+  
 
   useEffect(() => {
     if (!props.seeOTP) {
@@ -80,7 +125,7 @@ export default function OTP(props) {
                 props.hideOTP(true);
               }}
             />
-            <button>Resend OTP</button>
+            <button onClick={handleSendOtpButton} > {load ? <Load /> : "Resend OTP"}</button>
           </div>
 
           <p className={style.forgotpassword}>
@@ -90,6 +135,8 @@ export default function OTP(props) {
           </p>
         </div>
       </div>
+      
+      <Alert variant={variants} val={setError} />
     </>
   );
 }
