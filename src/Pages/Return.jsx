@@ -19,12 +19,8 @@ export default function Return() {
 
       <ul>
         <li>
-          Refunds are applicable under specific conditions and are subject to
-          approval by Hexbit.io.
-        </li>
-        <li>
           Refund requests must be made within a specified timeframe, typically
-          within 7 days of the purchase date.
+          within 7 days of the purchase date. (may differ product to product)
         </li>
         <li>Approved refunds are processed within 9 business days.</li>
       </ul>
@@ -37,11 +33,7 @@ export default function Return() {
       <ul>
         <li>
           Customers requesting a return or replacement must initiate the process
-          through our customer service team.
-        </li>
-        <li>
-          To request a return or replacement, please provide details of the
-          order and reason for the request.
+          through the Buyer app they have bought the product.
         </li>
         <li>
           Our team will review the request and provide further instructions for
@@ -60,10 +52,6 @@ export default function Return() {
           non-cancellable.
         </li>
         <li>
-          Examples of non-refundable/non-cancellable items include personalized
-          or customized products, perishable goods, and digital downloads.
-        </li>
-        <li>
           Please review the product/service description carefully before making
           a purchase to ascertain its refund/cancellation status.
         </li>
@@ -76,11 +64,10 @@ export default function Return() {
 
       <ul>
         <li>
-          Cancellation requests are honored if submitted immediately after
-          placing an order, provided the order has not been processed or
-          shipped.
+          Cancellation requests are honored if submitted immediately or within
+          the time frame specified by the seller after placing an order,
+          provided the order has not been processed or shipped.
         </li>
-
         <li>
           Once an order has been communicated to vendors/merchants and the
           shipping process has commenced, cancellation requests may not be
@@ -89,11 +76,6 @@ export default function Return() {
         <li>
           Products/services deemed non-cancellable are exempt from cancellation
           requests.
-        </li>
-        <li>
-          Hexbit.io reserves the right to impose cancellation fees or
-          requirements, particularly for orders that have already been processed
-          or customized.
         </li>
       </ul>
     </div>
