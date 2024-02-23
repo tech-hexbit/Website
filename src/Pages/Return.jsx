@@ -52,10 +52,6 @@ export default function Return() {
           non-cancellable.
         </li>
         <li>
-          Examples of non-refundable/non-cancellable items include personalized
-          or customized products, perishable goods, and digital downloads.
-        </li>
-        <li>
           Please review the product/service description carefully before making
           a purchase to ascertain its refund/cancellation status.
         </li>
