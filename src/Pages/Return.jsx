@@ -77,11 +77,6 @@ export default function Return() {
           Products/services deemed non-cancellable are exempt from cancellation
           requests.
         </li>
-        <li>
-          Hexbit.io reserves the right to impose cancellation fees or
-          requirements, particularly for orders that have already been processed
-          or customized.
-        </li>
       </ul>
     </div>
   );
