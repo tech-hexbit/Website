@@ -19,12 +19,8 @@ export default function Return() {
 
       <ul>
         <li>
-          Refunds are applicable under specific conditions and are subject to
-          approval by Hexbit.io.
-        </li>
-        <li>
           Refund requests must be made within a specified timeframe, typically
-          within 7 days of the purchase date.
+          within 7 days of the purchase date. (may differ product to product)
         </li>
         <li>Approved refunds are processed within 9 business days.</li>
       </ul>
@@ -37,11 +33,7 @@ export default function Return() {
       <ul>
         <li>
           Customers requesting a return or replacement must initiate the process
-          through our customer service team.
-        </li>
-        <li>
-          To request a return or replacement, please provide details of the
-          order and reason for the request.
+          through the Buyer app they have bought the product.
         </li>
         <li>
           Our team will review the request and provide further instructions for
