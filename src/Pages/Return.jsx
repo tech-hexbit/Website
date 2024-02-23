@@ -64,11 +64,10 @@ export default function Return() {
 
       <ul>
         <li>
-          Cancellation requests are honored if submitted immediately after
-          placing an order, provided the order has not been processed or
-          shipped.
+          Cancellation requests are honored if submitted immediately or within
+          the time frame specified by the seller after placing an order,
+          provided the order has not been processed or shipped.
         </li>
-
         <li>
           Once an order has been communicated to vendors/merchants and the
           shipping process has commenced, cancellation requests may not be
