@@ -146,7 +146,10 @@ const Footer = () => {
                 </Link>
               </span>
             </div>
-            <div className={FCss.rights}>© Hexbit. All Rights Reserved.</div>
+            {/* <div className={FCss.rights}>© Hexbit. All Rights Reserved.</div> */}
+            <div className={FCss.rights}>
+              © BTA TECH SOLUTIONS PRIVATE LIMITED. All Rights Reserved.
+            </div>
           </div>
         </>
       ) : (
