@@ -45,8 +45,6 @@ export default function DeleteBankInfo({ id, loadBankDetails }) {
         }
       );
 
-      console.log(response.data);
-
       if (response.data.success) {
         setLoad(false);
 
