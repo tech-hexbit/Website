@@ -26,6 +26,7 @@ export default function FilteredCatergory({
           >
             <ImgComp src={category.img} blur={category.hash} />
             <div className={fc.text}>{category.name}</div>
+            <div className={fc.textCode}>{category.code}</div>
           </div>
         ))}
       </main>
