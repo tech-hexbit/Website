@@ -23,6 +23,7 @@ import Payt from "../Dashboard/Payment/Css/Payment.module.css";
 export default function PayRequest() {
   const [load, setLoad] = useState(false);
   const [loadData, setloadData] = useState(false);
+  const [showList, setList] = useState({});
   const [showSel, setSel] = useState({
     total: 0,
     amount: 0,
@@ -123,11 +124,12 @@ export default function PayRequest() {
   return (
     <>
       <div className={Payt.main}>
-        <PaymentList />
+        <PaymentList showList={showList} />
         <PaymentQuote />
         <PaymentTable
           setSel={setSel}
           showSel={showSel}
+          setList={setList}
           loadDataSave={loadData}
         />
 
