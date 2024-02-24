@@ -66,7 +66,7 @@ export default function Payment() {
   }, []);
   return (
     <>
-      <PaymentTable showData={showData} />
+      <PaymentTable showData={showData} code={0} />
 
       <Alert variant={variants} val={setError} />
     </>
