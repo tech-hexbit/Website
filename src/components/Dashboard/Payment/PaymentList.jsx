@@ -48,6 +48,7 @@ export default function PaymentList({ showList }) {
         </div>
       </div>
 
+      {/* Transactions */}
       <div className={pl.box}>
         <h4>Transactions </h4>
         <div className={pl.outer_box}>
