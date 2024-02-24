@@ -45,6 +45,13 @@ export default function AddProduct() {
     });
   };
 
+  const backBtn = async () => {
+    setCategory({
+      ...showCategory,
+      state: !showCategory.state,
+    });
+  };
+
   useEffect(() => {
     setTimeout(() => {
       setError({
@@ -80,6 +87,8 @@ export default function AddProduct() {
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 class="lucide lucide-chevron-left"
+                className={ApCss.svgBtn}
+                onClick={backBtn}
               >
                 <path d="m15 18-6-6 6-6" />
               </svg>
