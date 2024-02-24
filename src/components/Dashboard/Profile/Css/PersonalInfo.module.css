@@ -134,6 +134,11 @@
   gap: 0px 20px;
 }
 
+.LiftDiv {
+  display: flex;
+  gap: 0px 20px;
+}
+
 .delteIcon {
   position: absolute;
   top: -5px;
