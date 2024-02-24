@@ -28,7 +28,7 @@ article h1 {
   align-items: center;
   color: #fff;
   background-color: #15131362;
-  /* opacity: 0; */
+  opacity: 0;
   transition: opacity 0.3s ease;
   font-size: 2rem;
   font-weight: 600;
@@ -45,11 +45,10 @@ article h1 {
   bottom: 0px;
   right: 0px;
   color: #fff;
-  background-color: #15131362;
-  /* opacity: 0; */
+  padding: 0px 5px;
+  opacity: 0;
   transition: opacity 0.3s ease;
-  font-size: 0.5rem;
-  font-weight: 600;
+  font-size: 0.4rem;
   cursor: pointer;
   border-radius: 0.2em;
 }
