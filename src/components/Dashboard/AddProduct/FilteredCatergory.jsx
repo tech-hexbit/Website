@@ -25,7 +25,6 @@ export default function FilteredCatergory({
             onClick={() => onCategoryClick(category)}
           >
             <ImgComp src={category.img} blur={category.hash} />
-            <img src={category.img} alt={category.name} />
             <div className={fc.text}>{category.name}</div>
           </div>
         ))}
