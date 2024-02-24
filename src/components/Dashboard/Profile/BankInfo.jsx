@@ -86,7 +86,7 @@ export default function BankInfo() {
               {bankDetails.map((bank, key) => (
                 <>
                   <div className={PICss.row1} id={PICss.mrow1} key={key}>
-                    <div>
+                    <div className={PICss.LiftDiv}>
                       <div>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -108,72 +108,22 @@ export default function BankInfo() {
                           <polygon points="12 2 20 7 4 7" />
                         </svg>
                       </div>
-                      <div></div>
                       <div>
-                        {/* delete Btn */}
-                        <DeleteBankInfo
-                          id={bank._id}
-                          loadBankDetails={loadBankDetails}
-                        />
+                        <p>
+                          {bank.BankDetails[0].BankName}{" "}
+                          {bank.BankDetails[0].AccountNumber}
+                        </p>
+                        <p>{bank.BankDetails[0].Branch}</p>
                       </div>
                     </div>
-
-                    {/* Account Number */}
-                    <div className={PICss.col1}>
-                      <div className={PICss.inputheading}>Account Number</div>
-                      <div className={PICss.infodiv}>
-                        {bank.BankDetails[0].AccountNumber}
-                      </div>
-                    </div>
-                    {/* IFSC Code */}
-                    <div className={PICss.col1}>
-                      <div className={PICss.inputheading}>IFSC Code</div>
-                      <div className={PICss.infodiv}>
-                        {bank.BankDetails[0].IfscCode}
-                      </div>
+                    <div>
+                      {/* delete Btn */}
+                      <DeleteBankInfo
+                        id={bank._id}
+                        loadBankDetails={loadBankDetails}
+                      />
                     </div>
                   </div>
-
-                  <div className={PICss.row1} id={PICss.mrow1}>
-                    {/* Account Holder Name */}
-                    <div className={PICss.col1}>
-                      <div className={PICss.inputheading}>
-                        Account Holder Name
-                      </div>
-                      <div className={PICss.infodiv}>
-                        {bank.BankDetails[0].AccountHolderName}
-                      </div>
-                    </div>
-
-                    {/* Bank Name */}
-                    <div className={PICss.col1}>
-                      <div className={PICss.inputheading}>Bank Name</div>
-                      <div className={PICss.infodiv}>
-                        {bank.BankDetails[0].BankName}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className={PICss.row1} id={PICss.mrow1} key={key}>
-                    {/* Branch Name */}
-                    <div className={PICss.col1}>
-                      <div className={PICss.inputheading}>Branch Name</div>
-                      <div className={PICss.infodiv}>
-                        {bank.BankDetails[0].Branch}
-                      </div>
-                    </div>
-
-                    {/* City */}
-                    <div className={PICss.col1}>
-                      <div className={PICss.inputheading}>City</div>
-                      <div className={PICss.infodiv}>
-                        {bank.BankDetails[0].City}
-                      </div>
-                    </div>
-                  </div>
-                  {key !== bankDetails.length - 1 && (
-                    <div className={PICss.Line1}></div>
-                  )}
                 </>
               ))}
             </>
