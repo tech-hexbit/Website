@@ -116,7 +116,6 @@ export default function PaymentTable({ load, showData, code }) {
 
                 {showData.length > 0 ? (
                   <>
-                    {console.log(showData)}
                     {showData.map((item, index) => (
                       <tr key={index} className={Gptable.payRes}>
                         <td data-cell="ref no">{item._id.slice(-4)}</td>
