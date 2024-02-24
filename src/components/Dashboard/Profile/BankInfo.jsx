@@ -110,8 +110,14 @@ export default function BankInfo() {
                       </div>
                       <div>
                         <p>
-                          {bank.BankDetails[0].BankName}{" "}
-                          {bank.BankDetails[0].AccountNumber}
+                          <b>
+                            <span className={PICss.Particulars}>
+                              {bank.BankDetails[0].BankName}
+                            </span>{" "}
+                            {String(bank.BankDetails[0].AccountNumber).slice(
+                              -4
+                            )}
+                          </b>
                         </p>
                         <p>{bank.BankDetails[0].Branch}</p>
                       </div>
