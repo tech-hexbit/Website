@@ -94,8 +94,6 @@ export default function PayRequest() {
       if (response.data.success) {
         setLoad(false);
 
-        console.log(response.data.listData);
-
         setloadData(!loadData);
 
         setSel({
@@ -146,7 +144,6 @@ export default function PayRequest() {
           </div>
         </div>
       </div>
-
       <Alert variant={variants} val={setError} />
     </>
   );
