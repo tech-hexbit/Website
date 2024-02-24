@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 
 // components
+import Cashfree from "./../../cashfree/Cashfree";
 import PaymentTable from "./../Dashboard/PayDetails/PaymentTable";
 
 // MicroInteraction
@@ -67,6 +68,7 @@ export default function Payment() {
   return (
     <>
       <PaymentTable showData={showData} code={0} />
+      <Cashfree />
 
       <Alert variant={variants} val={setError} />
     </>
