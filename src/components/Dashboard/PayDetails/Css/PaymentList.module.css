@@ -1,9 +1,9 @@
 .main {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
 }
 
 .box {
@@ -24,9 +24,15 @@
   font-weight: 600;
 }
 
-.box:not(:first-child) .para {
+.para {
   font-weight: 600;
   font-size: 24px;
+}
+
+.box:nth-child(1),
+.box:nth-child(2),
+.box:nth-child(3) {
+  height: 100%;
 }
 
 .box:nth-child(1) {
