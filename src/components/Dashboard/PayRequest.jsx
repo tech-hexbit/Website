@@ -121,7 +121,7 @@ export default function PayRequest() {
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
-        text: "Invalid Credentials",
+        text: "Unable to Raise the Request. Try Again",
         val: true,
       });
     }
