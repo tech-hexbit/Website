@@ -180,7 +180,6 @@ export default function BankData({
               />
             </div>
           </div>
-
           {/* Account Holder IFSC CODE */}
           <div className={PICss.inpDiv}>
             <div className={PICss.inputLabel}>IFSC CODE</div>
@@ -194,7 +193,6 @@ export default function BankData({
               />
             </div>
           </div>
-
           {/* Account Holder Number */}
           <div className={PICss.inpDiv}>
             <div className={PICss.inputLabel}>Account No.</div>
@@ -208,7 +206,6 @@ export default function BankData({
               />
             </div>
           </div>
-
           {/* Bank Name */}
           <div className={PICss.inpDiv}>
             <div className={PICss.inputLabel}>Bank Name</div>
@@ -222,7 +219,6 @@ export default function BankData({
               />
             </div>
           </div>
-
           {/* Branch Name */}
           <div className={PICss.inpDiv}>
             <div className={PICss.inputLabel}>Branch Name</div>
@@ -236,7 +232,6 @@ export default function BankData({
               />
             </div>
           </div>
-
           {/* City */}
           <div className={PICss.inpDiv}>
             <div className={PICss.inputLabel}>City</div>
@@ -250,7 +245,6 @@ export default function BankData({
               />
             </div>
           </div>
-
           <div className={PICss.inputDivFile}>
             {ver ? (
               <button className={PICss.verifyButton} onClick={saveData}>
