@@ -134,6 +134,10 @@
   gap: 0px 20px;
 }
 
+.Particulars {
+  text-transform: capitalize;
+}
+
 .LiftDiv {
   display: flex;
   gap: 0px 20px;
