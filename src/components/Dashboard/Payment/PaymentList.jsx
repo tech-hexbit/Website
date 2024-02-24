@@ -11,18 +11,19 @@ export default function PaymentList() {
         <div className={pl.outer_box_one}>
           <div className={pl.inside}>
             <p>Delivered (INR)</p>
-            <h6>Rs. xxxxx</h6>
+            <h6>Rs. 0</h6>
           </div>
           <div className={pl.inside}>
             <p>Shipped (INR)</p>
-            <h6>Rs. xxxxx</h6>
+            <h6>Rs. 0</h6>
           </div>
           <div className={pl.inside}>
             <p>Accepted (INR)</p>
-            <h6>Rs. xxxxx</h6>
+            <h6>Rs. 0</h6>
           </div>
         </div>
       </div>
+
       <div className={pl.box}>
         <h4>Outstanding Amount</h4>
         <div className={pl.outer_box_two}>
@@ -36,15 +37,17 @@ export default function PaymentList() {
           </div>
         </div>
       </div>
+
       <div className={pl.box}>
         <h4>Upcoming Payments</h4>
         <div className={pl.outer_box}>
           <div className={pl.inside}>
             <p>Delivered (INR) (Post Return Window )</p>
-            <h6>Rs. XXXXXXX</h6>
+            <h6>Rs. 0</h6>
           </div>
         </div>
       </div>
+
       <div className={pl.box}>
         <h4>Transactions </h4>
         <div className={pl.outer_box}>
