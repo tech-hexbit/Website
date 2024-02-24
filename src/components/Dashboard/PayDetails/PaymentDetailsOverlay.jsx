@@ -92,7 +92,8 @@ export default function PaymentDetailsOverlay({ selectedItem, code }) {
           <p>INR {selectedItem[0].totalAmount.toFixed(2)}</p>
         </div>
       </div>
-      <GatewayGetinTouch />
+
+      {code === 0 ? "" : <GatewayGetinTouch />}
     </div>
   );
 }
