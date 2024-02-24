@@ -29,11 +29,11 @@ export default function PaymentList({ showList }) {
         <div className={pl.outer_box_two}>
           <div className={pl.inside}>
             <p>Shipped (INR)</p>
-            <h6>Rs. XXXX</h6>
+            <h6>Rs. 0</h6>
           </div>
           <div className={pl.inside}>
             <p>Delivered (INR)</p>
-            <h6>Rs. XXXX</h6>
+            <h6>Rs. 0</h6>
           </div>
         </div>
       </div>
