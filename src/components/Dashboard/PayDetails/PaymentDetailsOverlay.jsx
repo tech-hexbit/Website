@@ -6,10 +6,8 @@ import GatewayGetinTouch from "./GetinTouch";
 // css
 import gpdo from "./Css/PaymentDetailsOverlay.module.css";
 
-export default function PaymentDetailsOverlay({ selectedItem }) {
+export default function PaymentDetailsOverlay({ selectedItem, code }) {
   if (!selectedItem) return null;
-
-  console.log(selectedItem);
 
   return (
     <div className={gpdo.main}>
