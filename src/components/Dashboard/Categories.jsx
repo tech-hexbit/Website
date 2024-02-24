@@ -98,13 +98,13 @@ export default function Categories() {
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  class="lucide lucide-arrow-down-up"
+                  class="lucide lucide-filter-x"
                 >
-                  <path d="m3 16 4 4 4-4" />
-                  <path d="M7 20V4" />
-                  <path d="m21 8-4-4-4 4" />
-                  <path d="M17 4v16" />
+                  <path d="M13.013 3H2l8 9.46V19l4 2v-8.54l.9-1.055" />
+                  <path d="m22 3-5 5" />
+                  <path d="m17 3 5 5" />
                 </svg>
+
                 <p className={Ccss.hideTxt}>Reset</p>
               </>
             ) : (
@@ -126,6 +126,7 @@ export default function Categories() {
                   <path d="m21 8-4-4-4 4" />
                   <path d="M17 4v16" />
                 </svg>
+
                 <p className={Ccss.hideTxt}>Low Inventory</p>
               </>
             )}
