@@ -94,6 +94,8 @@ export default function PayRequest() {
       if (response.data.success) {
         setLoad(false);
 
+        console.log(response.data.listData);
+
         setloadData(!loadData);
 
         setSel({
