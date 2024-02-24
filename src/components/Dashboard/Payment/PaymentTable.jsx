@@ -14,7 +14,7 @@ import AuthContext from "../../../store/auth-context";
 // css
 import pt from "./Css/PaymentTable.module.css";
 
-export default function PaymentTable({ setSel, loadDataSave }) {
+export default function PaymentTable({ setSel, setList, loadDataSave }) {
   const [load, setLoad] = useState(false);
   const [showData, setData] = useState([]);
   const [variants, setError] = useState({
@@ -36,8 +36,12 @@ export default function PaymentTable({ setSel, loadDataSave }) {
         headers: { Authorization: `${authCtx.token}` },
       });
 
+      console.log(response.data.listData);
+
       if (response.data.success) {
         setData(response.data.data);
+
+        setList(response.data.listData);
 
         setLoad(false);
       } else {
