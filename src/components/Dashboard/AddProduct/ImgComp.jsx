@@ -21,8 +21,8 @@ export default function ImgComp({ src, blur }) {
       <div style={{ display: imageLoaded ? "none" : "inline" }}>
         <Blurhash
           hash={blur}
-          width={500}
-          height={435}
+          width={600}
+          height={250}
           resolutionX={32}
           resolutionY={32}
           punch={1}
