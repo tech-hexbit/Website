@@ -58,6 +58,15 @@ function App() {
             />
 
             <Route
+              path="/cashfree"
+              element={
+                <Suspense fallback={<LoadingPage />}>
+                  <Cashfree />
+                </Suspense>
+              }
+            />
+
+            <Route
               path="/AboutUs"
               element={
                 <Suspense fallback={<LoadingPage />}>
