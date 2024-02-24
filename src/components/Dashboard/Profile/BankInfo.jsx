@@ -82,10 +82,10 @@ export default function BankInfo() {
               <Load />
             </div>
           ) : bankDetails.length > 0 ? (
-            <>
+            <div className={PICss.mapParentDiv}>
               {bankDetails.map((bank, key) => (
                 <>
-                  <div className={PICss.row1} id={PICss.mrow1} key={key}>
+                  <div className={PICss.row11} id={PICss.mrow1} key={key}>
                     <div className={PICss.LiftDiv}>
                       <div>
                         <svg
@@ -132,7 +132,7 @@ export default function BankInfo() {
                   </div>
                 </>
               ))}
-            </>
+            </div>
           ) : (
             <div className="loadCenterDiv" id="loadPadding">
               No Bank info available
