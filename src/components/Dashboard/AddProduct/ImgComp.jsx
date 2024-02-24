@@ -35,3 +35,8 @@ export default function ImgComp({ src, blur }) {
     </>
   );
 }
+
+ImgComp.propTypes = {
+  src: PropTypes.string.isRequired,
+  blur: PropTypes.string.isRequired,
+};
