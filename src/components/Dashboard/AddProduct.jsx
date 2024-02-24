@@ -68,7 +68,24 @@ export default function AddProduct() {
       ) : (
         <div className={ApCss.mDiv}>
           <div className={ApCss.headDiv}>
-            <Header name="Add Product" />
+            <div className={ApCss.headDivCon}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="42"
+                height="42"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-chevron-left"
+              >
+                <path d="m15 18-6-6 6-6" />
+              </svg>
+
+              <Header name="Add Product" />
+            </div>
 
             <div className={ApCss.addCsv}>
               <button onClick={() => setShowPopup(true)}>
