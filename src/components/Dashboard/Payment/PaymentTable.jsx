@@ -75,7 +75,6 @@ export default function PaymentTable({ setSel, loadDataSave }) {
             <Load />
           </div>
         ) : (
-          
           <>
             {showData.length > 0 ? (
               <>
@@ -157,7 +156,6 @@ export default function PaymentTable({ setSel, loadDataSave }) {
                     </tr>
                   ))}
                 </table>
-              
               </>
             ) : (
               <div className="loadCenterDiv" id="loadPadding">
