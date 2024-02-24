@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Blurhash } from "react-blurhash";
-
-// css
-// import "./css/Core.css";
+import PropTypes from "prop-types";
 
 export default function ImgComp({ src, blur }) {
   const [imageLoaded, setImageLoaded] = useState(false);
