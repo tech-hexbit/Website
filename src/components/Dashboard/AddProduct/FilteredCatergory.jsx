@@ -1,6 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+// component
+import ImgComp from "./ImgComp";
+
 // css
 import fc from "./Css/FilteredCatergory.module.css";
 
@@ -21,8 +24,9 @@ export default function FilteredCatergory({
             className={fc.gridCard}
             onClick={() => onCategoryClick(category)}
           >
-            <img src={category.img} alt={category.name} />
+            <ImgComp src={category.img} blur={category.hash} />
             <div className={fc.text}>{category.name}</div>
+            <div className={fc.textCode}>{category.code}</div>
           </div>
         ))}
       </main>

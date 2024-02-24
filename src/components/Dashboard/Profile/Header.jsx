@@ -144,7 +144,7 @@ export default function Header() {
                   Address={userData.Address}
                 />
 
-                {authCtx.user.access === 0 && (
+                {authCtx.user.access === 1 && (
                   <>
                     <BusinessInfo
                       ShopName={userData.ShopName}

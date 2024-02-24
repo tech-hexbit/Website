@@ -26,6 +26,16 @@
   cursor: pointer;
 }
 
+.headDivCon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.svgBtn {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 650px) {
   .hideTxt {
     display: none;

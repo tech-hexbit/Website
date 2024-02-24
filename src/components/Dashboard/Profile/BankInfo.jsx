@@ -30,6 +30,8 @@ export default function BankInfo() {
         headers: { Authorization: `${authCtx.token}` },
       });
 
+      console.log(response.data);
+
       if (response.data.success) {
         setBankDetails(response.data.bankDetail);
 
@@ -82,75 +84,57 @@ export default function BankInfo() {
               <Load />
             </div>
           ) : bankDetails.length > 0 ? (
-            <>
+            <div className={PICss.mapParentDiv}>
               {bankDetails.map((bank, key) => (
                 <>
-                  <div className={PICss.row1} id={PICss.mrow1} key={key}>
-                    {/* delete Btn */}
-                    <DeleteBankInfo
-                      id={bank._id}
-                      loadBankDetails={loadBankDetails}
-                    />
-
-                    {/* Account Number */}
-                    <div className={PICss.col1}>
-                      <div className={PICss.inputheading}>Account Number</div>
-                      <div className={PICss.infodiv}>
-                        {bank.BankDetails[0].AccountNumber}
+                  <div className={PICss.row11} id={PICss.mrow1} key={key}>
+                    <div className={PICss.LiftDiv}>
+                      <div>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-landmark"
+                        >
+                          <line x1="3" x2="21" y1="22" y2="22" />
+                          <line x1="6" x2="6" y1="18" y2="11" />
+                          <line x1="10" x2="10" y1="18" y2="11" />
+                          <line x1="14" x2="14" y1="18" y2="11" />
+                          <line x1="18" x2="18" y1="18" y2="11" />
+                          <polygon points="12 2 20 7 4 7" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p>
+                          <b>
+                            <span className={PICss.Particulars}>
+                              {bank.BankDetails[0].BankName}
+                            </span>{" "}
+                            {String(bank.BankDetails[0].AccountNumber).slice(
+                              -4
+                            )}
+                          </b>
+                        </p>
+                        <p>{bank.BankDetails[0].Branch}</p>
                       </div>
                     </div>
-                    {/* IFSC Code */}
-                    <div className={PICss.col1}>
-                      <div className={PICss.inputheading}>IFSC Code</div>
-                      <div className={PICss.infodiv}>
-                        {bank.BankDetails[0].IfscCode}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className={PICss.row1} id={PICss.mrow1}>
-                    {/* Account Holder Name */}
-                    <div className={PICss.col1}>
-                      <div className={PICss.inputheading}>
-                        Account Holder Name
-                      </div>
-                      <div className={PICss.infodiv}>
-                        {bank.BankDetails[0].AccountHolderName}
-                      </div>
-                    </div>
-
-                    {/* Bank Name */}
-                    <div className={PICss.col1}>
-                      <div className={PICss.inputheading}>Bank Name</div>
-                      <div className={PICss.infodiv}>
-                        {bank.BankDetails[0].BankName}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className={PICss.row1} id={PICss.mrow1} key={key}>
-                    {/* Branch Name */}
-                    <div className={PICss.col1}>
-                      <div className={PICss.inputheading}>Branch Name</div>
-                      <div className={PICss.infodiv}>
-                        {bank.BankDetails[0].Branch}
-                      </div>
-                    </div>
-
-                    {/* City */}
-                    <div className={PICss.col1}>
-                      <div className={PICss.inputheading}>City</div>
-                      <div className={PICss.infodiv}>
-                        {bank.BankDetails[0].City}
-                      </div>
+                    <div>
+                      {/* delete Btn */}
+                      <DeleteBankInfo
+                        id={bank._id}
+                        loadBankDetails={loadBankDetails}
+                      />
                     </div>
                   </div>
-                  {key !== bankDetails.length - 1 && (
-                    <div className={PICss.Line1}></div>
-                  )}
                 </>
               ))}
-            </>
+            </div>
           ) : (
             <div className="loadCenterDiv" id="loadPadding">
               No Bank info available
