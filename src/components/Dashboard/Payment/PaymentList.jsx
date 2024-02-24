@@ -3,7 +3,7 @@ import React from "react";
 // css
 import pl from "./Css/PaymentList.module.css";
 
-export default function PaymentList() {
+export default function PaymentList({ showList }) {
   return (
     <div className={pl.main}>
       <div className={pl.box}>
@@ -53,15 +53,15 @@ export default function PaymentList() {
         <div className={pl.outer_box}>
           <div className={pl.inside}>
             <p>Completed</p>
-            <h6>287</h6>
+            <h6>{showList.transactions.completed}</h6>
           </div>
           <div className={pl.inside}>
             <p>Raised</p>
-            <h6>100</h6>
+            <h6>{showList.transactions.raised}</h6>
           </div>
           <div className={pl.inside}>
             <p>Pending</p>
-            <h6>90</h6>
+            <h6>{showList.transactions.pending}</h6>
           </div>
         </div>
       </div>
