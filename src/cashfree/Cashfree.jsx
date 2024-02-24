@@ -10,7 +10,7 @@ import axios from "axios";
 import { cashfree } from "./util";
 
 // css
-import ChCss from "CashFree.module.css";
+import ChCss from "./Css/CashFree.module.css";
 
 export default function Cashfree() {
   const [sessionId, setSessionId] = useState("");
@@ -62,9 +62,11 @@ export default function Cashfree() {
 
   return (
     <>
-      <button onClick={handlePayment} className={ChCss.PayNowBtn}>
-        Pay Now
-      </button>
+      <div className={ChCss.mDiv}>
+        <button onClick={handlePayment} className={ChCss.PayNowBtn}>
+          Pay Now
+        </button>
+      </div>
       {/* <button onClick={getSessionId}>Cashfree</button> */}
     </>
   );
