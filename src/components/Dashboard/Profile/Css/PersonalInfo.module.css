@@ -125,13 +125,32 @@
   color: #717171;
 }
 
-.row1 {
-  position: relative;
+.mapParentDiv {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+.row1,
+.row11 {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.row1 {
+  width: 100%;
   gap: 0px 20px;
+  justify-content: space-between;
+}
+
+.row11 {
+  width: 40%;
+  min-width: 300px;
+  max-width: 400px;
+  justify-content: space-between;
 }
 
 .Particulars {
@@ -256,6 +275,12 @@
 
   .box {
     padding: 15px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .row11 {
+    min-width: 200px;
   }
 }
 
