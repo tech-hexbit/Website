@@ -3,6 +3,9 @@ import React, { useState, useEffect, useContext } from "react";
 // state
 import AuthContext from "./../store/auth-context";
 
+// MicroInteraction
+import Load from "./../MicroInteraction/Load";
+
 // axios
 import axios from "axios";
 
@@ -13,6 +16,7 @@ import { cashfree } from "./util";
 import ChCss from "./Css/CashFree.module.css";
 
 export default function Cashfree() {
+  const [load, setLoad] = useState(false);
   const [sessionId, setSessionId] = useState("");
 
   let version = cashfree.version();
@@ -64,7 +68,7 @@ export default function Cashfree() {
     <>
       <div className={ChCss.mDiv}>
         <button onClick={handlePayment} className={ChCss.PayNowBtn}>
-          Pay Now
+          {load ? <Load /> : "Pay Now"}
         </button>
       </div>
       {/* <button onClick={getSessionId}>Cashfree</button> */}
