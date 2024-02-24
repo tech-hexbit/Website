@@ -23,7 +23,13 @@ import Payt from "../Dashboard/Payment/Css/Payment.module.css";
 export default function PayRequest() {
   const [load, setLoad] = useState(false);
   const [loadData, setloadData] = useState(false);
-  const [showList, setList] = useState({});
+  const [showList, setList] = useState({
+    transactions: {
+      completed: 0,
+      raised: 0,
+      pending: 0,
+    },
+  });
   const [showSel, setSel] = useState({
     total: 0,
     amount: 0,
