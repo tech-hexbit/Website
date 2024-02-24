@@ -40,13 +40,19 @@ export default function Cashfree() {
       });
       console.log(response);
 
+      setLoad(false);
+
       setSessionId(response.data);
     } catch (error) {
       console.log(error);
+
+      setLoad(false);
     }
   };
 
   const handlePayment = () => {
+    setLoad(true);
+
     getSessionId();
 
     // let checkoutOptions = {
