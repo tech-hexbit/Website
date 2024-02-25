@@ -22,7 +22,10 @@ export default function PaymentTable({
 }) {
   const [load, setLoad] = useState(false);
   const [showData, setData] = useState([]);
-  const [imageLocal, setImage] = useState();
+  const [imageLocal, setImage] = useState({
+    id: "",
+    img: {},
+  });
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -73,9 +76,9 @@ export default function PaymentTable({
     }
   };
 
-  const handleImage = (e) => {
+  const handleImage = (e, id) => {
     const selectedFiles = Array.from(e.target.files);
-    setImage(e.target.files[0]);
+    setImage({ ...imageLocal, id, img: e.target.files[0] });
     setImageUpload((prevImages) => [...prevImages, ...selectedFiles]);
   };
 
@@ -86,6 +89,10 @@ export default function PaymentTable({
   useEffect(() => {
     loadData();
   }, [, loadDataSave]);
+
+  useEffect(() => {
+    console.log(imageLocal);
+  }, [imageLocal]);
 
   return (
     <>
@@ -134,33 +141,39 @@ export default function PaymentTable({
                         <label className={pt.labelDiv}>
                           {val.action === "Delivered & Eligible" && (
                             <>
-                              <input
-                                type="checkbox"
-                                className={pt.CheckBoxInp}
-                                onChange={(e) => {
-                                  setSel((prevShowSel) => ({
-                                    ...prevShowSel,
-                                    total: e.target.checked
-                                      ? prevShowSel.total + 1
-                                      : prevShowSel.total - 1,
-                                    amount: e.target.checked
-                                      ? prevShowSel.amount + val.amount
-                                      : prevShowSel.amount - val.amount,
-                                    order: e.target.checked
-                                      ? Array.isArray(prevShowSel.order)
-                                        ? [...prevShowSel.order, val._id]
-                                        : [val._id]
-                                      : prevShowSel.order.filter(
-                                          (order) => order !== val._id
-                                        ),
-                                  }));
-                                }}
-                              />
+                              {imageLocal ? (
+                                <input
+                                  type="checkbox"
+                                  className={pt.CheckBoxInp}
+                                  onChange={(e) => {
+                                    setSel((prevShowSel) => ({
+                                      ...prevShowSel,
+                                      total: e.target.checked
+                                        ? prevShowSel.total + 1
+                                        : prevShowSel.total - 1,
+                                      amount: e.target.checked
+                                        ? prevShowSel.amount + val.amount
+                                        : prevShowSel.amount - val.amount,
+                                      order: e.target.checked
+                                        ? Array.isArray(prevShowSel.order)
+                                          ? [...prevShowSel.order, val._id]
+                                          : [val._id]
+                                        : prevShowSel.order.filter(
+                                            (order) => order !== val._id
+                                          ),
+                                    }));
+                                  }}
+                                />
+                              ) : (
+                                ""
+                              )}
 
                               <input
                                 type="file"
                                 name="file"
-                                onChange={handleImage}
+                                onChange={() => {
+                                  handleImage(e, val._id);
+                                }}
                                 style={{ display: "none" }}
                                 ref={fileInp}
                               />
