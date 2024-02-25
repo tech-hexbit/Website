@@ -181,8 +181,8 @@ export default function PayRequest() {
           showSel={showSel}
           setList={setList}
           loadDataSave={loadData}
-          setImageUpload={setImageUpload}
           imageUpload={imageUpload}
+          setImageUpload={setImageUpload}
         />
 
         <div className={pr.main}>
