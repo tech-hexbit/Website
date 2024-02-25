@@ -122,54 +122,69 @@ export default function Header() {
           </div>
         </div>
 
-        {load ? (
-          ""
-        ) : (
-          <div className={showEdit ? "showEdit" : "hideEdit"}>
-            <EditProfileImage setEdit={setEdit} setError={setError} />
-          </div>
-        )}
-
-        {load ? (
-          <div className="loadCenterDiv">
-            <Load />
-          </div>
+        {showEdit ? (
+          <>
+            {load ? (
+              ""
+            ) : (
+              <div className={showEdit ? "showEdit" : "hideEdit"}>
+                <EditProfileImage setEdit={setEdit} setError={setError} />
+              </div>
+            )}
+          </>
         ) : (
           <>
-            {userData && (
+            {load ? (
+              <div className="loadCenterDiv">
+                <Load />
+              </div>
+            ) : (
               <>
-                <PersonalInfo
-                  Email={authCtx.user.Email}
-                  phone={userData.Phone}
-                  Address={userData.Address}
-                />
-
-                {authCtx.user.access === 1 && (
+                {userData && (
                   <>
-                    <BusinessInfo
-                      ShopName={userData.ShopName}
-                      GSTIN={userData.ImporterLicense}
-                      AdditionalInfo={userData.AdditionalInfo}
+                    <PersonalInfo
+                      Email={authCtx.user.Email}
+                      phone={userData.Phone}
+                      Address={userData.Address}
                     />
-                    <StoreInfo
-                      supportEmail={userData.Store[0].StoreID.support.email}
-                      supportNumber={userData.Store[0].StoreID.support.phone}
-                      cancelAmt={
-                        userData.Store[0].StoreID.Cancellation.amountValue
-                      }
-                      cancelPer={
-                        userData.Store[0].StoreID.Cancellation.percentage
-                      }
-                      workingDays={userData.Store[0].StoreID.locations.days}
-                      h1={userData.Store[0].StoreID.locations.times[0]}
-                      h2={userData.Store[0].StoreID.locations.times[1]}
-                    />
+
+                    {authCtx.user.access === 1 && (
+                      <>
+                        <BusinessInfo
+                          ShopName={userData.ShopName}
+                          GSTIN={userData.ImporterLicense}
+                          AdditionalInfo={userData.AdditionalInfo}
+                        />
+                        <StoreInfo
+                          supportEmail={userData.Store[0].StoreID.support.email}
+                          supportNumber={
+                            userData.Store[0].StoreID.support.phone
+                          }
+                          cancelAmt={
+                            userData.Store[0].StoreID.Cancellation.amountValue
+                          }
+                          cancelPer={
+                            userData.Store[0].StoreID.Cancellation.percentage
+                          }
+                          workingDays={userData.Store[0].StoreID.locations.days}
+                          h1={userData.Store[0].StoreID.locations.times[0]}
+                          h2={userData.Store[0].StoreID.locations.times[1]}
+                          location={userData.Store[0].StoreID.storeLocation}
+                          holidays={
+                            userData.Store[0].StoreID.locations.holidays
+                          }
+                          radius={
+                            userData.Store[0].StoreID.locations.radiusValue
+                          }
+                        />
+                      </>
+                    )}
                   </>
                 )}
+
+                <BankInfo />
               </>
             )}
-
-            <BankInfo />
           </>
         )}
       </div>
