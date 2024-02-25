@@ -217,7 +217,7 @@ export default function SellerOrder() {
           id={showProductDel.state ? "yesProductsPage" : "noProductsPage"}
         >
           <div className={osCss.top}>
-            <Header name="Overall Sales" />
+            {/* <Header name="Overall Sales" /> */}
             <div className={osCss.filters}>
               {/* Filters */}
               <div className={osCss.select}>
