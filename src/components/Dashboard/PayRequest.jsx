@@ -23,6 +23,14 @@ import Payt from "../Dashboard/Payment/Css/Payment.module.css";
 export default function PayRequest() {
   const [load, setLoad] = useState(false);
   const [loadData, setloadData] = useState(false);
+  const [imageUpload, setImageUpload] = useState([]);
+  const [showList, setList] = useState({
+    transactions: {
+      completed: 0,
+      raised: 0,
+      pending: 0,
+    },
+  });
   const [showSel, setSel] = useState({
     total: 0,
     amount: 0,
@@ -42,6 +50,22 @@ export default function PayRequest() {
 
   const raiseReq = async () => {
     setLoad(true);
+
+    if (imageUpload.length !== showSel.order.length) {
+      console.log("Invoice Check");
+
+      setLoad(false);
+
+      setError({
+        mainColor: "#E5F6FD",
+        secondaryColor: "#1AB1F5",
+        symbol: "info",
+        title: "Information",
+        text: "Invoice Required",
+        val: true,
+      });
+      return;
+    }
 
     if (showSel.bank === "") {
       setLoad(false);
@@ -75,6 +99,20 @@ export default function PayRequest() {
       return;
     }
 
+    if (!imageUpload) {
+      setLoad(false);
+
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "Please select an Image",
+        val: true,
+      });
+      return;
+    }
+
     try {
       let data = {
         bank: showSel.bank,
@@ -83,9 +121,21 @@ export default function PayRequest() {
         amount: showSel.amount,
       };
 
+      const formData = new FormData();
+      formData.append("data", JSON.stringify(data));
+      if (imageUpload) {
+        for (let i = 0; i < imageUpload.length; i++) {
+          formData.append("images", imageUpload[i]);
+        }
+      }
+
+      for (var key of formData.entries()) {
+        console.log(key[0] + ", " + key[1]);
+      }
+
       const response = await axios.post(
         "/api/common/Payment/Order/Request/Up",
-        data,
+        formData,
         {
           headers: { Authorization: `${authCtx.token}` },
         }
@@ -95,6 +145,7 @@ export default function PayRequest() {
         setLoad(false);
 
         setloadData(!loadData);
+        setImageUpload([]);
 
         setSel({
           ...showSel,
@@ -114,7 +165,7 @@ export default function PayRequest() {
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
-        text: "Invalid Credentials",
+        text: "Unable to Raise the Request. Try Again",
         val: true,
       });
     }
@@ -123,12 +174,15 @@ export default function PayRequest() {
   return (
     <>
       <div className={Payt.main}>
-        <PaymentList />
+        <PaymentList showList={showList} />
         <PaymentQuote />
         <PaymentTable
           setSel={setSel}
           showSel={showSel}
+          setList={setList}
           loadDataSave={loadData}
+          imageUpload={imageUpload}
+          setImageUpload={setImageUpload}
         />
 
         <div className={pr.main}>
@@ -144,7 +198,6 @@ export default function PayRequest() {
           </div>
         </div>
       </div>
-
       <Alert variant={variants} val={setError} />
     </>
   );

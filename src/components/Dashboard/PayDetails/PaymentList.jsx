@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 // css
 import Gplist from "./Css/PaymentList.module.css";
@@ -45,3 +46,7 @@ export default function PaymentList({ showlist }) {
     </div>
   );
 }
+
+PaymentList.propTypes = {
+  showlist: PropTypes.object.isRequired,
+};

@@ -1,5 +1,8 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import PropTypes from "prop-types";
+
+// component
+import UploadFile from "./UploadFile";
 
 // MicroInteraction
 import Load from "./../../../MicroInteraction/LoadBlack";
@@ -14,9 +17,16 @@ import AuthContext from "../../../store/auth-context";
 // css
 import pt from "./Css/PaymentTable.module.css";
 
-export default function PaymentTable({ setSel, loadDataSave }) {
+export default function PaymentTable({
+  setSel,
+  setList,
+  imageUpload,
+  setImageUpload,
+  loadDataSave,
+}) {
   const [load, setLoad] = useState(false);
   const [showData, setData] = useState([]);
+  const [IDLocal, setID] = useState([]);
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -36,8 +46,13 @@ export default function PaymentTable({ setSel, loadDataSave }) {
         headers: { Authorization: `${authCtx.token}` },
       });
 
+      console.log(response.data.listData);
+
       if (response.data.success) {
         setData(response.data.data);
+
+        setList(response.data.listData);
+        setID([]);
 
         setLoad(false);
       } else {
@@ -75,7 +90,6 @@ export default function PaymentTable({ setSel, loadDataSave }) {
             <Load />
           </div>
         ) : (
-          
           <>
             {showData.length > 0 ? (
               <>
@@ -109,55 +123,25 @@ export default function PaymentTable({ setSel, loadDataSave }) {
                       >
                         {val.action}
                       </td>
+
                       <td data-cell="action">
                         <label className={pt.labelDiv}>
                           {val.action === "Delivered & Eligible" && (
-                            <input
-                              type="checkbox"
-                              className={pt.CheckBoxInp}
-                              onChange={(e) => {
-                                setSel((prevShowSel) => ({
-                                  ...prevShowSel,
-                                  total: e.target.checked
-                                    ? prevShowSel.total + 1
-                                    : prevShowSel.total - 1,
-                                  amount: e.target.checked
-                                    ? prevShowSel.amount + val.amount
-                                    : prevShowSel.amount - val.amount,
-                                  order: e.target.checked
-                                    ? Array.isArray(prevShowSel.order)
-                                      ? [...prevShowSel.order, val._id]
-                                      : [val._id]
-                                    : prevShowSel.order.filter(
-                                        (order) => order !== val._id
-                                      ),
-                                }));
-                              }}
-                            />
+                            <>
+                              <UploadFile
+                                setSel={setSel}
+                                val={val}
+                                setImageUpload={setImageUpload}
+                                setID={setID}
+                                IDLocal={IDLocal}
+                              />
+                            </>
                           )}
-
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className={pt.lucide}
-                          >
-                            <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" />
-                            <path d="M12 12v9" />
-                            <path d="m16 16-4-4-4 4" />
-                          </svg>
                         </label>
                       </td>
                     </tr>
                   ))}
                 </table>
-              
               </>
             ) : (
               <div className="loadCenterDiv" id="loadPadding">
