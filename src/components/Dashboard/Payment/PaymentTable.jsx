@@ -17,6 +17,7 @@ import pt from "./Css/PaymentTable.module.css";
 export default function PaymentTable({
   setSel,
   setList,
+  imageUpload,
   setImageUpload,
   loadDataSave,
 }) {
