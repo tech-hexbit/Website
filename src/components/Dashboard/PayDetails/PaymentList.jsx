@@ -10,19 +10,19 @@ export default function PaymentList({ showlist }) {
       {/* Total */}
       <div className={Gplist.box}>
         <h4>Total Payment</h4>
-        <p className={Gplist.para}>Rs. {showlist.payment}</p>
+        <p className={Gplist.para}>Rs. {showlist.payment.toFixed(2)}</p>
       </div>
 
       {/* Processed */}
       <div className={Gplist.box}>
         <h4>Processed Amount</h4>
-        <p className={Gplist.para}>Rs. {showlist.Amount}</p>
+        <p className={Gplist.para}>Rs. {showlist.Amount.toFixed(2)}</p>
       </div>
 
       {/* Rejected */}
       <div className={Gplist.box}>
         <h4>Rejected Payments</h4>
-        <p className={Gplist.para}>Rs. {showlist.Rejected}</p>
+        <p className={Gplist.para}>Rs. {showlist.Rejected.toFixed(2)}</p>
       </div>
 
       {/* Transactions */}

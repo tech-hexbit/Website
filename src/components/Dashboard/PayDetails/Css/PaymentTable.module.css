@@ -45,6 +45,15 @@
   font-size: 12px;
 }
 
+.payPending {
+  background-color: #ea8e37;
+  color: #fef2e5;
+  text-align: center;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  font-size: 12px;
+}
+
 .rejected {
   background-color: #ffbaba;
   color: #cd0000;
@@ -56,7 +65,6 @@
 
 /* media queries */
 @media (max-width: 1050px) {
-
   .main {
     width: auto;
   }
@@ -68,17 +76,16 @@
   .trans_table th {
     display: none;
   }
- .payRes{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 60%;
-  margin: 1rem auto ;
-  padding-inline: 1rem;
-  border-radius: 0.5rem;
-  border: 1px solid #d5dce8;  
- }
-
+  .payRes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 60%;
+    margin: 1rem auto;
+    padding-inline: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #d5dce8;
+  }
 
   .trans_table tr {
     display: flex;
@@ -107,13 +114,13 @@
   }
 }
 
-@media(max-width: 605px){
-  .payRes{
+@media (max-width: 605px) {
+  .payRes {
     width: 90%;
-   }
+  }
 }
-@media  (max-width: 500px){
-  .payRes{
+@media (max-width: 500px) {
+  .payRes {
     width: 100%;
-   }
+  }
 }

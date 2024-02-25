@@ -148,10 +148,12 @@ export default function PaymentTable({ load, showData, code }) {
                         </td>
                         <td
                           className={
-                            item.status === "Payment Processed"
-                              ? Gptable.processed
-                              : item.status === "Payment Pending"
+                            item.status === "Approval Pending"
                               ? Gptable.pending
+                              : item.status === "Payment Pending"
+                              ? Gptable.payPending
+                              : item.status === "Payment Processed"
+                              ? Gptable.processed
                               : Gptable.rejected
                           }
                           data-cell="status"
