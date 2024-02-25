@@ -76,7 +76,7 @@ export default function PaymentTable({
     }
   };
 
-  const handleImage = (e, id) => {
+  const handleImage = (e) => {
     const selectedFiles = Array.from(e.target.files);
     setImage({ ...imageLocal, id, img: e.target.files[0] });
     setImageUpload((prevImages) => [...prevImages, ...selectedFiles]);
@@ -171,9 +171,7 @@ export default function PaymentTable({
                               <input
                                 type="file"
                                 name="file"
-                                onChange={() => {
-                                  handleImage(e, val._id);
-                                }}
+                                onChange={handleImage}
                                 style={{ display: "none" }}
                                 ref={fileInp}
                               />
