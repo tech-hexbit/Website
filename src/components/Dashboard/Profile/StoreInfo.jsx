@@ -10,6 +10,8 @@ export default function StoreInfo({
   cancelAmt,
   cancelPer,
   workingDays,
+  radius,
+  location,
   h1,
   h2,
 }) {
@@ -72,6 +74,19 @@ export default function StoreInfo({
             </div>
           </>
         )}
+
+        <br />
+
+        <div className={PICss.row1}>
+          <div className={PICss.col1}>
+            <div className={PICss.inputheading}>Radius</div>
+            <div className={PICss.infodiv}>{radius}</div>
+          </div>
+          <div className={PICss.col1}>
+            <div className={PICss.inputheading}>Stroe Location</div>
+            <p className={PICss.infodiv}>{location}</p>
+          </div>
+        </div>
 
         <br />
 
