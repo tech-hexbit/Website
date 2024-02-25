@@ -165,6 +165,7 @@ export default function Header() {
                       h2={userData.Store[0].StoreID.locations.times[1]}
                       location={userData.Store[0].StoreID.storeLocation}
                       radius={userData.Store[0].StoreID.locations.radiusValue}
+                      holidays={userData.Store[0].StoreID.locations.holidays}
                     />
                   </>
                 )}
