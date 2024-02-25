@@ -14,7 +14,13 @@ import AuthContext from "../../../store/auth-context";
 // css
 import pt from "./Css/PaymentTable.module.css";
 
-export default function UploadFile({ setSel, val, setImageUpload }) {
+export default function UploadFile({
+  setSel,
+  val,
+  setImageUpload,
+  IDLocal,
+  setID,
+}) {
   const fileInp = useRef(null);
 
   const handleImage = (e, id) => {
@@ -33,6 +39,7 @@ export default function UploadFile({ setSel, val, setImageUpload }) {
       <input
         type="checkbox"
         className={pt.CheckBoxInp}
+        style={{ display: IDLocal.includes(val._id) ? "block" : "none" }}
         onChange={(e) => {
           setSel((prevShowSel) => ({
             ...prevShowSel,
@@ -62,6 +69,7 @@ export default function UploadFile({ setSel, val, setImageUpload }) {
       />
 
       <div
+        style={{ display: IDLocal.includes(val._id) ? "none" : "block" }}
         onClick={() => {
           handleClick(val._id);
         }}
