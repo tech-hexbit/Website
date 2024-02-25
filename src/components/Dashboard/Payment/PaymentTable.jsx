@@ -73,10 +73,6 @@ export default function PaymentTable({
     }
   };
 
-  const Idcheck = (id) => {
-    setID(id);
-  };
-
   const handleImage = (e) => {
     const selectedFiles = Array.from(e.target.files);
     setImageUpload((prevImages) => [...prevImages, ...selectedFiles]);
@@ -141,7 +137,7 @@ export default function PaymentTable({
                         <label className={pt.labelDiv}>
                           {val.action === "Delivered & Eligible" && (
                             <>
-                              {imageLocal ? (
+                              {IDLocal ? (
                                 <input
                                   type="checkbox"
                                   className={pt.CheckBoxInp}
@@ -167,19 +163,22 @@ export default function PaymentTable({
                               ) : (
                                 ""
                               )}
-
+                              id={val._id}
                               <input
                                 type="file"
                                 name="file"
-                                onChange={() => {
-                                  handleImage();
-                                  Idcheck(val._id);
+                                onChange={(e) => {
+                                  handleImage(e);
                                 }}
                                 style={{ display: "none" }}
                                 ref={fileInp}
                               />
-
-                              <div onClick={handleClick}>
+                              <div
+                                onClick={() => {
+                                  handleClick();
+                                  console.log(val._id);
+                                }}
+                              >
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
                                   width="24"
