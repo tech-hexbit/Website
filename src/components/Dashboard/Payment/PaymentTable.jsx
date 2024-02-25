@@ -78,8 +78,14 @@ export default function PaymentTable({
     setImageUpload((prevImages) => [...prevImages, ...selectedFiles]);
   };
 
-  const handleClick = () => {
+  const handleClick = (id) => {
     fileInp.current.click();
+
+    saveID(id);
+  };
+
+  const saveID = async (id) => {
+    setID((prevIDLocal) => [...prevIDLocal, id]);
   };
 
   useEffect(() => {
@@ -163,20 +169,17 @@ export default function PaymentTable({
                               ) : (
                                 ""
                               )}
-                              id={val._id}
+
                               <input
                                 type="file"
                                 name="file"
-                                onChange={(e) => {
-                                  handleImage(e);
-                                }}
+                                onChange={handleImage}
                                 style={{ display: "none" }}
                                 ref={fileInp}
                               />
                               <div
                                 onClick={() => {
-                                  handleClick();
-                                  console.log(val._id);
+                                  handleClick(val._id);
                                 }}
                               >
                                 <svg
