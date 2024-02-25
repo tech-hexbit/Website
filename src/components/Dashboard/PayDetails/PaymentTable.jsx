@@ -78,7 +78,6 @@ export default function PaymentTable({ load, showData, code }) {
                     })}{" "}
                     ]
                   </td>
-                  {item.status}
                   <td
                     className={
                       item.status === "Payment Processed"
