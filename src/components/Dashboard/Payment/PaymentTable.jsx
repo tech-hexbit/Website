@@ -14,10 +14,14 @@ import AuthContext from "../../../store/auth-context";
 // css
 import pt from "./Css/PaymentTable.module.css";
 
-export default function PaymentTable({ setSel, setList, loadDataSave }) {
+export default function PaymentTable({
+  setSel,
+  setList,
+  setImageUpload,
+  loadDataSave,
+}) {
   const [load, setLoad] = useState(false);
   const [showData, setData] = useState([]);
-  const [imageUpload, setImageUpload] = useState();
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -69,8 +73,8 @@ export default function PaymentTable({ setSel, setList, loadDataSave }) {
   };
 
   const handleImage = (e) => {
-    console.log(e.target.files[0]);
-    setImageUpload(e.target.files[0]);
+    const selectedFiles = Array.from(e.target.files);
+    setImageUpload((prevImages) => [...prevImages, ...selectedFiles]);
   };
 
   const handleClick = () => {
