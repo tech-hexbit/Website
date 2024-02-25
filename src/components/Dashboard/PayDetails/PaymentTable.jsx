@@ -151,7 +151,7 @@ export default function PaymentTable({ load, showData, code }) {
                             item.status === "Approval Pending"
                               ? Gptable.pending
                               : item.status === "Payment Pending"
-                              ? Gptable.pending
+                              ? Gptable.payPending
                               : item.status === "Payment Processed"
                               ? Gptable.processed
                               : Gptable.rejected
