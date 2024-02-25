@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 import PropTypes from "prop-types";
 
+// component
+import UploadFile from "./UploadFile";
+
 // MicroInteraction
 import Load from "./../../../MicroInteraction/LoadBlack";
 import { Alert } from "./../../../MicroInteraction/Alert";
@@ -32,8 +35,6 @@ export default function PaymentTable({
     text: "",
     val: false,
   });
-
-  const fileInp = useRef(null);
 
   const authCtx = useContext(AuthContext);
 
@@ -74,28 +75,9 @@ export default function PaymentTable({
     }
   };
 
-  const handleImage = (e) => {
-    const selectedFiles = Array.from(e.target.files);
-    setImageUpload((prevImages) => [...prevImages, ...selectedFiles]);
-  };
-
-  const handleClick = (id) => {
-    fileInp.current.click();
-
-    saveID(id);
-  };
-
-  const saveID = async (id) => {
-    setID((prevIDLocal) => [...prevIDLocal, id]);
-  };
-
   useEffect(() => {
     loadData();
   }, [, loadDataSave]);
-
-  useEffect(() => {
-    console.log(IDLocal);
-  }, [IDLocal]);
 
   return (
     <>
@@ -140,66 +122,17 @@ export default function PaymentTable({
                       >
                         {val.action}
                       </td>
+
                       <td data-cell="action">
                         <label className={pt.labelDiv}>
                           {val.action === "Delivered & Eligible" && (
                             <>
-                              {IDLocal ? (
-                                <input
-                                  type="checkbox"
-                                  className={pt.CheckBoxInp}
-                                  onChange={(e) => {
-                                    setSel((prevShowSel) => ({
-                                      ...prevShowSel,
-                                      total: e.target.checked
-                                        ? prevShowSel.total + 1
-                                        : prevShowSel.total - 1,
-                                      amount: e.target.checked
-                                        ? prevShowSel.amount + val.amount
-                                        : prevShowSel.amount - val.amount,
-                                      order: e.target.checked
-                                        ? Array.isArray(prevShowSel.order)
-                                          ? [...prevShowSel.order, val._id]
-                                          : [val._id]
-                                        : prevShowSel.order.filter(
-                                            (order) => order !== val._id
-                                          ),
-                                    }));
-                                  }}
-                                />
-                              ) : (
-                                ""
-                              )}
-
-                              <input
-                                type="file"
-                                name="file"
-                                onChange={handleImage}
-                                style={{ display: "none" }}
-                                ref={fileInp}
+                              <UploadFile
+                                setSel={setSel}
+                                val={val}
+                                setImageUpload={setImageUpload}
+                                setID={setID}
                               />
-                              <div
-                                onClick={() => {
-                                  handleClick(val._id);
-                                }}
-                              >
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="24"
-                                  height="24"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  strokeWidth="2"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  className={pt.lucide}
-                                >
-                                  <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" />
-                                  <path d="M12 12v9" />
-                                  <path d="m16 16-4-4-4 4" />
-                                </svg>
-                              </div>
                             </>
                           )}
                         </label>
