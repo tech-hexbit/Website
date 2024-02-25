@@ -22,6 +22,7 @@ export default function PaymentTable({
 }) {
   const [load, setLoad] = useState(false);
   const [showData, setData] = useState([]);
+  const [imageLocal, setImage] = useState();
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -74,6 +75,7 @@ export default function PaymentTable({
 
   const handleImage = (e) => {
     const selectedFiles = Array.from(e.target.files);
+    setImage(e.target.files[0]);
     setImageUpload((prevImages) => [...prevImages, ...selectedFiles]);
   };
 
