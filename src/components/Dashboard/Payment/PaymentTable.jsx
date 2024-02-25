@@ -79,6 +79,10 @@ export default function PaymentTable({
     loadData();
   }, [, loadDataSave]);
 
+  useEffect(() => {
+    console.log(IDLocal);
+  }, [IDLocal]);
+
   return (
     <>
       <div className={pt.main}>
@@ -132,6 +136,7 @@ export default function PaymentTable({
                                 val={val}
                                 setImageUpload={setImageUpload}
                                 setID={setID}
+                                IDLocal={IDLocal}
                               />
                             </>
                           )}
