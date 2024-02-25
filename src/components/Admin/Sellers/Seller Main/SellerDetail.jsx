@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 
 // components
-import Alert from "./Seller Components/Alert"
+import Alert from "./Seller Components/Alert";
 
 // state
 import AuthContext from "../../../../store/auth-context";
@@ -10,14 +10,13 @@ import AuthContext from "../../../../store/auth-context";
 import axios from "axios";
 
 // css
-import SCss from './CSS/sellerDetail.module.css'
+import SCss from "./CSS/sellerDetail.module.css";
 import KYCDetails from "./Seller Components/KYCDetails";
 import DownloadBtn from "./Seller Components/DownloadBtn";
 import MandatoryField from "./Seller Components/MandatoryField";
 
-
-function SellerDetail( props) {
-    const [load, setLoad] = useState(false);
+function SellerDetail(props) {
+  const [load, setLoad] = useState(false);
   const [showVer, setVer] = useState(false);
   const [variants, setError] = useState({
     mainColor: "",
@@ -91,42 +90,62 @@ function SellerDetail( props) {
   };
   return (
     <div className={SCss.main}>
-        <div>
+      <div>
         <div className={SCss.svg}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left"
-             onClick={() => {
-                props.hide(false);
-              }}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="55"
+            height="55"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-chevron-left"
+            onClick={() => {
+              props.hide(false);
+            }}
+          >
+            <path d="m15 18-6-6 6-6" />
+          </svg>
+          <p className={SCss.seller}>Seller Details</p>
+        </div>
+        <div className={SCss.topText}>
+          <p>KYC</p>
+          <p>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="19"
+              height="19"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-chevron-right"
             >
-            <path d="m15 18-6-6 6-6"/></svg>
-            <p className={SCss.seller}>Seller Details</p>
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          </p>
+          <p>Seller Info</p>
         </div>
-            <div className={SCss.topText}>
-                <p>
-                KYC
-                </p>
-                <p>
-                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
-                </p>
-                <p>
-                    Seller Info
-                </p>
-            </div>
-            
-            {/* Alert */}
-            <Alert props={props}/>
-            {/* KYC INFO */}
-           <KYCDetails props={props}/>
-        </div>
-        <div className={SCss.btn}>
+
+        {/* Alert */}
+        <Alert props={props} />
+        {/* KYC INFO */}
+        <KYCDetails props={props} />
+      </div>
+      <div className={SCss.btn}>
         {/* Download Button */}
-            <>
-                <DownloadBtn  props={props} />
-                <MandatoryField props={props} />
-            </>
-        </div>
+        <>
+          <DownloadBtn props={props} />
+          <MandatoryField props={props} />
+        </>
+      </div>
     </div>
-  )
+  );
 }
 
-export default SellerDetail
+export default SellerDetail;
