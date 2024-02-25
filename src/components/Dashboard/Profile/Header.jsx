@@ -163,6 +163,8 @@ export default function Header() {
                       workingDays={userData.Store[0].StoreID.locations.days}
                       h1={userData.Store[0].StoreID.locations.times[0]}
                       h2={userData.Store[0].StoreID.locations.times[1]}
+                      location={userData.Store[0].StoreID.storeLocation}
+                      radius={userData.Store[0].StoreID.locations.radiusValue}
                     />
                   </>
                 )}
