@@ -16,7 +16,6 @@ export default function AllSellers(props) {
 
   return (
     <>
-      {/* <div className={show.state ? "yesProductsPage" : "noProductsPage"}> */}
       {show ? (
         <SellerDetail hide={hide} show={show} setLoad={props.setLoad} />
       ) : (
@@ -133,7 +132,6 @@ export default function AllSellers(props) {
           </div>
         </>
       )}
-      {/* </div> */}
     </>
   );
 }
