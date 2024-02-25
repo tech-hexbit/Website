@@ -52,6 +52,7 @@ export default function PaymentTable({
         setData(response.data.data);
 
         setList(response.data.listData);
+        setID([]);
 
         setLoad(false);
       } else {
@@ -78,10 +79,6 @@ export default function PaymentTable({
   useEffect(() => {
     loadData();
   }, [, loadDataSave]);
-
-  useEffect(() => {
-    console.log(IDLocal);
-  }, [IDLocal]);
 
   return (
     <>
