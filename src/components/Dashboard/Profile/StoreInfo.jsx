@@ -11,6 +11,7 @@ export default function StoreInfo({
   cancelPer,
   workingDays,
   radius,
+  holidays,
   location,
   h1,
   h2,
@@ -86,6 +87,21 @@ export default function StoreInfo({
             <div className={PICss.inputheading}>Stroe Location</div>
             <p className={PICss.infodiv}>{location}</p>
           </div>
+        </div>
+
+        <br />
+
+        <div className={PICss.col0}>
+          <div className={PICss.inputheading}>Holidays</div>
+          {holidays.length > 0 ? (
+            <>
+              <div className={PICss.infodiv}>holidays</div>
+            </>
+          ) : (
+            <>
+              <div className={PICss.infodiv}>No Holidays</div>
+            </>
+          )}
         </div>
 
         <br />
