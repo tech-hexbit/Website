@@ -16,7 +16,7 @@ export default function PaymentList({ showlist }) {
       {/* Processed */}
       <div className={Gplist.box}>
         <h4>Processed Amount</h4>
-        <p className={Gplist.para}>Rs. {showlist.Amount}</p>
+        <p className={Gplist.para}>Rs. {showlist.Amount.toFixed(2)}</p>
       </div>
 
       {/* Rejected */}
