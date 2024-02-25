@@ -22,10 +22,7 @@ export default function PaymentTable({
 }) {
   const [load, setLoad] = useState(false);
   const [showData, setData] = useState([]);
-  const [imageLocal, setImage] = useState({
-    id: "",
-    img: {},
-  });
+  const [IDLocal, setID] = useState([]);
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -76,9 +73,12 @@ export default function PaymentTable({
     }
   };
 
+  const Idcheck = (id) => {
+    setID(id);
+  };
+
   const handleImage = (e) => {
     const selectedFiles = Array.from(e.target.files);
-    setImage({ ...imageLocal, id, img: e.target.files[0] });
     setImageUpload((prevImages) => [...prevImages, ...selectedFiles]);
   };
 
@@ -91,8 +91,8 @@ export default function PaymentTable({
   }, [, loadDataSave]);
 
   useEffect(() => {
-    console.log(imageLocal);
-  }, [imageLocal]);
+    console.log(IDLocal);
+  }, [IDLocal]);
 
   return (
     <>
@@ -171,7 +171,10 @@ export default function PaymentTable({
                               <input
                                 type="file"
                                 name="file"
-                                onChange={handleImage}
+                                onChange={() => {
+                                  handleImage();
+                                  Idcheck(val._id);
+                                }}
                                 style={{ display: "none" }}
                                 ref={fileInp}
                               />
