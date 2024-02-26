@@ -11,7 +11,6 @@ import Gptable from "./Css/PaymentTable.module.css";
 
 export default function PaymentTable({ load, showData, code }) {
   const [showOverlay, setShowOverlay] = useState(false);
-
   const [selectedItem, setSelectedItem] = useState([]);
 
   const handleOverlay = (refNo) => {

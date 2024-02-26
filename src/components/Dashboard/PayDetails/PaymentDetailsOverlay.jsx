@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 // components
 import GatewayGetinTouch from "./GetinTouch";
+import Cashfree from "./../../../cashfree/Cashfree";
+
+// state
+import AuthContext from "../../../store/auth-context";
 
 // css
 import gpdo from "./Css/PaymentDetailsOverlay.module.css";
 
 export default function PaymentDetailsOverlay({ selectedItem, code }) {
   if (!selectedItem) return null;
+
+  const authCtx = useContext(AuthContext);
+
+  console.log(authCtx.user.access);
 
   return (
     <div className={gpdo.main}>
@@ -92,6 +100,8 @@ export default function PaymentDetailsOverlay({ selectedItem, code }) {
           <p>INR {selectedItem[0].totalAmount.toFixed(2)}</p>
         </div>
       </div>
+
+      {authCtx.user.access === 2 ? <Cashfree /> : ""}
 
       {code === 0 ? "" : <GatewayGetinTouch />}
     </div>

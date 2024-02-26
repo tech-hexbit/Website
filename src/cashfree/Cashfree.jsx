@@ -10,16 +10,16 @@ import Load from "./../MicroInteraction/Load";
 import axios from "axios";
 
 // cashfree
-import { cashfree } from "./util";
+import { load } from "@cashfreepayments/cashfree-js";
 
 // css
 import ChCss from "./Css/CashFree.module.css";
 
 export default function Cashfree() {
-  const [load, setLoad] = useState(false);
+  const [loadState, setLoad] = useState(false);
+  const [version, setversion] = useState(null);
+  const [cashfree, setCashfree] = useState(null);
   const [sessionId, setSessionId] = useState("");
-
-  let version = cashfree.version();
 
   const authCtx = useContext(AuthContext);
 
@@ -70,11 +70,30 @@ export default function Cashfree() {
     // });
   };
 
+  useEffect(() => {
+    const loadCashfree = async () => {
+      try {
+        const cashfreeInstance = await load({ mode: "sandbox" }); // Load Cashfree asynchronously
+        setCashfree(cashfreeInstance); // Set the Cashfree instance in state
+      } catch (error) {
+        console.error("Error loading Cashfree:", error);
+      }
+    };
+
+    loadCashfree();
+  }, []);
+
+  useEffect(() => {
+    if (cashfree === null) return;
+
+    setversion(cashfree.version());
+  }, [cashfree]);
+
   return (
     <>
       <div className={ChCss.mDiv}>
         <button onClick={handlePayment} className={ChCss.PayNowBtn}>
-          {load ? <Load /> : "Pay Now"}
+          {loadState ? <Load /> : "Pay Now"}
         </button>
       </div>
       {/* <button onClick={getSessionId}>Cashfree</button> */}
