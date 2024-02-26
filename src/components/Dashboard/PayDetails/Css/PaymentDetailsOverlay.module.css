@@ -4,9 +4,25 @@
   justify-content: center;
 }
 
-.main h2 {
+.h2Div {
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
   border-bottom: 1px solid #ccd;
   padding-block: 1rem;
+}
+
+.dwnDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0px 10px;
+  transform: all 0.3s;
+  cursor: pointer;
+}
+
+.dwnDiv:hover {
+  color: #0132bf;
 }
 
 .wrapper {
