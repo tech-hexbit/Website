@@ -30,6 +30,17 @@ export default function PaymentDetailsOverlay({ selectedItem, code }) {
   const downloadInvoice = async () => {
     console.log("Download Invoice");
     try {
+      let data = {
+        list: selectedItem[0].Invoice,
+      };
+
+      const response = await axios.post(
+        "/api/common/Payment/Order/DOwnload/List",
+        data,
+        {
+          headers: { Authorization: `${authCtx.token}` },
+        }
+      );
     } catch (error) {
       console.error("Error creating zip file:", error);
     }
