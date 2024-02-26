@@ -4,8 +4,15 @@ import React, { useState, useEffect, useContext } from "react";
 import GatewayGetinTouch from "./GetinTouch";
 import Cashfree from "./../../../cashfree/Cashfree";
 
+// MicroInteraction
+import Load from "./../../../MicroInteraction/LoadBlack";
+import { Alert } from "./../../../MicroInteraction/Alert";
+
 // state
 import AuthContext from "../../../store/auth-context";
+
+// axios
+import axios from "axios";
 
 // Zip
 import JSZip from "jszip";
@@ -23,24 +30,6 @@ export default function PaymentDetailsOverlay({ selectedItem, code }) {
   const downloadInvoice = async () => {
     console.log("Download Invoice");
     try {
-      const promises = selectedItem[0].Invoice.map(async (url) => {
-        // const object = await s3.getObject(url);
-        // const blob = new Blob([object.Body]);
-
-        console.log("URL = " + url);
-        console.log("res");
-        console.log(res);
-        console.log("blob");
-        console.log(blob);
-
-        return blob;
-      });
-
-      const res = await Promise.all(promises);
-
-      console.log(res);
-
-      // selectedItem[0].Invoice.forEach(async (url, index) => {
     } catch (error) {
       console.error("Error creating zip file:", error);
     }
