@@ -57,13 +57,20 @@ export default function PaymentDetailsOverlay({ selectedItem, code }) {
 
           {dwn && (
             <div className={gpdo.invoiceDiv}>
-              {selectedItem[0].Invoice.map((val, key) => {
-                return (
-                  <a href={val} key={key} className={gpdo.aTag} target="_blank">
-                    Invoice {key + 1}
-                  </a>
-                );
-              })}
+              <>
+                {selectedItem[0].Invoice.map((val, key) => {
+                  return (
+                    <a
+                      href={val}
+                      key={key}
+                      className={gpdo.aTag}
+                      target="_blank"
+                    >
+                      Invoice {key + 1}
+                    </a>
+                  );
+                })}
+              </>
             </div>
           )}
         </div>
