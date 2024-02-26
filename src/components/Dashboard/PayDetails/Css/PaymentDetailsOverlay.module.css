@@ -24,7 +24,7 @@
 
 .invoiceDiv {
   position: absolute;
-  bottom: -100%;
+  top: 60px;
   right: 0px;
   width: 170px;
   padding: 5px 0px;
