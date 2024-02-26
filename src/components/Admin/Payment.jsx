@@ -68,7 +68,6 @@ export default function Payment() {
   return (
     <>
       <PaymentTable showData={showData} code={0} />
-      <Cashfree />
 
       <Alert variant={variants} val={setError} />
     </>
