@@ -9,7 +9,7 @@ import AuthContext from "../../../store/auth-context";
 
 // Zip
 import JSZip from "jszip";
-import { useS3 } from "react-s3";
+// import { useS3 } from "react-aws-s3";
 import { saveAs } from "file-saver";
 
 // css
@@ -20,14 +20,12 @@ export default function PaymentDetailsOverlay({ selectedItem, code }) {
 
   const authCtx = useContext(AuthContext);
 
-  const s3 = useS3();
-
   const downloadInvoice = async () => {
     console.log("Download Invoice");
     try {
       const promises = selectedItem[0].Invoice.map(async (url) => {
-        const object = await s3.getObject(url);
-        const blob = new Blob([object.Body]);
+        // const object = await s3.getObject(url);
+        // const blob = new Blob([object.Body]);
 
         console.log("URL = " + url);
         console.log("res");
