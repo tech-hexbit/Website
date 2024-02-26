@@ -41,6 +41,8 @@ export default function PaymentDetailsOverlay({ selectedItem, code }) {
           headers: { Authorization: `${authCtx.token}` },
         }
       );
+
+      console.log(response.data);
     } catch (error) {
       console.error("Error creating zip file:", error);
     }
