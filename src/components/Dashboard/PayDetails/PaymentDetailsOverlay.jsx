@@ -15,8 +15,6 @@ export default function PaymentDetailsOverlay({ selectedItem, code }) {
 
   const authCtx = useContext(AuthContext);
 
-  console.log(authCtx.user.access);
-
   return (
     <div className={gpdo.main}>
       <h2>Request Details</h2>
