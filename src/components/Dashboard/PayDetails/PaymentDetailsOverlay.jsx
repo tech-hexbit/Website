@@ -14,46 +14,22 @@ import AuthContext from "../../../store/auth-context";
 // axios
 import axios from "axios";
 
-// Zip
-import JSZip from "jszip";
-// import { useS3 } from "react-aws-s3";
-import { saveAs } from "file-saver";
-
 // css
 import gpdo from "./Css/PaymentDetailsOverlay.module.css";
 
 export default function PaymentDetailsOverlay({ selectedItem, code }) {
+  const [dwn, setDwn] = useState(false);
+
   if (!selectedItem) return null;
 
   const authCtx = useContext(AuthContext);
-
-  const downloadInvoice = async () => {
-    console.log("Download Invoice");
-    try {
-      let data = {
-        list: selectedItem[0].Invoice,
-      };
-
-      const response = await axios.post(
-        "/api/common/Payment/Order/DOwnload/List",
-        data,
-        {
-          headers: { Authorization: `${authCtx.token}` },
-        }
-      );
-
-      console.log(response.data);
-    } catch (error) {
-      console.error("Error creating zip file:", error);
-    }
-  };
 
   return (
     <div className={gpdo.main}>
       <div className={gpdo.h2Div}>
         <h2>Request Details</h2>
 
-        <div className={gpdo.dwnDiv} onClick={downloadInvoice}>
+        <div className={gpdo.dwnDiv} onClick={setDwn(!dwn)}>
           {authCtx.user.access === 2 ? (
             <>
               <svg
