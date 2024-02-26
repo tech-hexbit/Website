@@ -20,9 +20,28 @@ export default function PaymentDetailsOverlay({ selectedItem, code }) {
   const authCtx = useContext(AuthContext);
 
   const downloadInvoice = async () => {
-    console.log("downloadInvoice");
+    try {
+      const zip = new JSZip();
 
-    console.log(selectedItem[0].Invoice);
+      selectedItem[0].Invoice.forEach(async (url, index) => {
+        try {
+          const response = await fetch(url);
+          const blob = await response.blob();
+
+          zip.file(`invoice_${index}.png`, blob);
+        } catch (error) {
+          console.error("Error fetching invoice:", error);
+        }
+      });
+
+      // Generate the zip file
+      zip.generateAsync({ type: "blob" }).then((content) => {
+        // Save the zip file
+        saveAs(content, "invoices.zip");
+      });
+    } catch (error) {
+      console.error("Error creating zip file:", error);
+    }
   };
 
   return (
