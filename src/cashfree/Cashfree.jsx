@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import { load } from "@cashfreepayments/cashfree-js";
 
 // state
 import AuthContext from "./../store/auth-context";
@@ -10,7 +11,7 @@ import Load from "./../MicroInteraction/Load";
 import axios from "axios";
 
 // cashfree
-import { cashfree } from "./util";
+// import { cashfree } from "./util";
 
 // css
 import ChCss from "./Css/CashFree.module.css";
@@ -18,8 +19,8 @@ import ChCss from "./Css/CashFree.module.css";
 export default function Cashfree() {
   const [load, setLoad] = useState(false);
   const [sessionId, setSessionId] = useState("");
-
-  let version = cashfree.version();
+  const [cashfree, setCashfree] = useState(null);
+  const [version, setversion] = useState(null);
 
   const authCtx = useContext(AuthContext);
 
@@ -69,6 +70,25 @@ export default function Cashfree() {
     //   }
     // });
   };
+
+  useEffect(() => {
+    const loadCashfree = async () => {
+      try {
+        const cashfreeInstance = await load({ mode: "sandbox" }); // Load Cashfree asynchronously
+        setCashfree(cashfreeInstance); // Set the Cashfree instance in state
+      } catch (error) {
+        console.error("Error loading Cashfree:", error);
+      }
+    };
+
+    loadCashfree();
+  }, []);
+
+  useEffect(() => {
+    if (cashfree === null) return;
+
+    setversion(cashfree.version());
+  }, [cashfree]);
 
   return (
     <>
