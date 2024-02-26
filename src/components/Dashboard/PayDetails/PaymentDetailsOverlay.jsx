@@ -7,6 +7,10 @@ import Cashfree from "./../../../cashfree/Cashfree";
 // state
 import AuthContext from "../../../store/auth-context";
 
+// Zip
+import JSZip from "jszip";
+import { saveAs } from "file-saver";
+
 // css
 import gpdo from "./Css/PaymentDetailsOverlay.module.css";
 
@@ -15,12 +19,18 @@ export default function PaymentDetailsOverlay({ selectedItem, code }) {
 
   const authCtx = useContext(AuthContext);
 
+  const downloadInvoice = async () => {
+    console.log("downloadInvoice");
+
+    console.log(selectedItem[0].Invoice);
+  };
+
   return (
     <div className={gpdo.main}>
       <div className={gpdo.h2Div}>
         <h2>Request Details</h2>
 
-        <div className={gpdo.dwnDiv}>
+        <div className={gpdo.dwnDiv} onClick={downloadInvoice}>
           {authCtx.user.access === 2 ? (
             <>
               <svg
