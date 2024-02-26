@@ -5,6 +5,7 @@
 }
 
 .h2Div {
+  position: relative;
   display: flex;
   justify-content: center;
   justify-content: space-between;
@@ -13,24 +14,24 @@
 }
 
 .dwnDiv {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0px 10px;
-  transform: all 0.3s;
+  transition: all 0.3s;
   cursor: pointer;
 }
 
 .invoiceDiv {
   position: absolute;
-  bottom: 0px;
-  left: 0px;
-  width: 100%;
+  bottom: -100%;
+  right: 0px;
+  width: 170px;
   padding: 5px 0px;
   background-color: #fff;
   display: flex;
   flex-direction: column;
+  box-shadow: 2px 2px 5px #d3d3d3;
   gap: 10px 0px;
 }
 
