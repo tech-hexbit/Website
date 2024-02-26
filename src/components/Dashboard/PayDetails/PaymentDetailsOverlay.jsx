@@ -29,7 +29,7 @@ export default function PaymentDetailsOverlay({ selectedItem, code }) {
       <div className={gpdo.h2Div}>
         <h2>Request Details</h2>
 
-        <div className={gpdo.dwnDiv} onClick={setDwn(!dwn)}>
+        <div className={gpdo.dwnDiv} onClick={() => setDwn(!dwn)}>
           {authCtx.user.access === 2 ? (
             <>
               <svg
@@ -50,6 +50,23 @@ export default function PaymentDetailsOverlay({ selectedItem, code }) {
               </svg>
 
               <p>Download Invoice</p>
+
+              {dwn && (
+                <div className={gpdo.invoiceDiv}>
+                  {selectedItem[0].Invoice.map((val, key) => {
+                    return (
+                      <a
+                        href={val}
+                        key={key}
+                        className={gpdo.aTag}
+                        target="_blank"
+                      >
+                        Invoice {key + 1}
+                      </a>
+                    );
+                  })}
+                </div>
+              )}
             </>
           ) : (
             ""
