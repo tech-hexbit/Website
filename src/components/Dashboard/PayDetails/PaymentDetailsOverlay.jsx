@@ -9,6 +9,7 @@ import AuthContext from "../../../store/auth-context";
 
 // Zip
 import JSZip from "jszip";
+import { useS3 } from "react-s3";
 import { saveAs } from "file-saver";
 
 // css
@@ -19,26 +20,29 @@ export default function PaymentDetailsOverlay({ selectedItem, code }) {
 
   const authCtx = useContext(AuthContext);
 
+  const s3 = useS3();
+
   const downloadInvoice = async () => {
+    console.log("Download Invoice");
     try {
-      const zip = new JSZip();
+      const promises = selectedItem[0].Invoice.map(async (url) => {
+        const object = await s3.getObject(url);
+        const blob = new Blob([object.Body]);
 
-      selectedItem[0].Invoice.forEach(async (url, index) => {
-        try {
-          const response = await fetch(url);
-          const blob = await response.blob();
+        console.log("URL = " + url);
+        console.log("res");
+        console.log(res);
+        console.log("blob");
+        console.log(blob);
 
-          zip.file(`invoice_${index}.png`, blob);
-        } catch (error) {
-          console.error("Error fetching invoice:", error);
-        }
+        return blob;
       });
 
-      // Generate the zip file
-      zip.generateAsync({ type: "blob" }).then((content) => {
-        // Save the zip file
-        saveAs(content, "invoices.zip");
-      });
+      const res = await Promise.all(promises);
+
+      console.log(res);
+
+      // selectedItem[0].Invoice.forEach(async (url, index) => {
     } catch (error) {
       console.error("Error creating zip file:", error);
     }
