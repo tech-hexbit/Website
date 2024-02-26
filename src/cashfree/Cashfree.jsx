@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-import { load } from "@cashfreepayments/cashfree-js";
 
 // state
 import AuthContext from "./../store/auth-context";
@@ -11,16 +10,16 @@ import Load from "./../MicroInteraction/Load";
 import axios from "axios";
 
 // cashfree
-// import { cashfree } from "./util";
+import { load } from "@cashfreepayments/cashfree-js";
 
 // css
 import ChCss from "./Css/CashFree.module.css";
 
 export default function Cashfree() {
-  const [load, setLoad] = useState(false);
-  const [sessionId, setSessionId] = useState("");
-  const [cashfree, setCashfree] = useState(null);
+  const [loadState, setLoad] = useState(false);
   const [version, setversion] = useState(null);
+  const [cashfree, setCashfree] = useState(null);
+  const [sessionId, setSessionId] = useState("");
 
   const authCtx = useContext(AuthContext);
 
@@ -94,7 +93,7 @@ export default function Cashfree() {
     <>
       <div className={ChCss.mDiv}>
         <button onClick={handlePayment} className={ChCss.PayNowBtn}>
-          {load ? <Load /> : "Pay Now"}
+          {loadState ? <Load /> : "Pay Now"}
         </button>
       </div>
       {/* <button onClick={getSessionId}>Cashfree</button> */}
