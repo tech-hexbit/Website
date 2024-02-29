@@ -17,9 +17,6 @@ import AuthContext from "../../store/auth-context";
 // css
 import odcss from "./Css/Orderdetails.module.css";
 
-// img
-import LogisticsGif from "./../../assets/Logistic/Logistics.gif";
-
 const Orderdetails = (props) => {
   const [res, setres] = useState(null);
   const [load, setLoad] = useState(false);
@@ -110,24 +107,6 @@ const Orderdetails = (props) => {
                   />
 
                   <div className={odcss["text-content"]}>
-                    <div className={odcss["overlap-group"]}>
-                      <div className={odcss["text-wrapper"]}>
-                        Logistics details
-                      </div>
-                      <div className={odcss["logistic-img"]}>
-                        <img
-                          src={LogisticsGif}
-                          alt=""
-                          className={odcss.LogisticsGif}
-                        />
-                      </div>
-                      <div className={odcss["text-l"]}>
-                        <div className={odcss.name}>
-                          <div className={odcss.div}>Soon To be Alloted</div>
-                        </div>
-                      </div>
-                    </div>
-
                     <div className={odcss.mapDivBU}>
                       <h2 className={odcss.gt}>Total bill</h2>
                       {res.breakup.map((val, key) => {
