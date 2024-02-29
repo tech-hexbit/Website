@@ -7,7 +7,7 @@ import odcss from "./../../Css/Orderdetails.module.css";
 import LogisticsGif from "./../../../../assets/Logistic/Logistics.gif";
 
 export default function Logistics({ res }) {
-  console.log(res);
+  console.log(res.state);
   return (
     <>
       <div className={odcss["overlap-group"]}>
@@ -18,7 +18,9 @@ export default function Logistics({ res }) {
 
         <div className={odcss["text-l"]}>
           <div className={odcss.name}>
-            <div className={odcss.div}>Soon To be Alloted</div>
+            <div className={odcss.div}>
+              {res.state === "Created" || res.state === "In-progress" ? "" : ""}
+            </div>
           </div>
         </div>
       </div>
