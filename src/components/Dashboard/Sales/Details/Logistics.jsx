@@ -1,10 +1,10 @@
 import React from "react";
 
 // css
-import odcss from "./Css/Orderdetails.module.css";
+import odcss from "./../../Css/Orderdetails.module.css";
 
 // img
-import LogisticsGif from "./../../assets/Logistic/Logistics.gif";
+import LogisticsGif from "./../../../../assets/Logistic/Logistics.gif";
 
 export default function Logistics() {
   return (
