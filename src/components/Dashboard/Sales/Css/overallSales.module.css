@@ -139,6 +139,10 @@
   display: none;
 }
 
+.trDiv {
+  cursor: pointer;
+}
+
 .table th {
   padding-block: 5px;
   text-align: left;
