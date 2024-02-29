@@ -6,7 +6,8 @@ import odcss from "./../../Css/Orderdetails.module.css";
 // img
 import LogisticsGif from "./../../../../assets/Logistic/Logistics.gif";
 
-export default function Logistics() {
+export default function Logistics({ res }) {
+  console.log(res);
   return (
     <>
       <div className={odcss["overlap-group"]}>
