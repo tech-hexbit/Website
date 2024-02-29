@@ -4,6 +4,7 @@ import React, { useState, useEffect, useContext } from "react";
 import Header from "./MainParts/Header";
 import UpdateDel from "./Sales/UpdateDel";
 import TopDetails from "./Sales/Details/TopDetails";
+import Logistics from "./Sales/Details/Logistics";
 
 // MicroInteraction
 import Load from "./../../MicroInteraction/LoadBlack";
