@@ -14,11 +14,11 @@ export default function Logistics() {
         <div className={odcss["logistic-img"]}>
           <img src={LogisticsGif} alt="" className={odcss.LogisticsGif} />
         </div>
-      </div>
 
-      <div className={odcss["text-l"]}>
-        <div className={odcss.name}>
-          <div className={odcss.div}>Soon To be Alloted</div>
+        <div className={odcss["text-l"]}>
+          <div className={odcss.name}>
+            <div className={odcss.div}>Soon To be Alloted</div>
+          </div>
         </div>
       </div>
     </>
