@@ -89,6 +89,12 @@
   background-color: #ff0000;
 }
 
+#disable1,
+#disable2,
+#disable3,
+#disable4 {
+}
+
 .ProductDelTableDiv {
   width: 100%;
 }
