@@ -55,30 +55,35 @@ export default function OrderLayUpdate(props) {
     if (value === "Accepted") {
       if (upAll.code < 2) {
         console.log("Accepted");
+        codeVal = 1;
       }
     }
 
     if (value === "In-progress") {
       if (upAll.code > 1 && upAll.code <= 2) {
         console.log("In-progress");
+        codeVal = 2;
       }
     }
 
     if (value === "Completed") {
       if (upAll.code > 2 && upAll.code <= 3) {
         console.log("Completed");
+        codeVal = 3;
       }
     }
 
     if (value === "Cancelled") {
       if (upAll.code === 0 || upAll.code === 1) {
         console.log("Cancelled");
+        codeVal = 4;
       }
     }
 
     if (value === "Return") {
       if (upAll.code === 4) {
         console.log("Return");
+        codeVal = 5;
       }
     }
   };
