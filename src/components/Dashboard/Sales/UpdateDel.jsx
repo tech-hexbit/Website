@@ -17,10 +17,10 @@ import OLCss from "./Css/OrderLayUpdate.module.css";
 
 export default function OrderLayUpdate(props) {
   const [res, setres] = useState(null);
+  const [load, setLoad] = useState(false);
   const [upAll, setUpAll] = useState({
     code: 0,
   });
-  const [load, setLoad] = useState(false);
   const [disableCon, setDisableCon] = useState({
     Accept: false,
     InProgress: false,
