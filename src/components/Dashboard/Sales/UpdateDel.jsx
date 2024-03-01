@@ -54,21 +54,6 @@ export default function OrderLayUpdate(props) {
     }
   };
 
-  // const checkItemsInfo = async () => {
-  //   const itemStates = res.Items.map((item) => item.state);
-
-  //   let curr = {
-  //     Accept: false,
-  //     InProgress: false,
-  //     Completed: false,
-  //     Cancelled: false,
-  //   };
-
-  //   for (let i = 0; i < itemStates.length; i++) {
-  //     if (itemStates[i] === "In-progress") console.log(itemStates[i]);
-  //   }
-  // };
-
   useEffect(() => {
     loadOrderdel(props.id);
   }, [props.id]);
