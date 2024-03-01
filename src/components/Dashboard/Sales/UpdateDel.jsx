@@ -21,6 +21,15 @@ export default function OrderLayUpdate(props) {
   const [load, setLoad] = useState(false);
   const [upAll, setUpAll] = useState({
     code: 0,
+    load: false,
+  });
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
   });
 
   const authCtx = useContext(AuthContext);
@@ -86,6 +95,8 @@ export default function OrderLayUpdate(props) {
         codeVal = 5;
       }
     }
+
+    console.log(codeVal);
   };
 
   useEffect(() => {
