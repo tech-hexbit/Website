@@ -21,7 +21,6 @@ export default function OrderLayUpdate(props) {
   const [load, setLoad] = useState(false);
   const [upAll, setUpAll] = useState({
     code: 0,
-    load: false,
   });
   const [variants, setError] = useState({
     mainColor: "",
@@ -96,7 +95,24 @@ export default function OrderLayUpdate(props) {
       }
     }
 
-    console.log(codeVal);
+    try {
+      // setLoad(true);
+
+      console.log(codeVal);
+    } catch (error) {
+      console.log(error);
+
+      setLoad(false);
+
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "Poduct Addition Failed",
+        val: true,
+      });
+    }
   };
 
   useEffect(() => {
