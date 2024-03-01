@@ -17,6 +17,9 @@ import OLCss from "./Css/OrderLayUpdate.module.css";
 
 export default function OrderLayUpdate(props) {
   const [res, setres] = useState(null);
+  const [upAll, setUpAll] = useState({
+    code: 0,
+  });
   const [load, setLoad] = useState(false);
   const [disableCon, setDisableCon] = useState({
     Accept: false,
@@ -70,9 +73,24 @@ export default function OrderLayUpdate(props) {
     loadOrderdel(props.id);
   }, [props.id]);
 
-  // useEffect(() => {
-  //   res && checkItemsInfo();
-  // }, [res]);
+  useEffect(() => {
+    if (res) {
+      console.log(res);
+
+      let lowestCode = Infinity;
+
+      for (let i = 0; i < res.Items.length; i++) {
+        if (res.Items[i].code < lowestCode) {
+          lowestCode = res.Items[i].code;
+        }
+      }
+
+      setUpAll({
+        ...upAll,
+        code: lowestCode,
+      });
+    }
+  }, [res]);
 
   return (
     <>
@@ -102,16 +120,29 @@ export default function OrderLayUpdate(props) {
           // </svg> */}
 
         <div className={OLCss.BtnDivMain}>
-          <div className={OLCss.BtnDiv} id={OLCss.Accept}>
+          <div
+            className={OLCss.BtnDiv}
+            id={upAll.code <= 1 ? OLCss.Accept : OLCss.disable1}
+          >
             Accept
           </div>
-          <div className={OLCss.BtnDiv} id={OLCss.InProgress}>
+
+          <div
+            className={OLCss.BtnDiv}
+            id={upAll.code === 2 ? OLCss.InProgress : OLCss.disable2}
+          >
             In-progress
           </div>
-          <div className={OLCss.BtnDiv} id={OLCss.Completed}>
+          <div
+            className={OLCss.BtnDiv}
+            id={upAll.code === 3 ? OLCss.Completed : OLCss.disable3}
+          >
             Completed
           </div>
-          <div className={OLCss.BtnDiv} id={OLCss.Cancelled}>
+          <div
+            className={OLCss.BtnDiv}
+            id={upAll.code === 4 ? OLCss.Cancelled : OLCss.disable4}
+          >
             Cancelled
           </div>
         </div>
