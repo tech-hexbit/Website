@@ -21,12 +21,6 @@ export default function OrderLayUpdate(props) {
   const [upAll, setUpAll] = useState({
     code: 0,
   });
-  const [disableCon, setDisableCon] = useState({
-    Accept: false,
-    InProgress: false,
-    Completed: false,
-    Cancelled: false,
-  });
 
   const authCtx = useContext(AuthContext);
 
@@ -52,6 +46,10 @@ export default function OrderLayUpdate(props) {
 
       console.log(e);
     }
+  };
+
+  const updateMany = async (value) => {
+    console.log(value);
   };
 
   useEffect(() => {
@@ -108,6 +106,9 @@ export default function OrderLayUpdate(props) {
           <div
             className={OLCss.BtnDiv}
             id={upAll.code <= 1 ? OLCss.Accept : OLCss.disable1}
+            onClick={() => {
+              updateMany("");
+            }}
           >
             Accept
           </div>
