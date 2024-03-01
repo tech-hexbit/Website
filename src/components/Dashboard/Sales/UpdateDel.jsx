@@ -61,21 +61,21 @@ export default function OrderLayUpdate(props) {
     let codeVal = 0;
 
     if (value === "Accepted") {
-      if (upAll.code < 2) {
+      if (upAll.code < 1) {
         console.log("Accepted");
         codeVal = 1;
       }
     }
 
     if (value === "In-progress") {
-      if (upAll.code > 1 && upAll.code <= 2) {
+      if (upAll.code === 1) {
         console.log("In-progress");
         codeVal = 2;
       }
     }
 
     if (value === "Completed") {
-      if (upAll.code > 2 && upAll.code <= 3) {
+      if (upAll.code === 2) {
         console.log("Completed");
         codeVal = 3;
       }
@@ -134,8 +134,6 @@ export default function OrderLayUpdate(props) {
 
   useEffect(() => {
     if (res) {
-      console.log(res);
-
       let lowestCode = Infinity;
 
       for (let i = 0; i < res.Items.length; i++) {
@@ -146,7 +144,7 @@ export default function OrderLayUpdate(props) {
 
       setUpAll({
         ...upAll,
-        code: lowestCode,
+        code: 2,
       });
     }
   }, [res]);
@@ -159,7 +157,7 @@ export default function OrderLayUpdate(props) {
         <div className={OLCss.BtnDivMain}>
           <div
             className={OLCss.BtnDiv}
-            id={upAll.code < 2 ? OLCss.Accept : OLCss.disable1}
+            id={upAll.code < 1 ? OLCss.Accept : OLCss.disable1}
             onClick={() => {
               updateMany("Accepted");
             }}
@@ -169,11 +167,7 @@ export default function OrderLayUpdate(props) {
 
           <div
             className={OLCss.BtnDiv}
-            id={
-              upAll.code > 1 && upAll.code <= 2
-                ? OLCss.InProgress
-                : OLCss.disable2
-            }
+            id={upAll.code === 1 ? OLCss.InProgress : OLCss.disable2}
             onClick={() => {
               updateMany("In-progress");
             }}
@@ -182,11 +176,7 @@ export default function OrderLayUpdate(props) {
           </div>
           <div
             className={OLCss.BtnDiv}
-            id={
-              upAll.code > 2 && upAll.code <= 3
-                ? OLCss.Completed
-                : OLCss.disable3
-            }
+            id={upAll.code === 2 ? OLCss.Completed : OLCss.disable3}
             onClick={() => {
               updateMany("Completed");
             }}
