@@ -98,7 +98,20 @@ export default function OrderLayUpdate(props) {
     try {
       // setLoad(true);
 
-      console.log(codeVal);
+      let data = {
+        id: res._id,
+        code: codeVal,
+      };
+
+      const response = await axios.post(
+        "/api/common/Order/UpdateStateAll",
+        data,
+        {
+          headers: { Authorization: `${authCtx.token}` },
+        }
+      );
+
+      console.log(response.data);
     } catch (error) {
       console.log(error);
 
