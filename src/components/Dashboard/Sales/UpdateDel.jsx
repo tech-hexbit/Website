@@ -111,7 +111,22 @@ export default function OrderLayUpdate(props) {
         }
       );
 
-      console.log(response.data);
+      if (response.data.success) {
+        setLoad(false);
+
+        loadOrderdel();
+      } else {
+        setLoad(false);
+
+        setError({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "Unable to Update",
+          val: true,
+        });
+      }
     } catch (error) {
       console.log(error);
 
