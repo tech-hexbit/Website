@@ -129,21 +129,40 @@ export default function OrderLayUpdate(props) {
 
           <div
             className={OLCss.BtnDiv}
-            id={upAll.code === 2 ? OLCss.InProgress : OLCss.disable2}
+            id={
+              upAll.code > 1 && upAll.code <= 2
+                ? OLCss.InProgress
+                : OLCss.disable2
+            }
           >
             In-progress
           </div>
           <div
             className={OLCss.BtnDiv}
-            id={upAll.code === 3 ? OLCss.Completed : OLCss.disable3}
+            id={
+              upAll.code > 2 && upAll.code <= 3
+                ? OLCss.Completed
+                : OLCss.disable3
+            }
           >
             Completed
           </div>
           <div
             className={OLCss.BtnDiv}
-            id={upAll.code === 4 ? OLCss.Cancelled : OLCss.disable4}
+            id={
+              upAll.code === 0 || upAll.code === 1
+                ? OLCss.Cancelled
+                : OLCss.disable4
+            }
           >
             Cancelled
+          </div>
+
+          <div
+            className={OLCss.BtnDiv}
+            id={upAll.code === 4 ? OLCss.Cancelled : OLCss.disable5}
+          >
+            Return
           </div>
         </div>
 
