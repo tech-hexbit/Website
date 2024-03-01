@@ -122,7 +122,7 @@ export default function OrderLayUpdate(props) {
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
-        text: "Poduct Addition Failed",
+        text: "Unable to Update",
         val: true,
       });
     }
