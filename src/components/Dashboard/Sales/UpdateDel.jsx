@@ -11,6 +11,7 @@ import LayUpdate from "./LayUpdate";
 
 // MicroInteraction
 import Load from "./../../../MicroInteraction/LoadBlack";
+import { Alert } from "./../../../MicroInteraction/Alert";
 
 // Css
 import OLCss from "./Css/OrderLayUpdate.module.css";
@@ -49,26 +50,32 @@ export default function OrderLayUpdate(props) {
   };
 
   const updateMany = async (value) => {
+    let codeVal = 0;
+
     if (value === "Accepted") {
       if (upAll.code < 2) {
         console.log("Accepted");
       }
     }
+
     if (value === "In-progress") {
       if (upAll.code > 1 && upAll.code <= 2) {
         console.log("In-progress");
       }
     }
+
     if (value === "Completed") {
       if (upAll.code > 2 && upAll.code <= 3) {
         console.log("Completed");
       }
     }
+
     if (value === "Cancelled") {
       if (upAll.code === 0 || upAll.code === 1) {
         console.log("Cancelled");
       }
     }
+
     if (value === "Return") {
       if (upAll.code === 4) {
         console.log("Return");
@@ -237,6 +244,8 @@ export default function OrderLayUpdate(props) {
           </div>
         </div>
       </div>
+
+      <Alert variant={variants} val={setError} />
     </>
   );
 }
