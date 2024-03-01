@@ -101,7 +101,6 @@ export default function OrderLayUpdate(props) {
 
   return (
     <>
-      {/* <div className={OLCss.mainDivDel}> */}
       <div className={OLCss.contendDivDel}>
         <p className={OLCss.UpdateOrderPTag}>UPDATE ORDER STATUS</p>
 
@@ -238,7 +237,6 @@ export default function OrderLayUpdate(props) {
           </div>
         </div>
       </div>
-      {/* </div> */}
     </>
   );
 }
