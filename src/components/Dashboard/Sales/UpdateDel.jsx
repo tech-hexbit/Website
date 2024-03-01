@@ -96,7 +96,7 @@ export default function OrderLayUpdate(props) {
     }
 
     try {
-      // setLoad(true);
+      setLoad(true);
 
       let data = {
         id: res._id,
