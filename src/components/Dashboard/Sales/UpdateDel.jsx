@@ -50,14 +50,29 @@ export default function OrderLayUpdate(props) {
 
   const updateMany = async (value) => {
     if (value === "Accepted") {
+      if (upAll.code < 2) {
+        console.log("Accepted");
+      }
     }
     if (value === "In-progress") {
+      if (upAll.code > 1 && upAll.code <= 2) {
+        console.log("In-progress");
+      }
     }
     if (value === "Completed") {
+      if (upAll.code > 2 && upAll.code <= 3) {
+        console.log("Completed");
+      }
     }
     if (value === "Cancelled") {
+      if (upAll.code === 0 || upAll.code === 1) {
+        console.log("Cancelled");
+      }
     }
     if (value === "Return") {
+      if (upAll.code === 4) {
+        console.log("Return");
+      }
     }
   };
 
@@ -114,9 +129,7 @@ export default function OrderLayUpdate(props) {
         <div className={OLCss.BtnDivMain}>
           <div
             className={OLCss.BtnDiv}
-            id={
-              upAll.code <= 1 && upAll.code <= 2 ? OLCss.Accept : OLCss.disable1
-            }
+            id={upAll.code < 2 ? OLCss.Accept : OLCss.disable1}
             onClick={() => {
               updateMany("Accepted");
             }}
