@@ -114,7 +114,7 @@ export default function OrderLayUpdate(props) {
       if (response.data.success) {
         setLoad(false);
 
-        loadOrderdel();
+        props.setLoadDataState(!props.loadDataState);
       } else {
         setLoad(false);
 
@@ -159,7 +159,7 @@ export default function OrderLayUpdate(props) {
 
       setUpAll({
         ...upAll,
-        code: 2,
+        code: lowestCode,
       });
     }
   }, [res]);
