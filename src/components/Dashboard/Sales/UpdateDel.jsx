@@ -211,16 +211,6 @@ export default function OrderLayUpdate(props) {
           >
             Cancelled
           </div>
-
-          <div
-            className={OLCss.BtnDiv}
-            id={upAll.code === 4 ? OLCss.Cancelled : OLCss.disable5}
-            onClick={() => {
-              updateMany("Return");
-            }}
-          >
-            Return
-          </div>
         </div>
 
         <div className={OLCss.ProductDelTableDiv}>
