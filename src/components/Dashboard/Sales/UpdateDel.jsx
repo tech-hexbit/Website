@@ -107,7 +107,7 @@ export default function OrderLayUpdate(props) {
             className={OLCss.BtnDiv}
             id={upAll.code <= 1 ? OLCss.Accept : OLCss.disable1}
             onClick={() => {
-              updateMany("");
+              updateMany("Accepted");
             }}
           >
             Accept
@@ -120,6 +120,9 @@ export default function OrderLayUpdate(props) {
                 ? OLCss.InProgress
                 : OLCss.disable2
             }
+            onClick={() => {
+              updateMany("In-progress");
+            }}
           >
             In-progress
           </div>
@@ -130,6 +133,9 @@ export default function OrderLayUpdate(props) {
                 ? OLCss.Completed
                 : OLCss.disable3
             }
+            onClick={() => {
+              updateMany("Completed");
+            }}
           >
             Completed
           </div>
@@ -140,6 +146,9 @@ export default function OrderLayUpdate(props) {
                 ? OLCss.Cancelled
                 : OLCss.disable4
             }
+            onClick={() => {
+              updateMany("Cancelled");
+            }}
           >
             Cancelled
           </div>
@@ -147,6 +156,9 @@ export default function OrderLayUpdate(props) {
           <div
             className={OLCss.BtnDiv}
             id={upAll.code === 4 ? OLCss.Cancelled : OLCss.disable5}
+            onClick={() => {
+              updateMany("Return");
+            }}
           >
             Return
           </div>
