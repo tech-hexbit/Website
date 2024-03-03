@@ -161,7 +161,7 @@
   cursor: pointer;
 }
 
-.logistic-img {
+.logisticImg {
   height: 15vw;
 }
 
@@ -373,7 +373,7 @@
     padding: 5px;
   }
 
-  .logistic-img {
+  .logisticImg {
     height: auto;
     max-width: 100%;
   }
