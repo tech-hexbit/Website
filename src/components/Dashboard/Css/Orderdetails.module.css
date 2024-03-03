@@ -267,6 +267,12 @@
   #shippingDetails {
     min-width: 300px;
   }
+
+  .text-content {
+    flex-direction: column;
+    align-items: center;
+    margin: 5px 0;
+  }
 }
 
 @media only screen and (max-width: 750px) {
@@ -302,12 +308,6 @@
 
   .product-details1 {
     font-size: 1.2rem;
-  }
-
-  .text-content {
-    flex-direction: column;
-    align-items: center;
-    margin: 5px 0;
   }
 
   .text-wrapper {
