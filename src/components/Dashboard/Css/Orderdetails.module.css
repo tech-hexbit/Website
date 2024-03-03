@@ -174,7 +174,7 @@
   color: gray;
 }
 
-.text-content {
+.textContent {
   display: flex;
   justify-content: space-evenly;
   margin: 20px 30px;
@@ -268,7 +268,7 @@
     min-width: 300px;
   }
 
-  .text-content {
+  .textContent {
     flex-direction: column;
     align-items: center;
     margin: 5px 0;
