@@ -57,8 +57,8 @@ export default function Logistics({ res }) {
             <label htmlFor="">Current Location</label>
             <input type="text" name="" id="" placeholder="Abc, City" />
             <br />
-            <label htmlFor="">Curretn Location</label>
-            <input type="text" name="" id="" placeholder="Abc, City" />
+            <label htmlFor="">Estimated Time to Delivery</label>
+            <input type="text" name="" id="" placeholder="15, March '24" />
           </>
         ) : (
           <>
