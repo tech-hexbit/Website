@@ -153,6 +153,14 @@
   padding-top: 60px;
 }
 
+.editIconSpan {
+  margin-left: 10px;
+}
+
+.editIcon {
+  cursor: pointer;
+}
+
 .logistic-img {
   height: 15vw;
 }
