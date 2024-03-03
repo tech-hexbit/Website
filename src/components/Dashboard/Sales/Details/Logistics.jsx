@@ -42,7 +42,7 @@ export default function Logistics({ res }) {
           ""
         ) : (
           <>
-            <div className={odcss["logistic-img"]}>
+            <div className={odcss.logisticImg}>
               <img src={LogisticsGif} alt="" className={odcss.LogisticsGif} />
             </div>
 
