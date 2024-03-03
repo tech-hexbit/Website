@@ -107,7 +107,7 @@ const Orderdetails = (props) => {
                     loadDataState={loadData}
                   />
 
-                  <div className={odcss["text-content"]}>
+                  <div className={odcss.textContent}>
                     <Logistics res={res} />
                     <div className={odcss.mapDivBU}>
                       <h2 className={odcss.gt}>Total bill</h2>
