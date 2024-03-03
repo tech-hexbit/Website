@@ -162,7 +162,7 @@
 }
 
 .logisticImg {
-  height: 15vw;
+  /* height: 15vw; */
 }
 
 .div {
@@ -221,7 +221,7 @@
 }
 
 .LogisticsGif {
-  margin: -40px 0px;
+  margin: 0px;
   width: 200px;
   height: 200px;
   object-fit: cover;
@@ -270,49 +270,6 @@
 
   #shippingDetails {
     min-width: 300px;
-  }
-}
-
-@media (max-width: 500px) {
-  .details {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    margin: 40px 25px;
-  }
-
-  .BlockSub {
-    width: 70vw;
-  }
-
-  #customerDetails {
-    min-width: 200px;
-  }
-
-  #paymentDetails {
-    min-width: 200px;
-  }
-
-  #shippingDetails {
-    min-width: 200px;
-  }
-}
-
-@media (max-width: 400px) {
-  .BlockSub {
-    width: 65vw;
-  }
-
-  #customerDetails {
-    min-width: 150px;
-  }
-
-  #paymentDetails {
-    min-width: 150px;
-  }
-
-  #shippingDetails {
-    min-width: 150px;
   }
 }
 
@@ -386,5 +343,48 @@
   img {
     max-width: 100%;
     height: auto;
+  }
+}
+
+@media (max-width: 500px) {
+  .details {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin: 40px 25px;
+  }
+
+  .BlockSub {
+    width: 70vw;
+  }
+
+  #customerDetails {
+    min-width: 200px;
+  }
+
+  #paymentDetails {
+    min-width: 200px;
+  }
+
+  #shippingDetails {
+    min-width: 200px;
+  }
+}
+
+@media (max-width: 400px) {
+  .BlockSub {
+    width: 65vw;
+  }
+
+  #customerDetails {
+    min-width: 150px;
+  }
+
+  #paymentDetails {
+    min-width: 150px;
+  }
+
+  #shippingDetails {
+    min-width: 150px;
   }
 }
