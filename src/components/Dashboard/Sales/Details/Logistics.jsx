@@ -39,11 +39,35 @@ export default function Logistics({ res }) {
         </div>
 
         {showEdit ? (
-          ""
+          <>
+            <label>Traking ID</label>
+            <input type="text" name="" id="" placeholder="58405917356" />
+            <br />
+            <label>Traking URL</label>
+            <input
+              type="text"
+              name=""
+              id=""
+              placeholder="https://abcLogistic.com"
+            />
+            <br />
+            <label>Logistics Patner Name</label>
+            <input type="text" name="" id="" placeholder="Blue Dart" />
+            <br />
+            <label htmlFor="">Current Location</label>
+            <input type="text" name="" id="" placeholder="Abc, City" />
+            <br />
+            <label htmlFor="">Curretn Location</label>
+            <input type="text" name="" id="" placeholder="Abc, City" />
+          </>
         ) : (
           <>
             <div className={odcss.logisticImg}>
-              <img src={LogisticsGif} alt="" className={odcss.LogisticsGif} />
+              <img
+                src="https://images.unsplash.com/photo-1532635042-a6f6ad4745f9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="logistic_Img"
+                className={odcss.LogisticsGif}
+              />
             </div>
 
             <div className={odcss["text-l"]}>
