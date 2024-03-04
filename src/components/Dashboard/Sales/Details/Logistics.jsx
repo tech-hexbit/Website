@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // css
 import odcss from "./../../Css/Orderdetails.module.css";
 
 export default function Logistics({ res }) {
   const [showEdit, setEdit] = useState(false);
+  const [showData, setData] = useState({});
 
   // console.log(res.state);
   return (
