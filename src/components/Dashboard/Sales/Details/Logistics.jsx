@@ -3,9 +3,6 @@ import React, { useState } from "react";
 // css
 import odcss from "./../../Css/Orderdetails.module.css";
 
-// img
-import LogisticsGif from "./../../../../assets/Logistic/Logistics.gif";
-
 export default function Logistics({ res }) {
   const [showEdit, setEdit] = useState(false);
 
