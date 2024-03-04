@@ -28,7 +28,7 @@ export default function Logistics({ res }) {
   // console.log(res.state);
 
   useEffect(() => {
-    console.log(showData);
+    console.table(showData);
   }, [showData]);
   return (
     <>
