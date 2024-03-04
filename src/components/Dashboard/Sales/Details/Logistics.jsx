@@ -13,7 +13,7 @@ import axios from "axios";
 // css
 import odcss from "./../../Css/Orderdetails.module.css";
 
-export default function Logistics({ res }) {
+export default function Logistics({ res, _id }) {
   const [load, setLoad] = useState(false);
   const [showEdit, setEdit] = useState(false);
   const [variants, setError] = useState({
@@ -29,7 +29,8 @@ export default function Logistics({ res }) {
     url: "",
     logisticsPatnerName: "",
     currentLocation: "",
-    estimatedTAT: "",
+    estimatedTATHR: "",
+    estimatedTATMINS: "",
     agentName: "",
     agentNumber: "",
     vehicleCategory: "",
@@ -53,7 +54,8 @@ export default function Logistics({ res }) {
       showData.id === "" ||
       showData.currentLocation === "" ||
       showData.currentLocation === "" ||
-      showData.estimatedTAT === ""
+      showData.estimatedTATHR === "" ||
+      showData.estimatedTATMINS === ""
     ) {
       setLoad(false);
 
@@ -67,7 +69,7 @@ export default function Logistics({ res }) {
       });
       return;
     } else {
-      let data = showData;
+      let data = { ...showData, _id };
 
       const response = await axios.post(
         "/api/common/order/save/logistics",
@@ -152,9 +154,16 @@ export default function Logistics({ res }) {
             <label htmlFor="">Estimated Time to Delivery</label>
             <input
               type="text"
-              name="estimatedTAT"
+              name="estimatedTATHR"
               id=""
-              placeholder="15, March '24"
+              placeholder="15 Hr"
+              onChange={handleChange}
+            />
+            <input
+              type="text"
+              name="estimatedTATMINS"
+              id=""
+              placeholder="25 Mins"
               onChange={handleChange}
             />
             <br />
