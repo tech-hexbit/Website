@@ -1,10 +1,29 @@
 import React, { useState, useEffect } from "react";
 
+// MicroInteraction
+import Load from "./../../../../MicroInteraction/Load";
+import { Alert } from "./../../../../MicroInteraction/Alert";
+
+// state
+import AuthContext from "../../../../store/auth-context";
+
+// axios
+import axios from "axios";
+
 // css
 import odcss from "./../../Css/Orderdetails.module.css";
 
 export default function Logistics({ res }) {
+  const [load, setLoad] = useState(false);
   const [showEdit, setEdit] = useState(false);
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
   const [showData, setData] = useState({
     id: "",
     url: "",
@@ -25,11 +44,12 @@ export default function Logistics({ res }) {
     setData({ ...showData, [name]: value });
   };
 
+  const saveData = async () => {
+    console.log(showData);
+  };
+
   // console.log(res.state);
 
-  useEffect(() => {
-    console.table(showData);
-  }, [showData]);
   return (
     <>
       <div className={odcss["overlap-group"]}>
@@ -149,6 +169,11 @@ export default function Logistics({ res }) {
               placeholder="2020"
               onChange={handleChange}
             />
+
+            <br />
+            <br />
+
+            <button onClick={saveData}>Save</button>
           </>
         ) : (
           <>
