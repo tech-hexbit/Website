@@ -56,6 +56,21 @@ export default function Logistics({ res }) {
             <br />
             <label htmlFor="">Estimated Time to Delivery</label>
             <input type="text" name="" id="" placeholder="15, March '24" />
+            <br />
+            <label htmlFor="">Agent Name</label>
+            <input type="text" name="" id="" placeholder="Ramu" />
+            <br />
+            <label htmlFor="">Agent Number</label>
+            <input type="text" name="" id="" placeholder="98XXXXXXXX60" />
+            <br />
+            <label htmlFor="">Vehicle Category</label>
+            <input type="text" name="" id="" placeholder="mini-truck" />
+            <br />
+            <label htmlFor="">Vehicle Size</label>
+            <input type="text" name="" id="" placeholder="small" />
+            <br />
+            <label htmlFor="">Vehicle Registration</label>
+            <input type="text" name="" id="" placeholder="2020" />
           </>
         ) : (
           <>
