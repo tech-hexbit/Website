@@ -5,7 +5,25 @@ import odcss from "./../../Css/Orderdetails.module.css";
 
 export default function Logistics({ res }) {
   const [showEdit, setEdit] = useState(false);
-  const [showData, setData] = useState({});
+  const [showData, setData] = useState({
+    id: "",
+    url: "",
+    logisticsPatnerName: "",
+    currentLocation: "",
+    estimatedTAT: "",
+    agentName: "",
+    agentNumber: "",
+    vehicleCategory: "",
+    vehicleSize: "",
+    vehicleRegistration: "",
+  });
+
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    setData({ ...showData, [name]: value });
+  };
 
   // console.log(res.state);
 
@@ -43,14 +61,21 @@ export default function Logistics({ res }) {
         {showEdit ? (
           <>
             <label>Traking ID</label>
-            <input type="text" name="id" id="" placeholder="58405917356" />
+            <input
+              type="text"
+              name="id"
+              id=""
+              placeholder="58405917356"
+              onChange={handleChange}
+            />
             <br />
             <label>Traking URL</label>
             <input
               type="text"
-              name=""
+              name="url"
               id=""
               placeholder="https://abcLogistic.com"
+              onChange={handleChange}
             />
             <br />
             <label>Logistics Patner Name</label>
@@ -59,6 +84,7 @@ export default function Logistics({ res }) {
               name="logisticsPatnerName"
               id=""
               placeholder="Blue Dart"
+              onChange={handleChange}
             />
             <br />
             <label htmlFor="">Current Location</label>
@@ -67,6 +93,7 @@ export default function Logistics({ res }) {
               name="currentLocation"
               id=""
               placeholder="Abc, City"
+              onChange={handleChange}
             />
             <br />
             <label htmlFor="">Estimated Time to Delivery</label>
@@ -75,17 +102,25 @@ export default function Logistics({ res }) {
               name="estimatedTAT"
               id=""
               placeholder="15, March '24"
+              onChange={handleChange}
             />
             <br />
             <label htmlFor="">Agent Name</label>
-            <input type="text" name="agentName" id="" placeholder="Ramu" />
+            <input
+              type="text"
+              name="agentName"
+              id=""
+              placeholder="Ramu"
+              onChange={handleChange}
+            />
             <br />
             <label htmlFor="">Agent Number</label>
             <input
-              type="text"
+              type="number"
               name="agentNumber"
               id=""
               placeholder="98XXXXXXXX60"
+              onChange={handleChange}
             />
             <br />
             <label htmlFor="">Vehicle Category</label>
@@ -94,10 +129,17 @@ export default function Logistics({ res }) {
               name="vehicleCategory"
               id=""
               placeholder="mini-truck"
+              onChange={handleChange}
             />
             <br />
             <label htmlFor="">Vehicle Size</label>
-            <input type="text" name="vehicleSize" id="" placeholder="small" />
+            <input
+              type="text"
+              name="vehicleSize"
+              id=""
+              placeholder="small"
+              onChange={handleChange}
+            />
             <br />
             <label htmlFor="">Vehicle Registration</label>
             <input
@@ -105,6 +147,7 @@ export default function Logistics({ res }) {
               name="vehicleRegistration"
               id=""
               placeholder="2020"
+              onChange={handleChange}
             />
           </>
         ) : (
