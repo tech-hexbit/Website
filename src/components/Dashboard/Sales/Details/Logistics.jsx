@@ -38,7 +38,7 @@ export default function Logistics({ res }) {
         {showEdit ? (
           <>
             <label>Traking ID</label>
-            <input type="text" name="" id="" placeholder="58405917356" />
+            <input type="text" name="id" id="" placeholder="58405917356" />
             <br />
             <label>Traking URL</label>
             <input
@@ -49,28 +49,58 @@ export default function Logistics({ res }) {
             />
             <br />
             <label>Logistics Patner Name</label>
-            <input type="text" name="" id="" placeholder="Blue Dart" />
+            <input
+              type="text"
+              name="logisticsPatnerName"
+              id=""
+              placeholder="Blue Dart"
+            />
             <br />
             <label htmlFor="">Current Location</label>
-            <input type="text" name="" id="" placeholder="Abc, City" />
+            <input
+              type="text"
+              name="currentLocation"
+              id=""
+              placeholder="Abc, City"
+            />
             <br />
             <label htmlFor="">Estimated Time to Delivery</label>
-            <input type="text" name="" id="" placeholder="15, March '24" />
+            <input
+              type="text"
+              name="estimatedTAT"
+              id=""
+              placeholder="15, March '24"
+            />
             <br />
             <label htmlFor="">Agent Name</label>
-            <input type="text" name="" id="" placeholder="Ramu" />
+            <input type="text" name="agentName" id="" placeholder="Ramu" />
             <br />
             <label htmlFor="">Agent Number</label>
-            <input type="text" name="" id="" placeholder="98XXXXXXXX60" />
+            <input
+              type="text"
+              name="agentNumber"
+              id=""
+              placeholder="98XXXXXXXX60"
+            />
             <br />
             <label htmlFor="">Vehicle Category</label>
-            <input type="text" name="" id="" placeholder="mini-truck" />
+            <input
+              type="text"
+              name="vehicleCategory"
+              id=""
+              placeholder="mini-truck"
+            />
             <br />
             <label htmlFor="">Vehicle Size</label>
-            <input type="text" name="" id="" placeholder="small" />
+            <input type="text" name="vehicleSize" id="" placeholder="small" />
             <br />
             <label htmlFor="">Vehicle Registration</label>
-            <input type="text" name="" id="" placeholder="2020" />
+            <input
+              type="text"
+              name="vehicleRegistration"
+              id=""
+              placeholder="2020"
+            />
           </>
         ) : (
           <>
