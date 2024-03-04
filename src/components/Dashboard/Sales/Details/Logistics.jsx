@@ -49,9 +49,9 @@ export default function Logistics({ res }) {
 
     if (
       showData.id === "" ||
-      currentLocation === "" ||
-      currentLocation === "" ||
-      estimatedTAT === ""
+      showData.currentLocation === "" ||
+      showData.currentLocation === "" ||
+      showData.estimatedTAT === ""
     ) {
       setLoad(false);
 
