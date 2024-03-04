@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 // MicroInteraction
 import Load from "./../../../../MicroInteraction/Load";
@@ -36,6 +36,8 @@ export default function Logistics({ res }) {
     vehicleSize: "",
     vehicleRegistration: "",
   });
+
+  const authCtx = useContext(AuthContext);
 
   const handleChange = (e) => {
     const name = e.target.name;
