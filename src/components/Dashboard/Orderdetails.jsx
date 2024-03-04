@@ -108,7 +108,7 @@ const Orderdetails = (props) => {
                   />
 
                   <div className={odcss.textContent}>
-                    <Logistics res={res} />
+                    <Logistics res={res} _id={res._id} />
                     <div className={odcss.mapDivBU}>
                       <h2 className={odcss.gt}>Total bill</h2>
                       {res.breakup.map((val, key) => {
