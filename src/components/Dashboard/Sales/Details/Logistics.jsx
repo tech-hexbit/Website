@@ -45,7 +45,38 @@ export default function Logistics({ res }) {
   };
 
   const saveData = async () => {
-    console.log(showData);
+    setLoad(true);
+
+    if (
+      showData.id === "" ||
+      currentLocation === "" ||
+      currentLocation === "" ||
+      estimatedTAT === ""
+    ) {
+      setLoad(false);
+
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "Please fill all the feilds",
+        val: true,
+      });
+      return;
+    } else {
+      let data = showData;
+
+      const response = await axios.post(
+        "/api/common/order/save/logistics",
+        data,
+        {
+          headers: { Authorization: `${authCtx.token}` },
+        }
+      );
+
+      console.log(response.data);
+    }
   };
 
   // console.log(res.state);
@@ -199,6 +230,8 @@ export default function Logistics({ res }) {
           </>
         )}
       </div>
+
+      <Alert variant={variants} val={setError} />
     </>
   );
 }
