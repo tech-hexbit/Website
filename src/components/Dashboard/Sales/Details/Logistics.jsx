@@ -8,6 +8,10 @@ export default function Logistics({ res }) {
   const [showData, setData] = useState({});
 
   // console.log(res.state);
+
+  useEffect(() => {
+    console.log(showData);
+  }, [showData]);
   return (
     <>
       <div className={odcss["overlap-group"]}>
