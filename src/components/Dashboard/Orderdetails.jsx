@@ -54,8 +54,6 @@ const Orderdetails = (props) => {
     }
   };
 
-  console.log(res);
-
   return (
     <>
       {/* Header */}
