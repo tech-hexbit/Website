@@ -148,7 +148,6 @@ export default function OrderLayUpdate(props) {
       let data = {
         OrderID: res._id,
         BuyerOrderID: res.OrderID,
-        type: "RTO",
       };
 
       const response = await axios.post(
