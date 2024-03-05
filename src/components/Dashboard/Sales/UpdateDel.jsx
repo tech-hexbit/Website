@@ -143,6 +143,39 @@ export default function OrderLayUpdate(props) {
     }
   };
 
+  const returnRTO = async () => {
+    try {
+      let data = {
+        OrderID: res._id,
+        BuyerOrderID: res.OrderID,
+        type: "RTO",
+      };
+
+      const response = await axios.post(
+        "/api/common/Order/order/cancel/rto",
+        data,
+        {
+          headers: { Authorization: `${authCtx.token}` },
+        }
+      );
+
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+
+      setLoad(false);
+
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "Unable to Update",
+        val: true,
+      });
+    }
+  };
+
   useEffect(() => {
     loadOrderdel(props.id);
   }, [props.id]);
@@ -210,6 +243,18 @@ export default function OrderLayUpdate(props) {
             }}
           >
             Cancelled
+          </div>
+
+          <div
+            className={OLCss.BtnDiv}
+            // id={
+            // upAll.code === 0 || upAll.code === 1
+            // ? OLCss.Cancelled
+            // : OLCss.disable4
+            // }
+            onClick={returnRTO}
+          >
+            Return RTO
           </div>
         </div>
 
