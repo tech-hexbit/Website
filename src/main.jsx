@@ -3,7 +3,10 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 
 // cookie
-import CookieConsent from "react-cookie-consent";
+import CookieConsent, {
+  Cookies,
+  getCookieConsentValue,
+} from "react-cookie-consent";
 
 // css
 import "./index.css";
@@ -11,21 +14,30 @@ import "./index.css";
 // store
 import { AuthContextProvider } from "./store/auth-context";
 
+console.log(getCookieConsentValue("myAwesomeCookieName2"));
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <AuthContextProvider>
     <CookieConsent
       location="bottom"
       buttonText="Accept"
       cookieName="myAwesomeCookieName2"
-      style={{ background: "#2B373B" }}
+      style={{ background: "#fff" }}
       buttonStyle={{ color: "#4e503b", fontSize: "11px" }}
       expires={150}
+      onAccept={(acceptedByScrolling) => {
+        if (acceptedByScrolling) {
+          console.log("Accept was triggered by user scrolling");
+        } else {
+          console.log("Accept was triggered by clicking the Accept button");
+        }
+      }}
     >
-      <span style={{ fontSize: "11px" }}>
+      <span style={{ fontSize: "11px", color: "#221d1d" }}>
         <b>Use of Cookies</b>
       </span>
       <br />
-      <span style={{ fontSize: "11px" }}>
+      <span style={{ fontSize: "11px", color: "#221d1d" }}>
         We and our third party partners use cookie technology to make your
         shopping experience faster, safer and more relevant, and to deliver
         personalized advertising on and off our website. This website uses
