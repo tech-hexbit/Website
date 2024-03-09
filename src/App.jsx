@@ -1,6 +1,9 @@
 import React, { useContext, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+// Analytics
+import ReactGA from "react-ga";
+
 // components
 import Nav from "./components/header/Header";
 import Footer from "./components/footer/Footer";
@@ -33,6 +36,8 @@ import AuthContext from "./store/auth-context";
 import axios from "axios";
 
 axios.defaults.baseURL = import.meta.env.VITE_SERVER_URL;
+
+ReactGA.initialize(import.meta.env.VITE_TRACKING_ID);
 
 function App() {
   const authCtx = useContext(AuthContext);
