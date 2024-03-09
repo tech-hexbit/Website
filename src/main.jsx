@@ -14,7 +14,7 @@ import "./index.css";
 // store
 import { AuthContextProvider } from "./store/auth-context";
 
-console.log(getCookieConsentValue("myAwesomeCookieName2"));
+// console.log(getCookieConsentValue("myAwesomeCookieName2"));
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <AuthContextProvider>
