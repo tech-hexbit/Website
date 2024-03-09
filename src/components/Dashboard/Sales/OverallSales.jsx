@@ -442,7 +442,7 @@ export default function OverallSales() {
                         {/* Maping Data */}
                         {orderDel.map((val, key) => {
                           return (
-                            <tr key={key}>
+                            <tr className={osCss.trDiv} key={key}>
                               <td
                                 onClick={() => {
                                   setProductDel({

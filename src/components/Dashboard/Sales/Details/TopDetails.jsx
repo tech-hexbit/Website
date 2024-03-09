@@ -109,9 +109,6 @@ export default function TopDetails({ del }) {
           <div className={odcss.SubHeading}>Payment details</div>
           <div className={odcss.ContentDels}>
             <p className={odcss.pl1}>
-              Transaction ID : {del.payment.params.transaction_id}
-            </p>
-            <p className={odcss.pl1}>
               Payment method : {del.payment.tl_method}
             </p>
             <p className={odcss.pl1}>

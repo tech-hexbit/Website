@@ -11,6 +11,7 @@ import LayUpdate from "./LayUpdate";
 
 // MicroInteraction
 import Load from "./../../../MicroInteraction/LoadBlack";
+import { Alert } from "./../../../MicroInteraction/Alert";
 
 // Css
 import OLCss from "./Css/OrderLayUpdate.module.css";
@@ -18,11 +19,16 @@ import OLCss from "./Css/OrderLayUpdate.module.css";
 export default function OrderLayUpdate(props) {
   const [res, setres] = useState(null);
   const [load, setLoad] = useState(false);
-  const [disableCon, setDisableCon] = useState({
-    Accept: false,
-    InProgress: false,
-    Completed: false,
-    Cancelled: false,
+  const [upAll, setUpAll] = useState({
+    code: 0,
+  });
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
   });
 
   const authCtx = useContext(AuthContext);
@@ -51,70 +57,205 @@ export default function OrderLayUpdate(props) {
     }
   };
 
-  // const checkItemsInfo = async () => {
-  //   const itemStates = res.Items.map((item) => item.state);
+  const updateMany = async (value) => {
+    let codeVal = 0;
 
-  //   let curr = {
-  //     Accept: false,
-  //     InProgress: false,
-  //     Completed: false,
-  //     Cancelled: false,
-  //   };
+    if (value === "Accepted") {
+      if (upAll.code < 1) {
+        console.log("Accepted");
+        codeVal = 1;
+      }
+    }
 
-  //   for (let i = 0; i < itemStates.length; i++) {
-  //     if (itemStates[i] === "In-progress") console.log(itemStates[i]);
-  //   }
-  // };
+    if (value === "In-progress") {
+      if (upAll.code === 1) {
+        console.log("In-progress");
+        codeVal = 2;
+      }
+    }
+
+    if (value === "Completed") {
+      if (upAll.code === 2) {
+        console.log("Completed");
+        codeVal = 3;
+      }
+    }
+
+    if (value === "Cancelled") {
+      if (upAll.code === 0 || upAll.code === 1) {
+        console.log("Cancelled");
+        codeVal = 4;
+      }
+    }
+
+    if (value === "Return") {
+      if (upAll.code === 4) {
+        console.log("Return");
+        codeVal = 5;
+      }
+    }
+
+    try {
+      setLoad(true);
+
+      let data = {
+        id: res._id,
+        code: codeVal,
+      };
+
+      const response = await axios.post(
+        "/api/common/Order/UpdateStateAll",
+        data,
+        {
+          headers: { Authorization: `${authCtx.token}` },
+        }
+      );
+
+      if (response.data.success) {
+        setLoad(false);
+
+        props.setLoadDataState(!props.loadDataState);
+      } else {
+        setLoad(false);
+
+        setError({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "Unable to Update",
+          val: true,
+        });
+      }
+    } catch (error) {
+      console.log(error);
+
+      setLoad(false);
+
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "Unable to Update",
+        val: true,
+      });
+    }
+  };
+
+  const returnRTO = async () => {
+    try {
+      let data = {
+        OrderID: res._id,
+        BuyerOrderID: res.OrderID,
+      };
+
+      const response = await axios.post(
+        "/api/common/Order/order/cancel/rto",
+        data,
+        {
+          headers: { Authorization: `${authCtx.token}` },
+        }
+      );
+
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+
+      setLoad(false);
+
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "Unable to Update",
+        val: true,
+      });
+    }
+  };
 
   useEffect(() => {
     loadOrderdel(props.id);
   }, [props.id]);
 
-  // useEffect(() => {
-  //   res && checkItemsInfo();
-  // }, [res]);
+  useEffect(() => {
+    if (res) {
+      let lowestCode = Infinity;
+
+      for (let i = 0; i < res.Items.length; i++) {
+        if (res.Items[i].code < lowestCode) {
+          lowestCode = res.Items[i].code;
+        }
+      }
+
+      setUpAll({
+        ...upAll,
+        code: lowestCode,
+      });
+    }
+  }, [res]);
 
   return (
     <>
-      {/* <div className={OLCss.mainDivDel}> */}
       <div className={OLCss.contendDivDel}>
         <p className={OLCss.UpdateOrderPTag}>UPDATE ORDER STATUS</p>
 
-        {/* Close Btn
-          // <svg
-          //   xmlns="http://www.w3.org/2000/svg"
-          //   width="24"
-          //   height="24"
-          //   viewBox="0 0 24 24"
-          //   fill="none"
-          //   stroke="currentColor"
-          //   stroke-width="2"
-          //   stroke-linecap="round"
-          //   stroke-linejoin="round"
-          //   class="lucide lucide-x"
-          //   className={OLCss.closeBtn}
-          //   onClick={() => {
-          //     props.setEdit(false);
-          //   }}
-          // >
-          //   <path d="M18 6 6 18" />
-          //   <path d="m6 6 12 12" />
-          // </svg> */}
+        <div className={OLCss.BtnDivMain}>
+          <div
+            className={OLCss.BtnDiv}
+            id={upAll.code < 1 ? OLCss.Accept : OLCss.disable1}
+            onClick={() => {
+              updateMany("Accepted");
+            }}
+          >
+            Accept
+          </div>
 
-        {/* <div className={OLCss.BtnDivMain}>
-            <div className={OLCss.BtnDiv} id={OLCss.Accept}>
-              Accept
-            </div>
-            <div className={OLCss.BtnDiv} id={OLCss.InProgress}>
-              In-progress
-            </div>
-            <div className={OLCss.BtnDiv} id={OLCss.Completed}>
-              Completed
-            </div>
-            <div className={OLCss.BtnDiv} id={OLCss.Cancelled}>
-              Cancelled
-            </div>
-          </div> */}
+          <div
+            className={OLCss.BtnDiv}
+            id={upAll.code === 1 ? OLCss.InProgress : OLCss.disable2}
+            onClick={() => {
+              updateMany("In-progress");
+            }}
+          >
+            In-progress
+          </div>
+          <div
+            className={OLCss.BtnDiv}
+            id={upAll.code === 2 ? OLCss.Completed : OLCss.disable3}
+            onClick={() => {
+              updateMany("Completed");
+            }}
+          >
+            Completed
+          </div>
+          <div
+            className={OLCss.BtnDiv}
+            id={
+              upAll.code === 0 || upAll.code === 1
+                ? OLCss.Cancelled
+                : OLCss.disable4
+            }
+            onClick={() => {
+              updateMany("Cancelled");
+            }}
+          >
+            Cancelled
+          </div>
+
+          <div
+            className={OLCss.BtnDiv}
+            // id={
+            // upAll.code === 0 || upAll.code === 1
+            // ? OLCss.Cancelled
+            // : OLCss.disable4
+            // }
+            onClick={returnRTO}
+          >
+            Return RTO
+          </div>
+        </div>
 
         <div className={OLCss.ProductDelTableDiv}>
           <p className={OLCss.ProductDelPTag}>Product details</p>
@@ -187,7 +328,8 @@ export default function OrderLayUpdate(props) {
           </div>
         </div>
       </div>
-      {/* </div> */}
+
+      <Alert variant={variants} val={setError} />
     </>
   );
 }

@@ -153,8 +153,12 @@
   padding-top: 60px;
 }
 
-.logistic-img {
-  height: 15vw;
+.editIconSpan {
+  margin-left: 10px;
+}
+
+.editIcon {
+  cursor: pointer;
 }
 
 .div {
@@ -170,7 +174,7 @@
   color: gray;
 }
 
-.text-content {
+.textContent {
   display: flex;
   justify-content: space-evenly;
   margin: 20px 30px;
@@ -213,7 +217,7 @@
 }
 
 .LogisticsGif {
-  margin: -40px 0px;
+  margin: 0px;
   width: 200px;
   height: 200px;
   object-fit: cover;
@@ -239,61 +243,38 @@
   display: flex;
   align-items: center;
 }
-@media (max-width:872px){
-  .details{
+
+@media (max-width: 872px) {
+  .details {
     display: flex;
     flex-direction: column;
-    align-items:start;
+    align-items: start;
     margin: 40px 25px;
   }
-  .BlockSub{
-   border: 1px solid  #e0e0e0; 
-    border-radius: 10px;  ;
+
+  .BlockSub {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
     padding: 20px;
     width: 75vw;
   }
-  #paymentDetails{
+
+  #paymentDetails {
     flex-wrap: wrap;
     min-width: 300px;
   }
-  #shippingDetails{
+
+  #shippingDetails {
     min-width: 300px;
   }
-}
-@media (max-width:500px){
-  .details{
-    display: flex;
+
+  .textContent {
     flex-direction: column;
-    align-items:start;
-    margin: 40px 25px;
-  }
-  .BlockSub{
-    width: 70vw;
-  }
-  #customerDetails{
-    min-width: 200px;
-  }
-  #paymentDetails{
-    min-width: 200px;
-  }
-  #shippingDetails{
-    min-width: 200px;
+    align-items: center;
+    margin: 5px 0;
   }
 }
-@media (max-width:400px){
-  .BlockSub{
-    width: 65vw;
-  }
-  #customerDetails{
-    min-width: 150px;
-  }
-  #paymentDetails{
-    min-width: 150px;
-  }
-  #shippingDetails{
-    min-width: 150px;
-  }
-}
+
 @media only screen and (max-width: 750px) {
   .container {
     max-width: 100%;
@@ -329,12 +310,6 @@
     font-size: 1.2rem;
   }
 
-  .text-content {
-    flex-direction: column;
-    align-items: center;
-    margin: 5px 0;
-  }
-
   .text-wrapper {
     margin-left: 0;
   }
@@ -351,7 +326,7 @@
     padding: 5px;
   }
 
-  .logistic-img {
+  .logisticImg {
     height: auto;
     max-width: 100%;
   }
@@ -367,3 +342,45 @@
   }
 }
 
+@media (max-width: 500px) {
+  .details {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin: 40px 25px;
+  }
+
+  .BlockSub {
+    width: 70vw;
+  }
+
+  #customerDetails {
+    min-width: 200px;
+  }
+
+  #paymentDetails {
+    min-width: 200px;
+  }
+
+  #shippingDetails {
+    min-width: 200px;
+  }
+}
+
+@media (max-width: 400px) {
+  .BlockSub {
+    width: 65vw;
+  }
+
+  #customerDetails {
+    min-width: 150px;
+  }
+
+  #paymentDetails {
+    min-width: 150px;
+  }
+
+  #shippingDetails {
+    min-width: 150px;
+  }
+}

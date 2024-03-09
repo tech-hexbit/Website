@@ -58,8 +58,10 @@
 .BtnDivMain {
   margin: 30px 0px;
   width: 100%;
+  gap: 30px;
   display: flex;
-  justify-content: space-evenly;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -68,23 +70,40 @@
   border-radius: 8px;
   font-size: 18px;
   font-weight: 500;
-  color: #fff;
 }
 
 #Accept {
+  color: #fff;
   background-color: #1f9254;
+  cursor: pointer;
 }
 
 #InProgress {
+  color: #fff;
   background-color: #3f81e0;
+  cursor: pointer;
 }
 
 #Completed {
+  color: #fff;
   background-color: #4bb543;
+  cursor: pointer;
 }
 
 #Cancelled {
+  color: #fff;
   background-color: #ff0000;
+  cursor: pointer;
+}
+
+#disable1,
+#disable2,
+#disable3,
+#disable4,
+#disable5 {
+  color: #717171;
+  background-color: #ebebe4;
+  cursor: not-allowed;
 }
 
 .ProductDelTableDiv {
@@ -121,25 +140,23 @@
   background-color: #ebefff;
 }
 
-@media (max-width:873px){
+@media (max-width: 873px) {
   .tableCatTTagDel th {
     display: none;
   }
-  .saleRes  {
+  .saleRes {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     width: 70vw;
-    margin: 1rem auto ;
+    margin: 1rem auto;
     padding-inline: 1rem;
     border-radius: 0.5rem;
-    border: 1px solid #d5dce8;  
+    border: 1px solid #d5dce8;
   }
-  .tableCatTTagDel td{
+  .tableCatTTagDel td {
     text-align: left;
     padding: 14px 0px;
-    
-    
   }
 
   .tableCatTTagDel tr {
@@ -159,7 +176,6 @@
     display: flex;
     gap: 3px;
   }
-  
 
   .tableCatTTagDel td:before {
     content: attr(data-cell) " :";
@@ -170,27 +186,27 @@
   .contendDiv {
     margin-top: 0px;
   }
-  .contendDiv{
+  .contendDiv {
     padding: 30px 3px;
   }
 }
 
-@media (max-width:450px){
-  .saleRes{
+@media (max-width: 450px) {
+  .saleRes {
     width: 65vw;
   }
   .tableCatTTagDel td[data-cell="Name"] {
     display: flex;
     flex-direction: column;
   }
-  .titleItemDiv{
+  .titleItemDiv {
     justify-content: start;
     margin-top: 2px;
   }
 }
 
-@media (max-width:400px){
-  .contendDivDel{
+@media (max-width: 400px) {
+  .contendDivDel {
     padding: 5px;
   }
 }
