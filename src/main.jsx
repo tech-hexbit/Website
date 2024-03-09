@@ -21,9 +21,14 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <CookieConsent
       location="bottom"
       buttonText="Accept"
-      cookieName="myAwesomeCookieName2"
-      style={{ background: "#fff" }}
-      buttonStyle={{ color: "#4e503b", fontSize: "11px" }}
+      cookieName="hexbitCookie"
+      style={{ background: "#fff", boxShadow: "0 1px 5px black" }}
+      buttonStyle={{
+        color: "#fff",
+        fontSize: "13px",
+        backgroundColor: "#c075ff",
+        fontWeight: "bold",
+      }}
       expires={150}
       onAccept={(acceptedByScrolling) => {
         if (acceptedByScrolling) {
