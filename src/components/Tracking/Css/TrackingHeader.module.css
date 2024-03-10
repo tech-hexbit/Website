@@ -28,6 +28,7 @@
 
 #navi {
   margin-left: 7px;
+  cursor: pointer;
   transition: all 0.3s;
 }
 
