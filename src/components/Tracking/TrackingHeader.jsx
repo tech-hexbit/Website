@@ -23,7 +23,7 @@ export default function TrackingHeader({ data }) {
         setStateVal(4);
       }
 
-      console.log(data.ONDCFulfillment[0][0].end.location.address);
+      console.log(data.ONDCFulfillment[0][0].end.location.gps);
     }
   }, [data]);
   return (
@@ -56,15 +56,15 @@ export default function TrackingHeader({ data }) {
               <p className={THCss.shippLabelPTag}>
                 <b>Shipping Address</b>
                 <a
-                  href="https://www.google.com/maps?q=LATITUDE,LONGITUDE"
+                  href={`https://www.google.com/maps?q=${data.ONDCFulfillment[0][0].end.location.gps}`}
                   target="_blank"
                   className="LinkStyle"
                   id={THCss.navi}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
+                    width="20"
+                    height="20"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
