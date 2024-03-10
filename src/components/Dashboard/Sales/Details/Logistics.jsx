@@ -355,32 +355,36 @@ export default function Logistics({
                 </div>
 
                 <div className={odcss.logInfopTag}>
-                  Current Location: <p>{res.logistics.currentLocation}</p>
+                  <p>Current Location:</p>
+                  <p>{res.logistics.currentLocation}</p>
                 </div>
 
                 <div className={odcss.logInfopTag}>
-                  Estimated Time to Delivery:{" "}
+                  <p>Estimated Time to Delivery:</p>
                   <p>{res.logistics.estimatedTAT}</p>
                 </div>
 
                 <div className={odcss.logInfopTag}>
-                  Agent Name: <p>{res.logistics.agent.name}</p>
+                  <p>Agent Name:</p>
+                  <p>{res.logistics.agent.name}</p>
                 </div>
 
                 <div className={odcss.logInfopTag}>
-                  Agent Number: <p>{res.logistics.agent.number}</p>
+                  <p>Agent Number:</p>
+                  <p>{res.logistics.agent.number}</p>
                 </div>
 
                 <div className={odcss.logInfopTag}>
-                  Vehicle Category: <p>{res.logistics.vehicle.category}</p>
+                  <p>Vehicle Category:</p>
+                  <p>{res.logistics.vehicle.category}</p>
                 </div>
 
                 <div className={odcss.logInfopTag}>
-                  Vehicle Size: <p>{res.logistics.vehicle.size}</p>
+                  <p>Vehicle Size:</p> <p>{res.logistics.vehicle.size}</p>
                 </div>
 
                 <div className={odcss.logInfopTag}>
-                  Vehicle Registration:{" "}
+                  <p>Vehicle Registration:</p>
                   <p>{res.logistics.vehicle.registration}</p>
                 </div>
               </div>
