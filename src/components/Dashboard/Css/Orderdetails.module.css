@@ -283,6 +283,16 @@
   font-size: 18px;
 }
 
+.inpTag::-webkit-outer-spin-button,
+.inpTag::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.inpTag[type="number"] {
+  -moz-appearance: textfield;
+}
+
 .saveBtn {
   font-size: 18px;
   font-weight: bold;
