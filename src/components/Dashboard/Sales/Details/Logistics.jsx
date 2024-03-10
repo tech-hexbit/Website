@@ -341,16 +341,17 @@ export default function Logistics({
                 </div>
 
                 <div className={odcss.logInfopTag}>
-                  URL: <p>{res.logistics.url}</p>
+                  <p>URL:</p> <p>{res.logistics.url}</p>
                 </div>
 
                 <div className={odcss.logInfopTag}>
-                  Logistics Patner Name:{" "}
+                  <p>Logistics Patner Name:</p>
                   <p>{res.logistics.logisticsPatnerName}</p>
                 </div>
 
                 <div className={odcss.logInfopTag}>
-                  Current Location: <p>{res.logistics.currentLocation}</p>
+                  <p>Current Location:</p>
+                  <p>{res.logistics.currentLocation}</p>
                 </div>
 
                 <div className={odcss.logInfopTag}>
