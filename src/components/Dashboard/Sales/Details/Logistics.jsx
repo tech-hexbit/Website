@@ -130,8 +130,6 @@ export default function Logistics({
     }
   };
 
-  console.log(res.logistics.id);
-
   return (
     <>
       <div className={odcss["overlap-group"]}>
