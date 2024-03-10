@@ -262,11 +262,17 @@
 }
 
 .inpTag {
+  font-size: 18px;
   border-style: solid;
   border-width: 0px 0px 1px 0px;
   border-radius: 0px;
   margin: 0px 10px 0px 0px;
   padding: 0px 7px;
+  transition: all 0.3s;
+}
+
+.inpTag:hover {
+  border-color: #cf97ff;
 }
 
 .inpTag::-ms-input-placeholder {
