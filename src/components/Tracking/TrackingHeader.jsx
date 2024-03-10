@@ -54,7 +54,7 @@ export default function TrackingHeader({ data }) {
           <div className={THCss.ordDelMDiv}>
             <div>
               <p className={THCss.shippLabelPTag}>
-                <b>Shipping Address</b>{" "}
+                <b>Shipping Address</b>
                 <a
                   href="https://www.google.com/maps?q=LATITUDE,LONGITUDE"
                   target="_blank"
