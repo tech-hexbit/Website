@@ -71,27 +71,42 @@ export default function Logistics({ res, _id }) {
     } else {
       let data = { ...showData, _id };
 
-      const response = await axios.post(
-        "/api/common/order/save/logistics",
-        data,
-        {
-          headers: { Authorization: `${authCtx.token}` },
+      try {
+        const response = await axios.post(
+          "/api/common/order/save/logistics",
+          data,
+          {
+            headers: { Authorization: `${authCtx.token}` },
+          }
+        );
+
+        if (response.data.success) {
+          setLoad(false);
+
+          setError({
+            mainColor: "#EDFEEE",
+            secondaryColor: "#5CB660",
+            symbol: "check_circle",
+            title: "Success",
+            text: "Successfully Added",
+            val: true,
+          });
+          console.log(response.data);
+        } else {
+          setLoad(false);
+
+          setError({
+            mainColor: "#FDEDED",
+            secondaryColor: "#F16360",
+            symbol: "error",
+            title: "Error",
+            text: "Unable to add",
+            val: true,
+          });
         }
-      );
+      } catch (error) {
+        console.log(error);
 
-      if (response.data.success) {
-        setLoad(false);
-
-        setError({
-          mainColor: "#EDFEEE",
-          secondaryColor: "#5CB660",
-          symbol: "check_circle",
-          title: "Success",
-          text: "Successfully Added",
-          val: true,
-        });
-        console.log(response.data);
-      } else {
         setLoad(false);
 
         setError({
