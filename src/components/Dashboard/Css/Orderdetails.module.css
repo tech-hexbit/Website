@@ -148,9 +148,13 @@
   width: 100%;
 }
 
-.text-wrapper {
+.textWrapper {
   font-size: 20px;
+  font-weight: bold;
   padding-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .editIconSpan {
@@ -369,7 +373,7 @@
     font-size: 1.2rem;
   }
 
-  .text-wrapper {
+  .textWrapper {
     margin-left: 0;
   }
 
