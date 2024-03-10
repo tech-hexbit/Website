@@ -336,53 +336,52 @@ export default function Logistics({
               </>
             ) : (
               <div className={odcss.logInfoStyle}>
-                <p>
-                  ID: <span>{res.logistics.id}</span>
-                </p>
+                <div className={odcss.logInfopTag}>
+                  <p>ID:</p> <p>{res.logistics.id}</p>
+                </div>
 
-                <p>
-                  URL: <span>{res.logistics.url}</span>
-                </p>
+                <div className={odcss.logInfopTag}>
+                  URL: <p>{res.logistics.url}</p>
+                </div>
 
-                <p>
+                <div className={odcss.logInfopTag}>
                   Logistics Patner Name:{" "}
-                  <span>{res.logistics.logisticsPatnerName}</span>
-                </p>
+                  <p>{res.logistics.logisticsPatnerName}</p>
+                </div>
 
-                <p>
-                  Current Location: <span>{res.logistics.currentLocation}</span>
-                </p>
+                <div className={odcss.logInfopTag}>
+                  Current Location: <p>{res.logistics.currentLocation}</p>
+                </div>
 
-                <p>
-                  Current Location: <span>{res.logistics.currentLocation}</span>
-                </p>
+                <div className={odcss.logInfopTag}>
+                  Current Location: <p>{res.logistics.currentLocation}</p>
+                </div>
 
-                <p>
+                <div className={odcss.logInfopTag}>
                   Estimated Time to Delivery:{" "}
-                  <span>{res.logistics.estimatedTAT}</span>
-                </p>
+                  <p>{res.logistics.estimatedTAT}</p>
+                </div>
 
-                <p>
-                  Agent Name: <span>{res.logistics.agent.name}</span>
-                </p>
+                <div className={odcss.logInfopTag}>
+                  Agent Name: <p>{res.logistics.agent.name}</p>
+                </div>
 
-                <p>
-                  Agent Number: <span>{res.logistics.agent.number}</span>
-                </p>
+                <div className={odcss.logInfopTag}>
+                  Agent Number: <p>{res.logistics.agent.number}</p>
+                </div>
 
-                <p>
-                  Vehicle Category:{" "}
-                  <span>{res.logistics.vehicle.category}</span>
-                </p>
+                <div className={odcss.logInfopTag}>
+                  Vehicle Category: <p>{res.logistics.vehicle.category}</p>
+                </div>
 
-                <p>
-                  Vehicle Size: <span>{res.logistics.vehicle.size}</span>
-                </p>
+                <div className={odcss.logInfopTag}>
+                  Vehicle Size: <p>{res.logistics.vehicle.size}</p>
+                </div>
 
-                <p>
+                <div className={odcss.logInfopTag}>
                   Vehicle Registration:{" "}
-                  <span>{res.logistics.vehicle.registration}</span>
-                </p>
+                  <p>{res.logistics.vehicle.registration}</p>
+                </div>
               </div>
             )}
           </>
