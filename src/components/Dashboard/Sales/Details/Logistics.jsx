@@ -335,7 +335,7 @@ export default function Logistics({
                 <p className={odcss.AddLogistics}>Add Logistics Info</p>
               </>
             ) : (
-              <div>
+              <div className={odcss.logInfoStyle}>
                 <p>
                   ID: <span>{res.logistics.id}</span>
                 </p>
