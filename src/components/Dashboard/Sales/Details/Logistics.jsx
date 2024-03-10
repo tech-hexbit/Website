@@ -356,6 +356,33 @@ export default function Logistics({
                 <p>
                   Current Location: <span>{res.logistics.currentLocation}</span>
                 </p>
+
+                <p>
+                  Estimated Time to Delivery:{" "}
+                  <span>{res.logistics.estimatedTAT}</span>
+                </p>
+
+                <p>
+                  Agent Name: <span>{res.logistics.agent.name}</span>
+                </p>
+
+                <p>
+                  Agent Number: <span>{res.logistics.agent.number}</span>
+                </p>
+
+                <p>
+                  Vehicle Category:{" "}
+                  <span>{res.logistics.vehicle.category}</span>
+                </p>
+
+                <p>
+                  Vehicle Size: <span>{res.logistics.vehicle.size}</span>
+                </p>
+
+                <p>
+                  Vehicle Registration:{" "}
+                  <span>{res.logistics.vehicle.registration}</span>
+                </p>
               </>
             )}
           </>
