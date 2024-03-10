@@ -124,38 +124,38 @@ export default function Logistics({ res, _id }) {
               onChange={handleChange}
             />
             <br />
-            <label>Traking URL</label>
+            <label for="TrakingURL">Traking URL</label>
             <input
               type="text"
               name="url"
-              id=""
+              id="TrakingURL"
               placeholder="https://abcLogistic.com"
               onChange={handleChange}
             />
             <br />
-            <label>Logistics Patner Name</label>
+            <label for="LogisticsPatner">Logistics Patner Name</label>
             <input
               type="text"
               name="logisticsPatnerName"
-              id=""
+              id="LogisticsPatner"
               placeholder="Blue Dart"
               onChange={handleChange}
             />
             <br />
-            <label htmlFor="">Current Location</label>
+            <label for="Location">Current Location</label>
             <input
               type="text"
               name="currentLocation"
-              id=""
+              id="Location"
               placeholder="Abc, City"
               onChange={handleChange}
             />
             <br />
-            <label htmlFor="">Estimated Time to Delivery</label>
+            <label for="EstimatedTime">Estimated Time to Delivery</label>
             <input
               type="text"
               name="estimatedTATHR"
-              id=""
+              id="EstimatedTime"
               placeholder="15 Hr"
               onChange={handleChange}
             />
@@ -167,47 +167,47 @@ export default function Logistics({ res, _id }) {
               onChange={handleChange}
             />
             <br />
-            <label htmlFor="">Agent Name</label>
+            <label for="AgentName">Agent Name</label>
             <input
               type="text"
               name="agentName"
-              id=""
+              id="AgentName"
               placeholder="Ramu"
               onChange={handleChange}
             />
             <br />
-            <label htmlFor="">Agent Number</label>
+            <label for="AgentNumber">Agent Number</label>
             <input
               type="number"
               name="agentNumber"
-              id=""
+              id="AgentNumber"
               placeholder="98XXXXXXXX60"
               onChange={handleChange}
             />
             <br />
-            <label htmlFor="">Vehicle Category</label>
+            <label for="VehicleCategory">Vehicle Category</label>
             <input
               type="text"
               name="vehicleCategory"
-              id=""
+              id="VehicleCategory"
               placeholder="mini-truck"
               onChange={handleChange}
             />
             <br />
-            <label htmlFor="">Vehicle Size</label>
+            <label for="VehicleSize">Vehicle Size</label>
             <input
               type="text"
               name="vehicleSize"
-              id=""
+              id="VehicleSize"
               placeholder="small"
               onChange={handleChange}
             />
             <br />
-            <label htmlFor="">Vehicle Registration</label>
+            <label for="VehicleRegistration">Vehicle Registration</label>
             <input
               type="text"
               name="vehicleRegistration"
-              id=""
+              id="VehicleRegistration"
               placeholder="2020"
               onChange={handleChange}
             />
