@@ -135,7 +135,7 @@ export default function Logistics({
   return (
     <>
       <div className={odcss["overlap-group"]}>
-        <div className={odcss["text-wrapper"]}>
+        <div className={odcss.textWrapper}>
           {res.logistics.id === "" ? "Logistics details" : "Logistics Info"}
           <span className={odcss.editIconSpan}>
             <svg
@@ -335,7 +335,7 @@ export default function Logistics({
                 <p className={odcss.AddLogistics}>Add Logistics Info</p>
               </>
             ) : (
-              <>
+              <div>
                 <p>
                   ID: <span>{res.logistics.id}</span>
                 </p>
@@ -383,7 +383,7 @@ export default function Logistics({
                   Vehicle Registration:{" "}
                   <span>{res.logistics.vehicle.registration}</span>
                 </p>
-              </>
+              </div>
             )}
           </>
         )}
