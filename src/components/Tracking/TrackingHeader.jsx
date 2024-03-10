@@ -22,8 +22,6 @@ export default function TrackingHeader({ data }) {
       } else if (data.state === "Cancelled") {
         setStateVal(4);
       }
-
-      console.log(data.ONDCFulfillment[0][0].end.location.gps);
     }
   }, [data]);
   return (
