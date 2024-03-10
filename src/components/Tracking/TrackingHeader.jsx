@@ -23,7 +23,7 @@ export default function TrackingHeader({ data }) {
         setStateVal(4);
       }
 
-      console.log(data);
+      console.log(data.ONDCFulfillment[0][0].end.location.address);
     }
   }, [data]);
   return (
@@ -52,7 +52,19 @@ export default function TrackingHeader({ data }) {
           </div>
 
           <div>
-            <p>Shipping Address</p>
+            <p>
+              <b>Shipping Address</b>
+            </p>
+            <p>{data.ONDCFulfillment[0][0].end.location.address.name}</p>
+            <p>
+              {data.ONDCFulfillment[0][0].end.location.address.building},{" "}
+              {data.ONDCFulfillment[0][0].end.location.address.locality}
+            </p>
+            <p>
+              {data.ONDCFulfillment[0][0].end.location.address.city},{" "}
+              {data.ONDCFulfillment[0][0].end.location.address.state},{" "}
+              {data.ONDCFulfillment[0][0].end.location.address.country}
+            </p>
           </div>
 
           <div className={THCss.listTrackingDiv}>
