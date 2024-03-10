@@ -1,6 +1,6 @@
 .titlePTag {
   font-family: "Rubik", sans-serif;
-  margin: 20px 0px 20px 30px;
+  margin: 20px 0px 20px 0px;
   font-weight: 100;
   font-size: 16px;
 }
@@ -27,7 +27,14 @@
 }
 
 .shippLabelPTag {
-  /* font-size: 14px; */
+  font-size: 18px;
+  margin-bottom: 7px;
+}
+
+.ordDelMDiv {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 30px;
 }
 
 .listTrackingDiv {
