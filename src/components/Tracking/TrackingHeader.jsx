@@ -23,7 +23,7 @@ export default function TrackingHeader({ data }) {
         setStateVal(4);
       }
 
-      console.log(data.invoice.URL);
+      console.log(data);
     }
   }, [data]);
   return (
@@ -49,6 +49,10 @@ export default function TrackingHeader({ data }) {
                 </a>
               </p>
             </div>
+          </div>
+
+          <div>
+            <p>Shipping Address</p>
           </div>
 
           <div className={THCss.listTrackingDiv}>
