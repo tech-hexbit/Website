@@ -13,9 +13,14 @@ import axios from "axios";
 // css
 import odcss from "./../../Css/Orderdetails.module.css";
 
-export default function Logistics({ res, _id }) {
+export default function Logistics({
+  res,
+  _id,
+  setLoadDataState,
+  loadDataState,
+}) {
   const [load, setLoad] = useState(false);
-  const [showEdit, setEdit] = useState(true);
+  const [showEdit, setEdit] = useState(false);
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -85,6 +90,8 @@ export default function Logistics({ res, _id }) {
 
           setEdit(!showEdit);
 
+          setLoadDataState(!loadDataState);
+
           setError({
             mainColor: "#EDFEEE",
             secondaryColor: "#5CB660",
@@ -129,7 +136,7 @@ export default function Logistics({ res, _id }) {
     <>
       <div className={odcss["overlap-group"]}>
         <div className={odcss["text-wrapper"]}>
-          Logistics details
+          {res.logistics.id === "" ? "Logistics details" : "Logistics Info"}
           <span className={odcss.editIconSpan}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -329,7 +336,26 @@ export default function Logistics({ res, _id }) {
               </>
             ) : (
               <>
-                <p>Logistics Info</p>
+                <p>
+                  ID: <span>{res.logistics.id}</span>
+                </p>
+
+                <p>
+                  URL: <span>{res.logistics.url}</span>
+                </p>
+
+                <p>
+                  Logistics Patner Name:{" "}
+                  <span>{res.logistics.logisticsPatnerName}</span>
+                </p>
+
+                <p>
+                  Current Location: <span>{res.logistics.currentLocation}</span>
+                </p>
+
+                <p>
+                  Current Location: <span>{res.logistics.currentLocation}</span>
+                </p>
               </>
             )}
           </>
