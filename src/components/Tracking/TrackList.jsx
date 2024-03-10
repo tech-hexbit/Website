@@ -26,7 +26,7 @@ export default function TrackList(props) {
         </div>
 
         {props.state == props.currentState && (
-          <div>
+          <div className={THCss.curentInfo}>
             <p>{props.data.logistics.currentLocation}</p>
           </div>
         )}
