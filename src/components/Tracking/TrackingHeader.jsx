@@ -6,43 +6,45 @@ import TrackList from "./TrackList";
 // css
 import THCss from "./Css/TrackingHeader.module.css";
 
-export default function TrackingHeader(props) {
+export default function TrackingHeader({ data }) {
   const [stateVal, setStateVal] = useState();
 
   useEffect(() => {
-    if (props.data) {
-      if (props.data.state === "Created") {
+    if (data) {
+      if (data.state === "Created") {
         setStateVal(0);
-      } else if (props.data.state === "Accepted") {
+      } else if (data.state === "Accepted") {
         setStateVal(1);
-      } else if (props.data.state === "In-progress") {
+      } else if (data.state === "In-progress") {
         setStateVal(2);
-      } else if (props.data.state === "Completed") {
+      } else if (data.state === "Completed") {
         setStateVal(3);
-      } else if (props.data.state === "Cancelled") {
+      } else if (data.state === "Cancelled") {
         setStateVal(4);
       }
+
+      console.log(data.invoice.URL);
     }
-  }, [props]);
+  }, [data]);
   return (
     <>
-      {props.data ? (
+      {data ? (
         <>
           <div className={THCss.titleDiv}>
             <div className={THCss.TitleDiv}>
               <p className={THCss.titlePTag}>
-                <b>Order ID</b> : <span>{props.data.OrderID}</span>
+                <b>Order ID</b> : <span>{data.OrderID}</span>
               </p>
               <p>
                 <span
                   style={{
-                    color: props.data.status === "PAID" ? "#4BB543" : "#9e6a03",
+                    color: data.status === "PAID" ? "#4BB543" : "#9e6a03",
                   }}
                 >
-                  {props.data.status}
-                </span>{" "}
+                  {data.status}
+                </span>
                 ||
-                <a href={props.data?.Invoice} className={THCss.openPDF}>
+                <a href={data.invoice.URL} className={THCss.openPDF}>
                   Open PDF
                 </a>
               </p>
@@ -59,7 +61,7 @@ export default function TrackingHeader(props) {
             <TrackList
               title="Order Created"
               des="We have received your order"
-              currentState={props.data?.state}
+              currentState={data?.state}
               state="Created"
               val={0}
               stateVal={stateVal}
@@ -67,7 +69,7 @@ export default function TrackingHeader(props) {
             <TrackList
               title="Order Accepted"
               des="Your order has been Accepted"
-              currentState={props.data?.state}
+              currentState={data?.state}
               state="Accepted"
               val={1}
               stateVal={stateVal}
@@ -75,7 +77,7 @@ export default function TrackingHeader(props) {
             <TrackList
               title="Order In-Progress"
               des="Your order is In-progress"
-              currentState={props.data?.state}
+              currentState={data?.state}
               state="In-progress"
               val={2}
               stateVal={stateVal}
@@ -83,7 +85,7 @@ export default function TrackingHeader(props) {
             <TrackList
               title="Delivered"
               des="Your order is delivered successfully"
-              currentState={props.data?.state}
+              currentState={data?.state}
               state="Completed"
               val={3}
               stateVal={stateVal}
@@ -91,7 +93,7 @@ export default function TrackingHeader(props) {
             <TrackList
               title="Cancelled"
               des="Your order is cancelled"
-              currentState={props.data?.state}
+              currentState={data?.state}
               state="Cancelled"
               val={4}
               stateVal={stateVal}
