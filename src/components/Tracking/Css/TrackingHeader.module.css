@@ -1,5 +1,4 @@
 .titlePTag {
-  font-family: "Rubik", sans-serif;
   margin: 20px 0px 20px 0px;
   font-weight: 100;
   font-size: 16px;
@@ -17,7 +16,6 @@
 }
 
 .listmDiv {
-  font-family: "Rubik", sans-serif;
   width: 300px;
   display: flex;
   flex-direction: row;
