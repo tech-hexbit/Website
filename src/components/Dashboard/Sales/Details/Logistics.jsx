@@ -79,7 +79,30 @@ export default function Logistics({ res, _id }) {
         }
       );
 
-      console.log(response.data);
+      if (response.data.success) {
+        setLoad(false);
+
+        setError({
+          mainColor: "#EDFEEE",
+          secondaryColor: "#5CB660",
+          symbol: "check_circle",
+          title: "Success",
+          text: "Successfully Added",
+          val: true,
+        });
+        console.log(response.data);
+      } else {
+        setLoad(false);
+
+        setError({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "Unable to add",
+          val: true,
+        });
+      }
     }
   };
 
