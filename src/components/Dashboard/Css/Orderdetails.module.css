@@ -353,6 +353,10 @@
     align-items: center;
     margin: 5px 0;
   }
+
+  .overlapGroup {
+    width: 80%;
+  }
 }
 
 @media only screen and (max-width: 750px) {
