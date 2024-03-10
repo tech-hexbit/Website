@@ -58,11 +58,13 @@ export default function TrackingHeader({ data }) {
                 <a
                   href="https://www.google.com/maps?q=LATITUDE,LONGITUDE"
                   target="_blank"
+                  className="LinkStyle"
+                  id={THCss.navi}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
+                    width="18"
+                    height="18"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
