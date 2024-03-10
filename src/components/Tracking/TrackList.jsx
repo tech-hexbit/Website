@@ -19,15 +19,17 @@ export default function TrackList(props) {
               : `${THCss.HcircleDiv}`
           }
         ></div>
+        {/* Content */}
         <div className={THCss.allContent}>
           <p className={THCss.title}>{props.title}</p>
           <p className={THCss.des}>{props.des}</p>
-          {props.state == props.currentState ? (
-            <p>{props.data.logistics.currentLocation}</p>
-          ) : (
-            ""
-          )}
         </div>
+
+        {props.state == props.currentState && (
+          <div>
+            <p>{props.data.logistics.currentLocation}</p>
+          </div>
+        )}
       </div>
     </>
   );
