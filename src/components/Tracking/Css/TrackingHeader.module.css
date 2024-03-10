@@ -26,6 +26,10 @@
   color: #616060;
 }
 
+.shippLabelPTag {
+  /* font-size: 14px; */
+}
+
 .listTrackingDiv {
   position: relative;
   margin: 30px 0px;
