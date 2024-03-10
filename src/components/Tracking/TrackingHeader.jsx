@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
 
 // components
 import TrackList from "./TrackList";
@@ -160,6 +159,7 @@ export default function TrackingHeader({ data }) {
               state="Created"
               val={0}
               stateVal={stateVal}
+              data={data}
             />
             <TrackList
               title="Order Accepted"
@@ -168,6 +168,7 @@ export default function TrackingHeader({ data }) {
               state="Accepted"
               val={1}
               stateVal={stateVal}
+              data={data}
             />
             <TrackList
               title="Order In-Progress"
@@ -176,6 +177,7 @@ export default function TrackingHeader({ data }) {
               state="In-progress"
               val={2}
               stateVal={stateVal}
+              data={data}
             />
             <TrackList
               title="Delivered"
@@ -184,6 +186,7 @@ export default function TrackingHeader({ data }) {
               state="Completed"
               val={3}
               stateVal={stateVal}
+              data={data}
             />
             <TrackList
               title="Cancelled"
@@ -192,6 +195,7 @@ export default function TrackingHeader({ data }) {
               state="Cancelled"
               val={4}
               stateVal={stateVal}
+              data={data}
             />
           </div>
         </>
