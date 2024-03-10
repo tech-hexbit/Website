@@ -115,11 +115,11 @@ export default function Logistics({ res, _id }) {
 
         {showEdit ? (
           <>
-            <label>Traking ID</label>
+            <label for="TrakingID">Traking ID</label>
             <input
               type="text"
               name="id"
-              id=""
+              id="TrakingID"
               placeholder="58405917356"
               onChange={handleChange}
             />
