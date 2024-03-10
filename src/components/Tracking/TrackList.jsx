@@ -23,13 +23,17 @@ export default function TrackList(props) {
         <div className={THCss.allContent}>
           <p className={THCss.title}>{props.title}</p>
           <p className={THCss.des}>{props.des}</p>
-        </div>
 
-        {props.state == props.currentState && (
-          <div className={THCss.curentInfo}>
-            <p>{props.data.logistics.currentLocation}</p>
-          </div>
-        )}
+          {props.state == props.currentState && props.val !== 3 ? (
+            <>
+              <p className={THCss.currentLocation}>
+                {props.data.logistics.currentLocation}
+              </p>
+            </>
+          ) : (
+            ""
+          )}
+        </div>
       </div>
     </>
   );
