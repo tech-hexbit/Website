@@ -83,6 +83,8 @@ export default function Logistics({ res, _id }) {
         if (response.data.success) {
           setLoad(false);
 
+          setEdit(!showEdit);
+
           setError({
             mainColor: "#EDFEEE",
             secondaryColor: "#5CB660",
