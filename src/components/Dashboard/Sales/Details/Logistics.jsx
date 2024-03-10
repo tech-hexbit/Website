@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 
 // MicroInteraction
-import Load from "./../../../../MicroInteraction/Load";
+import Load from "./../../../../MicroInteraction/LoadBlack";
 import { Alert } from "./../../../../MicroInteraction/Alert";
 
 // state
@@ -277,7 +277,9 @@ export default function Logistics({ res, _id }) {
               />
             </div>
 
-            <button onClick={saveData}>Save</button>
+            <button onClick={saveData} className={odcss.saveBtn}>
+              {load ? <Load /> : "Save"}
+            </button>
           </div>
         ) : (
           <>
