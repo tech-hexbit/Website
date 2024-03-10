@@ -83,7 +83,7 @@ export default function Logistics({ res, _id }) {
     }
   };
 
-  // console.log(res.state);
+  console.log(res.logistics.id);
 
   return (
     <>
@@ -219,25 +219,15 @@ export default function Logistics({ res, _id }) {
           </>
         ) : (
           <>
-            <div className={odcss.logisticImg}>
-              <img
-                src="https://images.unsplash.com/photo-1532635042-a6f6ad4745f9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="logistic_Img"
-                className={odcss.LogisticsGif}
-              />
-            </div>
-
-            <div className={odcss["text-l"]}>
-              <div className={odcss.name}>
-                <div className={odcss.div}>
-                  {res.state === "Created" || res.state === "In-progress" ? (
-                    <>Soon To be Alloted</>
-                  ) : (
-                    <>Details of logistics</>
-                  )}
-                </div>
-              </div>
-            </div>
+            {res.logistics.id === "" ? (
+              <>
+                <p className={odcss.AddLogistics}>Add Logistics Info</p>
+              </>
+            ) : (
+              <>
+                <p>Logistics Info</p>
+              </>
+            )}
           </>
         )}
       </div>
