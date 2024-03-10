@@ -66,6 +66,10 @@
   text-align: center;
 }
 
+.overlapGroup {
+  width: 45%;
+}
+
 .ContentDels {
   padding: 15px 0px;
   color: gray;
@@ -148,9 +152,25 @@
   width: 100%;
 }
 
-.text-wrapper {
+.textWrapper {
   font-size: 20px;
-  padding-top: 60px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logInfoStyle {
+  margin: 30px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px 0px;
+}
+
+.logInfopTag {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .editIconSpan {
@@ -176,7 +196,8 @@
 
 .textContent {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  align-items: flex-start;
   margin: 20px 30px;
   gap: 0px 20px;
   font-size: 1.4rem;
@@ -244,6 +265,65 @@
   align-items: center;
 }
 
+.AddLogistics {
+  margin: 30px 0px;
+  font-weight: bold;
+}
+
+.formDiv {
+  margin: 30px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px 0px;
+}
+
+.labelCl {
+  font-size: 18px;
+  margin: 0px 15px 0px 0px;
+}
+
+.inpTag {
+  font-size: 18px;
+  border-style: solid;
+  border-width: 0px 0px 1px 0px;
+  border-radius: 0px;
+  margin: 0px 10px 0px 0px;
+  padding: 0px 7px;
+  transition: all 0.3s;
+}
+
+.inpTag:hover {
+  border-color: #cf97ff;
+}
+
+.inpTag::-ms-input-placeholder {
+  font-size: 18px;
+}
+
+.inpTag::placeholder {
+  font-size: 18px;
+}
+
+.inpTag::-webkit-outer-spin-button,
+.inpTag::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.inpTag[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.saveBtn {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 0px;
+  border-style: solid;
+  border-color: #cf97ff;
+  color: #cf97ff;
+  cursor: pointer;
+}
+
 @media (max-width: 872px) {
   .details {
     display: flex;
@@ -272,6 +352,10 @@
     flex-direction: column;
     align-items: center;
     margin: 5px 0;
+  }
+
+  .overlapGroup {
+    width: 80%;
   }
 }
 
@@ -310,7 +394,7 @@
     font-size: 1.2rem;
   }
 
-  .text-wrapper {
+  .textWrapper {
     margin-left: 0;
   }
 
@@ -339,6 +423,12 @@
   img {
     max-width: 100%;
     height: auto;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .logInfopTag {
+    font-size: 18px;
   }
 }
 

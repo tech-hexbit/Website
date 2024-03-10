@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 
 // MicroInteraction
-import Load from "./../../../../MicroInteraction/Load";
+import Load from "./../../../../MicroInteraction/LoadBlack";
 import { Alert } from "./../../../../MicroInteraction/Alert";
 
 // state
@@ -13,7 +13,12 @@ import axios from "axios";
 // css
 import odcss from "./../../Css/Orderdetails.module.css";
 
-export default function Logistics({ res, _id }) {
+export default function Logistics({
+  res,
+  _id,
+  setLoadDataState,
+  loadDataState,
+}) {
   const [load, setLoad] = useState(false);
   const [showEdit, setEdit] = useState(false);
   const [variants, setError] = useState({
@@ -71,25 +76,65 @@ export default function Logistics({ res, _id }) {
     } else {
       let data = { ...showData, _id };
 
-      const response = await axios.post(
-        "/api/common/order/save/logistics",
-        data,
-        {
-          headers: { Authorization: `${authCtx.token}` },
-        }
-      );
+      try {
+        const response = await axios.post(
+          "/api/common/order/save/logistics",
+          data,
+          {
+            headers: { Authorization: `${authCtx.token}` },
+          }
+        );
 
-      console.log(response.data);
+        if (response.data.success) {
+          setLoad(false);
+
+          setEdit(!showEdit);
+
+          setLoadDataState(!loadDataState);
+
+          setError({
+            mainColor: "#EDFEEE",
+            secondaryColor: "#5CB660",
+            symbol: "check_circle",
+            title: "Success",
+            text: "Successfully Added",
+            val: true,
+          });
+          console.log(response.data);
+        } else {
+          setLoad(false);
+
+          setError({
+            mainColor: "#FDEDED",
+            secondaryColor: "#F16360",
+            symbol: "error",
+            title: "Error",
+            text: "Unable to add",
+            val: true,
+          });
+        }
+      } catch (error) {
+        console.log(error);
+
+        setLoad(false);
+
+        setError({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "Unable to add",
+          val: true,
+        });
+      }
     }
   };
 
-  // console.log(res.state);
-
   return (
     <>
-      <div className={odcss["overlap-group"]}>
-        <div className={odcss["text-wrapper"]}>
-          Logistics details
+      <div className={odcss.overlapGroup}>
+        <div className={odcss.textWrapper}>
+          {res.logistics.id === "" ? "Logistics details" : "Logistics Info"}
           <span className={odcss.editIconSpan}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -114,130 +159,229 @@ export default function Logistics({ res, _id }) {
         </div>
 
         {showEdit ? (
-          <>
-            <label>Traking ID</label>
-            <input
-              type="text"
-              name="id"
-              id=""
-              placeholder="58405917356"
-              onChange={handleChange}
-            />
-            <br />
-            <label>Traking URL</label>
-            <input
-              type="text"
-              name="url"
-              id=""
-              placeholder="https://abcLogistic.com"
-              onChange={handleChange}
-            />
-            <br />
-            <label>Logistics Patner Name</label>
-            <input
-              type="text"
-              name="logisticsPatnerName"
-              id=""
-              placeholder="Blue Dart"
-              onChange={handleChange}
-            />
-            <br />
-            <label htmlFor="">Current Location</label>
-            <input
-              type="text"
-              name="currentLocation"
-              id=""
-              placeholder="Abc, City"
-              onChange={handleChange}
-            />
-            <br />
-            <label htmlFor="">Estimated Time to Delivery</label>
-            <input
-              type="text"
-              name="estimatedTATHR"
-              id=""
-              placeholder="15 Hr"
-              onChange={handleChange}
-            />
-            <input
-              type="text"
-              name="estimatedTATMINS"
-              id=""
-              placeholder="25 Mins"
-              onChange={handleChange}
-            />
-            <br />
-            <label htmlFor="">Agent Name</label>
-            <input
-              type="text"
-              name="agentName"
-              id=""
-              placeholder="Ramu"
-              onChange={handleChange}
-            />
-            <br />
-            <label htmlFor="">Agent Number</label>
-            <input
-              type="number"
-              name="agentNumber"
-              id=""
-              placeholder="98XXXXXXXX60"
-              onChange={handleChange}
-            />
-            <br />
-            <label htmlFor="">Vehicle Category</label>
-            <input
-              type="text"
-              name="vehicleCategory"
-              id=""
-              placeholder="mini-truck"
-              onChange={handleChange}
-            />
-            <br />
-            <label htmlFor="">Vehicle Size</label>
-            <input
-              type="text"
-              name="vehicleSize"
-              id=""
-              placeholder="small"
-              onChange={handleChange}
-            />
-            <br />
-            <label htmlFor="">Vehicle Registration</label>
-            <input
-              type="text"
-              name="vehicleRegistration"
-              id=""
-              placeholder="2020"
-              onChange={handleChange}
-            />
-
-            <br />
-            <br />
-
-            <button onClick={saveData}>Save</button>
-          </>
-        ) : (
-          <>
-            <div className={odcss.logisticImg}>
-              <img
-                src="https://images.unsplash.com/photo-1532635042-a6f6ad4745f9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="logistic_Img"
-                className={odcss.LogisticsGif}
+          <div className={odcss.formDiv}>
+            {/* Traking ID */}
+            <div>
+              <label for="TrakingID" className={odcss.labelCl}>
+                Traking ID
+              </label>
+              <input
+                type="text"
+                name="id"
+                id="TrakingID"
+                placeholder="58405917356"
+                className={odcss.inpTag}
+                onChange={handleChange}
               />
             </div>
 
-            <div className={odcss["text-l"]}>
-              <div className={odcss.name}>
-                <div className={odcss.div}>
-                  {res.state === "Created" || res.state === "In-progress" ? (
-                    <>Soon To be Alloted</>
-                  ) : (
-                    <>Details of logistics</>
-                  )}
+            {/* Traking URL */}
+            <div>
+              <label for="TrakingURL" className={odcss.labelCl}>
+                Traking URL
+              </label>
+              <input
+                type="text"
+                name="url"
+                id="TrakingURL"
+                placeholder="https://abcLogistic.com"
+                className={odcss.inpTag}
+                onChange={handleChange}
+              />
+            </div>
+
+            {/* Logistics Patner Name */}
+            <div>
+              <label for="LogisticsPatner" className={odcss.labelCl}>
+                Logistics Patner Name
+              </label>
+              <input
+                type="text"
+                name="logisticsPatnerName"
+                id="LogisticsPatner"
+                placeholder="Blue Dart"
+                className={odcss.inpTag}
+                onChange={handleChange}
+              />
+            </div>
+
+            {/* Current Location */}
+            <div>
+              <label for="Location" className={odcss.labelCl}>
+                Current Location
+              </label>
+              <input
+                type="text"
+                name="currentLocation"
+                id="Location"
+                placeholder="Abc, City"
+                className={odcss.inpTag}
+                onChange={handleChange}
+              />
+            </div>
+
+            {/*  Estimated Time to Delivery */}
+            <div>
+              <label for="EstimatedTime" className={odcss.labelCl}>
+                Estimated Time to Delivery
+              </label>
+
+              {/*Hr */}
+              <input
+                type="text"
+                name="estimatedTATHR"
+                id="EstimatedTime"
+                placeholder="15 Hr"
+                className={odcss.inpTag}
+                onChange={handleChange}
+              />
+
+              {/* Min */}
+              <input
+                type="text"
+                name="estimatedTATMINS"
+                id=""
+                placeholder="25 Mins"
+                className={odcss.inpTag}
+                onChange={handleChange}
+              />
+            </div>
+
+            {/*  Agent Name */}
+            <div>
+              <label for="AgentName" className={odcss.labelCl}>
+                Agent Name
+              </label>
+              <input
+                type="text"
+                name="agentName"
+                id="AgentName"
+                placeholder="Ramu"
+                className={odcss.inpTag}
+                onChange={handleChange}
+              />
+            </div>
+
+            {/* Agent Number */}
+            <div>
+              <label for="AgentNumber" className={odcss.labelCl}>
+                Agent Number
+              </label>
+              <input
+                type="number"
+                name="agentNumber"
+                id="AgentNumber"
+                placeholder="98XXXXXXXX60"
+                className={odcss.inpTag}
+                onChange={handleChange}
+              />
+            </div>
+
+            {/* Vehicle Category */}
+            <div>
+              <label for="VehicleCategory" className={odcss.labelCl}>
+                Vehicle Category
+              </label>
+              <input
+                type="text"
+                name="vehicleCategory"
+                id="VehicleCategory"
+                placeholder="mini-truck"
+                className={odcss.inpTag}
+                onChange={handleChange}
+              />
+            </div>
+
+            {/* Vehicle Size */}
+            <div>
+              <label for="VehicleSize" className={odcss.labelCl}>
+                Vehicle Size
+              </label>
+              <input
+                type="text"
+                name="vehicleSize"
+                id="VehicleSize"
+                placeholder="small"
+                className={odcss.inpTag}
+                onChange={handleChange}
+              />
+            </div>
+
+            {/* Vehicle Registration */}
+            <div>
+              <label for="VehicleRegistration" className={odcss.labelCl}>
+                Vehicle Registration
+              </label>
+              <input
+                type="text"
+                name="vehicleRegistration"
+                id="VehicleRegistration"
+                placeholder="2020"
+                className={odcss.inpTag}
+                onChange={handleChange}
+              />
+            </div>
+
+            <button onClick={saveData} className={odcss.saveBtn}>
+              {load ? <Load /> : "Save"}
+            </button>
+          </div>
+        ) : (
+          <>
+            {res.logistics.id === "" ? (
+              <>
+                <p className={odcss.AddLogistics}>Add Logistics Info</p>
+              </>
+            ) : (
+              <div className={odcss.logInfoStyle}>
+                <div className={odcss.logInfopTag}>
+                  <p>ID:</p> <p>{res.logistics.id}</p>
+                </div>
+
+                <div className={odcss.logInfopTag}>
+                  <p>URL:</p> <p>{res.logistics.url}</p>
+                </div>
+
+                <div className={odcss.logInfopTag}>
+                  <p>Logistics Patner:</p>
+                  <p>{res.logistics.logisticsPatnerName}</p>
+                </div>
+
+                <div className={odcss.logInfopTag}>
+                  <p>Current Location:</p>
+                  <p>{res.logistics.currentLocation}</p>
+                </div>
+
+                <div className={odcss.logInfopTag}>
+                  <p>Estimated Time to Delivery:</p>
+                  <p>{res.logistics.estimatedTAT}</p>
+                </div>
+
+                <div className={odcss.logInfopTag}>
+                  <p>Agent Name:</p>
+                  <p>{res.logistics.agent.name}</p>
+                </div>
+
+                <div className={odcss.logInfopTag}>
+                  <p>Agent Number:</p>
+                  <p>{res.logistics.agent.number}</p>
+                </div>
+
+                <div className={odcss.logInfopTag}>
+                  <p>Vehicle Category:</p>
+                  <p>{res.logistics.vehicle.category}</p>
+                </div>
+
+                <div className={odcss.logInfopTag}>
+                  <p>Vehicle Size:</p> <p>{res.logistics.vehicle.size}</p>
+                </div>
+
+                <div className={odcss.logInfopTag}>
+                  <p>Vehicle Registration:</p>
+                  <p>{res.logistics.vehicle.registration}</p>
                 </div>
               </div>
-            </div>
+            )}
           </>
         )}
       </div>
