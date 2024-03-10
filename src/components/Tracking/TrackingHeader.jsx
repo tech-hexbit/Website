@@ -52,7 +52,7 @@ export default function TrackingHeader({ data }) {
           </div>
 
           <div>
-            <p>
+            <p className={THCss.shippLabelPTag}>
               <b>Shipping Address</b>
             </p>
             <p>{data.ONDCFulfillment[0][0].end.location.address.name}</p>
