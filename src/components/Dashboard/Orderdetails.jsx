@@ -24,10 +24,6 @@ const Orderdetails = (props) => {
   const [edit, setEdit] = useState(false);
   const [loadData, setLoadData] = useState(false);
 
-  useEffect(() => {
-    loadOrderdel(props.id);
-  }, [props.id, loadData]);
-
   const authCtx = useContext(AuthContext);
 
   const loadOrderdel = async (id) => {
@@ -53,6 +49,10 @@ const Orderdetails = (props) => {
       console.log(e);
     }
   };
+
+  useEffect(() => {
+    loadOrderdel(props.id);
+  }, [props.id, loadData]);
 
   return (
     <>
