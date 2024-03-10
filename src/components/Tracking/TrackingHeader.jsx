@@ -51,20 +51,41 @@ export default function TrackingHeader({ data }) {
             </div>
           </div>
 
-          <div>
-            <p className={THCss.shippLabelPTag}>
-              <b>Shipping Address</b>
-            </p>
-            <p>{data.ONDCFulfillment[0][0].end.location.address.name}</p>
-            <p>
-              {data.ONDCFulfillment[0][0].end.location.address.building},{" "}
-              {data.ONDCFulfillment[0][0].end.location.address.locality}
-            </p>
-            <p>
-              {data.ONDCFulfillment[0][0].end.location.address.city},{" "}
-              {data.ONDCFulfillment[0][0].end.location.address.state},{" "}
-              {data.ONDCFulfillment[0][0].end.location.address.country}
-            </p>
+          <div className={THCss.ordDelMDiv}>
+            <div>
+              <p className={THCss.shippLabelPTag}>
+                <b>Shipping Address</b>{" "}
+                <a
+                  href="https://www.google.com/maps?q=LATITUDE,LONGITUDE"
+                  target="_blank"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-navigation"
+                  >
+                    <polygon points="3 11 22 2 13 21 11 13 3 11" />
+                  </svg>
+                </a>
+              </p>
+              <p>{data.ONDCFulfillment[0][0].end.location.address.name}</p>
+              <p>
+                {data.ONDCFulfillment[0][0].end.location.address.building},{" "}
+                {data.ONDCFulfillment[0][0].end.location.address.locality}
+              </p>
+              <p>
+                {data.ONDCFulfillment[0][0].end.location.address.city},{" "}
+                {data.ONDCFulfillment[0][0].end.location.address.state},{" "}
+                {data.ONDCFulfillment[0][0].end.location.address.country}
+              </p>
+            </div>
           </div>
 
           <div className={THCss.listTrackingDiv}>
