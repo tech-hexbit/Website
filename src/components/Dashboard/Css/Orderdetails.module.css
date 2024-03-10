@@ -249,6 +249,13 @@
   font-weight: bold;
 }
 
+.formDiv {
+  margin: 30px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px 0px;
+}
+
 @media (max-width: 872px) {
   .details {
     display: flex;
