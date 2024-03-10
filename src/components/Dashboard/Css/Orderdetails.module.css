@@ -164,6 +164,12 @@
   gap: 10px 0px;
 }
 
+.logInfopTag {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .editIconSpan {
   margin-left: 10px;
 }
