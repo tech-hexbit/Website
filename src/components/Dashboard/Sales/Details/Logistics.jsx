@@ -132,7 +132,7 @@ export default function Logistics({
 
   return (
     <>
-      <div className={odcss["overlap-group"]}>
+      <div className={odcss.overlapGroup}>
         <div className={odcss.textWrapper}>
           {res.logistics.id === "" ? "Logistics details" : "Logistics Info"}
           <span className={odcss.editIconSpan}>
