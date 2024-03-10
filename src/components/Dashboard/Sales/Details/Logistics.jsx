@@ -136,25 +136,43 @@ export default function Logistics({
         <div className={odcss.textWrapper}>
           {res.logistics.id === "" ? "Logistics details" : "Logistics Info"}
           <span className={odcss.editIconSpan}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-pencil"
-              className={odcss.editIcon}
-              onClick={() => {
-                setEdit(!showEdit);
-              }}
-            >
-              <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
-              <path d="m15 5 4 4" />
-            </svg>
+            {showEdit ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-ban"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="m4.9 4.9 14.2 14.2" />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-pencil"
+                className={odcss.editIcon}
+                onClick={() => {
+                  setEdit(!showEdit);
+                }}
+              >
+                <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+                <path d="m15 5 4 4" />
+              </svg>
+            )}
           </span>
         </div>
 
