@@ -125,6 +125,7 @@ export default function Logistics({ res, _id }) {
                 name="id"
                 id="TrakingID"
                 placeholder="58405917356"
+                className={odcss.inpTag}
                 onChange={handleChange}
               />
             </div>
@@ -139,6 +140,7 @@ export default function Logistics({ res, _id }) {
                 name="url"
                 id="TrakingURL"
                 placeholder="https://abcLogistic.com"
+                className={odcss.inpTag}
                 onChange={handleChange}
               />
             </div>
@@ -153,6 +155,7 @@ export default function Logistics({ res, _id }) {
                 name="logisticsPatnerName"
                 id="LogisticsPatner"
                 placeholder="Blue Dart"
+                className={odcss.inpTag}
                 onChange={handleChange}
               />
             </div>
@@ -167,6 +170,7 @@ export default function Logistics({ res, _id }) {
                 name="currentLocation"
                 id="Location"
                 placeholder="Abc, City"
+                className={odcss.inpTag}
                 onChange={handleChange}
               />
             </div>
@@ -183,6 +187,7 @@ export default function Logistics({ res, _id }) {
                 name="estimatedTATHR"
                 id="EstimatedTime"
                 placeholder="15 Hr"
+                className={odcss.inpTag}
                 onChange={handleChange}
               />
 
@@ -192,6 +197,7 @@ export default function Logistics({ res, _id }) {
                 name="estimatedTATMINS"
                 id=""
                 placeholder="25 Mins"
+                className={odcss.inpTag}
                 onChange={handleChange}
               />
             </div>
@@ -206,6 +212,7 @@ export default function Logistics({ res, _id }) {
                 name="agentName"
                 id="AgentName"
                 placeholder="Ramu"
+                className={odcss.inpTag}
                 onChange={handleChange}
               />
             </div>
@@ -220,6 +227,7 @@ export default function Logistics({ res, _id }) {
                 name="agentNumber"
                 id="AgentNumber"
                 placeholder="98XXXXXXXX60"
+                className={odcss.inpTag}
                 onChange={handleChange}
               />
             </div>
@@ -234,6 +242,7 @@ export default function Logistics({ res, _id }) {
                 name="vehicleCategory"
                 id="VehicleCategory"
                 placeholder="mini-truck"
+                className={odcss.inpTag}
                 onChange={handleChange}
               />
             </div>
@@ -248,6 +257,7 @@ export default function Logistics({ res, _id }) {
                 name="vehicleSize"
                 id="VehicleSize"
                 placeholder="small"
+                className={odcss.inpTag}
                 onChange={handleChange}
               />
             </div>
@@ -262,6 +272,7 @@ export default function Logistics({ res, _id }) {
                 name="vehicleRegistration"
                 id="VehicleRegistration"
                 placeholder="2020"
+                className={odcss.inpTag}
                 onChange={handleChange}
               />
             </div>
