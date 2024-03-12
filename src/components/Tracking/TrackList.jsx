@@ -9,7 +9,7 @@ export default function TrackList(props) {
       <div
         className={THCss.listmDiv}
         style={{
-          opacity: props.state == props.currentState ? "1" : "0.8",
+          opacity: props.state == props.currentState ? "1" : "0.7",
         }}
       >
         <div
@@ -19,9 +19,20 @@ export default function TrackList(props) {
               : `${THCss.HcircleDiv}`
           }
         ></div>
+        {/* Content */}
         <div className={THCss.allContent}>
           <p className={THCss.title}>{props.title}</p>
           <p className={THCss.des}>{props.des}</p>
+
+          {props.state == props.currentState && props.val !== 3 ? (
+            <>
+              <p className={THCss.currentLocation}>
+                {props.data.logistics.currentLocation}
+              </p>
+            </>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </>
