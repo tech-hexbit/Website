@@ -26,18 +26,26 @@ export default function Cashfree() {
   const getSessionId = async (e) => {
     try {
       let data = {
-        customer_id: "CID89898",
-        customer_email: "waleedsdev@gmail.com",
-        customer_phone: "7498608775",
-        customer_name: "Waleed Shaikh",
-        order_amount: 123,
-        order_id: "2024-02-22-965076",
+        beneId: "JOHN18012",
+        name: "john doe",
+        email: "johndoe@cashfree.com",
+        phone: "9876543210",
+        bankAccount: "00001111222233",
+        ifsc: "HDFC0000001",
+        address1: "ABC Street",
+        city: "Bangalore",
+        state: "Karnataka",
+        pincode: "560001",
       };
 
-      const response = await axios.post("/api/payment/cashfree/payment", data, {
-        headers: { Authorization: `${authCtx.token}` },
-        version,
-      });
+      const response = await axios.post(
+        "/api/payment/cashfree/add/Beneficiary",
+        data,
+        {
+          headers: { Authorization: `${authCtx.token}` },
+          version,
+        }
+      );
       console.log(response);
 
       setLoad(false);
