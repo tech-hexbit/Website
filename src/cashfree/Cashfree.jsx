@@ -15,7 +15,7 @@ import { load } from "@cashfreepayments/cashfree-js";
 // css
 import ChCss from "./Css/CashFree.module.css";
 
-export default function Cashfree() {
+export default function Cashfree({ id }) {
   const [loadState, setLoad] = useState(false);
   const [version, setversion] = useState(null);
   const [cashfree, setCashfree] = useState(null);
@@ -26,22 +26,26 @@ export default function Cashfree() {
   const getSessionId = async (e) => {
     try {
       let data = {
-        beneId: "JOHN18012",
-        name: "john doe",
-        email: "johndoe@cashfree.com",
-        phone: "9876543210",
-        bankAccount: "00001111222233",
-        ifsc: "HDFC0000001",
-        address1: "ABC Street",
-        city: "Bangalore",
-        state: "Karnataka",
-        pincode: "560001",
+        // name: "john doe",
+        // email: "johndoe@cashfree.com",
+        // phone: "9876543210",
+        // bankAccount: "00001111222233",
+        // ifsc: "HDFC0000001",
+        // address1: "ABC Street",
+        // city: "Bangalore",
+        // state: "Karnataka",
+        // pincode: "560001",
+        id,
       };
 
-      const response = await axios.post("/api/payment/cashfree/payment", data, {
-        headers: { Authorization: `${authCtx.token}` },
-        version,
-      });
+      const response = await axios.post(
+        "/api/payment/cashfree/add/Beneficiary",
+        data,
+        {
+          headers: { Authorization: `${authCtx.token}` },
+          version,
+        }
+      );
       console.log(response);
 
       setLoad(false);
