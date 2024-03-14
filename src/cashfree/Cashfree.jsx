@@ -38,14 +38,10 @@ export default function Cashfree() {
         pincode: "560001",
       };
 
-      const response = await axios.post(
-        "/api/payment/cashfree/add/Beneficiary",
-        data,
-        {
-          headers: { Authorization: `${authCtx.token}` },
-          version,
-        }
-      );
+      const response = await axios.post("/api/payment/cashfree/payment", data, {
+        headers: { Authorization: `${authCtx.token}` },
+        version,
+      });
       console.log(response);
 
       setLoad(false);
