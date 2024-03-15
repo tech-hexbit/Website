@@ -168,7 +168,11 @@ export default function PaymentDetailsOverlay({ selectedItem, code }) {
         </div>
       </div>
 
-      {authCtx.user.access === 2 ? <Cashfree id={selectedItem[0]._id} /> : ""}
+      {authCtx.user.access === 2 ? (
+        <Cashfree selectedItem={selectedItem} />
+      ) : (
+        ""
+      )}
 
       {code === 0 ? "" : <GatewayGetinTouch />}
     </div>
