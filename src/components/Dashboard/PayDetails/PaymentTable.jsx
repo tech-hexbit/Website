@@ -9,7 +9,13 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 // css
 import Gptable from "./Css/PaymentTable.module.css";
 
-export default function PaymentTable({ load, showData, code }) {
+export default function PaymentTable({
+  load,
+  showData,
+  code,
+  setreload,
+  reload,
+}) {
   const [showOverlay, setShowOverlay] = useState(false);
   const [selectedItem, setSelectedItem] = useState([]);
 
@@ -185,6 +191,8 @@ export default function PaymentTable({ load, showData, code }) {
           code={code}
           selectedItem={filteredRowItem}
           closeOverlay={closeOverlay}
+          setreload={setreload}
+          reload={reload}
         />
       )}
     </div>
