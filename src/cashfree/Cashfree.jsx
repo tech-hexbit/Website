@@ -79,6 +79,19 @@ export default function Cashfree({ selectedItem, setreload, reload }) {
     setLoad(true);
 
     try {
+      let data = {
+        id: selectedItem[0]._id,
+      };
+
+      const response = await axios.post(
+        "/api/payment/cashfree/tranfer/status",
+        data,
+        {
+          headers: { Authorization: `${authCtx.token}` },
+        }
+      );
+
+      console.log(response);
     } catch (error) {
       console.log(error);
 
