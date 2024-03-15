@@ -5,6 +5,7 @@ import AuthContext from "./../store/auth-context";
 
 // MicroInteraction
 import Load from "./../MicroInteraction/Load";
+import { Alert } from "./../MicroInteraction/Alert";
 
 // axios
 import axios from "axios";
@@ -15,8 +16,16 @@ import { load } from "@cashfreepayments/cashfree-js";
 // css
 import ChCss from "./Css/CashFree.module.css";
 
-export default function Cashfree({ selectedItem }) {
+export default function Cashfree({ selectedItem, setreload, reload }) {
   const [loadState, setLoad] = useState(false);
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
 
   const authCtx = useContext(AuthContext);
 
@@ -37,9 +46,10 @@ export default function Cashfree({ selectedItem }) {
       );
 
       if (response.success) {
-      }
+        setLoad(false);
 
-      setLoad(false);
+        setreload(!reload);
+      }
     } catch (error) {
       console.log(error);
 
