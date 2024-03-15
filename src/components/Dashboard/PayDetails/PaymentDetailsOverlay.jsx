@@ -17,7 +17,12 @@ import axios from "axios";
 // css
 import gpdo from "./Css/PaymentDetailsOverlay.module.css";
 
-export default function PaymentDetailsOverlay({ selectedItem, code }) {
+export default function PaymentDetailsOverlay({
+  selectedItem,
+  code,
+  setreload,
+  reload,
+}) {
   const [dwn, setDwn] = useState(false);
 
   if (!selectedItem) return null;
@@ -169,7 +174,11 @@ export default function PaymentDetailsOverlay({ selectedItem, code }) {
       </div>
 
       {authCtx.user.access === 2 ? (
-        <Cashfree selectedItem={selectedItem} />
+        <Cashfree
+          selectedItem={selectedItem}
+          setreload={setreload}
+          reload={reload}
+        />
       ) : (
         ""
       )}
