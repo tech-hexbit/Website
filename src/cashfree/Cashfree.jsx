@@ -105,6 +105,36 @@ export default function Cashfree({ selectedItem, setreload, reload }) {
     }
   };
 
+  const remBene = async (e) => {
+    setLoad(true);
+
+    try {
+      let data = {
+        id: selectedItem[0]._id,
+      };
+
+      const response = await axios.post(
+        "/api/payment/cashfree/remove/Beneficiary",
+        data,
+        {
+          headers: { Authorization: `${authCtx.token}` },
+        }
+      );
+
+      if (response.data.success) {
+        setLoad(false);
+
+        setreload(!reload);
+      } else {
+        setLoad(false);
+      }
+    } catch (error) {
+      console.log(error);
+
+      setLoad(false);
+    }
+  };
+
   return (
     <>
       {selectedItem[0].cashfree.status === "SUCCESS" ? (
@@ -117,7 +147,11 @@ export default function Cashfree({ selectedItem, setreload, reload }) {
                 ""
               ) : (
                 <>
-                  <p>Remove Beneficiary</p>
+                  <div className={ChCss.mDiv}>
+                    <button onClick={remBene} className={ChCss.PayNowBtn}>
+                      {loadState ? <Load /> : "Remove Beneficiary"}
+                    </button>
+                  </div>
                 </>
               )}
 
