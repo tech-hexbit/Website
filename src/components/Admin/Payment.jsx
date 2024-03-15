@@ -15,6 +15,7 @@ import AuthContext from "../../store/auth-context";
 
 export default function Payment() {
   const [load, setLoad] = useState(false);
+  const [reload, setreload] = useState(false);
   const [showData, setData] = useState([]);
   const [variants, setError] = useState({
     mainColor: "",
@@ -63,10 +64,16 @@ export default function Payment() {
   // scroll to top
   useEffect(() => {
     loadData();
-  }, []);
+  }, [, reload]);
+
   return (
     <>
-      <PaymentTable showData={showData} code={0} />
+      <PaymentTable
+        showData={showData}
+        code={0}
+        setreload={setreload}
+        reload={reload}
+      />
 
       <Alert variant={variants} val={setError} />
     </>
