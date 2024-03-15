@@ -48,8 +48,37 @@ export default function Cashfree({ selectedItem, setreload, reload }) {
       if (response.success) {
         setLoad(false);
 
+        setError({
+          mainColor: "#EDFEEE",
+          secondaryColor: "#5CB660",
+          symbol: "check_circle",
+          title: "Success",
+          text: "Successfully",
+          val: true,
+        });
+
         setreload(!reload);
       }
+    } catch (error) {
+      console.log(error);
+
+      setLoad(false);
+
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "An unexpected error occurred",
+        text: "Failed to send",
+        val: true,
+      });
+    }
+  };
+
+  const transferStatus = async (e) => {
+    setLoad(true);
+
+    try {
     } catch (error) {
       console.log(error);
 
@@ -58,7 +87,7 @@ export default function Cashfree({ selectedItem, setreload, reload }) {
   };
 
   useEffect(() => {
-    console.log(selectedItem[0].cashfree.beneId);
+    console.log(selectedItem[0].cashfree.transferId);
   }, [selectedItem]);
 
   return (
@@ -73,11 +102,23 @@ export default function Cashfree({ selectedItem, setreload, reload }) {
             </>
           )}
 
-          <div className={ChCss.mDiv}>
-            <button onClick={getSessionId} className={ChCss.PayNowBtn}>
-              {loadState ? <Load /> : "Pay Now"}
-            </button>
-          </div>
+          {selectedItem[0].cashfree.transferId === "" ? (
+            <>
+              <div className={ChCss.mDiv}>
+                <button onClick={getSessionId} className={ChCss.PayNowBtn}>
+                  {loadState ? <Load /> : "Pay Now"}
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className={ChCss.mDiv}>
+                <button onClick={transferStatus} className={ChCss.PayNowBtn}>
+                  {loadState ? <Load /> : "Transfer Status"}
+                </button>
+              </div>
+            </>
+          )}
         </>
       ) : (
         <></>
