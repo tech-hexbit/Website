@@ -110,6 +110,7 @@ export default function Cashfree({ selectedItem, setreload, reload }) {
 
     try {
       let data = {
+        id: selectedItem[0]._id,
         beneId: selectedItem[0].cashfree.beneId,
       };
 
