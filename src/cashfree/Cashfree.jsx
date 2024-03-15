@@ -24,6 +24,8 @@ export default function Cashfree({ id }) {
   const authCtx = useContext(AuthContext);
 
   const getSessionId = async (e) => {
+    setLoad(true);
+
     try {
       let data = {
         id,
@@ -49,49 +51,10 @@ export default function Cashfree({ id }) {
     }
   };
 
-  const handlePayment = () => {
-    setLoad(true);
-
-    getSessionId();
-
-    // let checkoutOptions = {
-    //   paymentSessionId: sessionId,
-    //   returnUrl: "http://localhost:8000/api/status/{order_id} ",
-    // };
-    // cashfree.checkout(checkoutOptions).then(function (result) {
-    //   if (result.error) {
-    //     alert(result.error.message);
-    //   }
-    //   if (result.redirect) {
-    //     console.log("Redirection");
-    //     console.log(result);
-    //   }
-    // });
-  };
-
-  useEffect(() => {
-    const loadCashfree = async () => {
-      try {
-        const cashfreeInstance = await load({ mode: "sandbox" }); // Load Cashfree asynchronously
-        setCashfree(cashfreeInstance); // Set the Cashfree instance in state
-      } catch (error) {
-        console.error("Error loading Cashfree:", error);
-      }
-    };
-
-    loadCashfree();
-  }, []);
-
-  useEffect(() => {
-    if (cashfree === null) return;
-
-    setversion(cashfree.version());
-  }, [cashfree]);
-
   return (
     <>
       <div className={ChCss.mDiv}>
-        <button onClick={handlePayment} className={ChCss.PayNowBtn}>
+        <button onClick={getSessionId} className={ChCss.PayNowBtn}>
           {loadState ? <Load /> : "Pay Now"}
         </button>
       </div>
