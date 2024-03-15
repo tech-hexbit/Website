@@ -45,7 +45,7 @@ export default function Cashfree({ selectedItem, setreload, reload }) {
         }
       );
 
-      if (response.success) {
+      if (response.data.success) {
         setLoad(false);
 
         setError({
@@ -91,7 +91,13 @@ export default function Cashfree({ selectedItem, setreload, reload }) {
         }
       );
 
-      console.log(response);
+      if (response.data.success) {
+        setLoad(false);
+
+        setreload(!reload);
+      } else {
+        setLoad(false);
+      }
     } catch (error) {
       console.log(error);
 
@@ -100,41 +106,50 @@ export default function Cashfree({ selectedItem, setreload, reload }) {
   };
 
   useEffect(() => {
-    console.log(selectedItem[0].cashfree.transferId);
+    console.log(selectedItem[0].cashfree.status);
   }, [selectedItem]);
 
   return (
     <>
-      {selectedItem.length > 0 ? (
+      {selectedItem[0].cashfree.status === "SUCCESS" ? (
+        <>Payment Processed</>
+      ) : (
         <>
-          {selectedItem[0].cashfree.beneId === "" ? (
-            ""
-          ) : (
+          {selectedItem.length > 0 ? (
             <>
-              <p>Remove Beneficiary</p>
-            </>
-          )}
+              {selectedItem[0].cashfree.beneId === "" ? (
+                ""
+              ) : (
+                <>
+                  <p>Remove Beneficiary</p>
+                </>
+              )}
 
-          {selectedItem[0].cashfree.transferId === "" ? (
-            <>
-              <div className={ChCss.mDiv}>
-                <button onClick={getSessionId} className={ChCss.PayNowBtn}>
-                  {loadState ? <Load /> : "Pay Now"}
-                </button>
-              </div>
+              {selectedItem[0].cashfree.transferId === "" ? (
+                <>
+                  <div className={ChCss.mDiv}>
+                    <button onClick={getSessionId} className={ChCss.PayNowBtn}>
+                      {loadState ? <Load /> : "Pay Now"}
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className={ChCss.mDiv}>
+                    <button
+                      onClick={transferStatus}
+                      className={ChCss.PayNowBtn}
+                    >
+                      {loadState ? <Load /> : "Transfer Status"}
+                    </button>
+                  </div>
+                </>
+              )}
             </>
           ) : (
-            <>
-              <div className={ChCss.mDiv}>
-                <button onClick={transferStatus} className={ChCss.PayNowBtn}>
-                  {loadState ? <Load /> : "Transfer Status"}
-                </button>
-              </div>
-            </>
+            <></>
           )}
         </>
-      ) : (
-        <></>
       )}
     </>
   );
