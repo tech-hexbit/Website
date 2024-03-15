@@ -17,9 +17,6 @@ import ChCss from "./Css/CashFree.module.css";
 
 export default function Cashfree({ selectedItem }) {
   const [loadState, setLoad] = useState(false);
-  const [version, setversion] = useState(null);
-  const [cashfree, setCashfree] = useState(null);
-  const [sessionId, setSessionId] = useState("");
 
   const authCtx = useContext(AuthContext);
 
@@ -36,14 +33,13 @@ export default function Cashfree({ selectedItem }) {
         data,
         {
           headers: { Authorization: `${authCtx.token}` },
-          version,
         }
       );
-      console.log(response);
+
+      if (response.success) {
+      }
 
       setLoad(false);
-
-      setSessionId(response.data);
     } catch (error) {
       console.log(error);
 
