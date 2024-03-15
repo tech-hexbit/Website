@@ -105,10 +105,6 @@ export default function Cashfree({ selectedItem, setreload, reload }) {
     }
   };
 
-  useEffect(() => {
-    console.log(selectedItem[0].cashfree.status);
-  }, [selectedItem]);
-
   return (
     <>
       {selectedItem[0].cashfree.status === "SUCCESS" ? (
