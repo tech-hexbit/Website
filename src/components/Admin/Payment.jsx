@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 
 // components
-import Cashfree from "./../../cashfree/Cashfree";
 import PaymentTable from "./../Dashboard/PayDetails/PaymentTable";
 
 // MicroInteraction
