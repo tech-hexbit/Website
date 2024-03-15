@@ -110,7 +110,7 @@ export default function Cashfree({ selectedItem, setreload, reload }) {
 
     try {
       let data = {
-        id: selectedItem[0]._id,
+        beneId: selectedItem[0].cashfree.beneId,
       };
 
       const response = await axios.post(
@@ -134,6 +134,10 @@ export default function Cashfree({ selectedItem, setreload, reload }) {
       setLoad(false);
     }
   };
+
+  useEffect(() => {
+    console.log(selectedItem[0].cashfree);
+  }, [selectedItem]);
 
   return (
     <>
