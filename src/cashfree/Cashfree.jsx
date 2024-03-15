@@ -26,15 +26,6 @@ export default function Cashfree({ id }) {
   const getSessionId = async (e) => {
     try {
       let data = {
-        // name: "john doe",
-        // email: "johndoe@cashfree.com",
-        // phone: "9876543210",
-        // bankAccount: "00001111222233",
-        // ifsc: "HDFC0000001",
-        // address1: "ABC Street",
-        // city: "Bangalore",
-        // state: "Karnataka",
-        // pincode: "560001",
         id,
       };
 
