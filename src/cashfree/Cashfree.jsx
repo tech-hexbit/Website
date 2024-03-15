@@ -15,7 +15,7 @@ import { load } from "@cashfreepayments/cashfree-js";
 // css
 import ChCss from "./Css/CashFree.module.css";
 
-export default function Cashfree({ id }) {
+export default function Cashfree({ selectedItem }) {
   const [loadState, setLoad] = useState(false);
   const [version, setversion] = useState(null);
   const [cashfree, setCashfree] = useState(null);
@@ -28,7 +28,7 @@ export default function Cashfree({ id }) {
 
     try {
       let data = {
-        id,
+        id: selectedItem[0]._id,
       };
 
       const response = await axios.post(
@@ -51,14 +51,31 @@ export default function Cashfree({ id }) {
     }
   };
 
+  useEffect(() => {
+    console.log(selectedItem[0].cashfree.beneId);
+  }, [selectedItem]);
+
   return (
     <>
-      <div className={ChCss.mDiv}>
-        <button onClick={getSessionId} className={ChCss.PayNowBtn}>
-          {loadState ? <Load /> : "Pay Now"}
-        </button>
-      </div>
-      {/* <button onClick={getSessionId}>Cashfree</button> */}
+      {selectedItem.length > 0 ? (
+        <>
+          {selectedItem[0].cashfree.beneId === "" ? (
+            ""
+          ) : (
+            <>
+              <p>Remove Beneficiary</p>
+            </>
+          )}
+
+          <div className={ChCss.mDiv}>
+            <button onClick={getSessionId} className={ChCss.PayNowBtn}>
+              {loadState ? <Load /> : "Pay Now"}
+            </button>
+          </div>
+        </>
+      ) : (
+        <></>
+      )}
     </>
   );
 }
