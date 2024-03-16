@@ -20,6 +20,7 @@ import HelpDesk from "./../components/Dashboard/HelpDesk";
 import PayDetails from "../components/Dashboard/PayDetails";
 import PayRequest from "../components/Dashboard/PayRequest";
 import ProfileMain from "./../components/Dashboard/Profile";
+import Complaints from "./../components/Dashboard/Complaints";
 import Categories from "./../components/Dashboard/Categories";
 import AddProduct from "./../components/Dashboard/AddProduct";
 import Dashboard from "./../components/Dashboard/DashboardMain";
@@ -202,6 +203,7 @@ export default function Profile() {
                     <Route path="/help/desk" element={<HelpDesk />} />
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/Inventory" element={<Categories />} />
+                    <Route path="/complaints" element={<Complaints />} />
                     <Route path="/addProduct" element={<AddProduct />} />
                     <Route path="/products/:id" element={<ProductPageNew />} />
                     <Route path="/Payment/Details" element={<PayDetails />} />
