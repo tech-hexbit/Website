@@ -91,7 +91,7 @@ export default function Complaints() {
             <>
               <table className={pt.trans_table}>
                 <tr>
-                  <th>Tracking ID</th>
+                  <th>ID</th>
                   <th>Customer</th>
                   <th>Date</th>
                   <th>Amount</th>
