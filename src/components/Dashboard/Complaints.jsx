@@ -89,7 +89,7 @@ export default function Complaints() {
         <>
           {showData.length > 0 ? (
             <>
-              <table className={pt.trans_table}>
+              <table className={pt.trans_table} style={{ width: "100%" }}>
                 <tr>
                   <th>ID</th>
                   <th>Customer</th>
