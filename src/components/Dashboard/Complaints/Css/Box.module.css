@@ -1,3 +1,9 @@
+.viewDelDiv {
+  display: flex;
+  align-self: center;
+  gap: 0px 5px;
+}
+
 .openSvg {
   color: #800000;
 }
