@@ -1,5 +1,12 @@
 import React from "react";
 
+// components
+import Header from "./MainParts/Header";
+
 export default function Complaints() {
-  return <div>Complaints</div>;
+  return (
+    <div>
+      <Header name="Issues" />
+    </div>
+  );
 }
