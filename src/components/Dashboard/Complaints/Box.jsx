@@ -6,6 +6,7 @@ import pt from "./../Payment/Css/PaymentTable.module.css";
 
 export default function Box({ key, val }) {
   const [isOverOneDay, setIsOverOneDay] = useState(false);
+  const [expectedTime, setExpectedTime] = useState("");
 
   useEffect(() => {
     const currentTime = new Date();
@@ -18,7 +19,23 @@ export default function Box({ key, val }) {
     );
 
     setIsOverOneDay(currentTime > expectedTime);
+
+    // Format the expected resolution time
+    const expectedTimeState = expectedTime.toLocaleString("en-US", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    });
+
+    setExpectedTime(expectedTimeState.toString());
   }, []);
+
+  useEffect(() => {
+    console.log(expectedTime);
+  }, [expectedTime]);
 
   return (
     <>
@@ -29,7 +46,7 @@ export default function Box({ key, val }) {
         <td data-cell="ID" style={{ color: isOverOneDay ? "red" : "green" }}>
           {val.expected_resolution_time.duration}
         </td>
-        <td data-cell="ID">isOverOneDay</td>
+        <td data-cell="ID">{expectedTime}</td>
         <td data-cell="ID">{val.respondent_actions[0].respondent_action}</td>
         <td data-cell="">
           <div className={BoxCss.viewDelDiv}>
