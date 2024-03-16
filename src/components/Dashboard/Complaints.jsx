@@ -15,6 +15,7 @@ import AuthContext from "../../store/auth-context";
 import axios from "axios";
 
 // css
+import BoxCss from "./Complaints/Css/Box.module.css";
 import pt from "./Payment/Css/PaymentTable.module.css";
 
 export default function Complaints() {
@@ -89,12 +90,12 @@ export default function Complaints() {
         <>
           {showData.length > 0 ? (
             <>
-              <table className={pt.trans_table} style={{ width: "100%" }}>
+              <table className={pt.trans_table} id={BoxCss.tabID}>
                 <tr>
                   <th>ID</th>
                   <th>Customer</th>
                   <th>Date</th>
-                  <th>Amount</th>
+                  <th>DeadLine</th>
                   <th>Payment Mode</th>
                   <th>Status</th>
                   <th>Action</th>
