@@ -1,9 +1,56 @@
-import React from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 
 // components
 import Header from "./MainParts/Header";
 
+// MicroInteraction
+import Load from "./../../MicroInteraction/Load";
+import { Alert } from "./../../MicroInteraction/Alert";
+
+// state
+import AuthContext from "../../store/auth-context";
+
+// axios
+import axios from "axios";
+
 export default function Complaints() {
+  const [load, setLoad] = useState(false);
+  const [showData, setData] = useState();
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
+
+  const authCtx = useContext(AuthContext);
+
+  const loadData = async () => {
+    setLoad(true);
+
+    try {
+    } catch (error) {
+      console.log(error);
+
+      setLoad(false);
+
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "An unexpected error occurred",
+        val: true,
+      });
+    }
+  };
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
   return (
     <div>
       <Header name="Issues" />
