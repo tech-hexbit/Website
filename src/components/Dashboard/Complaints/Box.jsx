@@ -15,6 +15,7 @@ export default function Box({ key, val }) {
         <td data-cell="ID">#{val._id.slice(-4)}</td>
         <td data-cell="ID">#{val._id.slice(-4)}</td>
         <td data-cell="ID">
+          View Details
           {val.issue_actions.complainant_actions[0].complainant_action ===
           "OPEN" ? (
             <>
