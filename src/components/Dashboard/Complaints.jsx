@@ -79,39 +79,43 @@ export default function Complaints() {
   }, []);
 
   return (
-    <div>
-      <Header name="Issues" />
+    <>
+      <div>
+        <Header name="Issues" />
 
-      {load ? (
-        <div className="loadCenterDiv">
-          <Load />
-        </div>
-      ) : (
-        <>
-          {showData.length > 0 ? (
-            <>
-              <table className={pt.trans_table} id={BoxCss.tabID}>
-                <tr>
-                  <th>ID</th>
-                  <th>Customer</th>
-                  <th>Date</th>
-                  <th>DeadLine</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
+        {load ? (
+          <div className="loadCenterDiv">
+            <Load />
+          </div>
+        ) : (
+          <>
+            {showData.length > 0 ? (
+              <>
+                <table className={pt.trans_table} id={BoxCss.tabID}>
+                  <tr>
+                    <th>ID</th>
+                    <th>Customer</th>
+                    <th>Date</th>
+                    <th>DeadLine</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
 
-                {showData.map((val, key) => {
-                  return <Box key={key} val={val} />;
-                })}
-              </table>
-            </>
-          ) : (
-            <>
-              <p>No Issues Raised</p>
-            </>
-          )}
-        </>
-      )}
-    </div>
+                  {showData.map((val, key) => {
+                    return <Box key={key} val={val} />;
+                  })}
+                </table>
+              </>
+            ) : (
+              <>
+                <p>No Issues Raised</p>
+              </>
+            )}
+          </>
+        )}
+      </div>
+
+      <Alert variant={variants} val={setError} />
+    </>
   );
 }
