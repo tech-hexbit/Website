@@ -68,8 +68,8 @@ export default function Cashfree({ selectedItem, setreload, reload }) {
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
-        title: "An unexpected error occurred",
-        text: "Failed to send",
+        title: "Error",
+        text: "An unexpected error occurred",
         val: true,
       });
     }
