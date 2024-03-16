@@ -13,7 +13,7 @@ export default function Box({ key, val }) {
         <td data-cell="ID">{val.when.date}</td>
         <td data-cell="ID">#{val._id.slice(-4)}</td>
         <td data-cell="ID">#{val._id.slice(-4)}</td>
-        <td data-cell="ID">#{val._id.slice(-4)}</td>
+        <td data-cell="ID">{val.respondent_actions[0].respondent_action}</td>
         <td data-cell="ID">
           <div className={BoxCss.viewDelDiv}>
             View Details
