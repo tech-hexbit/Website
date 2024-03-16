@@ -5,16 +5,27 @@ import BoxCss from "./Css/Box.module.css";
 import pt from "./../Payment/Css/PaymentTable.module.css";
 
 export default function Box({ key, val }) {
+  const currentTime = new Date();
+  const expectedTime = new Date(val.timeStramp);
+  expectedTime.setHours(
+    expectedTime.getHours() +
+      parseInt(val.expected_response_time.duration.slice(2, -1))
+  );
+
+  const isOverOneDay = currentTime > expectedTime;
+
   return (
     <>
       <tr key={key} className={pt.payRes}>
         <td data-cell="ID">{val._id.slice(-4)}</td>
         <td data-cell="ID">#{val._id.slice(-4)}</td>
         <td data-cell="ID">{val.when.date}</td>
-        <td data-cell="ID">#{val._id.slice(-4)}</td>
-        <td data-cell="ID">#{val._id.slice(-4)}</td>
+        <td data-cell="ID">{val.expected_resolution_time.duration}</td>
+        <td data-cell="ID" style={{ color: isOverOneDay ? "red" : "green" }}>
+          {isOverOneDay ? "red" : "green"}
+        </td>
         <td data-cell="ID">{val.respondent_actions[0].respondent_action}</td>
-        <td data-cell="ID">
+        <td data-cell="">
           <div className={BoxCss.viewDelDiv}>
             View Details
             {val.issue_actions.complainant_actions[0].complainant_action ===
