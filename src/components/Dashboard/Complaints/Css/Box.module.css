@@ -16,3 +16,7 @@
 .closeSvg {
   color: green;
 }
+
+.editBtn {
+  cursor: pointer;
+}
