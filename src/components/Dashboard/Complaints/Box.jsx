@@ -49,7 +49,6 @@ export default function Box({ key, val }) {
           {val.respondent_actions[0].respondent_action}
         </td>
         <td data-cell="Action">
-          {/* <div className={BoxCss.viewDelDiv}> */}
           View Details
           {val.issue_actions.complainant_actions[0].complainant_action ===
           "OPEN" ? (
@@ -92,7 +91,6 @@ export default function Box({ key, val }) {
               </svg>
             </>
           )}
-          {/* </div> */}
         </td>
       </tr>
     </>
