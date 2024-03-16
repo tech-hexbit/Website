@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext, useRef } from "react";
 
 // components
 import Header from "./MainParts/Header";
+import Box from "./Complaints/Box";
 
 // MicroInteraction
 import Load from "./../../MicroInteraction/Load";
@@ -12,9 +13,6 @@ import AuthContext from "../../store/auth-context";
 
 // axios
 import axios from "axios";
-
-// css
-import AQCss from "./Css/Complaints.module.css";
 
 export default function Complaints() {
   const [load, setLoad] = useState(false);
@@ -90,9 +88,10 @@ export default function Complaints() {
             <>
               {showData.map((val, key) => {
                 return (
-                  <div key={key} className="">
-                    ID : {val.issueID}
-                  </div>
+                  //   <div key={key} className="">
+                  //     ID : {val.issueID}
+                  //   </div>
+                  <Box key={key} val={val} />
                 );
               })}
             </>
