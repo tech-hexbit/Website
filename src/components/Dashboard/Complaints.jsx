@@ -31,6 +31,11 @@ export default function Complaints() {
     setLoad(true);
 
     try {
+      const response = await axios.get("/api/website/Issue/get/list", {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+
+      console.log(response.data);
     } catch (error) {
       console.log(error);
 
