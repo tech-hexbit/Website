@@ -5,7 +5,9 @@
 
 .editBtn,
 .openSvg,
-.closeSvg {
+.closeSvg,
+.cancelBtn,
+.saveBtn {
   margin: 0px 0px 0px 10px;
 }
 
@@ -17,6 +19,8 @@
   color: green;
 }
 
-.editBtn {
+.editBtn,
+.cancelBtn,
+.saveBtn {
   cursor: pointer;
 }
