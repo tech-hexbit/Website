@@ -15,7 +15,7 @@ import axios from "axios";
 
 export default function Complaints() {
   const [load, setLoad] = useState(false);
-  const [showData, setData] = useState();
+  const [showData, setData] = useState([]);
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -35,7 +35,24 @@ export default function Complaints() {
         headers: { Authorization: `${authCtx.token}` },
       });
 
-      console.log(response.data);
+      if (response.data.success) {
+        setLoad(false);
+
+        console.log(response.data.issueList);
+
+        setData(response.data.issueList);
+      } else {
+        setLoad(false);
+
+        setError({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "An unexpected error occurred",
+          val: true,
+        });
+      }
     } catch (error) {
       console.log(error);
 
@@ -59,6 +76,30 @@ export default function Complaints() {
   return (
     <div>
       <Header name="Issues" />
+
+      {load ? (
+        <div className="loadCenterDiv">
+          <Load />
+        </div>
+      ) : (
+        <>
+          {showData.length > 0 ? (
+            <>
+              {showData.map((val, key) => {
+                return (
+                  <div key={key} className="">
+                    ID = {val.issueID}
+                  </div>
+                );
+              })}
+            </>
+          ) : (
+            <>
+              <p>No Issues Raised</p>
+            </>
+          )}
+        </>
+      )}
     </div>
   );
 }
