@@ -13,6 +13,9 @@ import AuthContext from "../../store/auth-context";
 // axios
 import axios from "axios";
 
+// css
+import AQCss from "./Css/Complaints.module.css";
+
 export default function Complaints() {
   const [load, setLoad] = useState(false);
   const [showData, setData] = useState([]);
@@ -88,7 +91,7 @@ export default function Complaints() {
               {showData.map((val, key) => {
                 return (
                   <div key={key} className="">
-                    ID = {val.issueID}
+                    ID : {val.issueID}
                   </div>
                 );
               })}
