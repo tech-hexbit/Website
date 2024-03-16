@@ -96,7 +96,6 @@ export default function Complaints() {
                   <th>Customer</th>
                   <th>Date</th>
                   <th>DeadLine</th>
-                  <th>Payment Mode</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
