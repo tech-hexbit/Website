@@ -14,6 +14,9 @@ import AuthContext from "../../store/auth-context";
 // axios
 import axios from "axios";
 
+// css
+import pt from "./Payment/Css/PaymentTable.module.css";
+
 export default function Complaints() {
   const [load, setLoad] = useState(false);
   const [showData, setData] = useState([]);
@@ -86,14 +89,21 @@ export default function Complaints() {
         <>
           {showData.length > 0 ? (
             <>
-              {showData.map((val, key) => {
-                return (
-                  //   <div key={key} className="">
-                  //     ID : {val.issueID}
-                  //   </div>
-                  <Box key={key} val={val} />
-                );
-              })}
+              <table className={pt.trans_table}>
+                <tr>
+                  <th>Tracking ID</th>
+                  <th>Customer</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Payment Mode</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+
+                {showData.map((val, key) => {
+                  return <Box key={key} val={val} />;
+                })}
+              </table>
             </>
           ) : (
             <>
