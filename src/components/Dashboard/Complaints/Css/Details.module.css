@@ -57,3 +57,11 @@
   align-items: center;
   margin: 30px 0px;
 }
+
+.upStateBtn {
+  border-width: 0px;
+  background-color: #34a853;
+  color: #fff;
+  padding: 7px 25px;
+  cursor: pointer;
+}
