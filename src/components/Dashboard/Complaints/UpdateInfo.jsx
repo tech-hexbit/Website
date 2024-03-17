@@ -14,10 +14,31 @@ import axios from "axios";
 import upCss from "./Css/UpdateInfo.module.css";
 
 export default function UpdateInfo() {
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
+
+  const authCtx = useContext(AuthContext);
+
   return (
-    <div>
-      <div className={upCss.Line}></div>
-      UpdateInfo
-    </div>
+    <>
+      <div className={upCss.mDiv}>
+        <p>
+          <b>Update Status</b>
+        </p>
+        <div className={upCss.Line}></div>
+
+        <div>
+          <label htmlFor="Status">Status</label>
+        </div>
+      </div>
+
+      <Alert variant={variants} val={setError} />
+    </>
   );
 }
