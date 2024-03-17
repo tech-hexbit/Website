@@ -48,10 +48,10 @@ export default function Details({
         setLoad(false);
 
         console.log(response.data.issueList);
-        console.log(response.data.itemsList[0]);
+        console.log(response.data.itemsList);
 
         setData(response.data.issueList);
-        setDataItem(response.data.itemsList[0]);
+        setDataItem(response.data.itemsList);
       } else {
         setLoad(false);
 
@@ -106,17 +106,17 @@ export default function Details({
             {dataItem.length > 0 ? (
               <>
                 {dataItem.map((val, key) => {
-                  console.log(val);
+                  console.log(val[0]);
                   return (
                     <div key={key} className={DelCss.mapItemMDiv}>
                       <div>
                         <img
-                          src={val.descriptor.symbol}
+                          src={val[0].descriptor.symbol}
                           alt="isssue_img"
                           className={DelCss.imgCl}
                         />
                       </div>
-                      <div>{val.descriptor.name}</div>
+                      <div>{val[0].descriptor.name}</div>
                     </div>
                   );
                 })}
