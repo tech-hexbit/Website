@@ -88,6 +88,10 @@ export default function Details({
     loadData();
   }, [, selectedItem]);
 
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
+
   return (
     <>
       {load ? (
@@ -95,46 +99,61 @@ export default function Details({
           <Load />
         </div>
       ) : (
-        <div>
-          <div>
-            Issue for <b>Item Mismatch</b>
-          </div>
+        <>
+          {data.length > 0 ? (
+            <div>
+              <div>
+                Issue for <b>Item Mismatch</b>
+              </div>
 
-          {/* Items */}
-          <div className={DelCss.itemDiv}>
-            <p>
-              <b>Issue Item(s)</b>
-            </p>
+              {/* Items */}
+              <div className={DelCss.itemDiv}>
+                <p>
+                  <b>Issue Item(s)</b>
+                </p>
 
-            <div className={DelCss.itemMapDiv}>
-              {dataItem.length > 0 ? (
-                <>
-                  {dataItem.map((val, key) => {
-                    console.log(val[0]);
-                    return (
-                      <div key={key} className={DelCss.mapItemMDiv}>
-                        <div>
-                          <img
-                            src={val[0].descriptor.symbol}
-                            alt="isssue_img"
-                            className={DelCss.imgCl}
-                          />
-                        </div>
-                        <div className={DelCss.textOverflow}>
-                          {val[0].descriptor.name}
-                        </div>
-                      </div>
-                    );
-                  })}
-                </>
-              ) : (
-                <div className="loadCenterDiv">No Data to Show</div>
-              )}
+                <div className={DelCss.itemMapDiv}>
+                  {dataItem.length > 0 ? (
+                    <>
+                      {dataItem.map((val, key) => {
+                        console.log(val[0]);
+                        return (
+                          <div key={key} className={DelCss.mapItemMDiv}>
+                            <div>
+                              <img
+                                src={val[0].descriptor.symbol}
+                                alt="isssue_img"
+                                className={DelCss.imgCl}
+                              />
+                            </div>
+                            <div className={DelCss.textOverflow}>
+                              {val[0].descriptor.name}
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </>
+                  ) : (
+                    <div className="loadCenterDiv">No Data to Show</div>
+                  )}
+                </div>
+              </div>
+
+              <div>
+                <p>
+                  <b>Summary</b>
+                </p>
+
+                <p>
+                  <b>sd: </b>
+                  {data[0].description.short_desc}
+                </p>
+              </div>
             </div>
-          </div>
-
-          <div></div>
-        </div>
+          ) : (
+            <div className="loadCenterDiv">No Data to Show</div>
+          )}
+        </>
       )}
 
       <Alert variant={variants} val={setError} />
