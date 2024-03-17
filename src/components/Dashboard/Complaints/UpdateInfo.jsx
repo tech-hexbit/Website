@@ -42,7 +42,7 @@ export default function UpdateInfo({ update, setUpdate }) {
   };
 
   useEffect(() => {
-    console.log(formData);
+    console.table(formData);
   }, [formData]);
 
   return (
@@ -83,8 +83,14 @@ export default function UpdateInfo({ update, setUpdate }) {
 
           {/* Status */}
           <div className={upCss.upInpParDiv2}>
-            <label htmlFor="Status">Status</label>
-            <select name="Status" id="" className={upCss.inpTagUp}>
+            <label htmlFor="status">Status</label>
+            <select
+              id=""
+              name="status"
+              value={formData.status}
+              onChange={handleInputChange}
+              className={upCss.inpTagUp}
+            >
               <option value="Select" selected hidden>
                 Select the Status
               </option>
@@ -96,11 +102,13 @@ export default function UpdateInfo({ update, setUpdate }) {
 
           {/* Short Desc (Status) */}
           <div className={upCss.upInpParDiv2}>
-            <label htmlFor="">Short Description</label>
+            <label htmlFor="shortDescStatus">Short Description</label>
             <input
               type="text"
-              name=""
               id=""
+              name="shortDescStatus"
+              value={formData.shortDescStatus}
+              onChange={handleInputChange}
               placeholder="short_desc"
               className={upCss.inpTagUp}
             />
@@ -112,10 +120,12 @@ export default function UpdateInfo({ update, setUpdate }) {
 
           {/* Short Desc (Resolution) */}
           <div className={upCss.upInpParDiv2}>
-            <label htmlFor="">Short Description</label>
+            <label htmlFor="shortDescResolution">Short Description</label>
             <input
               type="text"
-              name=""
+              name="shortDescResolution"
+              value={formData.shortDescResolution}
+              onChange={handleInputChange}
               id=""
               placeholder="short_desc"
               className={upCss.inpTagUp}
@@ -124,10 +134,12 @@ export default function UpdateInfo({ update, setUpdate }) {
 
           {/* Long Desc (Resolution) */}
           <div className={upCss.upInpParDiv2}>
-            <label htmlFor="">Long Description</label>
+            <label htmlFor="longDescResolution">Long Description</label>
             <input
               type="text"
-              name=""
+              name="longDescResolution"
+              value={formData.longDescResolution}
+              onChange={handleInputChange}
               id=""
               placeholder="long_desc"
               className={upCss.inpTagUp}
@@ -137,8 +149,14 @@ export default function UpdateInfo({ update, setUpdate }) {
           <div className={upCss.inpTagRow}>
             {/* Action Triggered (Resolution) */}
             <div className={upCss.upInpParDiv2Row}>
-              <label htmlFor="">Action Triggered</label>
-              <select name="Status" id="" className={upCss.inpTagUp}>
+              <label htmlFor="actionTriggered">Action Triggered</label>
+              <select
+                id=""
+                className={upCss.inpTagUp}
+                name="actionTriggered"
+                value={formData.actionTriggered}
+                onChange={handleInputChange}
+              >
                 <option value="Select" selected hidden>
                   Select the Action
                 </option>
@@ -151,10 +169,12 @@ export default function UpdateInfo({ update, setUpdate }) {
 
             {/* Refund Amount (Resolution) */}
             <div className={upCss.upInpParDiv2Row}>
-              <label htmlFor="">Refund Amount</label>
+              <label htmlFor="refundAmount">Refund Amount</label>
               <input
                 type="number"
-                name=""
+                name="refundAmount"
+                value={formData.refundAmount}
+                onChange={handleInputChange}
                 id=""
                 placeholder="₹ 100"
                 className={upCss.inpTagUp}
