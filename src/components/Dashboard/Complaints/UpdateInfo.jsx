@@ -11,7 +11,7 @@ import AuthContext from "./../../../store/auth-context";
 import axios from "axios";
 
 // css
-import DelCss from "./Css/Details.module.css";
+import DelCss from "./Css/UpdateInfo.module.css";
 
 export default function UpdateInfo() {
   return <div>UpdateInfo</div>;
