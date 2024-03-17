@@ -21,6 +21,8 @@ import pt from "./Payment/Css/PaymentTable.module.css";
 export default function Complaints() {
   const [load, setLoad] = useState(false);
   const [showData, setData] = useState([]);
+  const [selectedItem, setSelectedItem] = useState([]);
+  const [showOverlay, setShowOverlay] = useState(false);
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -74,6 +76,18 @@ export default function Complaints() {
     }
   };
 
+  const handleOverlay = (refNo) => {
+    setShowOverlay(!showOverlay);
+    setSelectedItem(refNo);
+  };
+
+  const closeOverlay = () => {
+    setSelectedItem(null);
+    setShowOverlay(showOverlay);
+  };
+
+  const filteredRowItem = showData.filter((item) => item._id === selectedItem);
+
   useEffect(() => {
     loadData();
   }, []);
@@ -89,7 +103,7 @@ export default function Complaints() {
           </div>
         ) : (
           <>
-            {showData.length > 0 ? (
+            {showOverlay ? (
               <>
                 <table className={pt.trans_table} id={BoxCss.tabID}>
                   <tr>
@@ -100,15 +114,38 @@ export default function Complaints() {
                     <th>Status</th>
                     <th>Action</th>
                   </tr>
-
-                  {showData.map((val, key) => {
-                    return <Box key={key} val={val} />;
-                  })}
                 </table>
               </>
             ) : (
               <>
-                <p>No Issues Raised</p>
+                {showData.length > 0 ? (
+                  <>
+                    <table className={pt.trans_table} id={BoxCss.tabID}>
+                      <tr>
+                        <th>ID</th>
+                        <th>Customer</th>
+                        <th>Date</th>
+                        <th>DeadLine</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+
+                      {showData.map((val, key) => {
+                        return (
+                          <Box
+                            key={key}
+                            val={val}
+                            handleOverlay={handleOverlay}
+                          />
+                        );
+                      })}
+                    </table>
+                  </>
+                ) : (
+                  <>
+                    <p>No Issues Raised</p>
+                  </>
+                )}
               </>
             )}
           </>
