@@ -58,6 +58,14 @@ export default function UpdateInfo({ update, setUpdate }) {
 
         <div>
           <label htmlFor="Status">Status</label>
+          <select name="Status" id="">
+            <option value="Select" selected hidden>
+              Select the Status
+            </option>
+            <option value="CASCADED">CASCADED</option>
+            <option value="NEED-MORE-INFO">NEED-MORE-INFO</option>
+            <option value="RESOLVED">RESOLVED</option>
+          </select>
         </div>
         <div>
           <label htmlFor="">Short Desc (Status)</label>
