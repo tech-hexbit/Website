@@ -36,6 +36,21 @@ export default function UpdateInfo() {
         <div>
           <label htmlFor="Status">Status</label>
         </div>
+        <div>
+          <label htmlFor="">Short Desc (Status)</label>
+        </div>
+        <div>
+          <label htmlFor="">Short Desc (resolution)</label>
+        </div>
+        <div>
+          <label htmlFor="">Long Desc (resolution)</label>
+        </div>
+        <div>
+          <label htmlFor="">Action Triggered (resolution)</label>
+        </div>
+        <div>
+          <label htmlFor="">Refund Amount (resolution)</label>
+        </div>
       </div>
 
       <Alert variant={variants} val={setError} />
