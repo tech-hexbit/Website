@@ -64,7 +64,7 @@ export default function UpdateInfo({ update, setUpdate }) {
           {/* Status */}
           <div className={upCss.upInpParDiv2}>
             <label htmlFor="Status">Status</label>
-            <select name="Status" id="">
+            <select name="Status" id="" className={upCss.inpTagUp}>
               <option value="Select" selected hidden>
                 Select the Status
               </option>
@@ -76,7 +76,7 @@ export default function UpdateInfo({ update, setUpdate }) {
 
           {/* Short Desc (Status) */}
           <div className={upCss.upInpParDiv2}>
-            <label htmlFor="">Short Desc (Status)</label>
+            <label htmlFor="">Short Description</label>
             <input
               type="text"
               name=""
@@ -92,7 +92,7 @@ export default function UpdateInfo({ update, setUpdate }) {
 
           {/* Short Desc (Resolution) */}
           <div className={upCss.upInpParDiv2}>
-            <label htmlFor="">Short Desc (resolution)</label>
+            <label htmlFor="">Short Description</label>
             <input
               type="text"
               name=""
@@ -104,7 +104,7 @@ export default function UpdateInfo({ update, setUpdate }) {
 
           {/* Long Desc (Resolution) */}
           <div className={upCss.upInpParDiv2}>
-            <label htmlFor="">Long Desc (resolution)</label>
+            <label htmlFor="">Long Description</label>
             <input
               type="text"
               name=""
@@ -114,30 +114,32 @@ export default function UpdateInfo({ update, setUpdate }) {
             />
           </div>
 
-          {/* Action Triggered (Resolution) */}
-          <div className={upCss.upInpParDiv2}>
-            <label htmlFor="">Action Triggered (Resolution)</label>
-            <select name="Status" id="">
-              <option value="Select" selected hidden>
-                Select the Action
-              </option>
-              <option value="REFUND">REFUND</option>
-              <option value="REPLACEMENT">REPLACEMENT</option>
-              <option value="CANCEL">CANCEL</option>
-              <option value="NO-ACTION">NO-ACTION</option>
-            </select>{" "}
-          </div>
+          <div className={upCss.inpTagRow}>
+            {/* Action Triggered (Resolution) */}
+            <div className={upCss.upInpParDiv2Row}>
+              <label htmlFor="">Action Triggered</label>
+              <select name="Status" id="" className={upCss.inpTagUp}>
+                <option value="Select" selected hidden>
+                  Select the Action
+                </option>
+                <option value="REFUND">REFUND</option>
+                <option value="REPLACEMENT">REPLACEMENT</option>
+                <option value="CANCEL">CANCEL</option>
+                <option value="NO-ACTION">NO-ACTION</option>
+              </select>{" "}
+            </div>
 
-          {/* Refund Amount (Resolution) */}
-          <div className={upCss.upInpParDiv2}>
-            <label htmlFor="">Refund Amount (resolution)</label>
-            <input
-              type="number"
-              name=""
-              id=""
-              placeholder="₹ 100"
-              className={upCss.inpTagUp}
-            />
+            {/* Refund Amount (Resolution) */}
+            <div className={upCss.upInpParDiv2Row}>
+              <label htmlFor="">Refund Amount</label>
+              <input
+                type="number"
+                name=""
+                id=""
+                placeholder="₹ 100"
+                className={upCss.inpTagUp}
+              />
+            </div>
           </div>
         </div>
       </div>
