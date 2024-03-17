@@ -62,7 +62,7 @@ export default function UpdateInfo({ update, setUpdate }) {
           </p>
 
           {/* Status */}
-          <div>
+          <div className={upCss.upInpParDiv2}>
             <label htmlFor="Status">Status</label>
             <select name="Status" id="">
               <option value="Select" selected hidden>
@@ -75,7 +75,7 @@ export default function UpdateInfo({ update, setUpdate }) {
           </div>
 
           {/* Short Desc (Status) */}
-          <div>
+          <div className={upCss.upInpParDiv2}>
             <label htmlFor="">Short Desc (Status)</label>
             <input
               type="text"
@@ -91,7 +91,7 @@ export default function UpdateInfo({ update, setUpdate }) {
           </p>
 
           {/* Short Desc (Resolution) */}
-          <div>
+          <div className={upCss.upInpParDiv2}>
             <label htmlFor="">Short Desc (resolution)</label>
             <input
               type="text"
@@ -103,7 +103,7 @@ export default function UpdateInfo({ update, setUpdate }) {
           </div>
 
           {/* Long Desc (Resolution) */}
-          <div>
+          <div className={upCss.upInpParDiv2}>
             <label htmlFor="">Long Desc (resolution)</label>
             <input
               type="text"
@@ -115,7 +115,7 @@ export default function UpdateInfo({ update, setUpdate }) {
           </div>
 
           {/* Action Triggered (Resolution) */}
-          <div>
+          <div className={upCss.upInpParDiv2}>
             <label htmlFor="">Action Triggered (Resolution)</label>
             <select name="Status" id="">
               <option value="Select" selected hidden>
@@ -128,7 +128,8 @@ export default function UpdateInfo({ update, setUpdate }) {
             </select>{" "}
           </div>
 
-          <div>
+          {/* Refund Amount (Resolution) */}
+          <div className={upCss.upInpParDiv2}>
             <label htmlFor="">Refund Amount (resolution)</label>
             <input
               type="number"
