@@ -92,10 +92,6 @@ export default function Details({
     loadData();
   }, [, selectedItem]);
 
-  //   useEffect(() => {
-  //     console.log(data[0].orderID._id);
-  //   }, [data]);
-
   return (
     <>
       {load ? (
@@ -106,39 +102,47 @@ export default function Details({
         <>
           {data.length > 0 ? (
             <div>
-              <div>
-                <p>
-                  Issue for <b>Item Mismatch</b>
-                </p>
+              <div className={DelCss.headerRow}>
+                <div>
+                  <p>
+                    Issue for <b>Item Mismatch</b>
+                  </p>
 
-                <p>
-                  <b>Order ID: </b>
-                  <span id={DelCss.ordIDSpan}>{data[0].orderID._id}</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-external-link"
-                    className={DelCss.openExt}
-                  >
-                    <path d="M15 3h6v6" />
-                    <path d="M10 14 21 3" />
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                  </svg>
-                </p>
+                  <p>
+                    <b>Order ID: </b>
+                    <span id={DelCss.ordIDSpan}>{data[0].orderID._id}</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-external-link"
+                      className={DelCss.openExt}
+                    >
+                      <path d="M15 3h6v6" />
+                      <path d="M10 14 21 3" />
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    </svg>
+                  </p>
 
-                <p className={DelCss.cusDel}>
-                  {data[0].complainant_info.person.name},{" "}
-                  {data[0].complainant_info.contact.phone},
-                  <br />
-                  {data[0].complainant_info.contact.email}
-                </p>
+                  <p className={DelCss.cusDel}>
+                    {data[0].complainant_info.person.name},{" "}
+                    {data[0].complainant_info.contact.phone},
+                    <br />
+                    {data[0].complainant_info.contact.email}
+                  </p>
+                </div>
+                {data[0].issue_actions.complainant_actions[0]
+                  .complainant_action === "OPEN" ? (
+                  <div className={DelCss.statusCurr}>OPEN</div>
+                ) : (
+                  <div>CLOSED</div>
+                )}
               </div>
 
               {/* Items */}
