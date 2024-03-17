@@ -132,6 +132,13 @@ export default function Details({
                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
                   </svg>
                 </p>
+
+                <p className={DelCss.cusDel}>
+                  {data[0].complainant_info.person.name},{" "}
+                  {data[0].complainant_info.contact.phone},
+                  <br />
+                  {data[0].complainant_info.contact.email}
+                </p>
               </div>
 
               {/* Items */}
