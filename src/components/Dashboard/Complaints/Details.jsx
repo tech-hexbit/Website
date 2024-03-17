@@ -86,7 +86,7 @@ export default function Details({
   }, [, selectedItem]);
 
   useEffect(() => {
-    console.log(data);
+    console.log(data[0]);
   }, [data]);
 
   return (
@@ -96,7 +96,14 @@ export default function Details({
           <Load />
         </div>
       ) : (
-        <div>Details</div>
+        <div>
+          <div>Issue for Item Mismatch</div>
+          <div>
+            <p>Issue Item(s)</p>
+
+            {}
+          </div>
+        </div>
       )}
 
       <Alert variant={variants} val={setError} />
