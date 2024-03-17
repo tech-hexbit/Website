@@ -92,16 +92,18 @@ export default function UpdateInfo({ update, setUpdate }) {
           <label htmlFor="">Action Triggered (Resolution)</label>
           <select name="Status" id="">
             <option value="Select" selected hidden>
-              Select the Status
+              Select the Action
             </option>
-            <option value="CASCADED">CASCADED</option>
-            <option value="NEED-MORE-INFO">NEED-MORE-INFO</option>
-            <option value="RESOLVED">RESOLVED</option>
+            <option value="REFUND">REFUND</option>
+            <option value="REPLACEMENT">REPLACEMENT</option>
+            <option value="CANCEL">CANCEL</option>
+            <option value="NO-ACTION">NO-ACTION</option>
           </select>{" "}
         </div>
 
         <div>
           <label htmlFor="">Refund Amount (resolution)</label>
+          <input type="number" name="" id="" placeholder="₹ 100" />
         </div>
       </div>
 
