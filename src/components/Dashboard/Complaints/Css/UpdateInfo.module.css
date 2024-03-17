@@ -1,0 +1,8 @@
+.Line {
+  width: 100%;
+  height: 1px;
+  background-color: transparent;
+  border-style: dashed;
+  border-color: rgba(170, 170, 170, 1);
+  border-width: 1px 0px 0px 0px;
+}
