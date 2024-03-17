@@ -14,6 +14,14 @@ import axios from "axios";
 import upCss from "./Css/UpdateInfo.module.css";
 
 export default function UpdateInfo({ update, setUpdate }) {
+  const [formData, setFormData] = useState({
+    status: "",
+    shortDescStatus: "",
+    shortDescResolution: "",
+    longDescResolution: "",
+    actionTriggered: "",
+    refundAmount: "",
+  });
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
@@ -24,6 +32,18 @@ export default function UpdateInfo({ update, setUpdate }) {
   });
 
   const authCtx = useContext(AuthContext);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  useEffect(() => {
+    console.log(formData);
+  }, [formData]);
 
   return (
     <>
