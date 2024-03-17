@@ -11,8 +11,13 @@ import AuthContext from "./../../../store/auth-context";
 import axios from "axios";
 
 // css
-import DelCss from "./Css/UpdateInfo.module.css";
+import upCss from "./Css/UpdateInfo.module.css";
 
 export default function UpdateInfo() {
-  return <div>UpdateInfo</div>;
+  return (
+    <div>
+      <div className={upCss.Line}></div>
+      UpdateInfo
+    </div>
+  );
 }
