@@ -97,14 +97,28 @@ export default function Details({
       ) : (
         <div>
           <div>Issue for Item Mismatch</div>
+
           <div>
-            <p>Issue Item(s)</p>
+            <p>
+              <b>Issue Item(s)</b>
+            </p>
 
             {dataItem.length > 0 ? (
               <>
                 {dataItem.map((val, key) => {
                   console.log(val);
-                  return <div key={key}>{val._id}</div>;
+                  return (
+                    <div key={key} className={DelCss.mapItemMDiv}>
+                      <div>
+                        <img
+                          src={val.descriptor.symbol}
+                          alt="isssue_img"
+                          className={DelCss.imgCl}
+                        />
+                      </div>
+                      <div>{val.descriptor.name}</div>
+                    </div>
+                  );
                 })}
               </>
             ) : (
