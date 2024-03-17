@@ -45,6 +45,9 @@ export default function UpdateInfo({ update, setUpdate }) {
             stroke-linejoin="round"
             class="lucide lucide-circle-x"
             className={upCss.closeIcon}
+            onClick={() => {
+              setUpdate(!update);
+            }}
           >
             <circle cx="12" cy="12" r="10" />
             <path d="m15 9-6 6" />
