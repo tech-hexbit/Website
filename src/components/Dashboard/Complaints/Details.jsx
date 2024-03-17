@@ -137,11 +137,11 @@ export default function Details({
                     {data[0].complainant_info.contact.email}
                   </p>
                 </div>
-                {data[0].issue_actions.complainant_actions[0]
+                {!data[0].issue_actions.complainant_actions[0]
                   .complainant_action === "OPEN" ? (
                   <div className={DelCss.statusCurr}>OPEN</div>
                 ) : (
-                  <div>CLOSED</div>
+                  <div className={DelCss.statusCurrCl}>CLOSED</div>
                 )}
               </div>
 
