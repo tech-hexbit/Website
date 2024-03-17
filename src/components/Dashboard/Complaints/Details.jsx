@@ -139,7 +139,7 @@ export default function Details({
                 </div>
               </div>
 
-              <div>
+              <div className={DelCss.sumDiv}>
                 <p>
                   <b>Summary</b>
                 </p>
@@ -148,6 +148,7 @@ export default function Details({
                   <b>Shot Description: </b>
                   {data[0].description.short_desc}
                 </p>
+
                 <p>
                   <b>Long Description: </b>
                   {data[0].description.long_desc}
