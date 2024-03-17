@@ -6,7 +6,7 @@ import pt from "./../Payment/Css/PaymentTable.module.css";
 
 export default function Box({ key, val }) {
   const [expectedTime, setExpectedTime] = useState("");
-  const [edit, setEdit] = useState(false);
+  const [edit, setEdit] = useState(true);
   const [isOverOneDay, setIsOverOneDay] = useState(false);
 
   useEffect(() => {
@@ -49,7 +49,10 @@ export default function Box({ key, val }) {
         <td data-cell="Status">
           {edit ? (
             <>
-              {val.respondent_actions[0].respondent_action}
+              {
+                val.respondent_actions[val.respondent_actions.length - 1]
+                  .respondent_action
+              }
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="18"
