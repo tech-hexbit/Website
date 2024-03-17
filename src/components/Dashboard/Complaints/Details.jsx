@@ -24,6 +24,7 @@ export default function Details({
 }) {
   const [data, setData] = useState([]);
   const [load, setLoad] = useState(false);
+  const [update, setUpdate] = useState(false);
   const [dataItem, setDataItem] = useState([]);
   const [variants, setError] = useState({
     mainColor: "",
@@ -182,10 +183,21 @@ export default function Details({
                 </p>
               </div>
 
-              <UpdateInfo />
+              <UpdateInfo update={update} setUpdate={setUpdate} />
 
               <div className={DelCss.upState}>
-                <button className={DelCss.upStateBtn}>Update Status</button>
+                {update ? (
+                  <button className={DelCss.upStateBtn}>Save</button>
+                ) : (
+                  <button
+                    className={DelCss.upStateBtn}
+                    onClick={() => {
+                      setUpdate(!update);
+                    }}
+                  >
+                    Update Status
+                  </button>
+                )}
               </div>
             </div>
           ) : (
