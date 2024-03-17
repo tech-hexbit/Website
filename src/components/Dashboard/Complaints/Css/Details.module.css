@@ -1,3 +1,7 @@
+.itemDiv {
+  margin: 30px 0px;
+}
+
 .mapItemMDiv {
   display: flex;
   justify-content: space-between;
