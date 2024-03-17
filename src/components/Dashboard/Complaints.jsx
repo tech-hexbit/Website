@@ -3,6 +3,7 @@ import React, { useState, useEffect, useContext, useRef } from "react";
 // components
 import Box from "./Complaints/Box";
 import Header from "./MainParts/Header";
+import Details from "./Complaints/Details";
 
 // MicroInteraction
 import Load from "./../../MicroInteraction/Load";
@@ -161,6 +162,15 @@ export default function Complaints() {
               </>
             )}
           </>
+        )}
+
+        {showOverlay && (
+          <Details
+            selectedItem={filteredRowItem}
+            closeOverlay={closeOverlay}
+            setLoad={setLoad}
+            load={load}
+          />
         )}
       </div>
 
