@@ -20,6 +20,7 @@ export default function Details({
   loadMain,
 }) {
   const [data, setData] = useState([]);
+  const [dataItem, setDataItem] = useState([]);
   const [load, setLoad] = useState(false);
   const [variants, setError] = useState({
     mainColor: "",
@@ -47,8 +48,10 @@ export default function Details({
         setLoad(false);
 
         console.log(response.data.issueList);
+        console.log(response.data.itemsList);
 
         setData(response.data.issueList);
+        setDataItem(response.data.itemsList);
       } else {
         setLoad(false);
 
@@ -85,10 +88,6 @@ export default function Details({
     loadData();
   }, [, selectedItem]);
 
-  useEffect(() => {
-    console.log(data[0]);
-  }, [data]);
-
   return (
     <>
       {load ? (
@@ -101,7 +100,16 @@ export default function Details({
           <div>
             <p>Issue Item(s)</p>
 
-            {}
+            {dataItem.length > 0 ? (
+              <>
+                {dataItem.map((val, key) => {
+                  console.log(val);
+                  return <div key={key}>{val._id}</div>;
+                })}
+              </>
+            ) : (
+              <div className="loadCenterDiv">No Data to Show</div>
+            )}
           </div>
         </div>
       )}
