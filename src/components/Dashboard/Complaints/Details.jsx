@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 
 // MicroInteraction
-import Load from "./../../../MicroInteraction/Load";
+import Load from "./../../../MicroInteraction/LoadBlack";
 import { Alert } from "./../../../MicroInteraction/Alert";
 
 // state
@@ -89,5 +89,17 @@ export default function Details({
     console.log(data);
   }, [data]);
 
-  return <div>Details</div>;
+  return (
+    <>
+      {load ? (
+        <div className="loadCenterDiv">
+          <Load />
+        </div>
+      ) : (
+        <div>Details</div>
+      )}
+
+      <Alert variant={variants} val={setError} />
+    </>
+  );
 }
