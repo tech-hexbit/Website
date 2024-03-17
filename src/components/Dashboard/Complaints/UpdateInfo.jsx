@@ -89,7 +89,7 @@ export default function UpdateInfo({ update, setUpdate }) {
 
         {/* Action Triggered (Resolution) */}
         <div>
-          <label htmlFor="">Action Triggered (resolution)</label>
+          <label htmlFor="">Action Triggered (Resolution)</label>
           <select name="Status" id="">
             <option value="Select" selected hidden>
               Select the Status
