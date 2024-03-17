@@ -19,12 +19,12 @@
   align-items: center;
   gap: 0px 30px;
   border: dashed 1px rgba(170, 170, 170, 1);
-  border-radius: 15px;
+  border-radius: 8px;
   padding: 10px;
 }
 
 .imgCl {
-  border-radius: 15px;
+  border-radius: 8px;
   width: 100px;
   height: 100px;
   object-fit: cover;
