@@ -50,6 +50,12 @@
   color: #419e6a;
 }
 
+.statusCurrCl {
+  background-color: #ffc0c2;
+  border-color: #880000;
+  color: #880000;
+}
+
 .cusDel {
   margin: 7px 0px;
 }
