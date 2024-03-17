@@ -183,7 +183,7 @@ export default function Details({
                 </p>
               </div>
 
-              <UpdateInfo update={update} setUpdate={setUpdate} />
+              {update && <UpdateInfo update={update} setUpdate={setUpdate} />}
 
               <div className={DelCss.upState}>
                 {update ? (
