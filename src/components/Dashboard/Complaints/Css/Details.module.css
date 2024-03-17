@@ -41,3 +41,11 @@
   flex-direction: column;
   gap: 10px 0px;
 }
+
+#ordIDSpan {
+  color: #8ab4f8;
+}
+
+.openExt {
+  margin-left: 10px;
+}
