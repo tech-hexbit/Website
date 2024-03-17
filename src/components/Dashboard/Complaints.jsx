@@ -114,6 +114,17 @@ export default function Complaints() {
                     <th>Status</th>
                     <th>Action</th>
                   </tr>
+
+                  {filteredRowItem.map((val, key) => {
+                    return (
+                      <Box
+                        key={key}
+                        val={val}
+                        handleOverlay={handleOverlay}
+                        showOverlay={showOverlay}
+                      />
+                    );
+                  })}
                 </table>
               </>
             ) : (
@@ -135,6 +146,7 @@ export default function Complaints() {
                           <Box
                             key={key}
                             val={val}
+                            showOverlay={showOverlay}
                             handleOverlay={handleOverlay}
                           />
                         );
