@@ -56,7 +56,7 @@ export default function UpdateInfo({ update, setUpdate }) {
         </div>
         <div className={upCss.Line}></div>
 
-        <div>
+        <div className={upCss.upInpParDiv}>
           {/* Status */}
           <div>
             <label htmlFor="Status">Status</label>
