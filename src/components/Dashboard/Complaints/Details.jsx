@@ -97,34 +97,36 @@ export default function Details({
       ) : (
         <div>
           <div>Issue for Item Mismatch</div>
-
           <div className={DelCss.itemDiv}>
             <p>
               <b>Issue Item(s)</b>
             </p>
 
-            {dataItem.length > 0 ? (
-              <>
-                {dataItem.map((val, key) => {
-                  console.log(val[0]);
-                  return (
-                    <div key={key} className={DelCss.mapItemMDiv}>
-                      <div>
-                        <img
-                          src={val[0].descriptor.symbol}
-                          alt="isssue_img"
-                          className={DelCss.imgCl}
-                        />
+            <div className={DelCss.itemMapDiv}>
+              {dataItem.length > 0 ? (
+                <>
+                  {dataItem.map((val, key) => {
+                    console.log(val[0]);
+                    return (
+                      <div key={key} className={DelCss.mapItemMDiv}>
+                        <div>
+                          <img
+                            src={val[0].descriptor.symbol}
+                            alt="isssue_img"
+                            className={DelCss.imgCl}
+                          />
+                        </div>
+                        <div>{val[0].descriptor.name}</div>
                       </div>
-                      <div>{val[0].descriptor.name}</div>
-                    </div>
-                  );
-                })}
-              </>
-            ) : (
-              <div className="loadCenterDiv">No Data to Show</div>
-            )}
+                    );
+                  })}
+                </>
+              ) : (
+                <div className="loadCenterDiv">No Data to Show</div>
+              )}
+            </div>
           </div>
+          ss
         </div>
       )}
 
