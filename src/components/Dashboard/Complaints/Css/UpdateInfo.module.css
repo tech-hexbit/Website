@@ -1,0 +1,71 @@
+.mDiv {
+  margin: 30px 0px;
+}
+
+.headDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.closeIcon {
+  color: #880000;
+  cursor: pointer;
+}
+
+.Line {
+  width: 100%;
+  height: 1px;
+  background-color: transparent;
+  border-style: dashed;
+  border-color: rgba(170, 170, 170, 1);
+  border-width: 1px 0px 0px 0px;
+}
+
+.upInpParDiv {
+  margin: 15px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px 0px;
+}
+
+.inpTagRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inpTagUp {
+  outline: none;
+  margin: 0px 0px 0px 10px;
+  border-width: 0px 0px 1px 0px;
+  border-radius: 0px;
+  transition: all 0.3s;
+  width: 30%;
+}
+
+.inpTagUp:hover {
+  border-color: #c075ff;
+}
+
+.inpTagUp::-webkit-outer-spin-button,
+.inpTagUp::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.inpTagUp[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.upInpParDiv2,
+.upInpParDiv2Row {
+  margin: 0px 0px 0px 20px;
+}
+
+.upInpParDiv2Row {
+  width: 45%;
+}

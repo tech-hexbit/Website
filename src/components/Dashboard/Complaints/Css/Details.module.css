@@ -1,0 +1,98 @@
+.itemDiv {
+  margin: 30px 0px;
+}
+
+.itemMapDiv {
+  margin: 10px 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 30px;
+}
+
+.mapItemMDiv {
+  min-width: 250px;
+  width: 350px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 0px 30px;
+  border: dashed 1px rgba(170, 170, 170, 1);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.imgCl {
+  border-radius: 8px;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.statusCurrCl,
+.statusCurr {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 15px;
+  padding: 3px 15px;
+}
+
+.statusCurr {
+  background-color: #e8fcf1;
+  border-color: #419e6a;
+  color: #419e6a;
+}
+
+.statusCurrCl {
+  background-color: #ffc0c2;
+  border-color: #880000;
+  color: #880000;
+}
+
+.cusDel {
+  margin: 7px 0px;
+}
+
+.textOverflow {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.sumDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 10px 0px;
+}
+
+#ordIDSpan {
+  color: #8ab4f8;
+}
+
+.openExt {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.upState {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0px;
+}
+
+.upStateBtn {
+  font-size: 1.2rem;
+  border-width: 0px;
+  background-color: #34a853;
+  color: #fff;
+  padding: 7px 25px;
+  cursor: pointer;
+}

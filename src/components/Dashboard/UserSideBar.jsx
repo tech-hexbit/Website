@@ -356,6 +356,41 @@ export default function UserSideBar() {
                   </div>
                 </NavLink>
 
+                {/* Complaints */}
+                <NavLink
+                  to="/me/complaints"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "LinkStyle sideBarActive"
+                      : "LinkStyle sideBarNonActive"
+                  }
+                >
+                  <div className={sidebarCSS.navElement}>
+                    <div className={sidebarCSS.icons}>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-octagon-alert"
+                      >
+                        <polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2" />
+                        <line x1="12" x2="12" y1="8" y2="12" />
+                        <line x1="12" x2="12.01" y1="16" y2="16" />
+                      </svg>
+                    </div>
+                    <div className={sidebarCSS.heading}>
+                      <div className={sidebarCSS.arrow}></div>
+                      Complaints
+                    </div>
+                  </div>
+                </NavLink>
+
                 {/* Add product */}
                 <NavLink
                   to="/me/addProduct"

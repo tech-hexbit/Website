@@ -5,6 +5,7 @@ import AuthContext from "./../store/auth-context";
 
 // MicroInteraction
 import Load from "./../MicroInteraction/Load";
+import { Alert } from "./../MicroInteraction/Alert";
 
 // axios
 import axios from "axios";
@@ -15,34 +16,88 @@ import { load } from "@cashfreepayments/cashfree-js";
 // css
 import ChCss from "./Css/CashFree.module.css";
 
-export default function Cashfree() {
+export default function Cashfree({ selectedItem, setreload, reload }) {
   const [loadState, setLoad] = useState(false);
-  const [version, setversion] = useState(null);
-  const [cashfree, setCashfree] = useState(null);
-  const [sessionId, setSessionId] = useState("");
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
 
   const authCtx = useContext(AuthContext);
 
   const getSessionId = async (e) => {
+    setLoad(true);
+
     try {
       let data = {
-        customer_id: "CID89898",
-        customer_email: "waleedsdev@gmail.com",
-        customer_phone: "7498608775",
-        customer_name: "Waleed Shaikh",
-        order_amount: 123,
-        order_id: "2024-02-22-965076",
+        id: selectedItem[0]._id,
       };
 
-      const response = await axios.post("/api/payment/cashfree/payment", data, {
-        headers: { Authorization: `${authCtx.token}` },
-        version,
-      });
-      console.log(response);
+      const response = await axios.post(
+        "/api/payment/cashfree/add/Beneficiary",
+        data,
+        {
+          headers: { Authorization: `${authCtx.token}` },
+        }
+      );
+
+      if (response.data.success) {
+        setLoad(false);
+
+        setError({
+          mainColor: "#EDFEEE",
+          secondaryColor: "#5CB660",
+          symbol: "check_circle",
+          title: "Success",
+          text: "Successfully",
+          val: true,
+        });
+
+        setreload(!reload);
+      }
+    } catch (error) {
+      console.log(error);
 
       setLoad(false);
 
-      setSessionId(response.data);
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "An unexpected error occurred",
+        val: true,
+      });
+    }
+  };
+
+  const transferStatus = async (e) => {
+    setLoad(true);
+
+    try {
+      let data = {
+        id: selectedItem[0]._id,
+      };
+
+      const response = await axios.post(
+        "/api/payment/cashfree/tranfer/status",
+        data,
+        {
+          headers: { Authorization: `${authCtx.token}` },
+        }
+      );
+
+      if (response.data.success) {
+        setLoad(false);
+
+        setreload(!reload);
+      } else {
+        setLoad(false);
+      }
     } catch (error) {
       console.log(error);
 
@@ -50,53 +105,87 @@ export default function Cashfree() {
     }
   };
 
-  const handlePayment = () => {
+  const remBene = async (e) => {
     setLoad(true);
 
-    getSessionId();
+    try {
+      let data = {
+        id: selectedItem[0]._id,
+        beneId: selectedItem[0].cashfree.beneId,
+      };
 
-    // let checkoutOptions = {
-    //   paymentSessionId: sessionId,
-    //   returnUrl: "http://localhost:8000/api/status/{order_id} ",
-    // };
-    // cashfree.checkout(checkoutOptions).then(function (result) {
-    //   if (result.error) {
-    //     alert(result.error.message);
-    //   }
-    //   if (result.redirect) {
-    //     console.log("Redirection");
-    //     console.log(result);
-    //   }
-    // });
+      const response = await axios.post(
+        "/api/payment/cashfree/remove/Beneficiary",
+        data,
+        {
+          headers: { Authorization: `${authCtx.token}` },
+        }
+      );
+
+      if (response.data.success) {
+        setLoad(false);
+
+        setreload(!reload);
+      } else {
+        setLoad(false);
+      }
+    } catch (error) {
+      console.log(error);
+
+      setLoad(false);
+    }
   };
 
   useEffect(() => {
-    const loadCashfree = async () => {
-      try {
-        const cashfreeInstance = await load({ mode: "sandbox" }); // Load Cashfree asynchronously
-        setCashfree(cashfreeInstance); // Set the Cashfree instance in state
-      } catch (error) {
-        console.error("Error loading Cashfree:", error);
-      }
-    };
-
-    loadCashfree();
-  }, []);
-
-  useEffect(() => {
-    if (cashfree === null) return;
-
-    setversion(cashfree.version());
-  }, [cashfree]);
+    console.log(selectedItem[0].cashfree);
+  }, [selectedItem]);
 
   return (
     <>
-      <div className={ChCss.mDiv}>
-        <button onClick={handlePayment} className={ChCss.PayNowBtn}>
-          {loadState ? <Load /> : "Pay Now"}
-        </button>
-      </div>
-      {/* <button onClick={getSessionId}>Cashfree</button> */}
+      {selectedItem[0].cashfree.status === "SUCCESS" ? (
+        <>Payment Processed</>
+      ) : (
+        <>
+          {selectedItem.length > 0 ? (
+            <>
+              {selectedItem[0].cashfree.beneId === "" ? (
+                ""
+              ) : (
+                <>
+                  <div className={ChCss.mDiv}>
+                    <button onClick={remBene} className={ChCss.PayNowBtn}>
+                      {loadState ? <Load /> : "Remove Beneficiary"}
+                    </button>
+                  </div>
+                </>
+              )}
+
+              {selectedItem[0].cashfree.transferId === "" ? (
+                <>
+                  <div className={ChCss.mDiv}>
+                    <button onClick={getSessionId} className={ChCss.PayNowBtn}>
+                      {loadState ? <Load /> : "Pay Now"}
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className={ChCss.mDiv}>
+                    <button
+                      onClick={transferStatus}
+                      className={ChCss.PayNowBtn}
+                    >
+                      {loadState ? <Load /> : "Transfer Status"}
+                    </button>
+                  </div>
+                </>
+              )}
+            </>
+          ) : (
+            <></>
+          )}
+        </>
+      )}
     </>
   );
 }
