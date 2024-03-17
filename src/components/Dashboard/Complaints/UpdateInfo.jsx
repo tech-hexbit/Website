@@ -109,7 +109,7 @@ export default function UpdateInfo({ update, setUpdate }) {
               type="text"
               name=""
               id=""
-              placeholder="short_desc"
+              placeholder="long_desc"
               className={upCss.inpTagUp}
             />
           </div>
