@@ -23,3 +23,25 @@
   border-color: rgba(170, 170, 170, 1);
   border-width: 1px 0px 0px 0px;
 }
+
+.inpTagUp {
+  margin: 0px 0px 0px 10px;
+  border-width: 0px 0px 1px 0px;
+  border-radius: 0px;
+  transition: all 0.3s;
+}
+
+.inpTagUp:hover {
+  border-color: #c075ff;
+}
+
+.inpTagUp::-webkit-outer-spin-button,
+.inpTagUp::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.inpTagUp[type="number"] {
+  -moz-appearance: textfield;
+}
