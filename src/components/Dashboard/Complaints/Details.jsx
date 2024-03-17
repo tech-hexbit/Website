@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 
+// components
+import UpdateInfo from "./UpdateInfo";
+
 // MicroInteraction
 import Load from "./../../../MicroInteraction/LoadBlack";
 import { Alert } from "./../../../MicroInteraction/Alert";
@@ -178,6 +181,8 @@ export default function Details({
                   {data[0].description.long_desc}
                 </p>
               </div>
+
+              <UpdateInfo />
 
               <div className={DelCss.upState}>
                 <button className={DelCss.upStateBtn}>Update Status</button>
