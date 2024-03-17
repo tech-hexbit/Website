@@ -2,15 +2,25 @@
   margin: 30px 0px;
 }
 
-.mapItemMDiv {
+.itemMapDiv {
+  margin: 10px 0px;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 30px;
+}
+
+.mapItemMDiv {
+  min-width: 250px;
+  width: 350px;
+  display: flex;
+  justify-content: space-evenly;
   align-items: center;
   gap: 0px 30px;
   border: dashed 1px rgba(170, 170, 170, 1);
   border-radius: 15px;
   padding: 10px;
-  margin-bottom: 30px;
 }
 
 .imgCl {
@@ -18,4 +28,10 @@
   width: 100px;
   height: 100px;
   object-fit: cover;
+}
+
+.textOverflow {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
