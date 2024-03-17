@@ -81,12 +81,25 @@ export default function UpdateInfo({ update, setUpdate }) {
           <input type="text" name="" id="" placeholder="short_desc" />
         </div>
 
+        {/* Long Desc (Resolution) */}
         <div>
           <label htmlFor="">Long Desc (resolution)</label>
+          <input type="text" name="" id="" placeholder="short_desc" />
         </div>
+
+        {/* Action Triggered (Resolution) */}
         <div>
           <label htmlFor="">Action Triggered (resolution)</label>
+          <select name="Status" id="">
+            <option value="Select" selected hidden>
+              Select the Status
+            </option>
+            <option value="CASCADED">CASCADED</option>
+            <option value="NEED-MORE-INFO">NEED-MORE-INFO</option>
+            <option value="RESOLVED">RESOLVED</option>
+          </select>{" "}
         </div>
+
         <div>
           <label htmlFor="">Refund Amount (resolution)</label>
         </div>
