@@ -24,6 +24,13 @@
   border-width: 1px 0px 0px 0px;
 }
 
+.upInpParDiv {
+  margin: 15px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px 0px;
+}
+
 .inpTagUp {
   margin: 0px 0px 0px 10px;
   border-width: 0px 0px 1px 0px;
