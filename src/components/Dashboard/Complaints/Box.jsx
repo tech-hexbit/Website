@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import BoxCss from "./Css/Box.module.css";
 import pt from "./../Payment/Css/PaymentTable.module.css";
 
-export default function Box({ key, val, handleOverlay }) {
+export default function Box({ key, val, handleOverlay, showOverlay }) {
   const [expectedTime, setExpectedTime] = useState("");
   const [edit, setEdit] = useState(true);
   const [isOverOneDay, setIsOverOneDay] = useState(false);
@@ -55,7 +55,7 @@ export default function Box({ key, val, handleOverlay }) {
           </>
         </td>
         <td data-cell="Action" onClick={() => handleOverlay(val._id)}>
-          View Details
+          {showOverlay ? "Close Details" : "View Details"}
           {val.issue_actions.complainant_actions[0].complainant_action ===
           "OPEN" ? (
             <>
