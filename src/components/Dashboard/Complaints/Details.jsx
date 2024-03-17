@@ -178,6 +178,10 @@ export default function Details({
                   {data[0].description.long_desc}
                 </p>
               </div>
+
+              <div className={DelCss.upState}>
+                <button className={DelCss.upStateBtn}>Update Status</button>
+              </div>
             </div>
           ) : (
             <div className="loadCenterDiv">No Data to Show</div>
