@@ -48,10 +48,10 @@ export default function Details({
         setLoad(false);
 
         console.log(response.data.issueList);
-        console.log(response.data.itemsList);
+        console.log(response.data.itemsList[0]);
 
         setData(response.data.issueList);
-        setDataItem(response.data.itemsList);
+        setDataItem(response.data.itemsList[0]);
       } else {
         setLoad(false);
 
