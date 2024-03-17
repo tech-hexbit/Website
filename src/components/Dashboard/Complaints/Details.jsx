@@ -1,19 +1,47 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
+
+// MicroInteraction
+import Load from "./../../../MicroInteraction/Load";
+import { Alert } from "./../../../MicroInteraction/Alert";
+
+// state
+import AuthContext from "./../../../store/auth-context";
+
+// axios
+import axios from "axios";
 
 // css
 import DelCss from "./Css/Details.module.css";
 
-export default function Details({ selectedItem, closeOverlay, setLoad, load }) {
+export default function Details({
+  selectedItem,
+  closeOverlay,
+  setLoadMain,
+  loadMain,
+}) {
   const [data, setData] = useState([]);
   const [load, setLoad] = useState(false);
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
+
+  const authCtx = useContext(AuthContext);
 
   const loadData = async () => {
     setLoad(true);
 
     try {
-      const response = await axios.get("/api/website/Issue/get/list/full", {
-        headers: { Authorization: `${authCtx.token}` },
-      });
+      const response = await axios.get(
+        `/api/website/Issue/get/list/full/${selectedItem[0]._id}`,
+        {
+          headers: { Authorization: `${authCtx.token}` },
+        }
+      );
 
       if (response.data.success) {
         setLoad(false);
@@ -56,6 +84,10 @@ export default function Details({ selectedItem, closeOverlay, setLoad, load }) {
 
     loadData();
   }, [, selectedItem]);
+
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
 
   return <div>Details</div>;
 }
