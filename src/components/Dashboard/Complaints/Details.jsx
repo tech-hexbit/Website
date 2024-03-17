@@ -116,7 +116,9 @@ export default function Details({
                             className={DelCss.imgCl}
                           />
                         </div>
-                        <div>{val[0].descriptor.name}</div>
+                        <div className={DelCss.textOverflow}>
+                          {val[0].descriptor.name}
+                        </div>
                       </div>
                     );
                   })}
