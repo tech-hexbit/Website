@@ -57,6 +57,10 @@ export default function UpdateInfo({ update, setUpdate }) {
         <div className={upCss.Line}></div>
 
         <div className={upCss.upInpParDiv}>
+          <p>
+            <b>Status</b>
+          </p>
+
           {/* Status */}
           <div>
             <label htmlFor="Status">Status</label>
@@ -81,6 +85,10 @@ export default function UpdateInfo({ update, setUpdate }) {
               className={upCss.inpTagUp}
             />
           </div>
+
+          <p>
+            <b>Resolutions</b>
+          </p>
 
           {/* Short Desc (Resolution) */}
           <div>
