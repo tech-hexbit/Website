@@ -31,11 +31,19 @@
   gap: 15px 0px;
 }
 
+.inpTagRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .inpTagUp {
+  outline: none;
   margin: 0px 0px 0px 10px;
   border-width: 0px 0px 1px 0px;
   border-radius: 0px;
   transition: all 0.3s;
+  width: 30%;
 }
 
 .inpTagUp:hover {
@@ -53,6 +61,11 @@
   -moz-appearance: textfield;
 }
 
-.upInpParDiv2 {
+.upInpParDiv2,
+.upInpParDiv2Row {
   margin: 0px 0px 0px 20px;
+}
+
+.upInpParDiv2Row {
+  width: 45%;
 }
