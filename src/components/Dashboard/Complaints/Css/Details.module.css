@@ -37,12 +37,16 @@
 }
 
 .statusCurr {
-  border-style: solid;
-  border-width: 1px;
   background-color: #e8fcf1;
   border-color: #419e6a;
-  border-radius: 15px;
   color: #419e6a;
+}
+
+.statusCurrCl,
+.statusCurr {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 15px;
   padding: 3px 15px;
 }
 
