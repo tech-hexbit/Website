@@ -35,3 +35,9 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
+.sumDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 20px 0px;
+}
