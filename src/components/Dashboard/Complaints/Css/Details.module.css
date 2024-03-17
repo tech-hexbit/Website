@@ -30,6 +30,10 @@
   object-fit: cover;
 }
 
+.cusDel {
+  margin: 7px 0px;
+}
+
 .textOverflow {
   overflow: hidden;
   white-space: nowrap;
