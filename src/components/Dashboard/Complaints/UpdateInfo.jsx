@@ -56,54 +56,80 @@ export default function UpdateInfo({ update, setUpdate }) {
         </div>
         <div className={upCss.Line}></div>
 
-        {/* Status */}
         <div>
-          <label htmlFor="Status">Status</label>
-          <select name="Status" id="">
-            <option value="Select" selected hidden>
-              Select the Status
-            </option>
-            <option value="CASCADED">CASCADED</option>
-            <option value="NEED-MORE-INFO">NEED-MORE-INFO</option>
-            <option value="RESOLVED">RESOLVED</option>
-          </select>
-        </div>
+          {/* Status */}
+          <div>
+            <label htmlFor="Status">Status</label>
+            <select name="Status" id="">
+              <option value="Select" selected hidden>
+                Select the Status
+              </option>
+              <option value="CASCADED">CASCADED</option>
+              <option value="NEED-MORE-INFO">NEED-MORE-INFO</option>
+              <option value="RESOLVED">RESOLVED</option>
+            </select>
+          </div>
 
-        {/* Short Desc (Status) */}
-        <div>
-          <label htmlFor="">Short Desc (Status)</label>
-          <input type="text" name="" id="" placeholder="short_desc" />
-        </div>
+          {/* Short Desc (Status) */}
+          <div>
+            <label htmlFor="">Short Desc (Status)</label>
+            <input
+              type="text"
+              name=""
+              id=""
+              placeholder="short_desc"
+              className={upCss.inpTagUp}
+            />
+          </div>
 
-        {/* Short Desc (Resolution) */}
-        <div>
-          <label htmlFor="">Short Desc (resolution)</label>
-          <input type="text" name="" id="" placeholder="short_desc" />
-        </div>
+          {/* Short Desc (Resolution) */}
+          <div>
+            <label htmlFor="">Short Desc (resolution)</label>
+            <input
+              type="text"
+              name=""
+              id=""
+              placeholder="short_desc"
+              className={upCss.inpTagUp}
+            />
+          </div>
 
-        {/* Long Desc (Resolution) */}
-        <div>
-          <label htmlFor="">Long Desc (resolution)</label>
-          <input type="text" name="" id="" placeholder="short_desc" />
-        </div>
+          {/* Long Desc (Resolution) */}
+          <div>
+            <label htmlFor="">Long Desc (resolution)</label>
+            <input
+              type="text"
+              name=""
+              id=""
+              placeholder="short_desc"
+              className={upCss.inpTagUp}
+            />
+          </div>
 
-        {/* Action Triggered (Resolution) */}
-        <div>
-          <label htmlFor="">Action Triggered (Resolution)</label>
-          <select name="Status" id="">
-            <option value="Select" selected hidden>
-              Select the Action
-            </option>
-            <option value="REFUND">REFUND</option>
-            <option value="REPLACEMENT">REPLACEMENT</option>
-            <option value="CANCEL">CANCEL</option>
-            <option value="NO-ACTION">NO-ACTION</option>
-          </select>{" "}
-        </div>
+          {/* Action Triggered (Resolution) */}
+          <div>
+            <label htmlFor="">Action Triggered (Resolution)</label>
+            <select name="Status" id="">
+              <option value="Select" selected hidden>
+                Select the Action
+              </option>
+              <option value="REFUND">REFUND</option>
+              <option value="REPLACEMENT">REPLACEMENT</option>
+              <option value="CANCEL">CANCEL</option>
+              <option value="NO-ACTION">NO-ACTION</option>
+            </select>{" "}
+          </div>
 
-        <div>
-          <label htmlFor="">Refund Amount (resolution)</label>
-          <input type="number" name="" id="" placeholder="₹ 100" />
+          <div>
+            <label htmlFor="">Refund Amount (resolution)</label>
+            <input
+              type="number"
+              name=""
+              id=""
+              placeholder="₹ 100"
+              className={upCss.inpTagUp}
+            />
+          </div>
         </div>
       </div>
 
