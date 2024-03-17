@@ -98,7 +98,7 @@ export default function Details({
         <div>
           <div>Issue for Item Mismatch</div>
 
-          <div>
+          <div className={DelCss.itemDiv}>
             <p>
               <b>Issue Item(s)</b>
             </p>
