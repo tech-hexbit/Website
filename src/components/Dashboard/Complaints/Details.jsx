@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext, useRef } from "react";
 
 // components
 import UpdateInfo from "./UpdateInfo";
+import Orderdetails from "./../Orderdetails";
 
 // MicroInteraction
 import Load from "./../../../MicroInteraction/LoadBlack";
@@ -97,7 +98,14 @@ export default function Details({
   return (
     <>
       {showDel ? (
-        <></>
+        <>
+          <Orderdetails
+            id={showProductDel.id}
+            setProductDel={setProductDel}
+            showDel={showDel}
+            setHideDel={setHideDel}
+          />
+        </>
       ) : (
         <>
           {load ? (
@@ -129,6 +137,13 @@ export default function Details({
                           stroke-linejoin="round"
                           class="lucide lucide-external-link"
                           className={DelCss.openExt}
+                          onClick={() => {
+                            setProductDel({
+                              state: true,
+                              id: data[0].orderID._id,
+                            });
+                            setHideDel(!showDel);
+                          }}
                         >
                           <path d="M15 3h6v6" />
                           <path d="M10 14 21 3" />
