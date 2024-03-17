@@ -20,8 +20,8 @@ export default function Details({
   loadMain,
 }) {
   const [data, setData] = useState([]);
-  const [dataItem, setDataItem] = useState([]);
   const [load, setLoad] = useState(false);
+  const [dataItem, setDataItem] = useState([]);
   const [variants, setError] = useState({
     mainColor: "",
     secondaryColor: "",
