@@ -168,8 +168,8 @@ export default function Complaints() {
           <Details
             selectedItem={filteredRowItem}
             closeOverlay={closeOverlay}
-            setLoad={setLoad}
-            load={load}
+            setLoadMain={setLoad}
+            loadMain={load}
           />
         )}
       </div>
