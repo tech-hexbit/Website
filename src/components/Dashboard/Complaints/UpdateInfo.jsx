@@ -56,6 +56,7 @@ export default function UpdateInfo({ update, setUpdate }) {
         </div>
         <div className={upCss.Line}></div>
 
+        {/* Status */}
         <div>
           <label htmlFor="Status">Status</label>
           <select name="Status" id="">
@@ -67,12 +68,19 @@ export default function UpdateInfo({ update, setUpdate }) {
             <option value="RESOLVED">RESOLVED</option>
           </select>
         </div>
+
+        {/* Short Desc (Status) */}
         <div>
           <label htmlFor="">Short Desc (Status)</label>
+          <input type="text" name="" id="" placeholder="short_desc" />
         </div>
+
+        {/* Short Desc (Resolution) */}
         <div>
           <label htmlFor="">Short Desc (resolution)</label>
+          <input type="text" name="" id="" placeholder="short_desc" />
         </div>
+
         <div>
           <label htmlFor="">Long Desc (resolution)</label>
         </div>
