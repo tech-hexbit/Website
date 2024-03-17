@@ -145,8 +145,12 @@ export default function Details({
                 </p>
 
                 <p>
-                  <b>sd: </b>
+                  <b>Shot Description: </b>
                   {data[0].description.short_desc}
+                </p>
+                <p>
+                  <b>Long Description: </b>
+                  {data[0].description.long_desc}
                 </p>
               </div>
             </div>
