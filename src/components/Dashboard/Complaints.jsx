@@ -6,7 +6,7 @@ import Header from "./MainParts/Header";
 import Details from "./Complaints/Details";
 
 // MicroInteraction
-import Load from "./../../MicroInteraction/Load";
+import Load from "./../../MicroInteraction/LoadBlack";
 import { Alert } from "./../../MicroInteraction/Alert";
 
 // state
