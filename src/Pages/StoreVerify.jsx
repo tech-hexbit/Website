@@ -206,14 +206,6 @@ export default function StoreVerify() {
     window.scrollTo(0, 0);
   };
 
-  useEffect(() => {
-    console.table(showData);
-  }, [showData]);
-
-  useEffect(() => {
-    console.table(disable);
-  }, [disable]);
-
   return (
     <>
       <div className={SvCss.Ldiv}>
