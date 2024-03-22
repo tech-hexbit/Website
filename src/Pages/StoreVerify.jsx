@@ -165,6 +165,7 @@ export default function StoreVerify() {
             headers: { Authorization: `${authCtx.token}` },
           }
         );
+
         if (response.data.success) {
           setError({
             mainColor: "#EDFEEE",
