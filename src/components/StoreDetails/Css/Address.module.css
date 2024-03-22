@@ -22,11 +22,18 @@ button {
   gap: 0px 45px;
 }
 
+.inputDivPincodePar {
+  width: 100%;
+  position: relative;
+}
+
+.opsDiv {
+}
+
 .inputDivPincode {
   display: flex;
   align-items: center;
   gap: 0px 10px;
-  /* width: 70%; */
   width: 67.5%;
 }
 
