@@ -6,6 +6,7 @@ import InputType1 from "./Input/InputType1";
 
 //css
 import OfCss from "./Css/OndcField.module.css";
+import PrCss from "./Input/Css/InputType1.module.css";
 
 const SelectInput = ({ setData, showData }) => {
   const handleSelectChangeLocation = (event) => {
