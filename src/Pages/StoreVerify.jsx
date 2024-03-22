@@ -11,9 +11,9 @@ import Address from "./../components/StoreDetails/Address";
 import UploadFiles from "./../components/StoreDetails/UploadFiles";
 import Particulars from "./../components/StoreDetails/Particulars";
 import StoreDetails from "./../components/StoreDetails/StoreDetails";
-import Load from "../MicroInteraction/Load";
 
 // MicroInteraction
+import Load from "../MicroInteraction/Load";
 import { Alert } from "./../MicroInteraction/Alert";
 
 // store
@@ -208,6 +208,8 @@ export default function StoreVerify() {
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
+
+  useEffect(() => {}, []);
 
   return (
     <>
