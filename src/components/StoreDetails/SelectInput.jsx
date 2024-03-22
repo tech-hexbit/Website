@@ -42,6 +42,23 @@ const SelectInput = ({ setData, showData }) => {
         placeholder="about the store"
       />
 
+      {/* Long Description */}
+      <div className={PrCss.inpDiv}>
+        <p className={PrCss.inputLabel}>Store Long Description</p>
+
+        <textarea
+          name=""
+          id=""
+          cols="30"
+          rows="10"
+          className={PrCss.textArea}
+          placeholder="About the Store"
+          onChange={(e) => {
+            setData({ ...showData, LongDes: e.target.value });
+          }}
+        ></textarea>
+      </div>
+
       {/* Cancellation Percentage */}
       <InputType1
         type="number"
