@@ -107,10 +107,6 @@ export default function Address({ disable, setDisable, showData, setData }) {
     }
   });
 
-  useEffect(() => {
-    console.log(authCtx.user.Pincode);
-  }, []);
-
   return (
     <>
       <div className={PrCss.mDiv}>
