@@ -47,6 +47,7 @@ export default function StoreVerify() {
     TimeToShip: "",
     Returnable: "",
     Description: "",
+    LongDes: "",
     Cancellable: "",
     amountValue: "",
     AcHolderName: "",
@@ -108,6 +109,7 @@ export default function StoreVerify() {
       showData.Percentage === "" ||
       showData.BranchName === "" ||
       showData.Description === "" ||
+      showData.LongDes === "" ||
       showData.Cancellable === "" ||
       showData.Returnable === "" ||
       showData.amountValue === "" ||
