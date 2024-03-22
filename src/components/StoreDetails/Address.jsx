@@ -101,6 +101,7 @@ export default function Address({ disable, setDisable, showData, setData }) {
                 setData({ ...showData, Pincode: e.target.value });
               }}
             />
+
             {showData.Pincode.length >= 6 && (
               <div onClick={verifyPincode} className={AdCss.btnVer}>
                 {verifyPin ? (
