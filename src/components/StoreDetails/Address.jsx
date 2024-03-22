@@ -90,17 +90,21 @@ export default function Address({ disable, setDisable, showData, setData }) {
         <div className={AdCss.inpDiv}>
           <p className={AdCss.inputLabel}>Pincode</p>
           <div className={AdCss.inputDivPincode}>
-            <input
-              disabled={verifyPin}
-              type="number"
-              name="Pincode"
-              value={showData.Pincode}
-              id={verifyPin ? `${AdCss.inpTag}` : ""}
-              placeholder="Your Pincode"
-              onChange={(e) => {
-                setData({ ...showData, Pincode: e.target.value });
-              }}
-            />
+            <div className={AdCss.inputDivPincodePar}>
+              <input
+                disabled={verifyPin}
+                type="number"
+                name="Pincode"
+                value={showData.Pincode}
+                id={verifyPin ? `${AdCss.inpTag}` : ""}
+                placeholder="Your Pincode"
+                onChange={(e) => {
+                  setData({ ...showData, Pincode: e.target.value });
+                }}
+              />
+
+              <div className={AdCss.opsDiv}>sadja</div>
+            </div>
 
             {showData.Pincode.length >= 6 && (
               <div onClick={verifyPincode} className={AdCss.btnVer}>
