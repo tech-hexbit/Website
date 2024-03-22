@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 
 // components
@@ -10,6 +10,9 @@ import VerifiedFeilds from "./Input/VerifiedFeilds";
 import Load from "./../../MicroInteraction/LoadBlack";
 import { Alert } from "./../../MicroInteraction/Alert";
 
+// state
+import AuthContext from "./../../store/auth-context";
+
 //axios
 import axios from "axios";
 
@@ -19,6 +22,7 @@ import PrCss from "./Css/Particulars.module.css";
 
 export default function Address({ disable, setDisable, showData, setData }) {
   const [load, setLoad] = useState(false);
+  const [DropShow, hideDrop] = useState(false);
   const [verifyPin, setVerifyPin] = useState(false);
   const [variants, setError] = useState({
     mainColor: "",
@@ -28,6 +32,10 @@ export default function Address({ disable, setDisable, showData, setData }) {
     text: "",
     val: false,
   });
+
+  const authCtx = useContext(AuthContext);
+
+  let menu = useRef();
 
   const verifyPincode = async () => {
     setLoad(true);
@@ -81,6 +89,28 @@ export default function Address({ disable, setDisable, showData, setData }) {
     }
   };
 
+  const handler = (e) => {
+    try {
+      if (!menu.current.contains(e.target)) {
+        hideDrop(false);
+      } else {
+        hideDrop(true);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    if (DropShow) {
+      document.addEventListener("mousedown", handler);
+    }
+  });
+
+  useEffect(() => {
+    console.log(authCtx.user.Pincode);
+  }, []);
+
   return (
     <>
       <div className={PrCss.mDiv}>
@@ -90,7 +120,7 @@ export default function Address({ disable, setDisable, showData, setData }) {
         <div className={AdCss.inpDiv}>
           <p className={AdCss.inputLabel}>Pincode</p>
           <div className={AdCss.inputDivPincode}>
-            <div className={AdCss.inputDivPincodePar}>
+            <div ref={menu} className={AdCss.inputDivPincodePar}>
               <input
                 disabled={verifyPin}
                 type="number"
@@ -98,12 +128,27 @@ export default function Address({ disable, setDisable, showData, setData }) {
                 value={showData.Pincode}
                 id={verifyPin ? `${AdCss.inpTag}` : ""}
                 placeholder="Your Pincode"
+                onFocus={() => {
+                  hideDrop(true);
+                }}
                 onChange={(e) => {
                   setData({ ...showData, Pincode: e.target.value });
                 }}
               />
 
-              <div className={AdCss.opsDiv}>sadja</div>
+              <div
+                className={AdCss.opsDiv}
+                id={DropShow ? "showDropMenuClg" : "hideDropMenuClg"}
+                onClick={() => {
+                  setData({
+                    ...showData,
+                    Pincode: authCtx.user.Pincode,
+                  });
+                  hideDrop(false);
+                }}
+              >
+                {authCtx.user.Pincode}
+              </div>
             </div>
 
             {showData.Pincode.length >= 6 && (
