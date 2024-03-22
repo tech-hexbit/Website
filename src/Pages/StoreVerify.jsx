@@ -209,7 +209,9 @@ export default function StoreVerify() {
     window.scrollTo(0, 0);
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    console.table(showData);
+  }, [showData]);
 
   return (
     <>
