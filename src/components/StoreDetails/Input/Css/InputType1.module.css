@@ -89,6 +89,7 @@
   }
 
   .inpDiv input,
+  .textArea,
   .inputDivVerified {
     width: 100%;
   }
