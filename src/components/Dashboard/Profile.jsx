@@ -12,7 +12,7 @@ export default function Profile() {
 
   return (
     <>
-      {authCtx.user.Store[0].StoreID.validation ? <Header /> : <StoreVerify />}
+      {!authCtx.user.Store[0].StoreID.validation ? <Header /> : <StoreVerify />}
     </>
   );
 }

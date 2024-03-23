@@ -11,9 +11,9 @@ import Address from "./../components/StoreDetails/Address";
 import UploadFiles from "./../components/StoreDetails/UploadFiles";
 import Particulars from "./../components/StoreDetails/Particulars";
 import StoreDetails from "./../components/StoreDetails/StoreDetails";
-import Load from "../MicroInteraction/Load";
 
 // MicroInteraction
+import Load from "../MicroInteraction/Load";
 import { Alert } from "./../MicroInteraction/Alert";
 
 // store
@@ -35,6 +35,7 @@ export default function StoreVerify() {
     radius: "",
     EmailID: "",
     Pincode: "",
+    Building: "",
     Address: "",
     IfscCode: "",
     LastName: "",
@@ -47,6 +48,7 @@ export default function StoreVerify() {
     TimeToShip: "",
     Returnable: "",
     Description: "",
+    LongDes: "",
     Cancellable: "",
     amountValue: "",
     AcHolderName: "",
@@ -97,6 +99,7 @@ export default function StoreVerify() {
       showData.radius === "" ||
       showData.EmailID === "" ||
       showData.Pincode === "" ||
+      showData.Building === "" ||
       showData.Address === "" ||
       showData.LastName === "" ||
       showData.IfscCode === "" ||
@@ -108,6 +111,7 @@ export default function StoreVerify() {
       showData.Percentage === "" ||
       showData.BranchName === "" ||
       showData.Description === "" ||
+      showData.LongDes === "" ||
       showData.Cancellable === "" ||
       showData.Returnable === "" ||
       showData.amountValue === "" ||
@@ -165,6 +169,7 @@ export default function StoreVerify() {
             headers: { Authorization: `${authCtx.token}` },
           }
         );
+
         if (response.data.success) {
           setError({
             mainColor: "#EDFEEE",
@@ -209,10 +214,6 @@ export default function StoreVerify() {
   useEffect(() => {
     console.table(showData);
   }, [showData]);
-
-  useEffect(() => {
-    console.table(disable);
-  }, [disable]);
 
   return (
     <>

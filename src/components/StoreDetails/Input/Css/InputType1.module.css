@@ -4,6 +4,7 @@
 }
 
 .inputLabel {
+  margin: 0px 0px 5px 0px;
   text-align: left;
 }
 
@@ -27,6 +28,16 @@
   border-radius: 5px;
   height: 42px;
   padding: 8px;
+}
+
+.textArea {
+  outline: none;
+  width: 67.5%;
+  border: 1px solid #909090;
+  background: #fff;
+  border-radius: 5px;
+  padding: 8px;
+  resize: vertical;
 }
 
 .inpDiv input[type="number"]::-webkit-inner-spin-button,
@@ -79,6 +90,7 @@
   }
 
   .inpDiv input,
+  .textArea,
   .inputDivVerified {
     width: 100%;
   }
