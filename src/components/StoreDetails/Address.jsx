@@ -181,14 +181,24 @@ export default function Address({ disable, setDisable, showData, setData }) {
           </div>
         </div>
 
-        {/* Address */}
+        {/* Building */}
         <InputType1
           type="text"
-          Label="Address"
+          Label="Building"
+          showData={showData}
+          setData={setData}
+          field="Building"
+          placeholder="Qt. - 2A"
+        />
+
+        {/* Street */}
+        <InputType1
+          type="text"
+          Label="Street"
           showData={showData}
           setData={setData}
           field="Address"
-          placeholder="St. - 70, Qt. - 2A"
+          placeholder="St. - 70"
         />
 
         {/* City */}
