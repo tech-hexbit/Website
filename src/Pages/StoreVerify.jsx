@@ -35,7 +35,6 @@ export default function StoreVerify() {
     radius: "",
     EmailID: "",
     Pincode: "",
-    Street: "",
     Building: "",
     Address: "",
     IfscCode: "",
@@ -100,7 +99,6 @@ export default function StoreVerify() {
       showData.radius === "" ||
       showData.EmailID === "" ||
       showData.Pincode === "" ||
-      showData.Street === "" ||
       showData.Building === "" ||
       showData.Address === "" ||
       showData.LastName === "" ||
