@@ -18,8 +18,48 @@ import style from "./SignInForm.module.css";
 export default function OTP(props) {
   const [showOTP, setOTP] = useState(false);
   const [input, setInput] = useState({ phone: "", otp: "" });
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
 
-  const sendOTP = async () => {};
+  const authCtx = useContext(AuthContext);
+
+  const sendOTP = async () => {
+    try {
+      const response = await axios.get(
+        `/api/website/auth/otp/verification/${input.phone}`
+      );
+
+      if (response.data.status) {
+        setOTP(!showOTP);
+      } else {
+        setError({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "Unable to Send OTP",
+          val: true,
+        });
+      }
+    } catch (e) {
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "Unable to Send OTP",
+        val: true,
+      });
+
+      console.log(e);
+    }
+  };
 
   useEffect(() => {
     if (!props.seeOTP) {
@@ -31,8 +71,6 @@ export default function OTP(props) {
   }, [props.seeOTP]);
 
   useEffect(() => {
-    console.log(input);
-
     if (input.phone.length === 10) {
       sendOTP();
     }
