@@ -16,7 +16,10 @@ import AuthContext from "../../store/auth-context";
 import style from "./SignInForm.module.css";
 
 export default function OTP(props) {
+  const [showOTP, setOTP] = useState(false);
   const [input, setInput] = useState({ phone: "", otp: "" });
+
+  const sendOTP = async () => {};
 
   useEffect(() => {
     if (!props.seeOTP) {
@@ -26,6 +29,14 @@ export default function OTP(props) {
       });
     }
   }, [props.seeOTP]);
+
+  useEffect(() => {
+    console.log(input);
+
+    if (input.phone.length === 10) {
+      sendOTP();
+    }
+  }, [input]);
   return (
     <>
       {/* OTP and Phone Number */}
@@ -62,26 +73,34 @@ export default function OTP(props) {
 
         {/* OTP */}
         <div className={style.inputPO}>
-          <label htmlFor="otp">
-            Enter OTP<span className="requiredSpan">*</span>
-          </label>
-          <br />
-          <div className={style.otpInputs}>
-            <input
-              type="text"
-              placeholder="Enter the otp"
-              id="otp"
-              name="otp"
-              value={input.otp}
-              onChange={(e) => {
-                setInput({ ...input, otp: e.target.value });
-              }}
-              onClick={() => {
-                props.hideOTP(true);
-              }}
-            />
-            <button>Resend OTP</button>
-          </div>
+          <>
+            {showOTP ? (
+              <>
+                <label htmlFor="otp">
+                  Enter OTP<span className="requiredSpan">*</span>
+                </label>
+                <br />
+                <div className={style.otpInputs}>
+                  <input
+                    type="text"
+                    placeholder="Enter the otp"
+                    id="otp"
+                    name="otp"
+                    value={input.otp}
+                    onChange={(e) => {
+                      setInput({ ...input, otp: e.target.value });
+                    }}
+                    onClick={() => {
+                      props.hideOTP(true);
+                    }}
+                  />
+                  <button>Resend OTP</button>
+                </div>
+              </>
+            ) : (
+              ""
+            )}
+          </>
 
           <p className={style.forgotpassword}>
             <Link to="/forgotpassword" className="LinkStyle">
