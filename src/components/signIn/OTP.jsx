@@ -71,6 +71,8 @@ export default function OTP(props) {
   }, [props.seeOTP]);
 
   useEffect(() => {
+    console.table(input);
+    console.log("showOTP - " + showOTP);
     if (input.phone.length === 10) {
       sendOTP();
     }
@@ -115,7 +117,7 @@ export default function OTP(props) {
             {showOTP ? (
               <>
                 <label htmlFor="otp">
-                  Enter OTP<span className="requiredSpan">*</span>
+                  Enter OTP <span className="requiredSpan">*</span>
                 </label>
                 <br />
                 <div className={style.otpInputs}>
