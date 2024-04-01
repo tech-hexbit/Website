@@ -73,7 +73,7 @@ export default function OTP(props) {
   useEffect(() => {
     console.table(input);
     console.log("showOTP - " + showOTP);
-    if (input.phone.length === 10) {
+    if (input.phone.length === 10 && showOTP === false) {
       sendOTP();
     }
   }, [input]);
