@@ -63,22 +63,27 @@ export default function OTP(props) {
 
   const VerifyOTP = async () => {
     try {
-      const response = await axios.get(
-        `/api/website/auth/otp/verification/${input.phone}`
-      );
+      let data = {
+        phone: input.phone,
+        otp: input.otp,
+      };
 
-      if (response.data.status) {
-        setOTP(!showOTP);
-      } else {
-        setError({
-          mainColor: "#FDEDED",
-          secondaryColor: "#F16360",
-          symbol: "error",
-          title: "Error",
-          text: "Unable to Send OTP",
-          val: true,
-        });
-      }
+      const response = await axios.post(`/api/website/auth/otp/verify/`, data);
+
+      console.log(response.data);
+
+      // if (response.data.status) {
+      //   setOTP(!showOTP);
+      // } else {
+      //   setError({
+      //     mainColor: "#FDEDED",
+      //     secondaryColor: "#F16360",
+      //     symbol: "error",
+      //     title: "Error",
+      //     text: "Unable to Send OTP",
+      //     val: true,
+      //   });
+      // }
     } catch (e) {
       setError({
         mainColor: "#FDEDED",
@@ -110,7 +115,7 @@ export default function OTP(props) {
       sendOTP();
     }
 
-    if (input.otp.length === 10 && showOTP === true) {
+    if (input.otp.length === 4 && showOTP === true) {
       VerifyOTP();
     }
   }, [input]);
