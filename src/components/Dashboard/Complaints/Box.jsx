@@ -34,6 +34,15 @@ export default function Box({ key, val, handleOverlay, showOverlay }) {
     setExpectedTime(expectedTimeState.toString());
   }, []);
 
+  useEffect(() => {
+    console.log(
+      val._id +
+        " <- ID || Respondent -> " +
+        val.respondent_actions[val.respondent_actions.length - 1]
+          .respondent_action
+    );
+  }, []);
+
   return (
     <>
       <tr key={key} className={pt.payRes}>
