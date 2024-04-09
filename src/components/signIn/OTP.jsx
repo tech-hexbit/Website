@@ -16,7 +16,87 @@ import AuthContext from "../../store/auth-context";
 import style from "./SignInForm.module.css";
 
 export default function OTP(props) {
+  const [showOTP, setOTP] = useState(false);
   const [input, setInput] = useState({ phone: "", otp: "" });
+  const [variants, setError] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    val: false,
+  });
+
+  const authCtx = useContext(AuthContext);
+
+  const sendOTP = async () => {
+    try {
+      const response = await axios.get(
+        `/api/website/auth/otp/verification/${input.phone}`
+      );
+
+      if (response.data.status) {
+        setOTP(!showOTP);
+      } else {
+        setError({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "Unable to Send OTP",
+          val: true,
+        });
+      }
+    } catch (e) {
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "Unable to Send OTP",
+        val: true,
+      });
+
+      console.log(e);
+    }
+  };
+
+  const VerifyOTP = async () => {
+    try {
+      let data = {
+        phone: input.phone,
+        otp: input.otp,
+      };
+
+      const response = await axios.post(`/api/website/auth/otp/verify/`, data);
+
+      console.log(response.data);
+
+      // if (response.data.status) {
+      //   setOTP(!showOTP);
+      // } else {
+      //   setError({
+      //     mainColor: "#FDEDED",
+      //     secondaryColor: "#F16360",
+      //     symbol: "error",
+      //     title: "Error",
+      //     text: "Unable to Send OTP",
+      //     val: true,
+      //   });
+      // }
+    } catch (e) {
+      setError({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "Unable to Send OTP",
+        val: true,
+      });
+
+      console.log(e);
+    }
+  };
 
   useEffect(() => {
     if (!props.seeOTP) {
@@ -26,6 +106,19 @@ export default function OTP(props) {
       });
     }
   }, [props.seeOTP]);
+
+  useEffect(() => {
+    console.table(input);
+    console.log("showOTP - " + showOTP);
+
+    if (input.phone.length === 10 && showOTP === false) {
+      sendOTP();
+    }
+
+    if (input.otp.length === 4 && showOTP === true) {
+      VerifyOTP();
+    }
+  }, [input]);
   return (
     <>
       {/* OTP and Phone Number */}
@@ -62,26 +155,34 @@ export default function OTP(props) {
 
         {/* OTP */}
         <div className={style.inputPO}>
-          <label htmlFor="otp">
-            Enter OTP<span className="requiredSpan">*</span>
-          </label>
-          <br />
-          <div className={style.otpInputs}>
-            <input
-              type="text"
-              placeholder="Enter the otp"
-              id="otp"
-              name="otp"
-              value={input.otp}
-              onChange={(e) => {
-                setInput({ ...input, otp: e.target.value });
-              }}
-              onClick={() => {
-                props.hideOTP(true);
-              }}
-            />
-            <button>Resend OTP</button>
-          </div>
+          <>
+            {showOTP ? (
+              <>
+                <label htmlFor="otp">
+                  Enter OTP <span className="requiredSpan">*</span>
+                </label>
+                <br />
+                <div className={style.otpInputs}>
+                  <input
+                    type="text"
+                    placeholder="Enter the otp"
+                    id="otp"
+                    name="otp"
+                    value={input.otp}
+                    onChange={(e) => {
+                      setInput({ ...input, otp: e.target.value });
+                    }}
+                    onClick={() => {
+                      props.hideOTP(true);
+                    }}
+                  />
+                  <button>Resend OTP</button>
+                </div>
+              </>
+            ) : (
+              ""
+            )}
+          </>
 
           <p className={style.forgotpassword}>
             <Link to="/forgotpassword" className="LinkStyle">

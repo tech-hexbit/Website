@@ -5,8 +5,8 @@ import BoxCss from "./Css/Box.module.css";
 import pt from "./../Payment/Css/PaymentTable.module.css";
 
 export default function Box({ key, val, handleOverlay, showOverlay }) {
-  const [expectedTime, setExpectedTime] = useState("");
   const [edit, setEdit] = useState(true);
+  const [expectedTime, setExpectedTime] = useState("");
   const [isOverOneDay, setIsOverOneDay] = useState(false);
 
   useEffect(() => {
