@@ -6,7 +6,6 @@ import axios from "axios";
 
 // MicroInteraction
 import Load from "../../MicroInteraction/Load";
-import { Alert } from "./../../MicroInteraction/Alert";
 import LoadingPage from "../../MicroInteraction/Loading";
 
 // state
@@ -18,14 +17,6 @@ import style from "./SignInForm.module.css";
 export default function OTP(props) {
   const [showOTP, setOTP] = useState(false);
   const [input, setInput] = useState({ phone: "", otp: "" });
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   const authCtx = useContext(AuthContext);
 
@@ -38,23 +29,21 @@ export default function OTP(props) {
       if (response.data.status) {
         setOTP(!showOTP);
       } else {
-        setError({
+        authCtx.showAlert({
           mainColor: "#FDEDED",
           secondaryColor: "#F16360",
           symbol: "error",
           title: "Error",
           text: "Unable to Send OTP",
-          val: true,
         });
       }
     } catch (e) {
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "Unable to Send OTP",
-        val: true,
       });
 
       console.log(e);
@@ -75,23 +64,22 @@ export default function OTP(props) {
       // if (response.data.status) {
       //   setOTP(!showOTP);
       // } else {
-      //   setError({
+      //   authCtx.showAlert({
       //     mainColor: "#FDEDED",
       //     secondaryColor: "#F16360",
       //     symbol: "error",
       //     title: "Error",
       //     text: "Unable to Send OTP",
-      //     val: true,
+      //
       //   });
       // }
     } catch (e) {
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "Unable to Send OTP",
-        val: true,
       });
 
       console.log(e);
