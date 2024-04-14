@@ -11,7 +11,6 @@ import AuthContext from "../../../../store/auth-context";
 
 // MicroInteraction
 import Load from "./../../../../MicroInteraction/LoadBlack";
-import { Alert } from "./../../../../MicroInteraction/Alert";
 
 // css
 import Ccss from "../../../Dashboard/Css/Categories.module.css";
@@ -26,14 +25,6 @@ export default function SellerInventory() {
   const [currentPage, setCurrentPage] = useState(1);
   const [productName, setProductName] = useState("");
   const [prodcutsCount, setProdcutsCount] = useState(0);
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   const authCtx = useContext(AuthContext);
 
@@ -100,25 +91,23 @@ export default function SellerInventory() {
       } else {
         console.log(e);
 
-        setError({
+        authCtx.showAlert({
           mainColor: "#FDEDED",
           secondaryColor: "#F16360",
           symbol: "error",
           title: "Error",
           text: "Export failed",
-          val: true,
         });
       }
     } catch (e) {
       console.log(e);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "An unexpected error occurred",
-        val: true,
       });
     }
   };
@@ -345,8 +334,6 @@ export default function SellerInventory() {
           </button>
         </div>
       </div>
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }
