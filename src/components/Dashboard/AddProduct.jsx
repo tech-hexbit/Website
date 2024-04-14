@@ -6,9 +6,6 @@ import UploadCsvPopup from "./AddProduct/UploadCsvPopup";
 import AddProdRET10 from "./AddProduct/Domin/AddProdRET10";
 import FilteredCategory from "./AddProduct/FilteredCatergory";
 
-// MicroInteraction
-import { Alert } from "../../MicroInteraction/Alert";
-
 // css
 import ApCss from "./Css/AddProduct.module.css";
 
@@ -18,14 +15,6 @@ import AuthContext from "../../store/auth-context";
 export default function AddProduct() {
   const [domain, setDomain] = useState("");
   const [showPopup, setShowPopup] = useState(false);
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   const authCtx = useContext(AuthContext);
 
@@ -51,19 +40,6 @@ export default function AddProduct() {
       state: !showCategory.state,
     });
   };
-
-  useEffect(() => {
-    setTimeout(() => {
-      setError({
-        mainColor: "",
-        secondaryColor: "",
-        symbol: "",
-        title: "",
-        text: "",
-        val: false,
-      });
-    }, 10000);
-  }, [variants]);
 
   return (
     <>
@@ -132,13 +108,9 @@ export default function AddProduct() {
             ? "We currently Do Not Support ONDC:RET19 - Pharma"
             : ""}
 
-          {showPopup && (
-            <UploadCsvPopup setShowPopup={setShowPopup} setError={setError} />
-          )}
+          {showPopup && <UploadCsvPopup setShowPopup={setShowPopup} />}
         </div>
       )}
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }
