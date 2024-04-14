@@ -6,7 +6,6 @@ import axios from "axios";
 
 // MicroInteraction
 import Load from "./../../../MicroInteraction/LoadBlack";
-import { Alert } from "./../../../MicroInteraction/Alert";
 
 // state
 import AuthContext from "../../../store/auth-context";
@@ -16,14 +15,6 @@ import PICss from "./Css/PersonalInfo.module.css";
 
 export default function DeleteBankInfo({ id, loadBankDetails }) {
   const [load, setLoad] = useState(false);
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   const authCtx = useContext(AuthContext);
 
@@ -50,24 +41,22 @@ export default function DeleteBankInfo({ id, loadBankDetails }) {
 
         loadBankDetails();
 
-        setError({
+        authCtx.showAlert({
           mainColor: "#EDFEEE",
           secondaryColor: "#5CB660",
           symbol: "check_circle",
           title: "Success",
           text: "Successfully Deleted",
-          val: true,
         });
       } else {
         setLoad(false);
 
-        setError({
+        authCtx.showAlert({
           mainColor: "#FDEDED",
           secondaryColor: "#F16360",
           symbol: "error",
           title: "Error",
           text: "Unable to delete",
-          val: true,
         });
       }
     } catch (e) {
@@ -75,13 +64,12 @@ export default function DeleteBankInfo({ id, loadBankDetails }) {
 
       console.log("Error fetching bank details", e);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "An unexpected error occurred",
-        val: true,
       });
     }
   };
@@ -112,8 +100,6 @@ export default function DeleteBankInfo({ id, loadBankDetails }) {
           <line x1="14" x2="14" y1="11" y2="17" />
         </svg>
       )}
-
-      <Alert variant={variants} val={setError} />
     </div>
   );
 }
