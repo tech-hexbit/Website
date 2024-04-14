@@ -14,7 +14,6 @@ import StoreDetails from "./../components/StoreDetails/StoreDetails";
 
 // MicroInteraction
 import Load from "../MicroInteraction/Load";
-import { Alert } from "./../MicroInteraction/Alert";
 
 // store
 import AuthContext from "./../store/auth-context";
@@ -65,14 +64,6 @@ export default function StoreVerify() {
     imageUploadCheque: "",
     imageUploadAddress: "",
     imageUploadID: "",
-  });
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
   });
   const [disable, setDisable] = useState({
     Pincode: false,
@@ -125,13 +116,12 @@ export default function StoreVerify() {
     ) {
       setLoad(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
         symbol: "pets",
         title: "Check it out",
         text: "Please Fill All The Details",
-        val: true,
       });
     } else if (
       !disable.Pincode ||
@@ -139,7 +129,7 @@ export default function StoreVerify() {
       !disable.Gstin ||
       !disable.Pan
     ) {
-      setError({
+      authCtx.showAlert({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
         symbol: "pets",
@@ -151,7 +141,6 @@ export default function StoreVerify() {
           : !disable.Gstin
           ? "Invalid GSTIN"
           : "Invalid Pan",
-        val: true,
       });
     } else {
       try {
@@ -171,13 +160,12 @@ export default function StoreVerify() {
         );
 
         if (response.data.success) {
-          setError({
+          authCtx.showAlert({
             mainColor: "#EDFEEE",
             secondaryColor: "#5CB660",
             symbol: "check_circle",
             title: "Success",
             text: response.data.msg,
-            val: true,
           });
 
           await authCtx.updateStore(response.data.upData[0].Store);
@@ -195,13 +183,12 @@ export default function StoreVerify() {
 
         setLoad(false);
 
-        setError({
+        authCtx.showAlert({
           mainColor: "#FDEDED",
           secondaryColor: "#F16360",
           symbol: "error",
           title: "Error",
           text: "An unexpected error occurred",
-          val: true,
         });
       }
     }
@@ -262,8 +249,6 @@ export default function StoreVerify() {
           </div>
         </div>
       </div>
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }
