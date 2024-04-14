@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 // MicroInteraction
 import Load from "../../MicroInteraction/LoadBlack";
 import LoadWhite from "../../MicroInteraction/Load";
-import { Alert } from "./../../MicroInteraction/Alert";
 
 // axios
 import axios from "axios";
@@ -17,24 +16,15 @@ import FCss from "./Css/Form.module.css";
 export default function Form3(props) {
   const [data, setData] = useState([]);
   const [load, setLoad] = useState(false);
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   const nextFN = async () => {
     if (props.input.category.length === 0) {
-      setError({
+      authCtx.showAlert({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
         symbol: "pets",
         title: "Check it out",
         text: "Please Select atleast 1 feild",
-        val: true,
       });
     } else {
       props.register();
@@ -61,13 +51,12 @@ export default function Form3(props) {
 
       console.log(e);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "An unexpected error occurred",
-        val: true,
       });
     }
   };
@@ -146,8 +135,6 @@ export default function Form3(props) {
           </div>
         </div>
       </div>
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }
