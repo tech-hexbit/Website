@@ -44,7 +44,6 @@ import AuthContext from "./../store/auth-context";
 
 // MicroInteraction
 import Load from "./../MicroInteraction/LoadBlack";
-import { Alert } from "./../MicroInteraction/Alert";
 
 // Css
 import PCss from "./Css/Profile.module.css";
@@ -52,14 +51,6 @@ import PCss from "./Css/Profile.module.css";
 export default function Profile() {
   const [load, setLoad] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   const authCtx = useContext(AuthContext);
 
@@ -81,13 +72,12 @@ export default function Profile() {
     } catch (e) {
       setLoad(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "Unable to Send Mail",
-        val: true,
       });
 
       console.log(e);
@@ -234,8 +224,6 @@ export default function Profile() {
           </>
         )}
       </div>
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }
