@@ -27,6 +27,7 @@ const TrackingPage = React.lazy(() => import("./Pages/TrackingPage"));
 
 // MicroInteraction
 import LoadingPage from "./MicroInteraction/Loading";
+import { Alert } from "./MicroInteraction/Alert";
 
 // state
 import AuthContext from "./store/auth-context";
@@ -44,6 +45,7 @@ function App() {
   return (
     <Router>
       <Nav />
+      <Alert />
       <MobileNav />
       <div className="page">
         <div className="pageExt">
