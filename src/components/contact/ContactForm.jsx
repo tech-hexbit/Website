@@ -1,4 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+
+//
+import AuthContext from "./../../store/auth-context";
 
 // components
 import { Alert } from "./../../MicroInteraction/Alert";
@@ -27,6 +30,8 @@ const ContactForm = () => {
     text: "",
     val: false,
   });
+
+  const authCtx = useContext(AuthContext);
 
   const sendData = async () => {
     setLoad(true);
@@ -102,6 +107,22 @@ const ContactForm = () => {
       });
     }, 10000);
   }, [variants]);
+
+  useEffect(() => {
+    const showAlertHandler = () => {
+      // Update the alert state using the showAlert function
+      authCtx.showAlert({
+        mainColor: "#FFC0CB",
+        secondaryColor: "#FF69B4",
+        symbol: "pets",
+        title: "Check it out",
+        text: "Please Fill All The Details",
+        val: true,
+      });
+    };
+
+    showAlertHandler();
+  }, []);
 
   return (
     <>
