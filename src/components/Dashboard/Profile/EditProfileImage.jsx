@@ -7,7 +7,6 @@ import axios from "axios";
 import AuthContext from "./../../../store/auth-context";
 
 // MicroInteraction
-import { Alert } from "./../../../MicroInteraction/Alert";
 import Load from "./../../../MicroInteraction/Load";
 
 // css
@@ -16,14 +15,6 @@ import EtCss from "./Css/EditProfile.module.css";
 export default function EditProfileImage(props) {
   const [imageUpload, setImageUpload] = useState();
   const [load, setLoad] = useState(false);
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   const fileInp = useRef(null);
 
@@ -62,38 +53,35 @@ export default function EditProfileImage(props) {
         if (response.data.success) {
           setLoad(false);
 
-          props.setError({
+          authCtx.showAlert({
             mainColor: "#EDFEEE",
             secondaryColor: "#5CB660",
             symbol: "check_circle",
             title: "Success",
             text: "Logo Updated !!",
-            val: true,
           });
 
           props.setEdit(false);
         } else {
           setLoad(false);
 
-          setError({
+          authCtx.showAlert({
             mainColor: "#FDEDED",
             secondaryColor: "#F16360",
             symbol: "error",
             title: "Error",
             text: "An Unexpected Error Occured",
-            val: true,
           });
         }
       } catch (error) {
         setLoad(false);
 
-        setError({
+        authCtx.showAlert({
           mainColor: "#FDEDED",
           secondaryColor: "#F16360",
           symbol: "error",
           title: "Error",
           text: "An Unexpected Error Occured",
-          val: true,
         });
 
         console.log(error);
@@ -101,13 +89,12 @@ export default function EditProfileImage(props) {
     } else {
       setLoad(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
         symbol: "pets",
         title: "Check it out",
         text: "Please Select your Logo",
-        val: true,
       });
     }
   };
@@ -175,8 +162,6 @@ export default function EditProfileImage(props) {
           </div>
         </div>
       </div>
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }
