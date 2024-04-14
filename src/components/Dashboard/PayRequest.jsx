@@ -37,14 +37,6 @@ export default function PayRequest() {
     bank: "",
     order: [],
   });
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   const authCtx = useContext(AuthContext);
 
@@ -56,13 +48,12 @@ export default function PayRequest() {
 
       setLoad(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#E5F6FD",
         secondaryColor: "#1AB1F5",
         symbol: "info",
         title: "Information",
         text: "Invoice Required",
-        val: true,
       });
       return;
     }
@@ -70,13 +61,12 @@ export default function PayRequest() {
     if (showSel.bank === "") {
       setLoad(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#E5F6FD",
         secondaryColor: "#1AB1F5",
         symbol: "info",
         title: "Information",
         text: "Select any Bank before proceeding",
-        val: true,
       });
       return;
     }
@@ -88,13 +78,12 @@ export default function PayRequest() {
     ) {
       setLoad(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#E5F6FD",
         secondaryColor: "#1AB1F5",
         symbol: "info",
         title: "Information",
         text: "Select any Order before proceeding",
-        val: true,
       });
       return;
     }
@@ -102,13 +91,12 @@ export default function PayRequest() {
     if (!imageUpload) {
       setLoad(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "Please select an Image",
-        val: true,
       });
       return;
     }
@@ -160,13 +148,12 @@ export default function PayRequest() {
     } catch (e) {
       setLoad(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "Unable to Raise the Request. Try Again",
-        val: true,
       });
     }
   };
@@ -198,7 +185,6 @@ export default function PayRequest() {
           </div>
         </div>
       </div>
-      <Alert variant={variants} val={setError} />
     </>
   );
 }
