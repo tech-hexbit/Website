@@ -6,7 +6,6 @@ import Orderdetails from "./../Orderdetails";
 
 // MicroInteraction
 import Load from "./../../../MicroInteraction/LoadBlack";
-import { Alert } from "./../../../MicroInteraction/Alert";
 
 // state
 import AuthContext from "./../../../store/auth-context";
@@ -29,14 +28,6 @@ export default function Details({
   const [dataItem, setDataItem] = useState([]);
   const [showDel, setHideDel] = useState(false);
   const [showProductDel, setProductDel] = useState({ state: false, id: "" });
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   const authCtx = useContext(AuthContext);
 
@@ -62,13 +53,12 @@ export default function Details({
       } else {
         setLoad(false);
 
-        setError({
+        authCtx.showAlert({
           mainColor: "#FDEDED",
           secondaryColor: "#F16360",
           symbol: "error",
           title: "Error",
           text: "An unexpected error occurred",
-          val: true,
         });
       }
     } catch (error) {
@@ -76,13 +66,12 @@ export default function Details({
 
       setLoad(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "An unexpected error occurred",
-        val: true,
       });
     }
   };
@@ -242,8 +231,6 @@ export default function Details({
           )}
         </>
       )}
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }
