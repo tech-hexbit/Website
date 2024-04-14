@@ -28,6 +28,16 @@ const AuthContext = React.createContext({
   login: async (token) => {},
   logout: () => {},
   settarget: () => {},
+  alert: {
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    show: false,
+  },
+  showAlert: () => {},
+  clearAlert: () => {},
 });
 
 const calculateRemainingTime = (expirationTime) => {
@@ -82,6 +92,14 @@ export const AuthContextProvider = (props) => {
   const [user, setUser] = useState(initialuser);
   const [target, setTarget] = useState("");
   const [userIsLoggedIn, setUserIsLoggedIn] = useState(logedin);
+  const [alert, setAlert] = useState({
+    mainColor: "",
+    secondaryColor: "",
+    symbol: "",
+    title: "",
+    text: "",
+    show: false,
+  });
 
   console.log("userislogedin : - " + userIsLoggedIn);
 
@@ -174,6 +192,21 @@ export const AuthContextProvider = (props) => {
     localStorage.setItem("user", JSON.stringify(updatedUser));
   };
 
+  const showAlert = useCallback((newAlert) => {
+    setAlert({ ...newAlert, show: true });
+  }, []);
+
+  const clearAlert = useCallback(() => {
+    setAlert({
+      mainColor: "",
+      secondaryColor: "",
+      symbol: "",
+      title: "",
+      text: "",
+      show: false,
+    });
+  }, []);
+
   const contextValue = useMemo(
     () => ({
       token: token,
@@ -184,8 +217,11 @@ export const AuthContextProvider = (props) => {
       logout: logoutHandler,
       settarget: targetHandler,
       updateStore: updateStoreHandler,
+      alert: alert,
+      showAlert: showAlert,
+      clearAlert: clearAlert,
     }),
-    [token, userIsLoggedIn, target, user]
+    [token, userIsLoggedIn, target, user, alert, showAlert, clearAlert]
   );
 
   return (
