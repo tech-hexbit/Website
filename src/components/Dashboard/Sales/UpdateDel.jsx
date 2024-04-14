@@ -11,7 +11,6 @@ import LayUpdate from "./LayUpdate";
 
 // MicroInteraction
 import Load from "./../../../MicroInteraction/LoadBlack";
-import { Alert } from "./../../../MicroInteraction/Alert";
 
 // Css
 import OLCss from "./Css/OrderLayUpdate.module.css";
@@ -21,14 +20,6 @@ export default function OrderLayUpdate(props) {
   const [load, setLoad] = useState(false);
   const [upAll, setUpAll] = useState({
     code: 0,
-  });
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
   });
 
   const authCtx = useContext(AuthContext);
@@ -118,13 +109,12 @@ export default function OrderLayUpdate(props) {
       } else {
         setLoad(false);
 
-        setError({
+        authCtx.showAlert({
           mainColor: "#FDEDED",
           secondaryColor: "#F16360",
           symbol: "error",
           title: "Error",
           text: "Unable to Update",
-          val: true,
         });
       }
     } catch (error) {
@@ -132,13 +122,12 @@ export default function OrderLayUpdate(props) {
 
       setLoad(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "Unable to Update",
-        val: true,
       });
     }
   };
@@ -164,13 +153,12 @@ export default function OrderLayUpdate(props) {
 
       setLoad(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "Unable to Update",
-        val: true,
       });
     }
   };
@@ -328,8 +316,6 @@ export default function OrderLayUpdate(props) {
           </div>
         </div>
       </div>
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }
