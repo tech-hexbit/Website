@@ -5,7 +5,6 @@ import TicketDetailsOverlay from "../PayDetails/TicketDetailsOverlay";
 
 // MicroInteraction
 import Load from "../../../MicroInteraction/LoadBlack";
-import { Alert } from "../../../MicroInteraction/Alert";
 
 //state
 import AuthContext from "../../../store/auth-context";
@@ -22,15 +21,6 @@ export default function Table() {
   const [showOverlay, setShowOverlay] = useState(false);
 
   const [selectedItem, setSelectedItem] = useState([]);
-
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   const handleOverlay = (_id) => {
     setShowOverlay(true);
@@ -54,23 +44,21 @@ export default function Table() {
       if (response.data.success) {
         setData(response.data.qnaEntries);
       } else {
-        setError({
+        authCtx.showAlert({
           mainColor: "#FDEDED",
           secondaryColor: "#F16360",
           symbol: "error",
           title: "Error",
           text: "An unexpected error occurred",
-          val: true,
         });
       }
     } catch (e) {
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "An unexpected error occurred",
-        val: true,
       });
     }
   };
@@ -165,7 +153,6 @@ export default function Table() {
           </div>
         )}
       </div>
-      <Alert variant={variants} val={setError} />
     </>
   );
 }
