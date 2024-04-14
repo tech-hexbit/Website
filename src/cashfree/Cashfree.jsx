@@ -5,7 +5,6 @@ import AuthContext from "./../store/auth-context";
 
 // MicroInteraction
 import Load from "./../MicroInteraction/Load";
-import { Alert } from "./../MicroInteraction/Alert";
 
 // axios
 import axios from "axios";
@@ -18,14 +17,6 @@ import ChCss from "./Css/CashFree.module.css";
 
 export default function Cashfree({ selectedItem, setreload, reload }) {
   const [loadState, setLoad] = useState(false);
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   const authCtx = useContext(AuthContext);
 
@@ -48,13 +39,12 @@ export default function Cashfree({ selectedItem, setreload, reload }) {
       if (response.data.success) {
         setLoad(false);
 
-        setError({
+        authCtx.showAlert({
           mainColor: "#EDFEEE",
           secondaryColor: "#5CB660",
           symbol: "check_circle",
           title: "Success",
           text: "Successfully",
-          val: true,
         });
 
         setreload(!reload);
@@ -64,13 +54,12 @@ export default function Cashfree({ selectedItem, setreload, reload }) {
 
       setLoad(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "An unexpected error occurred",
-        val: true,
       });
     }
   };
