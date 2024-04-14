@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-// MicroInteraction
-import { Alert } from "./../../MicroInteraction/Alert";
-
 // axios
 import axios from "axios";
 
@@ -40,14 +37,6 @@ export default function RegisterMain() {
     category: [],
     AdditionalInfo: "",
   });
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   const redirect = useNavigate();
 
@@ -60,13 +49,12 @@ export default function RegisterMain() {
       if (response.data?.exists) {
         setLoad(false);
 
-        setError({
+        authCtx.showAlert({
           mainColor: "#FFF4E5",
           secondaryColor: "#FFA117",
           symbol: "warning",
           title: "Warning",
           text: "User Exists. Kindly try to login",
-          val: true,
         });
 
         return;
@@ -75,14 +63,7 @@ export default function RegisterMain() {
       if (response.data.success) {
         setLoad(false);
 
-        setError({
-          mainColor: "",
-          secondaryColor: "",
-          symbol: "",
-          title: "",
-          text: "",
-          val: false,
-        });
+        authCtx.clearAlert();
 
         redirect("/signIn");
       } else {
@@ -91,13 +72,12 @@ export default function RegisterMain() {
     } catch (e) {
       setLoad(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "An unexpected error occurred",
-        val: true,
       });
     }
   };
@@ -170,15 +150,12 @@ export default function RegisterMain() {
               input={input}
               load={load}
               variant={variants}
-              val={setError}
               setInput={setInput}
               register={register}
             />
           )}
         </div>
       </div>
-
-      <Alert variant={variants} val={setError} email={input.email} />
     </>
   );
 }
