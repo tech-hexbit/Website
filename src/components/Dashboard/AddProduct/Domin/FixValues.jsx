@@ -9,7 +9,6 @@ import axios from "axios";
 
 // MicroInteraction
 import Load from "./../../../../MicroInteraction/LoadBlack";
-import { Alert } from "./../../../../MicroInteraction/Alert";
 
 // state
 import AuthContext from "../../../../store/auth-context";
@@ -21,14 +20,6 @@ import ItCss from "./Input/Css/InputType1.module.css";
 export default function FixValues({ setData, showData }) {
   const [store, setStore] = useState([]);
   const [load, setLoad] = useState(false);
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   const authCtx = useContext(AuthContext);
 
@@ -47,25 +38,23 @@ export default function FixValues({ setData, showData }) {
       } else {
         setLoad(false);
 
-        setError({
+        authCtx.showAlert({
           mainColor: "#FDEDED",
           secondaryColor: "#F16360",
           symbol: "error",
           title: "Error",
           text: "Unable to fetch Info",
-          val: true,
         });
       }
     } catch (e) {
       setLoad(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "An unexpected error occurred",
-        val: true,
       });
     }
   };
@@ -347,8 +336,6 @@ export default function FixValues({ setData, showData }) {
           )}
         </>
       )}
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }
