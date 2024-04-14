@@ -17,9 +17,8 @@ import UpdateLabel from "../Product/UpdateLabel";
 import Header from "./../Dashboard/MainParts/Header";
 
 // MicroInteraction
-import Load from "../../MicroInteraction/LoadBlack";
 import LoadW from "../../MicroInteraction/Load";
-import { Alert } from "../../MicroInteraction/Alert";
+import Load from "../../MicroInteraction/LoadBlack";
 
 // Css
 import PPCss from "./Css/ProductPage.module.css";
@@ -32,14 +31,6 @@ function ProductPageNew(props) {
   const [loadDel, setLoadDel] = useState(false);
   const [sliderData, setSliderData] = useState([]);
   const [sliderImages, setSliderImages] = useState([]);
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   const { id } = useParams();
 
@@ -134,13 +125,12 @@ function ProductPageNew(props) {
 
         setLoadDel(false);
 
-        setError({
+        authCtx.showAlert({
           mainColor: "#FDEDED",
           secondaryColor: "#F16360",
           symbol: "error",
           title: "Error",
           text: "Unable to Delete",
-          val: true,
         });
       }
     } catch (error) {
@@ -148,13 +138,12 @@ function ProductPageNew(props) {
 
       setLoadDel(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "An unexpected error occurred",
-        val: true,
       });
     }
   };
@@ -364,8 +353,6 @@ function ProductPageNew(props) {
           )}
         </div>
       </div>
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }
