@@ -6,23 +6,12 @@ import axios from "axios";
 // state
 import AuthContext from "../../store/auth-context";
 
-// MicroInteraction
-import { Alert } from "./../../MicroInteraction/Alert";
-
 // css
 import DCss from "./Css/Des.module.css";
 
 export default function UpdateLabel(props) {
   const [edit, setEdit] = useState(false);
   const [editDesState, setEditDes] = useState("");
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   const authCtx = useContext(AuthContext);
 
@@ -30,13 +19,12 @@ export default function UpdateLabel(props) {
     setEdit(false);
 
     if (editDesState === "") {
-      setError({
+      authCtx.showAlert({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
         symbol: "pets",
         title: "Check it out",
         text: "Please Fill All The Details",
-        val: true,
       });
     } else {
       try {
@@ -59,32 +47,29 @@ export default function UpdateLabel(props) {
         if (response.data.success) {
           props.setChange(true);
 
-          setError({
+          authCtx.showAlert({
             mainColor: "#EDFEEE",
             secondaryColor: "#5CB660",
             symbol: "check_circle",
             title: "Success",
             text: "Successfully Updated",
-            val: true,
           });
         } else {
-          setError({
+          authCtx.showAlert({
             mainColor: "#FDEDED",
             secondaryColor: "#F16360",
             symbol: "error",
             title: "Error",
             text: "Update Failed",
-            val: true,
           });
         }
       } catch (e) {
-        setError({
+        authCtx.showAlert({
           mainColor: "#FDEDED",
           secondaryColor: "#F16360",
           symbol: "error",
           title: "Error",
           text: "Poduct Addition Failed",
-          val: true,
         });
 
         console.log(e);
@@ -202,8 +187,6 @@ export default function UpdateLabel(props) {
           )}
         </span>
       </div>
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }
