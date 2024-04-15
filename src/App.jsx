@@ -83,14 +83,18 @@ function App() {
               }
             />
 
-            <Route
-              path="/contact"
-              element={
-                <Suspense fallback={<LoadingPage />}>
-                  <Contact />
-                </Suspense>
-              }
-            />
+            {!authCtx.isLoggedIn ? (
+              <Route
+                path="/contact"
+                element={
+                  <Suspense fallback={<LoadingPage />}>
+                    <Contact />
+                  </Suspense>
+                }
+              />
+            ) : (
+              <Route path="/contact" element={<Navigate to="/me" replace />} />
+            )}
 
             <Route
               path="/privacy"
@@ -119,16 +123,23 @@ function App() {
               }
             />
 
-            <Route
-              path="/forgotpassword"
-              element={
-                <Suspense fallback={<LoadingPage />}>
-                  <ForgotPassword />
-                </Suspense>
-              }
-            />
+            {!authCtx.isLoggedIn ? (
+              <Route
+                path="/forgotpassword"
+                element={
+                  <Suspense fallback={<LoadingPage />}>
+                    <ForgotPassword />
+                  </Suspense>
+                }
+              />
+            ) : (
+              <Route
+                path="/forgotpassword"
+                element={<Navigate to="/me" replace />}
+              />
+            )}
 
-            {!authCtx.isLoggedIn && (
+            {!authCtx.isLoggedIn ? (
               <Route
                 path="/register"
                 element={
@@ -137,9 +148,11 @@ function App() {
                   </Suspense>
                 }
               />
+            ) : (
+              <Route path="/register" element={<Navigate to="/me" replace />} />
             )}
 
-            {!authCtx.isLoggedIn && (
+            {!authCtx.isLoggedIn ? (
               <Route
                 path="/signIn"
                 element={
@@ -148,6 +161,8 @@ function App() {
                   </Suspense>
                 }
               />
+            ) : (
+              <Route path="/signIn" element={<Navigate to="/me" replace />} />
             )}
 
             {authCtx.isLoggedIn ? (
