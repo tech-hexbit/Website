@@ -6,7 +6,6 @@ import AuthContext from "./../../../store/auth-context";
 
 // components
 import Load from "../../../MicroInteraction/Load";
-import { Alert } from "../../../MicroInteraction/Alert";
 
 // axios
 import axios from "axios";
@@ -22,14 +21,6 @@ export default function TicketDetailsOverlay({ selectedItem }) {
   const [data, setloadStore] = useState([]);
   const [fetchedData, setFetchedData] = useState({
     replyMessage: "",
-  });
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
   });
 
   const { StoreName, subject, StoreID, emailID, name, message, when, _id } =
@@ -63,28 +54,30 @@ export default function TicketDetailsOverlay({ selectedItem }) {
           ...prevData,
           replyMessage: response.data.replyMessage,
         }));
+
         setReplyMessage("");
+
         setLoad(false);
       } else {
         setLoad(false);
-        setError({
+
+        authCtx.showAlert({
           mainColor: "#FDEDED",
           secondaryColor: "#F16360",
           symbol: "error",
           title: "Failed to send",
           text: "Please all the details",
-          val: true,
         });
       }
     } catch (e) {
       setLoad(false);
-      setError({
+
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "An unexpected error occurred",
         text: "Failed to send",
-        val: true,
       });
     }
   };
@@ -111,13 +104,12 @@ export default function TicketDetailsOverlay({ selectedItem }) {
     } catch (e) {
       setLoad(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "An unexpected error occurred",
-        val: true,
       });
     }
   };
@@ -185,8 +177,6 @@ export default function TicketDetailsOverlay({ selectedItem }) {
           </>
         )}
       </div>
-
-      <Alert variant={variants} val={setError} />
     </div>
   );
 }

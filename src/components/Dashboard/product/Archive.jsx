@@ -11,7 +11,6 @@ import axios from "axios";
 
 // MicroInteraction
 import Load from "./../../../MicroInteraction/LoadBlack";
-import { Alert } from "./../../../MicroInteraction/Alert";
 
 // state
 import AuthContext from "./../../../store/auth-context";
@@ -28,14 +27,6 @@ export default function Archive({ setArchive }) {
   const [filteredlist, setfilteredlist] = useState({
     productList: [],
     prodcutsCount: 0,
-  });
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
   });
 
   const authCtx = useContext(AuthContext);
@@ -65,13 +56,12 @@ export default function Archive({ setArchive }) {
     } catch (e) {
       setLoad(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "An unexpected error occurred",
-        val: true,
       });
 
       console.log(e);
@@ -287,8 +277,6 @@ export default function Archive({ setArchive }) {
           )}
         </div>
       </div>
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }

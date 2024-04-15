@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 
 // components
 import Load from "./../../../MicroInteraction/Load";
-import { Alert } from "./../../../MicroInteraction/Alert";
 
 // state
 import AuthContext from "../../../store/auth-context";
@@ -17,14 +16,6 @@ import SDCss from "./Css/SellersDetails.module.css";
 export default function SellersDetails(props) {
   const [load, setLoad] = useState(false);
   const [showVer, setVer] = useState(false);
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   const authCtx = useContext(AuthContext);
 
@@ -47,15 +38,12 @@ export default function SellersDetails(props) {
 
         setVer(false);
 
-        console.log("first");
-
-        setError({
+        authCtx.showAlert({
           mainColor: "#EDFEEE",
           secondaryColor: "#5CB660",
           symbol: "check_circle",
           title: "Success",
           text: "Successfully Verified",
-          val: true,
         });
 
         props.hide(false);
@@ -63,13 +51,12 @@ export default function SellersDetails(props) {
       } else {
         setLoad(false);
 
-        setError({
+        authCtx.showAlert({
           mainColor: "#FDEDED",
           secondaryColor: "#F16360",
           symbol: "error",
           title: "Error",
           text: "An unexpected error occurred",
-          val: true,
         });
       }
     } catch (error) {
@@ -77,13 +64,12 @@ export default function SellersDetails(props) {
 
       setLoad(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "An unexpected error occurred",
-        val: true,
       });
     }
   };
@@ -214,8 +200,6 @@ export default function SellersDetails(props) {
           </div>
         </div>
       </div>
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }

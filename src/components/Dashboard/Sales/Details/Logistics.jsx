@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 
 // MicroInteraction
 import Load from "./../../../../MicroInteraction/LoadBlack";
-import { Alert } from "./../../../../MicroInteraction/Alert";
 
 // state
 import AuthContext from "../../../../store/auth-context";
@@ -21,14 +20,6 @@ export default function Logistics({
 }) {
   const [load, setLoad] = useState(false);
   const [showEdit, setEdit] = useState(false);
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
   const [showData, setData] = useState({
     id: "",
     url: "",
@@ -64,13 +55,12 @@ export default function Logistics({
     ) {
       setLoad(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "Please fill all the feilds",
-        val: true,
       });
       return;
     } else {
@@ -92,25 +82,23 @@ export default function Logistics({
 
           setLoadDataState(!loadDataState);
 
-          setError({
+          authCtx.showAlert({
             mainColor: "#EDFEEE",
             secondaryColor: "#5CB660",
             symbol: "check_circle",
             title: "Success",
             text: "Successfully Added",
-            val: true,
           });
           console.log(response.data);
         } else {
           setLoad(false);
 
-          setError({
+          authCtx.showAlert({
             mainColor: "#FDEDED",
             secondaryColor: "#F16360",
             symbol: "error",
             title: "Error",
             text: "Unable to add",
-            val: true,
           });
         }
       } catch (error) {
@@ -118,13 +106,12 @@ export default function Logistics({
 
         setLoad(false);
 
-        setError({
+        authCtx.showAlert({
           mainColor: "#FDEDED",
           secondaryColor: "#F16360",
           symbol: "error",
           title: "Error",
           text: "Unable to add",
-          val: true,
         });
       }
     }
@@ -406,8 +393,6 @@ export default function Logistics({
           </>
         )}
       </div>
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }

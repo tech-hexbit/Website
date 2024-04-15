@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext, useRef } from "react";
 
 // MicroInteraction
 import Load from "./../../MicroInteraction/Load";
-import { Alert } from "./../../MicroInteraction/Alert";
 
 // state
 import AuthContext from "../../store/auth-context";
@@ -19,14 +18,6 @@ export default function AddQuestiom(props) {
     question: "",
     answer: "",
     tag: "",
-  });
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
   });
 
   const authCtx = useContext(AuthContext);
@@ -54,13 +45,12 @@ export default function AddQuestiom(props) {
         if (response.data.success) {
           setLoad(false);
 
-          setError({
+          authCtx.showAlert({
             mainColor: "#EDFEEE",
             secondaryColor: "#5CB660",
             symbol: "check_circle",
             title: "Success",
             text: "Successfully Added",
-            val: true,
           });
 
           setData({
@@ -73,13 +63,12 @@ export default function AddQuestiom(props) {
         } else {
           setLoad(false);
 
-          setError({
+          authCtx.showAlert({
             mainColor: "#FDEDED",
             secondaryColor: "#F16360",
             symbol: "error",
             title: "Error",
             text: "Poduct Addition Failed",
-            val: true,
           });
         }
       } catch (error) {
@@ -87,25 +76,23 @@ export default function AddQuestiom(props) {
 
         setLoad(false);
 
-        setError({
+        authCtx.showAlert({
           mainColor: "#FDEDED",
           secondaryColor: "#F16360",
           symbol: "error",
           title: "Error",
           text: "Poduct Addition Failed",
-          val: true,
         });
       }
     } else {
       setLoad(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "Please fill all the feilds",
-        val: true,
       });
       return;
     }
@@ -189,8 +176,6 @@ export default function AddQuestiom(props) {
           </button>
         </div>
       </div>
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }

@@ -12,7 +12,6 @@ import MultipleImageHandler from "./../MultipleImageHandler";
 
 // MicroInteraction
 import Load from "./../../../../MicroInteraction/Load";
-import { Alert } from "./../../../../MicroInteraction/Alert";
 
 // axios
 import axios from "axios";
@@ -27,14 +26,6 @@ export default function Form({ domain }) {
   const [load, setLoad] = useState(false);
   const [imageUpload, setImageUpload] = useState();
   const [multipleImageUpload, setMultipleImageUpload] = useState([]);
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   const fileInp = useRef(null);
 
@@ -85,13 +76,12 @@ export default function Form({ domain }) {
     if (!imageUpload) {
       setLoad(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "Please select an Image",
-        val: true,
       });
       return;
     }
@@ -191,13 +181,12 @@ export default function Form({ domain }) {
         if (response.data.success) {
           setLoad(false);
 
-          setError({
+          authCtx.showAlert({
             mainColor: "#EDFEEE",
             secondaryColor: "#5CB660",
             symbol: "check_circle",
             title: "Success",
             text: "Successfully Added",
-            val: true,
           });
 
           setData({
@@ -227,13 +216,12 @@ export default function Form({ domain }) {
         } else {
           setLoad(false);
 
-          setError({
+          authCtx.showAlert({
             mainColor: "#FDEDED",
             secondaryColor: "#F16360",
             symbol: "error",
             title: "Error",
             text: "Poduct Addition Failed",
-            val: true,
           });
         }
       } catch (error) {
@@ -241,25 +229,23 @@ export default function Form({ domain }) {
 
         setLoad(false);
 
-        setError({
+        authCtx.showAlert({
           mainColor: "#FDEDED",
           secondaryColor: "#F16360",
           symbol: "error",
           title: "Error",
           text: "Poduct Addition Failed",
-          val: true,
         });
       }
     } else {
       setLoad(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
         symbol: "pets",
         title: "Check it out",
         text: "Please Fill All The Details",
-        val: true,
       });
     }
   };
@@ -341,8 +327,6 @@ export default function Form({ domain }) {
           {load ? <Load /> : "Submit"}
         </p>
       </div>
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }

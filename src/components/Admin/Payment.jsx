@@ -5,7 +5,6 @@ import PaymentTable from "./../Dashboard/PayDetails/PaymentTable";
 
 // MicroInteraction
 import Load from "./../../MicroInteraction/LoadBlack";
-import { Alert } from "./../../MicroInteraction/Alert";
 
 // axios
 import axios from "axios";
@@ -17,14 +16,6 @@ export default function Payment() {
   const [load, setLoad] = useState(false);
   const [reload, setreload] = useState(false);
   const [showData, setData] = useState([]);
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   const authCtx = useContext(AuthContext);
 
@@ -50,13 +41,12 @@ export default function Payment() {
 
       console.log(e);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "An unexpected error occurred",
-        val: true,
       });
     }
   };
@@ -74,8 +64,6 @@ export default function Payment() {
         setreload={setreload}
         reload={reload}
       />
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }

@@ -5,7 +5,6 @@ import AuthContext from "./../../../store/auth-context";
 
 // MicroInteraction
 import Load from "./../../../MicroInteraction/Load";
-import { Alert } from "./../../../MicroInteraction/Alert";
 
 // axios
 import axios from "axios";
@@ -25,15 +24,7 @@ export default function HelpDeskForm(props) {
     StoreID: "",
     subject: "",
     message: "",
-    resolveQuery : false
-  });
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
+    resolveQuery: false,
   });
 
   const authCtx = useContext(AuthContext);
@@ -41,7 +32,6 @@ export default function HelpDeskForm(props) {
   let menu = useRef();
 
   const handleSubmit = async (event) => {
-
     event.preventDefault();
 
     setLoad(true);
@@ -65,7 +55,7 @@ export default function HelpDeskForm(props) {
           StoreID: "",
           subject: "",
           message: "",
-          resolveQuery : "true"
+          resolveQuery: "true",
         });
 
         props.setSubmitted(true);
@@ -75,13 +65,12 @@ export default function HelpDeskForm(props) {
     } catch (e) {
       setLoad(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "Invalid Credentials",
-        val: true,
       });
     }
   };
@@ -102,7 +91,7 @@ export default function HelpDeskForm(props) {
 
       if (response.data.success) {
         setLoadMIStore(false);
-console.log(response.data.stoeList);
+        console.log(response.data.stoeList);
         setloadStore(response.data.stoeList);
       } else {
         setLoadMIStore(false);
@@ -110,13 +99,12 @@ console.log(response.data.stoeList);
     } catch (e) {
       setLoadMIStore(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "An unexpected error occurred",
-        val: true,
       });
     }
   };
@@ -304,8 +292,6 @@ console.log(response.data.stoeList);
           </form>
         </div>
       </div>
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }

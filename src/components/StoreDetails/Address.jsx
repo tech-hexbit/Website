@@ -8,7 +8,6 @@ import VerifiedFeilds from "./Input/VerifiedFeilds";
 
 // MicroInteraction
 import Load from "./../../MicroInteraction/LoadBlack";
-import { Alert } from "./../../MicroInteraction/Alert";
 
 // state
 import AuthContext from "./../../store/auth-context";
@@ -24,14 +23,6 @@ export default function Address({ disable, setDisable, showData, setData }) {
   const [load, setLoad] = useState(false);
   const [DropShow, hideDrop] = useState(false);
   const [verifyPin, setVerifyPin] = useState(false);
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   const authCtx = useContext(AuthContext);
 
@@ -64,25 +55,23 @@ export default function Address({ disable, setDisable, showData, setData }) {
       } else {
         setLoad(false);
 
-        setError({
+        authCtx.showAlert({
           mainColor: "#FFF4E5",
           secondaryColor: "#FFA117",
           symbol: "warning",
           title: "Warning",
           text: "Pin not found. Kindly try again.",
-          val: true,
         });
       }
     } catch (error) {
       console.log(error);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "An unexpected error occurred",
-        val: true,
       });
 
       setLoad(false);
@@ -225,8 +214,6 @@ export default function Address({ disable, setDisable, showData, setData }) {
 
         <Map showData={showData} setData={setData} />
       </div>
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }

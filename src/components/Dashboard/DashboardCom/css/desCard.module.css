@@ -1,7 +1,7 @@
 .mainDiv {
   max-width: 30%;
   width: 28%;
-  min-width: 260px;
+  min-width: 300px;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -61,4 +61,10 @@
 
 .decrease {
   color: #d0342c;
+}
+
+@media only screen and (max-width: 400px) {
+  .mainDiv {
+    min-width: 260px;
+  }
 }

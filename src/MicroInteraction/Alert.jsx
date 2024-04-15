@@ -1,42 +1,56 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useEffect, useContext } from "react";
+
+// state
+import AuthContext from "./../store/auth-context";
 
 // css
 import "./Css/Alert.css";
 
-export const Alert = ({ variant, val, email }) => {
+export const Alert = () => {
+  const authCtx = useContext(AuthContext);
+
+  console.table(authCtx.alert);
+
+  useEffect(() => {
+    if (authCtx.alert.show) {
+      setTimeout(() => {
+        authCtx.clearAlert();
+      }, 3000);
+    }
+  }, [authCtx.alert.show]);
+
   return (
-    <div className="alert-mDiv" id={variant.val ? "show" : "hide"}>
+    <div className="alert-mDiv" id={authCtx.alert.show ? "show" : "hide"}>
       <div
         className="alert-container"
         style={{
-          background: variant.mainColor,
-          border: "0.1rem solid " + variant.secondaryColor,
+          background: authCtx.alert.mainColor,
+          border: "0.1rem solid " + authCtx.alert.secondaryColor,
         }}
       >
         <div
           className="symbol-container"
-          style={{ background: variant.secondaryColor }}
+          style={{ background: authCtx.alert.secondaryColor }}
         >
           <div>
             <span class="material-symbols-outlined symbol colorIcon">
-              {variant.symbol}
+              {authCtx.alert.symbol}
             </span>
           </div>
         </div>
         <div className="description-container">
-          <span className="description-title">{variant.title}:</span>
-          <span className="description-text"> {variant.text}</span>
+          <span className="description-title">{authCtx.alert.title}:</span>
+          <span className="description-text"> {authCtx.alert.text}</span>
         </div>
-        <a className="symbol-close-link" onClick={() => val({ val: false })}>
+        <a
+          className="symbol-close-link"
+          onClick={() => {
+            authCtx.clearAlert();
+          }}
+        >
           <span class="material-symbols-outlined  colorIcon">close</span>
         </a>
       </div>
     </div>
   );
-};
-
-Alert.propTypes = {
-  variant: PropTypes.object.isRequired,
-  val: PropTypes.func.isRequired,
 };

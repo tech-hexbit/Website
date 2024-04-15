@@ -1,8 +1,5 @@
 import React, { useState, useContext } from "react";
 
-// components
-import Alert from "./Seller Components/Alert";
-
 // state
 import AuthContext from "../../../../store/auth-context";
 
@@ -18,14 +15,6 @@ import MandatoryField from "./Seller Components/MandatoryField";
 function SellerDetail(props) {
   const [load, setLoad] = useState(false);
   const [showVer, setVer] = useState(false);
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   const authCtx = useContext(AuthContext);
 
@@ -50,13 +39,12 @@ function SellerDetail(props) {
 
         console.log("first");
 
-        setError({
+        authCtx.showAlert({
           mainColor: "#EDFEEE",
           secondaryColor: "#5CB660",
           symbol: "check_circle",
           title: "Success",
           text: "Successfully Verified",
-          val: true,
         });
 
         props.hide(false);
@@ -64,13 +52,12 @@ function SellerDetail(props) {
       } else {
         setLoad(false);
 
-        setError({
+        authCtx.showAlert({
           mainColor: "#FDEDED",
           secondaryColor: "#F16360",
           symbol: "error",
           title: "Error",
           text: "An unexpected error occurred",
-          val: true,
         });
       }
     } catch (error) {
@@ -78,13 +65,12 @@ function SellerDetail(props) {
 
       setLoad(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "An unexpected error occurred",
-        val: true,
       });
     }
   };
@@ -132,8 +118,6 @@ function SellerDetail(props) {
           <p>Seller Info</p>
         </div>
 
-        {/* Alert */}
-        <Alert props={props} />
         {/* KYC INFO */}
         <KYCDetails props={props} />
       </div>

@@ -6,23 +6,12 @@ import axios from "axios";
 // state
 import AuthContext from "../../store/auth-context";
 
-// MicroInteraction
-import { Alert } from "./../../MicroInteraction/Alert";
-
 // css
 import BCss from "./Css/Box.module.css";
 
 export default function Box(props) {
   const [editDesState, setEditDes] = useState("");
   const [edit, setEdit] = useState(false);
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   const authCtx = useContext(AuthContext);
 
@@ -30,13 +19,12 @@ export default function Box(props) {
     if (editDesState === "") {
       setEdit(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
         symbol: "pets",
         title: "Check it out",
         text: "Please Fill All The Details",
-        val: true,
       });
 
       return;
@@ -66,32 +54,29 @@ export default function Box(props) {
       if (response.data.success) {
         props.setChange(true);
 
-        setError({
+        authCtx.showAlert({
           mainColor: "#EDFEEE",
           secondaryColor: "#5CB660",
           symbol: "check_circle",
           title: "Success",
           text: "Successfully Added",
-          val: true,
         });
       } else {
-        setError({
+        authCtx.showAlert({
           mainColor: "#FDEDED",
           secondaryColor: "#F16360",
           symbol: "error",
           title: "Error",
           text: "Poduct Addition Failed",
-          val: true,
         });
       }
     } catch (e) {
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "Poduct Addition Failed",
-        val: true,
       });
 
       console.log(e);
@@ -168,8 +153,6 @@ export default function Box(props) {
           <p className={BCss.value}>{props.value}</p>
         )}
       </div>
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }

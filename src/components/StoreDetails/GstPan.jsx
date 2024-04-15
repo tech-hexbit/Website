@@ -6,7 +6,6 @@ import InputType1 from "./Input/InputType1";
 
 // MicroInteraction
 import Load from "./../../MicroInteraction/LoadBlack";
-import { Alert } from "./../../MicroInteraction/Alert";
 
 //axios
 import axios from "axios";
@@ -23,14 +22,6 @@ export default function GstPan({ disable, setDisable, showData, setData }) {
   const [loadPan, setLoadPan] = useState(false);
   const [verifyPin, setVerifyPin] = useState(false);
   const [verifyPan, setVerifyPan] = useState(false);
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   const authCtx = useContext(AuthContext);
 
@@ -43,13 +34,12 @@ export default function GstPan({ disable, setDisable, showData, setData }) {
 
     try {
       if (showData.Gstin === "") {
-        setError({
+        authCtx.showAlert({
           mainColor: "#FFC0CB",
           secondaryColor: "#FF69B4",
           symbol: "error",
           title: "Check it out",
           text: "Please Fill The Details",
-          val: true,
         });
 
         setLoad(false);
@@ -78,25 +68,23 @@ export default function GstPan({ disable, setDisable, showData, setData }) {
       } else {
         setLoad(false);
 
-        setError({
+        authCtx.showAlert({
           mainColor: "#FFF4E5",
           secondaryColor: "#FFA117",
           symbol: "warning",
           title: "Warning",
           text: "Invalid GST No.",
-          val: true,
         });
       }
     } catch (error) {
       console.log(error);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "An unexpected error occurred",
-        val: true,
       });
 
       setLoad(false);
@@ -112,13 +100,12 @@ export default function GstPan({ disable, setDisable, showData, setData }) {
 
     try {
       if (showData.PanNo === "") {
-        setError({
+        authCtx.showAlert({
           mainColor: "#FFC0CB",
           secondaryColor: "#FF69B4",
           symbol: "error",
           title: "Check it out",
           text: "Please Fill The Details",
-          val: true,
         });
 
         setLoadPan(false);
@@ -144,25 +131,23 @@ export default function GstPan({ disable, setDisable, showData, setData }) {
       } else {
         setLoadPan(false);
 
-        setError({
+        authCtx.showAlert({
           mainColor: "#FFF4E5",
           secondaryColor: "#FFA117",
           symbol: "warning",
           title: "Warning",
           text: "Invalid PAN No.",
-          val: true,
         });
       }
     } catch (error) {
       console.log(error);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "An unexpected error occurred",
-        val: true,
       });
 
       setLoadPan(false);
@@ -285,8 +270,6 @@ export default function GstPan({ disable, setDisable, showData, setData }) {
           />
         )}
       </div>
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useEffect, useContext, useState, Suspense } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 
 // axios
@@ -8,43 +8,71 @@ import axios from "axios";
 import { Helmet } from "react-helmet";
 
 // components
+const Error = React.lazy(() => import("./../Pages/Error"));
 //          || SideBar
 import UserSideBar from "./../components/Dashboard/UserSideBar";
 //          || User
-import StoreVerify from "./StoreVerify";
-import Sales from "./../components/Dashboard/Sales";
-import Contact from "./../components/Dashboard/Contact";
-import Support from "./../components/Dashboard/Support";
-import Products from "./../components/Dashboard/Products";
-import HelpDesk from "./../components/Dashboard/HelpDesk";
-import PayDetails from "../components/Dashboard/PayDetails";
-import PayRequest from "../components/Dashboard/PayRequest";
-import ProfileMain from "./../components/Dashboard/Profile";
-import Complaints from "./../components/Dashboard/Complaints";
-import Categories from "./../components/Dashboard/Categories";
-import AddProduct from "./../components/Dashboard/AddProduct";
-import Dashboard from "./../components/Dashboard/DashboardMain";
-import Orderdetails from "./../components/Dashboard/Orderdetails";
-import ProductsPage from "./../components/ProductsPage/ProductsPage";
-import ProductPageNew from "../components/ProductsPage/ProductPageNew";
-import VerifyEmail from "../components/Dashboard/MainParts/VerifyEmail";
-import HelpDeskTable from "./../components/Dashboard/HelpDesk/HelpDeskFormTable";
+const StoreVerify = React.lazy(() => import("./StoreVerify"));
+const Sales = React.lazy(() => import("./../components/Dashboard/Sales"));
+const Contact = React.lazy(() => import("./../components/Dashboard/Contact"));
+const Support = React.lazy(() => import("./../components/Dashboard/Support"));
+const Products = React.lazy(() => import("./../components/Dashboard/Products"));
+const HelpDesk = React.lazy(() => import("./../components/Dashboard/HelpDesk"));
+const PayDetails = React.lazy(() =>
+  import("../components/Dashboard/PayDetails")
+);
+const PayRequest = React.lazy(() =>
+  import("../components/Dashboard/PayRequest")
+);
+const ProfileMain = React.lazy(() =>
+  import("./../components/Dashboard/Profile")
+);
+const Complaints = React.lazy(() =>
+  import("./../components/Dashboard/Complaints")
+);
+const Categories = React.lazy(() =>
+  import("./../components/Dashboard/Categories")
+);
+const AddProduct = React.lazy(() =>
+  import("./../components/Dashboard/AddProduct")
+);
+const Dashboard = React.lazy(() =>
+  import("./../components/Dashboard/DashboardMain")
+);
+const Orderdetails = React.lazy(() =>
+  import("./../components/Dashboard/Orderdetails")
+);
+const ProductsPage = React.lazy(() =>
+  import("./../components/ProductsPage/ProductsPage")
+);
+const ProductPageNew = React.lazy(() =>
+  import("../components/ProductsPage/ProductPageNew")
+);
+const VerifyEmail = React.lazy(() =>
+  import("../components/Dashboard/MainParts/VerifyEmail")
+);
+const HelpDeskTable = React.lazy(() =>
+  import("./../components/Dashboard/HelpDesk/HelpDeskFormTable")
+);
 //          || Admin
-import Payment from "../components/Admin/Payment";
-import TicketAdmin from "./../components/Admin/Ticket";
-import SupportAdmin from "./../components/Admin/Support";
-import SellersAdmin from "./../components/Admin/Sellers";
-
+const Payment = React.lazy(() => import("../components/Admin/Payment"));
+const TicketAdmin = React.lazy(() => import("./../components/Admin/Ticket"));
+const SupportAdmin = React.lazy(() => import("./../components/Admin/Support"));
+const SellersAdmin = React.lazy(() => import("./../components/Admin/Sellers"));
 //          || Super Admin
-import FrontPage from "./../components/MainAdmin/FrontPage";
-import SelectSellerDetail from "../components/Admin/Sellers/Seller Main/SelectSellerDetail";
+const FrontPage = React.lazy(() =>
+  import("./../components/MainAdmin/FrontPage")
+);
+const SelectSellerDetail = React.lazy(() =>
+  import("../components/Admin/Sellers/Seller Main/SelectSellerDetail")
+);
 
 // state
 import AuthContext from "./../store/auth-context";
 
 // MicroInteraction
 import Load from "./../MicroInteraction/LoadBlack";
-import { Alert } from "./../MicroInteraction/Alert";
+import LoadingPage from "./../MicroInteraction/Loading";
 
 // Css
 import PCss from "./Css/Profile.module.css";
@@ -52,14 +80,6 @@ import PCss from "./Css/Profile.module.css";
 export default function Profile() {
   const [load, setLoad] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   const authCtx = useContext(AuthContext);
 
@@ -81,13 +101,12 @@ export default function Profile() {
     } catch (e) {
       setLoad(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "Unable to Send Mail",
-        val: true,
       });
 
       console.log(e);
@@ -161,63 +180,253 @@ export default function Profile() {
                 {/* Admin */}
                 {authCtx.user.access === 0 && (
                   <>
-                    <Route path="/admin/tickets" element={<TicketAdmin />} />
-                    <Route path="/admin/support" element={<SupportAdmin />} />
-                    <Route path="/admin/sellers" element={<SellersAdmin />} />
-                    <Route path="/admin/paymentdetails" element={<Payment />} />
+                    <Route
+                      path="/admin/tickets"
+                      element={
+                        <Suspense fallback={<LoadingPage />}>
+                          <TicketAdmin />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/admin/support"
+                      element={
+                        <Suspense fallback={<LoadingPage />}>
+                          <SupportAdmin />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/admin/sellers"
+                      element={
+                        <Suspense fallback={<LoadingPage />}>
+                          <SellersAdmin />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/admin/paymentdetails"
+                      element={
+                        <Suspense fallback={<LoadingPage />}>
+                          <Payment />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/*"
+                      element={
+                        <Suspense fallback={<LoadingPage />}>
+                          <Error />
+                        </Suspense>
+                      }
+                    />
                   </>
                 )}
 
                 {/* Super Admin */}
                 {authCtx.user.access === 2 && (
                   <>
-                    <Route path="/admin/super/List" element={<FrontPage />} />
-                    <Route path="/admin/paymentdetails" element={<Payment />} />
+                    <Route
+                      path="/admin/super/List"
+                      element={
+                        <Suspense fallback={<LoadingPage />}>
+                          <FrontPage />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/admin/paymentdetails"
+                      element={
+                        <Suspense fallback={<LoadingPage />}>
+                          <Payment />
+                        </Suspense>
+                      }
+                    />
                     <Route
                       path="/admin/super/SellerKYC"
-                      element={<SellersAdmin head={true} />}
+                      element={
+                        <Suspense fallback={<LoadingPage />}>
+                          <SellersAdmin head={true} />
+                        </Suspense>
+                      }
                     />
                     <Route
                       path="/admin/super/Support"
-                      element={<SupportAdmin />}
+                      element={
+                        <Suspense fallback={<LoadingPage />}>
+                          <SupportAdmin />
+                        </Suspense>
+                      }
                     />
                     <Route
                       path="/admin/super/Ticket"
-                      element={<TicketAdmin />}
+                      element={
+                        <Suspense fallback={<LoadingPage />}>
+                          <TicketAdmin />
+                        </Suspense>
+                      }
                     />
                     <Route
                       path="/admin/super/SellerInfo"
-                      element={<SelectSellerDetail />}
+                      element={
+                        <Suspense fallback={<LoadingPage />}>
+                          <SelectSellerDetail />
+                        </Suspense>
+                      }
                     />
-                    <Route path="/products/:id" element={<ProductPageNew />} />
+                    <Route
+                      path="/products/:id"
+                      element={
+                        <Suspense fallback={<LoadingPage />}>
+                          <ProductPageNew />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/*"
+                      element={
+                        <Suspense fallback={<LoadingPage />}>
+                          <Error />
+                        </Suspense>
+                      }
+                    />
                   </>
                 )}
 
                 {/* Users */}
                 {authCtx.user.access === 1 && (
                   <>
-                    <Route path="/sales" element={<Sales />} />
-                    <Route path="/faqs" element={<Support />} />
-                    <Route path="/contact" element={<Contact />} />
-                    <Route path="/products" element={<Products />} />
-                    <Route path="/help/desk" element={<HelpDesk />} />
-                    <Route path="/dashboard" element={<Dashboard />} />
-                    <Route path="/Inventory" element={<Categories />} />
-                    <Route path="/complaints" element={<Complaints />} />
-                    <Route path="/addProduct" element={<AddProduct />} />
-                    <Route path="/products/:id" element={<ProductPageNew />} />
-                    <Route path="/Payment/Details" element={<PayDetails />} />
-                    <Route path="/Payment/Request" element={<PayRequest />} />
+                    <Route
+                      path="/sales"
+                      element={
+                        <Suspense fallback={<LoadingPage />}>
+                          <Sales />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/faqs"
+                      element={
+                        <Suspense fallback={<LoadingPage />}>
+                          <Support />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/contact"
+                      element={
+                        <Suspense fallback={<LoadingPage />}>
+                          <Contact />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/products"
+                      element={
+                        <Suspense fallback={<LoadingPage />}>
+                          <Products />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/help/desk"
+                      element={
+                        <Suspense fallback={<LoadingPage />}>
+                          <HelpDesk />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/dashboard"
+                      element={
+                        <Suspense fallback={<LoadingPage />}>
+                          <Dashboard />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/Inventory"
+                      element={
+                        <Suspense fallback={<LoadingPage />}>
+                          <Categories />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/complaints"
+                      element={
+                        <Suspense fallback={<LoadingPage />}>
+                          <Complaints />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/addProduct"
+                      element={
+                        <Suspense fallback={<LoadingPage />}>
+                          <AddProduct />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/products/:id"
+                      element={
+                        <Suspense fallback={<LoadingPage />}>
+                          <ProductPageNew />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/Payment/Details"
+                      element={
+                        <Suspense fallback={<LoadingPage />}>
+                          <PayDetails />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/Payment/Request"
+                      element={
+                        <Suspense fallback={<LoadingPage />}>
+                          <PayRequest />
+                        </Suspense>
+                      }
+                    />
                     <Route
                       path="/orderdetails/:id"
-                      element={<Orderdetails />}
+                      element={
+                        <Suspense fallback={<LoadingPage />}>
+                          <Orderdetails />
+                        </Suspense>
+                      }
                     />
                     <Route
                       path="/help/desk/ViewMore"
-                      element={<HelpDeskTable />}
+                      element={
+                        <Suspense fallback={<LoadingPage />}>
+                          <HelpDeskTable />
+                        </Suspense>
+                      }
+                    />
+                    <Route
+                      path="/*"
+                      element={
+                        <Suspense fallback={<LoadingPage />}>
+                          <Error />
+                        </Suspense>
+                      }
                     />
                   </>
                 )}
+
+                <Route
+                  path="/*"
+                  element={
+                    <Suspense fallback={<LoadingPage />}>
+                      <Error />
+                    </Suspense>
+                  }
+                />
               </Routes>
             </div>
           </>
@@ -228,14 +437,20 @@ export default function Profile() {
               <>
                 <Routes>
                   <Route path="/" element={<StoreVerify />} />
+                  <Route
+                    path="/*"
+                    element={
+                      <Suspense fallback={<LoadingPage />}>
+                        <Error />
+                      </Suspense>
+                    }
+                  />
                 </Routes>
               </>
             )}
           </>
         )}
       </div>
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }

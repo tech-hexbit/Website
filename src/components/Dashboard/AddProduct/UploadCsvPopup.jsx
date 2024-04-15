@@ -20,14 +20,14 @@ const UploadCsvPopup = ({ setShowPopup, setError }) => {
 
   const handleSubmit = async () => {
     if (!file) {
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "Please Select a file",
-        val: true,
       });
+
       return;
     }
 
@@ -45,22 +45,20 @@ const UploadCsvPopup = ({ setShowPopup, setError }) => {
     });
 
     if (response.status === 200) {
-      setError({
+      authCtx.showAlert({
         mainColor: "#EDFEEE",
         secondaryColor: "#5CB660",
         symbol: "check_circle",
         title: "Success",
         text: "Uploaded CSV",
-        val: true,
       });
     } else {
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "Cannot upload file",
-        val: true,
       });
     }
     setShowPopup(false);

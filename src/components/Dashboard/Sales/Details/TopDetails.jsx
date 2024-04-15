@@ -78,51 +78,34 @@ export default function TopDetails({ del }) {
           </div>
         </div>
 
+        {/* Payment */}
+        <div className={odcss.BlockSub} id={odcss.paymentDetails}>
+          <div className={odcss.SubHeading}>Payment details</div>
+          <div className={odcss.ContentDels}>
+            <p className={odcss.pl1}>Total amount : ₹ {del.amount}</p>
+            <p className={odcss.pl1}>Status : {del.payment.status}</p>
+            <p className={odcss.pl1}>
+              Collected By : {del.payment.collected_by}
+            </p>
+          </div>
+        </div>
+
         {/* Shipping */}
         <div className={odcss.BlockSub} id={odcss.shippingDetails}>
           <div className={odcss.SubHeading}>Shipping address</div>
           <div className={odcss.ContentDels}>
             <div className={odcss.adress}>
-              <p className={odcss.adl1}>Name: {del.ONDCBilling.address.name}</p>
-              <p className={odcss.adl1}>
-                Building: {del.ONDCBilling.address.building}
+              <p className={odcss.adl1}>{del.ONDCBilling.address.name}</p>
+              <p>
+                {del.ONDCBilling.address.building},{" "}
+                {del.ONDCBilling.address.locality},{" "}
+                {del.ONDCBilling.address.city}, {del.ONDCBilling.address.state}
               </p>
-              <p className={odcss.adl1}>
-                Locality: {del.ONDCBilling.address.locality}
-              </p>
-              <p className={odcss.adl1}>City: {del.ONDCBilling.address.city}</p>
-              <p className={odcss.adl1}>
-                State: {del.ONDCBilling.address.state}
-              </p>
-              <p className={odcss.adl1}>
-                Country: {del.ONDCBilling.address.country}
-              </p>
-              <p className={odcss.adl1}>
-                Area Code: {del.ONDCBilling.address.area_code}
+              <p>
+                {del.ONDCBilling.address.area_code},{" "}
+                {del.ONDCBilling.address.country}
               </p>
             </div>
-          </div>
-        </div>
-
-        {/* Payment */}
-        <div className={odcss.BlockSub} id={odcss.paymentDetails}>
-          <div className={odcss.SubHeading}>Payment details</div>
-          <div className={odcss.ContentDels}>
-            <p className={odcss.pl1}>
-              Payment method : {del.payment.tl_method}
-            </p>
-            <p className={odcss.pl1}>
-              Card holder name :{" "}
-              {del.payment["@ondc/org/settlement_details"][0].beneficiary_name}
-            </p>
-            <p className={odcss.pl1}>
-              Card number/ UPI ID :{" "}
-              {
-                del.payment["@ondc/org/settlement_details"][0]
-                  .settlement_bank_account_no
-              }
-            </p>
-            <p className={odcss.pl1}>Total amount : ₹ {del.amount}</p>
           </div>
         </div>
       </div>

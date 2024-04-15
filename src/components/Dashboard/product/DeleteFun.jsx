@@ -9,21 +9,12 @@ import axios from "axios";
 
 // MicroInteraction
 import Load from "./../../../MicroInteraction/LoadBlack";
-import { Alert } from "./../../../MicroInteraction/Alert";
 
 // css
 import DCss from "./Css/display.module.css";
 
 export default function DeleteFun({ id, loadData, code }) {
   const [loadDel, setLoadDel] = useState(false);
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   const authCtx = useContext(AuthContext);
 
@@ -42,15 +33,12 @@ export default function DeleteFun({ id, loadData, code }) {
       } else {
         setLoadDel(false);
 
-        console.log("error");
-
-        setError({
+        authCtx.showAlert({
           mainColor: "#FDEDED",
           secondaryColor: "#F16360",
           symbol: "error",
           title: "Error",
           text: "Unable to Delete",
-          val: true,
         });
       }
     } catch (error) {
@@ -58,13 +46,12 @@ export default function DeleteFun({ id, loadData, code }) {
 
       setLoadDel(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "An unexpected error occurred",
-        val: true,
       });
     }
   };
@@ -89,13 +76,12 @@ export default function DeleteFun({ id, loadData, code }) {
 
         console.log("error");
 
-        setError({
+        authCtx.showAlert({
           mainColor: "#FDEDED",
           secondaryColor: "#F16360",
           symbol: "error",
           title: "Error",
           text: "Unable to Add",
-          val: true,
         });
       }
     } catch (error) {
@@ -103,13 +89,12 @@ export default function DeleteFun({ id, loadData, code }) {
 
       setLoadDel(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "An unexpected error occurred",
-        val: true,
       });
     }
   };
@@ -171,8 +156,6 @@ export default function DeleteFun({ id, loadData, code }) {
           )}
         </div>
       </div>
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }

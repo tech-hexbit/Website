@@ -3,9 +3,6 @@ import React, { useState, useEffect, useContext } from "react";
 // axios
 import axios from "axios";
 
-// MicroInteraction
-import { Alert } from "./../../MicroInteraction/Alert";
-
 // state
 import AuthContext from "./../../store/auth-context";
 
@@ -29,14 +26,6 @@ export default function Products() {
   const [filteredlist, setfilteredlist] = useState({
     productList: [],
     prodcutsCount: 0,
-  });
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
   });
 
   const authCtx = useContext(AuthContext);
@@ -140,8 +129,6 @@ export default function Products() {
           </div>
         </div>
       )}
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }

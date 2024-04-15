@@ -6,7 +6,6 @@ import axios from "axios";
 
 // MicroInteraction
 import Load from "./../../../MicroInteraction/LoadBlack";
-import { Alert } from "./../../../MicroInteraction/Alert";
 
 // state
 import AuthContext from "../../../store/auth-context";
@@ -28,14 +27,6 @@ export default function BankData({
     City: "",
     Branch: "",
     IfscCode: "",
-  });
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
   });
 
   const authCtx = useContext(AuthContext);
@@ -76,25 +67,23 @@ export default function BankData({
       } else {
         setLoad(false);
 
-        setError({
+        authCtx.showAlert({
           mainColor: "#FFF4E5",
           secondaryColor: "#FFA117",
           symbol: "warning",
           title: "Warning",
           text: "Invalid Bank Info",
-          val: true,
         });
       }
     } catch (error) {
       console.error("Error saving bank info", error);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "An unexpected error occurred",
-        val: true,
       });
 
       setLoad(false);
@@ -123,13 +112,12 @@ export default function BankData({
       if (response.data.success) {
         setLoad(false);
 
-        setError({
+        authCtx.showAlert({
           mainColor: "#EDFEEE",
           secondaryColor: "#5CB660",
           symbol: "check_circle",
           title: "Success",
           text: "Successfully Added",
-          val: true,
         });
 
         setIsDialogOpen(!isDialogOpen);
@@ -138,25 +126,23 @@ export default function BankData({
       } else {
         setLoad(false);
 
-        setError({
+        authCtx.showAlert({
           mainColor: "#FFF4E5",
           secondaryColor: "#FFA117",
           symbol: "warning",
           title: "Warning",
           text: "Invalid Bank Info",
-          val: true,
         });
       }
     } catch (error) {
       console.error(error);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "An unexpected error occurred",
-        val: true,
       });
 
       setLoad(false);
@@ -266,8 +252,6 @@ export default function BankData({
           </div>
         </div>
       </div>
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }

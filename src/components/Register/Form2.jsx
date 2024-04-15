@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 
 // MicroInteraction
 import Load from "./../../MicroInteraction/Load";
-import { Alert } from "./../../MicroInteraction/Alert";
 
 // axios
 import axios from "axios";
@@ -14,14 +13,6 @@ export default function Form2(props) {
   const [load, setLoad] = useState(false);
   const [verifyPin, setVerify] = useState(false);
   const [disable, setDisable] = useState(false);
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   const pincodeVerify = async () => {
     setLoad(true);
@@ -45,26 +36,24 @@ export default function Form2(props) {
       } else {
         setLoad(false);
 
-        setError({
+        authCtx.showAlert({
           mainColor: "#FFC0CB",
           secondaryColor: "#FF69B4",
           symbol: "pets",
           title: "Check it out",
           text: "Invalid pincode",
-          val: true,
         });
         setVerify(false);
       }
     } catch (e) {
       console.log(e);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "An unexpected error occurred",
-        val: true,
       });
 
       setLoad(false);
@@ -79,25 +68,23 @@ export default function Form2(props) {
       props.input.Pincode == "" ||
       props.input.AdditionalInfo == ""
     ) {
-      setError({
+      authCtx.showAlert({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
         symbol: "pets",
         title: "Check it out",
         text: "Please Fill All The Details",
-        val: true,
       });
     } else if (!verifyPin) {
-      setError({
+      authCtx.showAlert({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
         symbol: "pets",
         title: "Check it out",
         text: "Invalid pincode",
-        val: true,
       });
     } else {
-      setError({
+      authCtx.showAlert({
         mainColor: "",
         secondaryColor: "",
         symbol: "",
@@ -357,8 +344,6 @@ export default function Form2(props) {
           </div>
         </div>
       </div>
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }

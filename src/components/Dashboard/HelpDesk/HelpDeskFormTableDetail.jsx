@@ -14,20 +14,10 @@ import tableDetailStyle from "./Css/HelpDeskFormTableDetail.module.css";
 import Load from "../../../MicroInteraction/Load";
 
 export default function HelpDeskFormTableDetail({ tableData }) {
-  
-    const [querySolved , setQuerySolved] = useState(false);
-    const [load, setLoad] = useState(false);
+  const [load, setLoad] = useState(false);
+  const [querySolved, setQuerySolved] = useState(false);
 
   const authCtx = useContext(AuthContext);
-
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   const resolveQueryHandler = async (event) => {
     event.preventDefault();
@@ -37,7 +27,7 @@ export default function HelpDeskFormTableDetail({ tableData }) {
       query_id: tableData._id,
       resolveQuery: true,
     };
-  
+
     try {
       const response = await axios.post(
         "/api/website/ContactUs/user/post/resolveQuery",
@@ -48,28 +38,24 @@ export default function HelpDeskFormTableDetail({ tableData }) {
       );
 
       if (response.data.success) {
-        
         setLoad(false);
         if (response.data.resolvedQuery === true) {
           setQuerySolved(true);
         } else {
           throw new Error("Could not resolve query");
         }
-        // tableVal([...tableData, { resolveQuery: response.data.resolvedQuery }]);
-
       } else {
         setLoad(false);
       }
     } catch (e) {
       setLoad(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "Invalid Credentials",
-        val: true,
       });
     }
   };
@@ -132,23 +118,29 @@ export default function HelpDeskFormTableDetail({ tableData }) {
         <p>{tableData.message}</p>
         {tableData.replyMessage && (
           <div className={tableDetailStyle.replyMessage}>
-          <label className={tableDetailStyle.message}>Reply*</label>
+            <label className={tableDetailStyle.message}>Reply*</label>
             <p>{tableData.replyMessage}</p>
           </div>
         )}
       </div>
 
       {/* Resolve Button */}
-      
-        <div className={tableDetailStyle.resolveButton}>
-        { load ? <div className={tableDetailStyle.loading}>
-          <Load/> 
-        </div> : <p onClick={resolveQueryHandler} className={tableDetailStyle.resolveButtonText}>
-  {(!tableData.resolvedQuery && !querySolved ) ? "Resolve Query" : "Query resolved"}
-</p>}
-
-        </div>
-      
+      <div className={tableDetailStyle.resolveButton}>
+        {load ? (
+          <div className={tableDetailStyle.loading}>
+            <Load />
+          </div>
+        ) : (
+          <p
+            onClick={resolveQueryHandler}
+            className={tableDetailStyle.resolveButtonText}
+          >
+            {!tableData.resolvedQuery && !querySolved
+              ? "Resolve Query"
+              : "Query resolved"}
+          </p>
+        )}
+      </div>
     </div>
   );
 }

@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext, useRef } from "react";
 
 // MicroInteraction
 import Load from "./../../../MicroInteraction/LoadBlack";
-import { Alert } from "./../../../MicroInteraction/Alert";
 
 // state
 import AuthContext from "./../../../store/auth-context";
@@ -21,14 +20,6 @@ export default function UpdateInfo({ update, setUpdate }) {
     longDescResolution: "",
     actionTriggered: "",
     refundAmount: "",
-  });
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
   });
 
   const authCtx = useContext(AuthContext);
@@ -183,8 +174,6 @@ export default function UpdateInfo({ update, setUpdate }) {
           </div>
         </div>
       </div>
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }

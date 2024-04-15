@@ -10,7 +10,6 @@ import AuthContext from "./../../../store/auth-context";
 
 // MicroInteraction
 import Load from "./../../../MicroInteraction/LoadBlack";
-import { Alert } from "./../../../MicroInteraction/Alert";
 
 // axios
 import axios from "axios";
@@ -24,14 +23,6 @@ export default function HelpDeskFormTable() {
   const [data, setloadStore] = useState([]);
   const [tableData, setTableData] = useState([]);
   const [hideTabel, setHideTabel] = useState(false);
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   const authCtx = useContext(AuthContext);
 
@@ -55,13 +46,12 @@ export default function HelpDeskFormTable() {
     } catch (e) {
       setLoad(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "An unexpected error occurred",
-        val: true,
       });
     }
   };
@@ -209,8 +199,6 @@ export default function HelpDeskFormTable() {
           </div>
         )}
       </div>
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }

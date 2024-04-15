@@ -15,7 +15,6 @@ import AuthContext from "./../../../store/auth-context";
 
 // MicroInteraction
 import Load from "./../../../MicroInteraction/LoadBlack";
-import { Alert } from "./../../../MicroInteraction/Alert";
 
 // Css
 import "./Css/Common.css";
@@ -25,14 +24,6 @@ export default function Header() {
   const [load, setLoad] = useState(false);
   const [showEdit, setEdit] = useState(false);
   const [userData, setUserData] = useState();
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   const authCtx = useContext(AuthContext);
 
@@ -128,7 +119,7 @@ export default function Header() {
               ""
             ) : (
               <div className={showEdit ? "showEdit" : "hideEdit"}>
-                <EditProfileImage setEdit={setEdit} setError={setError} />
+                <EditProfileImage setEdit={setEdit} />
               </div>
             )}
           </>
@@ -188,8 +179,6 @@ export default function Header() {
           </>
         )}
       </div>
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }

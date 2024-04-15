@@ -28,6 +28,7 @@ export default function Categories() {
   const [filterData, setfilterData] = useState({
     category: [],
   });
+
   const authCtx = useContext(AuthContext);
 
   const loadData = async () => {

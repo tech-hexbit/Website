@@ -6,7 +6,6 @@ import axios from "axios";
 
 // state
 import AuthContext from "./../../store/auth-context";
-import { Alert } from "./../../MicroInteraction/Alert";
 
 //component
 import UploadFilesMain from "./UploadFilesMain";
@@ -17,14 +16,6 @@ import PrCss from "./Css/Particulars.module.css";
 export default function UploadFiles({ images, setImages }) {
   const [load, setLoad] = useState(false);
   const [imageUpload, setImageUpload] = useState({ val: "", img: "" });
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   const authCtx = useContext(AuthContext);
 
@@ -51,36 +42,33 @@ export default function UploadFiles({ images, setImages }) {
         if (response.data.success) {
           setLoad(false);
 
-          setError({
+          authCtx.showAlert({
             mainColor: "#EDFEEE",
             secondaryColor: "#5CB660",
             symbol: "check_circle",
             title: "Success",
             text: "Updated !!",
-            val: true,
           });
         } else {
           setLoad(false);
 
-          setError({
+          authCtx.showAlert({
             mainColor: "#FDEDED",
             secondaryColor: "#F16360",
             symbol: "error",
             title: "Error",
             text: "An Unexpected Error Occured",
-            val: true,
           });
         }
       } catch (error) {
         setLoad(false);
 
-        setError({
+        authCtx.showAlert({
           mainColor: "#FDEDED",
           secondaryColor: "#F16360",
           symbol: "error",
           title: "Error",
           text: "An Unexpected Error Occured",
-          val: true,
         });
 
         console.log(error);
@@ -88,13 +76,12 @@ export default function UploadFiles({ images, setImages }) {
     } else {
       setLoad(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
         symbol: "pets",
         title: "Check it out",
         text: "Please Select your Logo",
-        val: true,
       });
     }
   };
@@ -132,8 +119,6 @@ export default function UploadFiles({ images, setImages }) {
         imageUpload={imageUpload}
         onSubmitFun={onSubmit}
       />
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }

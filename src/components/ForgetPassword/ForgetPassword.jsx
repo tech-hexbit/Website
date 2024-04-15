@@ -10,7 +10,6 @@ import Information from "./Information";
 
 // MicroInteraction
 import Load from "../../MicroInteraction/Load";
-import { Alert } from "./../../MicroInteraction/Alert";
 
 // axios
 import axios from "axios";
@@ -27,14 +26,6 @@ export default function ForgetPassword() {
     isEmailValid: true,
     passwordsMatch: false,
     reset: false,
-  });
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
   });
 
   const navigate = useNavigate();
@@ -54,13 +45,12 @@ export default function ForgetPassword() {
     if (!isEmailValid) {
       setLoad(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
         symbol: "pets",
         title: "Check it out",
         text: "Please Enter Valid Email address",
-        val: true,
       });
 
       return;
@@ -81,13 +71,12 @@ export default function ForgetPassword() {
         } else {
           setLoad(false);
 
-          setError({
+          authCtx.showAlert({
             mainColor: "#E5F6FD",
             secondaryColor: "#1AB1F5",
             symbol: "info",
             title: "Information",
             text: "Email ID does not exist",
-            val: true,
           });
         }
       } catch (error) {
@@ -95,13 +84,12 @@ export default function ForgetPassword() {
 
         setLoad(false);
 
-        setError({
+        authCtx.showAlert({
           mainColor: "#FDEDED",
           secondaryColor: "#F16360",
           symbol: "error",
           title: "Error",
           text: "An unexpected error occurred",
-          val: true,
         });
       }
     }
@@ -114,13 +102,12 @@ export default function ForgetPassword() {
     if (!state.passwordsMatch) {
       setLoad(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#E5F6FD",
         secondaryColor: "#1AB1F5",
         symbol: "info",
         title: "Information",
         text: "Passwords didn't matched",
-        val: true,
       });
 
       return;
@@ -144,13 +131,12 @@ export default function ForgetPassword() {
         } else {
           setLoad(false);
 
-          setError({
+          authCtx.showAlert({
             mainColor: "#E5F6FD",
             secondaryColor: "#1AB1F5",
             symbol: "info",
             title: "Information",
             text: "Email ID does not exist",
-            val: true,
           });
         }
       } catch (error) {
@@ -158,13 +144,12 @@ export default function ForgetPassword() {
 
         setLoad(false);
 
-        setError({
+        authCtx.showAlert({
           mainColor: "#FDEDED",
           secondaryColor: "#F16360",
           symbol: "error",
           title: "Error",
           text: "An unexpected error occurred",
-          val: true,
         });
       }
     }
@@ -233,8 +218,6 @@ export default function ForgetPassword() {
       </div>
 
       <Information />
-
-      <Alert variant={variants} val={setError} />
     </div>
   );
 }

@@ -6,7 +6,6 @@ import axios from "axios";
 
 // MicroInteraction
 import Load from "../../MicroInteraction/Load";
-import { Alert } from "./../../MicroInteraction/Alert";
 
 // components
 import OTP from "./OTP";
@@ -25,14 +24,6 @@ export default function SignInForm() {
   const [load, setLoad] = useState(false);
   const [seeOTP, hideOTP] = useState(false);
   const [input, setInput] = useState({ email: "", password: "" });
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   const authCtx = useContext(AuthContext);
 
@@ -43,13 +34,13 @@ export default function SignInForm() {
 
     if (input.email == "" || input.password == "") {
       setLoad(false);
-      setError({
+
+      authCtx.showAlert({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
         symbol: "pets",
         title: "Check it out",
         text: "Please Fill All The Details",
-        val: true,
       });
     } else {
       try {
@@ -60,13 +51,12 @@ export default function SignInForm() {
         if (response.data.success) {
           setLoad(false);
 
-          setError({
+          authCtx.showAlert({
             mainColor: "#EDFEEE",
             secondaryColor: "#5CB660",
             symbol: "check_circle",
             title: "Success",
             text: "Logged In",
-            val: true,
           });
 
           if (response.data.user[0].Store[0].StoreID.validation) {
@@ -98,42 +88,27 @@ export default function SignInForm() {
         } else {
           setLoad(false);
           if (response.data?.code === 1) {
-            setError({
+            authCtx.showAlert({
               mainColor: "#E5F6FD",
               secondaryColor: "#1AB1F5",
               symbol: "info",
               title: "Information",
               text: "email",
-              val: true,
             });
           }
         }
       } catch (e) {
         setLoad(false);
-        setError({
+        authCtx.showAlert({
           mainColor: "#FDEDED",
           secondaryColor: "#F16360",
           symbol: "error",
           title: "Error",
           text: "Invalid Credentials",
-          val: true,
         });
       }
     }
   };
-
-  useEffect(() => {
-    setTimeout(() => {
-      setError({
-        mainColor: "",
-        secondaryColor: "",
-        symbol: "",
-        title: "",
-        text: "",
-        val: false,
-      });
-    }, 10000);
-  }, [variants]);
 
   useEffect(() => {
     if (seeOTP) {
@@ -289,8 +264,6 @@ export default function SignInForm() {
           </div>
         </div>
       </div>
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }

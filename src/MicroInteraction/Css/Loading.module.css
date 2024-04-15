@@ -18,7 +18,7 @@
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  border-top: 2px solid #0009D1;
+  border-top: 2px solid #cc91ff;
   border-left: 1px solid transparent;
   border-right: 1px solid transparent;
   animation: rt 2s infinite linear;
@@ -34,7 +34,7 @@
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  border-top: 2px solid #FF00C7;
+  border-top: 2px solid #262626;
   border-left: 1px solid transparent;
   border-right: 1px solid transparent;
   animation: rt 4s infinite linear reverse;
@@ -72,7 +72,7 @@
   letter-spacing: 0.1em;
   font-size: 14px;
   font-weight: lighter;
-  color: #FF00C7;
+  color: #262626;
 }
 
 .loadingSpanH1 span {
@@ -86,7 +86,7 @@
 
 .loadingSpanH1 {
   font-family: "Manrope", sans-serif;
-  color: #FF00C7;
+  color: #262626;
 }
 
 .loadingSpan {

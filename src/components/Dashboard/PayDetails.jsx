@@ -30,14 +30,6 @@ export default function PayDetails() {
       pending: 0,
     },
   });
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
 
   const authCtx = useContext(AuthContext);
 
@@ -67,13 +59,12 @@ export default function PayDetails() {
     } catch (e) {
       setLoad(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
         symbol: "error",
         title: "Error",
         text: "An unexpected error occurred",
-        val: true,
       });
 
       console.log(e);
@@ -91,8 +82,6 @@ export default function PayDetails() {
         <PaymentList showlist={showlist} />
         <PaymentTable showData={showData} />
       </div>
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 }

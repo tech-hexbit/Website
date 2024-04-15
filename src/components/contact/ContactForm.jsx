@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+
+// state
+import AuthContext from "./../../store/auth-context";
 
 // components
-import { Alert } from "./../../MicroInteraction/Alert";
 import Load from "./../../MicroInteraction/Load";
 
 // axios
@@ -19,14 +21,8 @@ const ContactForm = () => {
     subject: "",
     message: "",
   });
-  const [variants, setError] = useState({
-    mainColor: "",
-    secondaryColor: "",
-    symbol: "",
-    title: "",
-    text: "",
-    val: false,
-  });
+
+  const authCtx = useContext(AuthContext);
 
   const sendData = async () => {
     setLoad(true);
@@ -40,18 +36,16 @@ const ContactForm = () => {
     ) {
       setLoad(false);
 
-      setError({
+      authCtx.showAlert({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
         symbol: "pets",
         title: "Check it out",
         text: "Please Fill All The Details",
-        val: true,
       });
     } else {
       try {
         const response = await axios.post("/api/website/ContactUs", input);
-        console.log(response.data.success);
 
         if (response.data.success) {
           setLoad(false);
@@ -64,13 +58,12 @@ const ContactForm = () => {
             message: "",
           });
 
-          setError({
+          authCtx.showAlert({
             mainColor: "#EDFEEE",
             secondaryColor: "#5CB660",
             symbol: "check_circle",
             title: "Success",
             text: "We'll revert back to you soon!",
-            val: true,
           });
         }
       } catch (err) {
@@ -78,30 +71,16 @@ const ContactForm = () => {
 
         setLoad(false);
 
-        setError({
+        authCtx.showAlert({
           mainColor: "#FDEDED",
           secondaryColor: "#F16360",
           symbol: "error",
           title: "Error",
           text: "An Unexpected Error Occured",
-          val: true,
         });
       }
     }
   };
-
-  useEffect(() => {
-    setTimeout(() => {
-      setError({
-        mainColor: "",
-        secondaryColor: "",
-        symbol: "",
-        title: "",
-        text: "",
-        val: false,
-      });
-    }, 10000);
-  }, [variants]);
 
   return (
     <>
@@ -196,8 +175,6 @@ const ContactForm = () => {
           <button onClick={sendData}>{load ? <Load /> : "Send Message"}</button>
         </div>
       </div>
-
-      <Alert variant={variants} val={setError} />
     </>
   );
 };
