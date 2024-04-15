@@ -78,6 +78,18 @@ export default function TopDetails({ del }) {
           </div>
         </div>
 
+        {/* Payment */}
+        <div className={odcss.BlockSub} id={odcss.paymentDetails}>
+          <div className={odcss.SubHeading}>Payment details</div>
+          <div className={odcss.ContentDels}>
+            <p className={odcss.pl1}>Total amount : ₹ {del.amount}</p>
+            <p className={odcss.pl1}>Status : {del.payment.status}</p>
+            <p className={odcss.pl1}>
+              Collected By : {del.payment.collected_by}
+            </p>
+          </div>
+        </div>
+
         {/* Shipping */}
         <div className={odcss.BlockSub} id={odcss.shippingDetails}>
           <div className={odcss.SubHeading}>Shipping address</div>
@@ -94,18 +106,6 @@ export default function TopDetails({ del }) {
                 {del.ONDCBilling.address.country}
               </p>
             </div>
-          </div>
-        </div>
-
-        {/* Payment */}
-        <div className={odcss.BlockSub} id={odcss.paymentDetails}>
-          <div className={odcss.SubHeading}>Payment details</div>
-          <div className={odcss.ContentDels}>
-            <p className={odcss.pl1}>Total amount : ₹ {del.amount}</p>
-            <p className={odcss.pl1}>Status : {del.payment.status}</p>
-            <p className={odcss.pl1}>
-              Collected By : {del.payment.collected_by}
-            </p>
           </div>
         </div>
       </div>
