@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 // Css
 import LCss from "./Css/Loading.module.css";
