@@ -15,7 +15,7 @@ export const Alert = () => {
     if (authCtx.alert.show) {
       setTimeout(() => {
         authCtx.clearAlert();
-      }, 10000);
+      }, 3000);
     }
   }, [authCtx.alert.show]);
 
