@@ -1,5 +1,10 @@
 import React, { useContext, Suspense } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
 // Analytics
 import ReactGA from "react-ga";
@@ -145,7 +150,7 @@ function App() {
               />
             )}
 
-            {authCtx.isLoggedIn && (
+            {authCtx.isLoggedIn ? (
               <Route
                 path="/me/*"
                 element={
@@ -154,6 +159,8 @@ function App() {
                   </Suspense>
                 }
               />
+            ) : (
+              <Route path="/me/*" element={<Navigate to="/signIn" replace />} />
             )}
 
             <Route
@@ -164,8 +171,6 @@ function App() {
                 </Suspense>
               }
             />
-
-            {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
           </Routes>
         </div>
       </div>
