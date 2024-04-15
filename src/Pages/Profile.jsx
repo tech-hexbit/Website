@@ -35,7 +35,6 @@ import Payment from "../components/Admin/Payment";
 import TicketAdmin from "./../components/Admin/Ticket";
 import SupportAdmin from "./../components/Admin/Support";
 import SellersAdmin from "./../components/Admin/Sellers";
-
 //          || Super Admin
 import FrontPage from "./../components/MainAdmin/FrontPage";
 import SelectSellerDetail from "../components/Admin/Sellers/Seller Main/SelectSellerDetail";
