@@ -5,6 +5,8 @@ import PropTypes from "prop-types";
 import odcss from "./../../Css/Orderdetails.module.css";
 
 export default function TopDetails({ del }) {
+  console.log(del);
+  console.log(del.payment);
   return (
     <>
       <div className={odcss.details}>
@@ -113,13 +115,13 @@ export default function TopDetails({ del }) {
             </p>
             <p className={odcss.pl1}>
               Card holder name :{" "}
-              {del.payment["@ondc/org/settlement_details"][0].beneficiary_name}
+              {del.payment["@ondc/org/settlement_details"][0]?.beneficiary_name}
             </p>
             <p className={odcss.pl1}>
               Card number/ UPI ID :{" "}
               {
                 del.payment["@ondc/org/settlement_details"][0]
-                  .settlement_bank_account_no
+                  ?.settlement_bank_account_no
               }
             </p>
             <p className={odcss.pl1}>Total amount : ₹ {del.amount}</p>
