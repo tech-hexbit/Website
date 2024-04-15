@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useEffect, useContext, useState, Suspense } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 
 // axios
@@ -8,6 +8,7 @@ import axios from "axios";
 import { Helmet } from "react-helmet";
 
 // components
+const Error = React.lazy(() => import("./../Pages/Error"));
 //          || SideBar
 import UserSideBar from "./../components/Dashboard/UserSideBar";
 //          || User
@@ -44,6 +45,7 @@ import AuthContext from "./../store/auth-context";
 
 // MicroInteraction
 import Load from "./../MicroInteraction/LoadBlack";
+import LoadingPage from "./../MicroInteraction/Loading";
 
 // Css
 import PCss from "./Css/Profile.module.css";
@@ -155,6 +157,14 @@ export default function Profile() {
                     <Route path="/admin/support" element={<SupportAdmin />} />
                     <Route path="/admin/sellers" element={<SellersAdmin />} />
                     <Route path="/admin/paymentdetails" element={<Payment />} />
+                    <Route
+                      path="/*"
+                      element={
+                        <Suspense fallback={<LoadingPage />}>
+                          <Error />
+                        </Suspense>
+                      }
+                    />
                   </>
                 )}
 
@@ -180,6 +190,14 @@ export default function Profile() {
                       element={<SelectSellerDetail />}
                     />
                     <Route path="/products/:id" element={<ProductPageNew />} />
+                    <Route
+                      path="/*"
+                      element={
+                        <Suspense fallback={<LoadingPage />}>
+                          <Error />
+                        </Suspense>
+                      }
+                    />
                   </>
                 )}
 
@@ -206,8 +224,25 @@ export default function Profile() {
                       path="/help/desk/ViewMore"
                       element={<HelpDeskTable />}
                     />
+                    <Route
+                      path="/*"
+                      element={
+                        <Suspense fallback={<LoadingPage />}>
+                          <Error />
+                        </Suspense>
+                      }
+                    />
                   </>
                 )}
+
+                <Route
+                  path="/*"
+                  element={
+                    <Suspense fallback={<LoadingPage />}>
+                      <Error />
+                    </Suspense>
+                  }
+                />
               </Routes>
             </div>
           </>
@@ -218,6 +253,14 @@ export default function Profile() {
               <>
                 <Routes>
                   <Route path="/" element={<StoreVerify />} />
+                  <Route
+                    path="/*"
+                    element={
+                      <Suspense fallback={<LoadingPage />}>
+                        <Error />
+                      </Suspense>
+                    }
+                  />
                 </Routes>
               </>
             )}
