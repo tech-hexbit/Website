@@ -5,8 +5,6 @@ import PropTypes from "prop-types";
 import odcss from "./../../Css/Orderdetails.module.css";
 
 export default function TopDetails({ del }) {
-  console.log(del);
-  console.log(del.payment);
   return (
     <>
       <div className={odcss.details}>
