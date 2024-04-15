@@ -3,7 +3,6 @@
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   padding: 16px 0px;
-  font-family: "Rubik", sans-serif;
 }
 
 .heading {
@@ -102,6 +101,26 @@
 
   .chartHead {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .mainDiv {
+    margin: 0px 0px 0px 1%;
+    width: 98%;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .mainDiv {
+    margin: 0px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .mainDiv {
+    margin: 0px 0px 0px -1%;
+    width: 96%;
   }
 }
 
