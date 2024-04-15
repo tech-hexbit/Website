@@ -92,7 +92,7 @@ export default function LayUpdate(props) {
               <option value="Accepted">Accepted</option>
               <option value="In-progress">In-progress</option>
               <option value="Completed">Completed</option>
-              <option value="Cancelled">Cancelled</option>
+              {/* <option value="Cancelled">Cancelled</option> */}
             </select>
           </>
         ) : (
