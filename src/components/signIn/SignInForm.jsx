@@ -9,15 +9,13 @@ import Load from "../../MicroInteraction/Load";
 
 // components
 import OTP from "./OTP";
+import RightDiv from "./RightDiv";
 
 // state
 import AuthContext from "../../store/auth-context";
 
 // css
 import style from "./SignInForm.module.css";
-
-// img
-import slider1 from "../../assets/slider/Group3.png";
 
 export default function SignInForm() {
   const [see, hide] = useState(false);
@@ -253,16 +251,7 @@ export default function SignInForm() {
           </div>
         </div>
 
-        <div className={style.right}>
-          <img src={slider1} alt="" />
-          <div className={style.pDiv}>
-            <p className={style.head}>Retail Revolution</p>
-            <p className={style.subHead}>
-              Elevate Your Retail Game: Hexbit - Where Digital Selling Meets
-              Success!
-            </p>
-          </div>
-        </div>
+        <RightDiv />
       </div>
     </>
   );
