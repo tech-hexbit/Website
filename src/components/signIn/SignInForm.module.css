@@ -227,7 +227,7 @@ input[type="text"]:disabled::placeholder {
 }
 
 .pDiv {
-  margin: -50px 0px 0px 0px;
+  margin: -80px 0px 0px 0px;
 }
 
 .head {
@@ -255,7 +255,6 @@ input[type="text"]:disabled::placeholder {
   }
 
   .tc {
-    /* background-color: green; */
     padding: 0px 0px;
   }
 }
@@ -277,6 +276,10 @@ input[type="text"]:disabled::placeholder {
 
   .left {
     width: 100%;
+  }
+
+  .pDiv {
+    margin: -50px 0px 0px 0px;
   }
 
   .right {
