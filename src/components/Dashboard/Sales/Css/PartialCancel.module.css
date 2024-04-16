@@ -1,0 +1,56 @@
+.headDiv {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+.Line {
+  width: 100%;
+  height: 1px;
+  background-color: transparent;
+  border-style: dashed;
+  border-color: rgba(170, 170, 170, 1);
+  border-width: 1px 0px 0px 0px;
+  margin-bottom: 10px;
+}
+
+.itemImg {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+  margin-right: 10px;
+}
+
+.mapDiv {
+  padding: 0px 30px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.mapDivChild {
+  display: flex;
+  align-items: center;
+  gap: 0px 10px;
+}
+
+.spanQty {
+  color: #c6c6c6;
+}
+
+.saveBtn {
+  border-radius: 8px;
+  font-size: 1.2rem;
+  border-width: 0px;
+  background-color: #34a853;
+  color: #fff;
+  padding: 7px 25px;
+  cursor: pointer;
+}
