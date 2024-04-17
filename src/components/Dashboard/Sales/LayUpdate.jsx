@@ -55,7 +55,6 @@ export default function LayUpdate(props) {
         setSaveLoad(false);
       }
     } catch (e) {
-      //   setLoad(false);
       setSaveLoad(false);
 
       console.log(e);
