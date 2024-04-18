@@ -16,6 +16,7 @@ import style from "./SignInForm.module.css";
 
 export default function OTP(props) {
   const [showOTP, setOTP] = useState(false);
+  const [time, setTime] = useState(30);
   const [input, setInput] = useState({ phone: "", otp: "" });
 
   const authCtx = useContext(AuthContext);
@@ -96,9 +97,6 @@ export default function OTP(props) {
   }, [props.seeOTP]);
 
   useEffect(() => {
-    console.table(input);
-    console.log("showOTP - " + showOTP);
-
     if (input.phone.length === 10 && showOTP === false) {
       sendOTP();
     }
@@ -107,6 +105,13 @@ export default function OTP(props) {
       VerifyOTP();
     }
   }, [input]);
+
+  useEffect(() => {
+    if (true) {
+    } else {
+      setTime(30);
+    }
+  }, [showOTP]);
 
   return (
     <>
