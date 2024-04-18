@@ -335,6 +335,13 @@ span {
   }
 }
 
+@media screen and (max-width: 1050px) {
+  .form {
+    padding-top: 48px;
+    padding-left: 0px;
+  }
+}
+
 @media screen and (max-width: 840px) {
   .mainDiv {
     margin: 20px 30px 20px 20px;
