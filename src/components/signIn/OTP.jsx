@@ -139,11 +139,12 @@ export default function OTP(props) {
             />
             <input
               type="number"
+              disabled={showOTP}
               placeholder="XXXXX-XXXXX"
-              id="phone"
               name="phone"
               value={input.phone}
               className={style.phone}
+              id={showOTP ? style.phoff : ""}
               onChange={(e) => {
                 setInput({ ...input, phone: e.target.value });
               }}
@@ -177,7 +178,7 @@ export default function OTP(props) {
                       props.hideOTP(true);
                     }}
                   />
-                  <button>
+                  <button id={time > 0 ? style.showOTP : ""}>
                     <p>Resend OTP</p>
                     {time > 0 ? (
                       <p id={style.timer}>00:{time < 10 ? `0${time}` : time}</p>
