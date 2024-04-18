@@ -55,6 +55,7 @@ export default function PayRequest() {
         title: "Information",
         text: "Invoice Required",
       });
+
       return;
     }
 
