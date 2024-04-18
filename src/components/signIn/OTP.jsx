@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // axios
 import axios from "axios";
@@ -15,10 +15,14 @@ import AuthContext from "../../store/auth-context";
 import style from "./SignInForm.module.css";
 
 export default function OTP(props) {
+  const [time, setTime] = useState(30);
+  const [load, setLoad] = useState(false);
   const [showOTP, setOTP] = useState(false);
   const [input, setInput] = useState({ phone: "", otp: "" });
 
   const authCtx = useContext(AuthContext);
+
+  const redirect = useNavigate();
 
   const sendOTP = async () => {
     try {
@@ -51,6 +55,8 @@ export default function OTP(props) {
   };
 
   const VerifyOTP = async () => {
+    setLoad(true);
+
     try {
       let data = {
         phone: input.phone,
@@ -59,21 +65,56 @@ export default function OTP(props) {
 
       const response = await axios.post(`/api/website/auth/otp/verify/`, data);
 
-      console.log(response.data);
+      if (response.data.status) {
+        setLoad(false);
 
-      // if (response.data.status) {
-      //   setOTP(!showOTP);
-      // } else {
-      //   authCtx.showAlert({
-      //     mainColor: "#FDEDED",
-      //     secondaryColor: "#F16360",
-      //     symbol: "error",
-      //     title: "Error",
-      //     text: "Unable to Send OTP",
-      //
-      //   });
-      // }
+        authCtx.showAlert({
+          mainColor: "#EDFEEE",
+          secondaryColor: "#5CB660",
+          symbol: "check_circle",
+          title: "Success",
+          text: "Logged In",
+        });
+        if (response.data.user[0].Store[0].StoreID.validation) {
+          redirect("/me");
+        } else {
+          redirect("/me/SetUpStore");
+        }
+        await authCtx.login(
+          response.data.user[0].image,
+          response.data.user[0].Email,
+          response.data.user[0].Phone,
+          response.data.user[0].access,
+          response.data.user[0].BusinessName,
+          response.data.user[0].ImporterLicense,
+          response.data.user[0].GSTIN,
+          response.data.user[0].ShopName,
+          response.data.user[0].Address,
+          response.data.user[0].State,
+          response.data.user[0].City,
+          response.data.user[0].Pincode,
+          response.data.user[0].AdditionalInfo,
+          response.data.user[0].category,
+          response.data.user[0].accountVerified,
+          response.data.user[0].emailVerified,
+          response.data.user[0].Store,
+          response.data.token,
+          10800000
+        );
+      } else {
+        setLoad(false);
+
+        authCtx.showAlert({
+          mainColor: "#E5F6FD",
+          secondaryColor: "#1AB1F5",
+          symbol: "info",
+          title: "Information",
+          text: "Not a Valid OTP",
+        });
+      }
     } catch (e) {
+      setLoad(false);
+
       authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
@@ -96,9 +137,6 @@ export default function OTP(props) {
   }, [props.seeOTP]);
 
   useEffect(() => {
-    console.table(input);
-    console.log("showOTP - " + showOTP);
-
     if (input.phone.length === 10 && showOTP === false) {
       sendOTP();
     }
@@ -107,6 +145,21 @@ export default function OTP(props) {
       VerifyOTP();
     }
   }, [input]);
+
+  useEffect(() => {
+    let timer;
+    if (showOTP && time > 0) {
+      timer = setInterval(() => {
+        setTime((prevTime) => (prevTime > 0 ? prevTime - 1 : 0));
+      }, 1000);
+    } else {
+      setTime(30);
+    }
+
+    // Clean up timer when component unmounts or when showOTP becomes false
+    return () => clearInterval(timer);
+  }, [showOTP]);
+
   return (
     <>
       {/* OTP and Phone Number */}
@@ -114,7 +167,7 @@ export default function OTP(props) {
         {/* Phone Number */}
         <div className={style.inputPO}>
           <label htmlFor="phone">
-            Phone<span className="requiredSpan">*</span>
+            Phone <span className="requiredSpan">*</span>
           </label>
           <br />
           <div className={style.phoneInputs}>
@@ -126,11 +179,12 @@ export default function OTP(props) {
             />
             <input
               type="number"
+              disabled={showOTP}
               placeholder="XXXXX-XXXXX"
-              id="phone"
               name="phone"
               value={input.phone}
               className={style.phone}
+              id={showOTP ? style.phoff : ""}
               onChange={(e) => {
                 setInput({ ...input, phone: e.target.value });
               }}
@@ -164,7 +218,22 @@ export default function OTP(props) {
                       props.hideOTP(true);
                     }}
                   />
-                  <button>Resend OTP</button>
+                  <button id={time > 0 ? style.showOTP : ""}>
+                    {load ? (
+                      <Load />
+                    ) : (
+                      <>
+                        <p>Resend OTP</p>
+                        {time > 0 ? (
+                          <p id={style.timer}>
+                            00:{time < 10 ? `0${time}` : time}
+                          </p>
+                        ) : (
+                          ""
+                        )}
+                      </>
+                    )}
+                  </button>
                 </div>
               </>
             ) : (

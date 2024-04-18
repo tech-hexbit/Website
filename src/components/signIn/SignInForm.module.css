@@ -128,6 +128,19 @@
   border-bottom-right-radius: 0px;
 }
 
+#timer {
+  font-size: 12px;
+}
+
+#phoff,
+#showOTP {
+  cursor: not-allowed;
+}
+
+#showOTP {
+  opacity: 0.8;
+}
+
 input[type="text"]:disabled::placeholder {
   color: #444150;
 }
