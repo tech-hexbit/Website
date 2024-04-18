@@ -107,6 +107,7 @@ export default function OTP(props) {
       VerifyOTP();
     }
   }, [input]);
+
   return (
     <>
       {/* OTP and Phone Number */}
@@ -164,7 +165,10 @@ export default function OTP(props) {
                       props.hideOTP(true);
                     }}
                   />
-                  <button>Resend OTP</button>
+                  <button>
+                    <p>Resend OTP</p>
+                    <p>00:{time}</p>
+                  </button>
                 </div>
               </>
             ) : (
