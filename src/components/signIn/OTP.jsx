@@ -107,10 +107,17 @@ export default function OTP(props) {
   }, [input]);
 
   useEffect(() => {
-    if (true) {
+    let timer;
+    if (showOTP && time > 0) {
+      timer = setInterval(() => {
+        setTime((prevTime) => (prevTime > 0 ? prevTime - 1 : 0));
+      }, 1000);
     } else {
       setTime(30);
     }
+
+    // Clean up timer when component unmounts or when showOTP becomes false
+    return () => clearInterval(timer);
   }, [showOTP]);
 
   return (
@@ -120,7 +127,7 @@ export default function OTP(props) {
         {/* Phone Number */}
         <div className={style.inputPO}>
           <label htmlFor="phone">
-            Phone<span className="requiredSpan">*</span>
+            Phone <span className="requiredSpan">*</span>
           </label>
           <br />
           <div className={style.phoneInputs}>
@@ -172,7 +179,11 @@ export default function OTP(props) {
                   />
                   <button>
                     <p>Resend OTP</p>
-                    <p>00:{time}</p>
+                    {time > 0 ? (
+                      <p id={style.timer}>00:{time < 10 ? `0${time}` : time}</p>
+                    ) : (
+                      ""
+                    )}
                   </button>
                 </div>
               </>
