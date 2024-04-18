@@ -52,6 +52,8 @@ export default function OTP(props) {
   };
 
   const VerifyOTP = async () => {
+    console.log("Verify OTP");
+
     try {
       let data = {
         phone: input.phone,
@@ -60,7 +62,8 @@ export default function OTP(props) {
 
       const response = await axios.post(`/api/website/auth/otp/verify/`, data);
 
-      console.log(response.data);
+      if (response.data.status) {
+      }
 
       // if (response.data.status) {
       //   setOTP(!showOTP);
