@@ -1,62 +1,81 @@
 .mainDiv {
   font-family: "Rubik", sans-serif;
-  background: linear-gradient(90deg, rgba(188, 20, 226, 0.2) 0%, rgba(63, 130, 224, 0.2) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(188, 20, 226, 0.2) 0%,
+    rgba(63, 130, 224, 0.2) 100%
+  );
   display: flex;
 }
-.left,.right{
+
+.left,
+.right {
   width: 50%;
 }
-.left{
+
+.left {
   padding: 80px;
   background-image: url("../../../assets/register/background.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
 }
-.heading{
+
+.heading {
   color: #090808;
   font-size: 32.74px;
   font-weight: 700;
 }
-span{
-  color: #350B5E;
+
+span {
+  color: #350b5e;
 }
-.subHead{
+
+.subHead {
   font-size: 18px;
   padding-top: 80px;
 }
-.points{
+
+.points {
   padding-top: 50px;
   display: flex;
   flex-direction: column;
   gap: 50px;
 }
-@media screen and (max-width:840px) {
-  .left{
+
+@media screen and (max-width: 840px) {
+  .left {
     padding: 40px;
   }
 }
-@media screen and (max-width:700px) {
-  .mainDiv{
+
+@media screen and (max-width: 700px) {
+  .mainDiv {
     flex-direction: column;
   }
-  .left,.right{
+
+  .left,
+  .right {
     width: 100%;
   }
-  .points{
+
+  .points {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     /* flex-direction: row; */
   }
-  .growCard{
+
+  .growCard {
     /* width: 50%; */
   }
 }
-@media screen and (max-width:450px) {
-  .subHead{
+
+@media screen and (max-width: 450px) {
+  .subHead {
     padding-top: 40px;
   }
-  .points{
-    grid-template-columns: repeat(1,1fr);
+
+  .points {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
