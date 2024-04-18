@@ -62,11 +62,6 @@ span {
   .points {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    /* flex-direction: row; */
-  }
-
-  .growCard {
-    /* width: 50%; */
   }
 }
 
