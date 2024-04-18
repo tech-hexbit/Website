@@ -15,8 +15,9 @@ import AuthContext from "../../store/auth-context";
 import style from "./SignInForm.module.css";
 
 export default function OTP(props) {
-  const [showOTP, setOTP] = useState(false);
   const [time, setTime] = useState(30);
+  const [load, setLoad] = useState(false);
+  const [showOTP, setOTP] = useState(false);
   const [input, setInput] = useState({ phone: "", otp: "" });
 
   const authCtx = useContext(AuthContext);
@@ -54,7 +55,7 @@ export default function OTP(props) {
   };
 
   const VerifyOTP = async () => {
-    console.log("Verify OTP");
+    setLoad(true);
 
     try {
       let data = {
@@ -65,40 +66,44 @@ export default function OTP(props) {
       const response = await axios.post(`/api/website/auth/otp/verify/`, data);
 
       if (response.data.status) {
-        // authCtx.showAlert({
-        //   mainColor: "#EDFEEE",
-        //   secondaryColor: "#5CB660",
-        //   symbol: "check_circle",
-        //   title: "Success",
-        //   text: "Logged In",
-        // });
-        // if (response.data.user[0].Store[0].StoreID.validation) {
-        //   redirect("/me");
-        // } else {
-        //   redirect("/me/SetUpStore");
-        // }
-        // await authCtx.login(
-        //   response.data.user[0].image,
-        //   response.data.user[0].Email,
-        //   response.data.user[0].Phone,
-        //   response.data.user[0].access,
-        //   response.data.user[0].BusinessName,
-        //   response.data.user[0].ImporterLicense,
-        //   response.data.user[0].GSTIN,
-        //   response.data.user[0].ShopName,
-        //   response.data.user[0].Address,
-        //   response.data.user[0].State,
-        //   response.data.user[0].City,
-        //   response.data.user[0].Pincode,
-        //   response.data.user[0].AdditionalInfo,
-        //   response.data.user[0].category,
-        //   response.data.user[0].accountVerified,
-        //   response.data.user[0].emailVerified,
-        //   response.data.user[0].Store,
-        //   response.data.token,
-        //   10800000
-        // );
+        setLoad(false);
+
+        authCtx.showAlert({
+          mainColor: "#EDFEEE",
+          secondaryColor: "#5CB660",
+          symbol: "check_circle",
+          title: "Success",
+          text: "Logged In",
+        });
+        if (response.data.user[0].Store[0].StoreID.validation) {
+          redirect("/me");
+        } else {
+          redirect("/me/SetUpStore");
+        }
+        await authCtx.login(
+          response.data.user[0].image,
+          response.data.user[0].Email,
+          response.data.user[0].Phone,
+          response.data.user[0].access,
+          response.data.user[0].BusinessName,
+          response.data.user[0].ImporterLicense,
+          response.data.user[0].GSTIN,
+          response.data.user[0].ShopName,
+          response.data.user[0].Address,
+          response.data.user[0].State,
+          response.data.user[0].City,
+          response.data.user[0].Pincode,
+          response.data.user[0].AdditionalInfo,
+          response.data.user[0].category,
+          response.data.user[0].accountVerified,
+          response.data.user[0].emailVerified,
+          response.data.user[0].Store,
+          response.data.token,
+          10800000
+        );
       } else {
+        setLoad(false);
+
         authCtx.showAlert({
           mainColor: "#E5F6FD",
           secondaryColor: "#1AB1F5",
@@ -108,6 +113,8 @@ export default function OTP(props) {
         });
       }
     } catch (e) {
+      setLoad(false);
+
       authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
@@ -212,11 +219,19 @@ export default function OTP(props) {
                     }}
                   />
                   <button id={time > 0 ? style.showOTP : ""}>
-                    <p>Resend OTP</p>
-                    {time > 0 ? (
-                      <p id={style.timer}>00:{time < 10 ? `0${time}` : time}</p>
+                    {load ? (
+                      <Load />
                     ) : (
-                      ""
+                      <>
+                        <p>Resend OTP</p>
+                        {time > 0 ? (
+                          <p id={style.timer}>
+                            00:{time < 10 ? `0${time}` : time}
+                          </p>
+                        ) : (
+                          ""
+                        )}
+                      </>
                     )}
                   </button>
                 </div>
