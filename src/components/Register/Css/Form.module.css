@@ -33,7 +33,6 @@
 .phoneInputs {
   display: flex;
   flex-direction: row;
-  /* gap: 0; */
   width: 80%;
 }
 
@@ -64,11 +63,6 @@
   top: 0px;
   color: #c075ff;
 }
-
-/* .formInput2 input {
-  margin-right: 0; 
-   margin-top: 10px;
-} */
 
 .formInput input {
   width: 80%;
