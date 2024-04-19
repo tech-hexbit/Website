@@ -255,6 +255,7 @@ export default function Form1(props) {
                         <button
                           id={time > 0 ? style.showOTP : ""}
                           className={style.resendBtn}
+                          onClick={sendOTP}
                         >
                           <p>Resend OTP</p>
                           {time > 0 ? (
