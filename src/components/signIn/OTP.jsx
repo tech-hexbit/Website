@@ -27,7 +27,7 @@ export default function OTP(props) {
   const sendOTP = async () => {
     try {
       const response = await axios.get(
-        `/api/website/auth/otp/verification/${input.phone}`
+        `/api/website/auth/otp/verification/login/${input.phone}`
       );
 
       if (response.data.status) {
