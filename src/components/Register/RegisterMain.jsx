@@ -23,7 +23,7 @@ export default function RegisterMain() {
   const [count, setCount] = useState(1);
   const [load, setLoad] = useState(false);
   const [input, setInput] = useState({
-    Phone: 0,
+    Phone: "",
     Email: "",
     Address: "",
     Password: "",
