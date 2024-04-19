@@ -171,9 +171,7 @@ export default function Form1(props) {
   }, [props.input]);
 
   useEffect(() => {
-    console.log(props.input.Phone);
-
-    if (sendotp.length === 4 && showOTP === true) {
+    if (sendotp.length === 4 && showOTP === true && verOTP === false) {
       VerifyOTP();
     }
   }, [sendotp]);
@@ -226,25 +224,50 @@ export default function Form1(props) {
                       disabled={showOTP}
                       className={`${style.phone} ${FCss.phoneInput}`}
                     />
+
+                    {verOTP ? (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-badge-check"
+                        className={FCss.verIcon}
+                      >
+                        <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
+                        <path d="m9 12 2 2 4-4" />
+                      </svg>
+                    ) : (
+                      ""
+                    )}
                   </div>
 
                   {verOTP ? (
-                    ""
+                    <></>
                   ) : (
                     <>
-                      <button
-                        id={time > 0 ? style.showOTP : ""}
-                        className={style.resendBtn}
-                      >
-                        <p>Resend OTP</p>
-                        {time > 0 ? (
-                          <p id={style.timer}>
-                            00:{time < 10 ? `0${time}` : time}
-                          </p>
-                        ) : (
-                          ""
-                        )}
-                      </button>
+                      {showOTP ? (
+                        <button
+                          id={time > 0 ? style.showOTP : ""}
+                          className={style.resendBtn}
+                        >
+                          <p>Resend OTP</p>
+                          {time > 0 ? (
+                            <p id={style.timer}>
+                              00:{time < 10 ? `0${time}` : time}
+                            </p>
+                          ) : (
+                            ""
+                          )}
+                        </button>
+                      ) : (
+                        ""
+                      )}
                     </>
                   )}
                 </div>
