@@ -208,7 +208,7 @@ export default function Form1(props) {
                       name="Phone"
                       value={props.input.Phone}
                       onInput={handleInputChange}
-                      // disabled={showOTP}
+                      disabled={showOTP}
                       className={`${style.phone} ${FCss.phoneInput}`}
                     />
                   </div>
@@ -229,10 +229,9 @@ export default function Form1(props) {
                         </div>
                         {sendotp.length >= 4 ? (
                           <div
-                            // className={`${FCss.otpButtonVerify} ${
-                            //   isOtpButtonClicked ? FCss.otpButtonColor : ""
-                            // }`}
-                            className={FCss.otpButtonVerify}
+                          // className={`${FCss.otpButtonVerify} ${
+                          //   isOtpButtonClicked ? FCss.otpButtonColor : ""
+                          // }`}
                           >
                             Verify OTP
                           </div>
