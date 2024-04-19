@@ -211,6 +211,8 @@ export default function Form1(props) {
                       disabled={showOTP}
                       className={`${style.phone} ${FCss.phoneInput}`}
                     />
+
+                    <button>Resent OTP</button>
                   </div>
                 </div>
                 {showOTP ? (
