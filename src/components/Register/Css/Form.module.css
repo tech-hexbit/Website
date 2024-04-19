@@ -139,7 +139,9 @@ label {
 .otp {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding-bottom: 30px;
+  gap: 10px 30px;
 }
 
 .otpBtn {
@@ -153,6 +155,10 @@ label {
 
 .otpTextNumber {
   width: 100%;
+}
+
+.otpInp {
+  padding: 0px 0px 0px 40px;
 }
 
 .otpButtonF button,
