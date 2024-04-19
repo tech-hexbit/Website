@@ -14,6 +14,7 @@ import FCss from "./Css/Form.module.css";
 import style from "../signIn/SignInForm.module.css";
 
 export default function Form1(props) {
+  const [time, setTime] = useState(30);
   const [load, setLoad] = useState(false);
   const [showOTP, setOTP] = useState(false);
   const [verOTP, setVerOTP] = useState(false);
@@ -226,7 +227,7 @@ export default function Form1(props) {
                       className={`${style.phone} ${FCss.phoneInput}`}
                     />
 
-                    <button>
+                    <button id={time > 0 ? style.showOTP : ""}>
                       {load ? (
                         <Load />
                       ) : (
