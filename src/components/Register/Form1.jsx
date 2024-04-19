@@ -206,7 +206,6 @@ export default function Form1(props) {
         <div className={FCss.form}>
           <div className={FCss.phoneInput}>
             <label htmlFor="phone">Phone</label>
-            {/* {props.input.Phone.length === 10 ? ( */}
             <>
               <div className={FCss.formInput}>
                 <div className={FCss.phoneMDiv}>
@@ -302,28 +301,8 @@ export default function Form1(props) {
                 </>
               )}
             </>
-            {/* // ) : (
-            //   <div>
-            //     <div className={FCss.formInputNumber}>
-            //       <input
-            //         type="text"
-            //         placeholder="+91"
-            //         disabled
-            //         id={style.countryCode}
-            //       />
-            //       <input
-            //         type="text"
-            //         id="phone"
-            //         placeholder="Enter phone no."
-            //         className={style.phone}
-            //         name="Phone"
-            //         value={props.input.Phone}
-            //         onInput={handleInputChange}
-            //       />
-            //     </div>
-            //   </div>
-            // )} */}
           </div>
+
           <div className={FCss.formInputs}>
             <label htmlFor="email">Email</label>
             <input
