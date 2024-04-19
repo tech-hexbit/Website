@@ -48,6 +48,12 @@
   flex-basis: 100%;
 }
 
+.phoneInputmDiv {
+  display: flex;
+  align-items: center;
+  background-color: red;
+}
+
 .formInput2 {
   display: flex;
   justify-content: space-between;
