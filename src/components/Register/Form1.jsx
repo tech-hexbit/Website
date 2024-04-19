@@ -278,13 +278,13 @@ export default function Form1(props) {
               ) : (
                 <>
                   {showOTP ? (
-                    <div>
+                    <>
                       {sendotp.length === 4 ? (
                         <div className={FCss.otp}>
                           <div className={FCss.otpText}>
                             <input
                               type="text"
-                              id="otp"
+                              id={FCss.otpInp}
                               placeholder="Enter the OTP sent"
                               name="Password"
                               value={sendotp}
@@ -293,7 +293,7 @@ export default function Form1(props) {
                           </div>
                           {sendotp.length >= 4 ? (
                             <div
-                              className={style.resendBtn}
+                              className={style.verConBtn}
                               id={style.verBtn}
                               onClick={VerifyOTP}
                             >
@@ -308,7 +308,7 @@ export default function Form1(props) {
                           <div className={FCss.otpTextNumber}>
                             <input
                               type="text"
-                              id="otp"
+                              id={FCss.otpInp}
                               placeholder="Enter the OTP sent"
                               name="Password"
                               value={sendotp}
@@ -317,7 +317,7 @@ export default function Form1(props) {
                           </div>
                         </div>
                       )}
-                    </div>
+                    </>
                   ) : (
                     ""
                   )}
