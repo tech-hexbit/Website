@@ -16,41 +16,52 @@ import style from "../signIn/SignInForm.module.css";
 export default function Form1(props) {
   const [load, setLoad] = useState(false);
   const [showOTP, setOTP] = useState(false);
+  const [verOTP, setVerOTP] = useState(false);
   const [sendotp, setSendotp] = useState("");
 
   const authCtx = useContext(AuthContext);
 
   const nextFN = async () => {
-    if (
-      props.input.Phone == "" ||
-      input.Otp == "" ||
-      props.input.Email == "" ||
-      props.input.Password == "" ||
-      props.input.BusinessName == "" ||
-      props.input.ImporterLicense == "" ||
-      props.input.GSTIN == ""
-    ) {
-      authCtx.showAlert({
-        mainColor: "#FFC0CB",
-        secondaryColor: "#FF69B4",
-        symbol: "pets",
-        title: "Check it out",
-        text: "Please Fill All The Details",
-      });
-    } else {
-      if (props.input.Phone.length != 10) {
+    if (verOTP) {
+      if (
+        props.input.Phone == "" ||
+        input.Otp == "" ||
+        props.input.Email == "" ||
+        props.input.Password == "" ||
+        props.input.BusinessName == "" ||
+        props.input.ImporterLicense == "" ||
+        props.input.GSTIN == ""
+      ) {
         authCtx.showAlert({
           mainColor: "#FFC0CB",
           secondaryColor: "#FF69B4",
           symbol: "pets",
           title: "Check it out",
-          text: "Invalid phone number",
+          text: "Please Fill All The Details",
         });
       } else {
-        authCtx.clearAlert();
+        if (props.input.Phone.length != 10) {
+          authCtx.showAlert({
+            mainColor: "#FFC0CB",
+            secondaryColor: "#FF69B4",
+            symbol: "pets",
+            title: "Check it out",
+            text: "Invalid phone number",
+          });
+        } else {
+          authCtx.clearAlert();
 
-        props.setCount(2);
+          props.setCount(2);
+        }
       }
+    } else {
+      authCtx.showAlert({
+        mainColor: "#E5F6FD",
+        secondaryColor: "#1AB1F5",
+        symbol: "info",
+        title: "Information",
+        text: "Phone Number not verified",
+      });
     }
   };
 
@@ -116,6 +127,8 @@ export default function Form1(props) {
 
       if (response.data.status) {
         setLoad(false);
+
+        setVerOTP(true);
 
         authCtx.showAlert({
           mainColor: "#EDFEEE",
