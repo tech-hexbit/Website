@@ -1,17 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 // MicroInteraction
 import Load from "../../MicroInteraction/Load";
+
+// axios
+import axios from "axios";
+
+// state
+import AuthContext from "../../store/auth-context";
 
 // css
 import FCss from "./Css/Form.module.css";
 import style from "../signIn/SignInForm.module.css";
 
 export default function Form1(props) {
+  const [showOTP, setOTP] = useState(false);
   const [sendotp, setSendotp] = useState(false);
   const [disableNoField, setDisableNoField] = useState(false);
   const [isOtpButtonClicked, setIsOtpButtonClicked] = useState(false);
   const [input, setInput] = useState({ WhatsAppNumber: "", Otp: "" });
+
+  const authCtx = useContext(AuthContext);
 
   const nextFN = async () => {
     if (
@@ -72,6 +81,46 @@ export default function Form1(props) {
     setDisableNoField(true);
   };
 
+  const sendOTP = async () => {
+    try {
+      const response = await axios.get(
+        `/api/website/auth/otp/verification/register/${input.WhatsAppNumber}`
+      );
+
+      if (response.data.status) {
+        setOTP(!showOTP);
+      } else {
+        authCtx.showAlert({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "Unable to Send OTP",
+        });
+      }
+    } catch (e) {
+      authCtx.showAlert({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "Unable to Send OTP",
+      });
+
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    if (input.WhatsAppNumber.length === 10 && showOTP === false) {
+      sendOTP();
+    }
+
+    if (input.Otp.length === 4 && showOTP === true) {
+      VerifyOTP();
+    }
+  }, [input]);
+
   return (
     <>
       <div className={FCss.mainDiv}>
@@ -106,16 +155,6 @@ export default function Form1(props) {
                       disabled={disableNoField}
                       className={`${style.phone} ${FCss.phoneInput}`}
                     />
-                  </div>
-                  <div
-                    className={sendotp ? FCss.otpButtonClicked : FCss.otpButton}
-                  >
-                    <button
-                      onClick={handleSendOtpButton}
-                      disabled={disableNoField}
-                    >
-                      {sendotp ? "OTP Sent" : "Send OTP"}
-                    </button>
                   </div>
                 </div>
                 {sendotp ? (
