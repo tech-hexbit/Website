@@ -38,8 +38,8 @@
   padding-top: 36px;
 }
 
-.resendBtn {
-  margin: 10px 0px 0px 0px;
+.resendBtn,
+.verConBtn {
   min-width: 120px;
   height: 39.334px;
   border: none;
@@ -50,6 +50,10 @@
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
+}
+
+.resendBtn {
+  margin: 10px 0px 0px 0px;
 }
 
 #verBtn {
@@ -295,7 +299,8 @@ input[type="text"]:disabled::placeholder {
 }
 
 @media screen and (max-width: 1100px) {
-  .resendBtn {
+  .resendBtn,
+  .verConBtn {
     width: 100%;
   }
 }
