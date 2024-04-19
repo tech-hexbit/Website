@@ -36,6 +36,14 @@
   width: 80%;
 }
 
+.phoneMDiv {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0px 20px;
+}
+
 .phoneInput {
   flex-basis: 100%;
 }
@@ -293,6 +301,12 @@ span {
 
   .otpText {
     width: 63%;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .phoneMDiv {
+    flex-direction: column;
   }
 }
 
