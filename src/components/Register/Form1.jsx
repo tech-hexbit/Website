@@ -209,25 +209,30 @@ export default function Form1(props) {
             {props.input.Phone.length === 10 ? (
               <>
                 <div className={FCss.formInput}>
-                  <div className={FCss.phoneInputs}>
-                    <input
-                      type="text"
-                      placeholder="+91"
-                      disabled
-                      id={style.countryCode}
-                    />
-                    <input
-                      type="text"
-                      id="phone"
-                      placeholder="Enter phone no."
-                      name="Phone"
-                      value={props.input.Phone}
-                      onInput={handleInputChange}
-                      disabled={showOTP}
-                      className={`${style.phone} ${FCss.phoneInput}`}
-                    />
+                  <div className={FCss.phoneMDiv}>
+                    <div className={FCss.phoneInputs}>
+                      <input
+                        type="text"
+                        placeholder="+91"
+                        disabled
+                        id={style.countryCode}
+                      />
+                      <input
+                        type="text"
+                        id="phone"
+                        placeholder="Enter phone no."
+                        name="Phone"
+                        value={props.input.Phone}
+                        onInput={handleInputChange}
+                        disabled={showOTP}
+                        className={`${style.phone} ${FCss.phoneInput}`}
+                      />
+                    </div>
 
-                    <button id={time > 0 ? style.showOTP : ""}>
+                    <button
+                      id={time > 0 ? style.showOTP : ""}
+                      className={style.resendBtn}
+                    >
                       {load ? (
                         <Load />
                       ) : (
@@ -245,6 +250,7 @@ export default function Form1(props) {
                     </button>
                   </div>
                 </div>
+
                 {showOTP ? (
                   <div>
                     {sendotp.length === 4 ? (
@@ -260,12 +266,8 @@ export default function Form1(props) {
                           />
                         </div>
                         {sendotp.length >= 4 ? (
-                          <div
-                          // className={`${FCss.otpButtonVerify} ${
-                          //   isOtpButtonClicked ? FCss.otpButtonColor : ""
-                          // }`}
-                          >
-                            Verify OTP
+                          <div className={style.resendBtn} id={style.verBtn}>
+                            <p>Verify OTP</p>
                           </div>
                         ) : (
                           ""
