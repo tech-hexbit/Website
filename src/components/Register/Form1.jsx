@@ -177,6 +177,20 @@ export default function Form1(props) {
     }
   }, [sendotp]);
 
+  useEffect(() => {
+    let timer;
+    if (showOTP && time > 0) {
+      timer = setInterval(() => {
+        setTime((prevTime) => (prevTime > 0 ? prevTime - 1 : 0));
+      }, 1000);
+    } else {
+      setTime(30);
+    }
+
+    // Clean up timer when component unmounts or when showOTP becomes false
+    return () => clearInterval(timer);
+  }, [showOTP]);
+
   return (
     <>
       <div className={FCss.mainDiv}>
@@ -212,7 +226,22 @@ export default function Form1(props) {
                       className={`${style.phone} ${FCss.phoneInput}`}
                     />
 
-                    <button>Resent OTP</button>
+                    <button>
+                      {load ? (
+                        <Load />
+                      ) : (
+                        <>
+                          <p>Resend OTP</p>
+                          {time > 0 ? (
+                            <p id={style.timer}>
+                              00:{time < 10 ? `0${time}` : time}
+                            </p>
+                          ) : (
+                            ""
+                          )}
+                        </>
+                      )}
+                    </button>
                   </div>
                 </div>
                 {showOTP ? (
