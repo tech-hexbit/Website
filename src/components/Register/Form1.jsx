@@ -26,7 +26,7 @@ export default function Form1(props) {
     if (verOTP) {
       if (
         props.input.Phone == "" ||
-        input.Otp == "" ||
+        sendotp == "" ||
         props.input.Email == "" ||
         props.input.Password == "" ||
         props.input.BusinessName == "" ||
