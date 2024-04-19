@@ -206,123 +206,123 @@ export default function Form1(props) {
         <div className={FCss.form}>
           <div className={FCss.phoneInput}>
             <label htmlFor="phone">Phone</label>
-            {props.input.Phone.length === 10 ? (
-              <>
-                <div className={FCss.formInput}>
-                  <div className={FCss.phoneMDiv}>
-                    <div className={FCss.phoneInputs}>
-                      <input
-                        type="text"
-                        placeholder="+91"
-                        disabled
-                        id={style.countryCode}
-                      />
-                      <input
-                        type="text"
-                        id="phone"
-                        placeholder="Enter phone no."
-                        name="Phone"
-                        value={props.input.Phone}
-                        onInput={handleInputChange}
-                        disabled={showOTP}
-                        className={`${style.phone} ${FCss.phoneInput}`}
-                      />
-                    </div>
+            {/* {props.input.Phone.length === 10 ? ( */}
+            <>
+              <div className={FCss.formInput}>
+                <div className={FCss.phoneMDiv}>
+                  <div className={FCss.phoneInputmDiv}>
+                    <input
+                      type="text"
+                      placeholder="+91"
+                      disabled
+                      id={style.countryCode}
+                    />
+                    <input
+                      type="text"
+                      id="phone"
+                      placeholder="Enter phone no."
+                      name="Phone"
+                      value={props.input.Phone}
+                      onInput={handleInputChange}
+                      disabled={showOTP}
+                      className={`${style.phone} ${FCss.phoneInput}`}
+                    />
+                  </div>
 
-                    {verOTP ? (
-                      ""
-                    ) : (
-                      <>
-                        <button
-                          id={time > 0 ? style.showOTP : ""}
-                          className={style.resendBtn}
-                        >
-                          <p>Resend OTP</p>
-                          {time > 0 ? (
-                            <p id={style.timer}>
-                              00:{time < 10 ? `0${time}` : time}
-                            </p>
+                  {verOTP ? (
+                    ""
+                  ) : (
+                    <>
+                      <button
+                        id={time > 0 ? style.showOTP : ""}
+                        className={style.resendBtn}
+                      >
+                        <p>Resend OTP</p>
+                        {time > 0 ? (
+                          <p id={style.timer}>
+                            00:{time < 10 ? `0${time}` : time}
+                          </p>
+                        ) : (
+                          ""
+                        )}
+                      </button>
+                    </>
+                  )}
+                </div>
+              </div>
+
+              {verOTP ? (
+                ""
+              ) : (
+                <>
+                  {showOTP ? (
+                    <div>
+                      {sendotp.length === 4 ? (
+                        <div className={FCss.otp}>
+                          <div className={FCss.otpText}>
+                            <input
+                              type="text"
+                              id="otp"
+                              placeholder="Enter the OTP sent"
+                              name="Password"
+                              value={sendotp}
+                              onChange={handleOtpValue}
+                            />
+                          </div>
+                          {sendotp.length >= 4 ? (
+                            <div
+                              className={style.resendBtn}
+                              id={style.verBtn}
+                              onClick={VerifyOTP}
+                            >
+                              <p>{load ? <Load /> : <>Verify OTP</>}</p>
+                            </div>
                           ) : (
                             ""
                           )}
-                        </button>
-                      </>
-                    )}
-                  </div>
-                </div>
-
-                {verOTP ? (
-                  ""
-                ) : (
-                  <>
-                    {showOTP ? (
-                      <div>
-                        {sendotp.length === 4 ? (
-                          <div className={FCss.otp}>
-                            <div className={FCss.otpText}>
-                              <input
-                                type="text"
-                                id="otp"
-                                placeholder="Enter the OTP sent"
-                                name="Password"
-                                value={sendotp}
-                                onChange={handleOtpValue}
-                              />
-                            </div>
-                            {sendotp.length >= 4 ? (
-                              <div
-                                className={style.resendBtn}
-                                id={style.verBtn}
-                                onClick={VerifyOTP}
-                              >
-                                <p>{load ? <Load /> : <>Verify OTP</>}</p>
-                              </div>
-                            ) : (
-                              ""
-                            )}
+                        </div>
+                      ) : (
+                        <div className={FCss.otp}>
+                          <div className={FCss.otpTextNumber}>
+                            <input
+                              type="text"
+                              id="otp"
+                              placeholder="Enter the OTP sent"
+                              name="Password"
+                              value={sendotp}
+                              onChange={handleOtpValue}
+                            />
                           </div>
-                        ) : (
-                          <div className={FCss.otp}>
-                            <div className={FCss.otpTextNumber}>
-                              <input
-                                type="text"
-                                id="otp"
-                                placeholder="Enter the OTP sent"
-                                name="Password"
-                                value={sendotp}
-                                onChange={handleOtpValue}
-                              />
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    ) : (
-                      ""
-                    )}
-                  </>
-                )}
-              </>
-            ) : (
-              <div>
-                <div className={FCss.formInputNumber}>
-                  <input
-                    type="text"
-                    placeholder="+91"
-                    disabled
-                    id={style.countryCode}
-                  />
-                  <input
-                    type="text"
-                    id="phone"
-                    placeholder="Enter phone no."
-                    className={style.phone}
-                    name="Phone"
-                    value={props.input.Phone}
-                    onInput={handleInputChange}
-                  />
-                </div>
-              </div>
-            )}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                </>
+              )}
+            </>
+            {/* // ) : (
+            //   <div>
+            //     <div className={FCss.formInputNumber}>
+            //       <input
+            //         type="text"
+            //         placeholder="+91"
+            //         disabled
+            //         id={style.countryCode}
+            //       />
+            //       <input
+            //         type="text"
+            //         id="phone"
+            //         placeholder="Enter phone no."
+            //         className={style.phone}
+            //         name="Phone"
+            //         value={props.input.Phone}
+            //         onInput={handleInputChange}
+            //       />
+            //     </div>
+            //   </div>
+            // )} */}
           </div>
           <div className={FCss.formInputs}>
             <label htmlFor="email">Email</label>
