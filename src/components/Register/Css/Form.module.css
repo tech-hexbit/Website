@@ -51,7 +51,7 @@
 .phoneInputmDiv {
   display: flex;
   align-items: center;
-  background-color: red;
+  width: 100%;
 }
 
 .formInput2 {
