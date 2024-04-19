@@ -219,10 +219,10 @@ export default function Form1(props) {
                     />
                     <input
                       type="text"
-                      id="phone"
                       placeholder="Enter phone no."
                       name="Phone"
                       value={props.input.Phone}
+                      id={showOTP ? style.phoff : ""}
                       onInput={handleInputChange}
                       disabled={showOTP}
                       className={`${style.phone} ${FCss.phoneInput}`}
