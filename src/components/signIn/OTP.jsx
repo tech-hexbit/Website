@@ -63,7 +63,10 @@ export default function OTP(props) {
         otp: input.otp,
       };
 
-      const response = await axios.post(`/api/website/auth/otp/verify/`, data);
+      const response = await axios.post(
+        `/api/website/auth/otp/verify/login`,
+        data
+      );
 
       if (response.data.status) {
         setLoad(false);
