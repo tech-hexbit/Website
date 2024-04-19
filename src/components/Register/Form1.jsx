@@ -229,14 +229,14 @@ export default function Form1(props) {
                       />
                     </div>
 
-                    <button
-                      id={time > 0 ? style.showOTP : ""}
-                      className={style.resendBtn}
-                    >
-                      {load ? (
-                        <Load />
-                      ) : (
-                        <>
+                    {verOTP ? (
+                      ""
+                    ) : (
+                      <>
+                        <button
+                          id={time > 0 ? style.showOTP : ""}
+                          className={style.resendBtn}
+                        >
                           <p>Resend OTP</p>
                           {time > 0 ? (
                             <p id={style.timer}>
@@ -245,51 +245,61 @@ export default function Form1(props) {
                           ) : (
                             ""
                           )}
-                        </>
-                      )}
-                    </button>
+                        </button>
+                      </>
+                    )}
                   </div>
                 </div>
 
-                {showOTP ? (
-                  <div>
-                    {sendotp.length === 4 ? (
-                      <div className={FCss.otp}>
-                        <div className={FCss.otpText}>
-                          <input
-                            type="text"
-                            id="otp"
-                            placeholder="Enter the OTP sent"
-                            name="Password"
-                            value={sendotp}
-                            onChange={handleOtpValue}
-                          />
-                        </div>
-                        {sendotp.length >= 4 ? (
-                          <div className={style.resendBtn} id={style.verBtn}>
-                            <p>Verify OTP</p>
+                {verOTP ? (
+                  ""
+                ) : (
+                  <>
+                    {showOTP ? (
+                      <div>
+                        {sendotp.length === 4 ? (
+                          <div className={FCss.otp}>
+                            <div className={FCss.otpText}>
+                              <input
+                                type="text"
+                                id="otp"
+                                placeholder="Enter the OTP sent"
+                                name="Password"
+                                value={sendotp}
+                                onChange={handleOtpValue}
+                              />
+                            </div>
+                            {sendotp.length >= 4 ? (
+                              <div
+                                className={style.resendBtn}
+                                id={style.verBtn}
+                                onClick={VerifyOTP}
+                              >
+                                <p>{load ? <Load /> : <>Verify OTP</>}</p>
+                              </div>
+                            ) : (
+                              ""
+                            )}
                           </div>
                         ) : (
-                          ""
+                          <div className={FCss.otp}>
+                            <div className={FCss.otpTextNumber}>
+                              <input
+                                type="text"
+                                id="otp"
+                                placeholder="Enter the OTP sent"
+                                name="Password"
+                                value={sendotp}
+                                onChange={handleOtpValue}
+                              />
+                            </div>
+                          </div>
                         )}
                       </div>
                     ) : (
-                      <div className={FCss.otp}>
-                        <div className={FCss.otpTextNumber}>
-                          <input
-                            type="text"
-                            id="otp"
-                            placeholder="Enter the OTP sent"
-                            name="Password"
-                            value={sendotp}
-                            onChange={handleOtpValue}
-                          />
-                        </div>
-                      </div>
+                      ""
                     )}
-                  </div>
-                ) : (
-                  ""
+                  </>
                 )}
               </>
             ) : (
