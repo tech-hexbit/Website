@@ -221,7 +221,7 @@ export default function OTP(props) {
                       props.hideOTP(true);
                     }}
                   />
-                  <button id={time > 0 ? style.showOTP : ""}>
+                  <button id={time > 0 ? style.showOTP : ""} onClick={sendOTP}>
                     {load ? (
                       <Load />
                     ) : (
