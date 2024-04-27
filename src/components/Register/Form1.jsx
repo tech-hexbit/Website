@@ -83,6 +83,22 @@ export default function Form1(props) {
   };
 
   const sendOTP = async () => {
+    console.log(time);
+
+    if (time > 0 && time < 30) {
+      console.log("first  ---------------");
+
+      authCtx.showAlert({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "Unable to Send OTP",
+      });
+
+      return;
+    }
+
     try {
       const response = await axios.get(
         `/api/website/auth/otp/verification/register/${props.input.Phone}`
