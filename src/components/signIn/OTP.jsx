@@ -71,13 +71,6 @@ export default function OTP(props) {
       if (response.data.status) {
         setLoad(false);
 
-        authCtx.showAlert({
-          mainColor: "#EDFEEE",
-          secondaryColor: "#5CB660",
-          symbol: "check_circle",
-          title: "Success",
-          text: "Logged In",
-        });
         if (response.data.user[0].Store[0].StoreID.validation) {
           redirect("/me");
         } else {
