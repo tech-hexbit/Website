@@ -83,11 +83,7 @@ export default function Form1(props) {
   };
 
   const sendOTP = async () => {
-    console.log(time);
-
     if (time > 0 && time < 30) {
-      console.log("first  ---------------");
-
       authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
