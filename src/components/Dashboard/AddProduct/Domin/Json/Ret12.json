@@ -20,7 +20,7 @@
     "under": "Product Details",
     "title": "Long Description",
     "field": "long_desc",
-    "type": "text",
+    "type": "textarea",
     "placeholder": "Write long product description here..."
   }
 ]
