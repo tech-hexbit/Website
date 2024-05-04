@@ -5,7 +5,11 @@ import PropTypes from "prop-types";
 import FormRET12 from "./Forms/RET12";
 
 export default function AddProdRET12({ domain }) {
-  return <div>AddProdRET12</div>;
+  return (
+    <>
+      <FormRET12 domain={domain} />
+    </>
+  );
 }
 
 AddProdRET12.propTypes = {
