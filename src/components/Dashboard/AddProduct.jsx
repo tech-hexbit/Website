@@ -3,8 +3,10 @@ import React, { useContext, useEffect, useState } from "react";
 // components
 import Header from "./MainParts/Header";
 import UploadCsvPopup from "./AddProduct/UploadCsvPopup";
-import AddProdRET10 from "./AddProduct/Domin/AddProdRET10";
 import FilteredCategory from "./AddProduct/FilteredCatergory";
+//    RET-Files
+import AddProdRET10 from "./AddProduct/Domin/AddProdRET10";
+import AddProdRET12 from "./AddProduct/Domin/AddProdRET12";
 
 // css
 import ApCss from "./Css/AddProduct.module.css";
@@ -80,15 +82,14 @@ export default function AddProduct() {
           </div>
 
           {domain === "ONDC:RET10" ? <AddProdRET10 domain={domain} /> : ""}
-          {domain === "ONDC:RET11"
-            ? "We currently Do Not Support ONDC:RET11 - Food & Beverage"
-            : ""}
 
-          {domain === "ONDC:RET12" && (
+          {domain === "ONDC:RET11" && (
             <div className="loadCenterDiv">
-              <p>We currently Do Not Support ONDC:RET12 - Fashion</p>
+              <p>We currently Do Not Support ONDC:RET11 - Food & Beverage</p>
             </div>
           )}
+
+          {domain === "ONDC:RET12" && <AddProdRET12 domain={domain} />}
 
           {domain === "ONDC:RET13"
             ? "We currently Do Not Support ONDC:RET13 - Beauty and Personal Care"
