@@ -4,6 +4,7 @@
     "under": "Product Details",
     "title": "Title",
     "field": "name",
+    "type": "text",
     "placeholder": "Title - XX"
   }
 ]
