@@ -1,6 +1,9 @@
 [
   {
     "id": 1,
-    "title": ""
+    "under": "Product Details",
+    "title": "Title",
+    "field": "name",
+    "placeholder": "Title - XX"
   }
 ]
