@@ -83,9 +83,13 @@ export default function AddProduct() {
           {domain === "ONDC:RET11"
             ? "We currently Do Not Support ONDC:RET11 - Food & Beverage"
             : ""}
-          {domain === "ONDC:RET12"
-            ? "We currently Do Not Support ONDC:RET12 - Fashion"
-            : ""}
+
+          {domain === "ONDC:RET12" && (
+            <div className="loadCenterDiv">
+              <p>We currently Do Not Support ONDC:RET12 - Fashion</p>
+            </div>
+          )}
+
           {domain === "ONDC:RET13"
             ? "We currently Do Not Support ONDC:RET13 - Beauty and Personal Care"
             : ""}
