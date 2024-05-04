@@ -91,27 +91,52 @@ export default function AddProduct() {
 
           {domain === "ONDC:RET12" && <AddProdRET12 domain={domain} />}
 
-          {domain === "ONDC:RET13"
-            ? "We currently Do Not Support ONDC:RET13 - Beauty and Personal Care"
-            : ""}
-          {domain === "ONDC:RET14"
-            ? "We currently Do Not Support ONDC:RET14 - Electronics"
-            : ""}
-          {domain === "ONDC:RET15"
-            ? "We currently Do Not Support ONDC:RET15 - Appliances"
-            : ""}
-          {domain === "ONDC:RET16"
-            ? "We currently Do Not Support ONDC:RET16 - Home & Decor & Kitchen"
-            : ""}
-          {domain === "ONDC:RET17"
-            ? "We currently Do Not Support ONDC:RET17 - Toy & Games"
-            : ""}
-          {domain === "ONDC:RET18"
-            ? "We currently Do Not Support ONDC:RET18 - Health & Wellness"
-            : ""}
-          {domain === "ONDC:RET19"
-            ? "We currently Do Not Support ONDC:RET19 - Pharma"
-            : ""}
+          {domain === "ONDC:RET13" && (
+            <div className="loadCenterDiv">
+              <p>
+                We currently Do Not Support ONDC:RET13 - Beauty and Personal
+                Care
+              </p>
+            </div>
+          )}
+
+          {domain === "ONDC:RET14" && (
+            <div className="loadCenterDiv">
+              <p> We currently Do Not Support ONDC:RET14 - Electronics </p>
+            </div>
+          )}
+
+          {domain === "ONDC:RET15" && (
+            <div className="loadCenterDiv">
+              <p> We currently Do Not Support ONDC:RET15 - Appliances </p>
+            </div>
+          )}
+
+          {domain === "ONDC:RET16" && (
+            <div className="loadCenterDiv">
+              <p>
+                We currently Do Not Support ONDC:RET16 - Home & Decor & Kitchen
+              </p>
+            </div>
+          )}
+
+          {domain === "ONDC:RET17" && (
+            <div className="loadCenterDiv">
+              <p> We currently Do Not Support ONDC:RET17 - Toy & Games </p>
+            </div>
+          )}
+
+          {domain === "ONDC:RET18" && (
+            <div className="loadCenterDiv">
+              <p>We currently Do Not Support ONDC:RET18 - Health & Wellness</p>
+            </div>
+          )}
+
+          {domain === "ONDC:RET19" && (
+            <div className="loadCenterDiv">
+              <p> We currently Do Not Support ONDC:RET19 - Pharma </p>
+            </div>
+          )}
 
           {showPopup && <UploadCsvPopup setShowPopup={setShowPopup} />}
         </div>
