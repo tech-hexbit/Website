@@ -80,6 +80,7 @@ export default function AddProduct() {
               </button>
             </div>
           </div>
+          <p className={ApCss.domainPtag}>{domain}</p>
 
           {domain === "ONDC:RET10" && <AddProdRET10 domain={domain} />}
 
