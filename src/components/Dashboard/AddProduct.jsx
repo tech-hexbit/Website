@@ -81,7 +81,7 @@ export default function AddProduct() {
             </div>
           </div>
 
-          {domain === "ONDC:RET10" ? <AddProdRET10 domain={domain} /> : ""}
+          {domain === "ONDC:RET10" && <AddProdRET10 domain={domain} />}
 
           {domain === "ONDC:RET11" && (
             <div className="loadCenterDiv">
