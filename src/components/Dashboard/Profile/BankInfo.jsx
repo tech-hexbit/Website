@@ -30,8 +30,6 @@ export default function BankInfo() {
         headers: { Authorization: `${authCtx.token}` },
       });
 
-      console.log(response.data);
-
       if (response.data.success) {
         setBankDetails(response.data.bankDetail);
 

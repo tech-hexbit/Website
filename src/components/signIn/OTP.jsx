@@ -27,7 +27,7 @@ export default function OTP(props) {
   const sendOTP = async () => {
     try {
       const response = await axios.get(
-        `/api/website/auth/otp/verification/${input.phone}`
+        `/api/website/auth/otp/verification/login/${input.phone}`
       );
 
       if (response.data.status) {
@@ -63,18 +63,14 @@ export default function OTP(props) {
         otp: input.otp,
       };
 
-      const response = await axios.post(`/api/website/auth/otp/verify/`, data);
+      const response = await axios.post(
+        `/api/website/auth/otp/verify/login`,
+        data
+      );
 
       if (response.data.status) {
         setLoad(false);
 
-        authCtx.showAlert({
-          mainColor: "#EDFEEE",
-          secondaryColor: "#5CB660",
-          symbol: "check_circle",
-          title: "Success",
-          text: "Logged In",
-        });
         if (response.data.user[0].Store[0].StoreID.validation) {
           redirect("/me");
         } else {
@@ -218,7 +214,7 @@ export default function OTP(props) {
                       props.hideOTP(true);
                     }}
                   />
-                  <button id={time > 0 ? style.showOTP : ""}>
+                  <button id={time > 0 ? style.showOTP : ""} onClick={sendOTP}>
                     {load ? (
                       <Load />
                     ) : (

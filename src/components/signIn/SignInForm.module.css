@@ -38,6 +38,30 @@
   padding-top: 36px;
 }
 
+.resendBtn,
+.verConBtn {
+  min-width: 120px;
+  height: 39.334px;
+  border: none;
+  border-radius: 6px;
+  background: #350b5e;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.resendBtn {
+  margin: 10px 0px 0px 0px;
+}
+
+#verBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .inputEP,
 .inputEPass {
   padding-top: 20px;
@@ -123,7 +147,9 @@
 
 #countryCode {
   width: 17%;
+  min-width: 40px;
   padding: 10px 6px;
+  text-align: center;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
 }
@@ -165,7 +191,7 @@ input[type="text"]:disabled::placeholder {
   border: none;
   border-radius: 6px;
   background: #350b5e;
-  color: var(--ffffff, #fff);
+  color: #fff;
   text-align: center;
   font-size: 16px;
   font-weight: 600;
@@ -269,6 +295,13 @@ input[type="text"]:disabled::placeholder {
 
   .tc {
     padding: 0px 0px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .resendBtn,
+  .verConBtn {
+    width: 100%;
   }
 }
 

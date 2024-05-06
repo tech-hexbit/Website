@@ -27,18 +27,42 @@
 .formInput {
   display: flex;
   justify-content: space-between;
-  /* gap: 10px; */
   margin-bottom: 10px;
 }
+
 .phoneInputs {
   display: flex;
   flex-direction: row;
-  /* gap: 0; */
   width: 80%;
 }
+
+.phoneMDiv {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0px 20px;
+}
+
 .phoneInput {
   flex-basis: 100%;
 }
+
+.phoneInputmDiv {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.verIconPhone {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: calc(100% - 10px);
+  color: #c075ff;
+}
+
 .formInput2 {
   display: flex;
   justify-content: space-between;
@@ -63,11 +87,6 @@
   color: #c075ff;
 }
 
-/* .formInput2 input {
-  margin-right: 0; 
-   margin-top: 10px;
-} */
-
 .formInput input {
   width: 80%;
   margin-top: 10px;
@@ -77,17 +96,18 @@
   display: flex;
   flex-direction: row;
 }
+
 .formInputNumber input {
   width: 100%;
   margin-right: 0;
   margin-bottom: 30px;
   margin-top: 10px;
 }
+
 .formInputNumberPin input {
   width: 100%;
-  /* margin-right: 0; */
-  /* margin-bottom: 30px; */
 }
+
 .formInputs {
   display: flex;
   flex-direction: column;
@@ -120,7 +140,9 @@ label {
 .otp {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding-bottom: 30px;
+  gap: 10px 30px;
 }
 
 .otpBtn {
@@ -136,6 +158,10 @@ label {
   width: 100%;
 }
 
+.otpInp {
+  padding: 0px 0px 0px 40px;
+}
+
 .otpButtonF button,
 .otpButton button,
 .otpButtonT button {
@@ -147,6 +173,7 @@ label {
   padding: 9px 15px;
   margin-top: 10px;
 }
+
 .pinButtonT button,
 .pinButtonF button {
   border: none;
@@ -270,59 +297,86 @@ span {
   .phoneInputs {
     width: 75%;
   }
+
   .otpText {
     width: 75%;
   }
 }
+
 @media (max-width: 1400px) {
   .formInput input,
   .phoneInputs {
     width: 70%;
   }
+
   .otpText {
     width: 70%;
   }
 }
+
 @media (max-width: 1230px) {
   .formInput input,
   .phoneInputs {
     width: 63%;
   }
+
   .otpText {
     width: 63%;
   }
 }
+
+@media screen and (max-width: 1100px) {
+  .phoneMDiv {
+    flex-direction: column;
+  }
+}
+
 @media (max-width: 1106px) {
   .otpButtonClicked button {
     padding: 7px 17px;
   }
+
   .otpButtonVerify button {
     margin-top: 10px;
   }
+
   .otpButtonF button,
   .otpButton button {
     width: 100%;
     padding: 10px 16px;
     margin-top: 10px;
   }
+
   .pinButtonF button {
     width: 100%;
     padding: 10px 16px;
   }
+
   .formInput {
     flex-wrap: wrap;
   }
+
   .otp {
     flex-wrap: wrap;
   }
+
   .formInput input,
   .phoneInputs {
     width: 100%;
   }
+
   .otpText {
     width: 100%;
   }
 }
+
+@media screen and (max-width: 1050px) {
+  .form {
+    padding-top: 48px;
+    padding-left: 0px;
+  }
+}
+
 @media screen and (max-width: 840px) {
   .mainDiv {
     margin: 20px 30px 20px 20px;
@@ -332,6 +386,7 @@ span {
     padding-left: 0px;
   }
 }
+
 @media screen and (max-width: 700px) {
   .formInput {
     flex-wrap: nowrap;
@@ -341,58 +396,73 @@ span {
   .phoneInputs {
     width: 75%;
   }
+
   .otp {
     flex-wrap: nowrap;
   }
+
   .otpText {
     width: 75%;
   }
+
   .otpButtonClicked button {
     padding: 8px 18px;
   }
+
   .otpButtonVerify button {
     margin-top: 0px;
     padding: 1px 13px;
   }
 }
+
 @media screen and (max-width: 574px) {
   .formInput input,
   .phoneInputs {
     width: 70%;
   }
+
   .otpText {
     width: 70%;
   }
 }
+
 @media screen and (max-width: 510px) {
   .formInput input,
   .phoneInputs {
     width: 65%;
   }
+
   .otpText {
     width: 65%;
   }
 }
+
 @media (max-width: 460px) {
   .formInput {
     flex-wrap: wrap;
   }
+
   .formInput input,
   .phoneInputs {
     width: 100%;
   }
+
   .otp {
     flex-wrap: wrap;
   }
+
   .otpText {
     width: 100%;
   }
+
   .otpButton button {
     padding: 7px 17px;
   }
+
   .otpButtonVerify button {
     margin-top: 10px;
   }
+
   .otpButtonClicked button {
     padding: 7px 17px;
   }
