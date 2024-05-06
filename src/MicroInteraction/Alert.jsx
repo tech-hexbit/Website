@@ -9,8 +9,6 @@ import "./Css/Alert.css";
 export const Alert = () => {
   const authCtx = useContext(AuthContext);
 
-  console.table(authCtx.alert);
-
   useEffect(() => {
     if (authCtx.alert.show) {
       setTimeout(() => {
