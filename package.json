@@ -14,7 +14,7 @@
     "axios": "^1.4.0",
     "bcryptjs-react": "^2.4.6",
     "blurhash": "^2.0.5",
-    "chart.js": "^3.9.1",
+    "chart.js": "^4.1.1",
     "file-saver": "^2.0.5",
     "framer-motion": "^10.16.4",
     "jszip": "^3.10.1",
