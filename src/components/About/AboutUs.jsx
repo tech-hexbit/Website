@@ -104,22 +104,47 @@ export default function AboutUs() {
             <div className={AbCss.blHead}>Buyer Side</div>
             <div className={AbCss.blImages}>
               <div className={AbCss.img}>
-                <img src={buyer1} alt="" className={AbCss.imgLogo} />
+                <img
+                  src={buyer1}
+                  alt=""
+                  className={AbCss.imgLogo}
+                  loading="lazy"
+                />
               </div>
               <div className={AbCss.img}>
-                <img src={buyer2} alt="" className={AbCss.imgLogo} />
+                <img
+                  src={buyer2}
+                  alt=""
+                  className={AbCss.imgLogo}
+                  loading="lazy"
+                />
               </div>
               <div className={AbCss.img}>
-                <img src={buyer3} alt="" className={AbCss.imgLogo} />
+                <img
+                  src={buyer3}
+                  alt=""
+                  className={AbCss.imgLogo}
+                  loading="lazy"
+                />
               </div>
               <div className={AbCss.img}>
-                <img src={buyer4} alt="" className={AbCss.imgLogo} />
+                <img
+                  src={buyer4}
+                  alt=""
+                  className={AbCss.imgLogo}
+                  loading="lazy"
+                />
               </div>
               <div className={AbCss.img}>
-                <img src={buyer5} alt="" className={AbCss.imgLogo} />
+                <img
+                  src={buyer5}
+                  alt=""
+                  className={AbCss.imgLogo}
+                  loading="lazy"
+                />
               </div>
               <div className={AbCss.img} id={AbCss.yatraDiv}>
-                <img src={buyer6} alt="" id={AbCss.yatra} />
+                <img src={buyer6} alt="" id={AbCss.yatra} loading="lazy" />
               </div>
             </div>
           </div>
@@ -127,22 +152,52 @@ export default function AboutUs() {
             <div className={AbCss.blHead}>Logistics Side</div>
             <div className={AbCss.blImages}>
               <div className={AbCss.img}>
-                <img src={logistics1} alt="" className={AbCss.imgLogo} />
+                <img
+                  src={logistics1}
+                  alt=""
+                  className={AbCss.imgLogo}
+                  loading="lazy"
+                />
               </div>
               <div className={AbCss.img}>
-                <img src={logistics2} alt="" className={AbCss.imgLogo} />
+                <img
+                  src={logistics2}
+                  alt=""
+                  className={AbCss.imgLogo}
+                  loading="lazy"
+                />
               </div>
               <div className={AbCss.img}>
-                <img src={logistics3} alt="" className={AbCss.imgLogo} />
+                <img
+                  src={logistics3}
+                  alt=""
+                  className={AbCss.imgLogo}
+                  loading="lazy"
+                />
               </div>
               <div className={AbCss.img}>
-                <img src={logistics4} alt="" className={AbCss.imgLogo} />
+                <img
+                  src={logistics4}
+                  alt=""
+                  className={AbCss.imgLogo}
+                  loading="lazy"
+                />
               </div>
               <div className={AbCss.img}>
-                <img src={logistics5} alt="" className={AbCss.imgLogo} />
+                <img
+                  src={logistics5}
+                  alt=""
+                  className={AbCss.imgLogo}
+                  loading="lazy"
+                />
               </div>
               <div className={AbCss.img}>
-                <img src={logistics6} alt="" className={AbCss.imgLogo} />
+                <img
+                  src={logistics6}
+                  alt=""
+                  className={AbCss.imgLogo}
+                  loading="lazy"
+                />
               </div>
             </div>
           </div>
@@ -158,7 +213,7 @@ export default function AboutUs() {
           </div>
         </div>
         <div className={AbCss.part2Img}>
-          <img src={logo} alt="" />
+          <img src={logo} alt="" loading="lazy" />
         </div>
       </div>
     </div>
