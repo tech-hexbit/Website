@@ -74,6 +74,7 @@ export default function PartialCancel({ data }) {
       // console.log(r);
     } catch (error) {
       console.log(error);
+      console.log(error.response.data);
 
       setLoad(false);
 
