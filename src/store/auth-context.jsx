@@ -101,7 +101,7 @@ export const AuthContextProvider = (props) => {
     show: false,
   });
 
-  console.log("userislogedin : - " + userIsLoggedIn);
+  // console.log("userislogedin : - " + userIsLoggedIn);
 
   const targetHandler = (t) => {
     setTarget(t);

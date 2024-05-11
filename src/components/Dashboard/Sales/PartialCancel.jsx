@@ -4,6 +4,9 @@ import PropTypes from "prop-types";
 // state
 import AuthContext from "./../../../store/auth-context";
 
+// axios
+import axios from "axios";
+
 // css
 import PCCss from "./Css/PartialCancel.module.css";
 
@@ -39,21 +42,39 @@ export default function PartialCancel({ data }) {
     setLoad(true);
 
     try {
-      const res = await fetch(
+      console.log("response");
+      // const res = await fetch(
+      //   `${import.meta.env.VITE_SERVER_ONDC_URL}/update/partial/Cancel`,
+      //   {
+      //     method: "POST",
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //     body: JSON.stringify({ orderID: data._id, item: itemsList }),
+      //   }
+      // );
+
+      let showData = {
+        orderID: data._id,
+        item: itemsList,
+      };
+
+      const response = await axios.post(
         `${import.meta.env.VITE_SERVER_ONDC_URL}/update/partial/Cancel`,
+        showData,
         {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ orderID: data._id, item: itemsList }),
+          headers: { Authorization: `${authCtx.token}` },
         }
       );
 
-      const r = await res.json();
+      console.log(response);
 
-      console.log(r);
+      // const r = await res.json();
+
+      // console.log(r);
     } catch (error) {
+      console.log(error);
+
       setLoad(false);
 
       authCtx.showAlert({
