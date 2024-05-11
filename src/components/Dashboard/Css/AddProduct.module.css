@@ -36,6 +36,13 @@
   cursor: pointer;
 }
 
+.domainPtag {
+  margin: 0px 10px;
+  font-weight: 400;
+  font-size: 0.6rem;
+  float: right;
+}
+
 @media screen and (max-width: 650px) {
   .hideTxt {
     display: none;

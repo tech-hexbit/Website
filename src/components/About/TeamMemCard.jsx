@@ -8,16 +8,26 @@ export default function TeamMemCard(props) {
       {/* <div className={TeamCss.image}> */}
       {/* <img src={props.image} alt="" className={TeamCss.image} /> */}
       <div className={TeamCss.image}>
-      <MissionBlurFounder src={props.image}  blur={props.blur} />
+        <MissionBlurFounder src={props.image} blur={props.blur} />
       </div>
       {/* </div> */}
       <div className={TeamCss.details}>
         <div className={TeamCss.name}>{props.name}</div>
         <div className={TeamCss.designation}>{props.designation}</div>
         <div>
-          <img src={props.img1} alt="" className={TeamCss.img1} />
+          <img
+            src={props.img1}
+            alt=""
+            className={TeamCss.img1}
+            loading="lazy"
+          />
           <br />
-          <img src={props.img2} alt="" className={TeamCss.img2} />
+          <img
+            src={props.img2}
+            alt=""
+            className={TeamCss.img2}
+            loading="lazy"
+          />
         </div>
       </div>
     </div>

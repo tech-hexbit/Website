@@ -11,7 +11,7 @@ export default function AdvisorCard(props) {
       <div className={AdCss.details}>
         <div className={AdCss.name}>{props.name}</div>
         <div className={AdCss.company}>
-          <img src={props.company} alt="" />
+          <img src={props.company} alt="" loading="lazy" />
         </div>
       </div>
     </div>

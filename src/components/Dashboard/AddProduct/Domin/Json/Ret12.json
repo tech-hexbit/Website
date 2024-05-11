@@ -1,0 +1,26 @@
+[
+  {
+    "id": 0,
+    "under": "Product Details",
+    "title": "Title",
+    "field": "name",
+    "type": "text",
+    "placeholder": "Title - XX"
+  },
+  {
+    "id": 1,
+    "under": "Product Details",
+    "title": "Short Description",
+    "field": "short_desc",
+    "type": "text",
+    "placeholder": "Write product short description here..."
+  },
+  {
+    "id": 1,
+    "under": "Product Details",
+    "title": "Long Description",
+    "field": "long_desc",
+    "type": "textarea",
+    "placeholder": "Write long product description here..."
+  }
+]

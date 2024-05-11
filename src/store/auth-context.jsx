@@ -65,7 +65,7 @@ const retrieveStoredToken = () => {
     min = Math.floor((ms / 1000 / 60) << 0),
     sec = Math.floor((ms / 1000) % 60);
 
-  console.log(min + ":" + sec);
+  // console.log(min + ":" + sec);
 
   const finaluser = JSON.parse(userdata);
 
