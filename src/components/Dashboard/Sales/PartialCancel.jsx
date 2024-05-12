@@ -43,16 +43,6 @@ export default function PartialCancel({ data }) {
 
     try {
       console.log("response");
-      // const res = await fetch(
-      //   `${import.meta.env.VITE_SERVER_ONDC_URL}/update/partial/Cancel`,
-      //   {
-      //     method: "POST",
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //     },
-      //     body: JSON.stringify({ orderID: data._id, item: itemsList }),
-      //   }
-      // );
 
       let showData = {
         orderID: data._id,
@@ -68,10 +58,6 @@ export default function PartialCancel({ data }) {
       );
 
       console.log(response);
-
-      // const r = await res.json();
-
-      // console.log(r);
     } catch (error) {
       console.log(error);
       console.log(error.response.data);
