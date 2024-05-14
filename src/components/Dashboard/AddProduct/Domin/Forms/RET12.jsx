@@ -6,7 +6,7 @@ import Service from "../Service";
 import FixValues from "../FIxValuesRET12";
 import GeneralInfo from "../GeneralInfoRET12";
 import ProductCategory from "../ProductCategoryRET12";
-import ProdParticulars from "../ProdParticulars";
+import ProdParticulars from "../ProdParticularsRET12";
 import MultipleImageHandler from "../../MultipleImageHandler";
 
 // data
@@ -48,8 +48,6 @@ export default function RET12({ domain }) {
     Discounts: "",
     measureUnit: "",
     measureValue: "",
-    availableCount: "",
-    maximumCount: "",
     maximum_value: 0,
     manufacturer_or_packer_name: "",
     tags: [],
@@ -103,9 +101,6 @@ export default function RET12({ domain }) {
       size_chart,
       brand_name,
       Discounts,
-      measureUnit,
-      measureValue,
-      availableCount,
       maximumCount,
       maximum_value,
       manufacturer_or_packer_name,
@@ -140,9 +135,6 @@ export default function RET12({ domain }) {
       size_chart !== "" &&
       brand_name !== "" &&
       Discounts !== "" &&
-      measureUnit !== "" &&
-      measureValue !== "" &&
-      availableCount !== "" &&
       maximumCount !== "" &&
       maximum_value !== "" &&
       manufacturer_or_packer_name !== "" &&
@@ -210,10 +202,7 @@ export default function RET12({ domain }) {
             size_chart: "",
             brand_name: "",
             Discounts: "",
-            measureUnit: "",
-            measureValue: "",
-            availableCount: "",
-            maximumCount: "",
+            maximumCount: 0,
             maximum_value: 0,
             manufacturer_or_packer_name: "",
             tags: [],
@@ -286,13 +275,13 @@ export default function RET12({ domain }) {
   return (
     <>
       <ProdParticulars showData={data} setData={setData} />
+      <GeneralInfo showData={data} setData={setData} />
 
       <div className={FCss.rowDIv}>
         <div className={FCss.rowDIvLeft}>
-          <GeneralInfo showData={data} setData={setData} />
+          <ProductCategory showData={data} setData={setData} />
         </div>
         <div className={FCss.rowDIvRight}>
-          <ProductCategory showData={data} setData={setData} />
           <Service showData={data} setData={setData} />
         </div>
       </div>

@@ -23,6 +23,16 @@ export default function ProdParticulars({ setData, showData }) {
         placeholder="Title - XX"
       />
 
+      {/* Parent SKU ID */}
+      <InpTp1
+        type="text"
+        Label="SKU ID"
+        showData={showData}
+        setData={setData}
+        field="sku_id"
+        placeholder="PID-RET12-0001"
+      />
+
       {/* Short Description */}
       <InpTp1
         type="text"

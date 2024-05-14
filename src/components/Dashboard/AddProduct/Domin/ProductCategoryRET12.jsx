@@ -55,43 +55,115 @@ const ProductCategory = ({ setData, showData }) => {
           <option value="" selected disabled hidden>
             Select
           </option>
-          <option value="Dresses">Dresses</option>
-          <option value="Tops">Tops</option>
-          <option value="Bottoms">Bottoms</option>
-          <option value="Jackets & Coats">Jackets & Coats</option>
-          <option value="Suits">Suits</option>
-          <option value="Skirts">Skirts</option>
-          <option value="Jeans">Jeans</option>
-          <option value="Shirts">Shirts</option>
-          <option value="Shorts">Shorts</option>
-          <option value="Sweaters & Cardigans">Sweaters & Cardigans</option>
-          <option value="Activewear">Activewear</option>
-          <option value="Sleepwear">Sleepwear</option>
-          <option value="Ethnic Wear">Ethnic Wear</option>
-          <option value="Western Wear">Western Wear</option>
-          <option value="Formal Wear">Formal Wear</option>
-          <option value="Casual Wear">Casual Wear</option>
-          <option value="Party Wear">Party Wear</option>
-          <option value="Streetwear">Streetwear</option>
-          <option value="Workwear">Workwear</option>
-          <option value="Athleisure">Athleisure</option>
-          <option value="Shoes">Shoes</option>
-          <option value="Sandals">Sandals</option>
-          <option value="Boots">Boots</option>
-          <option value="Heels">Heels</option>
-          <option value="Sneakers">Sneakers</option>
-          <option value="Flats">Flats</option>
-          <option value="Loafers">Loafers</option>
-          <option value="Slippers">Slippers</option>
-          <option value="Flip Flops">Flip Flops</option>
-          <option value="Sunglasses">Sunglasses</option>
-          <option value="Belts">Belts</option>
-          <option value="Hats">Hats</option>
-          <option value="Scarves">Scarves</option>
-          <option value="Gloves">Gloves</option>
-          <option value="Jewelry">Jewelry</option>
-          <option value="Bags">Bags</option>
-          <option value="Wallets">Wallets</option>
+          {[
+            "Anklets",
+            "Backpacks",
+            "Bangles & Bracelets",
+            "Bath Robes",
+            "Belts",
+            "Blazers & Waistcoats",
+            "Blouse Pieces",
+            "Blouses",
+            "Boots",
+            "Boxers",
+            "Bracelets",
+            "Briefs",
+            "Brooch",
+            "Burqas & Hijabs",
+            "Camisoles",
+            "Caps & Hats",
+            "Casual Shoes",
+            "Category",
+            "Chains",
+            "Churidars",
+            "Clothing Sets",
+            "Contact Lens Cases",
+            "Contact Lens Solutions",
+            "Contact Lens Tweezers",
+            "Contact Lenses",
+            "Coordinates",
+            "Dhotis & Dhoti Pants",
+            "Dress Materials",
+            "Dresses",
+            "Dungarees & Jumpsuits",
+            "Dupattas & Shawls",
+            "Ethnic Shoes",
+            "Ethnic Wear",
+            "Earrings",
+            "Eye Glass Frames",
+            "Eye Glasses",
+            "Eyeglasses Pouches & Cases",
+            "Eyewear Slings",
+            "Flip-Flops & Flats",
+            "Formal Shoes",
+            "Gloves",
+            "Gold Coins",
+            "Handbags",
+            "Heels",
+            "Innerwear & Sleepwear",
+            "Jackets & Coats",
+            "Jeans",
+            "Jewellery Sets",
+            "Joggers",
+            "Jumpsuits",
+            "Kurtas & Kurta Sets",
+            "Kurtis, Tunics",
+            "Laces",
+            "Lehenga Cholis",
+            "Lingerie Sets & Accessories",
+            "Mangalsutra",
+            "Microfiber Wipes",
+            "Night Suits",
+            "Nightwear & Loungewear",
+            "Necklaces",
+            "Nosepins & Noserings",
+            "Outdoor Shoes",
+            "Palazzos",
+            "Pendants",
+            "Playsuits",
+            "Pyjamas",
+            "Robes",
+            "Rings",
+            "Salwars",
+            "Sandals & Floaters",
+            "Sarees",
+            "Shapewear",
+            "Sherwanis",
+            "Shirts",
+            "Shoe Care - Accessories",
+            "Shoe Racks & Organisers",
+            "Shorts",
+            "Skirts",
+            "Sleepwear & Loungewear",
+            "Soles & Charms",
+            "Socks",
+            "Sports Shoes",
+            "Suits",
+            "Sunglasses",
+            "Sweaters",
+            "Swim Bottoms",
+            "Swimwear",
+            "T Shirts",
+            "Tights, Leggings & Jeggings",
+            "Tops",
+            "Towels",
+            "Track Pants",
+            "Track Shirts",
+            "Track Suits",
+            "Trolley, Luggage & Suitcases",
+            "Trousers",
+            "Tunics",
+            "Turtle Neck",
+            "Turtlenecks",
+            "Unstitched Fabrics",
+            "Vests",
+            "Watches",
+            "Work & Safety Shoes",
+          ].map((category) => (
+            <option key={category} value={category}>
+              {category}
+            </option>
+          ))}
         </select>
       </div>
 

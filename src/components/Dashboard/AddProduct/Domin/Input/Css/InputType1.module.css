@@ -44,3 +44,18 @@
   appearance: none;
   margin: 0;
 }
+
+
+.colorPickerContainer {
+  position: relative;
+}
+
+.colorInput {
+  width: 100% /* Adjust width to accommodate color picker */
+}
+
+.colorPicker {
+  position: absolute;
+  top: 50px; /* Adjust the position of the color picker */
+  z-Index: 9999; /* Adjust z-index to ensure it's above other elements */
+}

@@ -1,79 +1,28 @@
-import React, {useState} from "react";
-import PropTypes from "prop-types";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { SketchPicker } from 'react-color';
 
-//component
-import InpTp1 from "./Input/InpTp1";
+// Component
+import InpTp1 from './Input/InpTp1';
 
-// css
-import PrCss from "./Css/Lable.module.css";
-import ItCss from "./Input/Css/InputType1.module.css";
+// CSS
+import PrCss from './Css/Lable.module.css';
+import ItCss from './Input/Css/InputType1.module.css';
 
-const colourMap = {
+export default function GeneralInfoRET12({ setData, showData }) {
+  const [colourHex, setColourHex] = useState('#fff');
+  const [showColorPicker, setShowColorPicker] = useState(false);
 
-  // Basic colors
-  White: "#FFFFFF",
-  Black: "#000000",
-  Red: "#FF0000",
-  Green: "#008000",
-  Blue: "#0000FF",
-  Yellow: "#FFFF00",
-  Cyan: "#00FFFF",
-  Magenta: "#FF00FF",
-  Gray: "#808080",
-
-  // Additional colors
-  LightGray: "#D3D3D3",
-  DarkGray: "#A9A9A9",
-  Orange: "#FFA500",
-  Purple: "#800080",
-  Brown: "#A52A2A",
-  Pink: "#FFC0CB",
-  Gold: "#FFD700",
-  Silver: "#C0C0C0",
-  Indigo: "#4B0082",
-  Olive: "#808000",
-  Maroon: "#800000",
-  Navy: "#000080",
-  Teal: "#008080",
-  Coral: "#FF7F50",
-  Lavender: "#E6E6FA",
-  Slate: "#708090",
-  Turquoise: "#40E0D0",
-  Tomato: "#FF6347",
-  Orchid: "#DA70D6",
-  Sienna: "#A0522D",
-  SkyBlue: "#87CEEB",
-  Salmon: "#FA8072",
-  Khaki: "#F0E68C",
-  Lime: "#00FF00",
-  Beige: "#F5F5DC",
-  Crimson: "#DC143C",
-  DarkSlateGray: "#2F4F4F",
-  ForestGreen: "#228B22",
-  DarkViolet: "#9400D3",
-  RosyBrown: "#BC8F8F",
-  MidnightBlue: "#191970",
-  DarkOrange: "#FF8C00",
-  DeepPink: "#FF1493",
-  MediumPurple: "#9370DB",
-  OliveDrab: "#6B8E23",
-};
-
-
-export default function GeneralInfo({ setData, showData }) {
-
-  const [colourHex, setColourHex] = useState(""); 
   const handleSelectChange = (e) => {
     const value = e.target.value;
-
     setData({ ...showData, gender: value });
   };
 
-  const handleColourChange = (e) => {
-    const colourName = e.target.value;
-    const hexCode = colourMap[colourName] || ""; 
-    setData({ ...showData, colour: hexCode }); 
-    setColourHex(hexCode); 
+  const handleColorChange = (color) => {
+    const hexCode = color.hex;
+    setData({ ...showData, colour: hexCode });
+    setColourHex(hexCode);
+    setShowColorPicker(false); // Close the color picker dropdown
   };
 
   return (
@@ -87,7 +36,7 @@ export default function GeneralInfo({ setData, showData }) {
         showData={showData}
         setData={setData}
         field="manufacturer_or_packer_name"
-        placeholder="Frito-Lay, INC."
+        placeholder="Adidas AG"
       />
 
       {/* Manufacturer or Packer Address */}
@@ -130,24 +79,14 @@ export default function GeneralInfo({ setData, showData }) {
         placeholder="₹ 121"
       />
 
-      {/* Maximum Stock */}
+      {/* Stock */}
       <InpTp1
         type="number"
-        Label="Maximum Stock"
+        Label="In Stock"
         showData={showData}
         setData={setData}
         field="maximumCount"
-        placeholder="50"
-      />
-
-      {/* Available Stock */}
-      <InpTp1
-        type="number"
-        Label="Available Stock"
-        showData={showData}
-        setData={setData}
-        field="availableCount"
-        placeholder="20"
+        placeholder="12"
       />
 
       {/* Discounts */}
@@ -160,24 +99,15 @@ export default function GeneralInfo({ setData, showData }) {
         placeholder="12 %"
       />
 
-      {/* Measure Unit */}
+      {/* Size Chart */}
       <InpTp1
-        type="text"
-        Label="Measure Unit"
+        type="url"
+        Label="Size Chart"
         showData={showData}
         setData={setData}
-        field="measureUnit"
-        placeholder="pairs"
-      />
+        field="size_chart"
+        placeholder="https://example.com/size_chart.jpg"
 
-      {/* Measure Value */}
-      <InpTp1
-        type="number"
-        Label="Measure Value"
-        showData={showData}
-        setData={setData}
-        field="measureValue"
-        placeholder="1"
       />
 
       {/* Size Value */}
@@ -190,35 +120,29 @@ export default function GeneralInfo({ setData, showData }) {
         placeholder="UK 10"
       />
 
-      {/* Color dropdown with hex conversion */}
+      {/* Color Picker with hex conversion */}
       <div className={ItCss.inpDiv}>
         <p className={ItCss.inputLabel}>Colour</p>
-        <select
-          name="colour"
-          id=""
-          className={ItCss.inp}
-          onChange={handleColourChange}
-        >
-          <option value="" selected disabled hidden>
-            Select
-          </option>
-          {Object.keys(colourMap).map((colour) => (
-            <option key={colour} value={colour}>
-              {colour}
-            </option>
-          ))}
-        </select>
+        <div className={ItCss.colorPickerContainer}>
+          <input
+            type="text"
+            className={ItCss.colorInput}
+            value={colourHex}
+            readOnly
+            onClick={() => setShowColorPicker(!showColorPicker)}
+            placeholder="Select color"
+          />
+          {showColorPicker && (
+            <div className={ItCss.colorPicker}>
+              <SketchPicker
+                color={colourHex}
+                onChange={handleColorChange}
+                disableAlpha={true}
+              />
+            </div>
+          )}
+        </div>
       </div>
-
-      {/* Colour Final hex Value */}
-      <InpTp1
-        type="text"
-        Label="Colour Hex Value"
-        showData={showData}
-        setData={setData}
-        field="colour"
-        placeholder="#FFFFFF"
-      />
 
       {/* Fabric Type */}
       <InpTp1
@@ -228,16 +152,6 @@ export default function GeneralInfo({ setData, showData }) {
         setData={setData}
         field="fabric"
         placeholder="Synthetic leather"
-      />
-
-      {/* Size Chart */}
-      <InpTp1
-        type="text"
-        Label="Size Chart"
-        showData={showData}
-        setData={setData}
-        field="size_chart"
-        placeholder="standard"
       />
 
       {/* Gender Type */}
@@ -258,12 +172,11 @@ export default function GeneralInfo({ setData, showData }) {
           <option value="Unisex">Unisex</option>
         </select>
       </div>
-      
     </>
   );
 }
 
-GeneralInfo.propTypes = {
+GeneralInfoRET12.propTypes = {
   showData: PropTypes.object.isRequired,
   placeholder: PropTypes.string.isRequired,
 };
