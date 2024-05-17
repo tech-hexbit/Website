@@ -16,6 +16,17 @@
   gap: 0px 45px;
 }
 
+.inpCheckbox {
+  color: #606060;
+  font-size: 17px;
+  font-weight: 600;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  gap: 0px 10px;
+  cursor: pointer;
+}
+
 .inpDiv input,
 .inpDiv select {
   margin-top: 10px;
@@ -46,16 +57,50 @@
 }
 
 
-.colorPickerContainer {
+.colourPickerContainer {
   position: relative;
 }
 
-.colorInput {
+.colourInput {
   width: 100% /* Adjust width to accommodate color picker */
 }
 
-.colorPicker {
+.colourPicker {
   position: absolute;
   top: 50px; /* Adjust the position of the color picker */
   z-Index: 9999; /* Adjust z-index to ensure it's above other elements */
+}
+
+.VariantBtnDiv {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.AddVariantBtn {
+  background-color: #4bb543;
+  color: #fff;
+  padding: 15px 50px;
+  border-radius: 15px;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0.2px;
+  margin-bottom: 30px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.RemoveVariantBtn {
+  background-color: rgb(166, 24, 24);
+  color: #fff;
+  padding: 15px 50px;
+  border-radius: 15px;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0.2px;
+  margin-bottom: 30px;
+  cursor: pointer;
 }

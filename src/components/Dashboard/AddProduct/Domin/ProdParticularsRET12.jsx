@@ -1,11 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
-
-//component
 import InpTp1 from "./Input/InpTp1";
 import TxtArea from "./Input/TxtArea";
-
-// css
 import PrCss from "./Css/Lable.module.css";
 
 export default function ProdParticulars({ setData, showData }) {
@@ -13,7 +9,7 @@ export default function ProdParticulars({ setData, showData }) {
     <>
       <p className={PrCss.AboutYou}>Product Details</p>
 
-      {/* Protuct Title */}
+      {/* Product Details */}
       <InpTp1
         type="text"
         Label="Title"
@@ -22,18 +18,6 @@ export default function ProdParticulars({ setData, showData }) {
         field="name"
         placeholder="Title - XX"
       />
-
-      {/* Parent SKU ID */}
-      <InpTp1
-        type="text"
-        Label="SKU ID"
-        showData={showData}
-        setData={setData}
-        field="sku_id"
-        placeholder="PID-RET12-0001"
-      />
-
-      {/* Short Description */}
       <InpTp1
         type="text"
         Label="Short Description"
@@ -42,8 +26,6 @@ export default function ProdParticulars({ setData, showData }) {
         field="short_desc"
         placeholder="Write product short description here..."
       />
-
-      {/* Long Description */}
       <TxtArea
         Label="Long Description"
         showData={showData}
@@ -56,6 +38,6 @@ export default function ProdParticulars({ setData, showData }) {
 }
 
 ProdParticulars.propTypes = {
+  setData: PropTypes.func.isRequired,
   showData: PropTypes.object.isRequired,
-  placeholder: PropTypes.string.isRequired,
 };

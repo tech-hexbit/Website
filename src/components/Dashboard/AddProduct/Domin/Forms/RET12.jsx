@@ -1,5 +1,5 @@
 import React, { useState, useContext, useRef, useEffect } from "react";
-import PropTypes from "prop-types";
+import PropTypes, { bool } from "prop-types";
 
 //component
 import Service from "../Service";
@@ -26,21 +26,26 @@ import FCss from "./../Css/Form.module.css";
 
 export default function RET12({ domain }) {
   const [load, setLoad] = useState(false);
-  const [imageUpload, setImageUpload] = useState();
+  const [imageUpload, setImageUpload] = useState();  
   const [multipleImageUpload, setMultipleImageUpload] = useState([]);
 
   const fileInp = useRef(null);
 
   const authCtx = useContext(AuthContext);
+  const [checked, setChecked] = useState(false);
+  const [variants, setVariants] = useState([]);
+  const [prevVariants, setPrevVariants] = useState([]);
 
   const [data, setData] = useState({
-    sku_id: "",
+    isParent: checked,
+    variants:[],
+    parent_item_id: 0,
     name: "",
     images: [],
     long_desc: "",
     short_desc: "",
-    size: "",
-    colour: "",
+    // size: "",
+    // colour: "",
     fabric: "",
     gender: "",
     size_chart: "",
@@ -72,7 +77,6 @@ export default function RET12({ domain }) {
     setLoad(true);
 
     console.log(multipleImageUpload);
-
     console.log("domain - " + data.domain);
 
     if (!imageUpload) {
@@ -89,18 +93,22 @@ export default function RET12({ domain }) {
     }
 
     const {
-      sku_id,
+      isParent,
+      variants,
+      parent_item_id,
       name,
       images,
       long_desc,
       short_desc,
-      size,
-      colour,
+      // size,
+      // colour,
       fabric,
       gender,
       size_chart,
       brand_name,
       Discounts,
+      measureUnit,
+      measureValue,
       maximumCount,
       maximum_value,
       manufacturer_or_packer_name,
@@ -123,19 +131,23 @@ export default function RET12({ domain }) {
     } = data;
 
     if (
-      sku_id !== "" &&
+      isParent == true || isParent == false &&
+      variants.length > 0 &&
+      parent_item_id !== "" &&
       name !== "" &&
       images !== "" &&
       long_desc !== "" &&
       short_desc !== "" &&
-      size !== "" &&
-      colour !== "" &&
+      // size !== "" &&
+      // colour !== "" &&
       fabric !== "" &&
       gender !== "" &&
       size_chart !== "" &&
       brand_name !== "" &&
       Discounts !== "" &&
       maximumCount !== "" &&
+      measureUnit !== "" &&
+      measureValue !== "" &&
       maximum_value !== "" &&
       manufacturer_or_packer_name !== "" &&
       tags !== "" &&
@@ -190,19 +202,23 @@ export default function RET12({ domain }) {
           });
 
           setData({
-            sku_id: "",
+            isParent: false,
+            variants: [],
+            parent_item_id: "",
             name: "",
             images: [],
             long_desc: "",
             short_desc: "",
-            size: "",
-            colour: "",
+            // size: "",
+            // colour: "",
             fabric: "",
             gender: "",
             size_chart: "",
             brand_name: "",
             Discounts: "",
             maximumCount: 0,
+            measureUnit : "",
+            measureValue : "",
             maximum_value: 0,
             manufacturer_or_packer_name: "",
             tags: [],
@@ -215,6 +231,13 @@ export default function RET12({ domain }) {
             common_or_generic_name_of_commodity: "",
             StoreID: authCtx.user.Store[0].StoreID._id,
           });
+
+            setImageUpload(null);
+            setMultipleImageUpload([]);
+            setVariants([...variants, { size: '', colour: '' }]);
+            setChecked(false);
+            window.scrollTo(0, 0);
+            
         } else {
           setLoad(false);
 
@@ -223,7 +246,7 @@ export default function RET12({ domain }) {
             secondaryColor: "#F16360",
             symbol: "error",
             title: "Error",
-            text: "Poduct Addition Failed",
+            text: "Product Addition Failed",
           });
         }
       } catch (error) {
@@ -236,12 +259,13 @@ export default function RET12({ domain }) {
           secondaryColor: "#F16360",
           symbol: "error",
           title: "Error",
-          text: "Poduct Addition Failed",
+          text: "Product Addition Failed",
         });
       }
     } else {
       setLoad(false);
 
+      console.log(data);
       authCtx.showAlert({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
@@ -260,6 +284,32 @@ export default function RET12({ domain }) {
     setImageUpload(e.target.files[0]);
   };
 
+  const handleCheckChange = (isChecked) => {
+
+    setChecked(isChecked);  
+    if (!isChecked) {
+
+      setPrevVariants(variants);
+      setVariants([]);
+      setData((prevData) => ({
+        ...prevData,
+        variants: [],
+      }));
+    } else {
+
+      setVariants(prevVariants);
+      setData((prevData) => ({
+        ...prevData,
+        variants: prevVariants,
+      }));
+    }
+
+    setData((prevData) => ({
+      ...prevData,
+      isParent: isChecked,
+    }));
+  };
+
   useEffect(() => {
     console.table(data);
   }, [data]);
@@ -272,10 +322,11 @@ export default function RET12({ domain }) {
       });
     }
   }, []);
+
   return (
     <>
       <ProdParticulars showData={data} setData={setData} />
-      <GeneralInfo showData={data} setData={setData} />
+      <GeneralInfo showData={data} setData={setData} isChecked={checked} onCheckChange={handleCheckChange}/>
 
       <div className={FCss.rowDIv}>
         <div className={FCss.rowDIvLeft}>
