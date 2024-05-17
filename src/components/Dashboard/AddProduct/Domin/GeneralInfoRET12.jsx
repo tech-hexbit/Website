@@ -107,9 +107,7 @@ export default function GeneralInfoRET12({ setData, showData, isChecked, onCheck
 
     } else {
       const newVariants = [...variants];
-      setVariants(newVariants);
       newVariants[index].colour = hexCode;
-      setColourHex(hexCode);
       setVariants(newVariants);
     }
   };
