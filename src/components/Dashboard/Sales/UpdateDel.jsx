@@ -136,39 +136,6 @@ export default function OrderLayUpdate(props) {
     }
   };
 
-  const returnRTO = async () => {
-    console.log("first ---------");
-
-    try {
-      let data = {
-        OrderID: res._id,
-        BuyerOrderID: res.OrderID,
-      };
-
-      const response = await axios.post(
-        "/api/common/Order/order/cancel/rto",
-        data,
-        {
-          headers: { Authorization: `${authCtx.token}` },
-        }
-      );
-
-      console.log(response.data);
-    } catch (error) {
-      console.log(error);
-
-      setLoad(false);
-
-      authCtx.showAlert({
-        mainColor: "#FDEDED",
-        secondaryColor: "#F16360",
-        symbol: "error",
-        title: "Error",
-        text: "Unable to Update",
-      });
-    }
-  };
-
   useEffect(() => {
     loadOrderdel(props.id);
   }, [props.id]);
@@ -255,7 +222,7 @@ export default function OrderLayUpdate(props) {
         </div>
 
         {rtoReturn ? (
-          <RToinfo setReturn={setReturn} rtoReturn={rtoReturn} />
+          <RToinfo setReturn={setReturn} rtoReturn={rtoReturn} res={res} />
         ) : (
           <>
             {dataCal ? (
