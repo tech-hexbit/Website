@@ -7,6 +7,7 @@ import AuthContext from "./../../../store/auth-context";
 import axios from "axios";
 
 // components
+import RToinfo from "./RToinfo";
 import LayUpdate from "./LayUpdate";
 import PartialCancel from "./PartialCancel";
 
@@ -19,6 +20,7 @@ import OLCss from "./Css/OrderLayUpdate.module.css";
 export default function OrderLayUpdate(props) {
   const [res, setres] = useState(null);
   const [load, setLoad] = useState(false);
+  const [rtoReturn, setReturn] = useState(false);
   const [dataCal, setDataCal] = useState(false);
   const [upAll, setUpAll] = useState({
     code: 0,
@@ -135,6 +137,8 @@ export default function OrderLayUpdate(props) {
   };
 
   const returnRTO = async () => {
+    console.log("first ---------");
+
     try {
       let data = {
         OrderID: res._id,
@@ -242,86 +246,97 @@ export default function OrderLayUpdate(props) {
             // ? OLCss.Cancelled
             // : OLCss.disable4
             // }
-            onClick={returnRTO}
+            onClick={() => {
+              setReturn(true);
+            }}
           >
             Return RTO
           </div>
         </div>
 
-        {dataCal ? (
-          <PartialCancel data={res} />
+        {rtoReturn ? (
+          <RToinfo setReturn={setReturn} rtoReturn={rtoReturn} />
         ) : (
-          <div className={OLCss.ProductDelTableDiv}>
-            <p className={OLCss.ProductDelPTag}>Product details</p>
+          <>
+            {dataCal ? (
+              <PartialCancel data={res} />
+            ) : (
+              <div className={OLCss.ProductDelTableDiv}>
+                <p className={OLCss.ProductDelPTag}>Product details</p>
 
-            <div id="wrap" className={OLCss.tableCat}>
-              {load ? (
-                <div className="loadCenterDiv">
-                  <Load />
-                </div>
-              ) : (
-                <>
-                  <table className={OLCss.tableCatTTagDel} style={{}}>
-                    {res ? (
-                      <>
-                        <tr>
-                          <th>Name</th>
-                          <th>Product ID</th>
-                          <th>Price</th>
-                          <th>Quantity</th>
-                          <th>Status</th>
-                          <th>Total Amount</th>
-                        </tr>
+                <div id="wrap" className={OLCss.tableCat}>
+                  {load ? (
+                    <div className="loadCenterDiv">
+                      <Load />
+                    </div>
+                  ) : (
+                    <>
+                      <table className={OLCss.tableCatTTagDel} style={{}}>
+                        {res ? (
+                          <>
+                            <tr>
+                              <th>Name</th>
+                              <th>Product ID</th>
+                              <th>Price</th>
+                              <th>Quantity</th>
+                              <th>Status</th>
+                              <th>Total Amount</th>
+                            </tr>
 
-                        {res.Items?.map((val, key) => {
-                          return (
-                            <>
-                              <tr key={key} className={OLCss.saleRes}>
-                                <td data-cell="Name">
-                                  <div className={OLCss.titleItemDiv}>
-                                    <img
-                                      className={OLCss.itemImg}
-                                      src={val.ItemID.descriptor.symbol}
-                                      alt=""
+                            {res.Items?.map((val, key) => {
+                              return (
+                                <>
+                                  <tr key={key} className={OLCss.saleRes}>
+                                    <td data-cell="Name">
+                                      <div className={OLCss.titleItemDiv}>
+                                        <img
+                                          className={OLCss.itemImg}
+                                          src={val.ItemID.descriptor.symbol}
+                                          alt=""
+                                        />
+                                        {val.ItemID.descriptor.name}
+                                      </div>
+                                    </td>
+                                    <td data-cell="Product ID">
+                                      {val.ItemID._id.slice(-4)}
+                                    </td>
+                                    <td data-cell="Price">
+                                      ₹{" "}
+                                      {val.ItemID.price.maximum_value.toFixed(
+                                        2
+                                      )}
+                                    </td>
+                                    <td data-cell="Quantity">{val.quantity}</td>
+                                    <LayUpdate
+                                      id={props.id}
+                                      ItemID={val.ItemID._id}
+                                      state={val.state}
+                                      setLoadDataState={props.setLoadDataState}
+                                      loadDataState={props.loadDataState}
+                                      setEdit={props.setEdit}
                                     />
-                                    {val.ItemID.descriptor.name}
-                                  </div>
-                                </td>
-                                <td data-cell="Product ID">
-                                  {val.ItemID._id.slice(-4)}
-                                </td>
-                                <td data-cell="Price">
-                                  ₹ {val.ItemID.price.maximum_value.toFixed(2)}
-                                </td>
-                                <td data-cell="Quantity">{val.quantity}</td>
-                                <LayUpdate
-                                  id={props.id}
-                                  ItemID={val.ItemID._id}
-                                  state={val.state}
-                                  setLoadDataState={props.setLoadDataState}
-                                  loadDataState={props.loadDataState}
-                                  setEdit={props.setEdit}
-                                />
-                                <td data-cell="Total Amount">
-                                  ₹{" "}
-                                  {(
-                                    val.ItemID.price.maximum_value *
-                                    val.quantity
-                                  ).toFixed(2)}
-                                </td>
-                              </tr>
-                            </>
-                          );
-                        })}
-                      </>
-                    ) : (
-                      <div className="loadCenterDiv">No Orders</div>
-                    )}
-                  </table>
-                </>
-              )}
-            </div>
-          </div>
+                                    <td data-cell="Total Amount">
+                                      ₹{" "}
+                                      {(
+                                        val.ItemID.price.maximum_value *
+                                        val.quantity
+                                      ).toFixed(2)}
+                                    </td>
+                                  </tr>
+                                </>
+                              );
+                            })}
+                          </>
+                        ) : (
+                          <div className="loadCenterDiv">No Orders</div>
+                        )}
+                      </table>
+                    </>
+                  )}
+                </div>
+              </div>
+            )}
+          </>
         )}
       </div>
     </>
