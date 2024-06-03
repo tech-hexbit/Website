@@ -22,7 +22,23 @@ export default function RToinfo({ setReturn, rtoReturn, res }) {
   const authCtx = useContext(AuthContext);
 
   const returnRTO = async () => {
+    setLoad(true);
+
     console.log("RTO Request Send");
+
+    if (reason.id === "" || reason.desc === "") {
+      setLoad(false);
+
+      authCtx.showAlert({
+        mainColor: "#FFF4E5",
+        secondaryColor: "#FFA117",
+        symbol: "warning",
+        title: "Warning",
+        text: "Reason ID Not Selected",
+      });
+
+      return;
+    }
 
     try {
       let data = {
@@ -40,7 +56,8 @@ export default function RToinfo({ setReturn, rtoReturn, res }) {
         }
       );
 
-      console.log(response.data);
+      setLoad(false);
+      setReturn(false);
     } catch (error) {
       console.log(error);
 
