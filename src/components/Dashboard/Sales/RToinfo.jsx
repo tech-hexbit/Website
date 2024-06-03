@@ -26,6 +26,8 @@ export default function RToinfo({ setReturn, rtoReturn, res }) {
 
     try {
       let data = {
+        return_reason_id: reason.id,
+        descReason: reason.desc,
         OrderID: res._id,
         BuyerOrderID: res.OrderID,
       };
@@ -78,9 +80,25 @@ export default function RToinfo({ setReturn, rtoReturn, res }) {
     }
   };
 
+  const descCurr = async (e) => {
+    const selectedCode = e.target.value;
+    const selectedReason = list.find((item) => item.Code === selectedCode);
+
+    if (selectedReason) {
+      setReason({
+        id: selectedReason.Code,
+        desc: selectedReason.Reason,
+      });
+    }
+  };
+
   useEffect(() => {
     fetchDesc();
   }, []);
+
+  useEffect(() => {
+    console.log(reason);
+  }, [reason]);
   return (
     <>
       {load ? (
@@ -115,16 +133,15 @@ export default function RToinfo({ setReturn, rtoReturn, res }) {
           <div>
             <p>Select Reason Desc</p>
 
-            <select name="desc" id="desc">
+            <select name="desc" id="desc" onChange={descCurr}>
               <option value="00" selected hidden>
                 Select
               </option>
               {list.length > 0 ? (
                 <>
                   {list.map((val, key) => {
-                    console.log(val);
                     return (
-                      <option value={val.code} key={key}>
+                      <option value={val.Code} key={key}>
                         {val.Reason}
                       </option>
                     );
