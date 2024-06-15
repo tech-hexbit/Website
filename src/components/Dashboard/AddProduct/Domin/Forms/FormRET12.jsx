@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 //component
 import Service from "../Service";
 import FixValues from "../FixValues";
-import GeneralInfo from "../GeneralInfo";
+import GeneralInfo from "./RET12GeneralInfo";
 import ProductCategory from "./ProductCategory";
 import ProdParticulars from "../ProdParticulars";
 import Attributes from "./Attributes";
@@ -270,7 +270,7 @@ export default function Form({ domain }) {
   };
 
   useEffect(() => {
-    console.table(data);
+    console.log(data);
   }, [data]);
 
   useEffect(() => {
@@ -291,19 +291,22 @@ export default function Form({ domain }) {
           <GeneralInfo showData={data} setData={setData} />
         </div>
         <div className={FCss.rowDIvRight}>
-          <ProductCategory showData={data} setData={setData} />
           <Service showData={data} setData={setData} />
           <InfoSubjective showData={data} setData={setData} />
         </div>
       </div>
-      <div className={FCss.rowDIv}>
+      <ProductCategory showData={data} setData={setData} />
+      <FixValues showData={data} setData={setData} />
+      <Attributes showData={data} setData={setData} />
+
+      {/* {data.category_id? console.log(categories[data.category_id][0]): null} */}
+
+      {/* <div className={FCss.rowDIv}>
         <div className={FCss.rowDIvLeft}>
-          <FixValues showData={data} setData={setData} />
         </div>
         <div className={FCss.rowDIvRight}>
-          <Attributes showData={data} setData={setData} />
         </div>
-      </div>
+      </div> */}
 
       {/* Image */}
       <div className={FCss.inpDiv}>
