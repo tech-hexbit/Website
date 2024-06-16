@@ -56,8 +56,11 @@ export default function RToinfo({ setReturn, rtoReturn, res }) {
         }
       );
 
+      console.log(response);
+
       setLoad(false);
-      setReturn(false);
+
+      setReturn(!rtoReturn);
     } catch (error) {
       console.log(error);
 
