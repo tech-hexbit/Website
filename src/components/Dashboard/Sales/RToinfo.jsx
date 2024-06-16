@@ -11,7 +11,6 @@ import axios from "axios";
 import Load from "./../../../MicroInteraction/LoadBlack";
 
 // Css
-import OLCss from "./Css/OrderLayUpdate.module.css";
 import RTOCss from "./Css/RToinfo.module.css";
 
 export default function RToinfo({ setReturn, rtoReturn, res }) {
