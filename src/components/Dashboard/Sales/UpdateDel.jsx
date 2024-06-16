@@ -159,8 +159,6 @@ export default function OrderLayUpdate(props) {
     }
   }, [res]);
 
-  console.log(dataCal);
-
   return (
     <>
       <div className={OLCss.contendDivDel}>
