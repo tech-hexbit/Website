@@ -14,8 +14,8 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 import RTOCss from "./Css/RToinfo.module.css";
 
 export default function RToinfo({ setReturn, rtoReturn, res }) {
-  const [load, setLoad] = useState(false);
   const [list, setList] = useState([]);
+  const [load, setLoad] = useState(false);
   const [reason, setReason] = useState({ id: "", desc: "" });
 
   const authCtx = useContext(AuthContext);
