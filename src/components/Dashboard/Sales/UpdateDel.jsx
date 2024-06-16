@@ -159,6 +159,8 @@ export default function OrderLayUpdate(props) {
     }
   }, [res]);
 
+  console.log(dataCal);
+
   return (
     <>
       <div className={OLCss.contendDivDel}>
@@ -225,7 +227,14 @@ export default function OrderLayUpdate(props) {
         </div>
 
         {rtoReturn ? (
-          <RToinfo setReturn={setReturn} rtoReturn={rtoReturn} res={res} />
+          <>
+            {/* <RToinfo setReturn={setReturn} rtoReturn={rtoReturn} res={res} /> */}
+            <PartialCancel
+              data={res}
+              setReturn={setReturn}
+              rtoReturn={rtoReturn}
+            />
+          </>
         ) : (
           <>
             {dataCal ? (
