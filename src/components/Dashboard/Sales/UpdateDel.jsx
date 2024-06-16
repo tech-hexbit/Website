@@ -141,8 +141,6 @@ export default function OrderLayUpdate(props) {
   }, [props.id]);
 
   useEffect(() => {
-    console.log(res);
-
     if (res) {
       let lowestCode = Infinity;
 
