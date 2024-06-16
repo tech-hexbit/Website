@@ -4,6 +4,7 @@ import PrCss from "../Css/Lable.module.css"
 import ItCss from "../Input/Css/InputType1.module.css"
 import Dropdown from "./Dropdown"
 import optionsData from "../Json/optionsData.json"
+import sizeData from "../Json/b.json"
 // import UrlInput from "./UrlInput"
 
 const Attributes = ({ setData, showData }) => {
@@ -23,43 +24,7 @@ const Attributes = ({ setData, showData }) => {
         plating: ""
     });
 
-    const [showAdditionalInfo, setShowAdditionalInfo] = useState(false);
-
-    const [addedFields, setAddedField] = useState([]);
-    const genderOptions = [
-        "Male",
-        "Female",
-        "Other"
-    ]
-    // const colourOptions = [
-    //     "Red",
-    //     "Green",
-    //     "Blue"
-    // ]
-    const sizeOptions = [
-        "sm",
-        "md",
-        "lg",
-        "xl"
-    ]
-    // const brandOptions = [
-    //     "Addidas",
-    //     "Nike",
-    //     "Hush Puppies"
-    // ]
-    const mandatoryAttributes = [
-        { value: "size_chart", label: "Size Chart" },
-        { value: "fabric", label: "Fabric" },
-        { value: "strap_material", label: "Strap Material" },
-        { value: "water_resistant", label: "Water Resistant" },
-        { value: "display", label: "Display" },
-        { value: "glass_material", label: "Glass Material" },
-        { value: "colour_name", label: "Colour Name" },
-        { value: "sport_type", label: "Sport Type" },
-        { value: "base_metal", label: "Base Metal" },
-        { value: "plating", label: "Plating" }
-    ];
-
+    // const [addedFields, setAddedField] = useState([]);
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setVariant((prevVariants) => ({
@@ -72,23 +37,22 @@ const Attributes = ({ setData, showData }) => {
         setVariant({ ...variants, [name]: value });
     };
 
-    const handleSelectAdditionalChange = (e) => {
-        if (!addedFields.includes(e.target.value)) {
-            setAddedField([...addedFields,
-            { "label": e.target.selectedOptions[0].getAttribute('name'), "value": e.target.value }
-            ]);
-            setVariant({ ...variants, [e.target.value]: "" });
-        }
-    };
+    // const handleSelectAdditionalChange = (e) => {
+    //     if (!addedFields.includes(e.target.value)) {
+    //         setAddedField([...addedFields,
+    //         { "label": e.target.selectedOptions[0].getAttribute('name'), "value": e.target.value }
+    //         ]);
+    //         setVariant({ ...variants, [e.target.value]: "" });
+    //     }
+    // };
 
-    // useEffect(() => {
-    //     setData({ ...showData, attribute: variants })
-    // }, [variants])
+    useEffect(() => {
+        setData({ ...showData, attribute: variants })
+    }, [variants])
 
     useEffect(() => {
         console.log(variants);
     }, [variants])
-
 
     return (
         <>
@@ -99,14 +63,15 @@ const Attributes = ({ setData, showData }) => {
                     <Dropdown
                         fieldName={"Gender"}
                         name={"gender"}
-                        options={genderOptions}
+                        options={["men", "women", "kids", "unisex"]}
                         value={variants.gender}
                         onChange={handleSelectChange}
                     />
                 )
                 :
-                null
+                ""
             }
+
             {showData.category_id && optionsData.categories[showData.category_id][0].includes("colour") ?
                 (
                     <div className={ItCss.inpDiv}>
@@ -120,8 +85,9 @@ const Attributes = ({ setData, showData }) => {
                     </div>
                 )
                 :
-                null
+                ""
             }
+
             {showData.category_id && optionsData.categories[showData.category_id][0].includes("sizeChart") ?
                 (
                     <div className={ItCss.inpDiv}>
@@ -136,8 +102,9 @@ const Attributes = ({ setData, showData }) => {
                     </div>
                 )
                 :
-                null
+                ""
             }
+
             {showData.category_id && optionsData.categories[showData.category_id][0].includes("fabric") ?
                 (
                     <Dropdown
@@ -149,8 +116,9 @@ const Attributes = ({ setData, showData }) => {
                     />
                 )
                 :
-                null
+                ""
             }
+
             {showData.category_id && optionsData.categories[showData.category_id][0].includes("strapMaterial") ?
                 (
 
@@ -164,8 +132,9 @@ const Attributes = ({ setData, showData }) => {
 
                 )
                 :
-                null
+                ""
             }
+
             {showData.category_id && optionsData.categories[showData.category_id][0].includes("waterResistant") ?
                 (
                     <Dropdown
@@ -177,8 +146,9 @@ const Attributes = ({ setData, showData }) => {
                     />
                 )
                 :
-                null
+                ""
             }
+
             {showData.category_id && optionsData.categories[showData.category_id][0].includes("display") ?
                 (
 
@@ -191,8 +161,9 @@ const Attributes = ({ setData, showData }) => {
                     />
                 )
                 :
-                null
+                ""
             }
+
             {showData.category_id && optionsData.categories[showData.category_id][0].includes("glassMaterial") ?
                 (
 
@@ -205,8 +176,9 @@ const Attributes = ({ setData, showData }) => {
                     />
                 )
                 :
-                null
+                ""
             }
+
             {showData.category_id && optionsData.categories[showData.category_id][0].includes("sportType") ?
                 (
 
@@ -219,8 +191,9 @@ const Attributes = ({ setData, showData }) => {
                     />
                 )
                 :
-                null
+                ""
             }
+
             {showData.category_id && optionsData.categories[showData.category_id][0].includes("baseMetal") ?
                 (
                     <Dropdown
@@ -232,8 +205,9 @@ const Attributes = ({ setData, showData }) => {
                     />
                 )
                 :
-                null
+                ""
             }
+
             {showData.category_id && optionsData.categories[showData.category_id][0].includes("plating") ?
                 (
 
@@ -246,21 +220,23 @@ const Attributes = ({ setData, showData }) => {
                     />
                 )
                 :
-                null
+                ""
             }
+
             {showData.category_id && optionsData.categories[showData.category_id][0].includes("size") ?
                 (
                     <Dropdown
                         fieldName="Size"
                         name="size"
                         onChange={handleSelectChange}
-                        options={sizeOptions}
+                        options={sizeData?.[0]?.[variants.gender]?.[showData.category_id] ?? []}
                         value={variants.size}
                     />
                 )
                 :
-                null
+                ""
             }
+
             {/* <div className={ItCss.inpDiv}>
                 <p className={ItCss.inputLabel}>Add Optional Attributes</p>
                 <select

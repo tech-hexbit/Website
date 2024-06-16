@@ -13,6 +13,7 @@ import InfoSubjective from "../InfoSubjective";
 
 // MicroInteraction
 import Load from "../../../../../MicroInteraction/Load";
+import optionsData from "../Json/optionsData.json"
 
 // axios
 import axios from "axios";
@@ -22,6 +23,9 @@ import AuthContext from "../../../../../store/auth-context";
 
 // css
 import FCss from "../Css/Form.module.css";
+import PrCss from "../Css/Lable.module.css";
+import ItCss from "../Input/Css/InputType1.module.css";
+
 
 export default function Form({ domain }) {
   const [load, setLoad] = useState(false);
@@ -123,12 +127,10 @@ export default function Form({ domain }) {
     const gender = attribute?.gender ?? '';
     const colour = attribute?.colour ?? '';
     const size = attribute?.size ?? '';
-    const brand = attribute?.brand ?? '';
     if (
       gender !== "" &&
       colour !== "" &&
       size !== "" &&
-      brand !== "" &&
       name !== "" &&
       images !== "" &&
       long_desc !== "" &&
@@ -200,7 +202,6 @@ export default function Form({ domain }) {
             gender: "",
             colour: "",
             size: "",
-            brand: "",
             name: "",
             images: [],
             long_desc: "",
@@ -269,6 +270,13 @@ export default function Form({ domain }) {
     setImageUpload(e.target.files[0]);
   };
 
+  const handleSelectChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    setData({ ...data, [name]: value });
+  };
+
   useEffect(() => {
     console.log(data);
   }, [data]);
@@ -285,6 +293,23 @@ export default function Form({ domain }) {
   return (
     <>
       <ProdParticulars showData={data} setData={setData} />
+
+      <div className={ItCss.inpDiv}>
+        <p className={ItCss.inputLabel}>Category</p>
+        <select
+          name="category_id"
+          id=""
+          className={ItCss.inp}
+          onChange={handleSelectChange}
+        >
+          <option value="Selected" selected disabled hidden>
+            Select
+          </option>
+          {Object.keys(optionsData.categories).map((option, index) => (
+            <option key={index} value={option}>{option}</option>
+          ))}
+        </select>
+      </div>
 
       <div className={FCss.rowDIv}>
         <div className={FCss.rowDIvLeft}>
