@@ -220,7 +220,7 @@ export default function OrderLayUpdate(props) {
               setReturn(true);
             }}
           >
-            Return RTO
+            Partial Cancel
           </div>
         </div>
 
