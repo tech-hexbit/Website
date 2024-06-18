@@ -47,7 +47,7 @@ const Attributes = ({ setData, showData }) => {
     // };
 
     useEffect(() => {
-        setData({ ...showData, attribute: variants })
+        setData({ ...showData, variants: variants })
     }, [variants])
 
     useEffect(() => {

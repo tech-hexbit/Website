@@ -39,8 +39,8 @@ export default function Form({ domain }) {
     images: [],
     long_desc: "",
     short_desc: "",
-    veg: "",
-    non_veg: "",
+    // veg: "",
+    // non_veg: "",
     Discounts: "",
     brand_name: "",
     maximumCount: 0,
@@ -57,7 +57,6 @@ export default function Form({ domain }) {
     ondcOrgtime_to_ship: "",
     ondcOrgcancellable: "",
     ondcOrgreturnable: "",
-    domain: "",
     manufacturer_or_packer_address: "",
     fulfillment_id: 1,
     nutritional_info: "",
@@ -112,7 +111,6 @@ export default function Form({ domain }) {
       ondcOrgtime_to_ship,
       ondcOrgcancellable,
       ondcOrgreturnable,
-      domain,
       manufacturer_or_packer_address,
       fulfillment_id,
       nutritional_info,
@@ -121,12 +119,12 @@ export default function Form({ domain }) {
       brand_owner_FSSAI_license_no,
       ondcOrgcontact_details_consumer_care,
       common_or_generic_name_of_commodity,
-      attribute,
+      variants,
       StoreID,
     } = data;
-    const gender = attribute?.gender ?? '';
-    const colour = attribute?.colour ?? '';
-    const size = attribute?.size ?? '';
+    const gender = variants?.gender ?? '';
+    const colour = variants?.colour ?? '';
+    const size = variants?.size ?? '';
     if (
       gender !== "" &&
       colour !== "" &&
@@ -135,8 +133,12 @@ export default function Form({ domain }) {
       images !== "" &&
       long_desc !== "" &&
       short_desc !== "" &&
-      veg !== "" &&
-      non_veg !== "" &&
+
+      // hata do
+      // veg !== "" &&
+      // non_veg !== "" &&
+      //
+
       Discounts !== "" &&
       brand_name !== "" &&
       maximumCount !== "" &&
@@ -145,8 +147,11 @@ export default function Form({ domain }) {
       tags !== "" &&
       category_id !== "" &&
       additives_info !== "" &&
-      month_year_of_manufacture_packing_import !== "" &&
-      net_quantity_or_measure_of_commodity_in_pkg !== "" &&
+
+      // Hata do
+      // month_year_of_manufacture_packing_import !== "" &&
+      // net_quantity_or_measure_of_commodity_in_pkg !== "" &&
+      // 
       ondcOrgavailable_on_cod !== "" &&
       ondcOrgreturn_window !== "" &&
       ondcOrgseller_pickup_return !== "" &&
@@ -156,7 +161,11 @@ export default function Form({ domain }) {
       domain !== "" &&
       manufacturer_or_packer_address !== "" &&
       fulfillment_id !== "" &&
-      nutritional_info !== "" &&
+
+      // Hata do
+      // nutritional_info !== "" &&
+      //
+
       other_FSSAI_license_no !== "" &&
       importer_FSSAI_license_no !== "" &&
       brand_owner_FSSAI_license_no !== "" &&
@@ -181,6 +190,7 @@ export default function Form({ domain }) {
       }
 
       try {
+        console.log("success till here")
         const response = await axios.post(
           "/api/common/product/AddProduct",
           formData,
@@ -198,33 +208,33 @@ export default function Form({ domain }) {
             text: "Successfully Added",
           });
 
-          setData({
-            gender: "",
-            colour: "",
-            size: "",
-            name: "",
-            images: [],
-            long_desc: "",
-            short_desc: "",
-            veg: "",
-            non_veg: "",
-            Discounts: "",
-            brand_name: "",
-            maximumCount: 0,
-            maximum_value: 0,
-            manufacturer_or_packer_name: "",
-            tags: [],
-            category_id: "",
-            additives_info: "",
-            month_year_of_manufacture_packing_import: "",
-            net_quantity_or_measure_of_commodity_in_pkg: "",
-            domain: "",
-            manufacturer_or_packer_address: "",
-            fulfillment_id: 1,
-            nutritional_info: "",
-            common_or_generic_name_of_commodity: "",
-            StoreID: authCtx.user.Store[0].StoreID._id,
-          });
+          // setData({
+          //   gender: "",
+          //   colour: "",
+          //   size: "",
+          //   name: "",
+          //   images: [],
+          //   long_desc: "",
+          //   short_desc: "",
+          //   veg: "",
+          //   non_veg: "",
+          //   Discounts: "",
+          //   brand_name: "",
+          //   maximumCount: 0,
+          //   maximum_value: 0,
+          //   manufacturer_or_packer_name: "",
+          //   tags: [],
+          //   category_id: "",
+          //   additives_info: "",
+          //   month_year_of_manufacture_packing_import: "",
+          //   net_quantity_or_measure_of_commodity_in_pkg: "",
+          //   domain: "",
+          //   manufacturer_or_packer_address: "",
+          //   fulfillment_id: 1,
+          //   nutritional_info: "",
+          //   common_or_generic_name_of_commodity: "",
+          //   StoreID: authCtx.user.Store[0].StoreID._id,
+          // });
         } else {
           setLoad(false);
 
@@ -251,6 +261,7 @@ export default function Form({ domain }) {
       }
     } else {
       setLoad(false);
+      console.log(data)
 
       authCtx.showAlert({
         mainColor: "#FFC0CB",
@@ -294,6 +305,7 @@ export default function Form({ domain }) {
     <>
       <ProdParticulars showData={data} setData={setData} />
 
+      {/* Category */}
       <div className={ItCss.inpDiv}>
         <p className={ItCss.inputLabel}>Category</p>
         <select
@@ -316,12 +328,14 @@ export default function Form({ domain }) {
           <GeneralInfo showData={data} setData={setData} />
         </div>
         <div className={FCss.rowDIvRight}>
-          <Service showData={data} setData={setData} />
-          <InfoSubjective showData={data} setData={setData} />
+          <FixValues showData={data} setData={setData} />
+
+
+          {/* <Service showData={data} setData={setData} /> */}
+          {/* <InfoSubjective showData={data} setData={setData} /> */}
         </div>
       </div>
       <ProductCategory showData={data} setData={setData} />
-      <FixValues showData={data} setData={setData} />
       <Attributes showData={data} setData={setData} />
 
       {/* {data.category_id? console.log(categories[data.category_id][0]): null} */}
