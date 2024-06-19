@@ -229,12 +229,7 @@ export default function OrderLayUpdate(props) {
         </div>
 
         {rtoReturn && (
-          <RToinfo
-            data={res}
-            setReturn={setReturn}
-            rtoReturn={rtoReturn}
-            res={res}
-          />
+          <RToinfo setReturn={setReturn} rtoReturn={rtoReturn} res={res} />
         )}
 
         {rtoCancel && (
