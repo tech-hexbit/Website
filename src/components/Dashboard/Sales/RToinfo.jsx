@@ -115,10 +115,6 @@ export default function RToinfo({ setReturn, rtoReturn, res }) {
     fetchDesc();
   }, []);
 
-  useEffect(() => {
-    console.log(reason);
-  }, [reason]);
-
   return (
     <>
       {load ? (
