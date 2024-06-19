@@ -166,6 +166,7 @@ export default function PartialCancel({ setCancel, rtoCancel, data }) {
               <path d="m6 6 12 12" />
             </svg>
           </div>
+
           <div className={PCCss.Line}></div>
 
           {data ? (
