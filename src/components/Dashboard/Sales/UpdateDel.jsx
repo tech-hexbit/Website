@@ -209,20 +209,23 @@ export default function OrderLayUpdate(props) {
 
           <div
             className={OLCss.BtnDiv}
-            // id={
-            // upAll.code === 0 || upAll.code === 1
-            // ? OLCss.Cancelled
-            // : OLCss.disable4
-            // }
-
             onClick={() => {
               setCancel(true);
+              setReturn(false);
             }}
           >
             Partial Cancel
           </div>
 
-          <div className={OLCss.BtnDiv}>Initiate RTO</div>
+          <div
+            className={OLCss.BtnDiv}
+            onClick={() => {
+              setReturn(true);
+              setCancel(false);
+            }}
+          >
+            Initiate RTO
+          </div>
         </div>
 
         {rtoReturn && (
