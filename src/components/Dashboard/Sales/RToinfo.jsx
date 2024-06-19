@@ -169,8 +169,6 @@ export default function RToinfo({ setReturn, rtoReturn, res }) {
             </select>
           </div>
 
-          <button onClick={returnRTO}>Submit</button>
-
           <div>
             {reason.id === "" ? (
               ""
@@ -188,6 +186,14 @@ export default function RToinfo({ setReturn, rtoReturn, res }) {
               </div>
             )}
           </div>
+
+          {reason.id === "" && reason.desc === "" ? (
+            ""
+          ) : (
+            <>
+              <button onClick={returnRTO}>Submit</button>
+            </>
+          )}
         </>
       )}
     </>
