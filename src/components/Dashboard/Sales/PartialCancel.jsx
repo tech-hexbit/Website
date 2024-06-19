@@ -14,11 +14,11 @@ import axios from "axios";
 import RTOCss from "./Css/RToinfo.module.css";
 import PCCss from "./Css/PartialCancel.module.css";
 
-export default function PartialCancel({ setReturn, rtoReturn, data }) {
-  const [load, setLoad] = useState(false);
+export default function PartialCancel({ setCancel, rtoCancel, data }) {
   const [list, setList] = useState([]);
-  const [reason, setReason] = useState({ id: "", desc: "" });
+  const [load, setLoad] = useState(false);
   const [itemsList, setItemsList] = useState([]);
+  const [reason, setReason] = useState({ id: "", desc: "" });
 
   const authCtx = useContext(AuthContext);
 
@@ -80,7 +80,7 @@ export default function PartialCancel({ setReturn, rtoReturn, data }) {
 
       setLoad(false);
 
-      setReturn(!rtoReturn);
+      setCancel(!rtoCancel);
     } catch (error) {
       console.log(error);
       console.log(error.response.data);
@@ -158,6 +158,9 @@ export default function PartialCancel({ setReturn, rtoReturn, data }) {
               stroke-linecap="round"
               stroke-linejoin="round"
               class="lucide lucide-x"
+              onClick={() => {
+                setCancel(false);
+              }}
             >
               <path d="M18 6 6 18" />
               <path d="m6 6 12 12" />
