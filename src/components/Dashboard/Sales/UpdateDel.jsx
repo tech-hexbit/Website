@@ -21,6 +21,7 @@ export default function OrderLayUpdate(props) {
   const [res, setres] = useState(null);
   const [load, setLoad] = useState(false);
   const [dataCal, setDataCal] = useState(false);
+  const [rtoCancel, setCancel] = useState(false);
   const [rtoReturn, setReturn] = useState(false);
   const [upAll, setUpAll] = useState({
     code: 0,
@@ -215,7 +216,7 @@ export default function OrderLayUpdate(props) {
             // }
 
             onClick={() => {
-              setReturn(true);
+              setCancel(true);
             }}
           >
             Partial Cancel
@@ -224,13 +225,13 @@ export default function OrderLayUpdate(props) {
           <div className={OLCss.BtnDiv}>Initiate RTO</div>
         </div>
 
-        {rtoReturn ? (
+        {rtoCancel ? (
           <>
             {/* <RToinfo setReturn={setReturn} rtoReturn={rtoReturn} res={res} /> */}
             <PartialCancel
               data={res}
-              setReturn={setReturn}
-              rtoReturn={rtoReturn}
+              setCancel={setCancel}
+              rtoCancel={rtoCancel}
             />
           </>
         ) : (
