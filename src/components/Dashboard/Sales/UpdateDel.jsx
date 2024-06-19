@@ -220,6 +220,8 @@ export default function OrderLayUpdate(props) {
           >
             Partial Cancel
           </div>
+
+          <div className={OLCss.BtnDiv}>Initiate RTO</div>
         </div>
 
         {rtoReturn ? (
