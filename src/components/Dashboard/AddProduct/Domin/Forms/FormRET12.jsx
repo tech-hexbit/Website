@@ -41,6 +41,10 @@ export default function Form({ domain }) {
     short_desc: "",
     // veg: "",
     // non_veg: "",
+
+    isParent: "false",
+    parent_item_id: "",
+
     Discounts: "",
     brand_name: "",
     maximumCount: 0,
@@ -192,7 +196,7 @@ export default function Form({ domain }) {
       try {
         console.log("success till here")
         const response = await axios.post(
-          "/api/common/product/AddProduct",
+          "/api/common/product/AddProductRET12",
           formData,
           { headers: { Authorization: `${authCtx.token}` } }
         );
@@ -323,23 +327,49 @@ export default function Form({ domain }) {
         </select>
       </div>
 
+      {/* Is Parent  */}
+      <div className={ItCss.inpDiv}>
+        <p className={ItCss.inputLabel}>Is Product Parent?</p>
+        {/* <select
+          name="isParent"
+          className={ItCss.inp}
+          onChange={(e) => setData({ ...data, ["isParent"]: e.target.value })}
+        >
+          <option value="Selected" selected disabled hidden>
+            Select
+          </option>
+          <option value={true}>Yes</option>
+          <option value={false}>No</option>
+        </select> */}
+      </div>
+
+      {/* Parent item id? */}
+      {data.isParent === 'true' ? (
+        <div className={ItCss.inpDiv}>
+          <p className={ItCss.inputLabel}>Parent Item ID</p>
+          <input
+            type="text"
+            name="parent_item_id"
+            className={ItCss.inp}
+            value={data.parent_item_id}
+            onChange={handleSelectChange}
+          />
+        </div>
+
+      ) :
+        ""
+      }
+
       <div className={FCss.rowDIv}>
         <div className={FCss.rowDIvLeft}>
           <GeneralInfo showData={data} setData={setData} />
         </div>
         <div className={FCss.rowDIvRight}>
           <FixValues showData={data} setData={setData} />
-
-
-          {/* <Service showData={data} setData={setData} /> */}
-          {/* <InfoSubjective showData={data} setData={setData} /> */}
         </div>
       </div>
       <ProductCategory showData={data} setData={setData} />
       <Attributes showData={data} setData={setData} />
-
-      {/* {data.category_id? console.log(categories[data.category_id][0]): null} */}
-
       {/* <div className={FCss.rowDIv}>
         <div className={FCss.rowDIvLeft}>
         </div>
