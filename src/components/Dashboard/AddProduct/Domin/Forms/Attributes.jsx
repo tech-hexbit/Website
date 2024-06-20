@@ -8,7 +8,7 @@ import sizeData from "../Json/b.json"
 // import UrlInput from "./UrlInput"
 
 const Attributes = ({ setData, showData }) => {
-    const [variants, setVariant] = useState({
+    const [attribute, setAttribute] = useState({
         gender: "",
         colour: "",
         size: "",
@@ -27,14 +27,14 @@ const Attributes = ({ setData, showData }) => {
     // const [addedFields, setAddedField] = useState([]);
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setVariant((prevVariants) => ({
-            ...prevVariants,
+        setAttribute((prevAttribute) => ({
+            ...prevAttribute,
             [name]: value,
         }));
     };
 
     const handleSelectChange = (name, value) => {
-        setVariant({ ...variants, [name]: value });
+        setAttribute({ ...attribute, [name]: value });
     };
 
     // const handleSelectAdditionalChange = (e) => {
@@ -42,21 +42,27 @@ const Attributes = ({ setData, showData }) => {
     //         setAddedField([...addedFields,
     //         { "label": e.target.selectedOptions[0].getAttribute('name'), "value": e.target.value }
     //         ]);
-    //         setVariant({ ...variants, [e.target.value]: "" });
+    //         setAttribute({ ...attribute, [e.target.value]: "" });
     //     }
     // };
 
     useEffect(() => {
-        setData({ ...showData, variants: variants })
-    }, [variants])
+        setData({ ...showData, attribute: attribute })
+    }, [attribute])
 
-    useEffect(() => {
-        console.log(variants);
-    }, [variants])
+    // useEffect(() => {
+    //     console.log(Object.keys(optionsData.categories[showData.category_id][0]).length)
+    // },[] )
 
     return (
         <>
-            <p className={PrCss.AboutYou}>Mandatory Attributes</p>
+            {showData.category_id &&
+                optionsData.categories &&
+                optionsData.categories[showData.category_id] &&
+                optionsData.categories[showData.category_id][0] &&
+                Object.keys(optionsData.categories[showData.category_id][0]).length > 0 ? (
+                <p className={PrCss.AboutYou}>Mandatory Attributes</p>
+            ) : ""}
             {showData.category_id && optionsData.categories[showData.category_id][0].includes("gender") ?
                 (
 
@@ -64,7 +70,7 @@ const Attributes = ({ setData, showData }) => {
                         fieldName={"Gender"}
                         name={"gender"}
                         options={["men", "women", "kids", "unisex"]}
-                        value={variants.gender}
+                        value={attribute.gender}
                         onChange={handleSelectChange}
                     />
                 )
@@ -79,7 +85,7 @@ const Attributes = ({ setData, showData }) => {
                         <input
                             type="color"
                             name="colour"
-                            value={variants.colour}
+                            value={attribute.colour}
                             onChange={handleInputChange}
                         />
                     </div>
@@ -95,7 +101,7 @@ const Attributes = ({ setData, showData }) => {
                         <input
                             type="url"
                             name="sizeChart"
-                            value={variants.sizeChart}
+                            value={attribute.sizeChart}
                             placeholder={"Enter Size Chart"}
                             onChange={handleInputChange}
                         />
@@ -105,14 +111,14 @@ const Attributes = ({ setData, showData }) => {
                 ""
             }
 
-            {showData.category_id && optionsData.categories[showData.category_id][0].includes("fabric") ?
+            {showData.category_id && optionsData && optionsData.categories[showData.category_id][0].includes("fabric") ?
                 (
                     <Dropdown
                         fieldName="Fabric"
                         name="fabric"
                         onChange={handleSelectChange}
                         options={optionsData.fabric}
-                        value={variants.fabric}
+                        value={attribute.fabric}
                     />
                 )
                 :
@@ -127,7 +133,7 @@ const Attributes = ({ setData, showData }) => {
                         name="strapMaterial"
                         onChange={handleSelectChange}
                         options={optionsData.strap_material}
-                        value={variants.strapMaterial}
+                        value={attribute.strapMaterial}
                     />
 
                 )
@@ -142,7 +148,7 @@ const Attributes = ({ setData, showData }) => {
                         name="waterResistant"
                         onChange={handleSelectChange}
                         options={["y", "n"]}
-                        value={variants.waterResistant}
+                        value={attribute.waterResistant}
                     />
                 )
                 :
@@ -157,7 +163,7 @@ const Attributes = ({ setData, showData }) => {
                         name="display"
                         onChange={handleSelectChange}
                         options={optionsData.display}
-                        value={variants.display}
+                        value={attribute.display}
                     />
                 )
                 :
@@ -172,7 +178,7 @@ const Attributes = ({ setData, showData }) => {
                         name="glassMaterial"
                         onChange={handleSelectChange}
                         options={optionsData.glass_material}
-                        value={variants.glassMaterial}
+                        value={attribute.glassMaterial}
                     />
                 )
                 :
@@ -187,7 +193,7 @@ const Attributes = ({ setData, showData }) => {
                         name="sportType"
                         onChange={handleSelectChange}
                         options={optionsData.sport_type}
-                        value={variants.sportType}
+                        value={attribute.sportType}
                     />
                 )
                 :
@@ -201,7 +207,7 @@ const Attributes = ({ setData, showData }) => {
                         name="baseMetal"
                         onChange={handleSelectChange}
                         options={optionsData.base_metal}
-                        value={variants.baseMetal}
+                        value={attribute.baseMetal}
                     />
                 )
                 :
@@ -216,7 +222,7 @@ const Attributes = ({ setData, showData }) => {
                         name="plating"
                         onChange={handleSelectChange}
                         options={optionsData.plating}
-                        value={variants.plating}
+                        value={attribute.plating}
                     />
                 )
                 :
@@ -229,8 +235,12 @@ const Attributes = ({ setData, showData }) => {
                         fieldName="Size"
                         name="size"
                         onChange={handleSelectChange}
-                        options={sizeData?.[0]?.[variants.gender]?.[showData.category_id] ?? []}
-                        value={variants.size}
+                        options={
+                            attribute.gender == ""
+                                ? ["please enter gender"]
+                                : (sizeData?.[0]?.[attribute?.gender]?.[showData.category_id] ?? [])
+                        }
+                        value={attribute.size}
                     />
                 )
                 :
@@ -261,7 +271,7 @@ const Attributes = ({ setData, showData }) => {
                     key={index}
                     onChange={handleSelectChange}
                     options={["yes", "no"]}
-                    value={variants[field.value]}
+                    value={attribute[field.value]}
                 />
             ))} */}
         </>
