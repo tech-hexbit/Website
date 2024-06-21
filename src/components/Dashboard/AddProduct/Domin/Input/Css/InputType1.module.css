@@ -44,3 +44,32 @@
   appearance: none;
   margin: 0;
 }
+
+.inpCheckbox {
+  color: #606060;
+  font-size: 17px;
+  font-weight: 600;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  gap: 0px 10px;
+  cursor: pointer;
+}
+
+.buttonParent {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.buttonParent div {
+  color: #fff;
+  padding: 10px 30px;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+}

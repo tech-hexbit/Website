@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react"
+import { useState, useContext } from "react"
 import PropTypes from "prop-types"
 import PrCss from "../Css/Lable.module.css"
 import ItCss from "../Input/Css/InputType1.module.css"
 import Dropdown from "./Dropdown"
 import optionsData from "../Json/optionsData.json"
-import sizeData from "../Json/b.json"
+import sizeData from "../Json/size.json"
+import AuthContext from "../../../../../store/auth-context"
 // import UrlInput from "./UrlInput"
 
 const Attributes = ({ setData, showData }) => {
@@ -12,7 +13,7 @@ const Attributes = ({ setData, showData }) => {
         gender: "",
         colour: "",
         size: "",
-        sizeChart: "",
+        size_Chart: "",
         fabric: "",
         strapMaterial: "",
         waterResistant: "",
@@ -21,8 +22,10 @@ const Attributes = ({ setData, showData }) => {
         colourName: "",
         sportType: "",
         baseMetal: "",
-        plating: ""
+        plating: "",
     });
+
+    const authCtx = useContext(AuthContext);
 
     // const [addedFields, setAddedField] = useState([]);
     const handleInputChange = (e) => {
@@ -37,22 +40,72 @@ const Attributes = ({ setData, showData }) => {
         setAttribute({ ...attribute, [name]: value });
     };
 
-    // const handleSelectAdditionalChange = (e) => {
-    //     if (!addedFields.includes(e.target.value)) {
-    //         setAddedField([...addedFields,
-    //         { "label": e.target.selectedOptions[0].getAttribute('name'), "value": e.target.value }
-    //         ]);
-    //         setAttribute({ ...attribute, [e.target.value]: "" });
-    //     }
-    // };
+    const handleSubmit = () => {
+        if (showData.category_id &&
+            optionsData &&
+            optionsData.categories &&
+            Array.isArray(optionsData.categories[showData.category_id]) &&
+            optionsData.categories[showData.category_id][0]
+        ) {
+            if (!showData.isParent && showData["variants"].length > 0) {
+                authCtx.showAlert({
+                    mainColor: "#FDEDED",
+                    secondaryColor: "#F16360",
+                    symbol: "error",
+                    title: "Error",
+                    text: "Cannot add variant w/o parent",
+                });
+                return;
+            }
+            let allFieldsValid = true;
 
-    useEffect(() => {
-        setData({ ...showData, attribute: attribute })
-    }, [attribute])
+            Object.keys(optionsData.categories[showData.category_id][0]).forEach(key => {
+                const fieldKey = optionsData.categories[showData.category_id][0][key];
+                if (attribute[fieldKey] === "") {
+                    authCtx.showAlert({
+                        mainColor: "#FDEDED",
+                        secondaryColor: "#F16360",
+                        symbol: "error",
+                        title: "Error",
+                        text: "Add " + fieldKey,
+                    });
+                    allFieldsValid = false;
+                    return;  // Exit the forEach loop early
+                }
+            });
 
-    // useEffect(() => {
-    //     console.log(Object.keys(optionsData.categories[showData.category_id][0]).length)
-    // },[] )
+            if (allFieldsValid) {
+                const filtered = Object.keys(attribute).filter((key) => attribute[key] !== "").reduce((obj, key) => {
+                    obj[key] = attribute[key];
+                    return obj;
+                }, {});
+                // console.log(filtered);
+                setData({ ...showData, ["variants"]: [...showData.variants, filtered] })
+                authCtx.showAlert({
+                    mainColor: "#EDFEEE",
+                    secondaryColor: "#5CB660",
+                    symbol: "check_circle",
+                    title: "Success",
+                    text: "Confirmed",
+                });
+                setAttribute({
+                    gender: "",
+                    colour: "",
+                    size: "",
+                    sizeChart: "",
+                    fabric: "",
+                    strapMaterial: "",
+                    waterResistant: "",
+                    display: "",
+                    glassMaterial: "",
+                    colourName: "",
+                    sportType: "",
+                    baseMetal: "",
+                    plating: "",
+                })
+            }
+        }
+    };
 
     return (
         <>
@@ -80,15 +133,19 @@ const Attributes = ({ setData, showData }) => {
 
             {showData.category_id && optionsData.categories[showData.category_id][0].includes("colour") ?
                 (
-                    <div className={ItCss.inpDiv}>
-                        <p className={ItCss.inputLabel}>Colour</p>
-                        <input
-                            type="color"
-                            name="colour"
-                            value={attribute.colour}
-                            onChange={handleInputChange}
-                        />
-                    </div>
+                    <>
+                        <div className={ItCss.inpDiv}>
+                            <p className={ItCss.inputLabel}>Colour</p>
+                            <input
+                                type="color"
+                                name="colour"
+                                value={attribute.colour}
+                                onChange={handleInputChange}
+                            />
+                            {/* <br /> */}
+                            <span style={{ marginTop: "0.75rem" }}>Selected Color :: <b>{attribute.colour}</b></span>
+                        </div>
+                    </>
                 )
                 :
                 ""
@@ -246,34 +303,21 @@ const Attributes = ({ setData, showData }) => {
                 :
                 ""
             }
-
-            {/* <div className={ItCss.inpDiv}>
-                <p className={ItCss.inputLabel}>Add Optional Attributes</p>
-                <select
-                    className={ItCss.inp}
-                    onChange={handleSelectAdditionalChange}
-                >
-                    <option value="Selected" selected hidden>
-                        Select
-                    </option>
-                    {mandatoryAttributes.map((option, index) => (
-                        <option key={index} value={option.value} name={option.label}>
-                            {option.label}
-                        </option>
-                    ))}
-                </select>
-            </div> */}
-
-            {/* {addedFields.map((field, index) => (
-                <Dropdown
-                    fieldName={field.label}
-                    name={field.label}
-                    key={index}
-                    onChange={handleSelectChange}
-                    options={["yes", "no"]}
-                    value={attribute[field.value]}
-                />
-            ))} */}
+            {showData.category_id &&
+                optionsData.categories &&
+                optionsData.categories[showData.category_id] &&
+                optionsData.categories[showData.category_id][0] &&
+                Object.keys(optionsData.categories[showData.category_id][0]).length > 0 ? (
+                <div className={ItCss.buttonParent}>
+                    {showData.isParent ? (
+                        <div style={{ backgroundColor: "#4bb543" }} onClick={handleSubmit}>Add Variant</div>
+                    ) : (
+                        <div style={{ backgroundColor: "#4bb543" }} onClick={handleSubmit}>Submit</div>
+                    )}
+                </div>
+            ) : (
+                ""
+            )}
         </>
     )
 }
