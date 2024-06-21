@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import PropTypes from "prop-types"
 
 // components
 import TrackList from "./TrackList";
@@ -22,10 +23,9 @@ export default function TrackingHeader({ data }) {
       } else if (data.state === "Cancelled") {
         setStateVal(4);
       }
-
-      console.log(data.logistics);
     }
   }, [data]);
+
   return (
     <>
       {data ? (
@@ -61,7 +61,7 @@ export default function TrackingHeader({ data }) {
                   href={`https://www.google.com/maps?q=${data.ONDCFulfillment[0][0].end.location.gps}`}
                   target="_blank"
                   className="LinkStyle"
-                  id={THCss.navi}
+                  id={THCss.navi} rel="noreferrer"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -70,10 +70,10 @@ export default function TrackingHeader({ data }) {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-navigation"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="lucide lucide-navigation"
                   >
                     <polygon points="3 11 22 2 13 21 11 13 3 11" />
                   </svg>
@@ -92,57 +92,63 @@ export default function TrackingHeader({ data }) {
             </div>
 
             {/* Logistics */}
-            <div>
-              <p className={THCss.shippLabelPTag}>
-                <b>Logistics</b>
+            {data.logistics.id == "" || data.logistics.logisticsPatnerName == "" ?
+              null :
+              (
+                <div>
+                  {console.log(data.logistics.id)}
+                  <p className={THCss.shippLabelPTag}>
+                    <b>Logistics</b>
 
-                <a
-                  href={data.logistics.url}
-                  target="_blank"
-                  className="LinkStyle"
-                  id={THCss.navi}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-navigation"
-                  >
-                    <polygon points="3 11 22 2 13 21 11 13 3 11" />
-                  </svg>
-                </a>
-              </p>
-              <p className={THCss.infoPTag}>
-                ID: <span>{data.logistics.id}</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-clipboard"
-                  id={THCss.copyClip}
-                >
-                  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
-                  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
-                </svg>
-              </p>
+                    <a
+                      href={data.logistics.url}
+                      target="_blank"
+                      className="LinkStyle"
+                      id={THCss.navi} rel="noreferrer"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="lucide lucide-navigation"
+                      >
+                        <polygon points="3 11 22 2 13 21 11 13 3 11" />
+                      </svg>
+                    </a>
+                  </p>
+                  <p className={THCss.infoPTag}>
+                    ID: <span>{data.logistics.id}</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-clipboard"
+                      id={THCss.copyClip}
+                    >
+                      <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+                      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+                    </svg>
+                  </p>
 
-              <p>
-                Logistics Patner:{" "}
-                <span>{data.logistics.logisticsPatnerName}</span>
-              </p>
-            </div>
+                  <p>
+                    Logistics Patner:{" "}
+                    <span>{data.logistics.logisticsPatnerName}</span>
+                  </p>
+                </div>
+              )
+            }
           </div>
 
           <div className={THCss.listTrackingDiv}>
@@ -205,3 +211,38 @@ export default function TrackingHeader({ data }) {
     </>
   );
 }
+
+TrackingHeader.propTypes = {
+  data: PropTypes.shape({
+    OrderID: PropTypes.string,
+    state: PropTypes.string,
+    status: PropTypes.string,
+    invoice: PropTypes.shape({
+      URL: PropTypes.string,
+    }),
+    ONDCFulfillment: PropTypes.arrayOf(
+      PropTypes.arrayOf(
+        PropTypes.shape({
+          end: PropTypes.shape({
+            location: PropTypes.shape({
+              gps: PropTypes.string,
+              address: PropTypes.shape({
+                name: PropTypes.string,
+                building: PropTypes.string,
+                locality: PropTypes.string,
+                city: PropTypes.string,
+                state: PropTypes.string,
+                country: PropTypes.string,
+              }),
+            }),
+          })
+        })
+      )
+    ),
+    logistics: PropTypes.shape({
+      id: PropTypes.string,
+      logisticsPatnerName: PropTypes.string,
+      url: PropTypes.string,
+    }),
+  }),
+};
