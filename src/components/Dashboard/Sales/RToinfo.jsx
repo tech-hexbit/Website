@@ -48,7 +48,7 @@ export default function RToinfo({ setReturn, rtoReturn, res }) {
       };
 
       const response = await axios.post(
-        "/api/common/Order/order/cancel/rto",
+        `${import.meta.env.VITE_SERVER_ONDC_URL}/cancel/unsolisited/rto`,
         data,
         {
           headers: { Authorization: `${authCtx.token}` },
