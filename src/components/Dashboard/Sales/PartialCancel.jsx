@@ -4,15 +4,21 @@ import PropTypes from "prop-types";
 // state
 import AuthContext from "./../../../store/auth-context";
 
+// MicroInteraction
+import Load from "./../../../MicroInteraction/LoadBlack";
+
 // axios
 import axios from "axios";
 
 // css
+import RTOCss from "./Css/RToinfo.module.css";
 import PCCss from "./Css/PartialCancel.module.css";
 
-export default function PartialCancel({ data }) {
+export default function PartialCancel({ setCancel, rtoCancel, data }) {
+  const [list, setList] = useState([]);
   const [load, setLoad] = useState(false);
   const [itemsList, setItemsList] = useState([]);
+  const [reason, setReason] = useState({ id: "", desc: "" });
 
   const authCtx = useContext(AuthContext);
 
@@ -39,14 +45,27 @@ export default function PartialCancel({ data }) {
       return;
     }
 
+    if (reason.id === "" || reason.desc === "") {
+      authCtx.showAlert({
+        mainColor: "#FFF4E5",
+        secondaryColor: "#FFA117",
+        symbol: "warning",
+        title: "Warning",
+        text: "Kindly atleast return reason",
+      });
+
+      return;
+    }
+
     setLoad(true);
 
     try {
-      console.log("response");
-
       let showData = {
         orderID: data._id,
         item: itemsList,
+        return_reason_id: reason.id,
+        descReason: reason.desc,
+        BuyerOrderID: data.OrderID,
       };
 
       const response = await axios.post(
@@ -58,6 +77,10 @@ export default function PartialCancel({ data }) {
       );
 
       console.log(response);
+
+      setLoad(false);
+
+      setCancel(!rtoCancel);
     } catch (error) {
       console.log(error);
       console.log(error.response.data);
@@ -74,47 +97,97 @@ export default function PartialCancel({ data }) {
     }
   };
 
+  const fetchDesc = async () => {
+    try {
+      const response = await axios.get(`/api/common/Order/order/desc`, {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+
+      if (response.data.success) {
+        setList(response.data.results);
+      }
+    } catch (error) {
+      console.log(error);
+
+      setLoad(false);
+
+      authCtx.showAlert({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "Unable to Fetch",
+      });
+    }
+  };
+
+  const descCurr = async (e) => {
+    const selectedCode = e.target.value;
+    const selectedReason = list.find((item) => item.Code === selectedCode);
+
+    if (selectedReason) {
+      setReason({
+        id: selectedReason.Code,
+        desc: selectedReason.Reason,
+      });
+    }
+  };
+
+  useEffect(() => {
+    fetchDesc();
+  }, []);
+
   return (
     <>
-      <div className={PCCss.headDiv}>
-        <p className={PCCss.headPTag}>Partial Cancel</p>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="lucide lucide-x"
-        >
-          <path d="M18 6 6 18" />
-          <path d="m6 6 12 12" />
-        </svg>
-      </div>
-      <div className={PCCss.Line}></div>
-
-      {data ? (
+      {load ? (
+        <div className="loadCenterDiv">
+          <Load />
+        </div>
+      ) : (
         <>
-          {data.Items?.map((val, key) => {
-            return (
-              <div className={PCCss.mapDiv} key={key}>
-                <div className={PCCss.mapDivChild}>
-                  <img
-                    className={PCCss.itemImg}
-                    src={val.ItemID.descriptor.symbol}
-                    alt=""
-                  />
-                  <div>
-                    <div>
-                      <b>{val.ItemID.descriptor.name}</b>
-                    </div>
-                    <div>
-                      <span className={PCCss.spanQty}>Qty</span>{" "}
-                      <span className={PCCss.spanQty}>{val.quantity}</span>
-                      {/* <input
+          <div className={PCCss.headDiv}>
+            <p className={PCCss.headPTag}>Partial Cancel</p>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-x"
+              onClick={() => {
+                setCancel(false);
+              }}
+            >
+              <path d="M18 6 6 18" />
+              <path d="m6 6 12 12" />
+            </svg>
+          </div>
+
+          <div className={PCCss.Line}></div>
+
+          {data ? (
+            <>
+              {data.Items?.map((val, key) => {
+                return (
+                  <div className={PCCss.mapDiv} key={key}>
+                    <div className={PCCss.mapDivChild}>
+                      <img
+                        className={PCCss.itemImg}
+                        src={val.ItemID.descriptor.symbol}
+                        alt=""
+                      />
+                      <div>
+                        <div>
+                          <b>{val.ItemID.descriptor.name}</b>
+                        </div>
+                        <div>
+                          <span className={PCCss.spanQty}>Qty</span>{" "}
+                          <span className={PCCss.spanQty}>{val.quantity}</span>
+                          {/* <input
                         type="number"
                         name=""
                         id=""
@@ -123,34 +196,81 @@ export default function PartialCancel({ data }) {
                         max={val.quantity}
                         onChange={onChangeHandle}
                       /> */}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <input
+                        type="checkbox"
+                        name=""
+                        id=""
+                        checked={itemsList.some(
+                          (item) => item.itemId === val.ItemID
+                        )}
+                        onChange={(e) =>
+                          handleCheckboxChange(val.ItemID, e.target.checked)
+                        }
+                      />
                     </div>
                   </div>
-                </div>
+                );
+              })}
+            </>
+          ) : (
+            <div className="loadCenterDiv">No Orders</div>
+          )}
 
+          <>
+            <div className={RTOCss.mDiv}>Return (RTO) Info</div>
+
+            <div>
+              <p>Select Reason Desc</p>
+
+              <select name="desc" id="desc" onChange={descCurr}>
+                <option value="00" selected hidden>
+                  Select
+                </option>
+                {list.length > 0 ? (
+                  <>
+                    {list.map((val, key) => {
+                      return (
+                        <option value={val.Code} key={key}>
+                          {val.Reason}
+                        </option>
+                      );
+                    })}
+                  </>
+                ) : (
+                  ""
+                )}
+              </select>
+            </div>
+
+            <div>
+              {reason.id === "" ? (
+                ""
+              ) : (
                 <div>
-                  <input
-                    type="checkbox"
-                    name=""
-                    id=""
-                    checked={itemsList.some(
-                      (item) => item.itemId === val.ItemID
-                    )}
-                    onChange={(e) =>
-                      handleCheckboxChange(val.ItemID, e.target.checked)
-                    }
-                  />
+                  <p>Reason ID </p> <span>{reason.id}</span>
                 </div>
-              </div>
-            );
-          })}
-        </>
-      ) : (
-        <div className="loadCenterDiv">No Orders</div>
-      )}
+              )}
 
-      <button className={PCCss.saveBtn} onClick={updatePartialCan}>
-        Save
-      </button>
+              {reason.desc === "" ? (
+                ""
+              ) : (
+                <div>
+                  <p>Reason desc </p> <span>{reason.desc}</span>
+                </div>
+              )}
+            </div>
+          </>
+
+          <button className={PCCss.saveBtn} onClick={updatePartialCan}>
+            Save
+          </button>
+        </>
+      )}
     </>
   );
 }

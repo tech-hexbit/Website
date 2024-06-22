@@ -11,12 +11,11 @@ import axios from "axios";
 import Load from "./../../../MicroInteraction/LoadBlack";
 
 // Css
-import OLCss from "./Css/OrderLayUpdate.module.css";
 import RTOCss from "./Css/RToinfo.module.css";
 
 export default function RToinfo({ setReturn, rtoReturn, res }) {
-  const [load, setLoad] = useState(false);
   const [list, setList] = useState([]);
+  const [load, setLoad] = useState(false);
   const [reason, setReason] = useState({ id: "", desc: "" });
 
   const authCtx = useContext(AuthContext);
@@ -49,15 +48,18 @@ export default function RToinfo({ setReturn, rtoReturn, res }) {
       };
 
       const response = await axios.post(
-        "/api/common/Order/order/cancel/rto",
+        `${import.meta.env.VITE_SERVER_ONDC_URL}/cancel/unsolisited/rto`,
         data,
         {
           headers: { Authorization: `${authCtx.token}` },
         }
       );
 
+      console.log(response);
+
       setLoad(false);
-      setReturn(false);
+
+      setReturn(!rtoReturn);
     } catch (error) {
       console.log(error);
 
@@ -113,9 +115,6 @@ export default function RToinfo({ setReturn, rtoReturn, res }) {
     fetchDesc();
   }, []);
 
-  useEffect(() => {
-    console.log(reason);
-  }, [reason]);
   return (
     <>
       {load ? (
@@ -170,8 +169,6 @@ export default function RToinfo({ setReturn, rtoReturn, res }) {
             </select>
           </div>
 
-          <button onClick={returnRTO}>Submit</button>
-
           <div>
             {reason.id === "" ? (
               ""
@@ -189,6 +186,14 @@ export default function RToinfo({ setReturn, rtoReturn, res }) {
               </div>
             )}
           </div>
+
+          {reason.id === "" && reason.desc === "" ? (
+            ""
+          ) : (
+            <>
+              <button onClick={returnRTO}>Submit</button>
+            </>
+          )}
         </>
       )}
     </>

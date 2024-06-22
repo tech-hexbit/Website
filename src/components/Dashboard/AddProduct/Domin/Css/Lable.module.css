@@ -13,3 +13,40 @@
   border-style: solid;
   border-color: #56117c;
 }
+
+.AboutYouMod {
+  margin-top: 30px;
+  font-size: 17px;
+  font-weight: 600;
+  /* border-width: 0px 0px 1px 0px;
+  border-color: rgba(170, 170, 170, 1);
+  border-style: dashed; */
+  padding: 0px 0px 7px 0px;
+  /* transition: all 0.3s; */
+}
+
+.headerContainer {
+  display: flex;
+  /* border: 1px solid red; */
+  align-items: center;
+  justify-content: space-between;
+  border-width: 0px 0px 1px 0px;
+  border-color: rgba(170, 170, 170, 1);
+  border-style: dashed;
+}
+
+.headerContainer:hover {
+  border-style: solid;
+  border-color: #56117c;
+}
+
+.headerContainer>svg {
+  /* border: 1px solid red; */
+  margin-top: 24px;
+  transition: all 0.3s;
+
+}
+
+.headerContainer>svg:hover {
+  transform: scale(1.25);
+}

@@ -1,4 +1,4 @@
-import React, { useRef, useState, useContext } from "react";
+import { useRef, useState, useContext } from "react";
 
 // axios
 import axios from "axios";
@@ -12,7 +12,7 @@ import Upcss from "./Css/uploadCsvPopup.module.css";
 // img
 import upload_image from "../../../assets/dashboard/upload.svg";
 
-const UploadCsvPopup = ({ setShowPopup, setError }) => {
+const UploadCsvPopup = ({ setShowPopup, setError, domain }) => {
   const [file, setFile] = useState();
   const fileInp = useRef(null);
 
@@ -36,6 +36,7 @@ const UploadCsvPopup = ({ setShowPopup, setError }) => {
     const formData = new FormData();
     formData.append("Excel", file);
     formData.append("ExcelName", file.name);
+    formData.append("domain", JSON.stringify({ domain: domain }));
 
     const response = await axios.post("/api/common/product/AddBulk", formData, {
       headers: {

@@ -1,4 +1,3 @@
-import React from "react";
 import PropTypes from "prop-types";
 
 //component
@@ -47,5 +46,6 @@ export default function ProdParticulars({ setData, showData }) {
 
 ProdParticulars.propTypes = {
   showData: PropTypes.object.isRequired,
-  placeholder: PropTypes.string.isRequired,
+  setData: PropTypes.func.isRequired
+  // placeholder: PropTypes.string.isRequired,
 };

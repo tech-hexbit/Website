@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 
 // components
 import Header from "./MainParts/Header";
@@ -23,6 +23,9 @@ const Orderdetails = (props) => {
   const [load, setLoad] = useState(false);
   const [edit, setEdit] = useState(false);
   const [loadData, setLoadData] = useState(false);
+
+
+  const [isLogisticsFormFilled, setIsLogisticsFormFilled] = useState(false);
 
   const authCtx = useContext(AuthContext);
 
@@ -65,10 +68,9 @@ const Orderdetails = (props) => {
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="lucide lucide-chevron-left"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           className={odcss.leftArrow}
           onClick={() => {
             props.setProductDel(false);
@@ -77,7 +79,6 @@ const Orderdetails = (props) => {
         >
           <path d="m15 18-6-6 6-6" />
         </svg>
-
         {res ? (
           <>
             <Header name={`Order ID : #${res._id.slice(-4)}`} />
@@ -100,19 +101,23 @@ const Orderdetails = (props) => {
                   {/* Customer || Shipping || Payment */}
                   <TopDetails del={res} />
 
+                  {/* Accepted || In-Progress || Completed || Cancelled || Return RTO */}
                   <UpdateDel
                     setEdit={setEdit}
                     id={props.id}
                     setLoadDataState={setLoadData}
                     loadDataState={loadData}
+                    allowInProgressEdit={isLogisticsFormFilled}
                   />
 
                   <div className={odcss.textContent}>
+                    {/* Logistics Form */}
                     <Logistics
                       res={res}
                       _id={res._id}
                       setLoadDataState={setLoadData}
                       loadDataState={loadData}
+                      setIsLogisticsFormFilled={setIsLogisticsFormFilled}
                     />
                     <div className={odcss.mapDivBU}>
                       <h2 className={odcss.gt}>Total bill</h2>
