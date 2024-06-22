@@ -244,9 +244,6 @@ export default function OrderLayUpdate(props) {
 
         {!rtoReturn && !rtoCancel && (
           <>
-            {/* {dataCal ? (
-              <PartialCancel data={res} />
-            ) : ( */}
             <div className={OLCss.ProductDelTableDiv}>
               <p className={OLCss.ProductDelPTag}>Product details</p>
 
@@ -319,7 +316,6 @@ export default function OrderLayUpdate(props) {
                 )}
               </div>
             </div>
-            {/* )} */}
           </>
         )}
       </div>
