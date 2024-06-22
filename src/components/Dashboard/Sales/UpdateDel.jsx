@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
+import PropTypes from "prop-types"
 
 // state
 import AuthContext from "./../../../store/auth-context";
@@ -158,11 +159,15 @@ export default function OrderLayUpdate(props) {
     }
   }, [res]);
 
+  useEffect(() => {
+    console.log(props.allowInProgressEdit);
+  }, [props.allowInProgressEdit])
+
   return (
     <>
       <div className={OLCss.contendDivDel}>
         <p className={OLCss.UpdateOrderPTag}>UPDATE ORDER STATUS</p>
-
+        {/* {console.log(id)} */}
         <div className={OLCss.BtnDivMain}>
           <div
             className={OLCss.BtnDiv}
@@ -178,7 +183,17 @@ export default function OrderLayUpdate(props) {
             className={OLCss.BtnDiv}
             id={upAll.code === 1 ? OLCss.InProgress : OLCss.disable2}
             onClick={() => {
-              updateMany("In-progress");
+              props.allowInProgressEdit ? (
+                updateMany("In-progress")
+              ) :
+                authCtx.showAlert({
+                  mainColor: "#FDEDED",
+                  secondaryColor: "#F16360",
+                  symbol: "error",
+                  title: "Error",
+                  text: "Please fill the logistics form",
+                });
+                return;
             }}
           >
             In-progress
@@ -318,7 +333,14 @@ export default function OrderLayUpdate(props) {
             </div>
           </>
         )}
-      </div>
+      </div >
     </>
   );
+}
+
+OrderLayUpdate.PropTypes = {
+  id: PropTypes.string,
+  setLoadDataState: PropTypes.func,
+  loadDataState: PropTypes.bool,
+  setEdit: PropTypes.func,
 }

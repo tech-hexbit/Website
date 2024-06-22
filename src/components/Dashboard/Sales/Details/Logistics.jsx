@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
+import PropTypes from "prop-types"
 
 // MicroInteraction
 import Load from "./../../../../MicroInteraction/LoadBlack";
@@ -17,21 +18,22 @@ export default function Logistics({
   _id,
   setLoadDataState,
   loadDataState,
+  setIsLogisticsFormFilled
 }) {
   const [load, setLoad] = useState(false);
   const [showEdit, setEdit] = useState(false);
   const [showData, setData] = useState({
-    id: "",
-    url: "",
-    logisticsPatnerName: "",
-    currentLocation: "",
-    estimatedTATHR: "",
-    estimatedTATMINS: "",
-    agentName: "",
-    agentNumber: "",
-    vehicleCategory: "",
-    vehicleSize: "",
-    vehicleRegistration: "",
+    id: res?.logistics?.id ?? "",
+    url: res?.logistics?.url ?? "",
+    logisticsPatnerName: res?.logistics?.logisticsPatnerName ?? "",
+    currentLocation: res?.logistics?.currentLocation ?? "",
+    estimatedTATHR: res?.logistics?.estimatedTATHR ?? "",
+    estimatedTATMINS: res?.logistics?.estimatedTATMINS ?? "",
+    agentName: res?.logistics?.agent?.name ?? "",
+    agentNumber: res?.logistics?.agent?.number ?? "",
+    vehicleCategory: res?.logistics?.vehicle?.category ?? "",
+    vehicleSize: res?.logistics?.vehicle?.size ?? "",
+    vehicleRegistration: res?.logistics?.vehicle?.registration ?? "",
   });
 
   const authCtx = useContext(AuthContext);
@@ -117,11 +119,18 @@ export default function Logistics({
     }
   };
 
+  useEffect(() => {
+    if(res.logistics.id){
+      setIsLogisticsFormFilled(true);
+    }
+  }, [res.logistics.id, setIsLogisticsFormFilled])
+
   return (
     <>
       <div className={odcss.overlapGroup}>
         <div className={odcss.textWrapper}>
           {res.logistics.id === "" ? "Logistics details" : "Logistics Info"}
+
           <span className={odcss.editIconSpan}>
             {showEdit ? (
               <svg
@@ -131,10 +140,10 @@ export default function Logistics({
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-ban"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-ban"
                 onClick={() => {
                   setEdit(!showEdit);
                 }}
@@ -150,10 +159,10 @@ export default function Logistics({
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-pencil"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                // class="lucide lucide-pencil"
                 className={odcss.editIcon}
                 onClick={() => {
                   setEdit(!showEdit);
@@ -170,22 +179,23 @@ export default function Logistics({
           <div className={odcss.formDiv}>
             {/* Traking ID */}
             <div>
-              <label for="TrakingID" className={odcss.labelCl}>
+              <label htmlFor="TrakingID" className={odcss.labelCl}>
                 Traking ID
               </label>
               <input
                 type="text"
                 name="id"
                 id="TrakingID"
+                value={showData.id}
                 placeholder="58405917356"
                 className={odcss.inpTag}
                 onChange={handleChange}
               />
             </div>
 
-            {/* Traking URL */}
+            {/* Tracking URL */}
             <div>
-              <label for="TrakingURL" className={odcss.labelCl}>
+              <label htmlFor="TrakingURL" className={odcss.labelCl}>
                 Traking URL
               </label>
               <input
@@ -193,6 +203,7 @@ export default function Logistics({
                 name="url"
                 id="TrakingURL"
                 placeholder="https://abcLogistic.com"
+                value={showData.url}
                 className={odcss.inpTag}
                 onChange={handleChange}
               />
@@ -200,7 +211,7 @@ export default function Logistics({
 
             {/* Logistics Patner Name */}
             <div>
-              <label for="LogisticsPatner" className={odcss.labelCl}>
+              <label htmlFor="LogisticsPatner" className={odcss.labelCl}>
                 Logistics Patner Name
               </label>
               <input
@@ -210,12 +221,13 @@ export default function Logistics({
                 placeholder="Blue Dart"
                 className={odcss.inpTag}
                 onChange={handleChange}
+                value={showData.logisticsPatnerName}
               />
             </div>
 
             {/* Current Location */}
             <div>
-              <label for="Location" className={odcss.labelCl}>
+              <label htmlFor="Location" className={odcss.labelCl}>
                 Current Location
               </label>
               <input
@@ -224,13 +236,14 @@ export default function Logistics({
                 id="Location"
                 placeholder="Abc, City"
                 className={odcss.inpTag}
+                value={showData.currentLocation}
                 onChange={handleChange}
               />
             </div>
 
             {/*  Estimated Time to Delivery */}
             <div>
-              <label for="EstimatedTime" className={odcss.labelCl}>
+              <label htmlFor="EstimatedTime" className={odcss.labelCl}>
                 Estimated Time to Delivery
               </label>
 
@@ -240,6 +253,7 @@ export default function Logistics({
                 name="estimatedTATHR"
                 id="EstimatedTime"
                 placeholder="15 Hr"
+                value={showData.estimatedTATHR}
                 className={odcss.inpTag}
                 onChange={handleChange}
               />
@@ -250,6 +264,7 @@ export default function Logistics({
                 name="estimatedTATMINS"
                 id=""
                 placeholder="25 Mins"
+                value={showData.estimatedTATMINS}
                 className={odcss.inpTag}
                 onChange={handleChange}
               />
@@ -257,7 +272,7 @@ export default function Logistics({
 
             {/*  Agent Name */}
             <div>
-              <label for="AgentName" className={odcss.labelCl}>
+              <label htmlFor="AgentName" className={odcss.labelCl}>
                 Agent Name
               </label>
               <input
@@ -265,6 +280,7 @@ export default function Logistics({
                 name="agentName"
                 id="AgentName"
                 placeholder="Ramu"
+                value={showData.agentName}
                 className={odcss.inpTag}
                 onChange={handleChange}
               />
@@ -272,7 +288,7 @@ export default function Logistics({
 
             {/* Agent Number */}
             <div>
-              <label for="AgentNumber" className={odcss.labelCl}>
+              <label htmlFor="AgentNumber" className={odcss.labelCl}>
                 Agent Number
               </label>
               <input
@@ -280,6 +296,7 @@ export default function Logistics({
                 name="agentNumber"
                 id="AgentNumber"
                 placeholder="98XXXXXXXX60"
+                value={showData.agentNumber}
                 className={odcss.inpTag}
                 onChange={handleChange}
               />
@@ -287,13 +304,14 @@ export default function Logistics({
 
             {/* Vehicle Category */}
             <div>
-              <label for="VehicleCategory" className={odcss.labelCl}>
+              <label htmlFor="VehicleCategory" className={odcss.labelCl}>
                 Vehicle Category
               </label>
               <input
                 type="text"
                 name="vehicleCategory"
                 id="VehicleCategory"
+                value={showData.vehicleCategory}
                 placeholder="mini-truck"
                 className={odcss.inpTag}
                 onChange={handleChange}
@@ -302,7 +320,7 @@ export default function Logistics({
 
             {/* Vehicle Size */}
             <div>
-              <label for="VehicleSize" className={odcss.labelCl}>
+              <label htmlFor="VehicleSize" className={odcss.labelCl}>
                 Vehicle Size
               </label>
               <input
@@ -310,6 +328,7 @@ export default function Logistics({
                 name="vehicleSize"
                 id="VehicleSize"
                 placeholder="small"
+                value={showData.vehicleSize}
                 className={odcss.inpTag}
                 onChange={handleChange}
               />
@@ -317,7 +336,7 @@ export default function Logistics({
 
             {/* Vehicle Registration */}
             <div>
-              <label for="VehicleRegistration" className={odcss.labelCl}>
+              <label htmlFor="VehicleRegistration" className={odcss.labelCl}>
                 Vehicle Registration
               </label>
               <input
@@ -325,6 +344,7 @@ export default function Logistics({
                 name="vehicleRegistration"
                 id="VehicleRegistration"
                 placeholder="2020"
+                value={showData.vehicleRegistration}
                 className={odcss.inpTag}
                 onChange={handleChange}
               />
@@ -395,4 +415,12 @@ export default function Logistics({
       </div>
     </>
   );
+}
+
+Logistics.propTypes = {
+  res: PropTypes.object.isRequired,
+  _id: PropTypes.string.isRequired,
+  setLoadDataState: PropTypes.func.isRequired,
+  loadDataState: PropTypes.bool.isRequired,
+  setIsLogisticsFormFilled: PropTypes.bool.isRequired
 }

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import{ useContext, useState } from "react";
 
 // components
 import Header from "./MainParts/Header";
@@ -13,7 +13,6 @@ import ApCss from "./Css/AddProduct.module.css";
 
 //store
 import AuthContext from "../../store/auth-context";
-
 export default function AddProduct() {
   const [domain, setDomain] = useState("");
   const [showPopup, setShowPopup] = useState(false);
@@ -61,16 +60,15 @@ export default function AddProduct() {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-chevron-left"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                // class="lucide lucide-chevron-left"
                 className={ApCss.svgBtn}
                 onClick={backBtn}
               >
                 <path d="m15 18-6-6 6-6" />
               </svg>
-
               <Header name="Add Product" />
             </div>
 
