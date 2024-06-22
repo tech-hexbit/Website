@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
 
 // state
 import AuthContext from "./../../../store/auth-context";
@@ -161,7 +161,7 @@ export default function OrderLayUpdate(props) {
 
   useEffect(() => {
     console.log(props.allowInProgressEdit);
-  }, [props.allowInProgressEdit])
+  }, [props.allowInProgressEdit]);
 
   return (
     <>
@@ -183,17 +183,16 @@ export default function OrderLayUpdate(props) {
             className={OLCss.BtnDiv}
             id={upAll.code === 1 ? OLCss.InProgress : OLCss.disable2}
             onClick={() => {
-              props.allowInProgressEdit ? (
-                updateMany("In-progress")
-              ) :
-                authCtx.showAlert({
-                  mainColor: "#FDEDED",
-                  secondaryColor: "#F16360",
-                  symbol: "error",
-                  title: "Error",
-                  text: "Please fill the logistics form",
-                });
-                return;
+              props.allowInProgressEdit
+                ? updateMany("In-progress")
+                : authCtx.showAlert({
+                    mainColor: "#FDEDED",
+                    secondaryColor: "#F16360",
+                    symbol: "error",
+                    title: "Error",
+                    text: "Please fill the logistics form",
+                  });
+              return;
             }}
           >
             In-progress
@@ -280,7 +279,6 @@ export default function OrderLayUpdate(props) {
                             <th>Status</th>
                             <th>Total Amount</th>
                           </tr>
-
                           {res.Items?.map((val, key) => {
                             return (
                               <>
@@ -307,6 +305,7 @@ export default function OrderLayUpdate(props) {
                                     id={props.id}
                                     ItemID={val.ItemID._id}
                                     state={val.state}
+                                    code={val.code}
                                     setLoadDataState={props.setLoadDataState}
                                     loadDataState={props.loadDataState}
                                     setEdit={props.setEdit}
@@ -333,7 +332,7 @@ export default function OrderLayUpdate(props) {
             </div>
           </>
         )}
-      </div >
+      </div>
     </>
   );
 }
@@ -343,4 +342,4 @@ OrderLayUpdate.PropTypes = {
   setLoadDataState: PropTypes.func,
   loadDataState: PropTypes.bool,
   setEdit: PropTypes.func,
-}
+};

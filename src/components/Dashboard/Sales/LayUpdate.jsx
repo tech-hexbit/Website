@@ -84,15 +84,35 @@ export default function LayUpdate(props) {
       >
         {edit ? (
           <>
-            <select name="" value={selectedValue} onChange={handleSelectChange}>
-              <option value="Select" selected hidden>
-                Select the Updated Status
-              </option>
-              <option value="Accepted">Accepted</option>
-              <option value="In-progress">In-progress</option>
-              <option value="Completed">Completed</option>
-              {/* <option value="Cancelled">Cancelled</option> */}
-            </select>
+            {props.code >= 5 ? (
+              <select
+                name=""
+                value={selectedValue}
+                onChange={handleSelectChange}
+              >
+                <option value="Select" selected hidden>
+                  Select the Updated Status
+                </option>
+                <option value="RTO-Initiated">RTO-Initiated</option>
+                <option value="RTO-Disposed">RTO-Disposed</option>
+                <option value="RTO-Delivered">RTO-Delivered</option>
+              </select>
+            ) : (
+              <>
+                <select
+                  name=""
+                  value={selectedValue}
+                  onChange={handleSelectChange}
+                >
+                  <option value="Select" selected hidden>
+                    Select the Updated Status
+                  </option>
+                  <option value="Accepted">Accepted</option>
+                  <option value="In-progress">In-progress</option>
+                  <option value="Completed">Completed</option>
+                </select>
+              </>
+            )}
           </>
         ) : (
           <>{props.state}</>
