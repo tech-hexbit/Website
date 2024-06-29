@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 
 // components
 import UpdateLabel from "./UpdateLabel";
@@ -70,6 +70,10 @@ export default function Des(props) {
     }
   };
 
+  useEffect(() => {
+    console.log(props.res.domain);
+  }, []);
+
   return (
     <>
       {/* <div className={DCss.mDiv}>
@@ -132,7 +136,7 @@ export default function Des(props) {
         </p>
       </div> */}
 
-      <div className={DCss.desDiv2}>
+      {/* <div className={DCss.desDiv2}>
         <div className={DCss.mDiv}>
           <p className={DCss.subTitlePTag}>Features :</p>
           <p className={DCss.desDPTag}>
@@ -149,9 +153,9 @@ export default function Des(props) {
             Perfect Grip And Durability.
           </p>
         </div>
-      </div>
+      </div> */}
 
-      <div className={DCss.mDiv}>
+      {/* <div className={DCss.mDiv}>
         <p className={DCss.subTitlePTag}>
           Special offers & product promotions :
         </p>
@@ -160,7 +164,7 @@ export default function Des(props) {
           Cushionig And Super Plush Feel. Outsole :- The Rubber Outsole With
           Perfect Grip And Durability.
         </p>
-      </div>
+      </div> */}
 
       <div className={DCss.mDiv}>
         <p className={DCss.subTitlePTag}>Product description :</p>
@@ -176,35 +180,41 @@ export default function Des(props) {
               setChange={props.setChange}
             />
           </tr>
-          <tr>
-            <td className={DCss.headingName}>Brand :</td>
-            <UpdateLabel
-              crrValue={
-                props.res["@ondc/org/statutory_reqs_packaged_commodities"][
-                  "manufacturer_or_packer_name"
-                ]
-              }
-              id={props.id}
-              fieldName="@ondc/org/statutory_reqs_packaged_commodities.manufacturer_or_packer_name"
-              placeholder="Updated Name"
-              type="text"
-              setChange={props.setChange}
-            />
-          </tr>
-          <tr>
-            <td className={DCss.headingName}>Weight :</td>
-            <UpdateLabel
-              crrValue={
-                props.res["@ondc/org/mandatory_reqs_veggies_fruits"]
-                  .net_quantity
-              }
-              id={props.id}
-              fieldName="@ondc/org/mandatory_reqs_veggies_fruits.net_quantity"
-              placeholder="Updated Quantity"
-              type="text"
-              setChange={props.setChange}
-            />
-          </tr>
+          {props.res.domain === "ONDC:RET10" && (
+            <tr>
+              <td className={DCss.headingName}>Brand :</td>
+              <UpdateLabel
+                crrValue={
+                  props.res["@ondc/org/statutory_reqs_packaged_commodities"][
+                    "manufacturer_or_packer_name"
+                  ]
+                }
+                id={props.id}
+                fieldName="@ondc/org/statutory_reqs_packaged_commodities.manufacturer_or_packer_name"
+                placeholder="Updated Name"
+                type="text"
+                setChange={props.setChange}
+              />
+            </tr>
+          )}
+
+          {props.res.domain === "ONDC:RET10" && (
+            <tr>
+              <td className={DCss.headingName}>Weight :</td>
+              <UpdateLabel
+                crrValue={
+                  props.res["@ondc/org/mandatory_reqs_veggies_fruits"]
+                    .net_quantity
+                }
+                id={props.id}
+                fieldName="@ondc/org/mandatory_reqs_veggies_fruits.net_quantity"
+                placeholder="Updated Quantity"
+                type="text"
+                setChange={props.setChange}
+              />
+            </tr>
+          )}
+
           <tr>
             <td className={DCss.headingName}>Returnable :</td>
             <UpdateLabel
