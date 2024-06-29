@@ -112,7 +112,7 @@
 .secPic {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: space-evenly;
   gap: 15px;
   flex-wrap: wrap;
 }
