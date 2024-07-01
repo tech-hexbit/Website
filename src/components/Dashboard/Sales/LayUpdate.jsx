@@ -64,8 +64,7 @@ export default function LayUpdate(props) {
   const handleSelectChange = (event) => {
     if (props.state !== "Cancelled") {
       setSelectedValue(event.target.value);
-    }
-    else {
+    } else {
       console.log("cant");
     }
   };
@@ -79,17 +78,17 @@ export default function LayUpdate(props) {
             props.state == "Created"
               ? "#7925c7"
               : props.state == "Accepted"
-                ? "#FEC107"
-                : props.state == "In-progress"
-                  ? "#3F81E0"
-                  : props.state == "Completed"
-                    ? "#4bb543"
-                    : "#D0342C",
+              ? "#FEC107"
+              : props.state == "In-progress"
+              ? "#3F81E0"
+              : props.state == "Completed"
+              ? "#4bb543"
+              : "#D0342C",
         }}
       >
         {edit ? (
           <>
-            {props.code >= 5 ? (
+            {props.code >= 5 && props.code <= 7 && (
               <select
                 name=""
                 value={selectedValue}
@@ -102,7 +101,9 @@ export default function LayUpdate(props) {
                 <option value="RTO-Disposed">RTO-Disposed</option>
                 <option value="RTO-Delivered">RTO-Delivered</option>
               </select>
-            ) : (
+            )}
+
+            {props.code >= 0 && props.code <= 3 && (
               <>
                 <select
                   name=""
@@ -115,6 +116,27 @@ export default function LayUpdate(props) {
                   <option value="Accepted">Accepted</option>
                   <option value="In-progress">In-progress</option>
                   <option value="Completed">Completed</option>
+                </select>
+              </>
+            )}
+
+            {props.code >= 8 && props.code <= 14 && (
+              <>
+                <select
+                  name=""
+                  value={selectedValue}
+                  onChange={handleSelectChange}
+                >
+                  <option value="Select" selected hidden>
+                    Select the Updated Status
+                  </option>
+                  <option value="Return_Initiated">Return_Initiated</option>
+                  <option value="Return_Approved">Return_Approved</option>
+                  <option value="Return_Pick_Failed">Return_Pick_Failed</option>
+                  <option value="Return_Picked">Return_Picked</option>
+                  <option value="Return_Delivered">Return_Delivered</option>
+                  <option value="Return_Failed">Return_Failed</option>
+                  <option value="Return_Rejected">Return_Rejected</option>
                 </select>
               </>
             )}
@@ -139,13 +161,11 @@ export default function LayUpdate(props) {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  // className="lucide lucide-save"
                   className={osCss.lucidePencil}
                   onClick={() => {
                     if (props.state !== "Cancelled") {
                       UpdateData(props.id, props.ItemID);
-                    }
-                    else {
+                    } else {
                       authCtx.showAlert({
                         mainColor: "#FDEDED",
                         secondaryColor: "#F16360",
@@ -170,7 +190,6 @@ export default function LayUpdate(props) {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="lucide lucide-ban"
                   className={osCss.lucideCancel}
                   onClick={() => {
                     setEdit(!edit);
