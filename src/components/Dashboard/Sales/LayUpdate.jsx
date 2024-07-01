@@ -82,9 +82,13 @@ export default function LayUpdate(props) {
                 ? "#FEC107"
                 : props.state == "In-progress"
                   ? "#3F81E0"
-                  : props.state == "Completed"
-                    ? "#4bb543"
-                    : "#D0342C",
+                  : props.state == "Return_Initiated"
+                    ? "#3F81E0"
+                    : props.state == "Return_Approved"
+                    ? "#3F81E0"
+                    : props.state == "Completed"
+                      ? "#4bb543"
+                      : "#D0342C",
         }}
       >
         {edit ? (
@@ -96,7 +100,6 @@ export default function LayUpdate(props) {
               <option value="Accepted">Accepted</option>
               <option value="In-progress">In-progress</option>
               <option value="Completed">Completed</option>
-              {/* <option value="Cancelled">Cancelled</option> */}
             </select>
           </>
         ) : (
