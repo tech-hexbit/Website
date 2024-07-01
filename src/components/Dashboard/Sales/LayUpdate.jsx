@@ -101,33 +101,32 @@ export default function LayUpdate(props) {
                                   : "#D0342C",
         }}
       >
+        {console.log(props.state)}
         {edit ? (
           <>
-            {props.state === "Return_Initiated" ?
-              (
-                <select name="" value={selectedValue} onChange={handleSelectChange}>
-                  <option value="Select" selected hidden>
-                    Select the Updated Status
-                  </option>
-                  <option value="Return_Initiated">Return Initated</option>
-                  <option value="Return_Approved">Return Approved</option>
-                  <option value="Return_Pick_Failed">Return Pick failed</option>
-                  <option value="Return_Picked">Return Picked</option>
-                  <option value="Return_Delivered">Return Delivered</option>
-                  <option value="Return_Failed">Return Failed</option>
-                  <option value="Return_Rejected">Return Rejected</option>
-                </select>
-              )
-              : (
-                <select name="" value={selectedValue} onChange={handleSelectChange}>
-                  <option value="Select" selected hidden>
-                    Select the Updated Status
-                  </option>
-                  <option value="Accepted">Accepted</option>
-                  <option value="In-progress">In-progress</option>
-                  <option value="Completed">Completed</option>
-                </select>
-              )}
+            {(props.state !== "Created" && props.state !== "Accepted" && props.state !== "In-Progress" && props.state !== "Completed") ? (
+              <select name="" value={selectedValue} onChange={handleSelectChange}>
+                <option value="Select" hidden>
+                  Select the Updated Status
+                </option>
+                <option value="Return_Initiated">Return Initiated</option>
+                <option value="Return_Approved">Return Approved</option>
+                <option value="Return_Pick_Failed">Return Pick Failed</option>
+                <option value="Return_Picked">Return Picked</option>
+                <option value="Return_Delivered">Return Delivered</option>
+                <option value="Return_Failed">Return Failed</option>
+                <option value="Return_Rejected">Return Rejected</option>
+              </select>
+            ) : (
+              <select name="" value={selectedValue} onChange={handleSelectChange}>
+                <option value="Select" hidden>
+                  Select the Updated Status
+                </option>
+                <option value="Accepted">Accepted</option>
+                <option value="In-progress">In-progress</option>
+                <option value="Completed">Completed</option>
+              </select>
+            )}
           </>
         ) : (
           <>
