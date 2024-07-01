@@ -83,28 +83,58 @@ export default function LayUpdate(props) {
                 : props.state == "In-progress"
                   ? "#3F81E0"
                   : props.state == "Return_Initiated"
-                    ? "#3F81E0"
+                    ? "#F16360"
                     : props.state == "Return_Approved"
-                    ? "#3F81E0"
-                    : props.state == "Completed"
-                      ? "#4bb543"
-                      : "#D0342C",
+                      ? "#3F81E0"
+                      : props.state == "Return_Pick_Failed"
+                        ? "#3F81E0"
+                        : props.state == "Return_Picked"
+                          ? "#3F81E0"
+                          : props.state == "Return_Delivered"
+                            ? "#3F81E0"
+                            : props.state == "Return_Failed"
+                              ? "#3F81E0"
+                              : props.state == "Return_Rejected"
+                                ? "#3F81E0"
+                                : props.state == "Completed"
+                                  ? "#4bb543"
+                                  : "#D0342C",
         }}
       >
         {edit ? (
           <>
-            <select name="" value={selectedValue} onChange={handleSelectChange}>
-              <option value="Select" selected hidden>
-                Select the Updated Status
-              </option>
-              <option value="Accepted">Accepted</option>
-              <option value="In-progress">In-progress</option>
-              <option value="Completed">Completed</option>
-            </select>
+            {props.state === "Return_Initiated" ?
+              (
+                <select name="" value={selectedValue} onChange={handleSelectChange}>
+                  <option value="Select" selected hidden>
+                    Select the Updated Status
+                  </option>
+                  <option value="Return_Initiated">Return Initated</option>
+                  <option value="Return_Approved">Return Approved</option>
+                  <option value="Return_Pick_Failed">Return Pick failed</option>
+                  <option value="Return_Picked">Return Picked</option>
+                  <option value="Return_Delivered">Return Delivered</option>
+                  <option value="Return_Failed">Return Failed</option>
+                  <option value="Return_Rejected">Return Rejected</option>
+                </select>
+              )
+              : (
+                <select name="" value={selectedValue} onChange={handleSelectChange}>
+                  <option value="Select" selected hidden>
+                    Select the Updated Status
+                  </option>
+                  <option value="Accepted">Accepted</option>
+                  <option value="In-progress">In-progress</option>
+                  <option value="Completed">Completed</option>
+                </select>
+              )}
           </>
         ) : (
-          <>{props.state}</>
+          <>
+            {props.state === "Return_Initiated" ? <>Return Initiated</> : <>{props.state}</>}
+          </>
         )}
+
 
         {edit ? (
           <>
