@@ -62,10 +62,10 @@ export default function LayUpdate(props) {
   };
 
   const handleSelectChange = (event) => {
-    if(props.state !== "Cancelled"){
-    setSelectedValue(event.target.value);
+    if (props.state !== "Cancelled") {
+      setSelectedValue(event.target.value);
     }
-    else{
+    else {
       console.log("cant");
     }
   };
@@ -79,12 +79,12 @@ export default function LayUpdate(props) {
             props.state == "Created"
               ? "#7925c7"
               : props.state == "Accepted"
-              ? "#FEC107"
-              : props.state == "In-progress"
-              ? "#3F81E0"
-              : props.state == "Completed"
-              ? "#4bb543"
-              : "#D0342C",
+                ? "#FEC107"
+                : props.state == "In-progress"
+                  ? "#3F81E0"
+                  : props.state == "Completed"
+                    ? "#4bb543"
+                    : "#D0342C",
         }}
       >
         {edit ? (
@@ -122,8 +122,17 @@ export default function LayUpdate(props) {
                   // className="lucide lucide-save"
                   className={osCss.lucidePencil}
                   onClick={() => {
-                    if(props.state !== "Cancelled"){
-                    UpdateData(props.id, props.ItemID);
+                    if (props.state !== "Cancelled") {
+                      UpdateData(props.id, props.ItemID);
+                    }
+                    else {
+                      authCtx.showAlert({
+                        mainColor: "#FDEDED",
+                        secondaryColor: "#F16360",
+                        symbol: "error",
+                        title: "Error",
+                        text: "Once Order Is Cancelled, It Cannot Change Status",
+                      });
                     }
                   }}
                 >
