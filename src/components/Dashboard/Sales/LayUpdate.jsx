@@ -62,7 +62,12 @@ export default function LayUpdate(props) {
   };
 
   const handleSelectChange = (event) => {
-    setSelectedValue(event.target.value);
+    if (props.state !== "Cancelled") {
+      setSelectedValue(event.target.value);
+    }
+    else {
+      console.log("cant");
+    }
   };
 
   return (
@@ -74,12 +79,12 @@ export default function LayUpdate(props) {
             props.state == "Created"
               ? "#7925c7"
               : props.state == "Accepted"
-              ? "#FEC107"
-              : props.state == "In-progress"
-              ? "#3F81E0"
-              : props.state == "Completed"
-              ? "#4bb543"
-              : "#D0342C",
+                ? "#FEC107"
+                : props.state == "In-progress"
+                  ? "#3F81E0"
+                  : props.state == "Completed"
+                    ? "#4bb543"
+                    : "#D0342C",
         }}
       >
         {edit ? (
@@ -131,13 +136,24 @@ export default function LayUpdate(props) {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-save"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  // className="lucide lucide-save"
                   className={osCss.lucidePencil}
                   onClick={() => {
-                    UpdateData(props.id, props.ItemID);
+                    if (props.state !== "Cancelled") {
+                      UpdateData(props.id, props.ItemID);
+                    }
+                    else {
+                      authCtx.showAlert({
+                        mainColor: "#FDEDED",
+                        secondaryColor: "#F16360",
+                        symbol: "error",
+                        title: "Error",
+                        text: "Once Order Is Cancelled, It Cannot Change Status",
+                      });
+                    }
                   }}
                 >
                   <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
@@ -151,10 +167,10 @@ export default function LayUpdate(props) {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-ban"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="lucide lucide-ban"
                   className={osCss.lucideCancel}
                   onClick={() => {
                     setEdit(!edit);
@@ -174,10 +190,10 @@ export default function LayUpdate(props) {
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-pencil"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            // class="lucide lucide-pencil"
             className={osCss.lucidePencil}
             onClick={() => {
               setEdit(!edit);
