@@ -10,6 +10,9 @@ import {
 } from "react-device-detect";
 import { publicIp } from "public-ip";
 
+// axios
+import axios from "axios";
+
 export default function UserInfo() {
   const userInfo = async () => {
     const ip = await publicIp();
@@ -28,6 +31,16 @@ export default function UserInfo() {
     };
 
     console.table(info);
+
+    try {
+      const response = await axios.post("/api/website/qna/post", showData, {
+        headers: { Authorization: `${authCtx.token}` },
+      });
+
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
   useEffect(() => {
     userInfo();
