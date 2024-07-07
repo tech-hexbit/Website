@@ -23,6 +23,8 @@ export default function UserInfo() {
       isMobile,
       screenResolution: `${window.screen.width}x${window.screen.height}`,
       language: navigator.language || navigator.languages[0],
+      pageVisited: [window.location.href],
+      pathname: [window.location.pathname],
     };
 
     console.table(info);
