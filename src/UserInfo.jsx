@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
-// data fetch
 import {
   isBrowser,
   isMobile,
@@ -9,6 +8,9 @@ import {
   osName,
 } from "react-device-detect";
 import { publicIp } from "public-ip";
+
+// crypto
+import CryptoJS from "crypto-js";
 
 // axios
 import axios from "axios";
@@ -33,8 +35,17 @@ export default function UserInfo() {
     console.table(info);
 
     try {
-      const response = await axios.post("/api/website/qna/post", showData, {
-        headers: { Authorization: `${authCtx.token}` },
+      let infoString = JSON.stringify(info);
+
+      const data = CryptoJS.AES.encrypt(
+        infoString,
+        import.meta.env.VITE_BCRYPT
+      ).toString();
+
+      console.log(data);
+
+      const response = await axios.post("/api/common/userInfo", {
+        data,
       });
 
       console.log(response.data);
@@ -42,6 +53,7 @@ export default function UserInfo() {
       console.log(error);
     }
   };
+
   useEffect(() => {
     userInfo();
   }, []);
