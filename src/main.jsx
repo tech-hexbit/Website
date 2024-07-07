@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
+
+// components
 import App from "./App";
+import UserInfo from "./UserInfo";
 
 // cookie
 import CookieConsent, {
@@ -13,8 +16,6 @@ import "./index.css";
 
 // store
 import { AuthContextProvider } from "./store/auth-context";
-
-// console.log(getCookieConsentValue("myAwesomeCookieName2"));
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <AuthContextProvider>
@@ -48,6 +49,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         personalized advertising on and off our website. This website uses
         cookies to enhance the user experience.
       </span>
+      <UserInfo />
     </CookieConsent>
 
     <App />
