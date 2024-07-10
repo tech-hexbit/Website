@@ -37,12 +37,12 @@ export default function Advisors() {
             name="Dharmender Khanna"
             company={company2}
           />
-          <AdvisorCard
+          {/* <AdvisorCard
             image={advisor4}
             blur="LWCsmz9FRj%M_4IURi%MRPxuM{xu"
             name="Mayank Tiwari"
             company={company4}
-          />
+          /> */}
         </div>
       </div>
     </div>
