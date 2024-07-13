@@ -1,18 +1,21 @@
-.mainDiv{
+.mainDiv {
   margin-top: 90px;
 }
+
 @media screen and (max-width: 780px) {
-  .mainDiv{
+  .mainDiv {
     padding: 0px;
-  } 
+  }
 }
+
 @media screen and (max-width: 650px) {
-  .mainDiv{
+  .mainDiv {
     padding: 30px;
   }
 }
+
 @media screen and (max-width: 450px) {
-  .mainDiv{
+  .mainDiv {
     padding: 0px;
   }
 }
