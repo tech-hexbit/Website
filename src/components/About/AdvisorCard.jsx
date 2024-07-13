@@ -1,10 +1,14 @@
 import React from "react";
 
-import AdCss from "./Css/AdvisorCard.module.css";
+// components
 import MissionBlurAdvisory from "./Blur/MissionBlurAdvisory";
+
+// css
+import AdCss from "./Css/AdvisorCard.module.css";
+
 export default function AdvisorCard(props) {
   return (
-    <div className={AdCss.mainDiv}>
+    <div className={AdCss.mainDiv} key={props.key}>
       <div className={AdCss.image}>
         <MissionBlurAdvisory src={props.image} blur={props.blur} />
       </div>
