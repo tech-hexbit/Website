@@ -1,7 +1,8 @@
 import React from "react";
 
+// components
 import AdvisorCard from "./AdvisorCard";
-import MissionBlur from "./Blur/MissionBlur";
+
 // Css
 import ACss from "./Css/Advisors.module.css";
 
