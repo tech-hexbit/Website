@@ -15,8 +15,9 @@ import AuthContext from "./../../../../store/auth-context";
 
 export default function BarChart() {
   const [daysdata, setDaysData] = useState(false);
-  const authCtx = useContext(AuthContext);
   const [days, setDays] = useState([]);
+
+  const authCtx = useContext(AuthContext);
 
   function generateRandomColors(length) {
     const colors = [];
@@ -48,9 +49,6 @@ export default function BarChart() {
       console.log("error in fetching data", e.message);
     }
   };
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   let randomColors = [];
 
@@ -61,9 +59,6 @@ export default function BarChart() {
   } else {
     randomColors = ["#d8b4fe", "#f3e8ff"];
   }
-
-  console.log(randomColors);
-  console.log("days", days[0]);
 
   const data = {
     labels: ["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"],
@@ -81,6 +76,11 @@ export default function BarChart() {
     maintainAspectRatio: false,
     responsive: true,
   };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <div className="barChart">
       <Chart data={data} type="bar" options={options} />
