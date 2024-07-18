@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 
-import "chart.js/auto";
+// chart
 import { Chart } from "react-chartjs-2";
+import "chart.js/auto";
+
+// axios
+import axios from "axios";
 
 // css
 import "../css/barChart.css";
-import axios from "axios";
 
+// state
 import AuthContext from "./../../../../store/auth-context";
-import { useContext, useEffect, useState } from "react";
 
 export default function BarChart() {
   const [daysdata, setDaysData] = useState(false);
