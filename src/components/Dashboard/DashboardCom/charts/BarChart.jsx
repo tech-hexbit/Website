@@ -1,4 +1,5 @@
-// import React from 'react'
+import React from "react";
+
 import "chart.js/auto";
 import { Chart } from "react-chartjs-2";
 
@@ -35,9 +36,6 @@ export default function BarChart() {
         headers: { Authorization: `${authCtx.token}` },
       });
       if (res.data.success) {
-        // setDaysData(true);
-        // console.log(daysdata);
-
         console.log(res.data.days);
         const updatedDays = res.data.days;
         delete updatedDays[0]["_id"];
@@ -52,6 +50,7 @@ export default function BarChart() {
   }, []);
 
   let randomColors = [];
+
   if (days.length > 2) {
     randomColors = generateRandomColors(days.length - 2);
     randomColors.push("#d8b4fe");
@@ -59,6 +58,7 @@ export default function BarChart() {
   } else {
     randomColors = ["#d8b4fe", "#f3e8ff"];
   }
+
   console.log(randomColors);
   console.log("days", days[0]);
 
@@ -73,6 +73,7 @@ export default function BarChart() {
       },
     ],
   };
+
   const options = {
     maintainAspectRatio: false,
     responsive: true,
