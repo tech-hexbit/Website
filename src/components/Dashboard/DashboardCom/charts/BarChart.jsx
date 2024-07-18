@@ -32,7 +32,7 @@ export default function BarChart() {
   const fetchData = async () => {
     try {
       const res = await axios.get("/api/website/DashBoard/SellerActivity", {
-        headers: { Authorization: `${authCtx.token}` }
+        headers: { Authorization: `${authCtx.token}` },
       });
       if (res.data.success) {
         // setDaysData(true);
@@ -40,7 +40,7 @@ export default function BarChart() {
 
         console.log(res.data.days);
         const updatedDays = res.data.days;
-        delete updatedDays[0]["_id"]
+        delete updatedDays[0]["_id"];
         setDays(updatedDays);
       }
     } catch (e) {
@@ -69,13 +69,13 @@ export default function BarChart() {
         label: "Cost",
         data: days[0],
         backgroundColor: randomColors,
-        maxBarThickness: 14
-      }
-    ]
+        maxBarThickness: 14,
+      },
+    ],
   };
   const options = {
     maintainAspectRatio: false,
-    responsive: true
+    responsive: true,
   };
   return (
     <div className="barChart">
