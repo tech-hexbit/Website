@@ -1,10 +1,12 @@
 import React from "react";
 
-import style from "./Css/Team.module.css";
-
+// components
 import Founders from "./Founders";
 import Advisors from "./Advisors";
 import CreativeTeam from "./CreativeTeam";
+
+// css
+import style from "./Css/Team.module.css";
 
 export default function Team() {
   return (

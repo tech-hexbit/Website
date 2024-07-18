@@ -1,18 +1,17 @@
 import React from "react";
 
+// components
 import AdvisorCard from "./AdvisorCard";
-import MissionBlur from "./Blur/MissionBlur";
+
 // Css
 import ACss from "./Css/Advisors.module.css";
 
 //images
 import advisor1 from "./../../assets/AboutUS/advisors/advisor1.png";
 import advisor2 from "./../../assets/AboutUS/advisors/advisor2.png";
-import advisor3 from "./../../assets/AboutUS/advisors/advisor3.png";
 import advisor4 from "./../../assets/AboutUS/advisors/advisor4.png";
 import company1 from "./../../assets/AboutUS/advisors/advisor1company.png";
 import company2 from "./../../assets/AboutUS/advisors/advisor2company.png";
-import company3 from "./../../assets/AboutUS/advisors/advisor3company.png";
 import company4 from "./../../assets/AboutUS/advisors/advisor4company.png";
 
 export default function Advisors() {
