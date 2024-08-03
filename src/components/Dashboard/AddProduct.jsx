@@ -1,4 +1,4 @@
-import{ useContext, useState } from "react";
+import { useContext, useState } from "react";
 
 // components
 import Header from "./MainParts/Header";
@@ -13,6 +13,7 @@ import ApCss from "./Css/AddProduct.module.css";
 
 //store
 import AuthContext from "../../store/auth-context";
+
 export default function AddProduct() {
   const [domain, setDomain] = useState("");
   const [showPopup, setShowPopup] = useState(false);
