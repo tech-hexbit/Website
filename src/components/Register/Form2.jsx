@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 // MicroInteraction
 import Load from "./../../MicroInteraction/Load";
@@ -9,10 +9,15 @@ import axios from "axios";
 // css
 import FCss from "./Css/Form.module.css";
 
+//store
+import AuthContext from "../../store/auth-context";
+
 export default function Form2(props) {
   const [load, setLoad] = useState(false);
   const [verifyPin, setVerify] = useState(false);
   const [disable, setDisable] = useState(false);
+
+  const authCtx = useContext(AuthContext);
 
   const pincodeVerify = async () => {
     setLoad(true);

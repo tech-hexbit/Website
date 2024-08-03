@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 // axios
@@ -12,6 +12,9 @@ import GrowCard from "./GrowCard";
 
 // css
 import RFCss from "./Css/Register.module.css";
+
+//store
+import AuthContext from "../../store/auth-context";
 
 // img
 import icon1 from "../../assets/register/icon1.png";
@@ -37,6 +40,8 @@ export default function RegisterMain() {
     category: [],
     AdditionalInfo: "",
   });
+
+  const authCtx = useContext(AuthContext);
 
   const redirect = useNavigate();
 
@@ -149,7 +154,7 @@ export default function RegisterMain() {
               button="Register"
               input={input}
               load={load}
-              variant={variants}
+              // variant={variants}
               setInput={setInput}
               register={register}
             />

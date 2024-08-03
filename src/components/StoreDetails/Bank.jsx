@@ -55,6 +55,8 @@ export default function Bank({ disable, setDisable, showData, setData }) {
         headers: { Authorization: `${authCtx.token}` },
       });
 
+      console.log(response.data);
+
       if (response.data.success) {
         setData({
           ...showData,
