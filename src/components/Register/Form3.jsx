@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 // MicroInteraction
 import Load from "../../MicroInteraction/LoadBlack";
@@ -13,9 +13,14 @@ import CatBox from "./CatBox";
 // css
 import FCss from "./Css/Form.module.css";
 
+//store
+import AuthContext from "../../store/auth-context";
+
 export default function Form3(props) {
   const [data, setData] = useState([]);
   const [load, setLoad] = useState(false);
+
+  const authCtx = useContext(AuthContext);
 
   const nextFN = async () => {
     if (props.input.category.length === 0) {
