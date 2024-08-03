@@ -52,6 +52,8 @@ export default function BankData({
         headers: { Authorization: `${authCtx.token}` },
       });
 
+      console.log(response.data);
+
       if (response.data.success) {
         setFormData({
           ...formData,
