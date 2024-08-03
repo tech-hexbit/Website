@@ -436,7 +436,7 @@ export default function Profile() {
             {authCtx.user.access === 1 && (
               <>
                 <Routes>
-                  <Route path="/" element={<StoreVerify />} />
+                  <Route path="/SetUpStore" element={<StoreVerify />} />
                   <Route
                     path="/*"
                     element={
