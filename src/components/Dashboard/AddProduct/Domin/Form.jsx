@@ -1,7 +1,7 @@
 import React, { useState, useContext, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 
-//component
+// component
 import Service from "./Service";
 import FixValues from "./FixValues";
 import GeneralInfo from "./GeneralInfo";
