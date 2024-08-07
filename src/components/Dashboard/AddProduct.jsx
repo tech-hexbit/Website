@@ -7,6 +7,7 @@ import FilteredCategory from "./AddProduct/FilteredCatergory";
 //    RET-Files
 import AddProdRET10 from "./AddProduct/Domin/AddProdRET10";
 import AddProdRET12 from "./AddProduct/Domin/AddProdRET12";
+import AddProdRET13 from "./AddProduct/Domin/AddProdRET13";
 
 // css
 import ApCss from "./Css/AddProduct.module.css";
@@ -91,14 +92,7 @@ export default function AddProduct() {
 
           {domain === "ONDC:RET12" && <AddProdRET12 domain={domain} />}
 
-          {domain === "ONDC:RET13" && (
-            <div className="loadCenterDiv">
-              <p>
-                We currently Do Not Support ONDC:RET13 - Beauty and Personal
-                Care
-              </p>
-            </div>
-          )}
+          {domain === "ONDC:RET13" && <AddProdRET13 domain={domain} />}
 
           {domain === "ONDC:RET14" && (
             <div className="loadCenterDiv">
