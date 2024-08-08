@@ -92,7 +92,7 @@ export default function AddProduct() {
 
           {domain === "ONDC:RET12" && <AddProdRET12 domain={domain} />}
 
-          {domain === "ONDC:RET13" && <AddProdRET13 domain={domain} />}
+          {domain === "ONDC:RET13" && <AddProdRET10 domain={domain} />}
 
           {domain === "ONDC:RET14" && (
             <div className="loadCenterDiv">
