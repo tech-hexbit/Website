@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 // components
 import MoreInquiries from "./MoreInquiries";
 import HelpDeskContent from "./HelpDeskContent";
+import HelpDeskFormTableDetail from "./HelpDeskFormTableDetail";
 
 // state
 import AuthContext from "./../../../store/auth-context";
@@ -16,7 +17,6 @@ import axios from "axios";
 
 // css
 import hdftable from "./Css/HelpDeskFormTable.module.css";
-import HelpDeskFormTableDetail from "./HelpDeskFormTableDetail";
 
 export default function HelpDeskFormTable() {
   const [load, setLoad] = useState(false);

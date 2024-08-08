@@ -60,6 +60,10 @@ export default function HelpDeskFormTableDetail({ tableData }) {
     }
   };
 
+  useEffect(() => {
+    console.table(tableData);
+  }, [tableData]);
+
   return (
     <div>
       <div>
@@ -135,9 +139,7 @@ export default function HelpDeskFormTableDetail({ tableData }) {
             onClick={resolveQueryHandler}
             className={tableDetailStyle.resolveButtonText}
           >
-            {!tableData.resolvedQuery && !querySolved
-              ? "Resolve Query"
-              : "Query resolved"}
+            {tableData.Status == "Solved" ? "Query resolved" : "Resolve Query"}
           </p>
         )}
       </div>
