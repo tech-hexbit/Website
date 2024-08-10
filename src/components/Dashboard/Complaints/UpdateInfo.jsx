@@ -6,22 +6,15 @@ import Load from "./../../../MicroInteraction/LoadBlack";
 // state
 import AuthContext from "./../../../store/auth-context";
 
-// axios
-import axios from "axios";
-
 // css
 import upCss from "./Css/UpdateInfo.module.css";
 
-export default function UpdateInfo({ update, setUpdate }) {
-  const [formData, setFormData] = useState({
-    status: "",
-    shortDescStatus: "",
-    shortDescResolution: "",
-    longDescResolution: "",
-    actionTriggered: "",
-    refundAmount: "",
-  });
-
+export default function UpdateInfo({
+  formData,
+  setFormData,
+  update,
+  setUpdate,
+}) {
   const authCtx = useContext(AuthContext);
 
   const handleInputChange = (event) => {
