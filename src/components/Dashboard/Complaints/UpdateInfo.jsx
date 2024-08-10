@@ -1,8 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 
-// MicroInteraction
-import Load from "./../../../MicroInteraction/LoadBlack";
-
 // state
 import AuthContext from "./../../../store/auth-context";
 
