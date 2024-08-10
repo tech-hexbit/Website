@@ -28,6 +28,14 @@ export default function Details({
   const [dataItem, setDataItem] = useState([]);
   const [showDel, setHideDel] = useState(false);
   const [showProductDel, setProductDel] = useState({ state: false, id: "" });
+  const [formData, setFormData] = useState({
+    status: "",
+    refundAmount: "",
+    shortDescStatus: "",
+    actionTriggered: "",
+    longDescResolution: "",
+    shortDescResolution: "",
+  });
 
   const authCtx = useContext(AuthContext);
 
@@ -73,6 +81,45 @@ export default function Details({
         title: "Error",
         text: "An unexpected error occurred",
       });
+    }
+  };
+
+  const onSubmit = async () => {
+    setLoad(true);
+
+    if (
+      formData.status !== "" &&
+      formData.refundAmount !== "" &&
+      formData.shortDescStatus !== "" &&
+      formData.actionTriggered !== "" &&
+      formData.longDescResolution !== "" &&
+      formData.shortDescResolution !== ""
+    ) {
+      try {
+      } catch (error) {
+        console.log(error);
+
+        setLoad(false);
+
+        authCtx.showAlert({
+          mainColor: "#FDEDED",
+          secondaryColor: "#F16360",
+          symbol: "error",
+          title: "Error",
+          text: "Poduct Addition Failed",
+        });
+      }
+    } else {
+      setLoad(false);
+
+      authCtx.showAlert({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "Please fill all the feilds",
+      });
+      return;
     }
   };
 
@@ -206,12 +253,19 @@ export default function Details({
                   </div>
 
                   {update && (
-                    <UpdateInfo update={update} setUpdate={setUpdate} />
+                    <UpdateInfo
+                      update={update}
+                      setUpdate={setUpdate}
+                      formData={formData}
+                      setFormData={setFormData}
+                    />
                   )}
 
                   <div className={DelCss.upState}>
                     {update ? (
-                      <button className={DelCss.upStateBtn}>Save</button>
+                      <button className={DelCss.upStateBtn} onClick={onSubmit}>
+                        Save
+                      </button>
                     ) : (
                       <button
                         className={DelCss.upStateBtn}
