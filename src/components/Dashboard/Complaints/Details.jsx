@@ -95,10 +95,19 @@ export default function Details({
       formData.longDescResolution !== "" &&
       formData.shortDescResolution !== ""
     ) {
+      let data = {
+        id: selectedItem[0].issueID,
+        status: formData.status,
+        refundAmount: formData.refundAmount,
+        shortDescStatus: formData.shortDescStatus,
+        actionTriggered: formData.actionTriggered,
+        longDescResolution: formData.longDescResolution,
+        shortDescResolution: formData.shortDescResolution,
+      };
       try {
         const response = await axios.post(
           "/api/website/Issue/update/info",
-          formData,
+          data,
           {
             headers: { Authorization: `${authCtx.token}` },
           }
