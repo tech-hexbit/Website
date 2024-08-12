@@ -96,6 +96,15 @@ export default function Details({
       formData.shortDescResolution !== ""
     ) {
       try {
+        const response = await axios.post(
+          "/api/website/Issue/update/info",
+          formData,
+          {
+            headers: { Authorization: `${authCtx.token}` },
+          }
+        );
+
+        console.log(response.data);
       } catch (error) {
         console.log(error);
 
