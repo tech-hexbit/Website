@@ -138,6 +138,57 @@ export default function OrderLayUpdate(props) {
     }
   };
 
+  const updateOrderState = async (e) => {
+    setLoad(true);
+
+    console.log("Update State Order Request Send" + e.target.value);
+
+    if (e.target.value === "") {
+      setLoad(false);
+
+      authCtx.showAlert({
+        mainColor: "#FFF4E5",
+        secondaryColor: "#FFA117",
+        symbol: "warning",
+        title: "Warning",
+        text: "Not a valid option",
+      });
+
+      return;
+    }
+
+    try {
+      let data = {
+        id: res._id,
+        code: e.target.value,
+      };
+
+      const response = await axios.post(
+        `${import.meta.env.VITE_SERVER_ONDC_URL}/status/unsolisited_status`,
+        data,
+        {
+          headers: { Authorization: `${authCtx.token}` },
+        }
+      );
+
+      console.log(response);
+
+      setLoad(false);
+    } catch (error) {
+      console.log(error);
+
+      setLoad(false);
+
+      authCtx.showAlert({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "Unable to Update",
+      });
+    }
+  };
+
   useEffect(() => {
     loadOrderdel(props.id);
   }, [props.id]);
@@ -159,180 +210,192 @@ export default function OrderLayUpdate(props) {
     }
   }, [res]);
 
-  useEffect(() => {
-    console.log(props.allowInProgressEdit);
-  }, [props.allowInProgressEdit]);
-
   return (
     <>
-      <div className={OLCss.contendDivDel}>
-        <p className={OLCss.UpdateOrderPTag}>UPDATE ORDER STATUS</p>
-        {/* {console.log(id)} */}
-        <div className={OLCss.BtnDivMain}>
-          <div
-            className={OLCss.BtnDiv}
-            id={upAll.code < 1 ? OLCss.Accept : OLCss.disable1}
-            onClick={() => {
-              updateMany("Accepted");
-            }}
-          >
-            Accept
-          </div>
-
-          <div
-            className={OLCss.BtnDiv}
-            id={upAll.code === 1 ? OLCss.InProgress : OLCss.disable2}
-            onClick={() => {
-              props.allowInProgressEdit
-                ? updateMany("In-progress")
-                : authCtx.showAlert({
-                    mainColor: "#FDEDED",
-                    secondaryColor: "#F16360",
-                    symbol: "error",
-                    title: "Error",
-                    text: "Please fill the logistics form",
-                  });
-              return;
-            }}
-          >
-            In-progress
-          </div>
-          <div
-            className={OLCss.BtnDiv}
-            id={upAll.code === 2 ? OLCss.Completed : OLCss.disable3}
-            onClick={() => {
-              updateMany("Completed");
-            }}
-          >
-            Completed
-          </div>
-          <div
-            className={OLCss.BtnDiv}
-            id={
-              upAll.code === 0 || upAll.code === 1
-                ? OLCss.Cancelled
-                : OLCss.disable4
-            }
-            onClick={() => {
-              // updateMany("Cancelled");
-              setDataCal(!dataCal);
-            }}
-          >
-            Cancelled
-          </div>
-
-          <div
-            className={OLCss.BtnDiv}
-            onClick={() => {
-              setCancel(true);
-              setReturn(false);
-            }}
-          >
-            Partial Cancel
-          </div>
-
-          <div
-            className={OLCss.BtnDiv}
-            onClick={() => {
-              setReturn(true);
-              setCancel(false);
-            }}
-          >
-            Initiate RTO
-          </div>
-        </div>
-
-        {rtoReturn && (
-          <RToinfo setReturn={setReturn} rtoReturn={rtoReturn} res={res} />
-        )}
-
-        {rtoCancel && (
-          <>
-            <PartialCancel
-              data={res}
-              setCancel={setCancel}
-              rtoCancel={rtoCancel}
-            />
-          </>
-        )}
-
-        {!rtoReturn && !rtoCancel && (
-          <>
-            <div className={OLCss.ProductDelTableDiv}>
-              <p className={OLCss.ProductDelPTag}>Product details</p>
-
-              <div id="wrap" className={OLCss.tableCat}>
-                {load ? (
-                  <div className="loadCenterDiv">
-                    <Load />
-                  </div>
-                ) : (
-                  <>
-                    <table className={OLCss.tableCatTTagDel} style={{}}>
-                      {res ? (
-                        <>
-                          <tr>
-                            <th>Name</th>
-                            <th>Product ID</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Status</th>
-                            <th>Total Amount</th>
-                          </tr>
-                          {res.Items?.map((val, key) => {
-                            return (
-                              <>
-                                <tr key={key} className={OLCss.saleRes}>
-                                  <td data-cell="Name">
-                                    <div className={OLCss.titleItemDiv}>
-                                      <img
-                                        className={OLCss.itemImg}
-                                        src={val.ItemID.descriptor.symbol}
-                                        alt=""
-                                      />
-                                      {val.ItemID.descriptor.name}
-                                    </div>
-                                  </td>
-                                  <td data-cell="Product ID">
-                                    {val.ItemID._id.slice(-4)}
-                                  </td>
-                                  <td data-cell="Price">
-                                    ₹{" "}
-                                    {val.ItemID.price.maximum_value.toFixed(2)}
-                                  </td>
-                                  <td data-cell="Quantity">{val.quantity}</td>
-                                  <LayUpdate
-                                    id={props.id}
-                                    ItemID={val.ItemID._id}
-                                    state={val.state}
-                                    code={val.code}
-                                    setLoadDataState={props.setLoadDataState}
-                                    loadDataState={props.loadDataState}
-                                    setEdit={props.setEdit}
-                                  />
-                                  <td data-cell="Total Amount">
-                                    ₹{" "}
-                                    {(
-                                      val.ItemID.price.maximum_value *
-                                      val.quantity
-                                    ).toFixed(2)}
-                                  </td>
-                                </tr>
-                              </>
-                            );
-                          })}
-                        </>
-                      ) : (
-                        <div className="loadCenterDiv">No Orders</div>
-                      )}
-                    </table>
-                  </>
-                )}
+      {res && (
+        <div className={OLCss.contendDivDel}>
+          <p className={OLCss.UpdateOrderPTag}>UPDATE ORDER STATUS</p>
+          <div className={OLCss.BtnDivMain}>
+            <div>
+              Current State : <b>{res.state}</b> || <b>{res.stateDescriptor}</b>
+              <div>
+                <select name="" id="" onChange={updateOrderState}>
+                  <option value="" selected hidden>
+                    Select the Updated Status
+                  </option>
+                  <option value="Pending">Pending</option>
+                  <option value="Packed">Packed</option>
+                  <option value="Order-picked-up">Picked</option>
+                  <option value="Out-for-delivery">Out for delivery</option>
+                  <option value="Order-delivered">Delivered</option>
+                </select>
               </div>
             </div>
-          </>
-        )}
-      </div>
+
+            {/* <div
+      className={OLCss.BtnDiv}
+      id={upAll.code < 1 ? OLCss.Accept : OLCss.disable1}
+      onClick={() => {
+        updateMany("Accepted");
+      }}
+    >
+      Accept
+    </div> */}
+            {/* <div
+      className={OLCss.BtnDiv}
+      id={upAll.code === 1 ? OLCss.InProgress : OLCss.disable2}
+      onClick={() => {
+        props.allowInProgressEdit
+          ? updateMany("In-progress")
+          : authCtx.showAlert({
+              mainColor: "#FDEDED",
+              secondaryColor: "#F16360",
+              symbol: "error",
+              title: "Error",
+              text: "Please fill the logistics form",
+            });
+        return;
+      }}
+    >
+      In-progress
+    </div> */}
+            {/* <div
+      className={OLCss.BtnDiv}
+      id={upAll.code === 2 ? OLCss.Completed : OLCss.disable3}
+      onClick={() => {
+        updateMany("Completed");
+      }}
+    >
+      Completed
+    </div> */}
+            <div
+              className={OLCss.BtnDiv}
+              id={
+                upAll.code === 0 || upAll.code === 1
+                  ? OLCss.Cancelled
+                  : OLCss.disable4
+              }
+              onClick={() => {
+                // updateMany("Cancelled");
+                setDataCal(!dataCal);
+              }}
+            >
+              Cancelled
+            </div>
+            <div
+              className={OLCss.BtnDiv}
+              onClick={() => {
+                setCancel(true);
+                setReturn(false);
+              }}
+            >
+              Partial Cancel
+            </div>
+            <div
+              className={OLCss.BtnDiv}
+              onClick={() => {
+                setReturn(true);
+                setCancel(false);
+              }}
+            >
+              Initiate RTO
+            </div>
+          </div>
+
+          {rtoReturn && (
+            <RToinfo setReturn={setReturn} rtoReturn={rtoReturn} res={res} />
+          )}
+
+          {rtoCancel && (
+            <>
+              <PartialCancel
+                data={res}
+                setCancel={setCancel}
+                rtoCancel={rtoCancel}
+              />
+            </>
+          )}
+
+          {!rtoReturn && !rtoCancel && (
+            <>
+              <div className={OLCss.ProductDelTableDiv}>
+                <p className={OLCss.ProductDelPTag}>Product details</p>
+
+                <div id="wrap" className={OLCss.tableCat}>
+                  {load ? (
+                    <div className="loadCenterDiv">
+                      <Load />
+                    </div>
+                  ) : (
+                    <>
+                      <table className={OLCss.tableCatTTagDel} style={{}}>
+                        {res ? (
+                          <>
+                            <tr>
+                              <th>Name</th>
+                              <th>Product ID</th>
+                              <th>Price</th>
+                              <th>Quantity</th>
+                              {/* <th>Status</th> */}
+                              <th>Total Amount</th>
+                            </tr>
+                            {res.Items?.map((val, key) => {
+                              return (
+                                <>
+                                  <tr key={key} className={OLCss.saleRes}>
+                                    <td data-cell="Name">
+                                      <div className={OLCss.titleItemDiv}>
+                                        <img
+                                          className={OLCss.itemImg}
+                                          src={val.ItemID.descriptor.symbol}
+                                          alt=""
+                                        />
+                                        {val.ItemID.descriptor.name}
+                                      </div>
+                                    </td>
+                                    <td data-cell="Product ID">
+                                      {val.ItemID._id.slice(-4)}
+                                    </td>
+                                    <td data-cell="Price">
+                                      ₹{" "}
+                                      {val.ItemID.price.maximum_value.toFixed(
+                                        2
+                                      )}
+                                    </td>
+                                    <td data-cell="Quantity">{val.quantity}</td>
+                                    {/* <LayUpdate
+                              id={props.id}
+                              ItemID={val.ItemID._id}
+                              state={val.state}
+                              code={val.code}
+                              setLoadDataState={props.setLoadDataState}
+                              loadDataState={props.loadDataState}
+                              setEdit={props.setEdit}
+                            /> */}
+                                    <td data-cell="Total Amount">
+                                      ₹{" "}
+                                      {(
+                                        val.ItemID.price.maximum_value *
+                                        val.quantity
+                                      ).toFixed(2)}
+                                    </td>
+                                  </tr>
+                                </>
+                              );
+                            })}
+                          </>
+                        ) : (
+                          <div className="loadCenterDiv">No Orders</div>
+                        )}
+                      </table>
+                    </>
+                  )}
+                </div>
+              </div>
+            </>
+          )}
+        </div>
+      )}
     </>
   );
 }
