@@ -24,7 +24,6 @@ const Orderdetails = (props) => {
   const [edit, setEdit] = useState(false);
   const [loadData, setLoadData] = useState(false);
 
-
   const [isLogisticsFormFilled, setIsLogisticsFormFilled] = useState(false);
 
   const authCtx = useContext(AuthContext);
@@ -87,7 +86,6 @@ const Orderdetails = (props) => {
           ""
         )}
       </div>
-
       {load ? (
         <div className="loadCenterDiv" id="loadPadding">
           <Load />
@@ -100,7 +98,6 @@ const Orderdetails = (props) => {
                 <>
                   {/* Customer || Shipping || Payment */}
                   <TopDetails del={res} />
-
                   {/* Accepted || In-Progress || Completed || Cancelled || Return RTO */}
                   <UpdateDel
                     setEdit={setEdit}
@@ -109,7 +106,6 @@ const Orderdetails = (props) => {
                     loadDataState={loadData}
                     allowInProgressEdit={isLogisticsFormFilled}
                   />
-
                   <div className={odcss.textContent}>
                     {/* Logistics Form */}
                     <Logistics
