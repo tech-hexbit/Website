@@ -11,7 +11,24 @@ export default function ProductCategory({ setData, showData }) {
   const [tags, settags] = useState([]);
   const [tagvalue, settagvalue] = useState("");
 
+  const onChangeTag = (e) => {
+    if (e.target.value === ",") {
+      settagvalue("");
+    } else {
+      settagvalue(e.target.value);
+    }
+  };
+
   const addtags = (e) => {
+    if (e.keyCode === 8 && tagvalue === "") {
+      console.log("Backspace Pressed");
+
+      if (tags.length > 0) {
+        const updatedTags = tags.slice(0, -1);
+        settags(updatedTags);
+      }
+    }
+
     if ((e.keyCode === 13 && tagvalue) || (e.keyCode === 188 && tagvalue)) {
       settags([...tags, tagvalue]);
       settagvalue("");
@@ -22,6 +39,10 @@ export default function ProductCategory({ setData, showData }) {
     let remaintags = tags.filter((t) => t != val);
     settags(remaintags);
   };
+
+  useEffect(() => {
+    console.log("tagvalue = " + tagvalue);
+  }, [tagvalue]);
 
   useEffect(() => {
     setData({
@@ -54,7 +75,6 @@ export default function ProductCategory({ setData, showData }) {
       {/* Tags */}
       <div className={FCss.inpDiv}>
         <p className={FCss.label}>Tags</p>
-
         <div className={FCss.inpTag}>
           {tags.map((tag, index) => (
             <div key={index} className={FCss.TagP}>
@@ -69,7 +89,7 @@ export default function ProductCategory({ setData, showData }) {
               value={tagvalue}
               type="text"
               placeholder="Press Enter to input"
-              onChange={(e) => settagvalue(e.target.value)}
+              onChange={onChangeTag}
               onKeyDown={addtags}
             />
           </div>
