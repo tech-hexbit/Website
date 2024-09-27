@@ -15,8 +15,8 @@ import Dropdown from "./Dropdown";
 
 // MicroInteraction
 import Load from "../../../../../MicroInteraction/Load";
-import optionsData from "../Json/optionsData.json"
-import sizeData from "../Json/size.json"
+import optionsData from "../Json/optionsData.json";
+import sizeData from "../Json/size.json";
 
 // axios
 import axios from "axios";
@@ -28,7 +28,6 @@ import AuthContext from "../../../../../store/auth-context";
 import FCss from "../Css/Form.module.css";
 // import PrCss from "../Css/Lable.module.css";
 import ItCss from "../Input/Css/InputType1.module.css";
-
 
 export default function Form() {
   const [load, setLoad] = useState(false);
@@ -123,7 +122,7 @@ export default function Form() {
       other_FSSAI_license_no,
       short_desc,
       tags,
-      variants
+      variants,
     } = data;
     const domain = "ONDC:RET12";
     if (
@@ -178,13 +177,16 @@ export default function Form() {
       }
 
       try {
-        console.log("success till here")
+        console.log("success till here");
         const response = await axios.post(
           "/api/common/product/AddProductRET12",
           formData,
           { headers: { Authorization: `${authCtx.token}` } }
         );
-        if (response.data.message === "All Items Saved" || response.data.message === "Add Product") {
+        if (
+          response.data.message === "All Items Saved" ||
+          response.data.message === "Add Product"
+        ) {
           setLoad(false);
           authCtx.showAlert({
             mainColor: "#EDFEEE",
@@ -193,39 +195,39 @@ export default function Form() {
             title: "Success",
             text: "Successfully Added",
           });
-          setData({
-            name: "",
-            images: [],
-            long_desc: "",
-            short_desc: "",
-            variants: [],
-            isParent: false,
-            Discounts: "",
-            brand_name: "",
-            maximumCount: 0,
-            maximum_value: 0,
-            manufacturer_or_packer_name: "",
-            tags: [],
-            category_id: "",
-            additives_info: "",
-            month_year_of_manufacture_packing_import: "na",
-            net_quantity_or_measure_of_commodity_in_pkg: "na",
-            ondcOrgavailable_on_cod: "",
-            ondcOrgreturn_window: "",
-            ondcOrgseller_pickup_return: "",
-            ondcOrgtime_to_ship: "",
-            ondcOrgcancellable: "",
-            ondcOrgreturnable: "",
-            manufacturer_or_packer_address: "",
-            fulfillment_id: 1,
-            nutritional_info: "na",
-            other_FSSAI_license_no: "",
-            importer_FSSAI_license_no: "",
-            brand_owner_FSSAI_license_no: "",
-            ondcOrgcontact_details_consumer_care: "",
-            common_or_generic_name_of_commodity: "",
-            StoreID: authCtx.user.Store[0].StoreID._id
-          });
+          // setData({
+          //   name: "",
+          //   images: [],
+          //   long_desc: "",
+          //   short_desc: "",
+          //   variants: [],
+          //   isParent: false,
+          //   Discounts: "",
+          //   brand_name: "",
+          //   maximumCount: 0,
+          //   maximum_value: 0,
+          //   manufacturer_or_packer_name: "",
+          //   tags: [],
+          //   category_id: "",
+          //   additives_info: "",
+          //   month_year_of_manufacture_packing_import: "na",
+          //   net_quantity_or_measure_of_commodity_in_pkg: "na",
+          //   ondcOrgavailable_on_cod: "",
+          //   ondcOrgreturn_window: "",
+          //   ondcOrgseller_pickup_return: "",
+          //   ondcOrgtime_to_ship: "",
+          //   ondcOrgcancellable: "",
+          //   ondcOrgreturnable: "",
+          //   manufacturer_or_packer_address: "",
+          //   fulfillment_id: 1,
+          //   nutritional_info: "na",
+          //   other_FSSAI_license_no: "",
+          //   importer_FSSAI_license_no: "",
+          //   brand_owner_FSSAI_license_no: "",
+          //   ondcOrgcontact_details_consumer_care: "",
+          //   common_or_generic_name_of_commodity: "",
+          //   StoreID: authCtx.user.Store[0].StoreID._id,
+          // });
         } else {
           setLoad(false);
           authCtx.showAlert({
@@ -249,7 +251,7 @@ export default function Form() {
       }
     } else {
       setLoad(false);
-      console.log(data)
+      console.log(data);
 
       authCtx.showAlert({
         mainColor: "#FFC0CB",
@@ -282,14 +284,14 @@ export default function Form() {
 
   useEffect(() => {
     setData({ ...data, ["variants"]: [] });
-  }, [data.category_id])
+  }, [data.category_id]);
 
   useEffect(() => {
     if (data.isParent === false && data.variants.length > 1) {
       const updatedVariants = data.variants[0];
       setData({ ...data, ["variants"]: [updatedVariants] });
     }
-  }, [data.isParent])
+  }, [data.isParent]);
 
   return (
     <>
@@ -308,11 +310,12 @@ export default function Form() {
             Select
           </option>
           {Object.keys(optionsData.categories).map((option, index) => (
-            <option key={index} value={option}>{option}</option>
+            <option key={index} value={option}>
+              {option}
+            </option>
           ))}
         </select>
       </div>
-
 
       {/* Is Parent  */}
       <p className={ItCss.inpCheckbox}>
@@ -321,212 +324,251 @@ export default function Form() {
           type="checkbox"
           checked={data.isParent}
           onChange={(e) => setData({ ...data, ["isParent"]: e.target.checked })}
-          // onChange={handleCheckBox} 
-          style={{ width: '16px', height: '16px', cursor: 'pointer' }}
+          // onChange={handleCheckBox}
+          style={{ width: "16px", height: "16px", cursor: "pointer" }}
         />
       </p>
 
       <Attributes showData={data} setData={setData} />
 
-      {data.variants && Array.isArray(data.variants) && data.variants.length > 0 ? (data.variants.map((variant, index) => (
-        <div key={index}>
-          {data.variants[index].hasOwnProperty('gender') ? (
-            <Dropdown
-              fieldName={`Gender of variant ${index + 1}`}
-              name={"gender"}
-              options={["men", "women", "kids", "unisex"]}
-              value={data.variants[index]["gender"]}
-              onChange={(name, value) => {
-                const newVariant = [...data.variants];
-                const resetVariant = Object.entries({ ...newVariant[index] }).reduce((acc, [key, val]) => {
-                  acc[key] = key === "gender" ? value : "";
-                  return acc;
-                }, {});
-                newVariant[index] = resetVariant;
-                setData({ ...data, variants: newVariant });
-              }}
-            />
-          ) : (
-            ""
-          )}
-          {data.variants[index].hasOwnProperty('colour') ? (
-            <div className={ItCss.inpDiv}>
-              <p className={ItCss.inputLabel}>{`Colour of variant ${index + 1}`}</p>
-              <input
-                type="color"
-                name="colour"
-                value={data.variants[index]["colour"]}
-                onChange={(e) => {
-                  const { name, value } = e.target
-                  const newVariant = [...data.variants];
-                  newVariant[index] = { ...newVariant[index], [name]: value };
-                  setData({ ...data, variants: newVariant });
-                }}
-              />
-              <span style={{ marginTop: "0.75rem" }}>Selected Color :: <b>{data.variants[index]["colour"]}</b></span>
+      {data.variants && Array.isArray(data.variants) && data.variants.length > 0
+        ? data.variants.map((variant, index) => (
+            <div key={index}>
+              {data.variants[index].hasOwnProperty("gender") ? (
+                <Dropdown
+                  fieldName={`Gender of variant ${index + 1}`}
+                  name={"gender"}
+                  options={["men", "women", "kids", "unisex"]}
+                  value={data.variants[index]["gender"]}
+                  onChange={(name, value) => {
+                    const newVariant = [...data.variants];
+                    const resetVariant = Object.entries({
+                      ...newVariant[index],
+                    }).reduce((acc, [key, val]) => {
+                      acc[key] = key === "gender" ? value : "";
+                      return acc;
+                    }, {});
+                    newVariant[index] = resetVariant;
+                    setData({ ...data, variants: newVariant });
+                  }}
+                />
+              ) : (
+                ""
+              )}
+              {data.variants[index].hasOwnProperty("colour") ? (
+                <div className={ItCss.inpDiv}>
+                  <p className={ItCss.inputLabel}>{`Colour of variant ${
+                    index + 1
+                  }`}</p>
+                  <input
+                    type="color"
+                    name="colour"
+                    value={data.variants[index]["colour"]}
+                    onChange={(e) => {
+                      const { name, value } = e.target;
+                      const newVariant = [...data.variants];
+                      newVariant[index] = {
+                        ...newVariant[index],
+                        [name]: value,
+                      };
+                      setData({ ...data, variants: newVariant });
+                    }}
+                  />
+                  <span style={{ marginTop: "0.75rem" }}>
+                    Selected Color :: <b>{data.variants[index]["colour"]}</b>
+                  </span>
+                </div>
+              ) : (
+                ""
+              )}
+              {data.variants[index].hasOwnProperty("sizeChart") ? (
+                <div className={ItCss.inpDiv}>
+                  <p className={ItCss.inputLabel}>Size Chart</p>
+                  <input
+                    type="url"
+                    name="sizeChart"
+                    value={data.variants[index]["sizeChart"]}
+                    placeholder={"Enter Size Chart"}
+                    onChange={(e) => {
+                      const { name, value } = e.target;
+                      const newVariant = [...data.variants];
+                      newVariant[index] = {
+                        ...newVariant[index],
+                        [name]: value,
+                      };
+                      setData({ ...data, variants: newVariant });
+                    }}
+                  />
+                </div>
+              ) : (
+                ""
+              )}
+
+              {data.variants[index].hasOwnProperty("fabric") ? (
+                <Dropdown
+                  fieldName={`Fabric of variant ${index + 1}`}
+                  name="fabric"
+                  options={optionsData.fabric}
+                  value={data.variants[index]["fabric"]}
+                  onChange={(name, value) => {
+                    const newVariant = [...data.variants];
+                    newVariant[index] = { ...newVariant[index], [name]: value };
+                    setData({ ...data, variants: newVariant });
+                  }}
+                />
+              ) : (
+                ""
+              )}
+
+              {data.variants[index].hasOwnProperty("strapMaterial") ? (
+                <Dropdown
+                  fieldName={`Strap Material of variant ${index + 1}`}
+                  name="fabric"
+                  options={optionsData.fabric}
+                  value={data.variants[index]["strapMaterial"]}
+                  onChange={(name, value) => {
+                    const newVariant = [...data.variants];
+                    newVariant[index] = { ...newVariant[index], [name]: value };
+                    setData({ ...data, variants: newVariant });
+                  }}
+                />
+              ) : (
+                ""
+              )}
+
+              {data.variants[index].hasOwnProperty("waterResistant") ? (
+                <Dropdown
+                  fieldName={`Water Resistant of variant ${index + 1}`}
+                  name="waterResistant"
+                  options={["y", "n"]}
+                  value={data.variants[index]["waterResistant"]}
+                  onChange={(name, value) => {
+                    const newVariant = [...data.variants];
+                    newVariant[index] = { ...newVariant[index], [name]: value };
+                    setData({ ...data, variants: newVariant });
+                  }}
+                />
+              ) : (
+                ""
+              )}
+
+              {data.variants[index].hasOwnProperty("display") ? (
+                <Dropdown
+                  fieldName={`Display of variant ${index + 1}`}
+                  name="display"
+                  options={optionsData.display}
+                  value={data.variants[index]["display"]}
+                  onChange={(name, value) => {
+                    const newVariant = [...data.variants];
+                    newVariant[index] = { ...newVariant[index], [name]: value };
+                    setData({ ...data, variants: newVariant });
+                  }}
+                />
+              ) : (
+                ""
+              )}
+
+              {data.variants[index].hasOwnProperty("glassMaterial") ? (
+                <Dropdown
+                  fieldName={`Glass Material of variant ${index + 1}`}
+                  name="glassMaterial"
+                  options={optionsData.glass_material}
+                  value={data.variants[index]["glassMaterial"]}
+                  onChange={(name, value) => {
+                    const newVariant = [...data.variants];
+                    newVariant[index] = { ...newVariant[index], [name]: value };
+                    setData({ ...data, variants: newVariant });
+                  }}
+                />
+              ) : (
+                ""
+              )}
+
+              {data.variants[index].hasOwnProperty("sportType") ? (
+                <Dropdown
+                  fieldName={`Sport Type of variant ${index + 1}`}
+                  name="sportType"
+                  options={optionsData.sport_type}
+                  value={data.variants[index]["sportType"]}
+                  onChange={(name, value) => {
+                    const newVariant = [...data.variants];
+                    newVariant[index] = { ...newVariant[index], [name]: value };
+                    setData({ ...data, variants: newVariant });
+                  }}
+                />
+              ) : (
+                ""
+              )}
+
+              {data.variants[index].hasOwnProperty("baseMetal") ? (
+                <Dropdown
+                  fieldName={`Base Metal of variant ${index + 1}`}
+                  name="baseMetal"
+                  options={optionsData.base_metal}
+                  value={data.variants[index]["baseMetal"]}
+                  onChange={(name, value) => {
+                    const newVariant = [...data.variants];
+                    newVariant[index] = { ...newVariant[index], [name]: value };
+                    setData({ ...data, variants: newVariant });
+                  }}
+                />
+              ) : (
+                ""
+              )}
+
+              {data.variants[index].hasOwnProperty("plating") ? (
+                <Dropdown
+                  fieldName={`Plating of variant ${index + 1}`}
+                  name="plating"
+                  options={optionsData.plating}
+                  value={data.variants[index]["plating"]}
+                  onChange={(name, value) => {
+                    const newVariant = [...data.variants];
+                    newVariant[index] = { ...newVariant[index], [name]: value };
+                    setData({ ...data, variants: newVariant });
+                  }}
+                />
+              ) : (
+                ""
+              )}
+
+              {data.variants[index].hasOwnProperty("size") ? (
+                <Dropdown
+                  fieldName={`Size of variant ${index + 1}`}
+                  name="size"
+                  options={
+                    data.variants[index].gender === ""
+                      ? ["please enter gender"]
+                      : sizeData?.[0]?.[data.variants[index]?.gender]?.[
+                          data.category_id
+                        ] ?? []
+                  }
+                  value={data.variants[index]["size"]}
+                  onChange={(name, value) => {
+                    const newVariant = [...data.variants];
+                    newVariant[index] = { ...newVariant[index], [name]: value };
+                    setData({ ...data, variants: newVariant });
+                  }}
+                />
+              ) : (
+                ""
+              )}
+              <div className={ItCss.buttonParent}>
+                <div
+                  style={{ backgroundColor: "#F16360" }}
+                  onClick={(e) => {
+                    const updatedVariant = data.variants.filter(
+                      (item, idx) => idx !== index
+                    );
+                    setData({ ...data, ["variants"]: updatedVariant });
+                  }}
+                >
+                  Remove Variant
+                </div>
+              </div>
             </div>
-          ) : (
-            ""
-          )}
-          {data.variants[index].hasOwnProperty('sizeChart') ? (
-            <div className={ItCss.inpDiv}>
-              <p className={ItCss.inputLabel}>Size Chart</p>
-              <input
-                type="url"
-                name="sizeChart"
-                value={data.variants[index]["sizeChart"]}
-                placeholder={"Enter Size Chart"}
-                onChange={(e) => {
-                  const { name, value } = e.target
-                  const newVariant = [...data.variants];
-                  newVariant[index] = { ...newVariant[index], [name]: value };
-                  setData({ ...data, variants: newVariant });
-                }}
-              />
-            </div>
-          ) : ""}
-
-          {data.variants[index].hasOwnProperty('fabric') ? (
-            <Dropdown
-              fieldName={`Fabric of variant ${index + 1}`}
-              name="fabric"
-              options={optionsData.fabric}
-              value={data.variants[index]["fabric"]}
-              onChange={(name, value) => {
-                const newVariant = [...data.variants];
-                newVariant[index] = { ...newVariant[index], [name]: value };
-                setData({ ...data, variants: newVariant });
-              }}
-            />
-          ) : ""}
-
-          {data.variants[index].hasOwnProperty('strapMaterial') ? (
-            <Dropdown
-              fieldName={`Strap Material of variant ${index + 1}`}
-              name="fabric"
-              options={optionsData.fabric}
-              value={data.variants[index]["strapMaterial"]}
-              onChange={(name, value) => {
-                const newVariant = [...data.variants];
-                newVariant[index] = { ...newVariant[index], [name]: value };
-                setData({ ...data, variants: newVariant });
-              }}
-            />
-          ) : ""}
-
-          {data.variants[index].hasOwnProperty('waterResistant') ? (
-            <Dropdown
-              fieldName={`Water Resistant of variant ${index + 1}`}
-              name="waterResistant"
-              options={["y", "n"]}
-              value={data.variants[index]["waterResistant"]}
-              onChange={(name, value) => {
-                const newVariant = [...data.variants];
-                newVariant[index] = { ...newVariant[index], [name]: value };
-                setData({ ...data, variants: newVariant });
-              }}
-            />
-          ) : ""}
-
-          {data.variants[index].hasOwnProperty('display') ? (
-            <Dropdown
-              fieldName={`Display of variant ${index + 1}`}
-              name="display"
-              options={optionsData.display}
-              value={data.variants[index]["display"]}
-              onChange={(name, value) => {
-                const newVariant = [...data.variants];
-                newVariant[index] = { ...newVariant[index], [name]: value };
-                setData({ ...data, variants: newVariant });
-              }}
-            />
-          ) : ""}
-
-          {data.variants[index].hasOwnProperty('glassMaterial') ? (
-            <Dropdown
-              fieldName={`Glass Material of variant ${index + 1}`}
-              name="glassMaterial"
-              options={optionsData.glass_material}
-              value={data.variants[index]["glassMaterial"]}
-              onChange={(name, value) => {
-                const newVariant = [...data.variants];
-                newVariant[index] = { ...newVariant[index], [name]: value };
-                setData({ ...data, variants: newVariant });
-              }}
-            />
-          ) : ""}
-
-          {data.variants[index].hasOwnProperty('sportType') ? (
-            <Dropdown
-              fieldName={`Sport Type of variant ${index + 1}`}
-              name="sportType"
-              options={optionsData.sport_type}
-              value={data.variants[index]["sportType"]}
-              onChange={(name, value) => {
-                const newVariant = [...data.variants];
-                newVariant[index] = { ...newVariant[index], [name]: value };
-                setData({ ...data, variants: newVariant });
-              }}
-            />
-          ) : ""}
-
-          {data.variants[index].hasOwnProperty('baseMetal') ? (
-            <Dropdown
-              fieldName={`Base Metal of variant ${index + 1}`}
-              name="baseMetal"
-              options={optionsData.base_metal}
-              value={data.variants[index]["baseMetal"]}
-              onChange={(name, value) => {
-                const newVariant = [...data.variants];
-                newVariant[index] = { ...newVariant[index], [name]: value };
-                setData({ ...data, variants: newVariant });
-              }}
-            />
-          ) : ""}
-
-          {data.variants[index].hasOwnProperty('plating') ? (
-            <Dropdown
-              fieldName={`Plating of variant ${index + 1}`}
-              name="plating"
-              options={optionsData.plating}
-              value={data.variants[index]["plating"]}
-              onChange={(name, value) => {
-                const newVariant = [...data.variants];
-                newVariant[index] = { ...newVariant[index], [name]: value };
-                setData({ ...data, variants: newVariant });
-              }}
-            />
-          ) : ""}
-
-          {data.variants[index].hasOwnProperty('size') ? (
-            <Dropdown
-              fieldName={`Size of variant ${index + 1}`}
-              name="size"
-              options={
-                data.variants[index].gender === ""
-                  ? ["please enter gender"]
-                  : sizeData?.[0]?.[data.variants[index]?.gender]?.[data.category_id] ?? []
-              }
-              value={data.variants[index]["size"]}
-              onChange={(name, value) => {
-                const newVariant = [...data.variants];
-                newVariant[index] = { ...newVariant[index], [name]: value };
-                setData({ ...data, variants: newVariant });
-              }}
-            />
-          ) : ""}
-          <div className={ItCss.buttonParent}>
-            <div style={{ backgroundColor: "#F16360" }}
-              onClick={(e) => {
-                const updatedVariant = data.variants.filter((item, idx) => idx !== index);
-                setData({ ...data, ["variants"]: updatedVariant });
-              }}
-            >
-              Remove Variant
-            </div>
-          </div>
-        </div>))
-      ) : ""}
+          ))
+        : ""}
 
       <div className={FCss.rowDIv}>
         <div className={FCss.rowDIvLeft}>
