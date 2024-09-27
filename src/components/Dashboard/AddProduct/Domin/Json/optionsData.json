@@ -1,1411 +1,513 @@
 {
-    "fabric": [
-        "alpha",
-        "acrylic",
-        "art silk",
-        "bamboo",
-        "chambray",
-        "chanderi cotton",
-        "chanderi silk",
-        "chiffon",
-        "cotton",
-        "cotton blend",
-        "cotton cambric",
-        "cotton linen",
-        "cotton silk",
-        "crepe",
-        "denim",
-        "dupion silk",
-        "elastane",
-        "georgette",
-        "jacquard",
-        "jute",
-        "jute cotton",
-        "jute silk",
-        "khadi cotton",
-        "kora muslin",
-        "lace",
-        "leather",
-        "linen",
-        "mulmul",
-        "modal",
-        "net",
-        "nylon",
-        "organza",
-        "paper silk",
-        "pashmina",
-        "poly chiffon",
-        "poly crepe",
-        "poly georgette",
-        "poly silk",
-        "polycotton",
-        "polyester",
-        "rayon",
-        "rayon slub",
-        "satin",
-        "shantoon",
-        "silk",
-        "silk blend",
-        "soft silk",
-        "super net",
-        "synthetic",
-        "taffeta silk",
-        "tissue",
-        "tussar silk",
-        "velvet",
-        "vichitra silk",
-        "viscose",
-        "viscose rayon",
-        "voile",
-        "wool"
+  "fabric": [
+    "alpha",
+    "acrylic",
+    "art silk",
+    "bamboo",
+    "chambray",
+    "chanderi cotton",
+    "chanderi silk",
+    "chiffon",
+    "cotton",
+    "cotton blend",
+    "cotton cambric",
+    "cotton linen",
+    "cotton silk",
+    "crepe",
+    "denim",
+    "dupion silk",
+    "elastane",
+    "georgette",
+    "jacquard",
+    "jute",
+    "jute cotton",
+    "jute silk",
+    "khadi cotton",
+    "kora muslin",
+    "lace",
+    "leather",
+    "linen",
+    "mulmul",
+    "modal",
+    "net",
+    "nylon",
+    "organza",
+    "paper silk",
+    "pashmina",
+    "poly chiffon",
+    "poly crepe",
+    "poly georgette",
+    "poly silk",
+    "polycotton",
+    "polyester",
+    "rayon",
+    "rayon slub",
+    "satin",
+    "shantoon",
+    "silk",
+    "silk blend",
+    "soft silk",
+    "super net",
+    "synthetic",
+    "taffeta silk",
+    "tissue",
+    "tussar silk",
+    "velvet",
+    "vichitra silk",
+    "viscose",
+    "viscose rayon",
+    "voile",
+    "wool"
+  ],
+  "strap_material": [
+    "alloy",
+    "beads",
+    "brass",
+    "canvas",
+    "ceramic",
+    "fabric",
+    "faux leather",
+    "kundan",
+    "leather",
+    "metal",
+    "pearl",
+    "plastic",
+    "PU",
+    "resin",
+    "rubber",
+    "silicon",
+    "stainless steel",
+    "synthetic",
+    "thread"
+  ],
+  "display": ["alpha", "analog", "digital"],
+  "glass_material": [
+    "acetate",
+    "acrylic",
+    "mineral",
+    "plastic",
+    "sapphire crystal"
+  ],
+  "sport_type": [
+    "alpha",
+    "running",
+    "walking",
+    "basketball",
+    "baseball",
+    "football",
+    "soccer",
+    "hockey",
+    "lacrosse",
+    "rugby",
+    "volleyball",
+    "training",
+    "golf",
+    "tennis",
+    "cycling",
+    "skateboarding"
+  ],
+  "base_metal": [
+    "alpha",
+    "gold",
+    "silver",
+    "brass",
+    "alloy",
+    "ceramic",
+    "wood",
+    "metal",
+    "german silver",
+    "leather",
+    "plastic",
+    "PU"
+  ],
+  "plating": [
+    "alpha",
+    "brass",
+    "copper",
+    "gold",
+    "rose gold",
+    "rhodium",
+    "silver"
+  ],
+  "categories": {
+    "Shirts": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName", "sportType"]
     ],
-    "strap_material": [
-        "alloy",
-        "beads",
-        "brass",
-        "canvas",
-        "ceramic",
-        "fabric",
-        "faux leather",
-        "kundan",
-        "leather",
-        "metal",
-        "pearl",
-        "plastic",
-        "PU",
-        "resin",
-        "rubber",
-        "silicon",
-        "stainless steel",
-        "synthetic",
-        "thread"
+    "T Shirts": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName", "sportType"]
     ],
-    "display": [
-        "alpha",
-        "analog",
-        "digital"
+    "Sweatshirts": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName", "sportType"]
     ],
-    "glass_material": [
-        "acetate",
-        "acrylic",
-        "mineral",
-        "plastic",
-        "sapphire crystal"
+    "Kurtas & Kurta Sets": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
     ],
-    "sport_type": [
-        "alpha",
-        "running",
-        "walking",
-        "basketball",
-        "baseball",
-        "football",
-        "soccer",
-        "hockey",
-        "lacrosse",
-        "rugby",
-        "volleyball",
-        "training",
-        "golf",
-        "tennis",
-        "cycling",
-        "skateboarding"
+    "Jackets & Coats": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName", "sportType"]
     ],
-    "base_metal": [
-        "alpha",
-        "gold",
-        "silver",
-        "brass",
-        "alloy",
-        "ceramic",
-        "wood",
-        "metal",
-        "german silver",
-        "leather",
-        "plastic",
-        "PU"
+    "Sweaters": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName", "sportType"]
     ],
-    "plating": [
-        "alpha",
-        "brass",
-        "copper",
-        "gold",
-        "rose gold",
-        "rhodium",
-        "silver"
+    "Suits": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
     ],
-    "categories": {
-        "Shirts": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName",
-                "sportType"
-            ]
-        ],
-        "T Shirts": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName",
-                "sportType"
-            ]
-        ],
-        "Sweatshirts": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName",
-                "sportType"
-            ]
-        ],
-        "Kurtas & Kurta Sets": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Jackets & Coats": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName",
-                "sportType"
-            ]
-        ],
-        "Sweaters": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName",
-                "sportType"
-            ]
-        ],
-        "Suits": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Sherwanis": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Track Shirts": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName",
-                "sportType"
-            ]
-        ],
-        "Track Suits": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName",
-                "sportType"
-            ]
-        ],
-        "Unstitched Fabrics": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Dresses": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName",
-                "sportType"
-            ]
-        ],
-        "Tops": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName",
-                "sportType"
-            ]
-        ],
-        "Trousers": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName",
-                "sportType"
-            ]
-        ],
-        "Capris": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName",
-                "sportType"
-            ]
-        ],
-        "Coordinates": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName",
-                "sportType"
-            ]
-        ],
-        "Playsuits": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName",
-                "sportType"
-            ]
-        ],
-        "Jumpsuits": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName",
-                "sportType"
-            ]
-        ],
-        "Shrugs & Blouses": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName",
-                "sportType"
-            ]
-        ],
-        "Blazers & Waistcoats": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName",
-                "sportType"
-            ]
-        ],
-        "Tights, Leggings & Jeggings": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName",
-                "sportType"
-            ]
-        ],
-        "Track Pants": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName",
-                "sportType"
-            ]
-        ],
-        "Jeans": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName",
-                "sportType"
-            ]
-        ],
-        "Shorts": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName",
-                "sportType"
-            ]
-        ],
-        "Joggers": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Dhotis & Dhoti Pants": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Churidars": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Salwars": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Dungarees & Jumpsuits": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Skirts": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName",
-                "sportType"
-            ]
-        ],
-        "Clothing Sets": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Belts": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Caps & Hats": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Kurtis, Tunics": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Sarees": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Ethnic Wear": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Palazzos": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Dress Materials": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Lehenga Cholis": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Dupattas & Shawls": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Burqas & Hijabs": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Blouses": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Blouse Pieces": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Briefs": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Boxers": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Vests": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Robes": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Night Suits": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Thermal Wear": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Swim Bottoms": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Swimwear": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Bra": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Shapewear": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Sleepwear & Loungewear": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Camisoles": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Lingerie Sets & Accessories": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Bath Robes": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Towels": [
-            [
-                "gender",
-                "colour",
-                "size"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Pyjamas": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Party Wear": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Innerwear & Sleepwear": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Nightwear & Loungewear": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Watches": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "strapMaterial",
-                "waterResistant",
-                "display",
-                "glassMaterial"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Gloves": [
-            [
-                "gender",
-                "colour",
-                "size"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Socks": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Stockings": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Laces": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Soles & Charms": [
-            [
-                "gender",
-                "colour",
-                "size"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Shoe Racks & Organisers": [
-            [
-                "gender",
-                "colour",
-                "size"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Shoe Care - Accessories": [
-            [
-                "gender",
-                "colour",
-                "size"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Flip-Flops & Flats": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Sandals & Floaters": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Backpacks": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "fabric"
-            ],
-            [
-                "waterResistant",
-                "colorName"
-            ]
-        ],
-        "Handbags": [
-            [
-                "gender",
-                "colour",
-                "size"
-            ],
-            [
-                "waterResistant",
-                "colorName"
-            ]
-        ],
-        "Trolley, Luggage & Suitcases": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "fabric"
-            ],
-            [
-                "waterResistant",
-                "colorName"
-            ]
-        ],
-        "Formal Shoes": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Casual Shoes": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Sports Shoes": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "sportType",
-                "colorName"
-            ]
-        ],
-        "Outdoor Shoes": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Work & Safety Shoes": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Ethnic Shoes": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Boots": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Heels": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "sizeChart",
-                "fabric"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Contact Lenses": [
-            [
-                "gender",
-                "colour",
-                "size"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Eye Glasses": [
-            [
-                "gender",
-                "colour",
-                "size"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Eye Glass Frames": [
-            [
-                "gender",
-                "colour",
-                "size"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Sunglasses": [
-            [
-                "gender",
-                "colour",
-                "size"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Contact Lens Cases": [
-            [
-                "gender",
-                "colour",
-                "size"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Contact Lens Solutions": [
-            [
-                "gender",
-                "colour",
-                "size"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Contact Lens Tweezers":[
-            [
-                "gender",
-                "colour",
-                "size"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Eyeglasses Pouches & Cases": [
-            [
-                "gender",
-                "colour",
-                "size"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Microfiber Wipes": [
-            [
-                "gender",
-                "colour",
-                "size"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Eyewear Slings": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "baseMetal",
-                "plating"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Bracelets": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "baseMetal",
-                "plating"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Chains": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "baseMetal",
-                "plating"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Mangalsutra": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "baseMetal",
-                "plating"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Anklets": [
-            [
-                "gender",
-                "colour",
-                "size",
-                "baseMetal",
-                "plating"
-            ],
-            [
-                "colorName"
-            ]
-        ],
-        "Bangles & Bracelets": [
-            [
-                "gender",
-                "colour",
-                "size"
-            ],
-            [
-                "baseMetal",
-                "plating",
-                "colorName"
-            ]
-        ],
-        "Necklaces": [
-            [
-                "gender",
-                "colour",
-                "size"
-            ],
-            [
-                "baseMetal",
-                "plating",
-                "colorName"
-            ]
-        ],
-        "Earrings": [
-            [
-                "gender",
-                "colour",
-                "size"
-            ],
-            [
-                "baseMetal",
-                "plating",
-                "colorName"
-            ]
-        ],
-        "Jewellery Sets": [
-            [
-                "gender",
-                "colour",
-                "size"
-            ],
-            [
-                "baseMetal",
-                "plating",
-                "colorName"
-            ]
-        ],
-        "Nosepins & Noserings":[
-            [
-                "gender",
-                "colour",
-                "size"
-            ],
-            [
-                "baseMetal",
-                "plating",
-                "colorName"
-            ]
-        ],
-        "Pendants": [
-            [
-                "gender",
-                "colour",
-                "size"
-            ],
-            [
-                "baseMetal",
-                "plating",
-                "colorName"
-            ]
-        ],
-        "Rings": [
-            [
-                "gender",
-                "colour",
-                "size"
-            ],
-            [
-                "baseMetal",
-                "plating",
-                "colorName"
-            ]
-        ],
-        "Toe Rings": [
-            [
-                "gender",
-                "colour",
-                "size"
-            ],
-            [
-                "baseMetal",
-                "plating",
-                "colorName"
-            ]
-        ],
-        "Gold Coins": [
-            [
-                "gender",
-                "colour",
-                "size"
-            ],
-            [
-                "baseMetal",
-                "plating",
-                "colorName"
-            ]
-        ],
-        "Brooch": [
-            [
-                "gender",
-                "colour",
-                "size"
-            ],
-            [
-                "baseMetal",
-                "plating",
-                "colorName"
-            ]
-        ]
-    }
+    "Sherwanis": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Track Shirts": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName", "sportType"]
+    ],
+    "Track Suits": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName", "sportType"]
+    ],
+    "Unstitched Fabrics": [
+      ["gender", "colour", "size", "fabric"],
+      ["colorName"]
+    ],
+    "Dresses": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName", "sportType"]
+    ],
+    "Tops": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName", "sportType"]
+    ],
+    "Trousers": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName", "sportType"]
+    ],
+    "Capris": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName", "sportType"]
+    ],
+    "Coordinates": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName", "sportType"]
+    ],
+    "Playsuits": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName", "sportType"]
+    ],
+    "Jumpsuits": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName", "sportType"]
+    ],
+    "Shrugs & Blouses": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName", "sportType"]
+    ],
+    "Blazers & Waistcoats": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName", "sportType"]
+    ],
+    "Tights, Leggings & Jeggings": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName", "sportType"]
+    ],
+    "Track Pants": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName", "sportType"]
+    ],
+    "Jeans": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName", "sportType"]
+    ],
+    "Shorts": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName", "sportType"]
+    ],
+    "Joggers": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Dhotis & Dhoti Pants": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Churidars": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Salwars": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Dungarees & Jumpsuits": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Skirts": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName", "sportType"]
+    ],
+    "Clothing Sets": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Belts": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Caps & Hats": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Kurtis, Tunics": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Sarees": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Ethnic Wear": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Palazzos": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Dress Materials": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Lehenga Cholis": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Dupattas & Shawls": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Burqas & Hijabs": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Blouses": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Blouse Pieces": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Briefs": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Boxers": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Vests": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Robes": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Night Suits": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Thermal Wear": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Swim Bottoms": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Swimwear": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Bra": [["gender", "colour", "size", "sizeChart", "fabric"], ["colorName"]],
+    "Shapewear": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Sleepwear & Loungewear": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Camisoles": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Lingerie Sets & Accessories": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Bath Robes": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Towels": [["gender", "colour", "size"], ["colorName"]],
+    "Pyjamas": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Party Wear": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Innerwear & Sleepwear": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Nightwear & Loungewear": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Watches": [
+      [
+        "gender",
+        "colour",
+        "size",
+        "strapMaterial",
+        "waterResistant",
+        "display",
+        "glassMaterial"
+      ],
+      ["colorName"]
+    ],
+    "Gloves": [["gender", "colour", "size"], ["colorName"]],
+    "Socks": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Stockings": [["gender", "colour", "size", "fabric"], ["colorName"]],
+    "Laces": [["gender", "colour", "size", "fabric"], ["colorName"]],
+    "Soles & Charms": [["gender", "colour", "size"], ["colorName"]],
+    "Shoe Racks & Organisers": [["gender", "colour", "size"], ["colorName"]],
+    "Shoe Care - Accessories": [["gender", "colour", "size"], ["colorName"]],
+    "Flip-Flops & Flats": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Sandals & Floaters": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Backpacks": [
+      ["gender", "colour", "size", "fabric"],
+      ["waterResistant", "colorName"]
+    ],
+    "Handbags": [
+      ["gender", "colour", "size"],
+      ["waterResistant", "colorName"]
+    ],
+    "Trolley, Luggage & Suitcases": [
+      ["gender", "colour", "size", "fabric"],
+      ["waterResistant", "colorName"]
+    ],
+    "Formal Shoes": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Casual Shoes": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Sports Shoes": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["sportType", "colorName"]
+    ],
+    "Outdoor Shoes": [["gender", "colour", "size", "sizeChart"], ["colorName"]],
+    "Work & Safety Shoes": [
+      ["gender", "colour", "size", "sizeChart"],
+      ["colorName"]
+    ],
+    "Ethnic Shoes": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Boots": [["gender", "colour", "size", "sizeChart"], ["colorName"]],
+    "Heels": [
+      ["gender", "colour", "size", "sizeChart", "fabric"],
+      ["colorName"]
+    ],
+    "Contact Lenses": [["gender", "colour", "size"], ["colorName"]],
+    "Eye Glasses": [["gender", "colour", "size"], ["colorName"]],
+    "Eye Glass Frames": [["gender", "colour", "size"], ["colorName"]],
+    "Sunglasses": [["gender", "colour", "size"], ["colorName"]],
+    "Contact Lens Cases": [["gender", "colour", "size"], ["colorName"]],
+    "Contact Lens Solutions": [["gender", "colour", "size"], ["colorName"]],
+    "Contact Lens Tweezers": [["gender", "colour", "size"], ["colorName"]],
+    "Eyeglasses Pouches & Cases": [["gender", "colour", "size"], ["colorName"]],
+    "Microfiber Wipes": [["gender", "colour", "size"], ["colorName"]],
+    "Eyewear Slings": [
+      ["gender", "colour", "size", "baseMetal", "plating"],
+      ["colorName"]
+    ],
+    "Bracelets": [
+      ["gender", "colour", "size", "baseMetal", "plating"],
+      ["colorName"]
+    ],
+    "Chains": [
+      ["gender", "colour", "size", "baseMetal", "plating"],
+      ["colorName"]
+    ],
+    "Mangalsutra": [
+      ["gender", "colour", "size", "baseMetal", "plating"],
+      ["colorName"]
+    ],
+    "Anklets": [
+      ["gender", "colour", "size", "baseMetal", "plating"],
+      ["colorName"]
+    ],
+    "Bangles & Bracelets": [
+      ["gender", "colour", "size"],
+      ["baseMetal", "plating", "colorName"]
+    ],
+    "Necklaces": [
+      ["gender", "colour", "size"],
+      ["baseMetal", "plating", "colorName"]
+    ],
+    "Earrings": [
+      ["gender", "colour", "size"],
+      ["baseMetal", "plating", "colorName"]
+    ],
+    "Jewellery Sets": [
+      ["gender", "colour", "size"],
+      ["baseMetal", "plating", "colorName"]
+    ],
+    "Nosepins & Noserings": [
+      ["gender", "colour", "size"],
+      ["baseMetal", "plating", "colorName"]
+    ],
+    "Pendants": [
+      ["gender", "colour", "size"],
+      ["baseMetal", "plating", "colorName"]
+    ],
+    "Rings": [
+      ["gender", "colour", "size"],
+      ["baseMetal", "plating", "colorName"]
+    ],
+    "Toe Rings": [
+      ["gender", "colour", "size"],
+      ["baseMetal", "plating", "colorName"]
+    ],
+    "Gold Coins": [
+      ["gender", "colour", "size"],
+      ["baseMetal", "plating", "colorName"]
+    ],
+    "Brooch": [
+      ["gender", "colour", "size"],
+      ["baseMetal", "plating", "colorName"]
+    ]
+  }
 }
