@@ -403,7 +403,6 @@ export default function Form() {
               ) : (
                 ""
               )}
-
               {data.variants[index].hasOwnProperty("fabric") ? (
                 <Dropdown
                   fieldName={`Fabric of variant ${index + 1}`}
@@ -419,7 +418,6 @@ export default function Form() {
               ) : (
                 ""
               )}
-
               {data.variants[index].hasOwnProperty("strapMaterial") ? (
                 <Dropdown
                   fieldName={`Strap Material of variant ${index + 1}`}
@@ -435,7 +433,6 @@ export default function Form() {
               ) : (
                 ""
               )}
-
               {data.variants[index].hasOwnProperty("waterResistant") ? (
                 <Dropdown
                   fieldName={`Water Resistant of variant ${index + 1}`}
@@ -451,7 +448,6 @@ export default function Form() {
               ) : (
                 ""
               )}
-
               {data.variants[index].hasOwnProperty("display") ? (
                 <Dropdown
                   fieldName={`Display of variant ${index + 1}`}
@@ -467,7 +463,6 @@ export default function Form() {
               ) : (
                 ""
               )}
-
               {data.variants[index].hasOwnProperty("glassMaterial") ? (
                 <Dropdown
                   fieldName={`Glass Material of variant ${index + 1}`}
@@ -483,7 +478,6 @@ export default function Form() {
               ) : (
                 ""
               )}
-
               {data.variants[index].hasOwnProperty("sportType") ? (
                 <Dropdown
                   fieldName={`Sport Type of variant ${index + 1}`}
@@ -499,7 +493,6 @@ export default function Form() {
               ) : (
                 ""
               )}
-
               {data.variants[index].hasOwnProperty("baseMetal") ? (
                 <Dropdown
                   fieldName={`Base Metal of variant ${index + 1}`}
@@ -515,7 +508,6 @@ export default function Form() {
               ) : (
                 ""
               )}
-
               {data.variants[index].hasOwnProperty("plating") ? (
                 <Dropdown
                   fieldName={`Plating of variant ${index + 1}`}
@@ -531,7 +523,6 @@ export default function Form() {
               ) : (
                 ""
               )}
-
               {data.variants[index].hasOwnProperty("size") ? (
                 <Dropdown
                   fieldName={`Size of variant ${index + 1}`}
