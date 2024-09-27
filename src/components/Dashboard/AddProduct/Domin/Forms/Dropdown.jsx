@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 import ItCss from "../Input/Css/InputType1.module.css";
 
 const Dropdown = ({ options, fieldName, name, value, onChange }) => {
-  // Options array will contain array of options
   const handleSelectChange = (e) => {
     onChange(e.target.name, e.target.value);
   };
+
   return (
     <div className={ItCss.inpDiv}>
       <p className={ItCss.inputLabel}>{fieldName}</p>
