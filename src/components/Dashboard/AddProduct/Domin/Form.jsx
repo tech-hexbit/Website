@@ -36,6 +36,7 @@ export default function Form({ domain }) {
     images: [],
     long_desc: "",
     short_desc: "",
+    code: "",
     veg: "",
     non_veg: "",
     Discounts: "",
@@ -91,6 +92,7 @@ export default function Form({ domain }) {
       images,
       long_desc,
       short_desc,
+      code,
       veg,
       non_veg,
       Discounts,
@@ -126,6 +128,7 @@ export default function Form({ domain }) {
       images !== "" &&
       long_desc !== "" &&
       short_desc !== "" &&
+      code !== "" &&
       veg !== "" &&
       non_veg !== "" &&
       Discounts !== "" &&
@@ -194,6 +197,7 @@ export default function Form({ domain }) {
             images: [],
             long_desc: "",
             short_desc: "",
+            code: "",
             veg: "",
             non_veg: "",
             Discounts: "",
