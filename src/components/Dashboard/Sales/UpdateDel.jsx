@@ -189,6 +189,38 @@ export default function OrderLayUpdate(props) {
     }
   };
 
+  const setItemCancelled = async () => {
+    setLoad(true);
+    try {
+      let data = {
+        id: res._id,
+        code: "Cancelled"
+      };
+
+      const response = await axios.post(
+        `${import.meta.env.VITE_SERVER_ONDC_URL}/status/unsolisited_status`,
+        data,
+        {
+          headers: { Authorization: `${authCtx.token}` },
+        }
+      );
+      console.log(response);
+      setLoad(false);
+    } catch (error) {
+      console.log(error);
+
+      setLoad(false);
+
+      authCtx.showAlert({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "Unable to Update",
+      });
+    }
+  };
+
   useEffect(() => {
     loadOrderdel(props.id);
   }, [props.id]);
@@ -276,8 +308,9 @@ export default function OrderLayUpdate(props) {
                   : OLCss.disable4
               }
               onClick={() => {
-                // updateMany("Cancelled");
+                updateMany("Cancelled");
                 setDataCal(!dataCal);
+                setItemCancelled();
               }}
             >
               Cancelled
