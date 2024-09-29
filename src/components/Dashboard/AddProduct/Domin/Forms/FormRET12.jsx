@@ -180,7 +180,7 @@ export default function Form() {
       try {
         console.log("success till here")
         const response = await axios.post(
-          "/api/common/product/AddProductRET12",
+          "/api/common/product/AddProduct",
           formData,
           { headers: { Authorization: `${authCtx.token}` } }
         );
