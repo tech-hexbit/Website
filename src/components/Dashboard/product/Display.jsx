@@ -189,7 +189,7 @@ export default function Display({
                               {val.quantity.maximum.count}
                             </td>
                             <td className={DCss.row} id={DCss.orders}>
-                              {val.fulfillment_id}
+                              {val.fulfillment_id ? val.fulfillment_id : 0}
                             </td>
                             <td className={DCss.row}>
                               <div className={DCss.col5}>
