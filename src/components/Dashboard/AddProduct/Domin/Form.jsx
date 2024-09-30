@@ -68,14 +68,13 @@ export default function Form({ domain }) {
 
   const onSubmit = async () => {
     setLoad(true);
-
+  
     console.log(multipleImageUpload);
-
     console.log("domain - " + data.domain);
-
+  
     if (!imageUpload) {
       setLoad(false);
-
+  
       authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
@@ -85,10 +84,9 @@ export default function Form({ domain }) {
       });
       return;
     }
-
+  
     const {
       name,
-      images,
       long_desc,
       short_desc,
       veg,
@@ -120,20 +118,20 @@ export default function Form({ domain }) {
       common_or_generic_name_of_commodity,
       StoreID,
     } = data;
-
+  
+    // Validate required fields
     if (
       name !== "" &&
-      images !== "" &&
       long_desc !== "" &&
       short_desc !== "" &&
       veg !== "" &&
       non_veg !== "" &&
       Discounts !== "" &&
       brand_name !== "" &&
-      maximumCount !== "" &&
-      maximum_value !== "" &&
+      maximumCount !== 0 && // Changed to check against 0 for maximumCount
+      maximum_value !== 0 && // Changed to check against 0 for maximum_value
       manufacturer_or_packer_name !== "" &&
-      tags !== "" &&
+      tags.length > 0 && // Changed to check for non-empty array for tags
       category_id !== "" &&
       additives_info !== "" &&
       month_year_of_manufacture_packing_import !== "" &&
@@ -160,27 +158,26 @@ export default function Form({ domain }) {
       if (imageUpload) {
         formData.append("images", imageUpload);
       }
-
+  
       if (multipleImageUpload) {
         for (let i = 0; i < multipleImageUpload.length; i++) {
           formData.append("images", multipleImageUpload[i]);
         }
       }
-
-      for (var key of formData.entries()) {
-        console.log(key[0] + ", " + key[1]);
-      }
-
+  
       try {
         const response = await axios.post(
           "/api/common/product/AddProduct",
           formData,
           { headers: { Authorization: `${authCtx.token}` } }
         );
-
-        if (response.data.success) {
+  
+        console.log(response); 
+  
+        // Check if the response indicates success
+        if (response.data.message === "Item Saved") {
           setLoad(false);
-
+  
           authCtx.showAlert({
             mainColor: "#EDFEEE",
             secondaryColor: "#5CB660",
@@ -188,10 +185,10 @@ export default function Form({ domain }) {
             title: "Success",
             text: "Successfully Added",
           });
-
+  
+          // Reset form data
           setData({
             name: "",
-            images: [],
             long_desc: "",
             short_desc: "",
             veg: "",
@@ -215,31 +212,31 @@ export default function Form({ domain }) {
           });
         } else {
           setLoad(false);
-
+  
           authCtx.showAlert({
             mainColor: "#FDEDED",
             secondaryColor: "#F16360",
             symbol: "error",
             title: "Error",
-            text: "Poduct Addition Failed",
+            text: "Product Addition Failed",
           });
         }
       } catch (error) {
         console.log(error);
-
+  
         setLoad(false);
-
+  
         authCtx.showAlert({
           mainColor: "#FDEDED",
           secondaryColor: "#F16360",
           symbol: "error",
           title: "Error",
-          text: "Poduct Addition Failed",
+          text: "Product Addition Failed",
         });
       }
     } else {
       setLoad(false);
-
+  
       authCtx.showAlert({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
@@ -249,6 +246,7 @@ export default function Form({ domain }) {
       });
     }
   };
+  
 
   const handleClick = () => {
     fileInp.current.click();
