@@ -184,7 +184,8 @@ export default function Form() {
           formData,
           { headers: { Authorization: `${authCtx.token}` } }
         );
-        if (response.data.message === "All Items Saved" || response.data.message === "Add Product") {
+        console.log(response);
+        if (response.data.message === "All Items Saved" || response.data.message === "Add Product" ||  response.data.message === "Product added successfully") {
           setLoad(false);
           authCtx.showAlert({
             mainColor: "#EDFEEE",
