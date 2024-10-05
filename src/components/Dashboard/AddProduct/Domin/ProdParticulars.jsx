@@ -40,8 +40,6 @@ export default function ProdParticulars({ setData, showData }) {
         field="long_desc"
         placeholder="Write long product description here..."
       />
-<<<<<<< Updated upstream
-=======
 
       {/* Code */}
       <InpTp1
@@ -50,15 +48,14 @@ export default function ProdParticulars({ setData, showData }) {
         showData={showData}
         setData={setData}
         field="code"
-        placeholder="HSN CODE ex. - 4:61050704"
+        placeholder="HSN CODE ex. - 4:61051010"
       />
->>>>>>> Stashed changes
     </>
   );
 }
 
 ProdParticulars.propTypes = {
   showData: PropTypes.object.isRequired,
-  setData: PropTypes.func.isRequired
+  setData: PropTypes.func.isRequired,
   // placeholder: PropTypes.string.isRequired,
 };

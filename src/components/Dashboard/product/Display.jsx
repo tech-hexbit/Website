@@ -304,62 +304,15 @@ export default function Display({
               {/* Show Label */}
               <p className={DCss.showingPTag}>
                 Showing{" "}
-                {filteredlist.prodcutsCount <= 10 ? (
-                  <b>{10 * (currentPage - 1) + filteredlist.prodcutsCount} </b>
-                ) : (
-                  <b>10</b>
-                )}{" "}
-                of <b>{filteredlist.prodcutsCount}</b> results
+                <b>
+                  {filteredlist.productList.length}{" "}
+                  {/* Total items displayed */}
+                </b>{" "}
+                of <b>{filteredlist.prodcutsCount}</b> results{" "}
+                {/* Total available items */}
               </p>
             </div>
           )}
-        </div>
-
-        {/* Pagination */}
-        <div className={DCss.cenDiv}>
-          <button
-            onClick={() => setCurrentPage(currentPage - 1)}
-            disabled={currentPage === 1}
-            className={DCss.btnnb}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-chevrons-left"
-            >
-              <path d="m11 17-5-5 5-5" />
-              <path d="m18 17-5-5 5-5" />
-            </svg>
-          </button>
-          <span>{currentPage}</span>
-          <button
-            onClick={() => setCurrentPage(currentPage + 1)}
-            disabled={max}
-            className={DCss.btnnb}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-chevrons-right"
-            >
-              <path d="m6 17 5-5-5-5" />
-              <path d="m13 17 5-5-5-5" />
-            </svg>
-          </button>
         </div>
       </div>
     </>
