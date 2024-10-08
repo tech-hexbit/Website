@@ -175,7 +175,7 @@ export default function Form({ domain }) {
         console.log(response); 
   
         // Check if the response indicates success
-        if (response.data.message === "Item Saved") {
+        if (response.data.message === "All Items Saved") {
           setLoad(false);
   
           authCtx.showAlert({
