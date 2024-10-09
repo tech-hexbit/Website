@@ -58,11 +58,14 @@ export default function Bank({ disable, setDisable, showData, setData }) {
       console.log(response.data);
 
       if (response.data.success) {
+        console.log("response.data");
+        console.log(response.data.response);
+        console.log("-------------------------");
         setData({
           ...showData,
-          AcHolderName: response.data.response.data.nameAtBank,
-          BankName: response.data.response.data.bankName,
-          BranchName: response.data.response.data.branch,
+          AcHolderName: response.data.response.name_at_bank,
+          BankName: response.data.response.bank_name,
+          BranchName: response.data.response.branch,
         });
 
         setVerifyPin(true);
