@@ -75,6 +75,7 @@ export default function Form({ domain }) {
   
     if (!imageUpload) {
       setLoad(false);
+
   
       authCtx.showAlert({
         mainColor: "#FDEDED",
@@ -167,15 +168,19 @@ export default function Form({ domain }) {
           formData.append("images", multipleImageUpload[i]);
         }
       }
-  
       try {
+        console.log("Success till here");
+        console.log(formData);
+        console.log(data);
+        
         const response = await axios.post(
           "/api/common/product/AddProduct",
           formData,
           { headers: { Authorization: `${authCtx.token}` } }
         );
-  
-        console.log(response); 
+        
+        console.log(response,"Done"); 
+        // console.log("done")
   
         // Check if the response indicates success
         if (response.data.message === "All Items Saved") {
