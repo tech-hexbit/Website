@@ -58,9 +58,6 @@ export default function Bank({ disable, setDisable, showData, setData }) {
       console.log(response.data);
 
       if (response.data.success) {
-        console.log("response.data");
-        console.log(response.data.response);
-        console.log("-------------------------");
         setData({
           ...showData,
           AcHolderName: response.data.response.name_at_bank,
