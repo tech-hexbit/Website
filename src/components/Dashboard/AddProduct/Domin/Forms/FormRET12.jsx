@@ -93,7 +93,12 @@ export default function Form() {
     // Handle the single product case and update isParent if necessary
     if (data.variants.length === 1 && !data.isParent) {
       console.log("inside single product");
-      const updatedData = { ...data, isParent: true };
+      const updatedVariant = { ...data.variants[0], isParent: true };
+      const updatedData = {
+        ...data,
+        variants: [updatedVariant],
+        isParent: true,
+      };
       setData(updatedData); // Update the state with isParent as true
 
       // Proceed to submit with the updated data
@@ -139,9 +144,23 @@ export default function Form() {
       short_desc,
       tags,
       variants,
+      selectedParent,
     } = dataToSubmit;
 
     const domain = "ONDC:RET12";
+
+    console.log(selectedParent);
+    if (selectedParent === null && variants.length > 1) {
+      setLoad(false);
+      authCtx.showAlert({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "Please Select one parent",
+      });
+      return;
+    }
 
     if (
       name !== "" &&
