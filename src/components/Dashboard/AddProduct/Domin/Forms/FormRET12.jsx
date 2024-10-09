@@ -33,6 +33,7 @@ export default function Form() {
   const [load, setLoad] = useState(false);
   const [imageUpload, setImageUpload] = useState();
   const [multipleImageUpload, setMultipleImageUpload] = useState([]);
+  const [parentExists, setParentExists] = useState(false);
   const fileInp = useRef(null);
   const authCtx = useContext(AuthContext);
 
@@ -43,6 +44,7 @@ export default function Form() {
     short_desc: "",
     variants: [],
     isParent: false,
+    selectedParent: null,
     Discounts: "",
     brand_name: "",
     maximumCount: 0,
@@ -75,8 +77,6 @@ export default function Form() {
 
     console.log(multipleImageUpload);
 
-    // console.log("domain - " + data.domain);
-
     if (!imageUpload) {
       setLoad(false);
 
@@ -90,6 +90,22 @@ export default function Form() {
       return;
     }
 
+    // Handle the single product case and update isParent if necessary
+    if (data.variants.length === 1 && !data.isParent) {
+      console.log("inside single product");
+      const updatedData = { ...data, isParent: true };
+      setData(updatedData); // Update the state with isParent as true
+
+      // Proceed to submit with the updated data
+      await submitProduct(updatedData);
+    } else {
+      // Directly submit if there's no need to update isParent
+      console.log("direct submit");
+      await submitProduct(data);
+    }
+  };
+
+  const submitProduct = async (dataToSubmit) => {
     const {
       Discounts,
       StoreID,
@@ -123,8 +139,10 @@ export default function Form() {
       short_desc,
       tags,
       variants,
-    } = data;
+    } = dataToSubmit;
+
     const domain = "ONDC:RET12";
+
     if (
       name !== "" &&
       images !== "" &&
@@ -160,8 +178,9 @@ export default function Form() {
       StoreID
     ) {
       const formData = new FormData();
-      const updatedData = { ...data, domain };
+      const updatedData = { ...dataToSubmit, domain };
       formData.append("data", JSON.stringify(updatedData));
+
       if (imageUpload) {
         formData.append("images", imageUpload);
       }
@@ -172,20 +191,18 @@ export default function Form() {
         }
       }
 
-      for (var key of formData.entries()) {
-        console.log(key[0] + ", " + key[1]);
-      }
-
       try {
-        console.log("success till here");
+        console.log("formdata", data);
         const response = await axios.post(
-          "/api/common/product/AddProductRET12",
+          "/api/common/product/AddProduct",
           formData,
           { headers: { Authorization: `${authCtx.token}` } }
         );
+        console.log(response);
         if (
           response.data.message === "All Items Saved" ||
-          response.data.message === "Add Product"
+          response.data.message === "Add Product" ||
+          response.data.message === "Product added successfully"
         ) {
           setLoad(false);
           authCtx.showAlert({
@@ -195,39 +212,7 @@ export default function Form() {
             title: "Success",
             text: "Successfully Added",
           });
-          // setData({
-          //   name: "",
-          //   images: [],
-          //   long_desc: "",
-          //   short_desc: "",
-          //   variants: [],
-          //   isParent: false,
-          //   Discounts: "",
-          //   brand_name: "",
-          //   maximumCount: 0,
-          //   maximum_value: 0,
-          //   manufacturer_or_packer_name: "",
-          //   tags: [],
-          //   category_id: "",
-          //   additives_info: "",
-          //   month_year_of_manufacture_packing_import: "na",
-          //   net_quantity_or_measure_of_commodity_in_pkg: "na",
-          //   ondcOrgavailable_on_cod: "",
-          //   ondcOrgreturn_window: "",
-          //   ondcOrgseller_pickup_return: "",
-          //   ondcOrgtime_to_ship: "",
-          //   ondcOrgcancellable: "",
-          //   ondcOrgreturnable: "",
-          //   manufacturer_or_packer_address: "",
-          //   fulfillment_id: 1,
-          //   nutritional_info: "na",
-          //   other_FSSAI_license_no: "",
-          //   importer_FSSAI_license_no: "",
-          //   brand_owner_FSSAI_license_no: "",
-          //   ondcOrgcontact_details_consumer_care: "",
-          //   common_or_generic_name_of_commodity: "",
-          //   StoreID: authCtx.user.Store[0].StoreID._id,
-          // });
+          resetForm();
         } else {
           setLoad(false);
           authCtx.showAlert({
@@ -235,7 +220,7 @@ export default function Form() {
             secondaryColor: "#F16360",
             symbol: "error",
             title: "Error",
-            text: "Poduct Addition Failed",
+            text: "Product Addition Failed",
           });
         }
       } catch (error) {
@@ -246,13 +231,11 @@ export default function Form() {
           secondaryColor: "#F16360",
           symbol: "error",
           title: "Error",
-          text: "Poduct Addition Failed",
+          text: "Product Addition Failed",
         });
       }
     } else {
       setLoad(false);
-      console.log(data);
-
       authCtx.showAlert({
         mainColor: "#FFC0CB",
         secondaryColor: "#FF69B4",
@@ -261,6 +244,42 @@ export default function Form() {
         text: "Please Fill All The Details",
       });
     }
+  };
+
+  const resetForm = () => {
+    setData({
+      name: "",
+      images: [],
+      long_desc: "",
+      short_desc: "",
+      variants: [],
+      isParent: false,
+      Discounts: "",
+      brand_name: "",
+      maximumCount: 0,
+      maximum_value: 0,
+      manufacturer_or_packer_name: "",
+      tags: [],
+      category_id: "",
+      additives_info: "",
+      month_year_of_manufacture_packing_import: "na",
+      net_quantity_or_measure_of_commodity_in_pkg: "na",
+      ondcOrgavailable_on_cod: "",
+      ondcOrgreturn_window: "",
+      ondcOrgseller_pickup_return: "",
+      ondcOrgtime_to_ship: "",
+      ondcOrgcancellable: "",
+      ondcOrgreturnable: "",
+      manufacturer_or_packer_address: "",
+      fulfillment_id: 1,
+      nutritional_info: "na",
+      other_FSSAI_license_no: "",
+      importer_FSSAI_license_no: "",
+      brand_owner_FSSAI_license_no: "",
+      ondcOrgcontact_details_consumer_care: "",
+      common_or_generic_name_of_commodity: "",
+      StoreID: authCtx.user.Store[0].StoreID._id,
+    });
   };
 
   const handleClick = () => {
@@ -334,12 +353,55 @@ export default function Form() {
       {data.variants && Array.isArray(data.variants) && data.variants.length > 0
         ? data.variants.map((variant, index) => (
             <div key={index}>
+              <div className="variant-header">
+                {/* Variant Title */}
+                <h3>
+                  Variant {index + 1}{" "}
+                  {data.selectedParent === index && "(parent)"}
+                </h3>
+
+                {/* Checkbox for selecting the parent */}
+                {data.isParent && (
+                  <>
+                    <input
+                      type="checkbox"
+                      checked={data.selectedParent === index}
+                      onChange={(e) => {
+                        if (e.target.checked) {
+                          setData((prevState) => ({
+                            ...prevState,
+                            selectedParent: index, // Mark this variant as the parent
+                            variants: prevState.variants.map((variant, i) => ({
+                              ...variant,
+                              isParent: i === index, // Only mark this variant as parent
+                            })),
+                          }));
+                        } else {
+                          setData((prevState) => ({
+                            ...prevState,
+                            selectedParent: null, // Unselect parent
+                            variants: prevState.variants.map((variant) => ({
+                              ...variant,
+                              isParent: false, // Reset all isParent flags
+                            })),
+                          }));
+                        }
+                      }}
+                    />
+                    <label className={ItCss.parentTxt}>Mark as Parent</label>
+                  </>
+                )}
+              </div>
+
               {data.variants[index].hasOwnProperty("gender") ? (
                 <Dropdown
                   fieldName={`Gender of variant ${index + 1}`}
                   name={"gender"}
+                  isParent={variant.isParent}
+                  parentExists={parentExists}
                   options={["men", "women", "kids", "unisex"]}
                   value={data.variants[index]["gender"]}
+                  variantIndex={index}
                   onChange={(name, value) => {
                     const newVariant = [...data.variants];
                     const resetVariant = Object.entries({
@@ -403,6 +465,7 @@ export default function Form() {
               ) : (
                 ""
               )}
+
               {data.variants[index].hasOwnProperty("fabric") ? (
                 <Dropdown
                   fieldName={`Fabric of variant ${index + 1}`}
@@ -418,6 +481,7 @@ export default function Form() {
               ) : (
                 ""
               )}
+
               {data.variants[index].hasOwnProperty("strapMaterial") ? (
                 <Dropdown
                   fieldName={`Strap Material of variant ${index + 1}`}
@@ -433,6 +497,7 @@ export default function Form() {
               ) : (
                 ""
               )}
+
               {data.variants[index].hasOwnProperty("waterResistant") ? (
                 <Dropdown
                   fieldName={`Water Resistant of variant ${index + 1}`}
@@ -448,6 +513,7 @@ export default function Form() {
               ) : (
                 ""
               )}
+
               {data.variants[index].hasOwnProperty("display") ? (
                 <Dropdown
                   fieldName={`Display of variant ${index + 1}`}
@@ -463,6 +529,7 @@ export default function Form() {
               ) : (
                 ""
               )}
+
               {data.variants[index].hasOwnProperty("glassMaterial") ? (
                 <Dropdown
                   fieldName={`Glass Material of variant ${index + 1}`}
@@ -478,6 +545,7 @@ export default function Form() {
               ) : (
                 ""
               )}
+
               {data.variants[index].hasOwnProperty("sportType") ? (
                 <Dropdown
                   fieldName={`Sport Type of variant ${index + 1}`}
@@ -493,6 +561,7 @@ export default function Form() {
               ) : (
                 ""
               )}
+
               {data.variants[index].hasOwnProperty("baseMetal") ? (
                 <Dropdown
                   fieldName={`Base Metal of variant ${index + 1}`}
@@ -508,6 +577,7 @@ export default function Form() {
               ) : (
                 ""
               )}
+
               {data.variants[index].hasOwnProperty("plating") ? (
                 <Dropdown
                   fieldName={`Plating of variant ${index + 1}`}
@@ -523,6 +593,7 @@ export default function Form() {
               ) : (
                 ""
               )}
+
               {data.variants[index].hasOwnProperty("size") ? (
                 <Dropdown
                   fieldName={`Size of variant ${index + 1}`}
