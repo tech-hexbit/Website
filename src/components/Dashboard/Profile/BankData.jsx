@@ -57,10 +57,10 @@ export default function BankData({
       if (response.data.success) {
         setFormData({
           ...formData,
-          AccountHolderName: response.data.response.data.nameAtBank,
-          BankName: response.data.response.data.bankName,
-          Branch: response.data.response.data.branch,
-          City: response.data.response.data.city,
+          AccountHolderName: response.data.response.name_at_bank,
+          BankName: response.data.response.bank_name,
+          Branch: response.data.response.branch,
+          City: response.data.response.city,
         });
 
         setVer(true);
