@@ -16,7 +16,7 @@ import MultipleImageHandler from "../../MultipleImageHandler";
 
 // MicroInteraction
 import Load from "../../../../../MicroInteraction/Load";
-import optionsData from "../Json/optionsData.json"
+import optionsData from "../Json/optionsDataRET13.json"
 // import sizeData from "../Json/size.json"
 
 // axios

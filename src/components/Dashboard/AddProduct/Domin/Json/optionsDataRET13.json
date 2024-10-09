@@ -1,0 +1,642 @@
+{
+    "categories": {
+        "Fragrance": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+        "Bath Soaps and Gels": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+        "Shampoos and Conditioners": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+        "Shaving and Grooming": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+        "Beard Care and Tools": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+
+        "Grooming Tools and Accessories": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+        "Makeup - Nail Care": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+        "Makeup - Eyes": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+        "Makeup - Face": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+        "Makeup - Lips": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+        "Makeup - Body": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+        "Makeup - Remover": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+        "Makeup - Sets and Kits": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+        "Makeup - Tools and Brushes": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+
+        "Makeup - Kits and Combos": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+
+        "Skin Care - Face Cleansers": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+
+        "Skin Care - Hand and Feet": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+
+        "Body Care - Cleansers": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+
+        "Body Care - Moisturizers": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+
+        "Body Care - Loofah and Other Tools": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+
+        "Body Care - Bath Salt and Additives": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+
+        "Hair Care - Shampoo, Oils, Conditioners": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+
+        "Skin Care - Lotions, Moisturisers, and Creams": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+
+        "Skin Care - Oils and Serums": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+
+        "Trimmer": [
+            [
+                "model",
+                "specialFeature",
+                "includes",
+                "weight",
+                "length",
+                "breadth",
+                "height",
+                "battery",
+                "powerInput",
+                "warranty",
+                "wattage",
+                "voltage"
+            ]
+        ],
+
+
+        "Shaver": [
+            [
+                "model",
+                "specialFeature",
+                "includes",
+                "weight",
+                "length",
+                "breadth",
+                "height",
+                "battery",
+                "powerInput",
+                "warranty",
+                "wattage",
+                "voltage"
+            ]
+        ],
+
+
+        "Epilator": [
+            [
+                "model",
+                "specialFeature",
+                "includes",
+                "weight",
+                "length",
+                "breadth",
+                "height",
+                "battery",
+                "powerInput",
+                "warranty",
+                "wattage",
+                "voltage"
+            ]
+        ],
+
+
+        "Hair Straightener": [
+            [
+                "model",
+                "specialFeature",
+                "includes",
+                "weight",
+                "length",
+                "breadth",
+                "height",
+                "battery",
+                "powerInput",
+                "warranty",
+                "wattage",
+                "voltage"
+            ]
+        ],
+
+
+        "Hair Dryer": [
+            [
+                "model",
+                "specialFeature",
+                "includes",
+                "weight",
+                "length",
+                "breadth",
+                "height",
+                "battery",
+                "powerInput",
+                "warranty",
+                "wattage",
+                "voltage"
+            ]
+        ],
+
+
+        "Hair Curler": [
+            [
+                "model",
+                "specialFeature",
+                "includes",
+                "weight",
+                "length",
+                "breadth",
+                "height",
+                "battery",
+                "powerInput",
+                "warranty",
+                "wattage",
+                "voltage"
+            ]
+        ],
+
+
+        "Hair Crimper": [
+            [
+                "model",
+                "specialFeature",
+                "includes",
+                "weight",
+                "length",
+                "breadth",
+                "height",
+                "battery",
+                "powerInput",
+                "warranty",
+                "wattage",
+                "voltage"
+            ]
+        ],
+
+
+        "Bath & Body": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+
+        "Feminine Care": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+
+        "Hair Care": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+
+        "Make Up": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+
+        "Men's Grooming": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+
+        "Oral Care": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+
+        "Skin Care": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+
+        "Maternity Care": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+
+        "Nursing & Feeding": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+
+        "Sexual Wellness & Sensuality": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ],
+
+
+        "Tools & Accessories": [
+            [
+                "colour",
+                "colourName",
+                "gender",
+                "concern",
+                "ingredient",
+                "conscious",
+                "preference",
+                "formulation",
+                "skinType"
+            ]
+        ]
+        
+    }
+}
