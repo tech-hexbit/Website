@@ -535,14 +535,6 @@ export default function OverallSales() {
                               >
                                 {val.state}
                               </td>
-
-                              <UpdateState
-                                state={val.state}
-                                id={val._id}
-                                setLoadDataState={setLoadDataState}
-                                loadDataState={loadDataState}
-                                dataCell="DELIVERY STATUS"
-                              />
                             </tr>
                           );
                         })}
