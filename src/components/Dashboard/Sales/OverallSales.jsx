@@ -519,6 +519,23 @@ export default function OverallSales() {
                                 {val.buyer}
                               </td>
 
+                              <td
+                                style={{
+                                  color:
+                                    val.state == "Created"
+                                      ? "#ff6600"
+                                      : val.state == "Accepted"
+                                      ? "#FEC107"
+                                      : val.state == "In-progress"
+                                      ? "#3F81E0"
+                                      : val.state == "Completed"
+                                      ? "#4bb543"
+                                      : "#D0342C",
+                                }}
+                              >
+                                {val.state}
+                              </td>
+
                               <UpdateState
                                 state={val.state}
                                 id={val._id}
