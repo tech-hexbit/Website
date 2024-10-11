@@ -8,17 +8,42 @@ import TxtArea from "./Input/TxtArea";
 import FCss from "./Css/Form.module.css";
 import PrCss from "./Css/Lable.module.css";
 import ItCss from "./Input/Css/InputType1.module.css";
+import axios from "axios";
 
 export default function ProductCategory({ setData, showData }) {
   const [tags, settags] = useState([]);
   const [tagvalue, settagvalue] = useState("");
 
-  const handleSelectChange = (e) => {
+  const handleSelectChange = async (e) => {
     const name = e.target.name;
-    const value = e.target.value;
-
-    setData({ ...showData, [name]: value });
+    const value = e.target.value; 
+  
+    setData((prevData) => {
+      const newData = { ...prevData, [name]: value };
+      console.log("New state after category_id update:", newData); 
+      return newData;
+    });
+  
+    try {
+      const response = await axios.get(
+        `/api/common/Global/category-attributes?category=${encodeURIComponent(
+          value
+        )}`
+      );
+  
+      console.log("Fetched mandatory attributes:", response.data);
+  
+      // Update the state again to include mandatory attributes
+      setData((prevData) => {
+        const updatedData = { ...prevData, mandatoryAttributes: response.data };
+        console.log("Final state after mandatoryAttributes update:", updatedData);
+        return updatedData;
+      });
+    } catch (error) {
+      console.error("Error fetching mandatory attributes:", error);
+    }
   };
+  
 
   const addtags = (e) => {
     if ((e.keyCode === 13 && tagvalue) || (e.keyCode === 188 && tagvalue)) {
