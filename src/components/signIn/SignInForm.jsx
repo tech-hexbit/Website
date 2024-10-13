@@ -75,6 +75,8 @@ export default function SignInForm() {
             response.data.token,
             10800000
           );
+
+          console.log("target = " + authCtx.target);
         } else {
           setLoad(false);
           if (response.data?.code === 1) {
