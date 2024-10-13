@@ -223,11 +223,23 @@ export default function OrderLayUpdate(props) {
                   <option value="" selected hidden>
                     Select the Updated Status
                   </option>
-                  <option value="Pending">Pending</option>
-                  <option value="Packed">Packed</option>
-                  <option value="Order-picked-up">Picked</option>
-                  <option value="Out-for-delivery">Out for delivery</option>
-                  <option value="Order-delivered">Delivered</option>
+
+                  {res.stateDescriptor &&
+                  res.stateDescriptor.startsWith("RTO") ? (
+                    <>
+                      <option value="RTO-Initiated">RTO Initiated</option>
+                      <option value="RTO-Disposed">RTO Disposed</option>
+                      <option value="RTO-Delivered">RTO Delivered</option>
+                    </>
+                  ) : (
+                    <>
+                      <option value="Pending">Pending</option>
+                      <option value="Packed">Packed</option>
+                      <option value="Order-picked-up">Picked</option>
+                      <option value="Out-for-delivery">Out for delivery</option>
+                      <option value="Order-delivered">Delivered</option>
+                    </>
+                  )}
                 </select>
               </div>
             </div>
