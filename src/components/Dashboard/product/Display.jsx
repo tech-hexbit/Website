@@ -176,7 +176,8 @@ export default function Display({
                                       {val.descriptor.name}
                                     </div>
                                     <div className={DCss.textBottom}>
-                                      Category : {val.category_id}
+                                      {/* Category : {val.category_id} */}
+                                      Domain: {val.domain}
                                     </div>
                                   </div>
                                 </div>
@@ -245,6 +246,14 @@ export default function Display({
                                       </p>
                                       <p className={cardDisplay.cardTextSecond}>
                                         {val.descriptor.name}
+                                      </p> 
+                                    </div>
+                                    <div className={cardDisplay.cardcontent}>
+                                      <p className={cardDisplay.cardText}>
+                                        Domain:
+                                      </p> 
+                                      <p className={cardDisplay.cardTextSecond}>
+                                        {val.domain}
                                       </p>
                                     </div>
                                     <div className={cardDisplay.cardcontent}>
