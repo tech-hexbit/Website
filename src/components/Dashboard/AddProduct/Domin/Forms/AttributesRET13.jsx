@@ -5,9 +5,14 @@ import PrCss from "../Css/Lable.module.css";
 import ItCss from "../Input/Css/InputType1.module.css";
 import Dropdown from "./Dropdown";
 import optionsData from "../Json/optionsDataRET13.json";
-import sizeData from "../Json/size.json";
 import AuthContext from "../../../../../store/auth-context";
-// import UrlInput from "./UrlInput"
+import ntc from "ntcjs";  // Import ntc.js
+
+// Utility function to convert hex code to color name using ntc.js
+const getColorName = (hex) => {
+  const colorMatch = ntc.name(hex);
+  return colorMatch && colorMatch[1] ? colorMatch[1] : "Unknown"; // Return a default value if not found
+};
 
 const AttributesRET13 = ({ setData, showData }) => {
   const [attribute, setAttribute] = useState({
@@ -19,12 +24,11 @@ const AttributesRET13 = ({ setData, showData }) => {
     preference: "",
     formulation: "",
     skinType: "",
-    colourName: " ",
+    colourName: "",
   });
 
   const authCtx = useContext(AuthContext);
 
-  // const [addedFields, setAddedField] = useState([]);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setAttribute((prevAttribute) => ({
@@ -34,10 +38,31 @@ const AttributesRET13 = ({ setData, showData }) => {
   };
 
   const handleSelectChange = (name, value) => {
-    setAttribute({ ...attribute, [name]: value });
+    setAttribute((prevAttribute) => ({
+      ...prevAttribute,
+      [name]: value,
+    }));
+  };
+
+  const handleColourChange = (e) => {
+    const hexValue = e.target.value;
+
+    // Validate hex color format
+    const isValidHex = /^#([0-9A-F]{3}|[0-9A-F]{6})$/i.test(hexValue);
+    if (isValidHex) {
+      const colorName = getColorName(hexValue);
+      setAttribute((prevAttribute) => ({
+        ...prevAttribute,
+        colour: hexValue,
+        colourName: colorName,
+      }));
+    } else {
+      console.error("Invalid color format: ", hexValue);
+    }
   };
 
   const handleSubmit = () => {
+    // Check if data is ready
     if (
       showData.category_id &&
       optionsData &&
@@ -45,18 +70,9 @@ const AttributesRET13 = ({ setData, showData }) => {
       Array.isArray(optionsData.categories[showData.category_id]) &&
       optionsData.categories[showData.category_id][0]
     ) {
-      if (!showData.isParent && showData["variants"].length > 0) {
-        authCtx.showAlert({
-          mainColor: "#FDEDED",
-          secondaryColor: "#F16360",
-          symbol: "error",
-          title: "Error",
-          text: "Cannot add variant w/o parent",
-        });
-        return;
-      }
       let allFieldsValid = true;
-
+  
+      // Validate if all required fields are filled
       Object.keys(optionsData.categories[showData.category_id][0]).forEach(
         (key) => {
           const fieldKey = optionsData.categories[showData.category_id][0][key];
@@ -69,11 +85,11 @@ const AttributesRET13 = ({ setData, showData }) => {
               text: "Add " + fieldKey,
             });
             allFieldsValid = false;
-            return; // Exit the forEach loop early
+            return;
           }
         }
       );
-
+  
       if (allFieldsValid) {
         const filtered = Object.keys(attribute)
           .filter((key) => attribute[key] !== "")
@@ -81,31 +97,52 @@ const AttributesRET13 = ({ setData, showData }) => {
             obj[key] = attribute[key];
             return obj;
           }, {});
-
-        const updatedVariants = [...showData.variants, { ...filtered }];
-
-        setData({
-          ...showData,
-          variants: updatedVariants,
-        });
-
-        authCtx.showAlert({
-          mainColor: "#EDFEEE",
-          secondaryColor: "#5CB660",
-          symbol: "check_circle",
-          title: "Success",
-          text: "Confirmed",
-        });
+  
+        // Update the variants array
+        const updatedVariants = showData.variants ? [...showData.variants, filtered] : [filtered];
+  
+        // Check if this is the first submit (i.e., no parent yet)
+        if (!showData.isParent) {
+          setData({
+            ...showData,
+            variants: updatedVariants,
+            isParent: true, // Mark as parent after the first submit
+          });
+  
+          authCtx.showAlert({
+            mainColor: "#EDFEEE",
+            secondaryColor: "#5CB660",
+            symbol: "check_circle",
+            title: "Success",
+            text: "Variant Added. Add another variant or proceed.",
+          });
+        } else {
+          // This is for adding further variants
+          setData({
+            ...showData,
+            variants: updatedVariants,
+          });
+  
+          authCtx.showAlert({
+            mainColor: "#EDFEEE",
+            secondaryColor: "#5CB660",
+            symbol: "check_circle",
+            title: "Success",
+            text: "Variant Added.",
+          });
+        }
+  
+        // Reset form fields after submission
         setAttribute({
-            gender: "",
-            colour: "",
-            concern: "",
-            ingredient: "",
-            conscious: "",
-            preference: "",
-            formulation: "",
-            skinType: "",
-            colourName: " ",
+          gender: "",
+          colour: "",
+          concern: "",
+          ingredient: "",
+          conscious: "",
+          preference: "",
+          formulation: "",
+          skinType: "",
+          colourName: "",
         });
       }
     }
@@ -138,21 +175,18 @@ const AttributesRET13 = ({ setData, showData }) => {
 
       {showData.category_id &&
       optionsData.categories[showData.category_id][0].includes("colour") ? (
-        <>
-          <div className={ItCss.inpDiv}>
-            <p className={ItCss.inputLabel}>Colour</p>
-            <input
-              type="color"
-              name="colour"
-              value={attribute.colour}
-              onChange={handleInputChange}
-            />
-            {/* <br /> */}
-            <span style={{ marginTop: "0.75rem" }}>
-              Selected Color :: <b>{attribute.colour}</b>
-            </span>
-          </div>
-        </>
+        <div className={ItCss.inpDiv}>
+          <p className={ItCss.inputLabel}>Colour</p>
+          <input
+            type="color"
+            name="colour"
+            value={attribute.colour}
+            onChange={handleColourChange} // Changed handler
+          />
+          <span style={{ marginTop: "0.75rem" }}>
+            Selected Color :: <b>{attribute.colourName}</b> {/* Display color name */}
+          </span>
+        </div>
       ) : (
         ""
       )}
@@ -162,7 +196,6 @@ const AttributesRET13 = ({ setData, showData }) => {
         <div className={ItCss.inpDiv}>
           <p className={ItCss.inputLabel}>Concern</p>
           <input
-            // type="url"
             name="concern"
             value={attribute.concern}
             placeholder={"Enter Concern"}
@@ -173,12 +206,11 @@ const AttributesRET13 = ({ setData, showData }) => {
         ""
       )}
 
-    {showData.category_id &&
+      {showData.category_id &&
       optionsData.categories[showData.category_id][0].includes("ingredient") ? (
         <div className={ItCss.inpDiv}>
           <p className={ItCss.inputLabel}>Ingredient</p>
           <input
-            // type="url"
             name="ingredient"
             value={attribute.ingredient}
             placeholder={"Enter Ingredients"}
@@ -189,12 +221,11 @@ const AttributesRET13 = ({ setData, showData }) => {
         ""
       )}
 
-{showData.category_id &&
+      {showData.category_id &&
       optionsData.categories[showData.category_id][0].includes("conscious") ? (
         <div className={ItCss.inpDiv}>
           <p className={ItCss.inputLabel}>Conscious</p>
           <input
-            // type="url"
             name="conscious"
             value={attribute.conscious}
             placeholder={"Enter Conscious"}
@@ -205,12 +236,11 @@ const AttributesRET13 = ({ setData, showData }) => {
         ""
       )}
 
-{showData.category_id &&
+      {showData.category_id &&
       optionsData.categories[showData.category_id][0].includes("preference") ? (
         <div className={ItCss.inpDiv}>
           <p className={ItCss.inputLabel}>Preference</p>
           <input
-            // type="url"
             name="preference"
             value={attribute.preference}
             placeholder={"Enter Preference"}
@@ -221,12 +251,11 @@ const AttributesRET13 = ({ setData, showData }) => {
         ""
       )}
 
-{showData.category_id &&
+      {showData.category_id &&
       optionsData.categories[showData.category_id][0].includes("formulation") ? (
         <div className={ItCss.inpDiv}>
           <p className={ItCss.inputLabel}>Formulation</p>
           <input
-            // type="url"
             name="formulation"
             value={attribute.formulation}
             placeholder={"Enter Formulation"}
@@ -237,12 +266,11 @@ const AttributesRET13 = ({ setData, showData }) => {
         ""
       )}
 
-{showData.category_id &&
+      {showData.category_id &&
       optionsData.categories[showData.category_id][0].includes("skinType") ? (
         <div className={ItCss.inpDiv}>
           <p className={ItCss.inputLabel}>Skin Type</p>
           <input
-            // type="url"
             name="skinType"
             value={attribute.skinType}
             placeholder={"Skin Type"}
@@ -252,9 +280,6 @@ const AttributesRET13 = ({ setData, showData }) => {
       ) : (
         ""
       )}
-
-
-     
 
       {showData.category_id &&
       optionsData.categories &&

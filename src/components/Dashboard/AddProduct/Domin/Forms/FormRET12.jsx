@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-prototype-builtins */
 import { useState, useContext, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 
@@ -358,7 +360,7 @@ export default function Form() {
       </div>
 
       {/* Is Parent  */}
-      <p className={ItCss.inpCheckbox}>
+      {/* <p className={ItCss.inpCheckbox}>
         Parent Item?
         <input
           type="checkbox"
@@ -367,7 +369,7 @@ export default function Form() {
           // onChange={handleCheckBox}
           style={{ width: "16px", height: "16px", cursor: "pointer" }}
         />
-      </p>
+      </p> */}
 
       <Attributes showData={data} setData={setData} />
 
@@ -377,49 +379,51 @@ export default function Form() {
               <div className="variant-header">
                 {/* Variant Title */}
                 <h3>
-                  Variant {index + 1}{" "}
-                  {data.selectedParent === index && "(parent)"}
+                  Variant {index + 1}
+                  {/* {" "}
+                  {data.selectedParent === index && "(parent)"} */}
                 </h3>
 
                 {/* Checkbox for selecting the parent */}
-                {data.isParent && (
-                  <>
-                    <input
-                      type="checkbox"
-                      checked={data.selectedParent === index}
-                      onChange={(e) => {
-                        if (e.target.checked) {
-                          setData((prevState) => ({
-                            ...prevState,
-                            selectedParent: index, // Mark this variant as the parent
-                            variants: prevState.variants.map((variant, i) => ({
-                              ...variant,
-                              isParent: i === index, // Only mark this variant as parent
-                            })),
-                          }));
-                        } else {
-                          setData((prevState) => ({
-                            ...prevState,
-                            selectedParent: null, // Unselect parent
-                            variants: prevState.variants.map((variant) => ({
-                              ...variant,
-                              isParent: false, // Reset all isParent flags
-                            })),
-                          }));
-                        }
-                      }}
-                    />
-                    <label className={ItCss.parentTxt}>Mark as Parent</label>
-                  </>
-                )}
+                {!data.isParent && (
+  <>
+    <input
+      type="checkbox"
+      checked={data.selectedParent === index}
+      onChange={(e) => {
+        if (e.target.checked) {
+          setData((prevState) => ({
+            ...prevState,
+            selectedParent: index,
+            variants: prevState.variants.map((variant, i) => ({
+              ...variant,
+              isParent: i === index,
+            })),
+          }));
+        } else {
+          setData((prevState) => ({
+            ...prevState,
+            selectedParent: null,
+            variants: prevState.variants.map((variant) => ({
+              ...variant,
+              isParent: false,
+            })),
+          }));
+        }
+      }}
+    />
+    <label className={ItCss.parentTxt}>Mark as Parent</label>
+  </>
+)}
+
               </div>
 
               {data.variants[index].hasOwnProperty("gender") ? (
                 <Dropdown
                   fieldName={`Gender of variant ${index + 1}`}
                   name={"gender"}
-                  isParent={variant.isParent}
-                  parentExists={parentExists}
+                  // isParent={variant.isParent}
+                  // parentExists={parentExists}
                   options={["men", "women", "kids", "unisex"]}
                   value={data.variants[index]["gender"]}
                   variantIndex={index}
@@ -427,6 +431,7 @@ export default function Form() {
                     const newVariant = [...data.variants];
                     const resetVariant = Object.entries({
                       ...newVariant[index],
+                    // eslint-disable-next-line no-unused-vars
                     }).reduce((acc, [key, val]) => {
                       acc[key] = key === "gender" ? value : "";
                       return acc;

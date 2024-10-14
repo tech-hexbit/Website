@@ -45,12 +45,16 @@ export default function ProductCategory({ setData, showData }) {
   }, [tagvalue]);
 
   useEffect(() => {
-    setData({
-      ...showData,
-      tags,
-    });
+    // Avoid unnecessary updates if tags are unchanged
+    if (JSON.stringify(tags) !== JSON.stringify(showData.tags)) {
+      setData({
+        ...showData,
+        tags,
+      });
+    }
     console.log(tags);
-  }, [tags]);
+  }, [tags]); // Still needs to react to changes in tags
+  
 
   return (
     <>
@@ -110,5 +114,5 @@ export default function ProductCategory({ setData, showData }) {
 
 ProductCategory.propTypes = {
   showData: PropTypes.object.isRequired,
-  placeholder: PropTypes.string.isRequired,
+  setData: PropTypes.func.isRequired,
 };

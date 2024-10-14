@@ -79,12 +79,12 @@ export default function Form() {
 
   const onSubmit = async () => {
     setLoad(true);
-
+  
     console.log(multipleImageUpload);
-
+  
+    // Check if an image has been selected
     if (!imageUpload) {
       setLoad(false);
-
       authCtx.showAlert({
         mainColor: "#FDEDED",
         secondaryColor: "#F16360",
@@ -94,31 +94,55 @@ export default function Form() {
       });
       return;
     }
-
-    // Handle the single product case and update isParent if necessary
+  
+    // Handle the case where there's only one variant and update `isParent`
     if (data.variants.length === 1 && !data.isParent) {
-      console.log("inside single product");
+      console.log("Inside single product submission");
+  
       const updatedVariant = { ...data.variants[0], isParent: true };
       const updatedData = {
         ...data,
         variants: [updatedVariant],
         isParent: true,
       };
-      setData(updatedData); // Update the state with isParent as true
-
-      // Proceed to submit with the updated data
+  
+      // Submit the updated data
       await submitProduct(updatedData);
-    } else {
-      // Directly submit if there's no need to update isParent
-      console.log("direct submit");
-      await submitProduct(data);
+  
+      // Update the state afterward
+      setData(updatedData);
+      setLoad(false); // Set loading state to false after submission
+      return; // Exit the function after successful submission
     }
+  
+    // Check if no variant is marked as `isParent` for multiple variants
+    const hasParent = data.variants.some((variant) => variant.isParent);
+  
+    if (!hasParent) {
+      setLoad(false); // Stop loading if there's an error
+      authCtx.showAlert({
+        mainColor: "#FDEDED",
+        secondaryColor: "#F16360",
+        symbol: "error",
+        title: "Error",
+        text: "Please select a parent product",
+      });
+      return; // Stop the submission process if no parent is selected
+    }
+  
+    // Submit the product data as is if no changes are needed to `isParent`
+    console.log("Direct submit");
+    await submitProduct(data);
+  
+    // Set loading state to false after submission
+    setLoad(false);
   };
+  
 
   const submitProduct = async (dataToSubmit) => {
     const {
       Discounts,
-      finalPrice,
+      // finalPrice,
       StoreID,
       additives_info,
       brand_name,
@@ -281,7 +305,7 @@ export default function Form() {
       variants: [],
       isParent: false,
       Discounts: "",
-      finalPrice:"",
+      // finalPrice:"",
       brand_name: "",
       maximumCount: 0,
       maximum_value: 0,
@@ -324,20 +348,31 @@ export default function Form() {
     setData({ ...data, [name]: value });
   };
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
+  // useEffect(() => {
+  //   console.log(data);
+  // }, [data]);
 
   useEffect(() => {
-    setData({ ...data, ["variants"]: [] });
-  }, [data.category_id]);
-
-  useEffect(() => {
-    if (data.isParent === false && data.variants.length > 1) {
-      const updatedVariants = data.variants[0];
-      setData({ ...data, ["variants"]: [updatedVariants] });
+    if (data.category_id) {
+      setData(prevData => {
+        if (prevData.variants.length !== 0) {
+          return { ...prevData, variants: [] }; // Only reset if necessary
+        }
+        return prevData; // No change
+      });
     }
-  }, [data.isParent]);
+  }, [data.category_id]);
+  
+  useEffect(() => {
+    if (!data.isParent && data.variants.length > 1) {
+      setData(prevData => {
+        if (prevData.variants.length > 1) {
+          return { ...prevData, variants: [prevData.variants[0]], isParent: true };
+        }
+        return prevData; // No change
+      });
+    }
+  }, [data.isParent, data.variants.length]);
 
   return (
     <>
@@ -364,7 +399,7 @@ export default function Form() {
       </div>
 
       {/* Is Parent  */}
-      <p className={ItCss.inpCheckbox}>
+      {/* <p className={ItCss.inpCheckbox}>
         Parent Item?
         <input
           type="checkbox"
@@ -373,7 +408,7 @@ export default function Form() {
           // onChange={handleCheckBox}
           style={{ width: "16px", height: "16px", cursor: "pointer" }}
         />
-      </p>
+      </p> */}
 
       <Attributes showData={data} setData={setData} />
 
@@ -383,8 +418,9 @@ export default function Form() {
               <div className="variant-header">
                 {/* Variant Title */}
                 <h3>
-                  Variant {index + 1}{" "}
-                  {data.selectedParent === index && "(parent)"}
+                  Variant {index + 1}
+                  {/* {" "} */}
+                  {/* {data.selectedParent === index && "(parent)"} */}
                 </h3>
 
                 {/* Checkbox for selecting the parent */}
@@ -397,19 +433,19 @@ export default function Form() {
                         if (e.target.checked) {
                           setData((prevState) => ({
                             ...prevState,
-                            selectedParent: index, // Mark this variant as the parent
+                            selectedParent: index,
                             variants: prevState.variants.map((variant, i) => ({
                               ...variant,
-                              isParent: i === index, // Only mark this variant as parent
+                              isParent: i === index,
                             })),
                           }));
                         } else {
                           setData((prevState) => ({
                             ...prevState,
-                            selectedParent: null, // Unselect parent
+                            selectedParent: null,
                             variants: prevState.variants.map((variant) => ({
                               ...variant,
-                              isParent: false, // Reset all isParent flags
+                              isParent: false,
                             })),
                           }));
                         }
@@ -424,8 +460,8 @@ export default function Form() {
                 <Dropdown
                   fieldName={`Gender of variant ${index + 1}`}
                   name={"gender"}
-                  isParent={variant.isParent}
-                  parentExists={parentExists}
+                  // isParent={variant.isParent}
+                  // parentExists={parentExists}
                   options={["men", "women", "kids", "unisex"]}
                   value={data.variants[index]["gender"]}
                   variantIndex={index}

@@ -18,21 +18,22 @@ export default function GeneralInfo({ setData, showData }) {
 
   // Effect hook to calculate the final price whenever MRP or Discount changes
   useEffect(() => {
+    // console.log("Calculating final price...");
+    // console.log("MRP:", showData["maximum_value"], "Discount:", showData["Discounts"]);
+    
     const mrp = showData["maximum_value"] || 0;
     const discount = showData["Discounts"] || 0;
-
-    // Calculate the final price based on MRP and Discount
+  
     const calculatedFinalPrice = calculateFinalPrice(mrp, discount);
-
-    // Set the calculated final price in the state
+    // console.log("Final Price:", calculatedFinalPrice);
+  
     setFinalPrice(calculatedFinalPrice);
-
-    // Update the data with the finalPrice and other fields
-    setData({
-      ...showData,
+    
+    setData(prevData => ({
+      ...prevData,
       finalPrice: calculatedFinalPrice,
-    });
-  }, [showData["maximum_value"], showData["Discounts"], setData, showData]);
+    }));
+  }, [showData["maximum_value"], showData["Discounts"]]);
 
   return (
     <>
