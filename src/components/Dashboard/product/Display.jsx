@@ -176,8 +176,7 @@ export default function Display({
                                       {val.descriptor.name}
                                     </div>
                                     <div className={DCss.textBottom}>
-                                      {/* Category : {val.category_id} */}
-                                      Domain: {val.domain}
+                                    Domain: {val.domain}
                                     </div>
                                   </div>
                                 </div>
@@ -246,14 +245,6 @@ export default function Display({
                                       </p>
                                       <p className={cardDisplay.cardTextSecond}>
                                         {val.descriptor.name}
-                                      </p> 
-                                    </div>
-                                    <div className={cardDisplay.cardcontent}>
-                                      <p className={cardDisplay.cardText}>
-                                        Domain:
-                                      </p> 
-                                      <p className={cardDisplay.cardTextSecond}>
-                                        {val.domain}
                                       </p>
                                     </div>
                                     <div className={cardDisplay.cardcontent}>
@@ -313,15 +304,62 @@ export default function Display({
               {/* Show Label */}
               <p className={DCss.showingPTag}>
                 Showing{" "}
-                <b>
-                  {filteredlist.productList.length}{" "}
-                  {/* Total items displayed */}
-                </b>{" "}
-                of <b>{filteredlist.prodcutsCount}</b> results{" "}
-                {/* Total available items */}
+                {filteredlist.prodcutsCount <= 10 ? (
+                  <b>{10 * (currentPage - 1) + filteredlist.prodcutsCount} </b>
+                ) : (
+                  <b>10</b>
+                )}{" "}
+                of <b>{filteredlist.prodcutsCount}</b> results
               </p>
             </div>
           )}
+        </div>
+
+        {/* Pagination */}
+        <div className={DCss.cenDiv}>
+          <button
+            onClick={() => setCurrentPage(currentPage - 1)}
+            disabled={currentPage === 1}
+            className={DCss.btnnb}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-chevrons-left"
+            >
+              <path d="m11 17-5-5 5-5" />
+              <path d="m18 17-5-5 5-5" />
+            </svg>
+          </button>
+          <span>{currentPage}</span>
+          <button
+            onClick={() => setCurrentPage(currentPage + 1)}
+            disabled={max}
+            className={DCss.btnnb}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-chevrons-right"
+            >
+              <path d="m6 17 5-5-5-5" />
+              <path d="m13 17 5-5-5-5" />
+            </svg>
+          </button>
         </div>
       </div>
     </>

@@ -1,10 +1,18 @@
 import React, { useState, useEffect, useContext } from "react";
+
+// axios
 import axios from "axios";
+
+// state
 import AuthContext from "./../../store/auth-context";
+
+// components
 import Filter from "./product/Filter";
 import Display from "./product/Display";
 import Archive from "./product/Archive";
-import pdtCSS from "./Css/products.module.css"; // Import the CSS file
+
+// css
+import pdtCSS from "./Css/products.module.css";
 
 export default function Products() {
   const [load, setLoad] = useState(false);
@@ -19,13 +27,12 @@ export default function Products() {
     productList: [],
     prodcutsCount: 0,
   });
-  const [loadingMore, setLoadingMore] = useState(false); // State to manage loading more items
 
   const authCtx = useContext(AuthContext);
 
-  // Function to load data
   const loadData = async () => {
-    setLoadingMore(true); // Show loader while fetching the data for next page
+    setLoad(true);
+
     try {
       const response = await axios.post(
         `/api/common/product/all/false?page=${currentPage}`,
@@ -36,43 +43,39 @@ export default function Products() {
       );
 
       if (response.data.success) {
-        setfilteredlist((prev) => ({
-          ...prev,
-          productList: [...prev.productList, ...response.data.orderList], // Keep previous products
-          prodcutsCount: response.data.prodcutsCount,
-        }));
+        // Logging to ensure the 'domain' field is present in response
+        console.log(response.data);
 
-        response.data.orderList.forEach((order) => {
+        setfilteredlist({
+          ...filteredlist,
+          productList: response.data.orderList.map((order) => ({
+            ...order,
+            domain: order.domain || "Unknown Domain", // Adding domain or default value
+          })),
+          prodcutsCount: response.data.prodcutsCount,
+        });
+
+        response?.data?.orderList?.forEach((order) => {
           setallcategory((prevState) => [...prevState, order.category_id]);
         });
+
+        setLoad(false);
+      } else {
+        setLoad(false);
       }
     } catch (e) {
-      console.log(e);
-    } finally {
-      setLoadingMore(false); // Hide loader once fetching is done
+      setLoad(false);
+      console.log("Error fetching data:", e);
     }
   };
 
   useEffect(() => {
     loadData();
-  }, [currentPage, archive]);
+  }, [archive]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (
-        window.innerHeight + window.scrollY >= document.body.offsetHeight - 200 &&
-        !load &&
-        !loadingMore // Check if not already loading
-      ) {
-        setCurrentPage((prevPage) => prevPage + 1);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [load, loadingMore]);
+    loadData();
+  }, [filterData, currentPage]);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -95,22 +98,18 @@ export default function Products() {
                 setfilteredlist={setfilteredlist}
               />
             </div>
+            {/* Passing domain as part of product data to Display */}
             <Display
               load={load}
+              loadData={loadData}
               filterData={filterData}
               currentPage={currentPage}
               allcategory={allcategory}
               filteredlist={filteredlist}
               setfilterData={setfilterData}
+              setCurrentPage={setCurrentPage}
               setfilteredlist={setfilteredlist}
             />
-
-            {/* Default loader */}
-            {loadingMore && (
-              <div className={pdtCSS.loader}>
-                Loading...
-              </div>
-            )}
           </div>
 
           <div className={pdtCSS.archiveIcon}>
