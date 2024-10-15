@@ -5,8 +5,8 @@ import PropTypes from "prop-types";
 import Dropdown from "./Dropdown";
 
 // data
-import sizeData from "../Json/size.json";
 import optionsData from "../Json/optionsData.json";
+import sizeData from "../Json/size.json";
 
 // state
 import AuthContext from "../../../../../store/auth-context";
@@ -91,14 +91,11 @@ const Attributes = ({ setData, showData }) => {
             obj[key] = attribute[key];
             return obj;
           }, {});
-
-        const updatedVariants = [...showData.variants, { ...filtered }];
-
+        // console.log(filtered);
         setData({
           ...showData,
-          variants: updatedVariants,
+          ["variants"]: [...showData.variants, filtered],
         });
-
         authCtx.showAlert({
           mainColor: "#EDFEEE",
           secondaryColor: "#5CB660",
