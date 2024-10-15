@@ -6,8 +6,19 @@ import Dropdown from "./Dropdown";
 import optionsData from "../Json/optionsData.json";
 import sizeData from "../Json/size.json";
 import AuthContext from "../../../../../store/auth-context";
-import ntc from "ntcjs"; // Importing ntcjs
+// import ntc from "ntcjs";
 // import UrlInput from "./UrlInput"
+
+const getColorName = async (hex) => {
+  try {
+    const response = await fetch(`https://www.thecolorapi.com/id?hex=${hex.slice(1)}`);
+    const data = await response.json();
+    return data.name.value || "Unknown"; // Return color name from API response
+  } catch (error) {
+    console.error("Error fetching color name: ", error);
+    return "Unknown"; // Fallback in case of an error
+  }
+};
 
 const Attributes = ({ setData, showData }) => {
   const [attribute, setAttribute] = useState({
@@ -29,16 +40,16 @@ const Attributes = ({ setData, showData }) => {
   const authCtx = useContext(AuthContext);
 
   // const [addedFields, setAddedField] = useState([]);
-  const handleInputChange = (e) => {
+  const handleInputChange = async (e) => {
     const { name, value } = e.target;
-
-    // If color changes, also set the colourName using ntcjs
+  
+    // If color changes, fetch the color name using The Color API
     if (name === "colour") {
-      const colorName = ntc.name(value); // get color name from ntcjs
+      const colorName = await getColorName(value); // Fetch color name asynchronously
       setAttribute((prevAttribute) => ({
         ...prevAttribute,
         [name]: value,
-        colourName: colorName[1], // set colourName when color is chosen
+        colourName: colorName, // Set the color name returned from the API
       }));
     } else {
       setAttribute((prevAttribute) => ({
@@ -47,6 +58,7 @@ const Attributes = ({ setData, showData }) => {
       }));
     }
   };
+  
 
   const handleSelectChange = (name, value) => {
     setAttribute({ ...attribute, [name]: value });

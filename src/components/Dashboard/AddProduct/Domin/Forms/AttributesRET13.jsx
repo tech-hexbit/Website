@@ -6,12 +6,21 @@ import ItCss from "../Input/Css/InputType1.module.css";
 import Dropdown from "./Dropdown";
 import optionsData from "../Json/optionsDataRET13.json";
 import AuthContext from "../../../../../store/auth-context";
-import ntc from "ntcjs";  // Import ntc.js
+// import colorNames from 'color-name-list';
 
 // Utility function to convert hex code to color name using ntc.js
-const getColorName = (hex) => {
-  const colorMatch = ntc.name(hex);
-  return colorMatch && colorMatch[1] ? colorMatch[1] : "Unknown"; // Return a default value if not found
+const getColorName = async (hex) => {
+  try {
+    // Fetch the color details from the Color API
+    const response = await fetch(`https://www.thecolorapi.com/id?hex=${hex.slice(1)}`);
+    const data = await response.json();
+
+    // Return the color name
+    return data.name.value || 'Unknown';
+  } catch (error) {
+    console.error("Error fetching color name: ", error);
+    return 'Unknown';
+  }
 };
 
 const AttributesRET13 = ({ setData, showData }) => {
@@ -44,13 +53,13 @@ const AttributesRET13 = ({ setData, showData }) => {
     }));
   };
 
-  const handleColourChange = (e) => {
+  const handleColourChange = async (e) => {
     const hexValue = e.target.value;
-
+  
     // Validate hex color format
     const isValidHex = /^#([0-9A-F]{3}|[0-9A-F]{6})$/i.test(hexValue);
     if (isValidHex) {
-      const colorName = getColorName(hexValue);
+      const colorName = await getColorName(hexValue);
       setAttribute((prevAttribute) => ({
         ...prevAttribute,
         colour: hexValue,
@@ -60,6 +69,7 @@ const AttributesRET13 = ({ setData, showData }) => {
       console.error("Invalid color format: ", hexValue);
     }
   };
+  
 
   const handleSubmit = () => {
     // Check if data is ready
