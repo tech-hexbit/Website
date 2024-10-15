@@ -1,12 +1,19 @@
 import { useState, useContext } from "react";
 import PropTypes from "prop-types";
+
+// components
+import Dropdown from "./Dropdown";
+
+// data
+import sizeData from "../Json/size.json";
+import optionsData from "../Json/optionsData.json";
+
+// state
+import AuthContext from "../../../../../store/auth-context";
+
+// css
 import PrCss from "../Css/Lable.module.css";
 import ItCss from "../Input/Css/InputType1.module.css";
-import Dropdown from "./Dropdown";
-import optionsData from "../Json/optionsData.json";
-import sizeData from "../Json/size.json";
-import AuthContext from "../../../../../store/auth-context";
-// import UrlInput from "./UrlInput"
 
 const Attributes = ({ setData, showData }) => {
   const [attribute, setAttribute] = useState({
