@@ -47,6 +47,8 @@ export default function OverallSales() {
 
   const authCtx = useContext(AuthContext);
 
+  
+
   const loadData = async () => {
     setLoad(true);
 
@@ -61,13 +63,17 @@ export default function OverallSales() {
 
       if (response.data.success) {
         setProdcutsCount(response?.data?.length);
-        setOrderDel(response.data.orderList);
-        setOrderDelCopy(response.data.orderList);
+ // Append the new data to the existing data
+        setOrderDel((prevOrders) => [...prevOrders, ...response.data.orderList]);
+        setOrderDelCopy((prevOrdersCopy) => [...prevOrdersCopy, ...response.data.orderList]);
+       
+        // setOrderDel(response.data.orderList);
+        // setOrderDelCopy(response.data.orderList);
 
         response?.data?.orderList?.forEach((order) => {
           setbuyer((prevState) => [...prevState, order.buyer]);
         });
-
+    
         setLoad(false);
       } else {
         setLoad(false);
@@ -177,10 +183,43 @@ export default function OverallSales() {
   useEffect(() => {
     loadData();
   }, [currentPage, loadDataState]);
+  
+// Infinite Scroll Logic
+  const handleScroll = () => {
+  const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
+  
+  // Check if we're close to the bottom of the page
+  if (scrollTop + clientHeight >= scrollHeight - 5 && !load && !max) {
+    setCurrentPage(prevPage => prevPage + 1);
+  }
+};  
+
+useEffect(() => {
+  window.addEventListener('scroll', handleScroll);
+  return () => {
+    window.removeEventListener('scroll', handleScroll);
+  };
+}, []); // Only add the listener once when the component mounts
+
+useEffect(() => {
+  maxPage();
+}, [prodcutsCount, currentPage]); 
+
+useEffect(() => {
+  loadData();
+}, [currentPage, loadDataState]); // Call loadData when currentPage changes
+
+// Load more data when currentPage updates
+useEffect(() => {
+  if (!max) { // Only load data if max isn't reached
+    loadData();
+  }
+}, [currentPage]);
+
 
   useEffect(() => {
     maxPage();
-  }, [prodcutsCount, currentPage]);
+  }, [prodcutsCount, currentPage]); 
 
   useEffect(() => {
     const u = (buyer) => [...new Set(buyer)];
@@ -307,11 +346,7 @@ export default function OverallSales() {
                 className={osCss.tableOSTTag}
                 style={{ borderCollapse: "collapse" }}
               >
-                {load ? (
-                  <div className="loadCenterDiv">
-                    <Load />
-                  </div>
-                ) : (
+
                   <>
                     {orderDel?.length > 0 ? (
                       <>
@@ -534,61 +569,15 @@ export default function OverallSales() {
                       <p className="NoOrders">No Orders</p>
                     )}
                   </>
-                )}
+                
               </table>
 
               <p className={osCss.showingPTag}>
-                Showing <b>{10 * (currentPage - 1) + orderDel?.length} </b>
-                of <b>{prodcutsCount}</b> results
+                Showing <b>{orderDel.length + (currentPage - 1) * 10}</b> of <b>{prodcutsCount}</b> results
               </p>
             </div>
           </div>
 
-          <div className={osCss.cenDiv}>
-            <button
-              onClick={() => setCurrentPage(currentPage - 1)}
-              disabled={currentPage === 1}
-              className={osCss.btnnb}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-chevrons-left"
-              >
-                <path d="m11 17-5-5 5-5" />
-                <path d="m18 17-5-5 5-5" />
-              </svg>
-            </button>
-            <span>{currentPage}</span>
-            <button
-              onClick={() => setCurrentPage(currentPage + 1)}
-              disabled={max}
-              className={osCss.btnnb}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-chevrons-right"
-              >
-                <path d="m6 17 5-5-5-5" />
-                <path d="m13 17 5-5-5-5" />
-              </svg>
-            </button>
-          </div>
         </div>
       )}
     </>

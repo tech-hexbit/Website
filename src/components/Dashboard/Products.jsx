@@ -43,9 +43,15 @@ export default function Products() {
       );
 
       if (response.data.success) {
+        // Logging to ensure the 'domain' field is present in response
+        console.log(response.data);
+
         setfilteredlist({
           ...filteredlist,
-          productList: response.data.orderList,
+          productList: response.data.orderList.map((order) => ({
+            ...order,
+            domain: order.domain || "Unknown Domain", // Adding domain or default value
+          })),
           prodcutsCount: response.data.prodcutsCount,
         });
 
@@ -59,14 +65,13 @@ export default function Products() {
       }
     } catch (e) {
       setLoad(false);
-
-      console.log(e);
+      console.log("Error fetching data:", e);
     }
   };
 
   useEffect(() => {
     loadData();
-  }, [, archive]);
+  }, [archive]);
 
   useEffect(() => {
     loadData();
@@ -93,6 +98,7 @@ export default function Products() {
                 setfilteredlist={setfilteredlist}
               />
             </div>
+            {/* Passing domain as part of product data to Display */}
             <Display
               load={load}
               loadData={loadData}

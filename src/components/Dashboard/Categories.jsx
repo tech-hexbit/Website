@@ -1,136 +1,90 @@
-import React, { useState, useEffect, useContext } from "react";
-
-// components
+import React, { useState, useEffect, useContext, useRef } from "react";
 import Header from "./MainParts/Header";
 import DataMain from "./Categories/DataMain";
-
-// axios
 import axios from "axios";
-
-// state
 import AuthContext from "../../store/auth-context";
-
-// MicroInteraction
-import Load from "./../../MicroInteraction/LoadBlack";
-
-// css
 import Ccss from "./Css/Categories.module.css";
 import DCss from "./product/Css/display.module.css";
-import osCss from "../Dashboard/Sales/Css/overallSales.module.css";
 
 export default function Categories() {
-  const [max, setmax] = useState(false);
-  const [load, setLoad] = useState(false);
   const [showFilter, setFilter] = useState(false);
   const [orderlist, setorderlist] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [prodcutsCount, setProdcutsCount] = useState(0);
-  const [filterData, setfilterData] = useState({
-    category: [],
-  });
+  const [max, setMax] = useState(false);
+  const observerRef = useRef();
 
   const authCtx = useContext(AuthContext);
 
   const loadData = async () => {
-    setLoad(true);
-
     try {
       const response = await axios.post(
         `/api/common/product/all/${showFilter}?page=${currentPage}`,
-        filterData,
+        {
+          category: [],
+        },
         {
           headers: { Authorization: `${authCtx.token}` },
         }
       );
 
       if (response.data.success) {
-        setorderlist(response?.data?.orderList);
-        setProdcutsCount(response?.data?.prodcutsCount);
-
-        setLoad(false);
+        setorderlist((prev) => [...prev, ...response.data.orderList]); // Append new products
+        setProdcutsCount(response.data.prodcutsCount);
       } else {
-        setLoad(false);
-
-        console.log(e);
+        console.error("Error loading data");
       }
     } catch (e) {
-      setLoad(false);
-
-      console.log(e);
+      console.error(e);
     }
   };
 
   const maxPage = () => {
     if (prodcutsCount > 0) {
-      if (currentPage === Math.ceil(prodcutsCount / 10)) {
-        setmax(true);
-      } else {
-        setmax(false);
-      }
+      setMax(currentPage === Math.ceil(prodcutsCount / 10));
     } else {
-      setmax(true);
+      setMax(true);
     }
   };
 
   useEffect(() => {
     loadData();
-  }, [, currentPage, showFilter]);
+  }, [currentPage, showFilter]);
 
   useEffect(() => {
     maxPage();
   }, [prodcutsCount, currentPage]);
 
+  const handleObserver = (entries) => {
+    const target = entries[0];
+    if (target.isIntersecting && !max) {
+      setCurrentPage((prev) => prev + 1); // Increment currentPage when the observer is visible
+    }
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(handleObserver, {
+      rootMargin: "20px",
+    });
+
+    if (observerRef.current) {
+      observer.observe(observerRef.current);
+    }
+
+    return () => {
+      if (observerRef.current) {
+        observer.unobserve(observerRef.current);
+      }
+    };
+  }, [max]);
+
   return (
     <div className={Ccss.mDiv}>
-      {/* Header */}
       <div className={Ccss.headerFlex}>
         <Header name="Inventory" />
         <div className={Ccss.addCsv}>
           <button onClick={() => setFilter(!showFilter)}>
-            {showFilter ? (
-              <>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-filter-x"
-                >
-                  <path d="M13.013 3H2l8 9.46V19l4 2v-8.54l.9-1.055" />
-                  <path d="m22 3-5 5" />
-                  <path d="m17 3 5 5" />
-                </svg>
-
-                <p className={Ccss.hideTxt}>Reset</p>
-              </>
-            ) : (
-              <>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-arrow-down-up"
-                >
-                  <path d="m3 16 4 4 4-4" />
-                  <path d="M7 20V4" />
-                  <path d="m21 8-4-4-4 4" />
-                  <path d="M17 4v16" />
-                </svg>
-
-                <p className={Ccss.hideTxt}>Low Inventory</p>
-              </>
-            )}
+            {showFilter ? "Reset" : "Low Inventory"}
           </button>
         </div>
       </div>
@@ -140,150 +94,42 @@ export default function Categories() {
       <div className={Ccss.middlecontent}>
         <div className={Ccss.middle}></div>
         <div id="wrap" className={Ccss.tableCat}>
-          {load ? (
-            <div className="loadCenterDiv">
-              <Load />
-            </div>
-          ) : (
-            <>
-              <table
-                className={Ccss.tableCatTTag}
-                style={{ borderCollapse: "collapse" }}
-              >
-                {orderlist.length > 0 ? (
-                  <>
-                    <tr>
-                      <th>Name</th>
-                      <th>Price</th>
-                      <th>Available Inventory</th>
-                      <th>Total Orders</th>
-                      <th>Shipping Time</th>
-                      <th>Return Window</th>
-                      <th>Published on</th>
-                    </tr>
-                    {orderlist?.map((val, key) => {
-                      return (
-                        <>
-                          <tr key={key}>
-                            <td data-cell="Name">{val.descriptor.name}</td>
-                            <td data-cell="Price">
-                              ₹ {val.price.value.toFixed(2)}
-                            </td>
-                            <td data-cell="Available Inventory">
-                              {val.quantity.maximum.count}
-                            </td>
-                            <td data-cell="Total Orders">{val.totalSold}</td>
-                            <td data-cell="Shipping Time">
-                              {val["@ondc/org/time_to_ship"]}
-                            </td>
-                            <td data-cell="Return Window">
-                              {val["@ondc/org/return_window"]}
-                            </td>
-                            <td data-cell="Published on">
-                              <div className={Ccss.warnDiv}>
-                                {val.when.date}
-
-                                {val.quantity.maximum.count <= 5 ? (
-                                  <div className={Ccss.svgContainer}>
-                                    <svg
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      width="16"
-                                      height="16"
-                                      viewBox="0 0 24 24"
-                                      fill="none"
-                                      stroke="currentColor"
-                                      strokeWidth="2"
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                      className="lucide lucide-alert-circle"
-                                    >
-                                      <circle cx="12" cy="12" r="10" />
-                                      <line x1="12" x2="12" y1="8" y2="12" />
-                                      <line
-                                        x1="12"
-                                        x2="12.01"
-                                        y1="16"
-                                        y2="16"
-                                      />
-                                    </svg>
-                                    <div className={Ccss.helpText}>
-                                      Inv Info
-                                    </div>
-                                  </div>
-                                ) : (
-                                  ""
-                                )}
-                              </div>
-                            </td>
-                          </tr>
-                        </>
-                      );
-                    })}
-                  </>
-                ) : (
-                  <p className="NoOrders">No Orders</p>
-                )}
-              </table>
-
-              <p className={DCss.showingPTag}>
-                Showing{" "}
-                {orderlist?.length <= 10 ? (
-                  <b>{10 * (currentPage - 1) + orderlist?.length} </b>
-                ) : (
-                  <b>5</b>
-                )}
-                of <b>{prodcutsCount}</b> results
-              </p>
-            </>
-          )}
+          <table className={Ccss.tableCatTTag}>
+            {orderlist.length > 0 ? (
+              <>
+                <tr>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>Available Inventory</th>
+                  <th>Total Orders</th>
+                  <th>Shipping Time</th>
+                  <th>Return Window</th>
+                  <th>Published on</th>
+                </tr>
+                {orderlist.map((val, key) => (
+                  <tr key={key}>
+                    <td>{val.descriptor.name}</td>
+                    <td>₹ {val.price.value.toFixed(2)}</td>
+                    <td>{val.quantity.maximum.count}</td>
+                    <td>{val.totalSold}</td>
+                    <td>{val["@ondc/org/time_to_ship"]}</td>
+                    <td>{val["@ondc/org/return_window"]}</td>
+                    <td>{val.when.date}</td>
+                  </tr>
+                ))}
+              </>
+            ) : (
+              <p className="NoOrders">No Orders</p>
+            )}
+          </table>
+          <p className={DCss.showingPTag}>
+            Showing {orderlist.length} of <b>{prodcutsCount}</b> results
+          </p>
         </div>
       </div>
 
-      <div className={osCss.cenDiv}>
-        <button
-          onClick={() => setCurrentPage(currentPage - 1)}
-          disabled={currentPage === 1}
-          className={osCss.btnnb}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-chevrons-left"
-          >
-            <path d="m11 17-5-5 5-5" />
-            <path d="m18 17-5-5 5-5" />
-          </svg>
-        </button>
-        <span>{currentPage}</span>
-        <button
-          onClick={() => setCurrentPage(currentPage + 1)}
-          disabled={max}
-          className={osCss.btnnb}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-chevrons-right"
-          >
-            <path d="m6 17 5-5-5-5" />
-            <path d="m13 17 5-5-5-5" />
-          </svg>
-        </button>
-      </div>
+      {/* Intersection Observer target */}
+      <div ref={observerRef} style={{ height: "20px" }}></div>
     </div>
   );
 }

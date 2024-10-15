@@ -176,7 +176,7 @@ export default function Display({
                                       {val.descriptor.name}
                                     </div>
                                     <div className={DCss.textBottom}>
-                                      Category : {val.category_id}
+                                    Domain: {val.domain}
                                     </div>
                                   </div>
                                 </div>

@@ -40,12 +40,22 @@ export default function ProdParticulars({ setData, showData }) {
         field="long_desc"
         placeholder="Write long product description here..."
       />
+
+      {/* Code */}
+      <InpTp1
+        type="text"
+        Label="Code"
+        showData={showData}
+        setData={setData}
+        field="code"
+        placeholder="HSN CODE ex. - 4:61051010"
+      />
     </>
   );
 }
 
 ProdParticulars.propTypes = {
   showData: PropTypes.object.isRequired,
-  setData: PropTypes.func.isRequired
+  setData: PropTypes.func.isRequired,
   // placeholder: PropTypes.string.isRequired,
 };
