@@ -47,8 +47,6 @@ export default function OverallSales() {
 
   const authCtx = useContext(AuthContext);
 
-  
-
   const loadData = async () => {
     setLoad(true);
 
@@ -63,17 +61,23 @@ export default function OverallSales() {
 
       if (response.data.success) {
         setProdcutsCount(response?.data?.length);
- // Append the new data to the existing data
-        setOrderDel((prevOrders) => [...prevOrders, ...response.data.orderList]);
-        setOrderDelCopy((prevOrdersCopy) => [...prevOrdersCopy, ...response.data.orderList]);
-       
+        // Append the new data to the existing data
+        setOrderDel((prevOrders) => [
+          ...prevOrders,
+          ...response.data.orderList,
+        ]);
+        setOrderDelCopy((prevOrdersCopy) => [
+          ...prevOrdersCopy,
+          ...response.data.orderList,
+        ]);
+
         // setOrderDel(response.data.orderList);
         // setOrderDelCopy(response.data.orderList);
 
         response?.data?.orderList?.forEach((order) => {
           setbuyer((prevState) => [...prevState, order.buyer]);
         });
-    
+
         setLoad(false);
       } else {
         setLoad(false);
@@ -183,43 +187,43 @@ export default function OverallSales() {
   useEffect(() => {
     loadData();
   }, [currentPage, loadDataState]);
-  
-// Infinite Scroll Logic
+
+  // Infinite Scroll Logic
   const handleScroll = () => {
-  const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
-  
-  // Check if we're close to the bottom of the page
-  if (scrollTop + clientHeight >= scrollHeight - 5 && !load && !max) {
-    setCurrentPage(prevPage => prevPage + 1);
-  }
-};  
+    const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
 
-useEffect(() => {
-  window.addEventListener('scroll', handleScroll);
-  return () => {
-    window.removeEventListener('scroll', handleScroll);
+    // Check if we're close to the bottom of the page
+    if (scrollTop + clientHeight >= scrollHeight - 5 && !load && !max) {
+      setCurrentPage((prevPage) => prevPage + 1);
+    }
   };
-}, []); // Only add the listener once when the component mounts
 
-useEffect(() => {
-  maxPage();
-}, [prodcutsCount, currentPage]); 
-
-useEffect(() => {
-  loadData();
-}, [currentPage, loadDataState]); // Call loadData when currentPage changes
-
-// Load more data when currentPage updates
-useEffect(() => {
-  if (!max) { // Only load data if max isn't reached
-    loadData();
-  }
-}, [currentPage]);
-
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []); // Only add the listener once when the component mounts
 
   useEffect(() => {
     maxPage();
-  }, [prodcutsCount, currentPage]); 
+  }, [prodcutsCount, currentPage]);
+
+  useEffect(() => {
+    loadData();
+  }, [currentPage, loadDataState]);
+
+  // Load more data when currentPage updates
+  useEffect(() => {
+    if (!max) {
+      // Only load data if max isn't reached
+      loadData();
+    }
+  }, [currentPage]);
+
+  useEffect(() => {
+    maxPage();
+  }, [prodcutsCount, currentPage]);
 
   useEffect(() => {
     const u = (buyer) => [...new Set(buyer)];
@@ -346,238 +350,231 @@ useEffect(() => {
                 className={osCss.tableOSTTag}
                 style={{ borderCollapse: "collapse" }}
               >
-
-                  <>
-                    {orderDel?.length > 0 ? (
-                      <>
-                        <tr>
-                          <th className={osCss.thTag}>
-                            <p>Order ID</p>
-                          </th>
-                          <th className={osCss.thTag} onClick={sortByName}>
-                            Customer
-                            <svg
-                              className={osCss.svgTag}
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="9"
-                              height="14"
-                              viewBox="0 0 9 14"
-                              fill="none"
-                            >
-                              <path
-                                d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                                fill={
-                                  sortByNameOrder === "desc"
-                                    ? "#777777"
-                                    : "#c782ff"
-                                }
-                              />
-                              <path
-                                d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                                fill={
-                                  sortByNameOrder === "asc"
-                                    ? "#777777"
-                                    : "#c782ff"
-                                }
-                              />
-                            </svg>
-                          </th>
-
-                          <th className={osCss.thTag} onClick={sortByPrice}>
-                            Price
-                            <svg
-                              className={osCss.svgTag}
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="9"
-                              height="14"
-                              viewBox="0 0 9 14"
-                              fill="none"
-                            >
-                              <path
-                                d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                                fill={
-                                  sortPriceOrder === "desc"
-                                    ? "#777777"
-                                    : "#c782ff"
-                                }
-                              />
-                              <path
-                                d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                                fill={
-                                  sortPriceOrder === "asc"
-                                    ? "#777777"
-                                    : "#c782ff"
-                                }
-                              />
-                            </svg>
-                          </th>
-                          <th className={osCss.thTag} onClick={sortByDate}>
-                            Ordered on
-                            <svg
-                              className={osCss.svgTag}
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="9"
-                              height="14"
-                              viewBox="0 0 9 14"
-                              fill="none"
-                            >
-                              <path
-                                d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                                fill={
-                                  sortDateOrder === "desc"
-                                    ? "#777777"
-                                    : "#c782ff"
-                                }
-                              />
-                              <path
-                                d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                                fill={
-                                  sortDateOrder === "asc"
-                                    ? "#777777"
-                                    : "#c782ff"
-                                }
-                              />
-                            </svg>
-                          </th>
-                          <th
-                            className={osCss.payment}
-                            onClick={sortPaymentMethods}
+                <>
+                  {orderDel?.length > 0 ? (
+                    <>
+                      <tr>
+                        <th className={osCss.thTag}>
+                          <p>Order ID</p>
+                        </th>
+                        <th className={osCss.thTag} onClick={sortByName}>
+                          Customer
+                          <svg
+                            className={osCss.svgTag}
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="9"
+                            height="14"
+                            viewBox="0 0 9 14"
+                            fill="none"
                           >
-                            Payment method
-                            <svg
-                              className={osCss.svgTag}
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="9"
-                              height="14"
-                              viewBox="0 0 9 14"
-                              fill="none"
+                            <path
+                              d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
+                              fill={
+                                sortByNameOrder === "desc"
+                                  ? "#777777"
+                                  : "#c782ff"
+                              }
+                            />
+                            <path
+                              d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
+                              fill={
+                                sortByNameOrder === "asc"
+                                  ? "#777777"
+                                  : "#c782ff"
+                              }
+                            />
+                          </svg>
+                        </th>
+
+                        <th className={osCss.thTag} onClick={sortByPrice}>
+                          Price
+                          <svg
+                            className={osCss.svgTag}
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="9"
+                            height="14"
+                            viewBox="0 0 9 14"
+                            fill="none"
+                          >
+                            <path
+                              d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
+                              fill={
+                                sortPriceOrder === "desc"
+                                  ? "#777777"
+                                  : "#c782ff"
+                              }
+                            />
+                            <path
+                              d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
+                              fill={
+                                sortPriceOrder === "asc" ? "#777777" : "#c782ff"
+                              }
+                            />
+                          </svg>
+                        </th>
+                        <th className={osCss.thTag} onClick={sortByDate}>
+                          Ordered on
+                          <svg
+                            className={osCss.svgTag}
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="9"
+                            height="14"
+                            viewBox="0 0 9 14"
+                            fill="none"
+                          >
+                            <path
+                              d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
+                              fill={
+                                sortDateOrder === "desc" ? "#777777" : "#c782ff"
+                              }
+                            />
+                            <path
+                              d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
+                              fill={
+                                sortDateOrder === "asc" ? "#777777" : "#c782ff"
+                              }
+                            />
+                          </svg>
+                        </th>
+                        <th
+                          className={osCss.payment}
+                          onClick={sortPaymentMethods}
+                        >
+                          Payment method
+                          <svg
+                            className={osCss.svgTag}
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="9"
+                            height="14"
+                            viewBox="0 0 9 14"
+                            fill="none"
+                          >
+                            <path
+                              d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
+                              fill={
+                                sortPaymentMethodOrder === "desc"
+                                  ? "#777777"
+                                  : "#c782ff"
+                              }
+                            />
+                            <path
+                              d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
+                              fill={
+                                sortPaymentMethodOrder === "asc"
+                                  ? "#777777"
+                                  : "#c782ff"
+                              }
+                            />
+                          </svg>
+                        </th>
+                        <th>Buyer</th>
+                        <th className={osCss.payment}>Delivery status</th>
+                      </tr>
+                      {/* Maping Data */}
+                      {orderDel.map((val, key) => {
+                        return (
+                          <tr className={osCss.trDiv} key={key}>
+                            <td
+                              onClick={() => {
+                                setProductDel({
+                                  state: true,
+                                  id: val._id,
+                                });
+                                setHideDel(!showDel);
+                              }}
+                              data-cell="ID"
                             >
-                              <path
-                                d="M0 5.62576H9L4.5 0.732422L0 5.62576Z"
-                                fill={
-                                  sortPaymentMethodOrder === "desc"
-                                    ? "#777777"
-                                    : "#c782ff"
-                                }
-                              />
-                              <path
-                                d="M4.5 13.2664L9 8.37305H0L4.5 13.2664Z"
-                                fill={
-                                  sortPaymentMethodOrder === "asc"
-                                    ? "#777777"
-                                    : "#c782ff"
-                                }
-                              />
-                            </svg>
-                          </th>
-                          <th>Buyer</th>
-                          <th className={osCss.payment}>Delivery status</th>
-                        </tr>
+                              {" "}
+                              #{val._id.slice(-4)}
+                            </td>
+                            <td
+                              onClick={() => {
+                                setProductDel({
+                                  state: true,
+                                  id: val._id,
+                                });
+                                setHideDel(!showDel);
+                              }}
+                              data-cell="CUSTOMER "
+                            >
+                              {val.ONDCBilling.name}
+                            </td>
+                            <td
+                              onClick={() => {
+                                setProductDel({
+                                  state: true,
+                                  id: val._id,
+                                });
+                                setHideDel(!showDel);
+                              }}
+                              data-cell="PRICE"
+                            >
+                              {" "}
+                              ₹ {val.amount.toFixed(2)}
+                            </td>
+                            <td
+                              onClick={() => {
+                                setProductDel({
+                                  state: true,
+                                  id: val._id,
+                                });
+                                setHideDel(!showDel);
+                              }}
+                              data-cell="ORDERED ON"
+                            >
+                              {" "}
+                              {val.when.date}
+                            </td>
+                            <td
+                              onClick={() => {
+                                setProductDel({
+                                  state: true,
+                                  id: val._id,
+                                });
+                                setHideDel(!showDel);
+                              }}
+                              data-cell="PAYMENT METHOD"
+                            >
+                              {val.status}
+                            </td>
+                            <td
+                              onClick={() => {
+                                setProductDel({
+                                  state: true,
+                                  id: val._id,
+                                });
+                                setHideDel(!showDel);
+                              }}
+                              data-cell="BUYER "
+                            >
+                              {val.buyer}
+                            </td>
 
-                        {/* Maping Data */}
-                        {orderDel.map((val, key) => {
-                          return (
-                            <tr className={osCss.trDiv} key={key}>
-                              <td
-                                onClick={() => {
-                                  setProductDel({
-                                    state: true,
-                                    id: val._id,
-                                  });
-                                  setHideDel(!showDel);
-                                }}
-                                data-cell="ID"
-                              >
-                                {" "}
-                                #{val._id.slice(-4)}
-                              </td>
-                              <td
-                                onClick={() => {
-                                  setProductDel({
-                                    state: true,
-                                    id: val._id,
-                                  });
-                                  setHideDel(!showDel);
-                                }}
-                                data-cell="CUSTOMER "
-                              >
-                                {val.ONDCBilling.name}
-                              </td>
-                              <td
-                                onClick={() => {
-                                  setProductDel({
-                                    state: true,
-                                    id: val._id,
-                                  });
-                                  setHideDel(!showDel);
-                                }}
-                                data-cell="PRICE"
-                              >
-                                {" "}
-                                ₹ {val.amount.toFixed(2)}
-                              </td>
-                              <td
-                                onClick={() => {
-                                  setProductDel({
-                                    state: true,
-                                    id: val._id,
-                                  });
-                                  setHideDel(!showDel);
-                                }}
-                                data-cell="ORDERED ON"
-                              >
-                                {" "}
-                                {val.when.date}
-                              </td>
-                              <td
-                                onClick={() => {
-                                  setProductDel({
-                                    state: true,
-                                    id: val._id,
-                                  });
-                                  setHideDel(!showDel);
-                                }}
-                                data-cell="PAYMENT METHOD"
-                              >
-                                {val.status}
-                              </td>
-                              <td
-                                onClick={() => {
-                                  setProductDel({
-                                    state: true,
-                                    id: val._id,
-                                  });
-                                  setHideDel(!showDel);
-                                }}
-                                data-cell="BUYER "
-                              >
-                                {val.buyer}
-                              </td>
+                            <UpdateState
+                              state={val.state}
+                              id={val._id}
+                              setLoadDataState={setLoadDataState}
+                              loadDataState={loadDataState}
+                              dataCell="DELIVERY STATUS"
+                            />
+                          </tr>
+                        );
+                      })}
 
-                              <UpdateState
-                                state={val.state}
-                                id={val._id}
-                                setLoadDataState={setLoadDataState}
-                                loadDataState={loadDataState}
-                                dataCell="DELIVERY STATUS"
-                              />
-                            </tr>
-                          );
-                        })}
-                      </>
-                    ) : (
-                      <p className="NoOrders">No Orders</p>
-                    )}
-                  </>
-                
+                      {load ? <Load /> : ""}
+                    </>
+                  ) : (
+                    <p className="NoOrders">No Orders</p>
+                  )}
+                </>
               </table>
 
               <p className={osCss.showingPTag}>
-                Showing <b>{orderDel.length + (currentPage - 1) * 10}</b> of <b>{prodcutsCount}</b> results
+                Showing <b>{orderDel.length + (currentPage - 1) * 10}</b> of{" "}
+                <b>{prodcutsCount}</b> results
               </p>
             </div>
           </div>
-
         </div>
       )}
     </>
