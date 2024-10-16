@@ -2,16 +2,38 @@ import PropTypes from "prop-types";
 //component
 import InpTp1 from "../Input/InpTp1";
 // css
-import PrCss from "../Css/Lable.module.css"
+import PrCss from "../Css/Lable.module.css";
+import { useState, useEffect } from "react";
 
 export default function GeneralInfo({ setData, showData }) {
-  // const handleSelectChange = (e) => {
-  //   const value = e.target.value;
+  // Initialize state for finalPrice using useState hook
+  const [finalPrice, setFinalPrice] = useState(0);
 
-  //   value
-  //     ? setData({ ...showData, veg: true, non_veg: false })
-  //     : setData({ ...showData, veg: false, non_veg: true });
-  // };
+  // Function to calculate the final price based on MRP and Discount
+  const calculateFinalPrice = (mrp, discount) => {
+    if (!mrp || !discount) return mrp || 0; // If MRP or Discount is not entered, return MRP or 0
+    const discountValue = (mrp * discount) / 100;
+    return (mrp - discountValue).toFixed(2); // Return the final price rounded to 2 decimal places
+  };
+
+  // Effect hook to calculate the final price whenever MRP or Discount changes
+  useEffect(() => {
+    // console.log("Calculating final price...");
+    // console.log("MRP:", showData["maximum_value"], "Discount:", showData["Discounts"]);
+    
+    const mrp = showData["maximum_value"] || 0;
+    const discount = showData["Discounts"] || 0;
+  
+    const calculatedFinalPrice = calculateFinalPrice(mrp, discount);
+    // console.log("Final Price:", calculatedFinalPrice);
+  
+    setFinalPrice(calculatedFinalPrice);
+    
+    setData(prevData => ({
+      ...prevData,
+      finalPrice: calculatedFinalPrice,
+    }));
+  }, [showData["maximum_value"], showData["Discounts"]]);
 
   return (
     <>
@@ -65,6 +87,7 @@ export default function GeneralInfo({ setData, showData }) {
         setData={setData}
         field="maximum_value"
         placeholder="₹ 121"
+        value={showData["maximum_value"] || 0} // Default to 0 if MRP is not entered
       />
 
       {/* Stock */}
@@ -85,25 +108,20 @@ export default function GeneralInfo({ setData, showData }) {
         setData={setData}
         field="Discounts"
         placeholder="12 %"
+        value={showData["Discounts"] || 0} // Default to 0 if Discount is not entered
       />
 
-      {/* Veg */}
-      {/* <div className={ItCss.inpDiv}>
-        <p className={ItCss.inputLabel}>Veg</p>
-
-        <select
-          name="veg"
-          id=""
-          className={ItCss.inp}
-          onChange={handleSelectChange}
-        >
-          <option value="Selected" selected disabled hidden>
-            Select
-          </option>
-          <option value="true">True</option>
-          <option value="false">False</option>
-        </select>
-      </div> */}
+      {/* Final Price */}
+      <InpTp1
+        type="number"
+        Label="Final Price"
+        showData={showData}
+        setData={setData}
+        field="finalPrice"
+        value={finalPrice || 0} // Show calculated final price, default to 0
+        readOnly // Final price is read-only
+        placeholder="₹ 0"
+      />
     </>
   );
 }
@@ -111,5 +129,5 @@ export default function GeneralInfo({ setData, showData }) {
 GeneralInfo.propTypes = {
   showData: PropTypes.object.isRequired,
   placeholder: PropTypes.string.isRequired,
-  setData: PropTypes.func.isRequired
+  setData: PropTypes.func.isRequired,
 };

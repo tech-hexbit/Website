@@ -72,7 +72,7 @@ export default function FixValues({ setData, showData }) {
   }, []);
 
   useEffect(() => {
-    if (store.length > 0) {
+    if (store.length > 0 && JSON.stringify(store[0]) !== JSON.stringify(showData)) {
       setData({
         ...showData,
         other_FSSAI_license_no: store[0].Fssai,

@@ -1,19 +1,24 @@
 import { useState, useContext } from "react";
 import PropTypes from "prop-types";
-
-// components
-import Dropdown from "./Dropdown";
-
-// data
-import optionsData from "../Json/optionsData.json";
-import sizeData from "../Json/size.json";
-
-// state
-import AuthContext from "../../../../../store/auth-context";
-
-// css
 import PrCss from "../Css/Lable.module.css";
 import ItCss from "../Input/Css/InputType1.module.css";
+import Dropdown from "./Dropdown";
+import optionsData from "../Json/optionsData.json";
+import sizeData from "../Json/size.json";
+import AuthContext from "../../../../../store/auth-context";
+// import ntc from "ntcjs";
+// import UrlInput from "./UrlInput"
+
+const getColorName = async (hex) => {
+  try {
+    const response = await fetch(`https://www.thecolorapi.com/id?hex=${hex.slice(1)}`);
+    const data = await response.json();
+    return data.name.value || "Unknown"; // Return color name from API response
+  } catch (error) {
+    console.error("Error fetching color name: ", error);
+    return "Unknown"; // Fallback in case of an error
+  }
+};
 
 const Attributes = ({ setData, showData }) => {
   const [attribute, setAttribute] = useState({
@@ -35,13 +40,25 @@ const Attributes = ({ setData, showData }) => {
   const authCtx = useContext(AuthContext);
 
   // const [addedFields, setAddedField] = useState([]);
-  const handleInputChange = (e) => {
+  const handleInputChange = async (e) => {
     const { name, value } = e.target;
-    setAttribute((prevAttribute) => ({
-      ...prevAttribute,
-      [name]: value,
-    }));
+  
+    // If color changes, fetch the color name using The Color API
+    if (name === "colour") {
+      const colorName = await getColorName(value); // Fetch color name asynchronously
+      setAttribute((prevAttribute) => ({
+        ...prevAttribute,
+        [name]: value,
+        colourName: colorName, // Set the color name returned from the API
+      }));
+    } else {
+      setAttribute((prevAttribute) => ({
+        ...prevAttribute,
+        [name]: value,
+      }));
+    }
   };
+  
 
   const handleSelectChange = (name, value) => {
     setAttribute({ ...attribute, [name]: value });
@@ -55,18 +72,8 @@ const Attributes = ({ setData, showData }) => {
       Array.isArray(optionsData.categories[showData.category_id]) &&
       optionsData.categories[showData.category_id][0]
     ) {
-      if (!showData.isParent && showData["variants"].length > 0) {
-        authCtx.showAlert({
-          mainColor: "#FDEDED",
-          secondaryColor: "#F16360",
-          symbol: "error",
-          title: "Error",
-          text: "Cannot add variant w/o parent",
-        });
-        return;
-      }
       let allFieldsValid = true;
-
+  
       Object.keys(optionsData.categories[showData.category_id][0]).forEach(
         (key) => {
           const fieldKey = optionsData.categories[showData.category_id][0][key];
@@ -83,7 +90,7 @@ const Attributes = ({ setData, showData }) => {
           }
         }
       );
-
+  
       if (allFieldsValid) {
         const filtered = Object.keys(attribute)
           .filter((key) => attribute[key] !== "")
@@ -91,11 +98,21 @@ const Attributes = ({ setData, showData }) => {
             obj[key] = attribute[key];
             return obj;
           }, {});
-        // console.log(filtered);
-        setData({
-          ...showData,
-          ["variants"]: [...showData.variants, filtered],
-        });
+  
+        // Log to check the filtered attributes before updating
+        console.log("Filtered Attributes: ", filtered);
+  
+        // Ensure the new variant is being added correctly
+        const updatedVariants = [...showData.variants, { ...filtered }];
+        console.log("Updated Variants: ", updatedVariants); // Log the updated variants
+  
+        // Update data context
+        setData((prevData) => ({
+          ...prevData,
+          variants: updatedVariants,
+        }));
+  
+        // Success alert
         authCtx.showAlert({
           mainColor: "#EDFEEE",
           secondaryColor: "#5CB660",
@@ -103,6 +120,8 @@ const Attributes = ({ setData, showData }) => {
           title: "Success",
           text: "Confirmed",
         });
+  
+        // Reset attributes after submission
         setAttribute({
           gender: "",
           colour: "",
@@ -121,6 +140,8 @@ const Attributes = ({ setData, showData }) => {
       }
     }
   };
+  
+  
 
   return (
     <>
@@ -147,26 +168,29 @@ const Attributes = ({ setData, showData }) => {
         ""
       )}
 
-      {showData.category_id &&
-      optionsData.categories[showData.category_id][0].includes("colour") ? (
-        <>
-          <div className={ItCss.inpDiv}>
-            <p className={ItCss.inputLabel}>Colour</p>
-            <input
-              type="color"
-              name="colour"
-              value={attribute.colour}
-              onChange={handleInputChange}
-            />
-            {/* <br /> */}
-            <span style={{ marginTop: "0.75rem" }}>
-              Selected Color :: <b>{attribute.colour}</b>
-            </span>
-          </div>
-        </>
-      ) : (
-        ""
+{showData.category_id &&
+  optionsData.categories[showData.category_id][0].includes("colour") ? (
+    <div className={ItCss.inpDiv}>
+      <p className={ItCss.inputLabel}>Colour</p>
+      <input
+        type="color"
+        name="colour"
+        value={attribute.colour}
+        onChange={handleInputChange}
+      />
+      <span style={{ marginTop: "0.75rem" }}>
+        Selected Color :: <b>{attribute.colour}</b>
+      </span>
+      {attribute.colour && ( // Display colourName only if colour is selected
+        <span style={{ marginTop: "0.75rem" }}>
+          Color Name :: <b>{attribute.colourName}</b>
+        </span>
       )}
+    </div>
+) : (
+    ""
+)}
+
 
       {showData.category_id &&
       optionsData.categories[showData.category_id][0].includes("sizeChart") ? (
@@ -318,7 +342,7 @@ const Attributes = ({ setData, showData }) => {
       Object.keys(optionsData.categories[showData.category_id][0]).length >
         0 ? (
         <div className={ItCss.buttonParent}>
-          {showData.isParent ? (
+          {showData.variants && showData.variants.length > 0 ? (
             <div style={{ backgroundColor: "#4bb543" }} onClick={handleSubmit}>
               Add Variant
             </div>
